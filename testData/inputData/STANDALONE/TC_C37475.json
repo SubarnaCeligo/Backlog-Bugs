@@ -1,4 +1,5 @@
 {
+  "name": "C37475_flow_errors",
   "skipRetries": false,
   "_integrationId": "631a1266abf51e7a86c80ab4",
   "qa__integrationId": "6228aed6bc8a2732cfe8044c",
@@ -35,7 +36,7 @@
         "name": "MY SQL Import",
         "application": "MySQL",
         "qa__connectionId": "6347a2e501bcaa111fefad8c",
-        "_connectionId": "6347aacf0eeae84271ac6beb",
+        "_connectionId": "MYSQL CONNECTION",
         "apiIdentifier": "i6262c2488",
         "ignoreExisting": true,
         "ignoreMissing": false,

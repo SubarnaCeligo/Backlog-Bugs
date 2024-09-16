@@ -7,18 +7,36 @@
         {
           "type": "export",
           "qa__export": {
-            "application": "MySQL",
-            "name": "AutomationStandalone_MySQL Export",
-            "_connectionId": "MYSQL CONNECTION",
+            "name": "ajsbkjsbcjksb",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e0f5f18771",
             "asynchronous": true,
-            "oneToMany": false,
             "sandbox": false,
-            "parsers": [],
-            "rawData": "603ce5ede9250226dcea460894f4417d8138403282ea05b4cb0a1cdc",
-            "rdbms": {
-              "query": "select * from Templates.Order limit 2"
+            "sampleData": [
+              {
+                "name": "Auto_TC_51633_2"
+              },
+              {
+                "name": "Auto_TC_51633_3"
+              },
+              {
+                "name": "Auto_TC_51633_1"
+              }
+            ],
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+              "fileNameStartsWith": "TC_C51633",
+              "fileNameEndsWith": ".json"
             },
-            "adaptorType": "RDBMSExport"
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "json": {
+                "resourcePath": "*"
+              }
+            },
+            "adaptorType": "FTPExport"
           }
         }
       ],
@@ -26,31 +44,29 @@
         {
           "type": "import",
           "qa__import": {
-            "name": "Zendesk Import",
-            "application": "zendesk support",
-            "parsers": [],
-            "_connectionId": "HTTP ZENDESK CONNECTION",
-            "qa__connectionId": "ZENDESK CONNECTION",
+            "_id": "633bed718a329e41bcd7b07a",
+            "createdAt": "2022-10-04T08:23:13.861Z",
+            "lastModified": "2022-10-04T08:23:13.916Z",
+            "name": "uyvk",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "id79da5154",
             "ignoreExisting": false,
             "ignoreMissing": false,
             "oneToMany": false,
             "sandbox": false,
             "lookups": [],
-            "http": {
-              "relativeURI": [
-                "tickets"
-              ],
-              "method": [
-                "POST"
-              ],
-              "body": [
-                "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
-              ],
-              "batchSize": 1,
-              "sendPostMappedData": true,
-              "formType": "http"
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "customrecord8582",
+              "lookups": [],
+              "mapping": {
+                "fields": [],
+                "lists": []
+              }
             },
-            "adaptorType": "HTTPImport"
+            "adaptorType": "NetSuiteDistributedImport"
           }
         }
       ],

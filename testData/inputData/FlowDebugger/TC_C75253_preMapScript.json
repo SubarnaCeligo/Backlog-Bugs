@@ -1,0 +1,4 @@
+{
+  "name": "preMap",
+  "content": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+}

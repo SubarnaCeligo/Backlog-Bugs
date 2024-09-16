@@ -1,0 +1,123 @@
+{
+  "integrationDetails": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C41614_Del",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "TC_Clone_C41614_Del",
+    "Integration_Clone": true,
+    "qa__api_tdata": [
+      {
+        "createIntegrations": {
+          "name": "TC_C41614_Del"
+        }
+      }
+    ]
+  },
+  "pull": [
+    {
+      "integrationToPull": "TC_C41614_Del",
+      "oldConnections": [
+        "NETSUITE CONNECTION",
+        "GOOGLEDRIVE CONNECTION"
+      ],
+      "qa__oldConnections": [
+        "NETSUITE CONNECTION",
+        "GOOGLEDRIVE CONNECTION"
+      ]
+    },
+    {
+      "integrationToPull": "TC_C41614_Del"
+    }
+  ],
+  "flowsData": {
+    "flowname1": "TC_C41614",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C41614 Export",
+              "_connectionId": "NETSUITE CONNECTION",
+              "_sourceId": "62d10e0b9b51830e4d644db2",
+              "apiIdentifier": "e9f5292dbc",
+              "asynchronous": true,
+              "oneToMany": false,
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "719",
+                  "useSS2Restlets": false,
+                  "markExportedBatchSize": 100
+                },
+                "distributed": {
+                  "useSS2Framework": false
+                }
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C41614 Google Drive Import",
+              "_connectionId": "GOOGLEDRIVE CONNECTION",
+              "apiIdentifier": "i19d204624",
+              "oneToMany": false,
+              "assistant": "googledrive",
+              "file": {
+                "fileName": "file-{{timestamp}}.edi",
+                "skipAggregation": true,
+                "type": "json"
+              },
+              "http": {
+                "type": "file",
+                "relativeURI": [
+                  "chvkjghcfdx"
+                ],
+                "method": [
+                  "POST"
+                ],
+                "body": [],
+                "sendPostMappedData": true,
+                "formType": "assistant",
+                "response": {
+                  "resourcePath": [
+                    "files"
+                  ]
+                }
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41614",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": ""
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": ""
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,618 @@
+{
+    "name": "TC_C77721",
+    "referencename": "TC_C77721",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "AutomationStandalone_0waZa",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "apiIdentifier": "eac56584a5",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "http": {
+                "relativeURI": "/users",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                  "resourcePath": "users"
+                }
+              },
+              "test": {
+                "limit": 10
+              },
+              "transform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [[]],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [[]]
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": [],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": []
+              },
+              "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "test sql import",
+              "modelMetadata": {
+                "id": {
+                  "default": ""
+                },
+                "url": {
+                  "default": ""
+                },
+                "name": {
+                  "default": ""
+                },
+                "email": {
+                  "default": ""
+                },
+                "created_at": {
+                  "default": ""
+                },
+                "updated_at": {
+                  "default": ""
+                },
+                "time_zone": {
+                  "default": ""
+                },
+                "iana_time_zone": {
+                  "default": ""
+                },
+                "phone": {
+                  "default": ""
+                },
+                "shared_phone_number": {
+                  "default": ""
+                },
+                "photo": {
+                  "default": ""
+                },
+                "locale_id": {
+                  "default": ""
+                },
+                "locale": {
+                  "default": ""
+                },
+                "organization_id": {
+                  "default": ""
+                },
+                "role": {
+                  "default": ""
+                },
+                "verified": {
+                  "default": ""
+                },
+                "external_id": {
+                  "default": ""
+                },
+                "tags": [
+                  {
+                    "default": ""
+                  }
+                ],
+                "alias": {
+                  "default": ""
+                },
+                "active": {
+                  "default": ""
+                },
+                "shared": {
+                  "default": ""
+                },
+                "shared_agent": {
+                  "default": ""
+                },
+                "last_login_at": {
+                  "default": ""
+                },
+                "two_factor_auth_enabled": {
+                  "default": ""
+                },
+                "signature": {
+                  "default": ""
+                },
+                "details": {
+                  "default": ""
+                },
+                "notes": {
+                  "default": ""
+                },
+                "role_type": {
+                  "default": ""
+                },
+                "custom_role_id": {
+                  "default": ""
+                },
+                "moderator": {
+                  "default": ""
+                },
+                "ticket_restriction": {
+                  "default": ""
+                },
+                "only_private_comments": {
+                  "default": ""
+                },
+                "restricted_agent": {
+                  "default": ""
+                },
+                "suspended": {
+                  "default": ""
+                },
+                "default_group_id": {
+                  "default": ""
+                },
+                "report_csv": {
+                  "default": ""
+                },
+                "user_fields": {
+                  "6480ec1e92281c3ec94d92d7": {
+                    "default": ""
+                  },
+                  "6480ecb41ff38a233e85b708": {
+                    "default": ""
+                  },
+                  "6480ed92bffd1a0dec795f9b": {
+                    "default": ""
+                  },
+                  "6480efc1de00802f96493769": {
+                    "default": ""
+                  },
+                  "6493e6d27542336c7eb92e21": {
+                    "default": ""
+                  },
+                  "6493e7ff4525d56faa8f449f": {
+                    "default": ""
+                  },
+                  "6493e99d45aab8127b7ece57": {
+                    "default": ""
+                  },
+                  "6493eb8345aab8127b7ece7a": {
+                    "default": ""
+                  },
+                  "6493ed273d131b03d6587886": {
+                    "default": ""
+                  },
+                  "6494a3fce644201f8e8bccea": {
+                    "default": ""
+                  },
+                  "6495f5bdda7b4c49c580eeff": {
+                    "default": ""
+                  },
+                  "64974757e644201f8e8c6954": {
+                    "default": ""
+                  },
+                  "64989893b082173043bae9a3": {
+                    "default": ""
+                  },
+                  "64997957a4ff921ee736b59f": {
+                    "default": ""
+                  },
+                  "6499ea18c51ec94cb16eddcf": {
+                    "default": ""
+                  },
+                  "649b3c156775b41b5432d7b0": {
+                    "default": ""
+                  },
+                  "649c8d419150ba1f79dd2bc3": {
+                    "default": ""
+                  },
+                  "649ddebf68ccc823501643e6": {
+                    "default": ""
+                  },
+                  "64a3cce0d5230b637be2c823": {
+                    "default": ""
+                  },
+                  "64a478a00ea57e6bbd2d5223": {
+                    "default": ""
+                  },
+                  "64a5c9ffe6c7bf74fca65815": {
+                    "default": ""
+                  },
+                  "address_1": {
+                    "default": ""
+                  },
+                  "address_2": {
+                    "default": ""
+                  },
+                  "address_city": {
+                    "default": ""
+                  },
+                  "address_country": {
+                    "default": ""
+                  },
+                  "address_country_code": {
+                    "default": ""
+                  },
+                  "address_state": {
+                    "default": ""
+                  },
+                  "address_zip": {
+                    "default": ""
+                  },
+                  "billing_addressee": {
+                    "default": ""
+                  },
+                  "billing_address_1": {
+                    "default": ""
+                  },
+                  "billing_address_2": {
+                    "default": ""
+                  },
+                  "billing_attention_": {
+                    "default": ""
+                  },
+                  "billing_city": {
+                    "default": ""
+                  },
+                  "billing_country": {
+                    "default": ""
+                  },
+                  "billing_country_code": {
+                    "default": ""
+                  },
+                  "billing_phone": {
+                    "default": ""
+                  },
+                  "billing_state": {
+                    "default": ""
+                  },
+                  "billing_zip": {
+                    "default": ""
+                  },
+                  "checkbox_1": {
+                    "default": ""
+                  },
+                  "checkbox_10": {
+                    "default": ""
+                  },
+                  "checkbox_2": {
+                    "default": ""
+                  },
+                  "checkbox_3": {
+                    "default": ""
+                  },
+                  "checkbox_4": {
+                    "default": ""
+                  },
+                  "checkbox_5": {
+                    "default": ""
+                  },
+                  "checkbox_6": {
+                    "default": ""
+                  },
+                  "checkbox_7": {
+                    "default": ""
+                  },
+                  "checkbox_8": {
+                    "default": ""
+                  },
+                  "checkbox_9": {
+                    "default": ""
+                  },
+                  "comments": {
+                    "default": ""
+                  },
+                  "custom_date": {
+                    "default": ""
+                  },
+                  "custom_field_1": {
+                    "default": ""
+                  },
+                  "custom_field_2": {
+                    "default": ""
+                  },
+                  "custom_numeric": {
+                    "default": ""
+                  },
+                  "decimal_number": {
+                    "default": ""
+                  },
+                  "dynamic_mapping_value": {
+                    "default": ""
+                  },
+                  "email": {
+                    "default": ""
+                  },
+                  "fax": {
+                    "default": ""
+                  },
+                  "field_lpp": {
+                    "default": ""
+                  },
+                  "job_titles": {
+                    "default": ""
+                  },
+                  "jsonencoderfield": {
+                    "default": ""
+                  },
+                  "multi_line_text": {
+                    "default": ""
+                  },
+                  "name": {
+                    "default": ""
+                  },
+                  "netsuite_recordtype": {
+                    "default": ""
+                  },
+                  "netsuite_status": {
+                    "default": ""
+                  },
+                  "new_boolean": {
+                    "default": ""
+                  },
+                  "numberfield_1": {
+                    "default": ""
+                  },
+                  "numberfield_10": {
+                    "default": ""
+                  },
+                  "numberfield_11": {
+                    "default": ""
+                  },
+                  "numberfield_12": {
+                    "default": ""
+                  },
+                  "numberfield_13": {
+                    "default": ""
+                  },
+                  "numberfield_14": {
+                    "default": ""
+                  },
+                  "numberfield_2": {
+                    "default": ""
+                  },
+                  "numberfield_3": {
+                    "default": ""
+                  },
+                  "numberfield_4": {
+                    "default": ""
+                  },
+                  "numberfield_5": {
+                    "default": ""
+                  },
+                  "numberfield_6": {
+                    "default": ""
+                  },
+                  "numberfield_7": {
+                    "default": ""
+                  },
+                  "numberfield_8": {
+                    "default": ""
+                  },
+                  "numberfield_9": {
+                    "default": ""
+                  },
+                  "once_check_box": {
+                    "default": ""
+                  },
+                  "only_number": {
+                    "default": ""
+                  },
+                  "phone": {
+                    "default": ""
+                  },
+                  "pkk": {
+                    "default": ""
+                  },
+                  "shipping_address": {
+                    "default": ""
+                  },
+                  "shipping_addressee": {
+                    "default": ""
+                  },
+                  "shipping_address_2": {
+                    "default": ""
+                  },
+                  "shipping_attention": {
+                    "default": ""
+                  },
+                  "shipping_city": {
+                    "default": ""
+                  },
+                  "shipping_country": {
+                    "default": ""
+                  },
+                  "shipping_country_code": {
+                    "default": ""
+                  },
+                  "shipping_phone": {
+                    "default": ""
+                  },
+                  "shipping_state": {
+                    "default": ""
+                  },
+                  "shipping_zip": {
+                    "default": ""
+                  },
+                  "snowflake_id": {
+                    "default": ""
+                  },
+                  "sp_cia_charac_field": {
+                    "default": ""
+                  },
+                  "subsidiary": {
+                    "default": ""
+                  },
+                  "testcheckbox": {
+                    "default": ""
+                  },
+                  "users_count": {
+                    "default": ""
+                  },
+                  "user_drop_down": {
+                    "default": ""
+                  },
+                  "user_notes_date": {
+                    "default": ""
+                  },
+                  "user_notes_direction": {
+                    "default": ""
+                  },
+                  "user_notes_memo": {
+                    "default": ""
+                  },
+                  "user_notes_type": {
+                    "default": ""
+                  },
+                  "user_note_title": {
+                    "default": ""
+                  },
+                  "venkat": {
+                    "default": ""
+                  },
+                  "znc_account_balance": {
+                    "default": ""
+                  },
+                  "znc_account_overdue_balance": {
+                    "default": ""
+                  },
+                  "znc_alt_email": {
+                    "default": ""
+                  },
+                  "znc_billing_address1": {
+                    "default": ""
+                  },
+                  "znc_billing_address2": {
+                    "default": ""
+                  },
+                  "znc_billing_addressee": {
+                    "default": ""
+                  },
+                  "znc_billing_attention": {
+                    "default": ""
+                  },
+                  "znc_billing_city": {
+                    "default": ""
+                  },
+                  "znc_billing_country": {
+                    "default": ""
+                  },
+                  "znc_billing_phone": {
+                    "default": ""
+                  },
+                  "znc_billing_state": {
+                    "default": ""
+                  },
+                  "znc_billing_zip": {
+                    "default": ""
+                  },
+                  "znc_credit_hold": {
+                    "default": ""
+                  },
+                  "znc_credit_limit": {
+                    "default": ""
+                  },
+                  "znc_currency": {
+                    "default": ""
+                  },
+                  "znc_days_overdue": {
+                    "default": ""
+                  },
+                  "znc_department": {
+                    "default": ""
+                  },
+                  "znc_fax": {
+                    "default": ""
+                  },
+                  "znc_last_celigo_update": {
+                    "default": ""
+                  },
+                  "znc_mobile_phone": {
+                    "default": ""
+                  },
+                  "znc_netsuite_id": {
+                    "default": ""
+                  },
+                  "znc_rma_details": {
+                    "default": ""
+                  },
+                  "znc_sales_orders": {
+                    "default": ""
+                  },
+                  "znc_supervisor": {
+                    "default": ""
+                  },
+                  "znc_sync_as_netsuite_contact": {
+                    "default": ""
+                  },
+                  "znc_title": {
+                    "default": ""
+                  },
+                  "znc_unbilled_orders": {
+                    "default": ""
+                  }
+                }
+              },
+              "mockResponse": [
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": "replace me"
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                }
+              ],
+              "_connectionId": "POSTGRESQL CONNECTION",
+              "apiIdentifier": "i4d8cc66b5",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "rdbms": {
+                "query": ["{{record.id}}"],
+                "queryType": ["UPDATE"]
+              },
+              "adaptorType": "RDBMSImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C77721",
+          "disabled": false,
+          "skipRetries": false,
+          "_integrationId": "63232c59d3a9897fe95f9f2a",
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID",
+              "skipRetries": false
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

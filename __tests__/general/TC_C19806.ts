@@ -13,6 +13,7 @@ test.describe("TC_C19806", () => {
     await io.homePage.navigateTo(io.connectorUrl + "accesstokens");
     await test.step("***Navigated To API Tokens Page***",()=>{});
     await io.homePage.loadingTime()
+    await io.homePage.loadingTime()
     await io.homePage.clickByIndex(
       selectors.flowBuilderPagePO.SHOW_TOKEN,
       0

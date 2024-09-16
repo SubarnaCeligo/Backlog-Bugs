@@ -1,0 +1,28 @@
+{
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "Delete_TC_ILM_C41110",
+      "Clone_To_Integrate": "Del_TC_Cl_ILM_C41110"
+    },
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C41110",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "Del_TC_Cl_ILM_C41110",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "New_Integration_Name": "Del_TC_SRC_ILM_C41110",
+    "qa__api_tdata": [{
+      "createIntegrations": {
+        "name": "Delete_TC_ILM_C41110"
+      }
+    }],
+    "jsonDataInstall": {
+      "Source_Environment": "Production",
+      "Destination_Environment": "Production",
+      "Source_Integration": "Delete_TC_ILM_C41110",
+      "Integration_Name": "Del_TC_Cl_ILM_C41110",
+      "Install_Template ": true,
+      "Upload_Path": "/Template_Downloads/",
+      "New_connection": false
+    }
+}

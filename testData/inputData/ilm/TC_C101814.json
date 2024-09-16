@@ -1,0 +1,462 @@
+{
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "Delete_TC_ILM_C101814",
+      "Clone_To_Integrate": "Delete_TC_Clone_ILM_C101814",
+      "createPull": true
+    },
+    "exportDoc": {
+      "name": "Http Export",
+      "_connectionId": "HTTP ZENDESK CONNECTION",
+      "apiIdentifier": "e6552d5eec",
+      "asynchronous": true,
+      "type": "test",
+      "oneToMany": false,
+      "sandbox": false,
+      "mockOutput": {
+        "page_of_records": [
+          {
+            "record": {
+              "id": 1473313072,
+              "url": "https://celigoqa.zendesk.com/api/v2/users/1473313072.json",
+              "name": "Celigo IO Automation",
+              "email": "mounica.manavapati@celigo.com",
+              "created_at": "2015-10-27T05:36:38Z",
+              "updated_at": "2023-08-08T11:40:20Z",
+              "time_zone": "Chennai",
+              "iana_time_zone": "Asia/Kolkata",
+              "phone": null,
+              "shared_phone_number": null,
+              "photo": null,
+              "locale_id": 1,
+              "locale": "en-US",
+              "organization_id": null,
+              "role": "admin",
+              "verified": true,
+              "external_id": null,
+              "tags": [
+                "true"
+              ],
+              "alias": "",
+              "active": true,
+              "shared": false,
+              "shared_agent": false,
+              "last_login_at": "2023-08-08T11:40:20Z",
+              "two_factor_auth_enabled": null,
+              "signature": "",
+              "details": "12345nov23",
+              "notes": "testmail@gmail.com",
+              "role_type": 4,
+              "custom_role_id": 1900000403854,
+              "moderator": true,
+              "ticket_restriction": null,
+              "only_private_comments": false,
+              "restricted_agent": false,
+              "suspended": false,
+              "default_group_id": 25032922,
+              "report_csv": true,
+              "user_fields": {
+                "6480ec1e92281c3ec94d92d7": null,
+                "6480ecb41ff38a233e85b708": null,
+                "6480ed92bffd1a0dec795f9b": null,
+                "6480efc1de00802f96493769": null,
+                "6493e6d27542336c7eb92e21": null,
+                "6493e7ff4525d56faa8f449f": null,
+                "6493e99d45aab8127b7ece57": null,
+                "6493eb8345aab8127b7ece7a": null,
+                "6493ed273d131b03d6587886": null,
+                "6494a3fce644201f8e8bccea": null,
+                "6495f5bdda7b4c49c580eeff": null,
+                "64974757e644201f8e8c6954": null,
+                "64989893b082173043bae9a3": null,
+                "64997957a4ff921ee736b59f": null,
+                "6499ea18c51ec94cb16eddcf": null,
+                "649b3c156775b41b5432d7b0": null,
+                "649c8d419150ba1f79dd2bc3": null,
+                "649ddebf68ccc823501643e6": null,
+                "64a3cce0d5230b637be2c823": null,
+                "64a478a00ea57e6bbd2d5223": null,
+                "64a5c9ffe6c7bf74fca65815": null,
+                "64a71b5b2b2b14259312aa69": null,
+                "64a86da19965550800c1b137": null,
+                "64a9bf1a12d162380a65a5cb": null,
+                "64ab0ff19965550800c203b1": null,
+                "64ac61e39965550800c23a25": null,
+                "64ad4edffae3883827552a95": null,
+                "64adb3919965550800c2693d": null,
+                "64af054c12d162380a666586": null,
+                "64b056de0ea57e6bbd2f0666": null,
+                "64b1a84e0ea57e6bbd2f3b3d": null,
+                "64b2f99c0ea57e6bbd2f6701": null,
+                "64b44b1ef6c581696cce6e5e": null,
+                "64b59ca2f6c581696ccea032": null,
+                "64b6ee64c570464a395306aa": null,
+                "64b84059c570464a395339b6": null,
+                "64b991fc4ac58757bd40d953": null,
+                "64bad4b3c383ed3bbb62b5e5": null,
+                "64bbc865a800787a3a05fded": null,
+                "64bc27241a5efe31bfeeb948": null,
+                "64bd78f3eb361c2b315d5ea3": null,
+                "64c01b39eb361c2b315dab14": null,
+                "64c0a4415f4083509c139cc4": null,
+                "64c16c6fd624d16db49901fb": null,
+                "64c2bdfe9d5c1217d65accf0": null,
+                "64c2bf33ef30f979fbf254a3": null,
+                "64c41d1d6b447a1a25ed1edf": null,
+                "64c56ed6ea96aa13b71e6f55": null,
+                "64c6c0246859443d8cc7fd02": null,
+                "64c813476859443d8cc83820": null,
+                "64c963e5d8239964bb0275db": null,
+                "64cab6dbdd24d11d2a860f0a": null,
+                "64cc091ba2cd5756626a11fa": null,
+                "64cd58a642c78338498a3138": null,
+                "64ceaa516325d74defcdafa0": null,
+                "64cffbd7cfa7e9669732c8a0": null,
+                "64d110fe14aa143652d98781": null,
+                "64d14d8fec5ad766897fae29": null,
+                "address_1": null,
+                "address_2": null,
+                "address_city": null,
+                "address_country": null,
+                "address_country_code": null,
+                "address_state": null,
+                "address_zip": null,
+                "billing_addressee": null,
+                "billing_address_1": null,
+                "billing_address_2": null,
+                "billing_attention_": null,
+                "billing_city": null,
+                "billing_country": null,
+                "billing_country_code": null,
+                "billing_phone": null,
+                "billing_state": null,
+                "billing_zip": null,
+                "checkbox_1": false,
+                "checkbox_10": false,
+                "checkbox_2": false,
+                "checkbox_3": false,
+                "checkbox_4": false,
+                "checkbox_5": false,
+                "checkbox_6": false,
+                "checkbox_7": false,
+                "checkbox_8": false,
+                "checkbox_9": false,
+                "comments": "customers.json",
+                "custom_date": null,
+                "custom_field_1": null,
+                "custom_field_2": null,
+                "custom_numeric": null,
+                "decimal_number": null,
+                "dynamic_mapping_value": null,
+                "email": "ioqa@celigo.com",
+                "fax": null,
+                "field_lpp": null,
+                "job_titles": null,
+                "jsonencoderfield": null,
+                "multi_line_text": null,
+                "name": null,
+                "netsuite_recordtype": null,
+                "netsuite_status": null,
+                "new_boolean": false,
+                "numberfield_1": null,
+                "numberfield_10": null,
+                "numberfield_11": null,
+                "numberfield_12": null,
+                "numberfield_13": null,
+                "numberfield_14": null,
+                "numberfield_2": null,
+                "numberfield_3": null,
+                "numberfield_4": null,
+                "numberfield_5": null,
+                "numberfield_6": null,
+                "numberfield_7": null,
+                "numberfield_8": null,
+                "numberfield_9": null,
+                "once_check_box": true,
+                "only_number": null,
+                "phone": null,
+                "pkk": null,
+                "shipping_address": null,
+                "shipping_addressee": null,
+                "shipping_address_2": null,
+                "shipping_attention": "adasd",
+                "shipping_city": null,
+                "shipping_country": null,
+                "shipping_country_code": null,
+                "shipping_phone": null,
+                "shipping_state": null,
+                "shipping_zip": null,
+                "snowflake_id": null,
+                "sp_cia_charac_field": null,
+                "subsidiary": null,
+                "testcheckbox": false,
+                "users_count": null,
+                "user_drop_down": null,
+                "user_notes_date": null,
+                "user_notes_direction": null,
+                "user_notes_memo": null,
+                "user_notes_type": null,
+                "user_note_title": null,
+                "venkat": null,
+                "znc_account_balance": null,
+                "znc_account_overdue_balance": null,
+                "znc_alt_email": null,
+                "znc_billing_address1": null,
+                "znc_billing_address2": null,
+                "znc_billing_addressee": null,
+                "znc_billing_attention": null,
+                "znc_billing_city": null,
+                "znc_billing_country": null,
+                "znc_billing_phone": null,
+                "znc_billing_state": null,
+                "znc_billing_zip": null,
+                "znc_credit_hold": null,
+                "znc_credit_limit": null,
+                "znc_currency": null,
+                "znc_days_overdue": null,
+                "znc_department": null,
+                "znc_fax": null,
+                "znc_last_celigo_update": null,
+                "znc_mobile_phone": null,
+                "znc_netsuite_id": null,
+                "znc_rma_details": null,
+                "znc_sales_orders": null,
+                "znc_supervisor": null,
+                "znc_sync_as_netsuite_contact": false,
+                "znc_title": null,
+                "znc_unbilled_orders": null
+              }
+            }
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": "/users",
+        "method": "GET",
+        "formType": "http",
+        "response": {
+          "resourcePath": "users"
+        }
+      },
+      "rawData": "6266b700563089236fed58fbf536fa42eeec4191b1ce56bac975f66a",
+      "test": {
+        "limit": 1
+      },
+      "adaptorType": "HTTPExport"
+    },
+    "importDoc": {
+      "name": "AutomationStandalone_TXwV6",
+      "mockResponse": [
+        {
+          "id": "1234567890",
+          "errors": [],
+          "_json": {
+            "mockResponse": "replace me"
+          },
+          "statusCode": 200,
+          "ignored": false,
+          "dataURI": "",
+          "_headers": {
+            "content-type": "application/json; charset=utf-8"
+          }
+        }
+      ],
+      "_connectionId": "HTTP ZENDESK CONNECTION",
+      "apiIdentifier": "i1fe969e36",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [
+        {
+          "name": "name",
+          "method": "GET",
+          "relativeURI": "",
+          "extract": "path",
+          "allowFailures": true,
+          "default": "",
+          "useImportHeaders": true
+        }
+      ],
+      "mapping": {
+        "fields": [
+          {
+            "extract": "source",
+            "generate": "source",
+            "lookupName": "name"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "/test"
+        ],
+        "method": [
+          "PUT"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "sendPostMappedData": true,
+        "formType": "http",
+        "lookups": [
+          {
+            "name": "name",
+            "method": "GET",
+            "relativeURI": "",
+            "extract": "path",
+            "allowFailures": true,
+            "default": "",
+            "useImportHeaders": true
+          }
+        ]
+      },
+      "adaptorType": "HTTPImport"
+    },
+    "Revert_Description": "C101814",
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C101814",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "Delete_TC_Clone_ILM_C101814",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": [
+      "HTTP ZENDESK CONNECTION"
+    ],
+    "qa__connections": [
+      "HTTP ZENDESK CONNECTION"
+    ],
+    "revisionLongDescriptionVerification": {
+      "descriptionIncludes": "UPDATE WITH NEW"
+    },
+    "verfyLookups": [
+      {
+        "name": "name",
+        "method": "GET",
+        "relativeURI": "",
+        "extract": "path",
+        "allowFailures": false,
+        "useImportHeaders": true
+      }
+    ],
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "Http Export",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "apiIdentifier": "e6552d5eec",
+              "asynchronous": true,
+              "oneToMany": false,
+              "sandbox": false,
+              "parsers": [
+                {
+                  "type": "xml",
+                  "version": "1",
+                  "rules": {
+                    "V0_json": true,
+                    "stripNewLineChars": false,
+                    "trimSpaces": false
+                  }
+                }
+              ],
+              "http": {
+                "relativeURI": "/users",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                  "resourcePath": "users"
+                }
+              },
+              "rawData": "6266b700563089236fed58fb5620517c6fa941af91466bf3fc11bec4",
+              "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Delete_TC_ILM_C101814_Http_Import",
+              "application": "zendesk support",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [
+                {
+                  "name": "name",
+                  "method": "GET",
+                  "relativeURI": "",
+                  "extract": "path",
+                  "allowFailures": true,
+                  "default": "",
+                  "useImportHeaders": true
+                }
+              ],
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "source",
+                    "generate": "source",
+                    "lookupName": "name"
+                  }
+                ]
+              },
+              "http": {
+                "relativeURI": [
+                  "/test"
+                ],
+                "method": [
+                  "PUT"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http",
+                "lookups": [
+                  {
+                    "name": "name",
+                    "method": "GET",
+                    "relativeURI": "",
+                    "extract": "path",
+                    "allowFailures": true,
+                    "default": "",
+                    "useImportHeaders": true
+                  }
+                ]
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "Del_TC_ILM_C101814_FLOW",
+          "disabled": true,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        },
+        "createIntegrations": {
+          "name": "Delete_TC_ILM_C101814"
+        }
+      }
+    ]
+  }
+  

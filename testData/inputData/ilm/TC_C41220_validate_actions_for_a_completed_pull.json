@@ -1,0 +1,23 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_ILM_007",
+    "type": "Pull",
+    "status": "Completed",
+    "operations": [
+      "viewDetails",
+      "revertToAfterRevision",
+      "revertToBefore",
+      "viewChanges"
+    ]
+  },
+  "fieldsToVerifyForViewDetails": [
+    "Date created",
+    "Created by",
+    "Type",
+    "Status:",
+    "Revision ID",
+    "From integration name",
+    "From integration ID"
+  ]
+}

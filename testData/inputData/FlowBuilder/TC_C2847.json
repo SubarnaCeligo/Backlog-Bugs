@@ -62,38 +62,6 @@
         },
         "adaptorType": "HTTPImport"
       }
-    },
-    {
-      "type": "import",
-      "qa__import": {
-        "name": "Create or Update NetSuite Order from SPSC 850",
-        "_connectionId": "NETSUITE CONNECTION",
-        "_sourceId": "6155b5df1cff9b1f5bd5d809",
-        "distributed": true,
-        "apiIdentifier": "i02d51fc64",
-        "ignoreExisting": false,
-        "ignoreMissing": false,
-        "oneToMany": true,
-        "pathToMany": "contacts[0].lookupresp",
-        "lookups": [],
-        "netsuite_da": {
-          "useSS2Restlets": false,
-          "operation": "add",
-          "recordType": "customer",
-          "lookups": [],
-          "mapping": {
-            "fields": [
-              {
-                "extract": "_PARENT.contacts[*].lookupresp.id",
-                "generate": "custentity12",
-                "internalId": false
-              }
-            ],
-            "lists": []
-          }
-        },
-        "adaptorType": "NetSuiteDistributedImport"
-      }
     }
   ],
   "createFlow": {
@@ -102,14 +70,6 @@
     "_integrationId": "62ecc42648570015ab65cfa5",
     "skipRetries": false,
     "pageProcessors": [
-      {
-        "responseMapping": {
-          "fields": [],
-          "lists": []
-        },
-        "type": "import",
-        "_importId": "UPDATE WITH NEW IMPORTID"
-      },
       {
         "responseMapping": {
           "fields": [],

@@ -1,0 +1,12 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_ILM_007",
+    "type": "Pull",
+    "status": "Completed"
+  },
+  "Revert_Description": "C42070",
+  "revisionLongDescriptionVerification": {
+    "descriptionIncludes": "UPDATE WITH NEW"
+  }
+}

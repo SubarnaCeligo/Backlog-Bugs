@@ -1,0 +1,8 @@
+{
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "TC_ILM_008",
+      "Flow_Name_Update_Integration": "Clone - TC_ILM_008",
+      "Clone_To_Integrate": "Clone - TC_ILM_008"
+    }
+  }

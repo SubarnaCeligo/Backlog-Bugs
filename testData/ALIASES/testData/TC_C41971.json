@@ -1,0 +1,45 @@
+{
+  "Source_Integration": "TC_C42130",
+  "Source_Environment": "Production",
+  "templateJSON": {
+    "Install_Template": true,
+    "Upload_Path": "/testData/ALIASES/testData/63280c4f0dbc53086e88af37.zip",
+    "New_connection": false,
+    "connections": [
+      "HTTP ZENDESK CONNECTION:HTTP ZENDESK CONNECTION"
+    ]
+  },
+  "flowName": "TC_C42130",
+  "flowId": "63280c7a0dbc53086e88af43",
+  "exportName": "TC_C42130",
+  "exportId": "63280c7a3eea0d15ecf9ef56",
+  "importName": "TC_C42130",
+  "importId": "63280c970dbc53086e88af50",
+  "New_connection": false,
+  "connections": [
+    "HTTP ZENDESK CONNECTION"
+  ],
+  "qa__connections": [
+    "HTTP ZENDESK CONNECTION"
+  ],
+  "verifyAliases": [
+    {
+      "alias": "connectionalias123",
+      "_connectionId": ""
+    },
+    {
+      "alias": "flowalias123",
+      "_flowId": ""
+    },
+    {
+      "alias": "importalias123",
+      "_importId": ""
+    },
+    {
+      "alias": "exportalias123",
+      "_exportId": ""
+    }
+  ],
+  "TemplateId": "632dae84bb74b66e32a541dd",
+  "qa__TemplateId": "632c37729330e00c3cb8999f"
+}

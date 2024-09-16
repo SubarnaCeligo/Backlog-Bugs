@@ -1,0 +1,192 @@
+{
+  "name": "TC_C65020",
+  "referencename": "TC_C65020",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_1IxCL",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e8073ad574",
+            "asynchronous": true,
+            "type": "distributed",
+            "oneToMany": false,
+            "sandbox": false,
+            "distributed": {
+              "bearerToken": "******"
+            },
+            "netsuite": {
+              "type": "distributed",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "markExportedBatchSize": 100
+              },
+              "distributed": {
+                "recordType": "account",
+                "executionContext": ["userinterface", "webstore"],
+                "disabled": false,
+                "executionType": ["create", "edit", "xedit"],
+                "sublists": [],
+                "forceReload": false,
+                "ioDomain": "platform2.dev.integrator.io",
+                "useSS2Framework": true,
+                "frameworkVersion": "suiteapp2.0"
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        },
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_fVB0U",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "ef7bbac53f",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "http": {
+              "relativeURI": "/users",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "users"
+              }
+            },
+            "test": {
+              "limit": 10
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "email",
+                      "generate": "user_email"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "email",
+                    "generate": "user_email"
+                  }
+                ]
+              ]
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  "notequals",
+                  ["string", ["extract", "user_email"]],
+                  "xyz@email.com"
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                "notequals",
+                ["string", ["extract", "user_email"]],
+                "xyz@email.com"
+              ]
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_0FXzx",
+            "responseTransform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "mockResponse",
+                      "generate": "Response"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "mockResponse",
+                    "generate": "Response"
+                  }
+                ]
+              ]
+            },
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ic317446c3",
+            "oneToMany": false,
+            "file": {
+              "fileName": "import.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_C65020.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C65020",
+        "disabled": false,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          },
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

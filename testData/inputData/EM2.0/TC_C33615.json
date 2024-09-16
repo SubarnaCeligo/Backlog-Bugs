@@ -13,7 +13,7 @@
           "type": "export",
           "qa__export": {
             "name": "Rest export",
-            "_connectionId": "REST CONNECTION",
+            "_connectionId": "Rest Connection",
             "asynchronous": true,
             "oneToMany": false,
             "sandbox": false,

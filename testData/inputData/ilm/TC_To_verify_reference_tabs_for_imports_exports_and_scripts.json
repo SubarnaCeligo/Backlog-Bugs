@@ -1,0 +1,209 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "del_RefTab_1",
+    "Source_Integration2": "del_RefTab_2",
+    "Clone_To_Integrate": "Del_TC_Cl_RefTab_1",
+    "Flow_Name_Update_Integration": "Del_TC_Cl_RefTab_1",
+    "createPull": true
+  },
+  "Source_Environment": "Production",
+  "Source_Integration": "del_RefTab_1",
+  "Source_Integration2": "del_RefTab_2",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Del_TC_Cl_RefTab_1",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "connections": [
+    "631ae160fb1a95581af9b101"
+  ],
+  "qa__connections": [
+    "62da6d17d0df537bab8e4d17"
+  ],
+  "importJSON": {
+    "name": "Netsuite_ILM_C41677",
+    "type": "netsuite",
+    "netsuite": {
+      "dataCenterURLs": {
+        "webservicesDomain": "https://tstdrv1143616.suitetalk.api.netsuite.com",
+        "restDomain": "https://tstdrv1143616.restlets.api.netsuite.com",
+        "systemDomain": "https://tstdrv1143616.app.netsuite.com"
+      },
+      "wsdlVersion": "current",
+      "password": "******",
+      "environment": "production",
+      "concurrencyLevel": 1,
+      "roleId": "3",
+      "qa__password": "QXV0b1VzZXJANTgw",
+      "requestLevelCredentials": false,
+      "account": "TSTDRV1143616",
+      "email": "automationuser@gmail.com",
+      "useSsoLogin": false
+    }
+  },
+  "details": [
+    {
+      "scriptDetails": {
+        "name": "preSave_ReferenceTab",
+        "content": "/*\n* preSavePageFunction stub:\n*\n* The name of the function can be changed to anything you like.\n*\n* The function will be passed one 'options' argument that has the following fields:\n*   'data' - an array of records representing one page of data. A record can be an object {} or array [] depending on the data source.\n*   'files' - file exports only. files[i] contains source file metadata for data[i]. i.e. files[i].fileMeta.fileName.\n*   'errors' - an array of errors where each error has the structure {code: '', message: '', source: '', retryDataKey: ''}.\n*   'retryData' - a dictionary object containing the retry data for all errors: {retryDataKey: { data: <record>, stage: '', traceKey: ''}}.\n*   '_exportId' - the _exportId currently running.\n*   '_connectionId' - the _connectionId currently running.\n*   '_flowId' - the _flowId currently running.\n*   '_integrationId' - the _integrationId currently running.\n*   'pageIndex' - 0 based. context is the batch export currently running.\n*   'lastExportDateTime' - delta exports only.\n*   'currentExportDateTime' - delta exports only.\n*   'settings' - all custom settings in scope for the export currently running.\n*\n* The function needs to return an object that has the following fields:\n*   'data' - your modified data.\n*   'errors' - your modified errors.\n*   'abort' - instruct the batch export currently running to stop generating new pages of data.\n*   'newErrorsAndRetryData' - return brand new errors linked to retry data: [{retryData: <record>, errors: [<error>]}].\n* Throwing an exception will signal a fatal error and stop the flow.\n*/\nfunction preSavePage (options) {\n  // sample code that simply passes on what has been exported\n  let newData= options.data.map( (d) =>{\n    d.customername=d.customername+\" preSaveHook\";\n    return d;\n  })\n  return {\n    data: newData,\n    exportId:options._exportId,\n    exportConnectionId: options._connectionId,\n    errors: options.errors,\n    abort: false,\n    newErrorsAndRetryData: []\n  }\n}"
+      },
+      "exportDetails": {
+        "type": "export",
+        "qa__export": {
+          "name": "Delete_TC_ILM_ReferencesTabCheck_Netsuite_Export",
+          "_connectionId": "NETSUITE CONNECTION",
+          "hooks": {
+            "preSavePage": {
+              "_scriptId": "SET_AFTER_CREATING_SCRIPT",
+              "function": "preSavePage"
+            }
+          },
+          "netsuite": {
+            "type": "restlet",
+            "restlet": {
+              "recordType": "customer",
+              "savedSearchId": "29"
+            }
+          }
+        }
+      },
+      "importDetails": {
+        "type": "import",
+        "qa__import": {
+          "distributed": true,
+          "_connectionId": "NETSUITE CONNECTION",
+          "name": "Delete_TC_ILM_ReferencesTabCheck_Netsuite_import",
+          "netsuite_da": {
+            "operation": "add",
+            "recordType": "Customer",
+            "distributed": true,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Customer",
+                  "generate": "companyName"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "flowDetails": [
+        {
+          "name": "Delete_TC_ILM_ReferenceTab_FLOWS_1",
+          "disabled": true,
+          "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        },
+        {
+          "name": "Delete_TC_ILM_ReferenceTab_FLOWS_2",
+          "disabled": true,
+          "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      ],
+      "integrationDetails": {
+        "qa__api_tdata": [
+          {
+            "createIntegrations": {
+              "name": "del_RefTab_1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "flowDetails": [
+        {
+          "name": "Delete_TC_ILM_ReferenceTab_FLOWS_3",
+          "disabled": true,
+          "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      ],
+      "integrationDetails": {
+        "qa__api_tdata": [
+          {
+            "createIntegrations": {
+              "name": "del_RefTab_2"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "updateResources": [
+    {
+      "resource": "exports",
+      "field": "name",
+      "newValue": "refTab_ex_Updated",
+      "resourceId": "Update After Creation"
+    },
+    {
+      "resource": "imports",
+      "field": "name",
+      "newValue": "refTab_im_Updated",
+      "resourceId": "Update After Creation"
+    },
+    {
+      "resource": "scripts",
+      "field": "name",
+      "newValue": "refTab_scpt_Updated",
+      "resourceId": "Update After Creation"
+    }
+  ],
+  "toVerify": {
+    "flowsInSameIntegration": [
+      "Delete_TC_ILM_ReferenceTab_FLOWS_1",
+      "Delete_TC_ILM_ReferenceTab_FLOWS_2"
+    ],
+    "usedInDiffIntegration": [
+      "Delete_TC_ILM_ReferenceTab_FLOWS_3"
+    ]
+  }
+}

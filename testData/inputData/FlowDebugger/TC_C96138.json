@@ -1,0 +1,124 @@
+{
+  "name": "TC_C96138",
+  "referencename": "TC_C96138",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Netsuite Export",
+            "_connectionId": "NETSUITE CONNECTION ONLY BUNDLE",
+            "apiIdentifier": "e836eb3bfb",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "test": {
+              "limit": 1
+            },
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customrecord_celigo_closures",
+                "searchId": "525",
+                "criteria": [],
+                "columns": [],
+                "restletVersion": "suiteapp2.0",
+                "markExportedBatchSize": 100
+              },
+              "distributed": {
+                "executionContext": [],
+                "executionType": []
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_7khFI",
+            "responseTransform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "mockResponse",
+                      "generate": "Response"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "mockResponse",
+                    "generate": "Response"
+                  }
+                ]
+              ]
+            },
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "icd146674e",
+            "oneToMany": false,
+            "file": {
+              "fileName": "import.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "TC_C96138.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C96138",
+        "disabled": false,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID",
+            "skipRetries": false
+          }
+        ]
+      }
+    }
+  ]
+}

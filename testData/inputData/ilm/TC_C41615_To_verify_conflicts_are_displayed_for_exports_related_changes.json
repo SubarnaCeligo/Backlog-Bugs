@@ -1,0 +1,107 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Del_TC_ILM_C41615",
+    "Clone_To_Integrate": "Del_TC_Cl_ILM_C41615",
+    "type": "Pull",
+    "status": "Completed"
+  },
+  "Revert_Description": "C42098",
+  "Source_Environment": "Production",
+  "Source_Integration": "Del_TC_ILM_C41615",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Del_TC_Cl_ILM_C41615",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "revisionLongDescriptionVerification": {
+    "descriptionIncludes": "UPDATE WITH NEW"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Del_TC_ILM_C41615_Netsuite_Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "netsuite": {
+              "type": "restlet",
+              "restlet": {
+                "recordType": "customer",
+                "savedSearchId": "29"
+              }
+            }
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "distributed": true,
+            "_connectionId": "NETSUITE CONNECTION",
+            "name": "Del_TC_ILM_C41615_Netsuite_Import",
+            "netsuite_da": {
+              "operation": "add",
+              "recordType": "Customer",
+              "distributed": true,
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "Customer",
+                    "generate": "companyName"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Del_TC_ILM_C41615_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Del_TC_ILM_C41615"
+      }
+    }
+  ],
+  "updateResources": [
+    {
+      "resource": "exports",
+      "field": "name",
+      "newValue": "source_export_updated",
+      "resourceId": "Update After Creation"
+    },
+    {
+      "resource": "exports",
+      "field": "name",
+      "newValue": "cloned_export_updated",
+      "resourceId": "Update After Creation"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { test, expect } from "@celigo/ui-core-automation";
+import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("Create Flow While Creating Integration", () => {
@@ -9,21 +9,14 @@ test.describe("Create Flow While Creating Integration", () => {
   });
   test.afterEach(async ({ io, page }, testInfo) => {
     test.step("*** End of Test Suite ***", async () => { });
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.loadingTime();
-    await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "NewFlow1");
-    await io.homePage.loadingTime();
-
-    const isIntegrationAvailable = await page.locator(selectors.homePagePO.INTEGRATION_TILES, { hasText: 'NewFlow1' }).count();
-
-    if (isIntegrationAvailable > 0) {
-      const actionmenu = await page.$$(selectors.homePagePO.INTEGRATION_TILES_ACTIONS_MENU);
-      await actionmenu[0].click();
-      await io.homePage.loadingTime();
-
-      await io.homePage.click(selectors.homePagePO.DELETE_INTEGRATION);
-      await io.homePage.click(selectors.basePagePO.DELETE);
-      await io.homePage.loadingTime();
+    const tiles = await io.api.getCall("v1/tiles");
+    if (!tiles) {
+      return;
+    }
+    for (let tile of tiles) {
+      if (tile.name.includes("TC_C53105")) {
+        await io.api.deleteCall(`v1/integrations/${tile._integrationId}`);
+      }
     }
   });
 
@@ -33,9 +26,9 @@ test.describe("Create Flow While Creating Integration", () => {
     await io.homePage.loadingTime();
     const saveButton = await page.locator(selectors.basePagePO.SAVE);
     const isDisabled = await saveButton.isDisabled();
-    expect(isDisabled).toBeTruthy();
+    await io.assert.expectToBeTrue(isDisabled, "Save button is not disabled");
 
-    await io.homePage.fillWebPage(selectors.basePagePO.ADD_NAME, "NewFlow1");
+    await io.homePage.fillWebPage(selectors.basePagePO.ADD_NAME, "TC_C53105");
     await io.homePage.loadingTime();
     test.step("*** Entered Flow Name ***", async ()=>{});
 
@@ -51,12 +44,12 @@ test.describe("Create Flow While Creating Integration", () => {
     const saveButton = await page.locator(selectors.basePagePO.SAVE);
     const isDisabled = await saveButton.isDisabled();
     await io.assert.expectToBeTrue(isDisabled, "Save button is not disabled");
-    await io.homePage.fillWebPage(selectors.basePagePO.ADD_NAME, "NewFlow1");
+    await io.homePage.fillWebPage(selectors.basePagePO.ADD_NAME, "TC_C53105");
     await io.homePage.loadingTime();
     test.step("*** Entered Flow Name ***", async ()=>{});
 
     const isSaveButtonVisible = await io.homePage.isVisible(selectors.basePagePO.SAVE_AND_CREATE_FLOW);
-    expect(isSaveButtonVisible).toBeTruthy();
+    await io.assert.expectToBeTrue(isSaveButtonVisible, "Save and Close button is not visible");
     const saveButtonAfterChange = await page.locator(selectors.basePagePO.SAVE_AND_CREATE_FLOW);
     const isEnabled = await saveButtonAfterChange.isEnabled();
     await io.assert.expectToBeTrue(isEnabled, "Save button is disabled");

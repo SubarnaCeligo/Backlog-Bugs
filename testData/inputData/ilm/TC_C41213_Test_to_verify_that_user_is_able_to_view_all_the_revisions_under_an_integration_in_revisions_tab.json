@@ -1,0 +1,14 @@
+{
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "TC_ILM_007",
+      "Validate": "description",
+      "Compare": "dateCreated"
+    },
+    "revisionUserVerification": [
+      {"dateCreated": "07/13/2022 6:32:35 pm", "description": "Pull#3"},
+      {"dateCreated": "07/13/2022 5:48:05 pm", "description": "Snapshot #1"},
+      {"dateCreated": "07/13/2022 5:47:51 pm", "description": "This pull is created with description of more than 100 characters. This will be used in ILM automation Test Case C41216. This test case is part of TC_IAF_007"},
+      {"dateCreated": "07/13/2022 5:46:23 pm", "description": "Pull #1"}
+    ]
+  }

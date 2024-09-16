@@ -87,7 +87,6 @@ test.describe("IO-58006 scenarios", () => {
     await io.homePage.loadingTime();
     // created connection validation in import
     await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
-    await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.IMPORTS);
     await io.homePage.loadingTime();
@@ -252,14 +251,17 @@ test.describe("IO-58006 scenarios", () => {
       selectors.exportsPagePO.CONNECTIONS_DROPDOWN,
       randomString
     );
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
       selectors.connectionsPagePO.CONNECTIONDROPDOWNMENU
     );
     await io.flowBuilder.loadingTime();
     const edit1 = await page.$$(selectors.connectionsPagePO.EDIT_RESOURCE);
     await edit1[0].click();
+    await io.flowBuilder.loadingTime();
     const edit4 = await page.$$(selectors.connectionsPagePO.EDIT_RESOURCE);
     await edit4[1].click();
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.connectionsPagePO.CLIENTSECRET3PL,
       decrypt("TG9xazJFbVovMno5L2xGNk9COFB3aUh2dzdGbW1IaHA=")

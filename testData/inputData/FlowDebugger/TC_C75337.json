@@ -1,0 +1,234 @@
+{
+    "name": "TC_C75337",
+    "referencename": "TC_C75337",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "Http Export",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "_sourceId": "6498385d92028d08463c2df7",
+              "apiIdentifier": "e0f875988e",
+              "asynchronous": true,
+              "oneToMany": false,
+              "http": {
+                "relativeURI": "/users",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                  "resourcePath": "users"
+                }
+              },
+              "transform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "id",
+                        "generate": "User_Id"
+                      },
+                      {
+                        "extract": "name",
+                        "generate": "User_Name"
+                      },
+                      {
+                        "extract": "email",
+                        "generate": "User_Email"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "id",
+                      "generate": "User_Id"
+                    },
+                    {
+                      "extract": "name",
+                      "generate": "User_Name"
+                    },
+                    {
+                      "extract": "email",
+                      "generate": "User_Email"
+                    }
+                  ]
+                ]
+              },
+              "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "AutomationStandalone_yEAwL",
+              "responseTransform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "ticket.id",
+                        "generate": "Ticket_Id"
+                      },
+                      {
+                        "extract": "ticket.assignee_id",
+                        "generate": "Ticket_Assignee_Id"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "ticket.id",
+                      "generate": "Ticket_Id"
+                    },
+                    {
+                      "extract": "ticket.assignee_id",
+                      "generate": "Ticket_Assignee_Id"
+                    }
+                  ]
+                ]
+              },
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "apiIdentifier": "i3789f7468",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "mappings": [
+                {
+                  "extract": "$.User_Id",
+                  "generate": "Id",
+                  "dataType": "number",
+                  "status": "Active",
+                  "sourceDataType": "number"
+                }
+              ],
+              "http": {
+                "relativeURI": ["/tickets"],
+                "method": ["POST"],
+                "body": [
+                  "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+              },
+              "adaptorType": "HTTPImport"
+            }
+          },
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "Ftp Import",
+              "responseTransform": {
+                "type": "expression",
+                "expression": {
+                  "rules": [
+                    [
+                      {
+                        "extract": "mockResponse",
+                        "generate": "Response"
+                      }
+                    ]
+                  ],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                  [
+                    {
+                      "extract": "mockResponse",
+                      "generate": "Response"
+                    }
+                  ]
+                ]
+              },
+              "mockResponse": [
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": "replace me"
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                }
+              ],
+              "_connectionId": "FTP CONNECTION",
+              "_sourceId": "647ed953e9fd4b447efd28ea",
+              "apiIdentifier": "i25851d15b",
+              "oneToMany": false,
+              "file": {
+                "fileName": "Mapping_ResponseMapping_ResultMapping.json",
+                "skipAggregation": false,
+                "type": "json",
+                "encoding": "utf8",
+                "backupPath": "/Group-QA/Mahesh/Backup"
+              },
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "Mapping_ResponseMapping_ResultMapping.json",
+                "backupDirectoryPath": "/Group-QA/Mahesh/Backup"
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": ["equals", ["string", ["extract", "id"]], "12345"],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": ["equals", ["string", ["extract", "id"]], "12345"]
+              },
+              "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C75337",
+          "disabled": false,
+          "_integrationId": "603ce75ac4fec33283691f43",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [
+                  {
+                    "extract": "_json.Ticket_Assignee_Id",
+                    "generate": "Ticket_Assignee_Id"
+                  }
+                ],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            },
+            {
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

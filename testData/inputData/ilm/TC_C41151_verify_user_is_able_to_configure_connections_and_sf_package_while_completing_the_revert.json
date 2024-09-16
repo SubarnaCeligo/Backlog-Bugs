@@ -1,0 +1,219 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C41151",
+    "Clone_To_Integrate": "Delete_TC_Clone_ILM_C41151",
+    "type": "Pull",
+    "status": "Completed"
+  },
+  "Revert_Description": "C41151",
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C41151",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Delete_TC_Clone_ILM_C41151",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "connectionsForMerge": ["SALESFORCE CONNECTION"],
+  "qa__connectionsForMerge": ["SALESFORCE CONNECTION"],
+  "connectionVerification": ["Salesforce Connection"],
+  "testData": [
+    {
+      "importJSON": {
+        "type": "salesforce",
+        "name": "Del_TC_SF_ILM_C41151",
+        "salesforce": {
+            "sandbox": false,
+            "baseURI": "https://do0000000catveay-dev-ed.my.salesforce.com",
+            "bearerToken": "******",
+            "packagedOAuth": true,
+            "qa__oauth2FlowType": "refreshToken",
+            "OAuthLogin": "SalesforceApp",
+            "scope": [],
+            "concurrencyLevel": 5,
+            "info": {
+                "sub": "https://login.salesforce.com/id/00Do0000000caTVEAY/005o00000010WRbAAM",
+                "user_id": "005o00000010WRbAAM",
+                "organization_id": "00Do0000000caTVEAY",
+                "preferred_username": "celigoqa@foobar.com",
+                "nickname": "celigoqa",
+                "name": "Fayaz Mohammed",
+                "qa__password": "Y2VsaWdvQCEjNCMjIyMk=",
+                "email": "io.auto.qa@celigo.com",
+                "email_verified": true,
+                "given_name": "Fayaz",
+                "family_name": "Mohammed",
+                "zoneinfo": "Asia/Kolkata",
+                "photos": {
+                    "picture": "https://do0000000catveay-dev-ed--c.documentforce.com/profilephoto/005/F",
+                    "thumbnail": "https://do0000000catveay-dev-ed--c.documentforce.com/profilephoto/005/T"
+                },
+                "profile": "https://do0000000catveay-dev-ed.my.salesforce.com/005o00000010WRbAAM",
+                "picture": "https://do0000000catveay-dev-ed--c.documentforce.com/profilephoto/005/F",
+                "urls": {
+                    "enterprise": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/c/{version}/00Do0000000caTV",
+                    "metadata": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/m/{version}/00Do0000000caTV",
+                    "partner": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/u/{version}/00Do0000000caTV",
+                    "rest": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/",
+                    "sobjects": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/sobjects/",
+                    "search": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/search/",
+                    "query": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/query/",
+                    "recent": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/recent/",
+                    "tooling_soap": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/T/{version}/00Do0000000caTV",
+                    "tooling_rest": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/tooling/",
+                    "profile": "https://do0000000catveay-dev-ed.my.salesforce.com/005o00000010WRbAAM",
+                    "feeds": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feeds",
+                    "groups": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/groups",
+                    "users": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/users",
+                    "feed_items": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feed-items",
+                    "feed_elements": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feed-elements",
+                    "custom_domain": "https://do0000000catveay-dev-ed.my.salesforce.com"
+                },
+                "active": true,
+                "user_type": "STANDARD",
+                "language": "en_US",
+                "locale": "en_US",
+                "utcOffset": 19800000,
+                "updated_at": "2022-08-03T07:34:26Z"
+            }
+        }
+      }
+    }
+  ],
+  "revisionLongDescriptionVerification": {
+    "descriptionIncludes": "UPDATE WITH NEW"
+  },
+  "qa__api_tdata": [{
+    "pageGenerators": [{
+      "type": "export",
+      "qa__export": {
+        "name": "Delete_TC_ILM_C41151_Salesforce_Export",
+        "_connectionId": "UPDATE WITH NEW",
+        "asynchronous": true,
+        "type": "distributed",
+        "oneToMany": false,
+        "sandbox": false,
+        "distributed": {
+            "bearerToken": "******"
+        },
+        "salesforce": {
+            "sObjectType": "Account",
+            "distributed": {
+                "disabled": true,
+                "qualifier": null
+            }
+        },
+        "adaptorType": "SalesforceExport"
+    }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+          "name": "Delete_TC_ILM_C41151_Salesforce_Import",
+          "_connectionId": "UPDATE WITH NEW",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+          },
+          "adaptorType": "SalesforceImport"
+      }
+    }],
+    "createFlow": {
+        "name": "Del_TC_ILM_C41151_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [{
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+        }],
+        "pageGenerators": [{
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+        }]
+    },
+    "createIntegrations": {
+      "name": "Delete_TC_ILM_C41151"
+    }
+  }],
+  "updates": [
+    {
+      "resource": "flows",
+      "name": "Del_TC_ILM_C41151_FLOW",
+      "field": "name",
+      "newValue": "Del_TC_ILM_C41151_FLOW_Edit1"
+    }
+  ],
+  "apiConnections": [
+    {
+      "importJSON": {
+        "type": "salesforce",
+        "name": "Del_TC_SF_ILM_C41151_Api",
+        "salesforce": {
+            "sandbox": false,
+            "baseURI": "https://do0000000catveay-dev-ed.my.salesforce.com",
+            "bearerToken": "******",
+            "packagedOAuth": true,
+            "qa__oauth2FlowType": "refreshToken",
+            "OAuthLogin": "SalesforceApp",
+            "scope": [],
+            "concurrencyLevel": 5,
+            "info": {
+                "sub": "https://login.salesforce.com/id/00Do0000000caTVEAY/005o00000010WRbAAM",
+                "user_id": "005o00000010WRbAAM",
+                "organization_id": "00Do0000000caTVEAY",
+                "preferred_username": "celigoqa@foobar.com",
+                "nickname": "celigoqa",
+                "name": "Fayaz Mohammed",
+                "qa__password": "Y2VsaWdvQCEjNCMjIyMk=",
+                "email": "io.auto.qa@celigo.com",
+                "email_verified": true,
+                "given_name": "Fayaz",
+                "family_name": "Mohammed",
+                "zoneinfo": "Asia/Kolkata",
+                "photos": {
+                    "picture": "https://do0000000catveay-dev-ed--c.documentforce.com/profilephoto/005/F",
+                    "thumbnail": "https://do0000000catveay-dev-ed--c.documentforce.com/profilephoto/005/T"
+                },
+                "profile": "https://do0000000catveay-dev-ed.my.salesforce.com/005o00000010WRbAAM",
+                "picture": "https://do0000000catveay-dev-ed--c.documentforce.com/profilephoto/005/F",
+                "urls": {
+                    "enterprise": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/c/{version}/00Do0000000caTV",
+                    "metadata": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/m/{version}/00Do0000000caTV",
+                    "partner": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/u/{version}/00Do0000000caTV",
+                    "rest": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/",
+                    "sobjects": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/sobjects/",
+                    "search": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/search/",
+                    "query": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/query/",
+                    "recent": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/recent/",
+                    "tooling_soap": "https://do0000000catveay-dev-ed.my.salesforce.com/services/Soap/T/{version}/00Do0000000caTV",
+                    "tooling_rest": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/tooling/",
+                    "profile": "https://do0000000catveay-dev-ed.my.salesforce.com/005o00000010WRbAAM",
+                    "feeds": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feeds",
+                    "groups": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/groups",
+                    "users": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/users",
+                    "feed_items": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feed-items",
+                    "feed_elements": "https://do0000000catveay-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feed-elements",
+                    "custom_domain": "https://do0000000catveay-dev-ed.my.salesforce.com"
+                },
+                "active": true,
+                "user_type": "STANDARD",
+                "language": "en_US",
+                "locale": "en_US",
+                "utcOffset": 19800000,
+                "updated_at": "2022-08-03T07:34:26Z"
+            }
+        }
+      }
+    }
+  ]
+}

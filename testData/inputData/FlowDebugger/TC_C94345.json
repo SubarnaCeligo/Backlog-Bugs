@@ -1,0 +1,143 @@
+{
+  "name": "TC_C94345",
+  "referencename": "TC_C94345",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_EdLbb",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e9f4eb4e87",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "rawData": "648079a4e26e647491cad2af596515758aa445b1b4664a9faf035763",
+            "test": {
+              "limit": 1
+            },
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "account",
+                "searchId": "3633",
+                "restletVersion": "suitebundle",
+                "markExportedBatchSize": 100
+              },
+              "distributed": {}
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "id",
+                      "generate": "apk"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "id",
+                    "generate": "apk"
+                  }
+                ]
+              ]
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": ["empty", ["string", ["extract", "apk"]]],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": ["empty", ["string", ["extract", "apk"]]]
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_jcXm4",
+            "mockResponse": [
+              {
+                "statusCode": 200,
+                "id": "9222623681426",
+                "_json": {
+                  "organization": {
+                    "id": 9222623681426,
+                    "name": "Mary Poppins",
+                    "details": "17 Cherry Tree Lane"
+                  }
+                },
+                "_headers": {
+                  "date": "Thu, 22 Dec 2022 10:50:18 GMT",
+                  "content-type": "application/json; charset=utf-8",
+                  "x-zendesk-application-version": "v14974",
+                  "x-frame-options": "SAMEORIGIN"
+                }
+              }
+            ],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i7448872ee",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": ["users"],
+              "method": ["POST"],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": ["equals", ["string", ["extract", "apk"]], "8683"],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": ["equals", ["string", ["extract", "apk"]], "8683"]
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C94345",
+        "disabled": false,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

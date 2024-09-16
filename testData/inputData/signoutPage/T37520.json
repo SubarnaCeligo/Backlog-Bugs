@@ -1,0 +1,11 @@
+{
+    "newUser": {
+        "emails": [
+            "UPDATE WITH NEW"
+        ],
+        "accessLevel": "administrator",
+        "integrationAccessLevel": [],
+        "accountSSORequired": false,
+        "accountMFARequired": false
+    }
+}

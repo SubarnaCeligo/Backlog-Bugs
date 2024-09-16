@@ -1,0 +1,126 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C41164",
+    "Clone_To_Integrate": "Delete_TC_Clone_ILM_C41164",
+    "type": "Pull",
+    "status": "Completed"
+  },
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C41164",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Delete_TC_Clone_ILM_C41164",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "connectionsForMerge": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__connectionsForMerge": [
+    "NETSUITE CONNECTION"
+  ],
+  "Revert_Description": "C41164",
+  "revisionLongDescriptionVerification": {
+    "descriptionIncludes": "UPDATE WITH NEW"
+  },
+  "New_connection_For_Clone": [
+    {
+      "importJSON": {
+        "name": "Delete_TC_ILM_C41164",
+        "type": "netsuite",
+        "netsuite": {
+          "wsdlVersion": "next",
+          "qa__iClientId": "62de69ec72bebb4e86c78e16",
+          "_iClientId": "62de5ee02024d077c309426b",
+          "tokenId": "******",
+          "requestLevelCredentials": true,
+          "qa__tokenId": "YTliN2U3ZDRiZDFlNmVkNDEyMmYxYTBmYWU5MDAwYjI2OWMzMGVmZWRhYzE3MjQ1MmI1MWZmOGFkYmU1YmE5ZQ==",
+          "environment": "production",
+          "concurrencyLevel": 2,
+          "account": "TSTDRV1143616",
+          "tokenSecret": "******",
+          "qa__tokenSecret": "Y2E4MTM0YjhjNTU5Njk2ZWJiZTFjYzg5MWQ3MDcxODAxOWE1M2ZmMjNkYzRjN2M3ZTIxYjYzOWI4MGQyNzZiNA=="
+        }
+      }
+    }
+  ],
+  "connectionVerification": [
+    "Delete_TC_ILM_C41164"
+  ],
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Delete_TC_ILM_C41164_Netsuite_Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3906",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "distributed": true,
+            "_connectionId": "NETSUITE CONNECTION",
+            "name": "Delete_TC_ILM_C41164_Netsuite_Import",
+            "netsuite_da": {
+              "operation": "add",
+              "recordType": "Customer",
+              "distributed": true,
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "Customer",
+                    "generate": "companyName"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Del_TC_ILM_C41164_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Delete_TC_ILM_C41164"
+      }
+    }
+  ]
+}

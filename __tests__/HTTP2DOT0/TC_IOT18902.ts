@@ -1,6 +1,6 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import C66039 from "@testData/HTTP2DOT0/TC_C66039_flow.json";
+import flow from "@testData/HTTP2DOT0/TC_IOTC18902.json";
 
 test.describe(`TC_IOT18902 Verify that a new connection can be configured while cloning an HTTP flow.`, () => {
   let flowId;
@@ -11,7 +11,7 @@ test.describe(`TC_IOT18902 Verify that a new connection can be configured while 
     io,
     page
   }) => {
-    flowId = await io.createResourceFromAPI(C66039, "FLOWS");
+    flowId = await io.createResourceFromAPI(flow, "FLOWS");
     await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(
       selectors.integrationPagePO.OPENACTIONSMENU

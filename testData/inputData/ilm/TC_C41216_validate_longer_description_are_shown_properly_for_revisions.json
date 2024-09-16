@@ -1,0 +1,12 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_ILM_007"
+  },
+  "revisionLongDescriptionVerification": {
+    "descriptionIncludes": "more than 100 characters",
+    "type": "Pull",
+    "status": "Completed", 
+    "user": "Ritvik Muttreja"
+  }
+}

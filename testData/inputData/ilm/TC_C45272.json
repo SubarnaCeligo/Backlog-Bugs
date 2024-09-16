@@ -1,0 +1,182 @@
+{
+  "integrationDetails": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C45272_Del",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "TC_Clone_C45272_Del",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": [
+      "HTTP ZENDESK CONNECTION:HTTP ZENDESK CONNECTION",
+      "SALESFORCE CONNECTION:SALESFORCE CONNECTION"
+    ],
+    "qa__api_tdata": [
+      {
+        "createIntegrations": {
+          "name": "TC_C45272_Del"
+        }
+      }
+    ]
+  },
+  "pull": {
+    "integrationToPull": "TC_C45272_Del"
+  },
+  "flowsData": {
+    "flowname1": "TC_C45272",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C45272 Export",
+              "_connectionId": "SALESFORCE CONNECTION",
+              "_sourceId": "62d9313f48138a17c567c32b",
+              "apiIdentifier": "ef717ae530",
+              "asynchronous": true,
+              "oneToMany": false,
+              "parsers": [],
+              "salesforce": {
+                "type": "soql",
+                "api": "rest",
+                "soql": {
+                  "query": "sw"
+                },
+                "distributed": {
+                  "referencedFields": [],
+                  "disabled": true,
+                  "relatedLists": []
+                }
+              },
+              "adaptorType": "SalesforceExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C45272 Import",
+              "application": "zendesk support",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "qa__connectionId": "HTTP ZENDESK CONNECTION",
+              "apiIdentifier": "i4bc0329a6",
+              "ignoreExisting": true,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "mappings": [
+                {
+                  "generate": "name",
+                  "dataType": "object",
+                  "status": "Active",
+                  "mappings": [
+                    {
+                      "extract": "name",
+                      "generate": "name",
+                      "dataType": "string",
+                      "status": "Active"
+                    }
+                  ]
+                }
+              ],
+              "http": {
+                "relativeURI": [
+                  "34t4t"
+                ],
+                "method": [
+                  "PUT"
+                ],
+                "body": [
+                  ""
+                ],
+                "headers": [
+                  {
+                    "name": "er",
+                    "value": "rf"
+                  },
+                  {
+                    "name": "ref",
+                    "value": "efe"
+                  }
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "ignoreExtract": "r34",
+                "formType": "http"
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C45272",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "updatedBody": {
+    "_id": "",
+    "name": "TC_C45272 Import",
+    "application": "zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "qa__connectionId": "HTTP ZENDESK CONNECTION",
+    "apiIdentifier": "i4bc0329a6",
+    "ignoreExisting": true,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "mapping": {
+      "fields": [
+        {
+          "extract": "name",
+          "generate": "name"
+        }
+      ]
+    },
+    "http": {
+      "relativeURI": [
+        "34t4t"
+      ],
+      "method": [
+        "PUT"
+      ],
+      "body": [
+        ""
+      ],
+      "headers": [
+        {
+          "name": "er",
+          "value": "rf"
+        },
+        {
+          "name": "ref",
+          "value": "efe"
+        }
+      ],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "ignoreExtract": "r34",
+      "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+  }
+}

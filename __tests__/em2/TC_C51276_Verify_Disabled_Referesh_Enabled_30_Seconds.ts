@@ -30,6 +30,7 @@ await test.step(
     var flowId = flows.get(Json.name)["flowId"];
     await io.em2.getEm2ErrorTable( flowId);
     await io.homePage.loadingTime();
+    await io.homePage.delay(10000);
     await io.homePage.click(selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON);
     test.step("Error Table is opened", async ()=>{});
 

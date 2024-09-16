@@ -1,0 +1,4 @@
+{
+  "name": "preSave Page",
+  "content": "function preSavePage (options) {\n  options.data[0].email = \"mounica.manavapati@celigo.com\"\n  return {\n    data: options.data,\n    errors: options.errors,\n    abort: false,\n    newErrorsAndRetryData: []\n  }\n}"
+}

@@ -12,7 +12,7 @@ test.describe("C51065 Verify the help text for Require MFA in the Invite User dr
         expect(helpText).toContain('Require MFASwitch Require MFA on for any users who are required to authenticate with MFA when accessing your account. You can modify the security settings for these users in the MFA section under the Security tab in your profile.Was this helpful?');
 
         await io.myAccountPage.getByRoleClick('button','Invite user');
-        await io.myAccountPage.click(selectors.flowBuilderPagePO.MFAHELPTEXT);
+        await io.myAccountPage.click(selectors.myAccountPagePO.MFA_HELP_TEXT);
         await io.myAccountPage.waitForElementAttached(selectors.myAccountPagePO.HELP_BUBBLE);
         const mfaHelpTextPopup = await page.$(selectors.myAccountPagePO.HELP_BUBBLE);
         const mfaHelpText = await mfaHelpTextPopup.textContent();

@@ -1,0 +1,209 @@
+{
+  "name": "TC_C95279_C95315",
+  "referencename": "TC_C95279_C95315",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Http Export",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "_sourceId": "647ed5a8c8b74d6454789f5c",
+            "apiIdentifier": "ee0d9b7dfa",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "http": {
+              "relativeURI": "/users",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "users"
+              }
+            },
+            "test": {
+              "limit": 10
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "rules": [[]],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [[]]
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Http Import create users",
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "_sourceId": "64884a95fa261935f884a9e5",
+            "apiIdentifier": "i55311fba8",
+            "hooks": {
+              "preMap": {
+                "function": "preMap",
+                "_scriptId": ""
+              },
+              "postMap": {
+                "function": "postMap",
+                "_scriptId": ""
+              },
+              "postSubmit": {
+                "function": "postSubmit",
+                "_scriptId": ""
+              }
+            },
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "user.name"
+                }
+              ]
+            },
+            "mappings": [
+              {
+                "extract": "$.Id",
+                "generate": "id",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              }
+            ],
+            "http": {
+              "relativeURI": ["/users"],
+              "method": ["POST"],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "rules": [],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": []
+            },
+            "adaptorType": "HTTPImport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Ftp Import",
+            "responseTransform": {
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  [
+                    {
+                      "extract": "mockResponse",
+                      "generate": "Response"
+                    }
+                  ]
+                ],
+                "version": "1"
+              },
+              "version": "1",
+              "rules": [
+                [
+                  {
+                    "extract": "mockResponse",
+                    "generate": "Response"
+                  }
+                ]
+              ]
+            },
+            "mockResponse": [
+              {
+                "id": "1234567890",
+                "errors": [],
+                "_json": {
+                  "mockResponse": "replace me"
+                },
+                "statusCode": 200,
+                "ignored": false,
+                "dataURI": "",
+                "_headers": {
+                  "content-type": "application/json; charset=utf-8"
+                }
+              }
+            ],
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "647ed953e9fd4b447efd28ea",
+            "apiIdentifier": "ic034e7c11",
+            "oneToMany": false,
+            "file": {
+              "fileName": "import.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "import.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C95279_C95315",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          },
+          {
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

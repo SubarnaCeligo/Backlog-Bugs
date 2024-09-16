@@ -1,0 +1,123 @@
+{
+    "name": "TC_C59671",
+    "referencename": "TC_C59671",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Ftp Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e3f49c11c0",
+                        "asynchronous": true,
+                        "sampleData": [
+                            {
+                                "name": "Auto@TC_C59671",
+                                "notes": "TC_C59671@mail.com"
+                            }
+                        ],
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                            "fileNameStartsWith": "TC_C59671",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                },
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e27dab7c47",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Http Import",
+                        "mockResponse": [
+                            {
+                                "statusCode": 200,
+                                "id": "9222623681426",
+                                "_json": {
+                                    "organization": {
+                                        "id": 9222623681426,
+                                        "name": "Mary Poppins",
+                                        "details": "17 Cherry Tree Lane"
+                                    }
+                                },
+                                "_headers": {
+                                    "date": "Thu, 22 Dec 2022 10:50:18 GMT",
+                                    "content-type": "application/json; charset=utf-8",
+                                    "x-zendesk-application-version": "v14974",
+                                    "x-frame-options": "SAMEORIGIN"
+                                }
+                            }
+                        ],
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "users"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C59671",
+                "disabled": false,
+                "_integrationId": "63232c59d3a9897fe95f9f2a",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -28,13 +28,14 @@ test.describe("C1076", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
+    await io.homePage.click(selectors.homePagePO.TILE_VIEW)
     await io.homePage.fill(
       selectors.integrationPagePO.HOME_SEARCH,
       "New@#$#$#Integration12"
     );
-
-    await io.homePage.waitForElementAttached("text=New@#$#$#Integration12");
-    var name = await io.homePage.getText(selectors.integrationPagePO.INTEGRATION_TILE)
+    await io.homePage.loadingTime();
+    var name = await io.homePage.getText(selectors.homePagePO.INTEGRATION_TILES + ' h3 span')
+    await io.homePage.loadingTime();
     expect(name[0]).toEqual("New@#$#$#Integration12");
     await test.step("*** Verified the Integration is Created ***", () => { });
     await io.homePage.click(

@@ -1,0 +1,72 @@
+{
+  "integrationDetails": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C41187_Del",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "TC_Clone_C41187_Del",
+    "Integration_Clone": true,
+    "qa__api_tdata": [
+      {
+        "createIntegrations": {
+          "name": "TC_C41187_Del"
+        }
+      }
+    ]
+  },
+  "flowsData": {
+    "flowname1": "TC_C41187",
+    "qa__api_tdata": [
+      {
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C41187 Netsuite Import",
+              "parsers": [],
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "i45477eaa3",
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                  "fields": [],
+                  "lists": []
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41187",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "pull": {
+    "integrationToPull": "TC_C41187_Del",
+    "oldConnections": [
+      "NETSUITE CONNECTION"
+    ],
+    "qa__oldConnections": [
+      "NETSUITE CONNECTION"
+    ]
+  }
+}

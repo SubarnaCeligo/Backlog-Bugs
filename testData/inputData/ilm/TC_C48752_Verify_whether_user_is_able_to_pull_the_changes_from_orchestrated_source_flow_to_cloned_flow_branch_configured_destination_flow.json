@@ -1,0 +1,214 @@
+{
+    "pull": [
+        {
+            "integrationToPull": "48752_DELETE",
+            "oldConnections": [
+                "631ae17fd2f06368a0498470",
+                "FTP CONNECTION"
+            ],
+            "qa__oldConnections": [
+                "62ceb6fe1c7d25040278087d",
+                "FTP CONNECTION"
+            ]
+        }
+    ],
+    "Revert_Description": "Reverted to Pull",
+    "revisionLongDescriptionVerification": {
+        "descriptionIncludes": "Reverted to Pull"
+    },
+    "templateJSON": {
+        "createPull": true,
+        "Source_Environment": "Production",
+        "Source_Integration": "48752_Clone_DELETE",
+        "Integration_Clone": true,
+        "Clone_To_Integrate": "48752_DELETE",
+        "type": "Pull",
+        "status": "Completed",
+        "connections": [
+            "631ae17fd2f06368a0498470"
+        ],
+        "qa__connections": [
+            "62ceb6fe1c7d25040278087d"
+        ],
+        "Destination_Enviornment": "Production",
+        "Flow_Name_Update_Integration": "48752_Clone_DELETE"
+    },
+    "jsonDataClone": {
+        "Source_Environment": "Production",
+        "Source_Integration": "48752_DELETE",
+        "Integration_Clone": true,
+        "Clone_To_Integrate": "48752_Clone_DELETE",
+        "Destination_Enviornment": "Production",
+        "connections": [
+            "NETSUITE CONNECTION",
+            "FTP CONNECTION"
+        ],
+        "qa__connections": [
+            "NETSUITE CONNECTION",
+            "FTP CONNECTION"
+        ],
+        "Flow_Name_Update_Integration": "48752_Clone_DELETE"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C48752_Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "apiIdentifier": "e78a18e716",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3281",
+                                "useSS2Restlets": false,
+                                "markExportedBatchSize": 100
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "TC_C48752_Import_1",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ia42501525",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "TC_C48752_1.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "TC_C48752_1.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                },
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "TC_C48752_2",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i33ad8d703",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "TC_C48752_2.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "TC_C48752_2.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "Del_TC_ILM_C48752_FLOW",
+                "disabled": true,
+                "skipRetries": false,
+                "_integrationId": "",
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    },
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            },
+            "createIntegrations": {
+                "name": "48752_DELETE"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "routeRecordsTo": "all_matching_branches",
+            "routeRecordsUsing": "input_filters",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "qa__rules": [
+                        [
+                            "record.[Company Name]",
+                            "equal",
+                            "NStoFTP Test1"
+                        ]
+                    ],
+                    "pageProcessors": [
+                        {
+                            "type": "import",
+                            "qa__import": {
+                                "name": "Delete_TC_ILM_C48752_B1_Import",
+                                "application": "zendesk support",
+                                "_connectionId": "631ae17fd2f06368a0498470",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "http": {
+                                    "relativeURI": [
+                                        "/test"
+                                    ],
+                                    "method": [
+                                        "PUT"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "qa__rules": [
+                        [
+                            "record.[Company Name]",
+                            "equal",
+                            "NStoFTP Test1"
+                        ]
+                    ],
+                    "pageProcessors": []
+                }
+            ]
+        }
+    ]
+}

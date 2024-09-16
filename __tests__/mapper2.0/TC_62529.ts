@@ -17,6 +17,11 @@ test.describe("TC_62529", () => {
     await io.flowBuilder.navigateToTheFlow(flowID);
     await io.homePage.isPageReady();
     await io.homePage.loadingTime();
+
+    await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
+    await io.homePage.isPageReady();
+    await io.homePage.loadingTime();
+
     test.step("*** Navigated to mapper flow ***", async ()=>{});
     await io.homePage.clickByIndex(
       selectors.basePagePO.ADD_DATA_PROCESSOR,

@@ -67,12 +67,29 @@ test.describe("@Env-All @Zephyr-IO-T3018 |@Env-All @Zephyr-IO-T3019", () => {
     await io.homePage.loadingTime();
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
-    await io.flowBuilder.fill(selectors.integrationPagePO.HOME_SEARCH,'C32986_integration');
+    await io.flowBuilder.fill(selectors.integrationPagePO.HOME_SEARCH,'32986_integration');
+    await io.homePage.loadingTime();
+    await io.homePage.click(selectors.homePagePO.LIST_VIEW);
     await io.homePage.loadingTime();
     const label = await page.$$("tr:nth-child(1) > td:nth-child(3) > div> button");
     const succ = await label[1].textContent();
     console.log(succ);
     expect(succ).toBe('1 connection down');
+    await io.flowBuilder.clickByText('C32986_integration');
+    await io.homePage.loadingTime();
+    await io.flowBuilder.click(selectors.basePagePO.OFF_ON);
+    await io.flowBuilder.click(selectors.myAccountPagePO.CONFIRMDISABLE)
+    await io.homePage.loadingTime();
+    await io.flowBuilder.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU,1);
+    await io.flowBuilder.click(selectors.integrationPagePO.DELETE_FLOW);
+    await io.homePage.loadingTime();
+    await io.flowBuilder.click(selectors.basePagePO.DELETE_BUTTON);
+    await io.homePage.loadingTime();
+    await io.flowBuilder.click(selectors.integrationPagePO.DELETE_INTEGRATION);
+    await io.homePage.loadingTime();
+    await io.flowBuilder.click(selectors.basePagePO.DELETE_BUTTON);
+    await io.homePage.loadingTime();
+    await page.getByText('My integrations');
   });
 
   test("@Env-All @Zephyr-IO-T3019 To verify Error timestamp is displayed under Last open error column", async ({io,page}) => {
@@ -118,11 +135,16 @@ test.describe("@Env-All @Zephyr-IO-T3018 |@Env-All @Zephyr-IO-T3019", () => {
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
-    const lastRun = page.getByText('Last run');
+    const lastRun = await page.getByText('Last run');
     await lastRun.waitFor({state: 'visible', timeout: 180000});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
-    await io.flowBuilder.fill(selectors.integrationPagePO.HOME_SEARCH,'C32987_integration');
+    await io.flowBuilder.fill(selectors.integrationPagePO.HOME_SEARCH,'32987_integration');
+    await io.homePage.loadingTime();
+    await io.flowBuilder.clickByText('C32987_integration');
+    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
+    await io.homePage.click(selectors.homePagePO.LIST_VIEW);
     await io.homePage.loadingTime();
     const errorElement = await page.getByText('Last open error');
     await errorElement.click();
@@ -130,5 +152,20 @@ test.describe("@Env-All @Zephyr-IO-T3018 |@Env-All @Zephyr-IO-T3019", () => {
     const timestamp = await homeTime.textContent();
 
     await expect(timestamp).not.toBe("");
+    await io.flowBuilder.clickByText('C32987_integration');
+    await io.homePage.loadingTime();
+    await io.flowBuilder.click(selectors.basePagePO.OFF_ON);
+    await io.flowBuilder.click(selectors.myAccountPagePO.CONFIRMDISABLE)
+    await io.homePage.loadingTime();
+    await io.flowBuilder.clickByIndex(selectors.integrationPagePO.OPENACTIONSMENU,1);
+    await io.flowBuilder.click(selectors.integrationPagePO.DELETE_FLOW);
+    await io.homePage.loadingTime();
+    await io.flowBuilder.click(selectors.basePagePO.DELETE_BUTTON);
+    await io.homePage.loadingTime();
+    await io.flowBuilder.click(selectors.integrationPagePO.DELETE_INTEGRATION);
+    await io.homePage.loadingTime();
+    await io.flowBuilder.click(selectors.basePagePO.DELETE_BUTTON);
+    await io.homePage.loadingTime();
+    await page.getByText('My integrations');
   });
 });

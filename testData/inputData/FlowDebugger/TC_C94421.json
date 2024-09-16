@@ -1,0 +1,100 @@
+{
+    "name": "TC_C94421",
+    "referencename": "TC_C94421",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "Graphql paging",
+              "_connectionId": "GraphQL",
+              "_sourceId": "649431e262aaa0171ea64406",
+              "apiIdentifier": "e49bdc5fe0",
+              "asynchronous": true,
+              "oneToMany": false,
+              "http": {
+                "method": "POST",
+                "body": "{\"query\":\"{   orders(first: 1) {     edges {       cursor       node {         id         discountCode         updatedAt         lineItems(first: 30) {           edges {             node {               id               quantity               sku               originalUnitPrice               fulfillmentService {                 serviceName               }               taxLines {                 rate                 ratePercentage                 title               }             }           }         }         risks {           level           message         }         paymentGatewayNames         billingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         shippingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         customer {           id           email          phone         }         transactions {           amount           kind           id           gateway           status           authorizationCode           amountV2 {             currencyCode             amount           }           order {             id           }         }       }     }   } }\",\"variables\":{\"episode\":\"JEDI\"}}",
+                "formType": "graph_ql",
+                "paging": {
+                  "method": "body",
+                  "body": "{\"query\":\"{   orders(first: 1) {     edges {       cursor       node {         id         discountCode         updatedAt         lineItems(first: 30) {           edges {             node {               id               quantity               sku               originalUnitPrice               fulfillmentService {                 serviceName               }               taxLines {                 rate                 ratePercentage                 title               }             }           }         }         risks {           level           message         }         paymentGatewayNames         billingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         shippingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         customer {           id           email          phone         }         transactions {           amount           kind           id           gateway           status           authorizationCode           amountV2 {             currencyCode             amount           }           order {             id           }         }       }     }   } }\",\"operationName\":\"update\",\"variables\":{\"episode\":\"JEDI\"}}"
+                },
+                "response": {
+                  "resourcePath": "data"
+                }
+              },
+              "rawData": "648079a4e26e647491cad2af90e3e011a82449928303e661e415e0ca",
+              "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "GrapHQL_import",
+              "mockResponse": [
+                {
+                  "id": "1234567890",
+                  "errors": [],
+                  "_json": {
+                    "mockResponse": "replace me"
+                  },
+                  "statusCode": 200,
+                  "ignored": false,
+                  "dataURI": "",
+                  "_headers": {
+                    "content-type": "application/json; charset=utf-8"
+                  }
+                }
+              ],
+              "_connectionId": "GraphQL",
+              "_sourceId": "64902e4db8a3b1358eacc10d",
+              "apiIdentifier": "iebc1be2b4",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "dataURITemplate": "{{records.customers.id}}.",
+              "oneToMany": false,
+              "http": {
+                "relativeURI": ["/"],
+                "method": ["POST"],
+                "body": [
+                  "{\"query\":\"{   orders(first: 1) {     edges {       cursor       node {         id         discountCode         updatedAt         lineItems(first: 30) {           edges {             node {               id               quantity               sku               originalUnitPrice               fulfillmentService {                 serviceName               }               taxLines {                 rate                 ratePercentage                 title               }             }           }         }         risks {           level           message         }         paymentGatewayNames         billingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         shippingAddress {           address1           address2           city           company           countryCode           name           provinceCode           phone           zip         }         customer {           id           email          phone         }         transactions {           amount           kind           id           gateway           status           authorizationCode           amountV2 {             currencyCode             amount           }           order {             id           }         }       }     }   } }\"}"
+                ],
+                "sendPostMappedData": true,
+                "formType": "graph_ql",
+                "response": {
+                  "resourceIdPath": ["data.orders.edges"]
+                }
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C94421",
+          "disabled": false,
+          "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

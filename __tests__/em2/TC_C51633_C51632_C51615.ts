@@ -17,6 +17,9 @@ test.describe("TC_C51633_C51632_C51615", () => {
     await io.homePage.isPageReady();
 
     test.step("Error Table is opened", async ()=>{});
+    await io.homePage.delay(10000);
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     await io.homePage.click(selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON);
     const text = (await io.homePage.getText(selectors.basePagePO.ACE_CONTENT)).toString();
     await io.homePage.click(selectors.flowBuilderPagePO.NEXT_ERROR_BUTTON);
