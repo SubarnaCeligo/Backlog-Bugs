@@ -7,7 +7,7 @@ test.describe(`C68561 Verify user is upload the integration zip file having Mult
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test.afterEach(async ({ io }) => {
+  test.afterEach(async ({ io,page }) => {
     const res = await io.api.deleteCall(
       `v1/flows/${testdata.secondString}`,
     );
@@ -21,7 +21,7 @@ test.describe(`C68561 Verify user is upload the integration zip file having Mult
     await io.homePage.loadingTime();
 
     //Unpublish the template
-    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
+    let isPublished =  await page.isVisible('button[data-state="checked"]');
     if(isPublished){
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
@@ -49,14 +49,15 @@ test.describe(`C68561 Verify user is upload the integration zip file having Mult
     await io.homePage.loadingTime();
    
     //Publish the template
-    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
+    let isPublished =  await page.isVisible('button[data-state="checked"]');
     if(!isPublished){
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
       await io.homePage.click(selectors.integrationPagePO.PUBLISH);
     await io.homePage.loadingTime();
     //Verify that toggle is checked
-    await io.assert.verifyElementAttributeContainsText(selectors.basePagePO.TEMPLATE_TOGGLE,'class', 'react-toggle--checked');
+    const button = page.locator('button[data-state="checked"]'); // More specific selector
+    await expect(button).toHaveAttribute('data-state', 'checked');
     }
 
     //Go to marketplace
