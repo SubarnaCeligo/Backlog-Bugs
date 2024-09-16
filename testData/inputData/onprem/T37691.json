@@ -1,0 +1,13 @@
+{
+    "name": "MSSQL T37691",
+    "_connectionId": "MSSQL ONPREM CONNECTION",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "rdbms": {
+      "query": ["select *"],
+      "queryType": ["INSERT"]
+    },
+    "adaptorType": "RDBMSImport"
+  }
