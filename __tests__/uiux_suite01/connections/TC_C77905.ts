@@ -9,7 +9,7 @@ test.afterEach(async ({ io }) => {
   await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
   test("@Env-All @Zephyr-IO-T22129 C77905 To verify that the user should be able to create the Amazon/Salesforce oauth2.0 connection successfully.", async ({ io, page }) => {
-    let x=await io.connections.getConnection("AMAZON SP API CONNECTION");
+    let x = await io.connections.getConnection("AMAZON SP API CONNECTION");
     let authorizationUrl = await io.api.getCall("v1/connection/" + x._id + "/oauth2");
     await io.exportsPage.navigateTo(authorizationUrl.authorizationUrl);
     await io.flowBuilder.loadingTime();
@@ -17,19 +17,19 @@ test.afterEach(async ({ io }) => {
     try{
       await io.assert.verifyElementDisplayedByText(
         "Email or mobile phone number",
-        "Verify Email or mobile phone number is displayed"
+        "Verify Email or mobile phone number is not displayed"
       );
       await io.assert.verifyElementDisplayedByText(
-        "Password",
-        "Verify Password is displayed"
+        "Continue",
+        "Continue button is displayed"
       );
     logpage = true;
     }
     catch(e){
       try{
         await io.assert.verifyElementDisplayedByText(
-          "Server Busy",
-          "Verify Email or mobile phone number is displayed"
+          "amazon seller central",
+          "amazon seller central is not displayed"
         );
         logpage = true;
       }
