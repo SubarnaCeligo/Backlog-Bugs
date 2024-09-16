@@ -11,7 +11,7 @@ test.describe('C93991 Verify user is able to unset hooks/transform filters/input
         await io.flowBuilder.click(selectors.flowBuilderPagePO.PAGE_PROCESSOR_HOOKS);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPT_ID, 1);
-        await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM, 2);
+        await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM, 0);
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.SCRIPT_ID, 1);
         await io.flowBuilder.clickByIndex(selectors.basePagePO.MENU_ITEM, 0);
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);

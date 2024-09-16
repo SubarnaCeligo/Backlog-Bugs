@@ -4,6 +4,8 @@ import TC from '@testData/FlowBuilder/T37514.json';
 
 test.describe("@Author_MaheshNivruttiSutar ", () => {
     test("@Bug-IO-93745 @Env-All @Priority-P2 @Zephyr-IO-T37514", async ({ io, page }) => {
+        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+
         const id = await io.createResourceFromAPI(TC, "FLOWS");
         await io.homePage.loadingTime();
 

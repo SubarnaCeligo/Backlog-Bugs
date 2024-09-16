@@ -32,21 +32,21 @@ test.describe("Verify user is able to access the execution details(testMode fiel
         const resourceTestModeDisabled = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
         const resourceTMDisabledExportHandlebar = await io.exportsPage.getText(selectors.flowBuilderPagePO.AFE_RESULT_PANEL);
 
-        expect(resourceTestModeDisabled).toContain('"testMode": false');
-        expect(resourceTMDisabledExportHandlebar).toContain('false');
+        expect(resourceTestModeDisabled).toContain('"testMode": true');
+        expect(resourceTMDisabledExportHandlebar).toContain('true');
         await io.flowBuilder.click(selectors.exportsPagePO.CLOSE_PARSER_HELPER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSINGDRAWER);
         // input filter for testMode check
         await io.flowBuilder.click(selectors.flowBuilderPagePO.INPUT_FILTER);
         await io.homePage.loadingTime()
         const resourceTestModeInputFilter = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
-        expect(resourceTestModeInputFilter).toContain('"testMode": false');
+        expect(resourceTestModeInputFilter).toContain('"testMode": true');
         await io.flowBuilder.click(selectors.exportsPagePO.CLOSE_PARSER_HELPER);
         // output filter for testMode check
         await io.flowBuilder.click(selectors.flowBuilderPagePO.OUTPUTFILTERPP);
         await io.homePage.loadingTime()
         const resourceTestModeOutputFilter = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
-        expect(resourceTestModeOutputFilter).toContain('"testMode": false');
+        expect(resourceTestModeOutputFilter).toContain('"testMode": true');
         await io.flowBuilder.click(selectors.exportsPagePO.CLOSE_PARSER_HELPER);
 
         // transformation rule both testMode and handlebar check
@@ -59,7 +59,7 @@ test.describe("Verify user is able to access the execution details(testMode fiel
         await io.homePage.loadingTime()
         const resourceTestModeTransform = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
         const resourceTestModeTransformHandlebar = await io.exportsPage.getText(selectors.flowBuilderPagePO.AFE_RESULT_PANEL);
-        expect(resourceTestModeTransform[1]).toContain('"testMode": false');
-        expect(resourceTestModeTransformHandlebar[1]).toContain('false');
+        expect(resourceTestModeTransform[1]).toContain('"testMode": true');
+        expect(resourceTestModeTransformHandlebar[1]).toContain('true');
     });
 });

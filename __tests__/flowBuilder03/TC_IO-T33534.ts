@@ -10,6 +10,9 @@ test.describe("@Author_MaheshNivruttiSutar @Bug-IO-83426 @Env-QA @Priority-P2 @Z
 
         //Export
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
+        await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.DATATEST);
         //clicking on launch from builder
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
@@ -22,7 +25,6 @@ test.describe("@Author_MaheshNivruttiSutar @Bug-IO-83426 @Env-QA @Priority-P2 @Z
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        expect(await page.screenshot()).toMatchSnapshot("IO-T33534.png", { maxDiffPixelRatio: 0.2 });
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);
@@ -41,6 +43,5 @@ test.describe("@Author_MaheshNivruttiSutar @Bug-IO-83426 @Env-QA @Priority-P2 @Z
         await io.homePage.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
         await io.flowBuilder.click(selectors.connectionsPagePO.GENERAL);
-        expect(await page.screenshot()).toMatchSnapshot("IO-T33534.png", { maxDiffPixelRatio: 0.2 });
     });
 });

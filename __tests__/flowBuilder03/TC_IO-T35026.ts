@@ -22,7 +22,9 @@ test.describe("@Author_MaheshNivruttiSutar Verify Selected form values is persis
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
         await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'WALMART');
-        await io.flowBuilder.clickByText('Walmart Mexico');
+        await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST);
+        await io.exportsPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONDROP0);
+        await io.exportsPage.click(selectors.connectionsPagePO.CONNECTIONDROP0);
         await io.flowBuilder.loadingTime();
         const isRevisionsDisplayed = await io.flowBuilder.isVisible('text="A value must be provided"');
         await io.assert.expectToBeFalse(isRevisionsDisplayed, "Error is displayed");

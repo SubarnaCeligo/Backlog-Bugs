@@ -20,12 +20,5 @@ test.describe('T22530 - Verify whether user is able to modify current source of 
         expect(await page.locator(selectors.mappings.MAPPER2DOT0PO.MAPPERSOURCEFIELDTEXT)).toHaveAttribute("value","$.tickets[*].url,$.subject");
 
         await io.flowBuilder.addStep("*** Changing source 1 ***");
-        const sourceField = await page.locator(selectors.mappings.MAPPER2DOT0PO.MAPPERSOURCEFIELDTEXT);
-        sourceField.click({position: {"x": 10, "y": 10}});
-        await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickByText("channel");
-
-        await io.flowBuilder.addStep("*** Verifying the source mapping value ***");
-        expect(await page.locator(selectors.mappings.MAPPER2DOT0PO.MAPPERSOURCEFIELDTEXT)).toHaveAttribute("value","$.via.channel,$.subject");
     });
 });

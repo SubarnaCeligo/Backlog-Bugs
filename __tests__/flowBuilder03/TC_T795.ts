@@ -16,6 +16,7 @@ test.describe("TC_T23334 Verified insert , update, insert/update operations for 
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUN_FLOW);
         await io.flowBuilder.loadingTime()
         const lastRun = page.getByText('Last run');
         await lastRun.waitFor({ state: 'visible', timeout: 300000 });

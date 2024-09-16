@@ -7,6 +7,8 @@ test.describe('C34783 UI is crashing when we select mapping option at page proce
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
+        await io.homePage.loadingTime()
     });
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteFlowViaAPI(id);

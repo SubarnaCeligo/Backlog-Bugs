@@ -9,7 +9,7 @@ test.describe(`C66299 Verify the display text will auto adjust to the full chara
   }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.homePage.loadingTime();
-    const randomString = "Automation Acc Automation Acc Automation Acc Automation Acc Automation Acc Automation Acc" + Math.random().toString(36).substring(7);
+    const randomString = "Automation Account flowbuilder03 acc";
     await io.myAccountPage.click(`${selectors.signUpPagePO.NAME} input`);
     await io.myAccountPage.fill(`${selectors.signUpPagePO.NAME} input`, randomString);
     const element = page.getByText('Save');
@@ -34,7 +34,7 @@ test.describe(`C66299 Verify the display text will auto adjust to the full chara
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     await io.homePage.loadingTime();
     await io.myAccountPage.click(`${selectors.signUpPagePO.NAME} input`);
-    await io.myAccountPage.fill(`${selectors.signUpPagePO.NAME} input`, 'Automation Acc');
+    await io.myAccountPage.fill(`${selectors.signUpPagePO.NAME} input`, 'Automation Account flowbuilder03');
     const saveBtn = page.getByText('Save');
     await saveBtn.scrollIntoViewIfNeeded();
     await io.myAccountPage.clickByText('Save');

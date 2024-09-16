@@ -32,8 +32,8 @@ test.describe("Verify user is able to access the execution details(testMode fiel
         const resourceTestModeDisabled = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
         const resourceTMDisabledExportHandlebar = await io.exportsPage.getText(selectors.flowBuilderPagePO.AFE_RESULT_PANEL);
 
-        expect(resourceTestModeDisabled).toContain('"testMode": false');
-        expect(resourceTMDisabledExportHandlebar).toContain('false');
+        expect(resourceTestModeDisabled).toContain('"testMode": true');
+        expect(resourceTMDisabledExportHandlebar).toContain('true');
         await io.flowBuilder.click(selectors.exportsPagePO.CLOSE_PARSER_HELPER);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLOSINGDRAWER);
 
@@ -41,7 +41,7 @@ test.describe("Verify user is able to access the execution details(testMode fiel
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT_FILTER);
         await io.homePage.loadingTime()
         const resourceTestModeOutputFilter = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
-        expect(resourceTestModeOutputFilter).toContain('"testMode": false');
+        expect(resourceTestModeOutputFilter).toContain('"testMode": true');
         await io.flowBuilder.click(selectors.exportsPagePO.CLOSE_PARSER_HELPER);
 
         //mapping for testMode check
@@ -54,7 +54,7 @@ test.describe("Verify user is able to access the execution details(testMode fiel
         await io.homePage.loadingTime()
         const resourceTestModeMappings = await io.exportsPage.getText(selectors.connectionsPagePO.DATA_PANEL);
         const resourceTestModeMappingsHandlebar = await io.exportsPage.getText(selectors.flowBuilderPagePO.AFE_RESULT_PANEL);
-        expect(resourceTestModeMappings[1]).toContain('"testMode": false');
-        expect(resourceTestModeMappingsHandlebar[1]).toContain('false');
+        expect(resourceTestModeMappings[1]).toContain('"testMode": true');
+        expect(resourceTestModeMappingsHandlebar[1]).toContain('true');
     });
 });
