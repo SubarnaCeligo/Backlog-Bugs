@@ -27,7 +27,8 @@ test.describe("@Author-Shriti S Verify that clicking on error hyperlink on flows
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.FILTER_BUTTON);
     await io.homePage.clickByIndex(selectors.dashboardPagePO.FILTER_BUTTON, 1);
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
-    await io.homePage.clickByTextByIndex("EDI_FLow_FilterTest_DND", 0);
+    await page.locator(selectors.dashboardPagePO.DASHBOARD_INT_FLOW_FILTER_POPUP, { hasText: 'EDI_FLow_FilterTest_DND' }).click();
+    // await io.homePage.clickByTextByIndex("EDI_FLow_FilterTest_DND", 0);
     await io.homePage.clickByText("Apply");
 
     //Open errors hyperlink

@@ -22,7 +22,7 @@
                             "skipGrouping": true,
                             "statsOnly": false,
                             "restlet": {
-                                "recordType": "customer",
+                                "recordType": "dummy",
                                 "searchId": "3814",
                                 "useSS2Restlets": true,
                                 "criteria": [

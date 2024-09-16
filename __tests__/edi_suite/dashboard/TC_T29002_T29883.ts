@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that entries on Documents dashboard are p
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29002 @Zephyr-IO-T29883 Verify that entries on Documents dashboard are paginated.", async ({ io, page }) => {
+  test("@Env-QA @Env-IAQA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29002 @Zephyr-IO-T29883 Verify that entries on Documents dashboard are paginated.", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
@@ -34,7 +34,7 @@ test.describe("@Author-Shriti S Verify that entries on Documents dashboard are p
     await io.assert.expectToBeValue('100', numOfRows.toString(), '100 rows are not displayed');
 
     //Change Records per page to 10
-    await io.homePage.clickByIndex(selectors.dashboardPagePO.PAGINATION_CHEVRON, 1);
+    await io.homePage.clickByIndex(selectors.dashboardPagePO.PAGINATION_CHEVRON, 2);
     await io.homePage.waitForElementAttached(selectors.dashboardPagePO.TEN_ITEMS_PER_PAGE);
     await io.homePage.click(selectors.dashboardPagePO.TEN_ITEMS_PER_PAGE);
     await io.homePage.loadingTime();

@@ -49,10 +49,12 @@ test.describe(`C12034_Verify Import and load the export which has 4000+ audit re
     await io.homePage.click(selectors.basePagePO.SAVE);
     await io.homePage.loadingTime();
 
+    if(await io.homePage.isVisible(selectors.basePagePO.INSTALL)){
     //Install
     await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.basePagePO.INSTALL);
     await io.homePage.click(selectors.basePagePO.INSTALL);
+    }
     
     await io.flowBuilder.clickByText("Last updated");
     await io.flowBuilder.loadingTime();

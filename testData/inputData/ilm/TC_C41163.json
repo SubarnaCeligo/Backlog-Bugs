@@ -1,0 +1,25 @@
+{
+    "importJSON": {
+        "integrationId": "",
+        "name": "HTTP-Slack"
+    },
+    "templateJSON": {
+        "Source_Integration": "TC_C41163",
+        "templateJSON": {
+          "Source_Environment": "Production",
+          "Source_Integration": "TC_C41163",
+          "Clone_To_Integrate": "Clone_TC_C41163"
+        },
+        "Source_Environment": "Production",
+        "Destination_Enviornment": "Production",
+        "Clone_To_Integrate": "Clone_TC_C41163",
+        "Integration_Clone": true
+    },
+    "connections": "HTTP SLACK CONNECTION",
+    "qa__connections":"HTTP SLACK CONNECTION",
+    "qa__api_tdata": [{
+        "createIntegrations": {
+            "name": "TC_C41163"
+        }
+    }]
+}

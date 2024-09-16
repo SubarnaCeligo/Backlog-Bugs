@@ -1,159 +1,36 @@
 {
-    "name": "TC_C15172",
-    "referencename": "TC_C15172",
-    "qa__api_tdata": [
+    "type": "salesforce",
+    "name": "SALESFORCE OFFLINE CONNECTION",
+    "offline": true,
+    "sandbox": false,
+    "enableMicroBatchForOneToMany": true,
+    "enableCsvObjectParsing": false,
+    "salesforce": {
+        "sandbox": false,
+        "username": "789",
+        "oauth2FlowType": "jwtBearerToken",
+        "packagedOAuth": true,
+        "concurrencyLevel": 5,
+        "targetConcurrencyLevel": 5
+    },
+    "autoRecoverRateLimitErrors": true,
+    "microServices": {
+        "disableNetSuiteWebservices": false,
+        "disableNetSuiteDistributed": false,
+        "disableNetSuiteProxy": false,
+        "disableHttp": false,
+        "disableS3": false,
+        "disableSalesforce": false,
+        "disableAs2": false,
+        "disableFile": false,
+        "disableFtp": false,
+        "disableNsFile": false,
+        "disableAs2File": false
+    },
+    "queues": [
         {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "FTP Export.",
-                        "_connectionId": "FTP CONNECTION",
-                        "_sourceId": "5e692baf676c961b09032fa5",
-                        "apiIdentifier": "e1e871b3fd",
-                        "asynchronous": true,
-                        "parsers": [],
-                        "sampleData": "Master EDI No,Invoice Number,Invoice Date,Type,Settle,Inv Charge,Trans Cnt,Bill-To Account,Cntry,GSA #,Consolidated Acct,Co Cd,Ground Tracking Number,Tracking Number,Rebill,Non-Dup,Ship Date,Svc,Pkg,Grd Svc,IPD Adr,Msg Cd 1,Ref 1,Ref 2,Ref 3,Store No,Cust PO No,Cust Dept No,Cust Inv No,RMA No,Device No,Device,Payor,Net Chrg,Curr,Chrg 1,Freight Amt,Chrg 2,Vol Disc,Chrg 3,Earned Disc,Chrg 4,Auto Disc,Chrg 5,Perf Price Disc,Chrg 6,Fuel Amt,Chrg 7,Resi Amt,Chrg 8,DAS Amt,Chrg 9,On-Call Amt,Chrg 10,D.V. Amt,Chrg 11,Sign Svc Amt,Chrg 12,Sat Amt,Chrg 13,Addn Hndlg Amt,Chrg 14,Adr Corr Amt,Chrg 15,GST Amt,Chrg 16,Duty Amt,Chrg 17,Adv Fee Amt,Chrg 18,Orig VAT Amt,Chrg 19,Misc 1 Amt,Chrg 20,Misc 2 Amt,Chrg 21,Misc 3 Amt,Exchg Rate,Exc Curr,Fuel Pct,EU Bd,Count,Call Tag,Dec Value,Customs Value,DV-Cus Curr,Entry Number,MTWT No,Scale,Pcs,Bill Wt,Orig Wt,Multi Wt,Wt Unit,Length,Width,Height,Dim Unit,Divisor,Misc 1,Misc 2,Misc 3,Shipper Name,Shipper Company,Shipper Dept,Shipper Address 1,Shipper Address 2,Shipper City,ST,Postal,Origin Zip,Cntry1,Region,Recipient Name,Recipient Company,Recipient Address 1,Recipient Address 2,Recipient City,ST2,Postal2,Cntry2,Handling,Delivery,Time,Final,Exceptn,Attempt Date,Attempt Time,Signature,Svc Area,COD Amt,COD Trkg No,PDue,PDue Inv,Svc Pct,Rev Threshold Amt,Orig Recip Adr 1,Orig Recip Adr 2,Original City,ST3,Postal3,Intl Ground Ship No, \r\n975184757,671279029,20190820,O,D,91.83,13,740045784,US,,,3,7.75964E+11,7.75964E+11,1,,20190812,92,1,417,,,19-01304,,,,19-01304,,,,,,3,6.8,USD,50,13,,,258,-3.79,,,263,-3.01,311,0.43,,,,,,,,,,,,,,,,,,,,,,,,,BOG,0.17,,,,,,USD,,,0,,,,,,,GROUND,1,12,11.8,,L,13,11,5,I,166,185,,,Shipping Department,Ed Krakowski,,1066 NATIONAL PKWY,,SCHAUMBURG,IL,60173,601,US,4,RECEIVING,HOME CHEF - GA,2200 LITHONIA INDUSTRIAL BLVD,,LITHONIA,GA,300584614,US,D,20190814,,,,,,,,,,,,,,,,,,,,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              \r\n975184757,671279029,20190820,O,D,91.83,13,740045784,US,,,3,7.75964E+11,7.75964E+11,1,,20190812,92,1,417,,,19-01304,,,,19-01304,,,,,,3,6.8,USD,50,13,,,258,-3.79,,,263,-3.01,311,0.43,,,,,,,,,,,,,,,,,,,,,,,,,BOG,0.17,,,,,,USD,,,0,,,,,,,GROUND,1,12,11.8,,L,13,11,5,I,166,185,,,Shipping Department,Ed Krakowski,,1066 NATIONAL PKWY,,SCHAUMBURG,IL,60173,601,US,4,RECEIVING,HOME CHEF - GA,2200 LITHONIA INDUSTRIAL BLVD,,LITHONIA,GA,300584614,US,D,20190814,,,,,,,,,,,,,,,,,,,,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
-                        "ftp": {
-                            "directoryPath": "/Venkat",
-                            "fileNameStartsWith": "testdata"
-                        },
-                        "file": {
-                            "encoding": "utf8",
-                            "output": "records",
-                            "skipDelete": true,
-                            "type": "csv",
-                            "csv": {
-                                "rowDelimiter": "\r\n",
-                                "columnDelimiter": ",",
-                                "keyColumns": [
-                                    "Invoice Number"
-                                ],
-                                "hasHeaderRow": true,
-                                "trimSpaces": true,
-                                "rowsToSkip": 0
-                            }
-                        },
-                        "filter": {
-                            "type": "expression",
-                            "expression": {
-                                "version": "1"
-                            },
-                            "version": "1"
-                        },
-                        "inputFilter": {
-                            "type": "expression",
-                            "expression": {
-                                "version": "1"
-                            },
-                            "version": "1"
-                        },
-                        "adaptorType": "FTPExport"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "salesforce-import",
-                        "_connectionId": "SALESFORCE OFFLINE CONNECTION",
-                        "apiIdentifier": "ief009dfe9",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "sandbox": false,
-                        "mapping": {
-                          "fields": [
-                            {
-                              "extract": "[Partner ID Code]",
-                              "generate": "Name"
-                            }
-                          ]
-                        },
-                        "salesforce": {
-                          "operation": "insert",
-                          "sObjectType": "Account",
-                          "api": "soap",
-                          "removeNonSubmittableFields": false
-                        },
-                        "adaptorType": "SalesforceImport"
-                      }
-                },
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "S3 import",
-                        "responseTransform": {
-                            "type": "expression",
-                            "expression": {
-                                "version": "1"
-                            },
-                            "version": "1"
-                        },
-                        "_connectionId": "S3 CONNECTION",
-                        "_sourceId": "5e693313e5471b12b837ffcf",
-                        "distributed": false,
-                        "apiIdentifier": "ifc70f5da4",
-                        "file": {
-                            "skipAggregation": false,
-                            "type": "csv",
-                            "compressionFormat": "gzip",
-                            "csv": {
-                                "rowDelimiter": "\r\n",
-                                "columnDelimiter": ",",
-                                "includeHeader": true,
-                                "wrapWithQuotes": false,
-                                "replaceTabWithSpace": false,
-                                "replaceNewlineWithSpace": false
-                            }
-                        },
-                        "s3": {
-                            "region": "us-east-1",
-                            "bucket": "venkatqa",
-                            "fileKey": "Large single file.csv"
-                        },
-                        "filter": {
-                            "type": "expression",
-                            "expression": {
-                                "version": "1"
-                            },
-                            "version": "1"
-                        },
-                        "adaptorType": "S3Import"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C15172",
-                "disabled": false,
-                "qa__integrationId": "62eca1efe386b563f638451e",
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "skipRetries": false,
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    },
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    }
-                ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
-                    }
-                ]
-            }
+            "name": "66e215d42783432be7addeb8",
+            "size": 0
         }
     ]
 }

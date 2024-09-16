@@ -2,13 +2,13 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import HTTP from "@testData/STANDALONE/TC_C32175.json";
 
-test.describe("TC_C32175_Verify_Header_For_Ignore&Update", () => {
+test.describe("TC_C31524_MFNImport_With_MessageID_Field&Update", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
     test.step("*** Beginning of Test Suite ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test("@Zephyr-IO-T9684 @Env-All TC_C32175_Verify_Header_For_Ignore&Update", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T9684 @Env-All TC_C31524_MFNImport_With_MessageID_Field&Update", async ({io,page}, testInfo) => {
     await io.homePage.loadingTime();
     await io.flowBuilder.clickCreateFlowButton();
     test.step("*** Create Flow Selected ***", async ()=>{});

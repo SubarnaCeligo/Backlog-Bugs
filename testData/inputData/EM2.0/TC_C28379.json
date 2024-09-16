@@ -1,200 +1,122 @@
 {
     "name": "TC_C28379",
-    "disabled": false,
-    "_integrationId": "603ce75ac4fec33283691f43",
-    "skipRetries": false,
-    "qa__expectedDashboardCount": {
-        "ignoreCount": "0",
-        "successCount": "1",
-        "errorCount": "0"
-    },
-    "pageGenerators": [
+    "referencename": "TC_C28379",
+    "qa__api_tdata": [
+    {
+      "pageProcessors": [
         {
-            "qa__export": {
-                "name": "Data_Loader_TC_C28379",
-                "asynchronous": true,
-                "type": "simple",
-                "qa__isDataLoader": "json",
-                "qa__path": "/Dataloader_uploades/TC_C28379.json",
-                "sandbox": false,
-                "rawData": "EMPTY RAW DATA",
-                "file": {
-                    "encoding": "utf8",
-                    "output": "records",
-                    "type": "json"
-                },
-                "adaptorType": "SimpleExport"
-            }
+          "type": "export",
+          "qa__export": {
+            "name": "lookup_25613",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "isLookup": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "http": {
+              "relativeURI": "/tickets",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "comments"
+              }
+            },
+            "adaptorType": "HTTPExport"
+          },
+          "responseMapping": {
+            "fields": [
+              {
+                "extract": "data",
+                "generate": "response"
+              }
+            ],
+            "lists": []
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "25613_import",
+            "parsers": [],
+            "_connectionId": "SALESFORCE CONNECTION",
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          },
+          "responseMapping": {
+            "lists": [],
+            "fields": []
+          }
         }
-    ],
-    "pageProcessors": [
+      ],
+      "pageGenerators": [
         {
-            "type": "import",
-            "qa__import": {
-                "name": "Netsuite customer import",
-                "_connectionId": "NETSUITE CONNECTION",
-                "adaptorType": "NetSuiteDistributedImport",
-                "distributed": true,
-                "lookups": [],
-                "netsuite_da": {
-                    "recordType": "customer",
-                    "internalIdLookup": {
-                        "expression": "[\"email\",\"is\",\"{{{email}}}\"]",
-                        "qa__expression": [
-                            [
-                                "email",
-                                "is",
-                                "{{{email}}}"
-                            ]
-                        ]
-                    },
-                    "operation": "addupdate",
-                    "lookups": [],
-                    "mapping": {
-                        "fields": [
-                            {
-                                "discardIfEmpty": false,
-                                "generate": "isperson",
-                                "hardCodedValue": "true",
-                                "immutable": false,
-                                "internalId": false
-                            },
-                            {
-                                "discardIfEmpty": false,
-                                "extract": "first_name",
-                                "generate": "firstname",
-                                "immutable": false,
-                                "internalId": false
-                            },
-                            {
-                                "discardIfEmpty": false,
-                                "extract": "last_name",
-                                "generate": "lastname",
-                                "immutable": false,
-                                "internalId": false
-                            },
-                            {
-                                "discardIfEmpty": false,
-                                "extract": "phone",
-                                "generate": "phone",
-                                "immutable": false,
-                                "internalId": false
-                            },
-                            {
-                                "discardIfEmpty": false,
-                                "extract": "phone",
-                                "generate": "mobilephone",
-                                "immutable": false,
-                                "internalId": false
-                            },
-                            {
-                                "discardIfEmpty": false,
-                                "extract": "email",
-                                "generate": "email",
-                                "immutable": false,
-                                "internalId": false
-                            },
-                            {
-                                "discardIfEmpty": false,
-                                "extract": "addresses[*].company",
-                                "generate": "companyname",
-                                "immutable": false,
-                                "internalId": false
-                            },
-                            {
-                                "discardIfEmpty": false,
-                                "generate": "celigo_replaceAllLines_addressbook",
-                                "hardCodedValue": "true",
-                                "immutable": false,
-                                "internalId": false
-                            },
-                            {
-                                "discardIfEmpty": false,
-                                "generate": "subsidiary",
-                                "hardCodedValue": "4",
-                                "immutable": false,
-                                "internalId": true
-                            },
-                            {
-                                "extract": "id",
-                                "generate": "entityid",
-                                "internalId": false
-                            }
-                        ],
-                        "lists": [
-                            {
-                                "fields": [
-                                    {
-                                        "discardIfEmpty": false,
-                                        "extract": "addresses[*].address1",
-                                        "generate": "addr1",
-                                        "immutable": false,
-                                        "internalId": false
-                                    },
-                                    {
-                                        "discardIfEmpty": false,
-                                        "extract": "addresses[*].address2",
-                                        "generate": "addr2",
-                                        "immutable": false,
-                                        "internalId": false
-                                    },
-                                    {
-                                        "discardIfEmpty": false,
-                                        "extract": "addresses[*].province",
-                                        "generate": "state",
-                                        "immutable": false,
-                                        "internalId": false
-                                    },
-                                    {
-                                        "discardIfEmpty": false,
-                                        "extract": "addresses[*].country_code",
-                                        "generate": "country",
-                                        "immutable": false,
-                                        "internalId": true
-                                    },
-                                    {
-                                        "discardIfEmpty": false,
-                                        "extract": "addresses[*].phone",
-                                        "generate": "addrphone",
-                                        "immutable": false,
-                                        "internalId": false
-                                    },
-                                    {
-                                        "discardIfEmpty": false,
-                                        "extract": "addresses[*].zip",
-                                        "generate": "zip",
-                                        "immutable": false,
-                                        "internalId": false
-                                    },
-                                    {
-                                        "discardIfEmpty": false,
-                                        "extract": "addresses[*].name",
-                                        "generate": "addressee",
-                                        "immutable": false,
-                                        "internalId": false
-                                    },
-                                    {
-                                        "discardIfEmpty": false,
-                                        "extract": "addresses[*].city",
-                                        "generate": "city",
-                                        "immutable": false,
-                                        "internalId": false
-                                    }
-                                ],
-                                "generate": "addressbook"
-                            }
-                        ]
-                    }
-                },
-                "qa__isDataLoader": "true",
-                "filter": {
-                    "type": "expression",
-                    "expression": {
-                        "version": "1"
-                    },
-                    "version": "1"
+          "type": "export",
+          "qa__export": {
+            "name": "export_25613",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/tickets.json",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "tickets"
+              }
+            },
+            "test": {
+              "limit": 1
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C28379",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [
+                {
+                  "extract": "data",
+                  "generate": "response"
                 }
-            }
-        }
-    ]
+              ],
+              "lists": []
+            },
+            "type": "export",
+            "_exportId": "UPDATE EXPORT ID"
+          },
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
 }

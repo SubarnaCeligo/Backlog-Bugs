@@ -1,0 +1,19 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_ILM_007",
+    "type": "Snapshot",
+    "status": "Completed",
+    "operations": [
+      "viewDetails",
+      "revertToRevision"
+    ]
+  },
+  "fieldsToVerifyForViewDetails": [
+    "Date created",
+    "Created by",
+    "Type",
+    "Status",
+    "Revision ID"
+  ]
+}

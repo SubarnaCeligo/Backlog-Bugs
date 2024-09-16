@@ -1,0 +1,8 @@
+{
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "ILM_testing",
+      "createPull": true,
+      "Clone_To_Integrate": "Clone_ILM_Testing"
+    }
+}

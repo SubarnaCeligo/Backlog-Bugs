@@ -25,6 +25,7 @@ test.describe("TC_C51646_C51624_C51651_C51659_C51670", () => {
     );
     await io.em2.getEm2ErrorTable( flowId);
     await io.homePage.loadingTime();
+    await io.homePage.delay(10000);
     await io.homePage.click(selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON);
 
     // C51646| Verify the presence and functionlaity of the "Select view" option in the New view

@@ -70,17 +70,17 @@
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_47508_1"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "title",
-                      "generate": "user.notes"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
-                  "relativeURI": ["users"],
+                  "relativeURI": ["organizations.json"],
                   "method": ["POST"],
                   "body": [],
                   "batchSize": 1,
@@ -120,17 +120,17 @@
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_47508_2"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "title",
-                      "generate": "user.notes"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
-                  "relativeURI": ["users"],
+                  "relativeURI": ["organizations.json"],
                   "method": ["POST"],
                   "body": [],
                   "batchSize": 1,
@@ -153,7 +153,7 @@
   ],
   "qa__expectedDashboardCount": {
     "successCount": "4",
-    "ignoreCount": "2",
+    "ignoreCount": "5",
     "errorCount": "0"
   },
   "qa__dataVerification": {

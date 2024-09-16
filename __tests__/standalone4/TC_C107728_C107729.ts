@@ -96,7 +96,7 @@ test.describe("TC_C107728_C107729", () => {
 
     const editTags2 = await page.$$(selectors.filterErrorTag.EDIT_TAG);
     let element;
-    for (let tag of editTags) {
+    for (let tag of editTags2) {
       let tagValue = await tag.textContent();
       if (tagValue.includes("TC_C107728_")) {
         element = tag;

@@ -1,0 +1,16 @@
+{
+    "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "ILM_Integration",
+        "Destination_Enviornment": "Sandbox",
+        "Destination_Integration": "5a23fdf6149a6e6afd1b4861",
+        "Flow_To_Clone": "ILM_Sandbox_Clone",
+        "Clone_Flow_Name": "ILM_Sandbox_Clone",
+        "Clone_To_Integrate": "ILM_Sandbox_Clone",
+        "Integration_Clone": true,
+        "New_connection": false,
+        "Total_Flows": 0,
+        "connections": [],
+        "Flows_Count": 0
+    }
+}

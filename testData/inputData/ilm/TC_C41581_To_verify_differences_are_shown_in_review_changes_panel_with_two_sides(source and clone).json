@@ -1,0 +1,89 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C41590",
+    "Clone_To_Integrate": "Del_Clone_TC_C41590",
+    "Flow_Name_Update_Integration": "Del_Clone_TC_C41590",
+    "createPull": true
+  },
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C41590",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Del_Clone_TC_C41590",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "qa__connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "distributed": true,
+            "_connectionId": "NETSUITE CONNECTION",
+            "name": "Delete_TC_ILM_C41590_Netsuite_Import",
+            "netsuite_da": {
+              "operation": "add",
+              "recordType": "Customer",
+              "distributed": true,
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "Customer",
+                    "generate": "companyName"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Delete_TC_ILM_C41590_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Delete_TC_ILM_C41590"
+      }
+    }
+  ],
+  "importJSON": {
+    "name": "Netsuite_ILM_C41590",
+    "type": "netsuite",
+    "netsuite": {
+      "dataCenterURLs": {
+        "webservicesDomain": "https://tstdrv1143616.suitetalk.api.netsuite.com",
+        "restDomain": "https://tstdrv1143616.restlets.api.netsuite.com",
+        "systemDomain": "https://tstdrv1143616.app.netsuite.com"
+      },
+      "wsdlVersion": "current",
+      "password": "******",
+      "environment": "production",
+      "concurrencyLevel": 1,
+      "roleId": "3",
+      "qa__password": "QXV0b1VzZXJANTgw",
+      "requestLevelCredentials": false,
+      "account": "TSTDRV1143616",
+      "email": "automationuser@gmail.com",
+      "useSsoLogin": false
+    }
+  }
+}

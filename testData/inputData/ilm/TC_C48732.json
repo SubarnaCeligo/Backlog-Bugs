@@ -1,0 +1,231 @@
+{
+    "integrationDetails": {
+        "Source_Environment": "Production",
+        "Source_Integration": "TC_C48732_Del",
+        "qa__api_tdata": [
+            {
+                "createIntegrations": {
+                    "name": "TC_C48732_Del"
+                }
+            }
+        ]
+    },
+    "name": "TC_C48732",
+    "disabled": false,
+    "_integrationId": "",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "templateJSON": {
+        "createSnapshot": true,
+        "Source_Environment": "Production",
+        "Source_Integration": "TC_C48732_Del",
+        "Flow_Name_Update_Integration": "TC_C48732"
+    },
+    "flowsData": {
+        "flowname1": "TC_C48732",
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "TC_C48732 Export",
+                            "_connectionId": "NETSUITE CONNECTION",
+                            "apiIdentifier": "e631426cc5",
+                            "asynchronous": true,
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "parsers": [],
+                            "netsuite": {
+                                "type": "restlet",
+                                "skipGrouping": true,
+                                "statsOnly": false,
+                                "restlet": {
+                                    "recordType": "account",
+                                    "searchId": "3603",
+                                    "criteria": [],
+                                    "columns": [],
+                                    "useSS2Restlets": false
+                                },
+                                "distributed": {
+                                    "executionContext": [],
+                                    "executionType": [],
+                                    "useSS2Framework": false
+                                }
+                            },
+                            "adaptorType": "NetSuiteExport"
+                        }
+                    }
+                ],
+                "createFlow": {
+                    "name": "TC_C48732",
+                    "disabled": false,
+                    "_integrationId": "",
+                    "skipRetries": false,
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "updatedBody": {
+        "_id": "",
+        "name": "TC_C48732 Import",
+        "_connectionId": "NETSUITE CONNECTION",
+        "distributed": true,
+        "apiIdentifier": "ie073a52fa",
+        "lookups": [],
+        "netsuite_da": {
+            "useSS2Restlets": false,
+            "operation": "add",
+            "recordType": "customer",
+            "lookups": [],
+            "mapping": {
+                "fields": [
+                    {
+                        "generate": "internalid",
+                        "hardCodedValue": "99",
+                        "internalId": false
+                    },
+                    {
+                        "generate": "taxitem",
+                        "hardCodedValue": "3",
+                        "internalId": true
+                    },
+                    {
+                        "generate": "externalid",
+                        "hardCodedValue": "7",
+                        "internalId": false
+                    }
+                ],
+                "lists": []
+            }
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+    },
+    "routers": [
+        {
+            "id": "iph0mR",
+            "routeRecordsTo": "all_matching_branches",
+            "routeRecordsUsing": "input_filters",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "qa__rules": [
+                        [
+                            "record.name",
+                            "equal",
+                            "Auto_TC_47983_1"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "matches",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "name"
+                                ]
+                            ],
+                            "Auto_TC_47983_1"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "TC_C48732 Import_1",
+                                "parsers": [],
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "lookups": [],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "add",
+                                    "recordType": "customer",
+                                    "lookups": [],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "generate": "fax",
+                                                "extract": "fax",
+                                                "internalId": false
+                                            }
+                                        ],
+                                        "lists": []
+                                    }
+                                },
+                                "adaptorType": "NetSuiteDistributedImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "TC_C48732 Import_2",
+                                "adaptorType": "NetSuiteDistributedImport",
+                                "lookups": [],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "add",
+                                    "recordType": "customer",
+                                    "lookups": [],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "extract": "phone",
+                                                "generate": "phone",
+                                                "internalId": false
+                                            }
+                                        ],
+                                        "lists": []
+                                    }
+                                },
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "distributed": true
+                            }
+                        }
+                    ],
+                    "qa__rules": [
+                        [
+                            "record.email",
+                            "equal",
+                            "Auto_TC_47983_1@gmail.com"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "matches",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "email"
+                                ]
+                            ],
+                            "Auto_TC_47983_1@gmail.com"
+                        ]
+                    }
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "integration": "TC_C49540_C49541",
+    "data": {
+        "integrationId": "",
+        "param": "?ignoreIfNoChanges=false",
+        "body": {
+            "description" : "revision name"
+        }
+    },
+    "param1" : "?ignoreIfNoChanges=true",
+    "qa__api_tdata": [{
+        "createIntegrations": {
+            "name": "TC_C49540_C49541"
+        }
+    }]
+}

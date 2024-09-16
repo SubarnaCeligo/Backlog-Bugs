@@ -1,0 +1,134 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C42089",
+    "Clone_To_Integrate": "Delete_TC_Clone_ILM_C42089",
+    "type": "Pull",
+    "status": "Completed",
+    "createSnapshot": true
+  },
+  "Revert_Description": "C42089",
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C42089",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Delete_TC_Clone_ILM_C42089",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "revisionLongDescriptionVerification": {
+    "descriptionIncludes": "UPDATE WITH NEW"
+  },
+  "verifyReferences": {
+    "Exports": [
+      {
+        "name": "Delete_TC_ILM_C42089_Netsuite_Export",
+        "thisIntegration": [
+          "Del_TC_ILM_C42089_FLOW"
+        ]
+      }
+    ],
+    "Imports": [
+      {
+        "name": "Delete_TC_ILM_C42089_Netsuite_Import",
+        "thisIntegration": [
+          "Del_TC_ILM_C42089_FLOW"
+        ]
+      }
+    ]
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Delete_TC_ILM_C42089_Netsuite_Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "netsuite": {
+              "type": "restlet",
+              "restlet": {
+                "recordType": "customer",
+                "savedSearchId": "29"
+              }
+            }
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "distributed": true,
+            "_connectionId": "NETSUITE CONNECTION",
+            "name": "Delete_TC_ILM_C42089_Netsuite_Import",
+            "netsuite_da": {
+              "operation": "add",
+              "recordType": "Customer",
+              "distributed": true,
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "Customer",
+                    "generate": "companyName"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Del_TC_ILM_C42089_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Delete_TC_ILM_C42089"
+      }
+    }
+  ],
+  "updates": [
+    {
+      "resource": "imports",
+      "name": "Delete_TC_ILM_C42089_Netsuite_Import",
+      "field": "name",
+      "newValue": "Delete_TC_ILM_C42089_Netsuite_Import_Edited",
+      "_sourceId": "UPDATE WITH NEW"
+    },
+    {
+      "resource": "exports",
+      "name": "Delete_TC_ILM_C42089_Netsuite_Export",
+      "field": "name",
+      "newValue": "Delete_TC_ILM_C42089_Netsuite_Export_Edited",
+      "_sourceId": "UPDATE WITH NEW"
+    },
+    {
+      "resource": "flows",
+      "name": "Del_TC_ILM_C42089_FLOW",
+      "field": "name",
+      "newValue": "Del_TC_ILM_C42089_FLOW_Edit1"
+    }
+  ]
+}

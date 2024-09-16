@@ -33,6 +33,7 @@ await test.step(
 
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
+    await io.homePage.delay(10000);
     await io.homePage.click(selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON);
 
     test.step("*** clicking on Retry ***", async ()=>{});

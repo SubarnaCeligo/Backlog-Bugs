@@ -1,0 +1,145 @@
+{
+    "name": "TC_48746_Flowbranching",
+    "disabled": false,
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "templateJSON": {
+        "createSnapshot": true,
+        "Source_Environment": "Production",
+        "Source_Integration": "DELETE_TC_48746"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C48746 Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "apiIdentifier": "e2edbd1fea",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [],
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "1692",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_48746_Flowbranching",
+                "disabled": false,
+                "_integrationId": "",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            },
+            "createIntegrations": {
+                "name": "DELETE_TC_48746"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "id": "iph0mR",
+            "routeRecordsTo": "all_matching_branches",
+            "routeRecordsUsing": "script",
+            "qa_js_script": {
+                "scriptBody": {
+                    "name": "edited script",
+                    "content": "function branching (options)\n{\nif (options.record.name === \"Auto_TC_48746\") {\nreturn[0]\n}\nelse\nreturn[0,1]\n}"
+                }
+            },
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "TC_C48746_Delete this",
+                                "parsers": [],
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "lookups": [],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "add",
+                                    "recordType": "account",
+                                    "lookups": [],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "generate": "fax",
+                                                "extract": "fax",
+                                                "internalId": false
+                                            }
+                                        ],
+                                        "lists": []
+                                    }
+                                },
+                                "adaptorType": "NetSuiteDistributedImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "TC_C48746_2_Delete_This",
+                                "adaptorType": "NetSuiteDistributedImport",
+                                "lookups": [],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "add",
+                                    "recordType": "account",
+                                    "lookups": [],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "extract": "phone",
+                                                "generate": "phone",
+                                                "internalId": false
+                                            }
+                                        ],
+                                        "lists": []
+                                    }
+                                },
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "distributed": true
+                            }
+                        }
+                    ]
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}
