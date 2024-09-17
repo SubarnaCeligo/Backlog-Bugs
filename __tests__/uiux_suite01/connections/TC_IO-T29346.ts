@@ -28,7 +28,9 @@ test.describe("Test to validate connection is not created if user gives wrong cr
     await io.connectionPage.fill(selectors.connectionsPagePO.AZURE_SYNAPSE_USER, process.env["AZURE_SYNAPSE_USERNAME"]);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.AZURE_SYNAPSE_PASSWORD);
     await io.connectionPage.fill(selectors.connectionsPagePO.AZURE_SYNAPSE_PASSWORD, decrypt(process.env["AZURE_SYNAPSE_PASSWORD"]));
-    await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION)
+    await io.connectionPage.click(selectors.basePagePO.TEST_CONNECTION);
+    await io.connectionPage.loadingTime();
+    await page.getByText('Your connection is working great! Nice Job!').waitFor({ state: `visible`, timeout: 60000 });
     await io.assert.verifyElementDisplayedByText('Your connection is working great! Nice Job!', "Connection message  is not displayed ");
     await io.connectionPage.clickByText('Save & close');
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "AzureConnectionCred_T29346");
