@@ -1,11 +1,41 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import { decrypt } from "@celigo/aut-utilities";
 
 test.describe("T898 Verify if user deletes existing flows/connections/imports/exports/API token/Agents then verify whether user is able to see empty statestext,buttons and hyperlinks", () => {
-    test.beforeEach(async ({ io }) => {
+    test.beforeEach('check sign out', async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-        await io.flowBuilder.loadingTime();
-    });
+        const isNotLoggedIn = await io.loginPage.checkLoginState();
+        if (!isNotLoggedIn) {
+            await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);
+            async function attemptSignIn() {
+                await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+                await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
+                await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+            }
+            await attemptSignIn();
+            const maxWaitTime = 30000;
+            const startTime = Date.now();
+            let errorMessage;
+            let match;
+            while (!match && (Date.now() - startTime) < maxWaitTime) {
+                await page.waitForTimeout(2000);
+                const pageContent = await page.content();
+                const errorMessageRegex = /Please try again after (\d+) seconds/;
+                match = pageContent.match(errorMessageRegex);
+                if (match && match[1]) {
+                    errorMessage = match[0];
+                }
+                if (errorMessage) {
+                    const waitSeconds = parseInt(match[1]);
+                    console.log('Waiting for', waitSeconds, 'seconds before retrying');
+                    await page.waitForTimeout(waitSeconds * 1000);
+                    console.log('Retrying sign-in after wait');
+                    await attemptSignIn();
+                }
+            }
+        }
+    })
     test("@Env-All @Zephyr-IO-T898 @Priority-P2 T898 Verify if user deletes existing flows/connections/imports/exports/API token/Agents then verify whether user is able to see empty statestext,buttons and hyperlinks", async ({ io, page }) => {
         await io.homePage.addStep('*** Navigating to Connections Page ***');
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
