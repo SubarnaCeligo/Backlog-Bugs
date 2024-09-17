@@ -19,12 +19,12 @@ test.describe(`TC_C111329`, () => {
     await io.flowBuilder.clickByIndex(selectors.basePagePO.ADD_DATA_PROCESSOR,1);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS) 
 
-    await io.flowBuilder.waitForElementAttached(selectors.importPagePO.ACTIONS_MENU_MAPPING);
+    await io.flowBuilder.waitForElementAttached(selectors.mappings.MAPPER2DOT0PO.CHANGEOUTPUTFORMAT);
     
-    await io.flowBuilder.click(selectors.importPagePO.ACTIONS_MENU_MAPPING);
+    await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU, 2);
     await io.flowBuilder.waitForElementAttached(selectors.dashboardPagePO.OPEN_ACTION_CLICK);
  
-  await io.assert.verifyElementIsDisplayed(
+    await io.assert.verifyElementIsDisplayed(
     selectors.importPagePO.AUTO_POPULATE_MAPPINGS,
     "Auto-populate is not present"
   );
