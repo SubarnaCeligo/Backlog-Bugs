@@ -4,10 +4,12 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe("T898 Verify if user deletes existing flows/connections/imports/exports/API token/Agents then verify whether user is able to see empty statestext,buttons and hyperlinks", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
     });
     test("@Env-All @Zephyr-IO-T898 @Priority-P2 T898 Verify if user deletes existing flows/connections/imports/exports/API token/Agents then verify whether user is able to see empty statestext,buttons and hyperlinks", async ({ io, page }) => {
         await io.homePage.addStep('*** Navigating to Connections Page ***');
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources", "Connections");
         await io.homePage.loadingTime();
@@ -19,6 +21,7 @@ test.describe("T898 Verify if user deletes existing flows/connections/imports/ex
 
         await io.homePage.addStep('*** Navigating to Imports Page ***');
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources", "Imports");
         await io.homePage.loadingTime();
@@ -30,6 +33,7 @@ test.describe("T898 Verify if user deletes existing flows/connections/imports/ex
 
         await io.homePage.addStep('*** Navigating to Exports Page ***');
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources", "Exports");
         await io.homePage.loadingTime();
@@ -41,6 +45,7 @@ test.describe("T898 Verify if user deletes existing flows/connections/imports/ex
 
         await io.homePage.addStep('*** Navigating to Agents Page ***');
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources", "Agents");
         await io.homePage.loadingTime();
@@ -52,6 +57,7 @@ test.describe("T898 Verify if user deletes existing flows/connections/imports/ex
 
         await io.homePage.addStep('*** Navigating to iClients Page ***');
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources", "iClients");
         await io.homePage.loadingTime();
@@ -60,6 +66,7 @@ test.describe("T898 Verify if user deletes existing flows/connections/imports/ex
 
         await io.homePage.addStep('*** Navigating to Recycle bin Page ***');
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.basePagePO.RESOURCES);
         await io.homePage.click(selectors.basePagePO.RECYCLE_BIN);
         await io.homePage.loadingTime();
@@ -69,6 +76,7 @@ test.describe("T898 Verify if user deletes existing flows/connections/imports/ex
 
         await io.homePage.addStep('*** Navigating to flows Page ***');
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.loadingTime();
         await io.homePage.clickByText('Automation Flows');
         await io.homePage.loadingTime();
         await io.homePage.addStep('*** Verifying the details of flows page ***');
