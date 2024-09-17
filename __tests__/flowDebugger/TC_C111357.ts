@@ -42,7 +42,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         await io.homePage.isPageLoaded()
         await io.homePage.isPageReady()
         // Wait for the status to change from 'Completing...' to 'Completed'
-        await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`, {timeout:160000});
+        await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`, {timeout:360000});
 
         //verify success count and run status for export
         let completedStatusExport =  await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(0).textContent();
@@ -146,7 +146,7 @@ test.describe("C111357, C111406, C110859, C110837, C112229, C111403, C111405, C1
         await io.homePage.isPageLoaded()
         await io.homePage.isPageReady()
         // Wait for the status to change from 'Completing...' to 'Completed'
-        await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`);
+        await page.waitForSelector(`${selectors.flowBuilderPagePO.IMPORT_RUN_COMPLETION_STATUS}:has-text("Completed")`, {timeout: 360000});
 
         //verify success count and run status for export
         let completedStatusExport =  await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(0).textContent();

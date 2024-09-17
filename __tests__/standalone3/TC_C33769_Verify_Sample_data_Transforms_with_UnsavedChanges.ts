@@ -10,6 +10,7 @@ test.describe("TC_C33769_Verify_Sample_data_Transforms_with_UnsavedChanges", () 
   test("@Zephyr-IO-T5534 @Env-All TC_C33769_Verify_Sample_data_Transforms_with_UnsavedChanges", async ({io,page}, testInfo) => {
     test.step("*** Creating PageGenerator ***", async ()=>{});
     await io.pageGenerator( "Alure",FTP);
+    await io.homePage.loadingTime()
 
     await io.homePage.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
     test.step("*** Verifying sample data in transfeorms ***", async ()=>{});

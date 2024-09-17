@@ -21,7 +21,7 @@ test.describe("T17370_T17358_T17387 Verify branching condition when changing the
     // Setting the datatype to string for field of first branch
     await leftElement.nth(0).hover();
     await settingsIcon.nth(0).click();
-    await io.flowBuilder.waitForElementAttached(selectors.flowBranchingPO.SETTINGS_DIALOG);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.VALUE_FROM_SETTINGS);
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.DATATYPE);
     await page.getByText("String").click();
     await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE);
@@ -29,7 +29,8 @@ test.describe("T17370_T17358_T17387 Verify branching condition when changing the
     // Setting the datatype to string for value of first branch
     await rightElement.nth(0).hover();
     await settingsIcon.nth(1).click();
-    await io.flowBuilder.waitForElementAttached(selectors.flowBranchingPO.SETTINGS_DIALOG);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.VALUE_FROM_SETTINGS);
+
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.DATATYPE);
     await page.getByText("String").click();
     await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE);
@@ -37,7 +38,7 @@ test.describe("T17370_T17358_T17387 Verify branching condition when changing the
     // Setting the datatype to boolean for field of first branch
     await leftElement.nth(0).hover();
     await settingsIcon.nth(0).click();
-    await io.flowBuilder.waitForElementAttached(selectors.flowBranchingPO.SETTINGS_DIALOG);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.VALUE_FROM_SETTINGS);
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.DATATYPE);
     await page.getByText("Boolean").click();
     await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE);
@@ -45,7 +46,7 @@ test.describe("T17370_T17358_T17387 Verify branching condition when changing the
     // Setting the datatype to boolean for value of first branch
     await rightElement.nth(0).hover();
     await settingsIcon.nth(1).click();
-    await io.flowBuilder.waitForElementAttached(selectors.flowBranchingPO.SETTINGS_DIALOG);
+    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.VALUE_FROM_SETTINGS);
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.DATATYPE);
     await page.getByText("Boolean").click();
     await io.flowBuilder.click(selectors.basePagePO.MFA_SAVE);

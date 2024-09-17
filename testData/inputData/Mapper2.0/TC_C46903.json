@@ -7,21 +7,25 @@
         {
             "type": "import",
             "qa__import": {
-                "name": "TC_C46903_import",
+                "_id": "66e7dc2c7e9763f8a1594760",
+                "createdAt": "2024-09-16T07:20:12.851Z",
+                "lastModified": "2024-09-16T07:20:13.313Z",
+                "name": "ftp test import",
                 "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "iaac99deb7",
                 "oneToMany": false,
                 "sandbox": false,
                 "file": {
-                    "fileName": "xyz.xlsx",
-                    "skipAggregation": false,
-                    "type": "xlsx"
+                  "fileName": "file-{{timestamp}}.xlsx",
+                  "skipAggregation": false,
+                  "type": "xlsx"
                 },
                 "ftp": {
-                    "directoryPath": "/io.auto.qa/TC",
-                    "fileName": "xyz.xlsx"
+                  "directoryPath": "/test",
+                  "fileName": "file-{{timestamp}}.xlsx"
                 },
                 "adaptorType": "FTPImport"
-            }
+              }
         }
     ],
     "pageGenerators": [

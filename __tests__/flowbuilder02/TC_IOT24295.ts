@@ -30,7 +30,6 @@ test.describe(`TC_IOT4295 Test to Verify the ""How would you like to use the exi
             .evaluate((el: HTMLInputElement) => el.value)).not.toEqual('');
         await io.homePage.fill(selectors.exportsPagePO.CONNECTIONS_DROPDOWN, "HTTP ZENDESK CONNECTION");
         await io.flowBuilder.clickByText('HTTP ZENDESK CONNECTION');
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.CONNECTION_STATUS);
         const exisitingFlowStep = await page.locator("text='How would you like to use the existing flow step?'")
         expect(exisitingFlowStep).not.toBeVisible();
 

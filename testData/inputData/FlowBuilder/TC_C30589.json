@@ -1,70 +1,69 @@
 {
-    "name": "TC_C30589",
-    "referencename": "TC_C30589",
-    "qa__api_tdata": [
-      {
-        "pageGenerators": [
-          {
-            "type": "export",
-            "qa__export": {
-              "application": "MySQL",
-                "name": "MySQL Export",
-                "_connectionId": "MYSQL CONNECTION",
-                "asynchronous": true,
-                "oneToMany": false,
-                "sandbox": false,
-                "rdbms": {
-                    "query": "select * from Templates.Order LIMIT 5"
-                },
-                "adaptorType": "RDBMSExport"
-            }
+  "name": "TC_C30589",
+  "referencename": "TC_C30589",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "application": "MySQL",
+            "name": "MySQL Export",
+            "_connectionId": "MYSQL CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+              "query": "select * from Templates.Order LIMIT 5"
+            },
+            "adaptorType": "RDBMSExport"
           }
-        ],
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "MySQL Import Error",
+            "application": "MySQL",
+            "_connectionId": "MYSQL CONNECTION",
+            "apiIdentifier": "id01ed8495",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+              "query": [
+                "insert into"
+              ],
+              "queryType": [
+                "INSERT"
+              ]
+            },
+            "adaptorType": "RDBMSImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C30589",
+        "disabled": false,
+        "skipRetries": false,
         "pageProcessors": [
           {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
             "type": "import",
-            "qa__import": {
-                "name": "MySQL Import Error",
-                "application": "MySQL",
-                "_connectionId": "MYSQL CONNECTION",
-                "apiIdentifier": "id01ed8495",
-                "ignoreExisting": false,
-                "ignoreMissing": false,
-                "oneToMany": false,
-                "sandbox": false,
-                "rdbms": {
-                    "query": [
-                        "insert into"
-                    ],
-                    "queryType": [
-                        "INSERT"
-                    ]
-                },
-                "adaptorType": "RDBMSImport"
-            }
+            "_importId": "UPDATE WITH NEW IMPORTID"
           }
         ],
-        "createFlow": {
-          "name": "TC_C30589",
-          "disabled": false,
-          "_integrationId": "62eca1efe386b563f638451e",
-          "skipRetries": false,
-          "pageProcessors": [
-            {
-              "responseMapping": {
-                "fields": [],
-                "lists": []
-              },
-              "type": "import",
-              "_importId": "UPDATE WITH NEW IMPORTID"
-            }
-          ],
-          "pageGenerators": [
-            {
-              "_exportId": "UPDATE WITH NEW EXPORTID"
-            }
-          ]
-        }
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
+}

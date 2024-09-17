@@ -59,96 +59,86 @@
                 "_connectionId": "S3 CONNECTION",
                 "distributed": false
             }
-		}
-	],
-    "FTPImport": {
-        "pageProcessors": [
-            {
-                "type": "import",
-                "qa__import": {
-                    "name": "FTP Import",
-                    "parsers": [],
-                    "_connectionId": "FTP CONNECTION",
-                    "apiIdentifier": "i787a1211b",
-                    "oneToMany": false,
-                    "sandbox": false,
-                    "mapping": {
-                        "fields": [
-                            {
-                                "extract": "[#Number]",
-                                "generate": "test"
-                            },
-                            {
-                                "extract": "[Drug @ Name]",
-                                "generate": "auto"
-                            }
-                        ]
-                    },
-                    "file": {
-                        "fileName": "file-{{timestamp}}.json",
-                        "skipAggregation": false,
-                        "type": "json"
-                    },
-                    "ftp": {
-                        "directoryPath": "/io.auto.qa/IO_UI_Automation",
-                        "fileName": "file-{{timestamp}}.json"
-                    },
-                    "adaptorType": "FTPImport"
-                }
-            }
-        ],
-        "pageGenerators": []
-    },
-    "GDriveImport": {
-        "pageProcessors": [
-            {
-                "type": "import",
-                "qa__import": {
-                    "name": "gdrive import",
-                    "qa__connectionId": "60dd6775f9f59866156bd32a",
-                    "_connectionId": "60c1bf4c7d6ab5377ab374dc",
-                    "apiIdentifier": "ib61979405",
-                    "oneToMany": false,
-                    "assistant": "googledrive",
-                    "sandbox": false,
-                    "mapping": {
-                        "fields": [
-                            {
-                                "extract": "[#Number]",
-                                "generate": "test"
-                            },
-                            {
-                                "extract": "[Drug @ Name]",
-                                "generate": "auto"
-                            }
-                        ]
-                    },
-                    "file": {
-                        "fileName": "file.json",
-                        "skipAggregation": false,
-                        "type": "json"
-                    },
-                    "http": {
-                        "type": "file",
-                        "relativeURI": [
-                            "gdriveimports"
-                        ],
-                        "method": [
-                            "POST"
-                        ],
-                        "body": [],
-                        "sendPostMappedData": true,
-                        "formType": "assistant",
-                        "response": {
-                            "resourcePath": [
-                                "files"
-                            ]
+		},
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP Import",
+                "parsers": [],
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i787a1211b",
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "[#Number]",
+                            "generate": "test"
+                        },
+                        {
+                            "extract": "[Drug @ Name]",
+                            "generate": "auto"
                         }
-                    },
-                    "adaptorType": "HTTPImport"
-                }
+                    ]
+                },
+                "file": {
+                    "fileName": "file-{{timestamp}}.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "file-{{timestamp}}.json"
+                },
+                "adaptorType": "FTPImport"
             }
-        ],
-        "pageGenerators": []
-    }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "gdrive import",
+                "qa__connectionId": "60dd6775f9f59866156bd32a",
+                "_connectionId": "GOOGLEDRIVE CONNECTION",
+                "apiIdentifier": "ib61979405",
+                "oneToMany": false,
+                "assistant": "googledrive",
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "[#Number]",
+                            "generate": "test"
+                        },
+                        {
+                            "extract": "[Drug @ Name]",
+                            "generate": "auto"
+                        }
+                    ]
+                },
+                "file": {
+                    "fileName": "file.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "gdriveimports"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+	]
 }

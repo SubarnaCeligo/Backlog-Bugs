@@ -39,7 +39,7 @@
                     "type": "import",
                     "qa__import": {
                         "name": "http import 9754",
-                        "application":"BigCommerce",
+                        "application": "BigCommerce",
                         "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
                         "ignoreExisting": false,
                         "ignoreMissing": false,
@@ -91,7 +91,6 @@
             "createFlow": {
                 "name": "TC_C20066",
                 "disabled": false,
-                "_integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
                     {
@@ -129,4 +128,3 @@
         }
     ]
 }
-

@@ -12,21 +12,20 @@ test.describe("TC_C108699 Verify the warining message for edit export,import and
     page
   }) => {
     id = await io.createResourceFromAPI(Flow, "FLOWS");
-    await io.homePage.navigateTo(
-      process.env["IO_Integration_URL"] + "flowBuilder/" + id
-    );
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.FLOW_TOGGLE
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
-    let errors = page.locator(selectors.integrationPagePO.CLICKONERRORS);
-    await errors.waitFor({state: 'visible', timeout: 500000});
+    await page.getByText("Test run in progress").nth(1).waitFor({ state: "hidden", timeout:360000 });
     await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(selectors.basePagePO.INPUT_NAME_SELECTOR, "TC_C108699 Export1");
+    await io.flowBuilder.loadingTime();
     await io.assert.verifyElementText(
         selectors.flowBuilderPagePO.EXPORT_NOTIFICATION_ERROR_MESSAGE,
         "Making edits to a flow (including modifying a step, changing step options, changing the test run source, or reordering steps) will clear all test results.Run a new test after making edits to see accurate results."
@@ -34,11 +33,18 @@ test.describe("TC_C108699 Verify the warining message for edit export,import and
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
-    await errors.waitFor({state: 'visible', timeout: 500000});
-    var success = page.locator(selectors.integrationPagePO.CLICKONERRORS);
-    var successCount = await success.count();
-    for (var index = 0; index < successCount; index++) {
-        await io.assert.expectToBeTrue(await success.nth(index).isVisible(), 'Errors Text is not visible');
+    await io.flowBuilder.loadingTime();
+    await page.getByText("Test run in progress").nth(1).waitFor({ state: "hidden", timeout:360000 });
+
+    //verify success count and run status for export
+    let completedStatusExport =  await page.locator(selectors.flowBuilderPagePO.RUN_COMPLETION_STATUS).nth(0).textContent();
+    expect(completedStatusExport).toEqual('Completed');
+    if(completedStatusExport == 'Completed'){
+        let successStatus = await page.locator(selectors.flowBuilderPagePO.JOB_ERRORS).nth(0).textContent();
+        expect(successStatus).toEqual('Success');
+        let successCount = await page.locator(selectors.flowBuilderPagePO.RUN_SUCCESS_COUNT).nth(0).textContent();
+        expect(successCount).toEqual('10');
+    
     }
   });
 });

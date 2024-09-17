@@ -14,7 +14,7 @@
         "oneToMany": false,
         "sandbox": false,
         "rdbms": {
-          "query": "select * from `ioqa-342912.1234.Mock_Table` LIMIT 500"
+          "query": "select * from `ioqa-342912.1234.Mock_Table` LIMIT 101"
         },
         "adaptorType": "RDBMSExport"
       }
