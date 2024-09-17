@@ -8,7 +8,7 @@
     "content": "function preSavePageFunction (options) {return options.test}"
   },
   "qa__expectedDashboardCount": {
-    "successCount": "1",
+    "successCount": "3",
     "ignoreCount": "0",
     "errorCount": "0"
   },
@@ -73,7 +73,7 @@
                 "mapping": {
                     "fields": [
                         {
-                            "extract": "Auto_{{id}}",
+                            "extract": "Auto_{{random 16}}",
                             "generate": "organization.name"
                         },
                         {

@@ -22,6 +22,7 @@ test.describe("@Env-All @Zephyr-IO-T2764", () => {
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.loadingTime();
     const lastRun = await page.getByText('Last run');
+    await io.homePage.loadingTime();
     await lastRun.waitFor({state: 'visible', timeout: 180000});
   });
 });

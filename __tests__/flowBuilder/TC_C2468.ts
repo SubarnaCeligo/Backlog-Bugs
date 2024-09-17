@@ -4,7 +4,8 @@ import TC_C2468 from "@testData/FlowBuilder/TC_C2468.json";
 
 
 test.describe("@Env-All @Zephyr-IO-T2742", () => {
-  test("@Env-All @Zephyr-IO-T2742", async ({io}) => {
+  
+  test("@Env-All @Zephyr-IO-T2742|to verify that on adding mappings the last saved time is updated successfully", async ({io}) => {
     await io.createResourceFromAPI(TC_C2468, "FLOWS");
     await io.homePage.loadingTime();
   
