@@ -1,0 +1,202 @@
+{
+	"id":"01",
+    "fName": "scott",
+    "lName": "henderson",
+    "altFirstName": "scooter",
+    "additionalFirstNames": [
+        "scoots",
+        "mchendrix"
+    ],
+    "children": [
+        {
+            "firstName": "abby"
+        },
+        {
+            "firstName": "paige"
+        }
+    ],
+    "mother": {
+		"id":"03",
+        "fName": "mary",
+        "lName": "henderson"
+    },
+    "father": {
+		"id":"02",
+        "fName": "herb",
+        "lName": "henderson"
+    },
+    "siblings": [
+        {
+            "fName": "james",
+            "lName": "henderson",
+            "children": [
+                {
+                    "fName": "patrick"
+                },
+                {
+                    "fName": "asher"
+                },
+                {
+                    "fName": "cade"
+                },
+                {
+                    "fName": "lee"
+                }
+            ]
+        },
+        {
+            "fName": "erin",
+            "lName": "tuohy",
+            "children": [
+                {
+                    "fName": "jake"
+                }
+            ]
+        }
+    ],
+    "cousins": [
+        {
+            "fName": "james",
+            "lName": "henderson",
+            "children": [
+                {
+                    "fName": "patrick"
+                },
+                {
+                    "fName": "asher"
+                },
+                {
+                    "fName": "cade"
+                },
+                {
+                    "fName": "lee"
+                }
+            ]
+        },
+        {
+            "fName": "erin",
+            "lName": "tuohy",
+            "children": [
+                {
+                    "fName": "jake"
+                }
+            ]
+        }
+    ],
+    "books": [
+        {
+            "fName": "james",
+            "lName": "henderson",
+            "children": [
+                {
+                    "fName": "patrick"
+                },
+                {
+                    "fName": "asher"
+                },
+                {
+                    "fName": "cade"
+                },
+                {
+                    "fName": "lee"
+                }
+            ]
+        },
+        {
+            "fName": "erin",
+            "lName": "tuohy",
+            "children": [
+                {
+                    "fName": "jake"
+                }
+            ]
+        }
+    ],
+    "snaks": [
+        {
+            "fName": "james",
+            "lName": "henderson",
+            "children": [
+                {
+                    "fName": "patrick"
+                },
+                {
+                    "fName": "asher"
+                },
+                {
+                    "fName": "cade"
+                },
+                {
+                    "fName": "lee"
+                }
+            ]
+        },
+        {
+            "fName": "erin",
+            "lName": "tuohy",
+            "children": [
+                {
+                    "fName": "jake"
+                }
+            ]
+        }
+    ],
+    "dinner": [
+        {
+            "fName": "james",
+            "lName": "henderson",
+            "children": [
+                {
+                    "fName": "patrick"
+                },
+                {
+                    "fName": "asher"
+                },
+                {
+                    "fName": "cade"
+                },
+                {
+                    "fName": "lee"
+                }
+            ]
+        },
+        {
+            "fName": "erin",
+            "lName": "tuohy",
+            "children": [
+                {
+                    "fName": "jake"
+                }
+            ]
+        }
+    ],
+    "lunch": [
+        {
+            "fName": "james",
+            "lName": "henderson",
+            "children": [
+                {
+                    "fName": "patrick"
+                },
+                {
+                    "fName": "asher"
+                },
+                {
+                    "fName": "cade"
+                },
+                {
+                    "fName": "lee"
+                }
+            ]
+        },
+        {
+            "fName": "erin",
+            "lName": "tuohy",
+            "children": [
+                {
+                    "fName": "jake"
+                }
+            ]
+        }
+    ]
+}

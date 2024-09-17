@@ -53,3 +53,7 @@ require("./TC_C34395");
 require("./TC_C36424");
 require("./TC_C42652");
 require("./TC_C47258");
+require("./TC_C15492");
+require("./TC_C20709");
+require("./TC_C20844");
+require("./TC_C34398");

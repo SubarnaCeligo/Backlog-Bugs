@@ -55,3 +55,7 @@ require("./TC_C47527");
 require("./TC_C47528");
 require("./TC_C47530");
 require("./TC_C47540");
+require("./TC_C47550");
+require("./TC_C47551");
+require("./TC_C47552");
+require("./TC_C47553");

@@ -31,3 +31,8 @@ require("./TC_C31036_Httpexp_requtbodyverification");
 require("./TC_C31341_Verify_AFE_Fields_RestExport");
 require("./TC_C32999");
 require("./TC_C33001");
+require("./TC_C27971");
+require("./TC_C27973");
+require("./TC_C27974");
+require("./TC_C27975");
+require("./TC_C27981");
