@@ -22,12 +22,14 @@ test.describe(
       page
     }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.homePage.loadingTime();
         const expiredMsg = await io.homePage.isVisible('text="Your subscription has expired."');
         await io.assert.expectToBeValue(expiredMsg.toString(), "true", "Subscription not expired");
 
-         
+        await io.homePage.loadingTime();
         await io.homePage.clickByText("Request to renew now." );
         
+        await io.homePage.loadingTime();
         const renewButtonClick = await io.homePage.isVisible('text="We will contact you to renew your subscription."');
         await io.assert.expectToBeValue(expiredMsg.toString(), "true", "error message not displayed");
 
