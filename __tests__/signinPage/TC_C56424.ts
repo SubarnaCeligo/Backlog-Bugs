@@ -9,7 +9,7 @@ test.describe("C56424 Verify if the page is refreshed and if the session is not 
         await io.homePage.waitForElementAttached(selectors.homePagePO.INTEGRATION_TILES);
         await io.homePage.reloadPage();
         await io.homePage.loadingTime();
-        await page.getByText("Loading...").nth(1).waitFor({ state: "hidden", timeout: 360000 });
+        await page.getByText("Loading...").nth(0).waitFor({ state: "hidden", timeout: 360000 });
         await io.assert.verifyElementIsDisplayed(selectors.homePagePO.INTEGRATION_TILES, 'Did not land to homepage on reload');
     });
   });
