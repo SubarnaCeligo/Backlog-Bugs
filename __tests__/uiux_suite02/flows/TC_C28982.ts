@@ -20,18 +20,24 @@ test.describe(`C28982 Verify Connection status is displaying correctly in create
       .filter({ hasText: "3PL CONNECTION" })
       .first()
       .click()
-    const statusDot = page.getByRole("status");
     await expect(page.getByText("Online")).toBeVisible();
     await io.assert.verifyElementDisplayedByText(
       "Online",
       "'Online' is not displayed"
     );
-    await io.flowBuilder.addStep(
-      "Verified the connection status is displayed as 'Online'"
-    );
-    await expect(statusDot).toHaveCSS("background-color", "rgb(76, 187, 2)");
-    await io.flowBuilder.addStep(
-      "Verified the connection status dot is displayed as green"
-    );
-  });
+    const element = await page.getByText("Online");
+    const color = await element.evaluate((el) => {
+      const styles = window.getComputedStyle(el);
+      return styles.getPropertyValue('color');
+    });
+
+    let result=false
+    if (color === 'rgb(4, 120, 87)') {
+      result =true
+    } else {
+      console.error("The color is not as expected. Found:", color);
+    }
+    await expect(result).toBe(true);
+
+    });
 });
