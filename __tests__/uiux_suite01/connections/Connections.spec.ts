@@ -12,7 +12,7 @@ var testCases = [
   "C111326",
   "C111329",
   "C111337",
-  "C111338",
+  // "C111338",-Obsolete as per https://celigo.atlassian.net/browse/IO-91393
   "C111349",
   "C112065",
   "C112070",
