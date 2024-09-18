@@ -13,6 +13,7 @@ test.describe("TC_C33769_Verify_Sample_data_Transforms_with_UnsavedChanges", () 
     await io.homePage.loadingTime()
 
     await io.homePage.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
+    await io.homePage.loadingTime()
     test.step("*** Verifying sample data in transfeorms ***", async ()=>{});
     var data = await io.homePage.copyResourceData(selectors.mappings.MAPPER2DOT0PO.PREVIEWRESOURCE);
     await io.assert.expectToContainValue("Drug @ Name",data, "");
@@ -25,6 +26,7 @@ test.describe("TC_C33769_Verify_Sample_data_Transforms_with_UnsavedChanges", () 
 
     test.step("*** Clicking on created export***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.TRANSFER);
+    await io.homePage.loadingTime()
     test.step("*** Changing the sample data***", async ()=>{});
     const map = new Map();
     const filepath3 = FTP.testData;
@@ -34,6 +36,7 @@ test.describe("TC_C33769_Verify_Sample_data_Transforms_with_UnsavedChanges", () 
     test.step("*** Discarding the changes***", async ()=>{});
     await io.homePage.click(selectors.basePagePO.CLOSE);
     await io.homePage.click(selectors.flowBuilderPagePO.EXPORT_TRANSFORMATION);
+    await io.homePage.loadingTime()
     test.step("*** Verifying sample data in transfeorms ***", async ()=>{});
     var data1 = await io.homePage.copyResourceData(selectors.mappings.MAPPER2DOT0PO.PREVIEWRESOURCE);
     await io.assert.expectToContainValue("Drug @ Name",data1, "");

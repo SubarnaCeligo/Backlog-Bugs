@@ -51,3 +51,6 @@ require("./TC_C25629");
 require("./TC_C26398_Verify_TraceKey_In_Export_TransformRule_Error");
 require("./TC_C26404_Verify_RetryError_At_Output_Filters");
 require("./TC_C26405");
+require("./TC_C24623");
+require("./TC_C24756");
+require("./TC_C25502");

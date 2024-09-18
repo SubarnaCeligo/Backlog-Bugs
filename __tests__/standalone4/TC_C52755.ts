@@ -17,6 +17,7 @@ test.describe("TC_C52755", () => {
     test.step("*** Go to flows page ***", async ()=>{});
     await io.goToFlowsPage();
     var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC_C52755);
+    flowID = flows.get(TC_C52755.name)["flowId"];
     await test.step("Created Flow " + flows.get(TC_C52755.name)["flowName"] +
         " With ID " +
         flows.get(TC_C52755.name)["flowId"],async ()=>{}
