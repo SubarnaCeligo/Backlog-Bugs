@@ -36,12 +36,16 @@ test.describe("TC_C40395", () => {
     await io.homePage.isPageReady();
 
     await io.homePage.click(selectors.mappings.HTTPRESPONSE);
+    await io.homePage.loadingTime();
+    await io.homePage.click(selectors.flowBuilderPagePO.DEBUG_LOGS_BODY);
+    test.step("*** Clicked on HTTP Response Body ***", async ()=>{});
     var responseBody = await io.homePage.getTextFromElement(
       selectors.importPagePO.PREVIEWDATA
     );
     await io.assert.expectToBeFalse(responseBody, "");
 
     await io.homePage.click(selectors.exportsPagePO.PARSED_OUTPUT);
+    await io.homePage.loadingTime();
     var output = await io.homePage.getTextFromElement(selectors.importPagePO.PREVIEWDATA);
     await io.assert.expectToBeFalse(output, "");
     test.step(" Verifying HTTP Response and parsed output tab should be empty when previewing an input ", async ()=>{});

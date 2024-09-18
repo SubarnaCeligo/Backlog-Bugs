@@ -7,35 +7,23 @@
                 {
                     "type": "export",
                     "qa__export": {
-                      "name": "BG export",
-                      "application": "BigCommerce",
-                      "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
-                      "apiIdentifier": "eb7be0a6cb",
-                      "asynchronous": true,
-                      "type": "test",
-                      "oneToMany": false,
-                      "sandbox": false,
-                      "http": {
-                          "relativeURI": "/v3/customers/123",
-                          "method": "GET",
-                          "formType": "http",
-                          "response": {
-                              "resourcePath": "data"
-                          }
-                      },
-                      "rawData": "EMPTY RAW DATA",
-                      "test": {
-                          "limit": 1
-                      },
-                      "adaptorType": "HTTPExport"
-                  }
+                        "name": "AutomationStandaloneExport_aj2ljl4",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "http": {
+                            "relativeURI": "/users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
                 }
             ],
             "createFlow": {
                 "name": "TC_C21045",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageGenerators": [
                     {

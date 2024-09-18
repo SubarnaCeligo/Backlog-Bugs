@@ -8,7 +8,7 @@
                     "type": "export",
                     "qa__export": {
                         "name": "Export assistant ZD",
-                        "_connectionId": "ZENDESK CONNECTION",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
                         "apiIdentifier": "e15e3086ca",
                         "asynchronous": true,
                         "type": "delta",

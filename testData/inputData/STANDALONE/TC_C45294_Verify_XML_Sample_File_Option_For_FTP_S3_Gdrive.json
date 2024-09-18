@@ -20,72 +20,62 @@
         },
         "adaptorType": "FTPImport"
       }
-    }
-  ],
-  "Gdrive": {
-    "pageGenerators": [],
-    "pageProcessors": [
-      {
-        "type": "import",
-        "qa__import": {
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "test",
+        "_connectionId": "GOOGLEDRIVE CONNECTION",
+        "qa__connectionId": "63328d3c6b757a4f30350cbd",
+        "apiIdentifier": "ie62129f76",
+        "oneToMany": false,
+        "assistant": "googledrive",
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.xml",
+          "skipAggregation": false,
+          "type": "xml",
+          "xml": {
+            "body": "abc"
+          }
+        },
+        "http": {
+          "type": "file",
+          "relativeURI": ["/test"],
+          "method": ["POST"],
+          "body": [],
+          "sendPostMappedData": true,
+          "formType": "assistant",
+          "response": {
+            "resourcePath": ["files"]
+          }
+        },
+        "adaptorType": "HTTPImport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
           "name": "test",
-          "_connectionId": "63328e88bb74b66e32a7fe0e",
-          "qa__connectionId": "63328d3c6b757a4f30350cbd",
-          "apiIdentifier": "ie62129f76",
+          "_connectionId": "S3 CONNECTION",
+          "apiIdentifier": "i889d0d5e8",
           "oneToMany": false,
-          "assistant": "googledrive",
           "sandbox": false,
           "file": {
-            "fileName": "file-{{timestamp}}.xml",
-            "skipAggregation": false,
-            "type": "xml",
-            "xml": {
-              "body": "abc"
-            }
+              "fileName": "file-{{timestamp}}.xml",
+              "skipAggregation": false,
+              "type": "xml",
+              "xml": {
+                  "body": "abc"
+              }
           },
-          "http": {
-            "type": "file",
-            "relativeURI": ["/test"],
-            "method": ["POST"],
-            "body": [],
-            "sendPostMappedData": true,
-            "formType": "assistant",
-            "response": {
-              "resourcePath": ["files"]
-            }
+          "s3": {
+              "region": "us-east-1",
+              "bucket": "/test",
+              "fileKey": "file-{{timestamp}}.xml"
           },
-          "adaptorType": "HTTPImport"
-        }
+          "adaptorType": "S3Import"
       }
-    ]
-  },
-  "S3": {
-    "pageGenerators": [],
-    "pageProcessors": [
-      {
-        "type": "import",
-        "qa__import": {
-            "name": "test",
-            "_connectionId": "S3 CONNECTION",
-            "apiIdentifier": "i889d0d5e8",
-            "oneToMany": false,
-            "sandbox": false,
-            "file": {
-                "fileName": "file-{{timestamp}}.xml",
-                "skipAggregation": false,
-                "type": "xml",
-                "xml": {
-                    "body": "abc"
-                }
-            },
-            "s3": {
-                "region": "us-east-1",
-                "bucket": "/test",
-                "fileKey": "file-{{timestamp}}.xml"
-            },
-            "adaptorType": "S3Import"
-        }
-      }
-    ]
-  }
+    }
+  ]
 }

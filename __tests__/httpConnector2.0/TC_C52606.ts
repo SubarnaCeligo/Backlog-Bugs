@@ -8,7 +8,7 @@ test.describe("TC_C52606 Verify cloning the newly created flows and run them", (
   test.afterEach(async ({io,page}, testInfo) => {
     const flowDoc = await io.api.getCall("v1/flows/" + [flowId]);
     const pgExportId = flowDoc?.pageGenerators?.[0]?._exportId;
-    const ppImportId = flowDoc?.pageProcessors?.[1]?._importId;
+    const ppImportId = flowDoc?.pageProcessors?.[0]?._importId;
 
     test.step("*** Deleting flow and its resources ***", async ()=>{});
     await io.api.deleteFlowViaAPI([flowId])
@@ -19,7 +19,7 @@ test.describe("TC_C52606 Verify cloning the newly created flows and run them", (
     const clonedFlowId = await io.api.getFlowId("Clone - " + TC_C52606.name);
     const clonedFlowDoc = await io.api.getCall("v1/flows/" + [clonedFlowId]);
     const clonedPgExportId = clonedFlowDoc?.pageGenerators?.[0]?._exportId;
-    const clonedPpImportId = clonedFlowDoc?.pageProcessors?.[1]?._importId;
+    const clonedPpImportId = clonedFlowDoc?.pageProcessors?.[0]?._importId;
 
     test.step("*** Deleting cloned flow and its resources ***", async ()=>{});
     await io.api.deleteFlowViaAPI([clonedFlowId])
@@ -35,12 +35,17 @@ test.describe("TC_C52606 Verify cloning the newly created flows and run them", (
     test.step("*** Navigate to created flow ***", async ()=>{});
     await io.flowBuilder.navigateToTheFlow(flowId);
     await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
 
     test.step("***Click on more action ***", async ()=>{});
     await io.homePage.clickButtonByIndex(
-      await selectors.integrationPagePO.OPENACTIONSMENU,
+      selectors.integrationPagePO.OPENACTIONSMENU,
       0
     );
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
 
     test.step("***Click on Clone flow ***", async ()=>{});
     await io.homePage.click(
@@ -117,9 +122,17 @@ test.describe("TC_C52606 Verify cloning the newly created flows and run them", (
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
 
+    test.step("*** Searching the flow ***", async ()=>{});
+    await io.homePage.click(selectors.basePagePO.SEARCH);
+    await io.homePage.fillWebPage(
+      selectors.basePagePO.SEARCH,
+      "Clone - " + TC_C52606.name
+    );
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     test.step("*** Selecting the cloned flow ***", async ()=>{});
     await io.homePage.clickButtonBasedOnLabelName(
-      selectors.integrationPagePO.SELECTSTACKLIST,
+      selectors.basePagePO.TEMPLATESTABLENAMES,
       "Clone - " + TC_C52606.name
     );
     await io.homePage.loadingTime();
@@ -139,7 +152,7 @@ test.describe("TC_C52606 Verify cloning the newly created flows and run them", (
 
     //Validation in upstream Apps
     var resultJSON = await io.flowBuilder.validateJobCountFromDashBoard(
-      TC_C52606.name,
+      "Clone - " + TC_C52606.name,
       TC_C52606.qa__expectedDashboardCount
     )
   });
