@@ -1,114 +1,108 @@
 {
-    "name": "Http 2.0 connector",
-    "referencename": "Http 2.0 connector",
-    "qa__api_tdata": [
+    "name": "TC_C63515",
+    "pageGenerators": [
         {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "loop",
-                        "_connectionId": "63d3b2ae6c8488070e868383",
-                        "asynchronous": true,
-                        "assistant": "loopreturns",
-                        "oneToMany": false,
-                        "sandbox": false,
-                        "assistantMetadata": {
-                            "resource": "639184209998e4b191badcb3",
-                            "version": "639184209998e4b191badcb2",
-                            "operation": "639184209998e4b191badcb4"
-                        },
-                        "http": {
-                            "relativeURI": "/v1/blacklists?page={{{export.http.paging.page}}}",
-                            "method": "GET",
-                            "headers": [],
-                            "requestMediaType": "json",
-                            "successMediaType": "json",
-                            "errorMediaType": "json",
-                            "_httpConnectorVersionId": "639184209998e4b191badcb2",
-                            "_httpConnectorResourceId": "639184209998e4b191badcb3",
-                            "_httpConnectorEndpointId": "639184209998e4b191badcb4",
-                            "formType": "assistant",
-                            "paging": {
-                                "method": "page",
-                                "page": 1
-                            },
-                            "response": {
-                                "resourcePath": "data",
-                                "successValues": []
-                            }
-                        },
-                        "adaptorType": "HTTPExport"
+            "type": "export",
+            "qa__export": {
+                "name": "Loop returns Export",
+                "_connectionId": "LOOP RETURNS NO VERSION",
+                "asynchronous": true,
+                "assistant": "loopreturns",
+                "oneToMany": false,
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "639184209998e4b191badcb3",
+                    "version": "639184209998e4b191badcb2",
+                    "operation": "639184209998e4b191badcb4"
+                },
+                "http": {
+                    "relativeURI": "/v1/blacklists?page={{{export.http.paging.page}}}",
+                    "method": "GET",
+                    "headers": [],
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "_httpConnectorVersionId": "639184209998e4b191badcb2",
+                    "_httpConnectorResourceId": "639184209998e4b191badcb3",
+                    "_httpConnectorEndpointId": "639184209998e4b191badcb4",
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "page",
+                        "page": 1
+                    },
+                    "response": {
+                        "resourcePath": "data",
+                        "successValues": []
                     }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "3pl",
-                        "_connectionId": "63971b9cd098332ef162d18d",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "assistant": "3plcentral",
-                        "sandbox": false,
-                        "assistantMetadata": {
-                            "resource": "6345f57469f848d92751bfc2",
-                            "version": "6345f57469f848d92751bfbf",
-                            "operation": "6345f57469f848d92751bfe1"
-                        },
-                        "lookups": [],
-                        "http": {
-                            "relativeURI": [
-                                "/customers"
-                            ],
-                            "method": [
-                                "POST"
-                            ],
-                            "body": [
-                                "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
-                            ],
-                            "headers": [],
-                            "requestMediaType": "json",
-                            "successMediaType": "json",
-                            "errorMediaType": "json",
-                            "strictHandlebarEvaluation": false,
-                            "sendPostMappedData": true,
-                            "_httpConnectorVersionId": "6345f57469f848d92751bfbf",
-                            "_httpConnectorResourceId": "6345f57469f848d92751bfc2",
-                            "_httpConnectorEndpointIds": [
-                                "6345f57469f848d92751bfe1"
-                            ],
-                            "formType": "assistant",
-                            "lookups": []
-                        },
-                        "adaptorType": "HTTPImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "Http 2.0 connector",
-                "disabled": false,
-                "qa__integrationId": "633408479fb96473a0c7372c",
-                "_integrationId": "631a1266abf51e7a86c80ab4",
-                "skipRetries": false,
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    }
-                ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
-                    }
-                ]
+                },
+                "adaptorType": "HTTPExport"
             }
         }
-    ]
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "3PL Import",
+                "_connectionId": "3PL CENTRAL CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "assistant": "3plcentral",
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "6345f57469f848d92751bfc2",
+                    "version": "6345f57469f848d92751bfbf",
+                    "operation": "6345f57469f848d92751bfe1"
+                },
+                "lookups": [],
+                "http": {
+                    "relativeURI": [
+                        "/customers"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
+                    ],
+                    "headers": [],
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "strictHandlebarEvaluation": false,
+                    "sendPostMappedData": true,
+                    "_httpConnectorVersionId": "6345f57469f848d92751bfbf",
+                    "_httpConnectorResourceId": "6345f57469f848d92751bfc2",
+                    "_httpConnectorEndpointIds": [
+                        "6345f57469f848d92751bfe1"
+                    ],
+                    "formType": "assistant",
+                    "lookups": []
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C63515",
+        "disabled": true,
+        "_integrationId": "_integrationId",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
 }

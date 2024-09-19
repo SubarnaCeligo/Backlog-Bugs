@@ -8,31 +8,17 @@ test.describe("TC_C34940_HTTPExportImport_Verify_AFETogglePresent", () => {
   test.afterEach(async ({io,page}, testInfo) => {
     test.step("*** Deleting resources ***", async ()=>{});
 
+    const flowDoc = await io.api.getCall("v1/flows/" + flowId);
+    const pgExportId = flowDoc?.pageGenerators?.[0]?._exportId;
+    const ppExportId = flowDoc?.pageProcessors?.[0]?._exportId;
+
     // Delete the flow
-    io.api.deleteFlowViaAPI(flowId)
-
-    // Delete the lookup export
-    await io.homePage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
-    await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
-    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'AutomationStandalone_Http export');
-    // Wait for search to complete
-    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
-    await io.homePage.click(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
-    await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
-    // confirm  delete 
-    await io.homePage.click(selectors.basePagePO.DELETE_BUTTON);
-    await io.homePage.loadingTime();
-
-    // Delete the pg export
-    await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'AutomationStandalone_');
-    // Wait for search to complete
-    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
-    await io.homePage.click(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
-    await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
-    // confirm  delete 
-    await io.homePage.click(selectors.basePagePO.DELETE_BUTTON);
+    await io.api.deleteFlowViaAPI(flowId)
+    await io.api.deleteCall("v1/exports/" + pgExportId);
+    await io.api.deleteCall("v1/exports/" + ppExportId);
     await io.homePage.loadingTime();
   });
+  
   test("@Zephyr-IO-T5569 @Env-All TC_C34940_HTTPExportImport_Verify_AFETogglePresent", async ({io,page}, testInfo) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     if(process.env["ENVIRONMENT"] == "qaprod") {
