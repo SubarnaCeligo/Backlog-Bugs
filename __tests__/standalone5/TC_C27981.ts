@@ -19,8 +19,10 @@ test.describe("TC_C27981_Edit_connection_HTTP", () => {
     await io.connections.createConnectionViaAPI(HTTP.apiJSON);
     await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
 
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "Connection_Custom_Setting");
+    await io.homePage.loadingTime();
     await io.homePage.loadingTime();
 
     await io.homePage.clickByTextByIndex("Connection_Custom_Setting", 0);

@@ -60,6 +60,7 @@ test.describe("TC_C2004", () => {
     test.step("*** API Token Is reactivated Successfully ***", async ()=>{});
 
     await io.homePage.click(selectors.flowBuilderPagePO.SHOW_TOKEN);
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.COPY_TOKEN);
 
     test.step("***Token Is Displayed In Clear Text***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);

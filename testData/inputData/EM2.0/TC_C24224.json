@@ -7,37 +7,18 @@
         {
           "type": "export",
           "qa__export": {
-            "name": "Shopify_Export_TC_C24224",
-            "_connectionId": "SHOPIFY CONNECTION",
+            "application": "MySQL",
+            "name": "AutomationStandalone_mysql export",
+            "_connectionId": "MYSQL CONNECTION",
             "asynchronous": true,
-            "assistant": "shopify",
-            "assistantMetadata": {
-              "resource": "customer",
-              "version": "v2",
-              "operation": "searches_forcustomersthatmatchasuppliedquery"
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "rawData": "603ce5ede9250226dcea460843388dd260b74c788d832049d4180cad",
+            "rdbms": {
+              "query": "select * from Templates.Order LIMIT 5"
             },
-            "http": {
-              "relativeURI": "/customers/search.json?query=first_name:C23737",
-              "method": "GET",
-              "paging": {
-                "method": "linkheader",
-                "lastPageStatusCode": 404,
-                "linkHeaderRelation": "next"
-              },
-              "response": {
-                "resourcePath": "customers"
-              }
-            },
-            "rawData": "603ce5ede9250226dcea4608dda6230d547e4261bcf2b129528d1898",
-            "rest": {
-              "relativeURI": "/customers/search.json?query=first_name:C23737",
-              "method": "GET",
-              "resourcePath": "customers",
-              "pagingMethod": "linkheader",
-              "allowUndefinedResource": false,
-              "linkHeaderRelation": "next"
-            },
-            "adaptorType": "RESTExport"
+            "adaptorType": "RDBMSExport"
           }
         }
       ],
@@ -45,30 +26,24 @@
         {
           "type": "import",
           "qa__import": {
-            "name": "HTTP_Import_TC_C24224",
-            "application": "zendesk support",
+            "name": "MySQL Import Error",
+            "application": "MySQL",
             "parsers": [],
-            "_connectionId": "MOCKY HTTP CONNECTION",
+            "_connectionId": "MYSQL CONNECTION",
             "ignoreExisting": false,
             "ignoreMissing": false,
             "oneToMany": false,
             "sandbox": false,
             "lookups": [],
-            "http": {
-              "relativeURI": [
-                "/customers.json"
+            "rdbms": {
+              "query": [
+                "insert into"
               ],
-              "method": [
-                "POST"
-              ],
-              "body": [
-                "{\"firstName\":\"matt\"}"
-              ],
-              "batchSize": 1,
-              "sendPostMappedData": true,
-              "formType": "http"
+              "queryType": [
+                "INSERT"
+              ]
             },
-            "adaptorType": "HTTPImport"
+            "adaptorType": "RDBMSImport"
           }
         }
       ],

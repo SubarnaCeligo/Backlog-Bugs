@@ -6,13 +6,9 @@ import TC from "@testData/FlowBuilder/TC_C34144.json";
 
 test.describe("TC_C34144", () => {
   let flowId;
-  test.afterEach(async ({io}) => {
-    flowId = await io.api.getFlowById(TC.name);
-    await io.api.deleteFlowsWithId([flowId]);
-  });
-  test("@Env-All @Zephyr-IO-T3062", async ({io}) => {
+  test("@Env-All @Zephyr-IO-T3062", async ({io,page}) => {
     await io.api.createImpOrExpAndFlowsThruAPI(TC);
-    var flowId = await io.api.getFlowId(TC.name);
+    flowId = await io.api.getFlowId(TC.name);
     console.log("****",flowId);
     await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId)
     await io.homePage.loadingTime();
@@ -22,8 +18,11 @@ test.describe("TC_C34144", () => {
     await io.homePage.loadingTime();
     test.step("Navigated to the created flow", async ()=>{});
     var graphCheck = await io.homePage.isVisible(selectors.flowBuilderPagePO.CHARTS);
+    const lastRun = page.getByText('Last run');
+    await lastRun.waitFor({state: 'visible', timeout: 360000});
     var graphHover = await io.homePage.isVisible(selectors.flowBuilderPagePO.JOBS_ROWS);
     await io.assert.expectToBeTrue(graphCheck, "");
     await io.assert.expectToBeTrue(graphHover, "");
+    await io.api.deleteFlowsWithId([flowId]);
   });
 });

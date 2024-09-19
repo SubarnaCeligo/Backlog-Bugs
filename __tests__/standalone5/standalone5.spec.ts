@@ -36,3 +36,8 @@ require("./TC_C27973");
 require("./TC_C27974");
 require("./TC_C27975");
 require("./TC_C27981");
+require("./TC_C27467_HttpExport_Verify_LengthProperty_ArrayTypeFields");
+require("./TC_C27541_Verify_HttpImport_Connection_Object_SampleData");
+require("./TC_C27729");
+require("./TC_C27782");
+require("./TC_C27962_HTTP_Import_Export");
