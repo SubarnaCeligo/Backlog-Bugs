@@ -17,6 +17,8 @@ test.describe("TC_C44917_C44916", () => {
     await io.flowBuilder.loadingTime();
 
     // Delete the webhooks
+    webhookId1 = await io.api.getExportId("TC_C44916_Webhook_Export");
+    webhookId2 = await io.api.getExportId("TC_C44917_Webhook_Export");
     await io.api.deleteCall("v1/exports/" + webhookId1);
     await io.api.deleteCall("v1/exports/" + webhookId2);
     await io.homePage.loadingTime();
@@ -58,7 +60,6 @@ test.describe("TC_C44917_C44916", () => {
     await io.homePage.click(selectors.flowBuilderPagePO.WEBHOKKSGENERATEURL);
     await io.homePage.loadingTime();
     var Data = await io.api.getExport("TC_C44916_Webhook_Export");
-    webhookId1 = Data._id;
     if(Data.webhook.algorithm === "sha512") {
       test.step("*** verifiend HMAC property with SHA512 ***", async ()=>{});
     } else {
@@ -93,7 +94,6 @@ test.describe("TC_C44917_C44916", () => {
     await io.homePage.click(selectors.flowBuilderPagePO.WEBHOKKSGENERATEURL);
     await io.homePage.isPageReady();
     Data = await io.api.getExport("TC_C44917_Webhook_Export");
-    webhookId2 = Data._id;
     if(Data.webhook.algorithm === "sha384") {
       test.step("*** verifiend HMAC property with SHA384 ***", async ()=>{});
     } else {

@@ -20,21 +20,6 @@ test.describe("TC_C34398", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
   });
-
-  test.afterEach(async ({ io }) => {
-    test.step("Deleting the flows", async () => { });
-    await io.api.deleteFlowsWithId([
-      flowId1, flowId2
-    ]);
-
-    await io.homePage.loadingTime();
-
-    test.step("Deleting integrations", async () => { });
-    await io.api.deleteIntegration(integration1Id);
-
-    await io.homePage.loadingTime();
-  });
-
   test("@Env-All @Zephyr-IO-T3069 | To verify /tiles and /tiles/_integrationId route is not considering disabled flows to return numFlows and LastErrorAt values", async ({ io, page }) => {
     const integration1Name = integration1Data.qa__api_tdata[0].createIntegrations.name;
     integration1Id = await io.api.createIntegrationThruAPI(integration1Data);
@@ -62,12 +47,18 @@ test.describe("TC_C34398", () => {
     await io.homePage.loadingTime();
     const lastRun = page.getByText('Last run');
     await lastRun.waitFor({ state: 'visible', timeout: 360000 });
+    await io.homePage.loadingTime();
+    const err1 =  await page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS).textContent();
+    expect(err1).toContain('1 error');
 
     await io.ilm.navigateToIntegrationById(integration1Id);
     await io.homePage.clickByText('TC_C34398_FLOW_2');
     await io.homePage.loadingTime();
     const lastRun2 = page.getByText('Last run');
     await lastRun2.waitFor({ state: 'visible', timeout: 360000 });
+    await io.homePage.loadingTime();
+   const err2 =  await page.locator(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS).textContent();
+   expect(err2).toContain('1 error');
 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
@@ -88,5 +79,12 @@ test.describe("TC_C34398", () => {
     await io.flowBuilder.fill(selectors.integrationPagePO.HOME_SEARCH, '34398');
     await io.homePage.loadingTime();
     expect(await page.getByText('1 error').isVisible()).toBeTruthy();
+    await io.api.deleteFlowsWithId([
+      flowId1, flowId2
+    ]);
+    await io.homePage.loadingTime();
+
+    test.step("Deleting integrations", async () => { });
+    await io.api.deleteIntegration(integration1Id);
   });
 });

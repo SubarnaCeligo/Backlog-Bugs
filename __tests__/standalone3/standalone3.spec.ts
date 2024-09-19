@@ -140,3 +140,8 @@ require("./TC_C44725");
 require("./TC_C44917");
 require("./TC_C45229");
 require("./TC_C45294_Verify_XML_Sample_File_Option_For_FTP_S3_Gdrive");
+require("./TC_C44920_C37162");
+require("./TC_C45300_Verify_HelpText_XML_TC_C59393");
+require("./TC_C45310_FTP_Xml_File_Type_Error_Validation");
+require("./TC_C45313_Verify_FTP_Import_Sample_File_and_Mappings_Option");
+require("./TC_C45369");

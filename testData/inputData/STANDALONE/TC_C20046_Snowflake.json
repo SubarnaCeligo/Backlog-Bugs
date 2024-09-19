@@ -1,4 +1,6 @@
 {
-    "qa__expected":"{\n  \"batch_of_records\": [\n    {\n      \"record\": {\n        \"myField\": \"sample\"\n      }\n    },\n    {\n      \"record\": {\n        \"myField\": \"sample\"\n      }\n    },\n    {\n      \"record\": {\n        \"myField\": \"sample\"\n      }\n    },\n    {\n      \"record\": {\n        \"myField\": \"sample\"\n      }\n    },\n    {\n      \"record\": {\n        \"myField\": \"sample\"\n      }\n    }\n  ],\n  \"connection\": {\n    \"name\": \"Snow flake\"\n  },\n  \"import\": {\n    \"name\": \"Snowflake import\"\n  },\n  \"settings\": {\n    \"integration\": {},\n    \"flow\": {},\n    \"flowGrouping\": {},\n    \"connection\": {},\n    \"import\": {}\n  }\n}",
-    "expected": "{\n  \"batch_of_records\": [\n    {\n      \"record\": {\n        \"myField\": \"sample\"\n      }\n    },\n    {\n      \"record\": {\n        \"myField\": \"sample\"\n      }\n    },\n    {\n      \"record\": {\n        \"myField\": \"sample\"\n      }\n    },\n    {\n      \"record\": {\n        \"myField\": \"sample\"\n      }\n    },\n    {\n      \"record\": {\n        \"myField\": \"sample\"\n      }\n    }\n  ],\n  \"connection\": {\n    \"name\": \"Snowflake\"\n  },\n  \"import\": {\n    \"name\": \"Snowflake import\"\n  },\n  \"settings\": {\n    \"integration\": {},\n    \"flow\": {},\n    \"flowGrouping\": {},\n    \"connection\": {},\n    \"import\": {}\n  }\n}"
-}
+    "record": {},
+    "connection": {
+      "name": "SNOWFLAKE CONNECTION"
+    }
+  }
