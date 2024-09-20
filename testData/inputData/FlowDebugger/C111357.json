@@ -16,7 +16,7 @@
               "asynchronous": true,
               "sandbox": false,
               "ftp": {
-                "directoryPath": "/io.auto.qa/BVAutoFTP"
+                "directoryPath": "/Group-QA/BVAutoFTP"
               },
               "file": {
                 "output": "records",

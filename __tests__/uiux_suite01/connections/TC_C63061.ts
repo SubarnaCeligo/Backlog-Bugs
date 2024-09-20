@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C63061 Verify fields are autopopulating once user switch from Simple to HTTP View in import/export/lookup`, () => {
-  test(`@Env-QA @Env-STAGING @Zephyr-IO-T21822 C63061 Verify fields are autopopulating once user switch from Simple to HTTP View in import/export/lookup`, async ({
+  test(`@Env-All @Zephyr-IO-T21822 C63061 Verify fields are autopopulating once user switch from Simple to HTTP View in import/export/lookup`, async ({
     page,
     io
   }) => {

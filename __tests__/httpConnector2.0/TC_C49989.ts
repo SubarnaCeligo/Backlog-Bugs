@@ -86,13 +86,17 @@ test.describe("TC_C49989", () => {
     test.step("*** Click on sand box***", async ()=>{});
     await io.homePage.click(selectors.homePagePO.SANDBOX_WDIO);
     await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     test.step("*** Navigate to sandbox integration***", async ()=>{});
     await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     test.step("*** Selecting the Standalone flows tile ***", async ()=>{});
     await io.homePage.fillWebPage(
       selectors.integrationPagePO.HOME_SEARCH,
       "Standalone flows"
     );
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     await io.homePage.clickButtonByIndex(selectors.homePagePO.INTEGRATION_NAME, 0);
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
@@ -112,5 +116,6 @@ test.describe("TC_C49989", () => {
     await expect(data).toContain("Clone - " + TC_C49989.name);
     test.step("*** Click on production ***", async ()=>{});
     await io.homePage.click(selectors.homePagePO.PRODUCTION_WDIO);
+    await io.homePage.loadingTime();
   });
 });

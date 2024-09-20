@@ -1,0 +1,53 @@
+{
+    "name": "TC_C63268",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Confluence Export",
+                "_connectionId": "CONFLUENCE CLOUD CONNECTION",
+                "apiIdentifier": "ef31f30c8e",
+                "asynchronous": true,
+                "type": "test",
+                "assistant": "confluencecloud",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/content?type=page&start={{{export.http.paging.skip}}}",
+                    "method": "GET",
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "_httpConnectorVersionId": "637c5817098e3a8865f0a2a4",
+                    "_httpConnectorResourceId": "637c5817098e3a8865f0a2a5",
+                    "_httpConnectorEndpointId": "637c5817098e3a8865f0a2a6",
+                    "isRest": false,
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "skip",
+                        "skip": 0,
+                        "maxCountPath": "size"
+                    },
+                    "response": {
+                        "resourcePath": "results"
+                    }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C63268",
+        "disabled": true,
+        "_integrationId": "_integrationId",
+        "skipRetries": false,
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
+}

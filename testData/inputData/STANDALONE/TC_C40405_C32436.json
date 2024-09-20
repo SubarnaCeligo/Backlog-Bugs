@@ -47,7 +47,7 @@
                         "mapping": {
                             "fields": [
                                 {
-                                    "extract": "Name",
+                                    "extract": "ID",
                                     "generate": "name"
                                 },
                                 {

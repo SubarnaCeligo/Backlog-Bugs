@@ -8,39 +8,39 @@
                     "type": "export",
                     "qa__export": {
                         "name": "netsuite",
-    "_connectionId": "NETSUITE CONNECTION",
-    "apiIdentifier": "e462078265",
-    "asynchronous": true,
-    "type": "distributed",
-    "oneToMany": false,
-    "sandbox": false,
-    "distributed": {
-        "bearerToken": "******"
-    },
-    "netsuite": {
-        "type": "distributed",
-        "skipGrouping": true,
-        "statsOnly": false,
-        "restlet": {
-            "criteria": [],
-            "columns": []
-        },
-        "distributed": {
-            "recordType": "customer",
-            "executionContext": [
-                "userinterface",
-                "webstore"
-            ],
-            "executionType": [
-                "create",
-                "edit",
-                "xedit"
-            ],
-            "sublists": [],
-            "useSS2Framework": false
-        }
-    },
-    "adaptorType": "NetSuiteExport"
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "apiIdentifier": "e462078265",
+                        "asynchronous": true,
+                        "type": "distributed",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "distributed": {
+                            "bearerToken": "******"
+                        },
+                        "netsuite": {
+                            "type": "distributed",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "criteria": [],
+                                "columns": []
+                            },
+                            "distributed": {
+                                "recordType": "customer",
+                                "executionContext": [
+                                    "userinterface",
+                                    "webstore"
+                                ],
+                                "executionType": [
+                                    "create",
+                                    "edit",
+                                    "xedit"
+                                ],
+                                "sublists": [],
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
                     }
                 }
             ],
@@ -49,7 +49,7 @@
                     "type": "import",
                     "qa__import": {
                         "name": "HTTP bigcommerce",
-                        "application":"BigCommerce",
+                        "application": "BigCommerce",
                         "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
                         "apiIdentifier": "i5ab96417a",
                         "ignoreExisting": false,
@@ -74,7 +74,6 @@
             "createFlow": {
                 "name": "TC_C27333",
                 "disabled": false,
-                "_integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
                     {

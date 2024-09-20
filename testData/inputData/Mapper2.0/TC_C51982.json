@@ -1,140 +1,131 @@
 {
-    "name": "TC_C51982",
-    "referencename": "TC_C51982",
-    "_integrationId": "5cbd8a75878b79415201be28",
-    "Source_Environment": "Sandbox",
-    "qa__api_tdata": [
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "TC_C44547",
+    "pageProcessors": [
         {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "FTP Export",
-                        "_connectionId": "FTP CONNECTION",
-                        "asynchronous": true,
-                        "sandbox": true,
-                        "ftp": {
-                            "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
-                            "fileNameStartsWith": "TC_C51965"
-                        },
-                        "file": {
-                            "output": "records",
-                            "skipDelete": true,
-                            "type": "json"
-                        },
-                        "adaptorType": "FTPExport"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "FTP import",
-                        "_connectionId": "FTP CONNECTION",
-                        "oneToMany": false,
-                        "sandbox": true,
-                        "mappings": [
-                            {
-                                "generate": "dest",
-                                "dataType": "objectarray",
-                                "status": "Active",
-                                "buildArrayHelper": [
-                                    {
-                                        "extract": "$.images[*]",
-                                        "conditional": {
-                                            "when": "extract_not_empty"
-                                        },
-                                        "sourceDataType": "objectarray"
-                                    },
-                                    {
-                                        "extract": "$.options",
-                                        "conditional": {
-                                            "when": "extract_not_empty"
-                                        },
-                                        "sourceDataType": "object"
-                                    }
-                                ]
-                            }
-                        ],
-                        "file": {
-                            "fileName": "file-{{timestamp}}.json",
-                            "skipAggregation": false,
-                            "type": "json"
-                        },
-                        "ftp": {
-                            "directoryPath": "/io.auto.qa/Neetin",
-                            "fileName": "file-{{timestamp}}.json"
-                        },
-                        "adaptorType": "FTPImport"
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C51982 import",
+                "application": "inspectorio",
+                "_connectionId": "INSPECTORIO CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "mappings": {
+                    "dataType": "objectarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                        {
+                            "extract": "$[*].measurements[*]",
+                            "sourceDataType": "objectarray",
+                            "mappings": [
+                                {
+                                    "extract": "$.measurements.caption",
+                                    "generate": "caption",
+                                    "dataType": "string",
+                                    "status": "Active",
+                                    "sourceDataType": "string"
+                                },
+                                {
+                                    "extract": "$.measurements.pom",
+                                    "generate": "pom",
+                                    "dataType": "string",
+                                    "status": "Active",
+                                    "sourceDataType": "string"
+                                },
+                                {
+                                    "generate": "sizes",
+                                    "dataType": "objectarray",
+                                    "status": "Active",
+                                    "buildArrayHelper": [
+                                        {
+                                            "extract": "$.measurements.sizes[*]",
+                                            "sourceDataType": "objectarray",
+                                            "mappings": [
+                                                {
+                                                    "extract": "$.measurements.sizes.measurement",
+                                                    "generate": "measurement",
+                                                    "dataType": "string",
+                                                    "status": "Active",
+                                                    "sourceDataType": "string"
+                                                },
+                                                {
+                                                    "extract": "$.measurements.sizes.size",
+                                                    "generate": "size",
+                                                    "dataType": "string",
+                                                    "status": "Active",
+                                                    "sourceDataType": "string"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "/test"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C51982 export",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": [
+                    [
+                        {
+                            "measurements": [
+                                {
+                                    "caption": "C01",
+                                    "pom": "Chest",
+                                    "sizes": [
+                                        {
+                                            "measurement": "2",
+                                            "size": "Medium"
+                                        }
+                                    ],
+                                    "tolerance": "1",
+                                    "toleranceLower": "1",
+                                    "toleranceUpper": "1",
+                                    "unit": "cm"
+                                }
+                            ]
+                        }
+                    ]
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C44547.json"
+                },
+                "file": {
+                    "output": "records",
+                    "encoding": "utf8",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
                     }
                 },
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "HTTP import",
-                        "application": "zendesk support",
-                        "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "sandbox": true,
-                        "mappings": [
-                            {
-                                "extract": "$.body_html",
-                                "generate": "body",
-                                "dataType": "string",
-                                "status": "Active",
-                                "sourceDataType": "string"
-                            }
-                        ],
-                        "http": {
-                            "relativeURI": [
-                                "users"
-                            ],
-                            "method": [
-                                "POST"
-                            ],
-                            "body": [],
-                            "batchSize": 1,
-                            "sendPostMappedData": true,
-                            "formType": "http"
-                        },
-                        "adaptorType": "HTTPImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C51982",
-                "disabled": true,
-                "_integrationId": "5cbd8a75878b79415201be28",
-                "skipRetries": false,
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE"
-                    },
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE"
-                    }
-                ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE",
-                        "skipRetries": false
-                    }
-                ],
-                "sandbox": true,
-                "autoResolveMatchingTraceKeys": true
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C44547.json"
             }
         }
     ]

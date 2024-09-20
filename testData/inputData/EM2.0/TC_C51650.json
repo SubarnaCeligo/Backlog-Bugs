@@ -53,7 +53,7 @@
                 "lastModified": "2022-10-06T09:52:58.837Z",
                 "name": "wefer",
                 "application":"zendesk support",
-                "_connectionId": "Zendesk Connection",
+                "_connectionId": "ZENDESK CONNECTION",
                 "apiIdentifier": "i597445ddd",
                 "ignoreExisting": false,
                 "ignoreMissing": false,

@@ -4,7 +4,7 @@
     "_integrationId": "603ce75ac4fec33283691f43",
     "skipRetries": false,
     "pageGenerators": [
-        {
+        {"type": "export",
             "qa__export": {
                 "name": "FTP Export",
                 "_connectionId": "FTP CONNECTION",

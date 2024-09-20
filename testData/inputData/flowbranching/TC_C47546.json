@@ -9,6 +9,7 @@
             "qa__export": {
                 "name": "AutomationStandaloneExport__gsqpYL0s9w",
                 "application": "zendesk support",
+                "type": "test",
                 "hooks": {
                     "preSavePage": {
                         "_scriptId": "UPDATE",
@@ -20,6 +21,9 @@
                 "asynchronous": true,
                 "oneToMany": false,
                 "sandbox": false,
+                "test": {
+                    "limit": "4"
+                },
                 "http": {
                     "relativeURI": "macros",
                     "method": "GET",
