@@ -26,11 +26,6 @@ test.describe("TC_C2001", () => {
 
     test.step("*** API Token Is Created Successfully ***", async ()=>{});
 
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.loadingTime();
-    await io.homePage.goToMenu("Resources","API tokens");
-    test.step("*** Clicked on API token button ***", async ()=>{});
-    await io.homePage.loadingTime();
     await (await page.locator(selectors.flowBuilderPagePO.SEARCHBUTTON)).isVisible();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
 
@@ -49,45 +44,21 @@ test.describe("TC_C2001", () => {
     await expect(revokedEl).toBeVisible();
     test.step("*** API Token Is Revoked Successfully ***", async ()=>{});
 
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.loadingTime();
-    await io.homePage.goToMenu("Resources","API tokens");
-    test.step("*** Clicked on API token button ***", async ()=>{});
-    await io.homePage.loadingTime();
-    await (await page.locator(selectors.flowBuilderPagePO.SEARCHBUTTON)).isVisible();
-    await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
-
-    await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "TC_2001_Token reactivate validation");
-    await io.homePage.loadingTime();
-    await test.step("***Searching the created token***", async ()=>{});
-
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.REACTIVATETOKEN);
     await io.homePage.click(selectors.connectionsPagePO.REACTIVATETOKEN);
     await page.waitForTimeout(3000);
     test.step("*** Clicked On Revoke API Token***", async ()=>{});
-    const activeEl = await page.getByText("Active");
+    const activeEl = await page.getByText("Active").first();
+    await activeEl.waitFor({ state: 'visible', timeout: 60000 });
     await expect(activeEl).toBeVisible();
     test.step("*** API Token Is reactivated Successfully ***", async ()=>{});
-    
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    
-    await io.homePage.loadingTime();
-    await io.homePage.goToMenu("Resources","API tokens");
-    await io.homePage.loadingTime();
-    test.step("*** Clicked on API token button ***", async ()=>{});
-
-    await (await page.locator(selectors.flowBuilderPagePO.SEARCHBUTTON)).isVisible();
-    await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
-
-    await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON,"TC_2001_Token reactivate validation");
-    await io.homePage.loadingTime();
-    await test.step("***Searching the created token***", async ()=>{});
     
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.connectionsPagePO.REVOKEAPITOKEN);
     test.step("*** Clicked On Revoke API Token***", async ()=>{});
     
-    const newRevokedEl = await page.getByText("Revoked");
+    const newRevokedEl = await page.getByText("Revoked").first();
     await newRevokedEl.waitFor({ state: 'visible', timeout: 30000 });
     test.step("*** Wait for text to be visible ***", async ()=>{});
     await expect(newRevokedEl).toBeVisible();

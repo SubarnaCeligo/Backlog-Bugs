@@ -61,3 +61,7 @@ require("./TC_C24483");
 require("./TC_C24485");
 require("./TC_C24486");
 require("./TC_C24487");
+require("./TC_C23890");
+require("./TC_C23891");
+require("./TC_C23895");
+require("./TC_C24216");

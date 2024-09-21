@@ -25,7 +25,7 @@ test.describe("TC_C2003", () => {
     test.step("*** API Token Is Created Successfully ***", async ()=>{});
 
     await io.homePage.click(selectors.flowBuilderPagePO.SHOW_TOKEN);
-
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.COPY_TOKEN);
     test.step("***Token Is Displayed In Clear Text***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
     test.step("***Copied Token To ClipBoard***", async ()=>{});
@@ -36,12 +36,6 @@ test.describe("TC_C2003", () => {
     const text = await io.homePage.getText(selectors.flowGroupingPagePO.ALERT_MESSAGE);
     await io.assert.expectToContainValue( "Token copied to clipboard.", String(text), "");
 
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-
-    await io.homePage.goToMenu("Resources","API tokens");
-    await io.homePage.loadingTime();
-    test.step("*** Clicked On API Token Icon ***", async ()=>{});
-    
     await (await page.locator(selectors.flowBuilderPagePO.SEARCHBUTTON)).isVisible();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
 
@@ -51,6 +45,7 @@ test.describe("TC_C2003", () => {
 
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.connectionsPagePO.NEWTOKENGENERATE);
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.COPY_TOKEN);
     await page.waitForTimeout(3000);
     test.step("*** Clicked On generate API Token***", async ()=>{});
 

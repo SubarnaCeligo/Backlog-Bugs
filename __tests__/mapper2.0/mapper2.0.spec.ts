@@ -55,3 +55,6 @@ require("./TC_C51123");
 require("./TC_C51210");
 require("./TC_C51968");
 require("./TC_C52311_52074");
+require("./TC_51223");
+require("./TC_C44400_FTP_To_HTTP");
+require("./TC_C51221");

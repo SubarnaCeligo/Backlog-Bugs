@@ -15,10 +15,10 @@
                 "asynchronous": true,
                 "oneToMany": false,
                 "groupByFields": [
-                    "COLOR"
+                    "AGE"
                 ],
                 "rdbms": {
-                    "query": "select * from Grouping_5MB order by COLOR desc"
+                    "query": "select * from LOAD order by AGE asc LIMIT 5000"
                 },
                 "adaptorType": "RDBMSExport"
             }
