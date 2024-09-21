@@ -1,4 +1,5 @@
 {
+    "name": "TC_C48980_flow_errors",
     "pageGenerators": [
         {
           "type": "export",

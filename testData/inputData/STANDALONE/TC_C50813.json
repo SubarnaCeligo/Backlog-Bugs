@@ -16,14 +16,15 @@
                 "application": "mysql",
                 "name": "mssql",
                 "qa__connectionId": "62ecf9ef5e6e1f3f1109dd09",
-                "_connectionId": "634ee09583435c48e89d0aff",
+                "_connectionId": "MSSQL CONNECTION",
                 "_sourceId": "634f96f0864ed732a0eac3f4",
                 "apiIdentifier": "e2025ddac1",
                 "asynchronous": true,
                 "oneToMany": false,
                 "sandbox": false,
                 "groupByFields": [
-                    "Column1"
+                    "Column1",
+                    "Column2"
                 ],
                 "rawData": "62e8102611ba17297d9be1998988e78b5405440f9201925e56c26ff7",
                 "rdbms": {

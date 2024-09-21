@@ -3,6 +3,13 @@ import * as selectors from "@celigo/aut-selectors";
 import TC from "@testData/STANDALONE/TC_C50648.json";
 
 test.describe("TC_C50648", () => {
+  test.afterEach(async ({io,page}, testInfo) => {
+    //*Create Deleted Connection
+    test.step("*** Deleting Connection ***", async ()=>{});
+    await io.connections.deleteConnection(TC.PostBody.name);
+    await io.homePage.loadingTime();
+  });
+
   test("@Zephyr-IO-T23341 @Env-All TC_C50648_Verify_userAble_To_CreateConnection_ByProviding_TokenPaths_in_StringArray", async ({io,page}, testInfo) => {
     test.step("** Getting response from post request ***", async ()=>{});
     await io.api.postCall( "v1/connections",  JSON.stringify(TC.PostBody));
@@ -24,10 +31,5 @@ test.describe("TC_C50648", () => {
     await io.assert.expectToContainValue("Online",String(connNameStatus), "");
     test.step("*** Verified Connection should be Online ***", async ()=>{});
     test.step("*** Verified Should be able to create a connection in IO having multiple values in  Paths to encrypted field ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
-    await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
-    // confirm  delete 
-    await io.homePage.click(selectors.basePagePO.DELETE_BUTTON);
-    await io.homePage.loadingTime();
   });
 });
