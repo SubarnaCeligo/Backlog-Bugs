@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that only 30 characters are allowed in th
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38142 Verify that only 30 characters are allowed in the search term", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38142 Verify that only 30 characters are allowed in the search term", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
