@@ -7,7 +7,7 @@ test.describe("C51643 Verify the default view by clicking on the Error count in 
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(errorFlowId)
     });
-    test("@Zephyr-IO-T19795 @Env-QA @Env-STAGING C51643 Verify the default view by clicking on the Error count in the (within a flow bubble, flow step drawer, run console, or run history)", async ({io, page}) => {
+    test("@Zephyr-IO-T19795 @Env-All C51643 Verify the default view by clicking on the Error count in the (within a flow bubble, flow step drawer, run console, or run history)", async ({io, page}) => {
         errorFlowId = await io.createResourceFromAPI(C51643, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51643', errorFlowId);
         const lastRun = page.getByText('Last run')

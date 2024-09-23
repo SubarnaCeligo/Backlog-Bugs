@@ -7,7 +7,7 @@ test.describe("C51664 Verify the Top 'Retry' option in the Error Dashboard by ed
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(id)
   });  
-  test("@Zephyr-IO-T19816 @Env-QA @Env-STAGING C51664 Verify the Top 'Retry' option in the Error Dashboard by editing data in 'Edit retry data' tab", async ({io, page}) => {
+  test("@Zephyr-IO-T19816 @Env-All C51664 Verify the Top 'Retry' option in the Error Dashboard by editing data in 'Edit retry data' tab", async ({io, page}) => {
         id = await io.createResourceFromAPI(C51664,"FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51664', id);
         const lastRun = page.getByText('Last run');

@@ -7,7 +7,7 @@ test.describe("C51627 Verify the list and the default status of the footer butto
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(id)
     });
-    test("@Zephyr-IO-T19779 @Env-QA @Env-STAGING C51627 Verify the list and the default status of the footer buttons displayed in the 'Error details' drawer", async ({ io, page }) => {
+    test("@Zephyr-IO-T19779 @Env-All C51627 Verify the list and the default status of the footer buttons displayed in the 'Error details' drawer", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C51627, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51627', id);
         const lastRun = page.getByText('Last run')
