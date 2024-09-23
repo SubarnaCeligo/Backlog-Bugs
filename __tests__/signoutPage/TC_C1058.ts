@@ -5,6 +5,7 @@ import { decrypt } from "@celigo/aut-utilities";
 test.describe("C1058 Verify integrator.io reset password link sent to given email", () => {
    test.beforeEach('check sign out', async ({ io, page }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.delay(20000);
     const isNotLoggedIn = await io.loginPage.checkLoginState();
     if (!isNotLoggedIn) {
       await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);

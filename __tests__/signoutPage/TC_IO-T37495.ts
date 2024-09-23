@@ -5,6 +5,7 @@ import { randomString, randomNumber, decrypt } from "@celigo/aut-utilities";
 test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37495 @Zephyr-IO-T37494 @Zephyr-IO-T37509 @Zephyr-IO-T37484", () => {
     test.beforeEach('check sign out', async ({ io, page }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.flowBuilder.delay(20000);
         const isNotLoggedIn = await io.loginPage.checkLoginState();
         if (!isNotLoggedIn) {
             await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);
