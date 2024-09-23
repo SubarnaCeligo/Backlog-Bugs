@@ -10,7 +10,7 @@ test.describe("C23454_Display retries info", () => {
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(errorFlowId)
     });
-    test("@Zephyr-IO-T7412 @Env-QA @Env-STAGING C23454_Display retries info UI_Backlog", async ({ io, page, }) => {
+    test("@Zephyr-IO-T7412 @Env-All C23454_Display retries info UI_Backlog", async ({ io, page, }) => {
         errorFlowId = await io.createResourceFromAPI(C23454, "FLOWS");
         await io.flowBuilder.loadingTime();
         await io.api.runBatchFlowViaAPI('C23454_Resolve_Errors', errorFlowId);

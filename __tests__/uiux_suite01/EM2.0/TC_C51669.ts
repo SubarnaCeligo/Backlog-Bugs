@@ -8,7 +8,7 @@ test.describe(`C51669 Verify by closing the "Error details" drawer without savin
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(id)
   });  
-  test(`@Zephyr-IO-T19821 @Env-QA @Env-STAGING C51669 Verify by closing the "Error details" drawer without saving the changes made on "Edit Retry data"tab`, async ({
+  test(`@Zephyr-IO-T19821 @Env-All C51669 Verify by closing the "Error details" drawer without saving the changes made on "Edit Retry data"tab`, async ({
     io,
     page
   }) => {

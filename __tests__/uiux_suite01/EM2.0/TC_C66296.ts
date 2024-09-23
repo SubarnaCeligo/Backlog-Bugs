@@ -7,7 +7,7 @@ test.describe("C66296 Verify the status of flow runs is color-coded", () => {
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(errorFlowId)
     });
-  test("@Zephyr-IO-T20424 @Env-QA @Env-STAGING C66296 Verify the status of flow runs is color-coded", async ({io, page}) => {
+  test("@Zephyr-IO-T20424 @Env-All C66296 Verify the status of flow runs is color-coded", async ({io, page}) => {
       errorFlowId = await io.createResourceFromAPI(C66296, "FLOWS");
       await io.api.runBatchFlowViaAPI('TC_C51626', errorFlowId);
       const lastRun = page.getByText('Last run')

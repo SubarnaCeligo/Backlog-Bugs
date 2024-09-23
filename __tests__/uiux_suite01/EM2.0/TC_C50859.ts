@@ -7,7 +7,7 @@ test.describe("C50859 Verify the displayed default page in 'Error Dashboard' whe
     test.afterEach(async ({ io }) => {
       await io.api.deleteFlowsWithId(errorFlowId)
     });
-    test("@Zephyr-IO-T7551 @Env-QA @Env-STAGING C50859 Verify the displayed default page in 'Error Dashboard' when there is no error in the flow", async ({io, page}) => {
+    test("@Zephyr-IO-T7551 @Env-All C50859 Verify the displayed default page in 'Error Dashboard' when there is no error in the flow", async ({io, page}) => {
         const id = await io.createResourceFromAPI(C50859, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C50859', id);
         const lastRun = page.getByText('Last run');

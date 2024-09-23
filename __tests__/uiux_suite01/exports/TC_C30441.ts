@@ -8,7 +8,7 @@ test.describe("TC_C30441_For an export or import with its connection offline, Ve
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("@Env-QA @Zephyr-IO-T2210 TC_C30441_For an export or import with its connection offline, Verified that ,upon opening the export or import,Connection is offline message is displayed UI_Backlog", async ({ io, page }, testInfo) => {
+    test("@Env-All @Zephyr-IO-T2210 TC_C30441_For an export or import with its connection offline, Verified that ,upon opening the export or import,Connection is offline message is displayed UI_Backlog", async ({ io, page }, testInfo) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

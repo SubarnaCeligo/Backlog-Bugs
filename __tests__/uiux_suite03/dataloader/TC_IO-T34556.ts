@@ -6,7 +6,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify For Dataloader, the handlebars
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Bug-IO-86965 @Priority-P2 @Env-QA @Zephyr-IO-T34556 Verify For Dataloader, the handlebars are not clickable.'", async ({ io, page, context }) => {
+    test("@Bug-IO-86965 @Priority-P2 @Env-All @Zephyr-IO-T34556 Verify For Dataloader, the handlebars are not clickable.'", async ({ io, page, context }) => {
         await io.homePage.goToMenu("Tools", "Data loader");
         await io.flowBuilder.loadingTime();
         //Add Source

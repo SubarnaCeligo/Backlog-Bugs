@@ -7,7 +7,7 @@ test.describe("C51530 Verify when retries are completed for a step and same step
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(id)
     });
-    test("@Zephyr-IO-T23336 @Env-QA @Env-STAGING C51530 Verify when retries are completed for a step and same step is removed from flow, we show the Retrying complete and no data should display  in view results", async ({ io, page }) => {
+    test("@Zephyr-IO-T23336 @Env-All C51530 Verify when retries are completed for a step and same step is removed from flow, we show the Retrying complete and no data should display  in view results", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C51530, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51530', id);
         const lastRun = page.getByText('Last run')

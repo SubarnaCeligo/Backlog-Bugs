@@ -11,7 +11,7 @@ test.describe("C24621_Verify the behaviour of Retry & Resolve dropdown with <100
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(errorFlowId)
     });
-    test("@Zephyr-IO-T7215 @Env-QA @Env-STAGING C24621_Verify the behaviour of Retry & Resolve dropdown with <1000 errors on Monitor whole account user UI_Backlog", async ({ io, page, }) => {
+    test("@Zephyr-IO-T7215 @@Env-All C24621_Verify the behaviour of Retry & Resolve dropdown with <1000 errors on Monitor whole account user UI_Backlog", async ({ io, page, }) => {
         errorFlowId = await io.createResourceFromAPI(C24621, "FLOWS");
         await io.flowBuilder.loadingTime();
         await io.api.runBatchFlowViaAPI('C24621_Retry_and_Resolve_Errors', errorFlowId);

@@ -7,7 +7,7 @@ test.describe("C51626 Verify the Actions coloumn the New view by navigating from
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(errorFlowId)
     });
-    test("@Zephyr-IO-T19778 @Env-QA @Env-STAGING C51626 Verify the Actions coloumn the New view by navigating from the current view", async ({io, page}) => {
+    test("@Zephyr-IO-T19778 @Env-All C51626 Verify the Actions coloumn the New view by navigating from the current view", async ({io, page}) => {
         errorFlowId = await io.createResourceFromAPI(C51626, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51626', errorFlowId);
         const lastRun = page.getByText('Last run')

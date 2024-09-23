@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S T29043-Verify that placeholder for Blob key path
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Priority-P4 @Env-QA @Zephyr-IO-T29043 Verify that placeholder for Blob key path is sentence cased.", async ({ io, page }) => {
+    test("@Priority-P4 @Env-All @Zephyr-IO-T29043 Verify that placeholder for Blob key path is sentence cased.", async ({ io, page }) => {
     
         //Go to flow builder page
         await io.homePage.goToMenu("Tools", "Flow builder");
