@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testdata from "./testdata.json"
 
 test.describe(`C68565 Verify user is upload the integration zip file having linear flow (with input/output/mapping/hooks defined) in the template ad able to install the template`, () => {
-  test.beforeEach(async ({ io }) => {
+  test.beforeEach(async ({ io,page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
   test.afterEach(async ({ io, page }) => {
@@ -20,7 +20,7 @@ test.describe(`C68565 Verify user is upload the integration zip file having line
     await io.homePage.loadingTime();
 
     //Unpublish the template
-    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
+    let isPublished =  await page.isVisible('button[data-state="checked"]');
     if (isPublished) {
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
@@ -48,14 +48,15 @@ test.describe(`C68565 Verify user is upload the integration zip file having line
     await io.homePage.loadingTime();
 
     //Publish the template
-    let isPublished = await io.homePage.isVisible(selectors.basePagePO.FLAG);
+    let isPublished =  await page.isVisible('button[data-state="checked"]');
     if (!isPublished) {
       await io.homePage.click(selectors.basePagePO.TEMPLATE_PUBLISH_UNPUBLISH);
       await io.homePage.loadingTime();
       await io.homePage.click(selectors.integrationPagePO.PUBLISH);
       await io.homePage.loadingTime();
-      //Verify that toggle is checked
-      await io.assert.verifyElementAttributeContainsText(selectors.basePagePO.TEMPLATE_TOGGLE, 'class', 'react-toggle--checked');
+      // Verify that the button is checked
+      const button = page.locator('button[data-state="checked"]'); // More specific selector
+      await expect(button).toHaveAttribute('data-state', 'checked');
     }
 
     //Go to marketplace

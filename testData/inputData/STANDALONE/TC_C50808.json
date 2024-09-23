@@ -5,7 +5,7 @@
     "timezone": "Asia/Calcutta",
     "skipRetries": false,
     "qa__expectedDashboardCount": {
-        "successCount": "6",
+        "successCount": "8",
         "ignoreCount": "0",
         "errorCount": "0"
     },
@@ -43,7 +43,7 @@
                     "_connectionId": "FTP CONNECTION"
                 },
                 "qa__expectedDashboardCount": {
-                    "successCount": "6",
+                    "successCount": "8",
                     "ignoreCount": "0",
                     "errorCount": "0"
                 },

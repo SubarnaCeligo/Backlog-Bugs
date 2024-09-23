@@ -37,6 +37,10 @@ test.describe("C1054 Verify on clicking Signin with Google asks to select the go
     }
   })
   test("@Env-All @Zephyr-IO-T930 C1054 Verify on clicking Signin with Google asks to select the google account if multiple google accounts are logged in", async ({ io, page }) => {
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.reloadPage();
     await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     await io.homePage.click(selectors.basePagePO.SIGN_OUT);

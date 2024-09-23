@@ -5,7 +5,7 @@ import T12354_sampleData from "@testData/Exports/T12354_sample.json";
 import T12354_output from "@testData/Exports/T12354_output.json";
 
 test.describe("T12354 Test to validate auto preview on File parser window", () => {
-    test("@Env-QA @Zephyr-IO-T11796 @Priority-P2 T12354 Test to validate auto preview on File parser window", async ({io, page}) => {
+    test("@Env-QA @Env-IAQA @Zephyr-IO-T11796 @Priority-P2 T12354 Test to validate auto preview on File parser window", async ({io, page}) => {
         const edi_response = await io.api.postCall('/v1/ediProfiles', T12354_edi);
 
         await io.exportsPage.addStep('*** Navigating to Exports Page ***');
@@ -53,11 +53,17 @@ test.describe("T12354 Test to validate auto preview on File parser window", () =
         await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.DIRECTORYPATH);
         await io.exportsPage.fill(selectors.flowBuilderPagePO.DIRECTORYPATH, '/io.auto.qa/FTP_UI_AUTOMATION/EXPORTS');
         await io.exportsPage.loadingTime();
-        await io.exportsPage.clickByText('Save');
+        await io.exportsPage.clickByText('Save & close');
         await io.exportsPage.loadingTime();
 
+        //get export ID
+        let exportId = await io.api.getExportId("T12354 FTP Export");
+
+        await io.exportsPage.navigateTo("https://iaqa.staging.integrator.io/exports/edit/exports/" + exportId);
+        await io.exportsPage.loadingTime();
+        
         await io.exportsPage.addStep('*** Adding sample data ***');
-        const exportId = page.url().match(/exports\/([^\/?]+)\?/)[1];
+        // const exportId = page.url().match(/exports\/([^\/?]+)\?/)[1];
         const export_doc = await io.api.getCall('/v1/exports/' + exportId);
         if (await page.url().includes("https://staging.")) {
             export_doc.sampleData = T12354_sampleData.sampleData_Staging;

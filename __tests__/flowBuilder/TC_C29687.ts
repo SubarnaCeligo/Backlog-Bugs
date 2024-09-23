@@ -26,5 +26,6 @@ test.describe("@Env-All @Zephyr-IO-T2884|Verify the preview is working fine for 
       selectors.mappings.PREVIEW_RESULT
     );
     expect(previewResource).toBeTruthy;
+    await io.api.deleteFlowsWithId([flowId]);
   });
 });

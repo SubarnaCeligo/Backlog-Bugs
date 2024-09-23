@@ -1,0 +1,90 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C41124",
+    "Clone_To_Integrate": "Prod_Cl_ILM_C41124"
+  },
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C41124",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Prod_Cl_ILM_C41124",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "New_SB_Clone_Name": "SB_SRC_Cl_ILM_C41124",
+  "New_Prod_Installed_Integration_Name": "Prod_SRC_ILM_C41124",
+  "qa__api_tdata": [{
+    "createIntegrations": {
+      "name": "Delete_TC_ILM_C41124"
+    }
+  }],
+  "jsonDataInstallProduction": {
+    "Source_Environment": "Sandbox",
+    "Destination_Environment": "Production",
+    "Source_Integration": "SB_Cl_ILM_C41124",
+    "Integration_Name": "SB_Cl_ILM_C41124",
+    "Install_Template ": true,
+    "Upload_Path": "/Template_Downloads/",
+    "New_connection": false
+  },
+  "jsonDataInstallSandbox": {
+    "Source_Environment": "Production",
+    "Destination_Environment": "Sandbox",
+    "Source_Integration": "SB_Cl_ILM_C41124",
+    "Integration_Name": "SB_Cl_ILM_C41124",
+    "Install_Template ": true,
+    "Upload_Path": "/Template_Downloads/",
+    "New_connection": false
+  },
+  "jsonDataSandboxClone": {
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "Prod_Cl_ILM_C41124",
+      "Clone_To_Integrate": "SB_Cl_ILM_C41124",
+      "Destination_Enviornment": "Sandbox"
+    },
+    "Source_Environment": "Production",
+    "Source_Integration": "Prod_Cl_ILM_C41124",
+    "Destination_Enviornment": "Sandbox",
+    "Clone_To_Integrate": "SB_Cl_ILM_C41124",
+    "Integration_Clone": true,
+    "New_connection": false
+  },
+  "Integration_Names_To_Verify": [
+    "Prod_Cl_ILM_C41124", 
+    "SB_SRC_Cl_ILM_C41124", 
+    "Prod_SRC_ILM_C41124", 
+    "SB_Cl_ILM_C41124"
+  ],
+  "cloneFamilyVerificaation": [
+    {
+      "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "Delete_TC_ILM_C41124"
+      }
+    },
+    {
+      "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "Prod_Cl_ILM_C41124"
+      }
+    },
+    {
+      "templateJSON": {
+        "Source_Environment": "Sandbox",
+        "Source_Integration": "SB_SRC_Cl_ILM_C41124"
+      }
+    },
+    {
+      "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "Prod_SRC_ILM_C41124"
+      }
+    },
+    {
+      "templateJSON": {
+        "Source_Environment": "Sandbox",
+        "Source_Integration": "SB_Cl_ILM_C41124"
+      }
+    }
+  ]
+}

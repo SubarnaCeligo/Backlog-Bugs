@@ -9,7 +9,6 @@
                     "qa__export": {
                         "name": "Test NS Case",
                         "_connectionId": "NETSUITE CONNECTION",
-                        "_sourceId": "62c417823511941752992347",
                         "apiIdentifier": "ef8208eab7",
                         "asynchronous": true,
                         "oneToMany": false,
@@ -123,7 +122,6 @@
                     "qa__import": {
                         "name": "FTP Redshift Import",
                         "_connectionId": "FTP CONNECTION",
-                        "_sourceId": "62cfbc3370b735433c807db7",
                         "apiIdentifier": "ie7cb2c7ab",
                         "oneToMany": false,
                         "file": {
@@ -151,8 +149,6 @@
             "createFlow": {
                 "name": "TC_C15024",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
                     {
@@ -166,7 +162,7 @@
                             "lists": []
                         },
                         "type": "import",
-                        "_importId": "63104e63d096ed1b2752990d"
+                        "_importId": "UPDATE WITH NEW IMPORTID"
                     },
                     {
                         "responseMapping": {
@@ -174,12 +170,12 @@
                             "lists": []
                         },
                         "type": "import",
-                        "_importId": "63104e63d096ed1b2752990c"
+                        "_importId": "UPDATE WITH NEW IMPORTID"
                     }
                 ],
                 "pageGenerators": [
                     {
-                        "_exportId": "63104e63d096ed1b2752990a",
+                        "_exportId": "UPDATE WITH NEW EXPORTID",
                         "skipRetries": false
                     }
                 ]

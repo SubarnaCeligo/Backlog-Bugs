@@ -32,6 +32,7 @@ await test.step(
     test.step("Error Table is opened", async ()=>{});
     await io.em2.getEm2ErrorTable(flowId);
     await io.homePage.loadingTime();
+    await io.homePage.delay(10000);
     await io.homePage.click(selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON);
     await page.locator(selectors.myAccountPagePO.ERROR_CHECKBOX).nth(1).click();
     await page.locator(selectors.myAccountPagePO.ERROR_CHECKBOX).nth(2).click();

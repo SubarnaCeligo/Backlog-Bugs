@@ -1,4 +1,4 @@
-import { test } from "@celigo/ui-core-automation";
+import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 
@@ -13,7 +13,7 @@ test.describe("@Env-All @Zephyr-IO-T3048|To verify pinned integrations are displ
       "C33017"
     );
   });
-  test("@Env-All @Zephyr-IO-T3048|To verify pinned integrations are displayed by 'Pin' icon before the Name", async ({io}) => {
+  test("@Env-All @Zephyr-IO-T3048|To verify pinned integrations are displayed by 'Pin' icon before the Name", async ({io,page}) => {
     await io.homePage.clickCreateIntegrationButton();
     await io.homePage.loadingTime();
     await io.homePage.fill(
@@ -23,14 +23,15 @@ test.describe("@Env-All @Zephyr-IO-T3048|To verify pinned integrations are displ
     await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
+    await io.homePage.click(
+      selectors.homePagePO.LIST_VIEW
+    );
     test.step("Clicked on list view.", async ()=>{});
     await io.homePage.fillWebPage(
       selectors.integrationPagePO.HOME_SEARCH,
       "C33017"
     );
-    await io.homePage.click(
-      selectors.homePagePO.LIST_VIEW
-    );
+  
     await io.homePage.loadingTime();
     test.step("Entered value in search area.", async ()=>{});
     await io.homePage.click(
@@ -42,6 +43,8 @@ test.describe("@Env-All @Zephyr-IO-T3048|To verify pinned integrations are displ
     await io.homePage.loadingTime();
     await io.homePage.reloadPage();
     await io.homePage.loadingTime();
+    await io.myAccountPage.waitForElementAttached("table > tbody > tr > th svg");
+    await page.pause();
     var logoPin = await io.homePage.isVisible(
       "table > tbody > tr > th svg"
     );

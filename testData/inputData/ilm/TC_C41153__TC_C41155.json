@@ -1,0 +1,103 @@
+{
+  "Source_Environment": "Production",
+  "Source_Integration": "TC_C41153_Del",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "TC_Clone_C41153",
+  "Integration_Clone": true,
+  "qa__api_tdata": [
+    {
+      "createIntegrations": {
+        "name": "TC_C41153_Del"
+      }
+    }
+  ],
+  "pull": [
+    {
+      "integrationToPull": "TC_C41153_Del",
+      "oldConnections": [
+        "NETSUITE CONNECTION",
+        "SALESFORCE CONNECTION"
+      ],
+      "qa__oldConnections": [
+        "NETSUITE CONNECTION",
+        "SALESFORCE CONNECTION"
+      ]
+    }
+  ],
+  "flowsData": {
+    "flowname1": "TC_C41153",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C41153 Salesforce Export",
+              "_connectionId": "SALESFORCE CONNECTION",
+              "apiIdentifier": "e590784cd1",
+              "asynchronous": true,
+              "type": "distributed",
+              "oneToMany": false,
+              "sandbox": false,
+              "distributed": {
+                "bearerToken": "******"
+              },
+              "salesforce": {
+                "sObjectType": "Account",
+                "distributed": {
+                  "disabled": true,
+                  "qualifier": null
+                }
+              },
+              "adaptorType": "SalesforceExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C41153 Netsuite Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "i72bbe10d3",
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                  "fields": [],
+                  "lists": []
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41153",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": ""
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": ""
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

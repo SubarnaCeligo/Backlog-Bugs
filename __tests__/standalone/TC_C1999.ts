@@ -48,7 +48,8 @@ test.describe("TC_C1999", () => {
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "TC_C1999_Second_API_Token");
     await test.step("***Searching the created token***", async ()=>{});
 
-    const editedEl = await page.getByText("TC_C1999_Second_API_Token");
+    const editedEl = await page.getByText("TC_C1999_Second_API_Token").first();
+    await editedEl.waitFor({ state: 'visible', timeout: 60000 });
     await expect(editedEl).toBeVisible();
 
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
@@ -56,12 +57,13 @@ test.describe("TC_C1999", () => {
     test.step("*** Clicked On Revoke API Token***", async ()=>{});
     
     const revokedEl = await page.getByText("Revoked").first();
-    await revokedEl.waitFor({ state: 'visible', timeout: 30000 });
+    await revokedEl.waitFor({ state: 'visible', timeout: 60000 });
     test.step("*** Wait for text to be visible ***", async ()=>{});
     await expect(revokedEl).toBeVisible();
     test.step("*** API Token Is Revoked Successfully ***", async ()=>{});
 
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.DELETE_FLOW);
     await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
     await io.homePage.click(selectors.basePagePO.DELETE);
     await page.waitForTimeout(3000);

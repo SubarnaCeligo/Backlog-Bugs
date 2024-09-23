@@ -6,7 +6,7 @@
   "script": {
     "name": "C47526_PostMap_DND",
     "content": "function postMap(options) {\n  for (var i = 0; i < options.preMapData.length; i++) {\n    options.preMapData[i].email = \"test1234@gmail.com\";\n    options.preMapData[i].postMap = \"postMap\";\n    options.preMapData[i].preSavePage =\n      options.preMapData[i].preSavePage + options.preMapData[i].postMap;\n  }\n  return options.postMapData.map((d) => {\n    return {\n      data: d,\n    };\n  });\n}"
-},
+  },
   "qa__expectedDashboardCount": {
     "successCount": "3",
     "ignoreCount": "0",
@@ -42,11 +42,15 @@
         "transform": {
           "type": "expression",
           "expression": {
-            "rules": [[]],
+            "rules": [
+              []
+            ],
             "version": "1"
           },
           "version": "1",
-          "rules": [[]]
+          "rules": [
+            []
+          ]
         },
         "filter": {
           "type": "expression",
@@ -92,17 +96,26 @@
                 "ignoreExisting": false,
                 "ignoreMissing": false,
                 "oneToMany": false,
+                "sandbox": false,
                 "mapping": {
                   "fields": [
                     {
-                      "extract": "attributes.type",
-                      "generate": "user.name"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
+                    },
+                    {
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
-                  "relativeURI": ["users"],
-                  "method": ["POST"],
+                  "relativeURI": [
+                    "organizations.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
                   "body": [],
                   "batchSize": 1,
                   "sendPostMappedData": true,
@@ -113,7 +126,16 @@
             }
           ],
           "inputFilter": {
-            "rules": ["notempty", ["string", ["extract", "attributes.type"]]]
+            "rules": [
+              "notempty",
+              [
+                "string",
+                [
+                  "extract",
+                  "attributes.type"
+                ]
+              ]
+            ]
           },
           "nextRouterId": "Bcfe7u"
         },
@@ -128,7 +150,7 @@
               "type": "import",
               "qa__import": {
                 "name": "ZD imp2",
-                "application":"zendesk support",
+                "application": "zendesk support",
                 "parsers": [],
                 "_connectionId": "HTTP ZENDESK CONNECTION",
                 "apiIdentifier": "i030d22647",
@@ -136,8 +158,12 @@
                 "ignoreMissing": false,
                 "oneToMany": false,
                 "http": {
-                  "relativeURI": ["users"],
-                  "method": ["POST"],
+                  "relativeURI": [
+                    "users"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
                   "body": [],
                   "batchSize": 1,
                   "sendPostMappedData": true,
@@ -148,7 +174,16 @@
             }
           ],
           "inputFilter": {
-            "rules": ["empty", ["string", ["extract", "attributes.type"]]]
+            "rules": [
+              "empty",
+              [
+                "string",
+                [
+                  "extract",
+                  "attributes.type"
+                ]
+              ]
+            ]
           },
           "nextRouterId": "Bcfe7u"
         }

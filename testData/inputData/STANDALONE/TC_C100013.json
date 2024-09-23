@@ -73,7 +73,23 @@
                                     "directoryPath": "DFG",
                                     "fileName": "file-{{timestamp}}.json"
                                 },
-                                "adaptorType": "FTPImport"
+                                "adaptorType": "FTPImport",
+                                "mockResponse": [
+                                    {
+                                        "id": "1234567890",
+                                        "errors": [],
+                                        "_json": {
+                                            "id": "1234567890",
+                                            "mockResponse": "Replace mockResponse key and value with destination data. You may be able to refer to your destination app's API for examples."
+                                        },
+                                        "statusCode": 200,
+                                        "ignored": false,
+                                        "dataURI": "",
+                                        "_headers": {
+                                            "content-type": "application/json; charset=utf-8"
+                                        }
+                                    }
+                                ]
                             },
                             "proceedOnFailure": false
                         },

@@ -1,0 +1,234 @@
+{
+  "Source_Environment": "Production",
+  "Source_Integration": "TC_C41154",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "TC_Clone_C41154",
+  "Integration_Clone": true,
+  "qa__api_tdata": [
+    {
+      "createIntegrations": {
+        "name": "TC_C41154"
+      }
+    }
+  ],
+  "pull": [
+    {
+      "integrationToPull": "TC_C41154",
+      "oldConnections": [
+        "HTTP ACUMATICA CONNECTION",
+        "FTP CONNECTION",
+        "GOOGLEDRIVE CONNECTION"
+      ],
+      "qa__oldConnections": [
+        "FTP CONNECTION",
+        "GOOGLEDRIVE CONNECTION",
+        "HTTP ACUMATICA CONNECTION"
+      ]
+    }
+  ],
+  "flowsData": {
+    "flowname1": "TC_C41154_flow1",
+    "flowname2": "TC_C41154_flow2",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C41154 FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "eefcc02b50",
+              "asynchronous": true,
+              "sandbox": false,
+              "ftp": {
+                "directoryPath": "random"
+              },
+              "file": {
+                "output": "records",
+                "skipDelete": false,
+                "type": "xlsx",
+                "xlsx": {
+                  "hasHeaderRow": false
+                }
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C41154 Google Drive Import",
+              "_connectionId": "GOOGLEDRIVE CONNECTION",
+              "apiIdentifier": "i997bfed34",
+              "oneToMany": false,
+              "assistant": "googledrive",
+              "file": {
+                "fileName": "file-{{timestamp}}.edi",
+                "skipAggregation": true,
+                "type": "json"
+              },
+              "http": {
+                "type": "file",
+                "relativeURI": [
+                  "chvkjghcfdx"
+                ],
+                "method": [
+                  "POST"
+                ],
+                "body": [],
+                "sendPostMappedData": true,
+                "formType": "assistant",
+                "response": {
+                  "resourcePath": [
+                    "files"
+                  ]
+                }
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41154_flow1",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": ""
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": ""
+            }
+          ]
+        }
+      },
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C41154 FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "eefcc02b50",
+              "asynchronous": true,
+              "sandbox": false,
+              "ftp": {
+                "directoryPath": "random"
+              },
+              "file": {
+                "output": "records",
+                "skipDelete": false,
+                "type": "xlsx",
+                "xlsx": {
+                  "hasHeaderRow": false
+                }
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C41154 Acumatica Import",
+              "parsers": [],
+              "_connectionId": "HTTP ACUMATICA CONNECTION",
+              "apiIdentifier": "icdb7aac29",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "assistant": "acumatica",
+              "assistantMetadata": {
+                "operation": "create_update_account",
+                "resource": "account",
+                "version": "v17.200.001"
+              },
+              "lookups": [],
+              "http": {
+                "relativeURI": [
+                  "/Account"
+                ],
+                "method": [
+                  "PUT"
+                ],
+                "body": [
+                  null
+                ],
+                "headers": [],
+                "batchSize": 1,
+                "requestMediaType": "json",
+                "successMediaType": "json",
+                "errorMediaType": "json",
+                "requestType": [],
+                "strictHandlebarEvaluation": true,
+                "sendPostMappedData": true,
+                "formType": "assistant",
+                "lookups": [],
+                "response": {
+                  "resourceIdPath": [
+                    null
+                  ]
+                }
+              },
+              "rest": {
+                "relativeURI": [
+                  "/Account"
+                ],
+                "method": [
+                  "PUT"
+                ],
+                "body": [
+                  null
+                ],
+                "headers": [],
+                "responseIdPath": [
+                  null
+                ],
+                "successPath": [
+                  null
+                ],
+                "successValues": [
+                  null
+                ],
+                "lookups": []
+              },
+              "adaptorType": "RESTImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41154_flow2",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": ""
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": ""
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

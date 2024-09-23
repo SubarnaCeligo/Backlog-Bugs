@@ -15,6 +15,7 @@ test.describe("TC_C1596", () => {
     // *Edit Connection
     await test.step("*** Editing Connection ***",()=>{});
     var actualJSON = await io.connections.createOrEditConnection(FTP);
+    await io.homePage.delay(5000);
     await io.homePage.waitForElementAttached(selectors.basePagePO.MFA_SAVE)
     await io.homePage.click(selectors.basePagePO.MFA_SAVE)
 

@@ -22,6 +22,7 @@ test.describe(`TC_C41573 To verify Pull from Integration dropdown field doesn't 
     await io.flowBuilder.click(selectors.homePagePO.PRODUCTION_BUTTON);
     await io.flowBuilder.loadingTime();
     await io.api.createIntegrationThruAPI(TC);
+    await io.api.createIntegrationThruAPI(TC.Sandbox);
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
     await io.homePage.fill(selectors.homePagePO.SEARCH_INTEGRATION_WDIO, "TC_C41573 Integration")

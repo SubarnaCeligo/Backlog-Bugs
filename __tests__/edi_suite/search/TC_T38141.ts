@@ -6,7 +6,7 @@ test.describe("@Author-Shriti S Verify regex(*) search on EDI dashboard", () => 
 
 
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38141 Verify regex(*) search on EDI dashboard", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38141 Verify regex(*) search on EDI dashboard", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

@@ -43,15 +43,11 @@ test.describe("TC_C1084_Verify_able_to_delete_stack", () => {
     await io.homePage.click(selectors.basePagePO.DELETE);
     await io.homePage.loadingTime();
     await page.waitForTimeout(5000);
+    await io.homePage.loadingTime();
     test.step("*** Delete the stack ***", async ()=>{});
-    await io.homePage.reloadPage();
-
-    await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
-    await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "TC1084_Auto_2024");
-    await io.homePage.loadingTime();     
-    test.step("***Searching the created stack ***", async ()=>{});
 
     var resultsEl = await page.getByText("Your search didn’t return any matching results")
+    await resultsEl.waitFor({ state: 'visible', timeout: 60000 });
     await expect(resultsEl).toBeVisible();
     test.step("*** Validating stack deleted successfully ***", async ()=>{});
     

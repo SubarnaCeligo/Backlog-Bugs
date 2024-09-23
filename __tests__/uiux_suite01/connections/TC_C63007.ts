@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C63007 Verify connection dropdown list`, () => {
-  test(`@Env-QA @Zephyr-IO-T21798 C63007 Verify connection dropdown list`, async ({ io, page }) => {
+  test(`@Env-All @Zephyr-IO-T21798 C63007 Verify connection dropdown list`, async ({ io, page }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
@@ -13,6 +13,7 @@ test.describe(`C63007 Verify connection dropdown list`, () => {
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'Loop Returns NoVer');
     const connectionText = await page
       .locator(`${selectors.connectionsPagePO.CONNECTIONS_DROPDOWN_LIST} li`)
       .filter({ hasText: "Loop Returns NoVer" })

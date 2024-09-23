@@ -1,0 +1,139 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C45285",
+    "Clone_To_Integrate": "Delete_TC_Clone_ILM_C45285",
+    "type": "Pull",
+    "status": "Completed",
+    "createSnapshot": true
+  },
+  "Revert_Description": "C45285",
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C45285",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Delete_TC_Clone_ILM_C45285",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "connections": [
+    "631ae17fd2f06368a0498470",
+    "NETSUITE CONNECTION"
+  ],
+  "qa__connections": [
+    "62ceb6fe1c7d25040278087d",
+    "NETSUITE CONNECTION"
+  ],
+  "revisionLongDescriptionVerification": {
+    "descriptionIncludes": "UPDATE WITH NEW"
+  },
+  "verifyMappings": [
+    {
+      "extract": "{{handlebars_exp}}",
+      "generate": "dest",
+      "dataType": "string",
+      "conditional": {
+        "when": "extract_not_empty"
+      },
+      "sourceDataType": "string",
+      "status": "Active"
+    }
+  ],
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Delete_TC_ILM_C45285_Netsuite_Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3906",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Delete_TC_ILM_C45285_Http_Import",
+            "application": "zendesk support",
+            "_connectionId": "631ae17fd2f06368a0498470",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": [
+                "/test"
+              ],
+              "method": [
+                "PUT"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Del_TC_ILM_C45285_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Delete_TC_ILM_C45285"
+      }
+    }
+  ],
+  "updateResources": [
+    {
+      "resource": "imports",
+      "field": "mappings",
+      "newValue": [
+        {
+          "extract": "{{handlebars_exp}}",
+          "generate": "dest",
+          "dataType": "string",
+          "status": "Active",
+          "conditional": {
+            "when": "extract_not_empty"
+          }
+        }
+      ],
+      "resourceId": "Update After Creation"
+    }
+  ]
+}

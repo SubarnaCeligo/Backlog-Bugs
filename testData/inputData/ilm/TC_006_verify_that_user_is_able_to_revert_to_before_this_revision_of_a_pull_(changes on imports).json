@@ -1,0 +1,173 @@
+{
+    "templateJSON": {
+        "Source_Environment": "Production",
+        "Source_Integration": "ILM_Integration",
+        "Destination_Enviornment": "Production",
+        "Destination_Integration": "5a23fdf6149a6e6afd1b4861",
+        "Flow_To_Clone": "ILM_Sandbox_Clone",
+        "Clone_Flow_Name": "TC_006_ILM_FLOW",
+        "Clone_To_Integrate": "TC_006_ILM_Prod_to_Prod_Clone",
+        "Integration_Clone": true,
+        "createPull": true,
+        "revName": "Automation_Pull",
+        "menuName": "revertToBefore",
+        "connections": ["NETSUITE CONNECTION", "SALESFORCE CONNECTION"],
+        "pageGenerators": [{
+            "type": "export",
+            "qa__export": {
+                "name": "TC_006_NS_Export",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "parsers": [],
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": false,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "salesorder",
+                        "searchId": "1922",
+                        "hooks": {
+                            "batchSize": 20,
+                            "preSend": {
+                                "fileInternalId": null,
+                                "function": null
+                            }
+                        },
+                        "criteria": [],
+                        "columns": []
+                    },
+                    "distributed": {
+                        "executionContext": ["userinterface", "webstore"],
+                        "executionType": ["create", "edit", "xedit"]
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }],
+        "pageProcessors": [{
+            "type": "import",
+            "qa__import": {
+                "name": "TC_006_SF_Import_Edit",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "distributed": false,
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "AccountChangeEvent",
+                    "api": "soap",
+                    "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        }]
+    },
+    "qa__api_tdata": [{
+        "pageGenerators": [{
+            "type": "export",
+            "qa__export": {
+                "name": "TC_006_NS_Export",
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "parsers": [],
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": false,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "salesorder",
+                        "searchId": "1922",
+                        "hooks": {
+                            "batchSize": 20,
+                            "preSend": {
+                                "fileInternalId": null,
+                                "function": null
+                            }
+                        },
+                        "criteria": [],
+                        "columns": []
+                    },
+                    "distributed": {
+                        "executionContext": ["userinterface", "webstore"],
+                        "executionType": ["create", "edit", "xedit"]
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }],
+        "pageProcessors": [{
+            "type": "import",
+            "qa__import": {
+                "name": "TC_006_SF_Import",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "distributed": false,
+                "mapping": {
+                    "fields": [{
+                            "extract": "{{Name}}_{{Priority}}",
+                            "generate": "Name"
+                        },
+                        {
+                            "extract": "ExportID",
+                            "generate": "Description"
+                        },
+                        {
+                            "extract": "ImportID",
+                            "generate": "Fax"
+                        },
+                        {
+                            "extract": "FlowID",
+                            "generate": "Website"
+                        }
+                    ]
+                },
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "Account",
+                    "api": "soap",
+                    "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        }],
+        "createFlow": {
+            "name": "TC_006_ILM_FLOW",
+            "disabled": false,
+            "qa__integrationId": "6272d1763e37572f451b0cfa",
+            "skipRetries": false,
+            "pageProcessors": [{
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }],
+            "pageGenerators": [{
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }]
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "Salesforce": {
+                "qa__dataVerification": {
+                    "expectedJSON": {
+                        "skipRetries": false,
+                        "_integrationId": "5805c9bf874bb644b93de71c",
+                        "name": "Edit_Flow18_SF(Test-ALL)_To_NS_(Update-Add)",
+                        "disabled": false,
+                        "pageProcessors": [{
+                            "type": "import",
+                            "responseMapping": {
+                                "lists": [],
+                                "fields": []
+                            }
+                        }],
+                        "pageGenerators": [{
+                            "qa__ignore": true,
+                            "skipRetries": false
+                        }]
+                    }
+                }
+            }
+        }
+    }
+}

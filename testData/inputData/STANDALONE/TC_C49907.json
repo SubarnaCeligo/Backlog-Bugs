@@ -3,7 +3,7 @@
         {
             "importJSON": {
                 "type": "http",
-                "name": "WALMART CONNECTION",
+                "name": "C49907_WALMART_CONNECTION",
                 "offline": false,
                 "sandbox": false,
                 "http": {
@@ -85,7 +85,7 @@
             },
             "updatedBody": {
                 "type": "http",
-                "name": "WALMART CONNECTION",
+                "name": "C49907_WALMART_CONNECTION",
                 "offline": false,
                 "sandbox": false,
                 "http": {
@@ -167,7 +167,7 @@
             },
             "updatedBody1": {
                 "type": "http",
-                "name": "WALMART CON WITH REFRESH MEDIA AS JSON",
+                "name": "C49907_WALMART_CONNECTION",
                 "offline": false,
                 "sandbox": false,
                 "http": {
@@ -249,7 +249,7 @@
             },
             "updatedBody2": {
                 "type": "http",
-                "name": "WALMART CON WITH REFRESH MEDIA AS XML",
+                "name": "C49907_WALMART_CONNECTION",
                 "sandbox": false,
                 "http": {
                     "formType": "http",

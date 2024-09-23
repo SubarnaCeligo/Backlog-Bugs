@@ -72,11 +72,18 @@ test.describe("@Author_sagna123 TC_T28432_Test to validate checkbox is visible i
         if (preDeleted) {
             await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
             await io.homePage.loadingTime()
-            await io.homePage.loadingTime();
+            await io.homePage.loadingTime()
+            await io.homePage.loadingTime()
+            await io.homePage.loadingTime()
+            await io.homePage.loadingTime()
             await io.homePage.click(selectors.connectionsPagePO.DELETE_CONNECTION);
             await io.homePage.loadingTime()
             await io.homePage.loadingTime()
+            await io.homePage.loadingTime()
+            await io.homePage.loadingTime()
+            await io.homePage.loadingTime()
             await io.homePage.click(selectors.basePagePO.DELETE);
+            await io.homePage.loadingTime()
             await io.homePage.loadingTime()
             await io.homePage.loadingTime()
             await io.homePage.loadingTime()

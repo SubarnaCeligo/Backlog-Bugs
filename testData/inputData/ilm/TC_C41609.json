@@ -1,0 +1,145 @@
+{
+  "integrationDetails": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C41609_Del",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "TC_Clone_C41609_Del",
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": [
+      "NETSUITE CONNECTION:NETSUITE CONNECTION",
+      "HTTP ZENDESK CONNECTION:HTTP ZENDESK CONNECTION"
+    ],
+    "qa__api_tdata": [
+      {
+        "createIntegrations": {
+          "name": "TC_C41609_Del"
+        }
+      }
+    ]
+  },
+  "pull": {
+    "integrationToPull": "TC_Clone_C41609_Del"
+  },
+  "scriptData": {
+    "name": "TC_C41609",
+    "content": "function main (options) {\n  \n  return {\n      data: options.data,\n      errors: options.errors,\n      abort: false\n    }\n}"
+  },
+  "updatedScriptData": {
+    "name": "TC_C41609",
+    "content": "function main (options) {\n  console.log(\"Updated\")\n  return {\n      data: options.data,\n      errors: options.errors,\n      abort: false\n    }\n}"
+  },
+  "flowsData": {
+    "flowname1": "TC_C41609",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C41609 Export",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "e631426cc5",
+              "asynchronous": true,
+              "oneToMany": false,
+              "sandbox": false,
+              "parsers": [],
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "3603",
+                  "criteria": [],
+                  "columns": [],
+                  "useSS2Restlets": false
+                },
+                "distributed": {
+                  "executionContext": [],
+                  "executionType": [],
+                  "useSS2Framework": false
+                }
+              },
+              "settingsForm": {
+                "form": {
+                  "layout": {
+                    "fields": []
+                  }
+                },
+                "init": {
+                  "_scriptId": "",
+                  "function": "main"
+                }
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C41609 Import",
+              "application": "zendesk support",
+              "_connectionId": "HTTP ZENDESK CONNECTION",
+              "apiIdentifier": "i4bc0329a6",
+              "ignoreExisting": true,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "mappings": [],
+              "http": {
+                "relativeURI": [
+                  "34t4t"
+                ],
+                "method": [
+                  "PUT"
+                ],
+                "body": [
+                  ""
+                ],
+                "headers": [
+                  {
+                    "name": "er",
+                    "value": "rf"
+                  },
+                  {
+                    "name": "ref",
+                    "value": "efe"
+                  }
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "ignoreExtract": "r34",
+                "formType": "http"
+              },
+              "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41609",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -13,7 +13,7 @@
                 "type": "test",
                 "test": {
                     "limit": 1
-                  },
+                },
                 "pageSize": 5,
                 "oneToMany": false,
                 "sandbox": false,
@@ -57,16 +57,16 @@
                             "type": "import",
                             "qa__import": {
                                 "name": "AutomationStandaloneImport__gsqpYL0s9w",
-                                "application":"zendesk support",
+                                "application": "zendesk support",
                                 "_connectionId": "HTTP ZENDESK CONNECTION",
                                 "mapping": {
                                     "fields": [
                                         {
-                                            "extract": "Auto_{{random 6}}",
+                                            "extract": "Auto_{{random 16}}",
                                             "generate": "organization.name"
                                         },
                                         {
-                                            "extract": "Email",
+                                            "extract": "notes",
                                             "generate": "organization.notes"
                                         }
                                     ]
@@ -98,16 +98,16 @@
                             "type": "import",
                             "qa__import": {
                                 "name": "AutomationStandaloneImport__gsqpYL0s9w",
-                                "application":"zendesk support",
+                                "application": "zendesk support",
                                 "_connectionId": "HTTP ZENDESK CONNECTION",
                                 "mapping": {
                                     "fields": [
                                         {
-                                            "extract": "Auto_{{random 6}}",
+                                            "extract": "Auto_{{random 16}}",
                                             "generate": "organization.name"
                                         },
                                         {
-                                            "extract": "Email",
+                                            "extract": "notes",
                                             "generate": "organization.notes"
                                         }
                                     ]

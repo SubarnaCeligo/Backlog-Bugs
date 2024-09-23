@@ -105,6 +105,10 @@ test.describe("IO-T10044 Verify Retry is working as expected for imports with as
     await page.getByText("Retry completed.")
       .first()
       .waitFor({ state: "visible", timeout: 600000 });
+      await io.flowBuilder.loadingTime();
+      await io.flowBuilder.loadingTime();
+      await io.flowBuilder.loadingTime();
+      await io.flowBuilder.loadingTime();
     await io.assert.verifyElementTextByIndex('tbody tr:nth-child(1) td:nth-child(7)', "Success", 1);
   });
 });

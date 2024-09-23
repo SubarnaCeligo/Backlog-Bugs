@@ -1,0 +1,110 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Delete_TC_ILM_C41605",
+    "Clone_To_Integrate": "Delete_TC_Clone_ILM_C41605",
+    "type": "Pull",
+    "status": "Completed"
+  },
+  "Source_Environment": "Production",
+  "Source_Integration": "Delete_TC_ILM_C41605",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Delete_TC_Clone_ILM_C41605",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "Script_Name": "preSavePage_C41605",
+  "Script_Data": {
+    "content": "function preSavePage (options) {\n  return options\n}",
+    "name": "preSavePage_C41605"
+  },
+  "qa__connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Delete_TC_ILM_C41605_Netsuite_Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3906",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "distributed": true,
+            "_connectionId": "NETSUITE CONNECTION",
+            "name": "Delete_TC_ILM_C41605_Netsuite_Import",
+            "netsuite_da": {
+              "operation": "add",
+              "recordType": "Customer",
+              "distributed": true,
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "Customer",
+                    "generate": "companyName"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Del_TC_ILM_C41605_FLOW",
+        "disabled": true,
+        "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "_integrationId": "",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      },
+      "createIntegrations": {
+        "name": "Delete_TC_ILM_C41605"
+      }
+    }
+  ],
+  "updates": {
+    "resource": "scripts",
+    "name": "preSavePage_C41605",
+    "field": "content",
+    "newValue": "function preSavePage (options) {\n  return options.data\n}",
+    "_sourceId": "UPDATE WITH NEW"
+  }
+}

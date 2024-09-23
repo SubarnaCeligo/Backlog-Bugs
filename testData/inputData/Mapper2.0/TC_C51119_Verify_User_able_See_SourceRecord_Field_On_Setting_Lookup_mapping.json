@@ -52,30 +52,32 @@
             }
         }
     ],
-    "pageGenerators": [
+  "pageGenerators": [
         {
-            "type": "export",
-            "qa__export": {
-                "name": "asfd",
-                "_connectionId": "FTP CONNECTION",
-                "asynchronous": true,
-                "sandbox": false,
-                "qa__path": "/FTP_uploads/automation.json",
-                "ftp": {
-                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
-                    "fileNameStartsWith": "automation.json"
-                },
-                "file": {
-                    "encoding": "utf8",
-                    "output": "records",
-                    "skipDelete": true,
-                    "type": "json",
-                    "json": {
-                        "resourcePath": "*"
-                    }
-                },
-                "adaptorType": "FTPExport"
-            }
+          "type": "export",
+          "qa__export": {
+            "_id": "66e7efd59b13776ff8d6f6cd",
+            "name": "51798_exp",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ec09c0067e",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": {
+              "name":"Test Name",
+              "email":"test@gmail.com",
+              "phone":"1234567890"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileNameStartsWith": "51798"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": false,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
         }
-    ]
+      ]
 }

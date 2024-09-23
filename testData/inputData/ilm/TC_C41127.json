@@ -1,0 +1,12 @@
+{
+    "templateJSON": {
+      "Source_Integration": "Delete_TC__C41127",
+      "Source_Environment": "Production",
+      "Integration_Name": "Delete_TC__C41127_install",
+      "Install_Template": true,
+      "Upload_Path": "/testData/ILM/TC_C41127.zip",
+      "New_connection": false,
+      "Total_Flows": 1,
+      "connections": ["NETSUITE CONNECTION:NETSUITE CONNECTION"]
+    }
+}

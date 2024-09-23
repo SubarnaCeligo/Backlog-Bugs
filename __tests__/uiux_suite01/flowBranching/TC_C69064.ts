@@ -11,8 +11,8 @@ test.describe("C69064 To Verify that the long branching name is displaying prope
       await io.flowBuilder.fill(selectors.flowBuilderPagePO.NAME, 'lllllllllllllllllllllllllooooooooooooooooooooooooonnnnnnnnnnnnnnnnnnnnnnnnggggggggggggggggggggggggg');
       await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
       await io.flowBuilder.loadingTime()
-      var actual= await io.flowBuilder.getText("//span[contains(text(),'lllllllllllllllllllllllllooooooooooooooooooooooooon')]")
-      await io.assert.expectToBeValue('lllllllllllllllllllllllllooooooooooooooooooooooooonnn...',actual.toString(),'The name is not displayed as expected');
+      var actual= await io.flowBuilder.getText("//span[contains(text(),'llllllllllllllllllllllllloooooooooooooooooooo')]")
+      await io.assert.expectToBeValue('llllllllllllllllllllllllloooooooooooooooooooo...',actual.toString(),'The name is not displayed as expected');
      
     });
 });

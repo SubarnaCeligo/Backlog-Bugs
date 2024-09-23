@@ -1,0 +1,126 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Del_TC_C41617",
+    "Clone_To_Integrate": "Del_TC_cl_C41617",
+    "type": "Pull",
+    "status": "Completed"
+  },
+  "integrationDetails": {
+    "Source_Environment": "Production",
+    "Source_Integration": "Del_TC_C41617",
+    "Destination_Enviornment": "Production",
+    "Clone_To_Integrate": "Del_TC_cl_C41617",
+    "updateFlowName": {
+      "updates": [
+        {
+          "name": "update1"
+        }
+      ]
+    },
+    "Integration_Clone": true,
+    "New_connection": false,
+    "connections": [
+      "FTP CONNECTION"
+    ],
+    "qa__connections": [
+      "FTP CONNECTION"
+    ],
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e00e34b854",
+              "asynchronous": true,
+              "sampleData": "ISA*02*SW810 *00* *01*84EXAMPLE *12*84SENDERID *070820*2220*U*00200*051762203*0*P*>~\nGS*IN*84EXAMPLE*84SENDERID*20070820*2220*82062178*X*004010~\nST*810*621782659~\nBIG*20070820*70873910101*20070816*6P31195* * * ~\nREF*CO*821210~\nN1*ST*84 LUMBER COMANY*92*0420~\nN3*US~\nN4*UAE*LA*92* *0420*6785~\nITD* * *1*20070830* *20070831* *10679* * * *1% 10/N11 ADI~\nDTM*011*20070820~\nIT1*1*7.56*TM*387*UM*IN*20610-01*PD*2 X 6 - 10', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S*VN*26.10~\nIT3*756*PC~\nIT1*2*2.268*TM*387*UM*IN*20612-01*PD*2 X 6 - 12', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S*VN*26.12~\nIT3*189*PC~\nIT1*3*2.646*TM*387*UM*IN*20614-01*PD*2 X 6 - 14', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S*VN*26.14~\nIT3*189*PC~\nIT1*4*15.12*TM*387*UM*IN*20616-01*PD*2 X 6 - 16', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S*VN*26.16~\nIT3*945*PC~\nPID*Polo* * * *V-shape~\nTDS*1067888~\nSAC*C****-31400* * * * * * * * * *PALLET CREDIT~\nCTT*4*27.594~\nSE*18*621782659~\nGE*1*82062178~\nIEA*1*051762203~",
+              "ftp": {
+                "directoryPath": "random"
+              },
+              "file": {
+                "output": "records",
+                "skipDelete": false,
+                "type": "filedefinition",
+                "fileDefinition": {
+                  "_fileDefinitionId": "62e7b32d8b6eb8037ffb647d"
+                }
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "Del__new_TC_C41617",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+          "pageGenerators": [
+            {
+              "_exportId": ""
+            }
+          ]
+        },
+        "createIntegrations": {
+          "name": "Del_TC_C41617"
+        }
+      }
+    ]
+  },
+  "pull": [
+    {
+      "integrationToPull": "Del_TC_C41617",
+      "oldConnections": [
+        "FTP CONNECTION"
+      ],
+      "qa__oldConnections": [
+        "FTP CONNECTION"
+      ]
+    }
+  ],
+  "flowsData": {
+    "flowname1": "Del_TC_C41617",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e00e34b854",
+              "asynchronous": true,
+              "sampleData": "ISA*02*SW810 *00* *01*84EXAMPLE *12*84SENDERID *070820*2220*U*00200*051762203*0*P*>~\nGS*IN*84EXAMPLE*84SENDERID*20070820*2220*82062178*X*004010~\nST*810*621782659~\nBIG*20070820*70873910101*20070816*6P31195* * * ~\nREF*CO*821210~\nN1*ST*84 LUMBER COMANY*92*0420~\nN3*US~\nN4*UAE*LA*92* *0420*6785~\nITD* * *1*20070830* *20070831* *10679* * * *1% 10/N11 ADI~\nDTM*011*20070820~\nIT1*1*7.56*TM*387*UM*IN*20610-01*PD*2 X 6 - 10', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S*VN*26.10~\nIT3*756*PC~\nIT1*2*2.268*TM*387*UM*IN*20612-01*PD*2 X 6 - 12', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S*VN*26.12~\nIT3*189*PC~\nIT1*3*2.646*TM*387*UM*IN*20614-01*PD*2 X 6 - 14', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S*VN*26.14~\nIT3*189*PC~\nIT1*4*15.12*TM*387*UM*IN*20616-01*PD*2 X 6 - 16', SPRUCE/PINE/FIR, #2 & BTR, KD-HT, S*VN*26.16~\nIT3*945*PC~\nPID*Polo* * * *V-shape~\nTDS*1067888~\nSAC*C****-31400* * * * * * * * * *PALLET CREDIT~\nCTT*4*27.594~\nSE*18*621782659~\nGE*1*82062178~\nIEA*1*051762203~",
+              "ftp": {
+                "directoryPath": "random"
+              },
+              "file": {
+                "output": "records",
+                "skipDelete": false,
+                "type": "filedefinition",
+                "fileDefinition": {
+                  "_fileDefinitionId": "62e7b32d8b6eb8037ffb647d"
+                }
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "Del__new_TC_C41617",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageGenerators": [
+            {
+              "_exportId": ""
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

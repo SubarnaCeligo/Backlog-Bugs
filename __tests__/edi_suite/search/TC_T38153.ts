@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify UI behaviour search term contains special
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T3853 Verify UI behaviour search term contains special characters/non-english characters", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T3853 Verify UI behaviour search term contains special characters/non-english characters", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

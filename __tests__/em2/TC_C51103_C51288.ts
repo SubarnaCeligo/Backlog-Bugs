@@ -34,7 +34,9 @@ await test.step(
     test.step("*** Beginning of Test Suite ***", async ()=>{});
     await io.em2.getEm2ErrorTable(  flowId);
     await io.homePage.loadingTime();
+    await io.homePage.delay(10000);
     await io.homePage.click(selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON);
+    await io.homePage.loadingTime();
 
     test.step("*** Click on the retry error***", async ()=>{});
     await io.homePage.click(
@@ -54,6 +56,8 @@ await test.step(
     await io.assert.expectToBeTrue(data, "");
 
     test.step("*** Open the error window***", async ()=>{});
+    await io.homePage.loadingTime();
+    await io.homePage.delay(10000);
     await io.homePage.click(
       selectors.flowBuilderPagePO.RUN_CONSOLE_ERROR_ICON
     );

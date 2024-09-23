@@ -6,7 +6,7 @@ test.describe("@Author-Shriti S Verify case-insensitive and regex search togethe
 
 
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38151 Verify case-insensitive and regex search together", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38151 Verify case-insensitive and regex search together", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

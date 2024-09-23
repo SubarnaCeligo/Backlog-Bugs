@@ -26,9 +26,11 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
         //HTTP request
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.importPagePO.HTTP_REQUEST, "HTTP request not displayed");
         //Wait for logs to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOGS_BODY);
+        await io.flowBuilder.loadingTime();
         //Body
         await io.assert.verifyElementDisplayedByText('Body', 'Body field not found');
         //Headers
@@ -38,6 +40,7 @@ test.describe('C111378_C111377_C111376_C111375', () => {
 
         //HTTP response
         await io.flowBuilder.clickButtonByIndex(selectors.exportsPagePO.HTTP_RESPONSE, 1);
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.HTTP_RESPONSE, "HTTP response is not displayed");
         //Wait for logs to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOGS_BODY);
@@ -66,9 +69,11 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
         //HTTP request
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.importPagePO.HTTP_REQUEST, "HTTP request not displayed");
         //Wait for logs to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOGS_BODY);
+        await io.flowBuilder.loadingTime();
         //Body
         await io.assert.verifyElementDisplayedByText('Body', 'Body field not found');
         //Headers
@@ -78,6 +83,7 @@ test.describe('C111378_C111377_C111376_C111375', () => {
 
         //HTTP response
         await io.flowBuilder.clickButtonByIndex(selectors.exportsPagePO.HTTP_RESPONSE, 1);
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.HTTP_RESPONSE, "HTTP response is not displayed");
         //Wait for logs to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOGS_BODY);
@@ -105,9 +111,11 @@ test.describe('C111378_C111377_C111376_C111375', () => {
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
         //HTTP request
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.importPagePO.HTTP_REQUEST, "HTTP request not displayed");
         //Wait for logs to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOGS_BODY);
+        await io.flowBuilder.loadingTime();
         //Body
         await io.assert.verifyElementDisplayedByText('Body', 'Body field not found');
         //Headers
@@ -117,6 +125,7 @@ test.describe('C111378_C111377_C111376_C111375', () => {
 
         //HTTP response
         await io.flowBuilder.clickButtonByIndex(selectors.exportsPagePO.HTTP_RESPONSE, 1);
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.HTTP_RESPONSE, "HTTP response is not displayed");
         //Wait for logs to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOGS_BODY);
@@ -149,9 +158,11 @@ test.describe('C111378_C111377_C111376_C111375', () => {
 
         //HTTP request
         // await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.importPagePO.HTTP_REQUEST, "HTTP request not displayed");
         //Wait for logs to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOGS_BODY);
+        await io.flowBuilder.loadingTime();
         //Body
         await io.assert.verifyElementDisplayedByText('Body', 'Body field not found');
         //Headers
@@ -161,6 +172,7 @@ test.describe('C111378_C111377_C111376_C111375', () => {
 
         //HTTP response
         await io.flowBuilder.clickButtonByIndex(selectors.exportsPagePO.HTTP_RESPONSE, 1);
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.HTTP_RESPONSE, "HTTP response is not displayed");
         //Wait for logs to load
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.DEBUG_LOGS_BODY);

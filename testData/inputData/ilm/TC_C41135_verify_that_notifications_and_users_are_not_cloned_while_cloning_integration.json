@@ -1,0 +1,15 @@
+{
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_ILM_007",
+    "Clone_To_Integrate": "Delete_TC_Clone_ILM_007"
+  },
+  "Source_Environment": "Production",
+  "Source_Integration": "TC_ILM_007",
+  "Destination_Enviornment": "Production",
+  "Clone_To_Integrate": "Delete_TC_Clone_ILM_007",
+  "Integration_Clone": true,
+  "New_connection": false,
+  "connections": ["631ae17fd2f06368a0498470"],
+  "qa__connections": ["62ceb6fe1c7d25040278087d"]
+}

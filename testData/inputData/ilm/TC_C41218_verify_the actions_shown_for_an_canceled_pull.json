@@ -1,0 +1,18 @@
+{
+    "templateJSON": {
+      "Source_Environment": "Production",
+      "Source_Integration": "ILM_testing",
+      "type": "Pull",
+      "status": "Canceled",
+      "operations": [
+        "viewDetails"
+      ]
+    },
+    "fieldsToVerifyForViewDetails": [
+      "Date created",
+      "Created by",
+      "Type",
+      "Status",
+      "Revision ID"
+    ]
+  }

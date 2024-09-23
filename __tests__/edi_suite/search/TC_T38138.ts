@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that 'Document number' is set as the defa
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38138 Verify that 'Document number' is set as the default 'Search by' field", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38138 Verify that 'Document number' is set as the default 'Search by' field", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

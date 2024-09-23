@@ -331,7 +331,7 @@
     },
     "importdata": [
         {
-            "impRm": "Testing bug",
+            "sku": "Business Cards",
             "itemId": "67890",
             "serialNumbers": [
                 {
@@ -341,10 +341,10 @@
                     "code": "EQ8vELmm"
                 }
             ],
-            "sku": "Business Cards"
+            "impRm": "Testing bug"
         },
         {
-            "impRm": "Testing bug",
+            "sku": "Pens",
             "itemId": "12345",
             "serialNumbers": [
                 {
@@ -354,10 +354,10 @@
                     "code": "SWFAqWGt"
                 }
             ],
-            "sku": "Pens"
+            "impRm": "Testing bug"
         },
         {
-            "impRm": "Testing bug",
+            "sku": "Pencil",
             "itemId": "123",
             "serialNumbers": [
                 {
@@ -367,7 +367,7 @@
                     "code": "dgfdgfhdgfd"
                 }
             ],
-            "sku": "Pencil"
+            "impRm": "Testing bug"
         }
     ],
     "lookupData": [

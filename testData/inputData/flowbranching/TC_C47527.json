@@ -110,6 +110,7 @@
                 "name": "ZD imp1",
                 "application":"zendesk support",
                 "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i1f115eaae",
                 "hooks": {
                   "preMap": {
                     "function": "preMap",
@@ -117,28 +118,31 @@
                   }
                 },
                 "ignoreExisting": false,
-                "ignoreMissing": true,
+                "ignoreMissing": false,
                 "oneToMany": false,
+                "sandbox": false,
                 "mapping": {
                   "fields": [
                     {
-                      "extract": "Name",
-                      "generate": "user.name"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "preMap",
-                      "generate": "user.notes"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
-                  "relativeURI": ["users"],
-                  "method": ["POST"],
-                  "body": [""],
+                  "relativeURI": [
+                    "organizations.json"
+                  ],
+                  "method": [
+                    "POST"
+                  ],
+                  "body": [],
                   "batchSize": 1,
-                  "requestType": ["UPDATE", "CREATE"],
                   "sendPostMappedData": true,
-                  "ignoreExtract": "Name",
                   "formType": "http"
                 },
                 "adaptorType": "HTTPImport"
@@ -179,13 +183,17 @@
                 "mapping": {
                   "fields": [
                     {
-                      "extract": "Name",
-                      "generate": "user.name"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
+                    },
+                    {
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
-                  "relativeURI": ["users"],
+                  "relativeURI": ["organizations.json"],
                   "method": ["POST"],
                   "body": [],
                   "batchSize": 1,
@@ -217,13 +225,17 @@
                 "mapping": {
                   "fields": [
                     {
-                      "extract": "Name",
-                      "generate": "user.name"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
+                    },
+                    {
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
-                  "relativeURI": ["/api/v2/users.json"],
+                  "relativeURI": ["organizations.json"],
                   "method": ["POST"],
                   "body": [null],
                   "batchSize": 1,
@@ -286,13 +298,17 @@
                 "mapping": {
                   "fields": [
                     {
-                      "extract": "recordType",
-                      "generate": "user.name"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
+                    },
+                    {
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
-                  "relativeURI": ["users"],
+                  "relativeURI": ["organizations.json"],
                   "method": ["POST"],
                   "body": [],
                   "batchSize": 1,

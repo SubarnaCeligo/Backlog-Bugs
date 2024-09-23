@@ -99,6 +99,7 @@ test.describe('C111364_C111365_C111367_C111368_C111370', () => {
 
         //HTTP response
         await io.flowBuilder.clickButtonByIndex(selectors.exportsPagePO.HTTP_RESPONSE, 1);
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementIsDisplayed(selectors.exportsPagePO.HTTP_RESPONSE, "HTTP response is not displayed");
         //Body
         await io.assert.verifyElementDisplayedByText('Body', 'Body field not found');

@@ -1,0 +1,128 @@
+{
+  "name": "TC_C110691",
+  "disabled": false,
+  "_integrationId": "603ce75ac4fec33283691f43",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "errors1",
+        "_connectionId": "ZENDESK CONNECTION",
+        "apiIdentifier": "e44c09b752",
+        "asynchronous": true,
+        "type": "test",
+        "assistant": "zendesk",
+        "oneToMany": false,
+        "assistantMetadata": {
+          "resource": "tickets_api",
+          "version": "v2",
+          "operation": "list_tickets"
+        },
+        "http": {
+          "relativeURI": "/api/v2/tickets.json",
+          "method": "GET",
+          "errorMediaType": "json",
+          "_httpConnectorVersionId": "6399b3f6551928082acd223a",
+          "_httpConnectorResourceId": "65c21ada260e1bf04527e18c",
+          "_httpConnectorEndpointId": "65c21ada260e1bf04527e18d",
+          "isRest": true,
+          "formType": "assistant",
+          "paging": {
+            "method": "url",
+            "path": "next_page",
+            "lastPageStatusCode": 404
+          },
+          "response": {
+            "resourcePath": "tickets",
+            "twoDArray": {
+              "doNotNormalize": true
+            }
+          }
+        },
+        "test": {
+          "limit": 5
+        },
+        "rest": {
+          "relativeURI": "/api/v2/tickets.json",
+          "method": "GET",
+          "resourcePath": "tickets",
+          "pagingMethod": "nextpageurl",
+          "nextPagePath": "next_page",
+          "lastPageStatusCode": 404
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "version": "1",
+            "rules": [
+              []
+            ]
+          },
+          "rules": [
+            []
+          ],
+          "version": "1"
+        },
+        "adaptorType": "RESTExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "errors",
+        "_connectionId": "ZENDESK CONNECTION",
+        "apiIdentifier": "i5e5714ec8",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "assistantMetadata": {
+          "resource": "tickets_api",
+          "version": "v2",
+          "operation": "create_tickets_api"
+        },
+        "http": {
+          "relativeURI": [
+            "/api/v2/tickets.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "strictHandlebarEvaluation": true,
+          "sendPostMappedData": true,
+          "_httpConnectorVersionId": "6399b3f6551928082acd223a",
+          "_httpConnectorResourceId": "65c21ada260e1bf04527e18c",
+          "_httpConnectorEndpointIds": [
+            "65c21ada260e1bf04527e1c8"
+          ],
+          "isRest": true,
+          "formType": "http",
+          "response": {
+            "resourceIdPath": [
+              null
+            ]
+          }
+        },
+        "rest": {
+          "relativeURI": [
+            "/api/v2/tickets.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "responseIdPath": [
+            null
+          ]
+        },
+        "adaptorType": "RESTImport"
+      }
+    }
+  ]
+}

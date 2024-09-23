@@ -1,772 +1,203 @@
 {
-    "name": "TC_C51956",
-    "referencename": "TC_C51956",
-    "staging_filedefinition": "63b69edb9fe3716d029bcea7",
-    "qa__api_tdata": [
-        {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "51798_exp",
-                        "_connectionId": "FTP CONNECTION",
-                        "apiIdentifier": "ec09c0067e",
-                        "asynchronous": true,
-                        "sandbox": false,
-                        "sampleData": {
-                            "Link 1": {
-                                "href": "www.celigo.com",
-                                "Sub Link 1": {
-                                    "href": "www.celigo.com"
-                                },
-                                "Sub Link 2": {
-                                    "href": "www.celigo.com",
-                                    "Sub Sub Link 1": {
-                                        "href": "www.celigo.com"
-                                    },
-                                    "Sub Sub Link 2": {
-                                        "href": "www.celigo.com"
-                                    },
-                                    "Sub Sub Link 3": {
-                                        "href": "www.celigo.com"
-                                    },
-                                    "Sub Sub Link 4": {
-                                        "href": "www.celigo.com"
-                                    },
-                                    "Sub Sub Link 5": {
-                                        "href": "www.celigo.com"
-                                    },
-                                    "Sub Sub Link 6": {
-                                        "href": "www.celigo.com"
-                                    }
-                                }
-                            }
-                        },
-                        "ftp": {
-                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
-                            "fileNameStartsWith": "51798"
-                        },
-                        "file": {
-                            "output": "records",
-                            "skipDelete": false,
-                            "type": "json"
-                        },
-                        "adaptorType": "FTPExport"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "1234",
-                        "sampleData": {
-                            "CODE CLIENT": "BUS",
-                            "ENTITY": "BUS",
-                            "FILE NUMBER": "0000081591",
-                            "File Detail Record": [
-                                {
-                                    "CODE CLIENT": "BUS",
-                                    "ENTITY": "BUS",
-                                    "FILE NUMBER": "0000081591",
-                                    "FILE TYPE": "SORD",
-                                    "BP NUMBER": "DR00058575",
-                                    "BP EMISSION DATE": "20200506",
-                                    "DELIVERY DATE": "",
-                                    "PICKING END DATE": "20200429",
-                                    "EXIT DATE": "",
-                                    "CARRIERS CODE": "",
-                                    "TRANSPORTATION MODE": "",
-                                    "SHIPPED CLIENT CODE": "970000027",
-                                    "CODE CLIENT (1)": "",
-                                    "CUSTOMER PAYING CODE": "",
-                                    "VAT Registration Number": "DE813208107",
-                                    "ACCOUNTING CLASS": "CEE",
-                                    "SPECIFIC PREPA CODE": "N",
-                                    "INCOTERM": "DDP",
-                                    "CURRENCY": "EUR",
-                                    "WITH OR WITHOUT PRICE": "N",
-                                    "CLIENT LANGUAGE": "DE",
-                                    "DELIVERY FOR REIMBURSEMENT": "000.00",
-                                    "NET AMOUNT TO BE PAYED AT DELIVERY": "00000000000000",
-                                    "LOGISTICS COMMENT": "",
-                                    "CLIENT COMMENTARY": "",
-                                    "SPECIFIC INFO": "",
-                                    "URGENT": "N",
-                                    "PROFORMA INVOICE": "N",
-                                    "TYPE OF SALE": "",
-                                    "TYPE OF CARRIER": "",
-                                    "CURSOR": "0",
-                                    "CARRIER COMMENTS": "",
-                                    "COMMENTS CS / Transport": "",
-                                    "Incoterm Location": "",
-                                    "Shipping date": "",
-                                    "Specific preparation code": "",
-                                    "Type of Order": "",
-                                    "File Detail D Record": [
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000001",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000001",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBS147",
-                                            "WORDING": "SKIMO MATT NAVY LIME ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000002",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000002",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBSKIMO10",
-                                            "WORDING": "S KIMO MATT RASPBERRY WHITE  ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000003",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000003",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBSKIMO14",
-                                            "WORDING": "S KIMO MATT VIOLET PARME ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000004",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000004",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBFLIP14",
-                                            "WORDING": "FLIPPER MATT DARK BLUE BLUE ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000005",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000005",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBFLIP18",
-                                            "WORDING": "FLIPPER MATT RASPBERRY WHITE ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000006",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000006",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBFLIP24",
-                                            "WORDING": "FLIPPER MATT MARINE BLUE RED ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000007",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000007",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBS070",
-                                            "WORDING": "FLIPPER MATT RED NAVY BLUE ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000008",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000008",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBSCALI4",
-                                            "WORDING": "S CALIBUR MATT PINK PURPLE ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000009",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000009",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBS069",
-                                            "WORDING": "S CALIBUR MATT BLUE GREEN ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000010",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000010",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBSPIES5",
-                                            "WORDING": "S PIES MATT  MINT TURQUOISE ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000011",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000011",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBZAC1",
-                                            "WORDING": "ZAC MATT BLACK LIME ZONE BLUE LIGHT GREY CAT.3 GREEN",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000015.30",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000015.30",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000012",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000012",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBELLA4",
-                                            "WORDING": "ELLA SHINY VIOLET ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000013",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000013",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBELLA5",
-                                            "WORDING": "ELLA MATT PINK BLACK  ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000014",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000014",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBSCRAT7",
-                                            "WORDING": "SCRAT MATT GREY YELLOW ZONE BLUE LIGHT GREY CAT.3 GREEN",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000015.30",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000015.30",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000015",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000015",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBAVAT3",
-                                            "WORDING": "AVATAR MATT BLUE GREEN ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000016",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000016",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBAVAT6",
-                                            "WORDING": "AVATAR MATT BLACK LIME ZONE BLUE LIGHT GREY CAT.3 GREEN",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000015.30",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000015.30",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000017",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000017",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBS131",
-                                            "WORDING": "KATNISS SHINY WHITE PINK ZONE BLUE LIGHT GREY CAT.3 PINK",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000015.30",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000015.30",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000018",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000018",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBKAT2",
-                                            "WORDING": "KATNISS SHINY VIOLET BLACK  ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000019",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000019",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBS082",
-                                            "WORDING": "COOPER SOFT TOUCH NAVY ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        },
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "BP NUMBER": "DR00058575",
-                                            "BP LINE NUMBER": "000020",
-                                            "ORDER CODE": "SHF0134064",
-                                            "LINE NUMBER OF THE ORDER": "000020",
-                                            "CUSTOMER RECOMMENDATION 1": "BESTELLUNG MARCUS 28",
-                                            "CUSTOMER RECOMMENDATION 2": "Valuta 30 Tage",
-                                            "ARTICLE REF": "CBS134",
-                                            "WORDING": "AYDEN SHINY WHITE TRANSLUCENT PINK ZONE BLUE LIGHT GREY CAT.3",
-                                            "SKU CLIENT": "",
-                                            "QUANTITY TO PREPARE": "000001",
-                                            "QUANTITY SHIPPED": "000000",
-                                            "NET PRICE": "00000000013.50",
-                                            "FREE DESIGNATION": "",
-                                            "Gross Price": "00000000013.50",
-                                            "DISCOUNT 1": "00000000000000",
-                                            "DISCOUNT 2": "00000000000.00",
-                                            "DISCOUNT 3": "00000000000.00"
-                                        }
-                                    ],
-                                    "File Transport Record": [
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000007450",
-                                            "FILE TYPE": "SORD",
-                                            "CARRIER CODE": "3PL",
-                                            "BP NUMBER": "BP07120001",
-                                            "SHIPPING UNIT NUMBER": "103456",
-                                            "NB U HANDLING": "",
-                                            "Parcel details": "",
-                                            "WEIGHT": "0000000000.200",
-                                            "quantity": "",
-                                            "VOLUME": "",
-                                            "PACKAGE TRACKING NUMBER. SHIPPING UNIT": "",
-                                            "TRACKING NUMBER PACKAGE 2. SHIPPING UNIT": ""
-                                        }
-                                    ],
-                                    "File Address Record": [
-                                        {
-                                            "CODE CLIENT": "BUS",
-                                            "ENTITY": "BUS",
-                                            "FILE NUMBER": "0000081591",
-                                            "FILE TYPE": "SORD",
-                                            "ORDER REFERENCE": "DR00058575",
-                                            "CODE CLIENT/FRS": "970000027",
-                                            "NOM1": "OPTIKHAUS HAMMER OHG",
-                                            "NOM2": "",
-                                            "ADDRESS1": "KARLSTR. 38",
-                                            "ADDRESS 2": "",
-                                            "POSTAL CODE": "88045",
-                                            "CITY": "FRIEDRICHSHAFEN",
-                                            "COUNTRY CODE": "DE",
-                                            "LIBELLE COUNTRY": "Germany",
-                                            "TELEPHONE 1": "",
-                                            "CONTACT 1": "",
-                                            "TELEPHONE 2": "",
-                                            "CONTACT 2": ""
-                                        }
-                                    ]
-                                }
-                            ],
-                            "CODE CLIENT(End)": "BUS",
-                            "ENTITY(End)": "BUS",
-                            "FILE NUMBER(End)": "0000081591000024"
-                        },
-                        "_connectionId": "FTP CONNECTION",
-                        "apiIdentifier": "i848e8bcc5",
-                        "oneToMany": false,
-                        "sandbox": false,
+  "name": "TC_C51956",
+  "referencename": "TC_C51956",
+  "staging_filedefinition": "63b69edb9fe3716d029bcea7",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "_id": "66e7efd59b13776ff8d6f6cs",
+        "name": "51798_exp",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ec09c0067e",
+        "asynchronous": true,
+        "sandbox": false,
+        "sampleData": {
+          "Link 1": {
+            "href": "www.celigo.com",
+            "Sub Link 1": {
+              "href": "www.celigo.com"
+            },
+            "Sub Link 2": {
+              "href": "www.celigo.com",
+              "Sub Sub Link 1": {
+                "href": "www.celigo.com"
+              },
+              "Sub Sub Link 2": {
+                "href": "www.celigo.com"
+              },
+              "Sub Sub Link 3": {
+                "href": "www.celigo.com"
+              },
+              "Sub Sub Link 4": {
+                "href": "www.celigo.com"
+              },
+              "Sub Sub Link 5": {
+                "href": "www.celigo.com"
+              },
+              "Sub Sub Link 6": {
+                "href": "www.celigo.com"
+              }
+            }
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileNameStartsWith": "51798"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": false,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "Ftp Import",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i160155636",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "AS2.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/SukeerthiSriram/SS20",
+          "fileName": "AS2.json"
+        },
+        "adaptorType": "FTPImport",
+        "mappings": [
+          {
+            "generate": "Dest Link",
+            "dataType": "objectarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$",
+                "sourceDataType": "object",
+                "mappings": [
+                  {
+                    "generate": "DestL1",
+                    "dataType": "objectarray",
+                    "status": "Active",
+                    "buildArrayHelper": [
+                      {
+                        "extract": "$.Link 1",
+                        "sourceDataType": "object",
                         "mappings": [
-                            {
-                                "generate": "Dest Link",
-                                "dataType": "objectarray",
-                                "status": "Active",
-                                "buildArrayHelper": [
-                                    {
-                                        "extract": "$",
+                          {
+                            "extract": "$.Link 1.href",
+                            "generate": "href",
+                            "dataType": "string",
+                            "status": "Active",
+                            "sourceDataType": "string"
+                          },
+                          {
+                            "generate": "DestSubLink1",
+                            "dataType": "objectarray",
+                            "status": "Active",
+                            "buildArrayHelper": [
+                              {
+                                "extract": "$.Link 1.Sub Link 1",
+                                "sourceDataType": "object",
+                                "mappings": [
+                                  {
+                                    "extract": "$.Link 1.Sub Link 1.href",
+                                    "generate": "href",
+                                    "dataType": "string",
+                                    "status": "Active",
+                                    "sourceDataType": "string"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "generate": "DestSubLink2",
+                            "dataType": "objectarray",
+                            "status": "Active",
+                            "buildArrayHelper": [
+                              {
+                                "extract": "$.Link 1.Sub Link 2",
+                                "sourceDataType": "object",
+                                "mappings": [
+                                  {
+                                    "extract": "$.Link 1.Sub Link 2.href",
+                                    "generate": "href",
+                                    "dataType": "string",
+                                    "status": "Active",
+                                    "sourceDataType": "string"
+                                  },
+                                  {
+                                    "generate": "DestSubSubLink 1",
+                                    "dataType": "objectarray",
+                                    "status": "Active",
+                                    "buildArrayHelper": [
+                                      {
+                                        "extract": "$.Link 1.Sub Link 2.Sub Sub Link 1",
                                         "sourceDataType": "object",
                                         "mappings": [
-                                            {
-                                                "generate": "DestL1",
-                                                "dataType": "objectarray",
-                                                "status": "Active",
-                                                "buildArrayHelper": [
-                                                    {
-                                                        "extract": "$.Link 1",
-                                                        "sourceDataType": "object",
-                                                        "mappings": [
-                                                            {
-                                                                "extract": "$.Link 1.href",
-                                                                "generate": "href",
-                                                                "dataType": "string",
-                                                                "status": "Active",
-                                                                "sourceDataType": "string"
-                                                            },
-                                                            {
-                                                                "generate": "DestSubLink1",
-                                                                "dataType": "objectarray",
-                                                                "status": "Active",
-                                                                "buildArrayHelper": [
-                                                                    {
-                                                                        "extract": "$.Link 1.Sub Link 1",
-                                                                        "sourceDataType": "object",
-                                                                        "mappings": [
-                                                                            {
-                                                                                "extract": "$.Link 1.Sub Link 1.href",
-                                                                                "generate": "href",
-                                                                                "dataType": "string",
-                                                                                "status": "Active",
-                                                                                "sourceDataType": "string"
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ]
-                                                            },
-                                                            {
-                                                                "generate": "DestSubLink2",
-                                                                "dataType": "objectarray",
-                                                                "status": "Active",
-                                                                "buildArrayHelper": [
-                                                                    {
-                                                                        "extract": "$.Link 1.Sub Link 2",
-                                                                        "sourceDataType": "object",
-                                                                        "mappings": [
-                                                                            {
-                                                                                "extract": "$.Link 1.Sub Link 2.href",
-                                                                                "generate": "href",
-                                                                                "dataType": "string",
-                                                                                "status": "Active",
-                                                                                "sourceDataType": "string"
-                                                                            },
-                                                                            {
-                                                                                "generate": "DestSubSubLink 1",
-                                                                                "dataType": "objectarray",
-                                                                                "status": "Active",
-                                                                                "buildArrayHelper": [
-                                                                                    {
-                                                                                        "extract": "$.Link 1.Sub Link 2.Sub Sub Link 1",
-                                                                                        "sourceDataType": "object",
-                                                                                        "mappings": [
-                                                                                            {
-                                                                                                "extract": "$.Link 1.Sub Link 2.Sub Sub Link 1.href",
-                                                                                                "generate": "href",
-                                                                                                "dataType": "string",
-                                                                                                "status": "Active",
-                                                                                                "sourceDataType": "string"
-                                                                                            }
-                                                                                        ]
-                                                                                    }
-                                                                                ]
-                                                                            },
-                                                                            {
-                                                                                "generate": "DestSubSubLink2",
-                                                                                "dataType": "objectarray",
-                                                                                "status": "Active",
-                                                                                "buildArrayHelper": [
-                                                                                    {
-                                                                                        "extract": "$.Link 1.Sub Link 2.Sub Sub Link 2",
-                                                                                        "sourceDataType": "object",
-                                                                                        "mappings": [
-                                                                                            {
-                                                                                                "extract": "$.Link 1.Sub Link 2.Sub Sub Link 2.href",
-                                                                                                "generate": "href",
-                                                                                                "dataType": "string",
-                                                                                                "status": "Active",
-                                                                                                "sourceDataType": "string"
-                                                                                            }
-                                                                                        ]
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ]
-                                                            }
-                                                        ]
-                                                    }
-                                                ]
-                                            }
+                                          {
+                                            "extract": "$.Link 1.Sub Link 2.Sub Sub Link 1.href",
+                                            "generate": "href",
+                                            "dataType": "string",
+                                            "status": "Active",
+                                            "sourceDataType": "string"
+                                          }
                                         ]
-                                    }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "generate": "DestSubSubLink2",
+                                    "dataType": "objectarray",
+                                    "status": "Active",
+                                    "buildArrayHelper": [
+                                      {
+                                        "extract": "$.Link 1.Sub Link 2.Sub Sub Link 2",
+                                        "sourceDataType": "object",
+                                        "mappings": [
+                                          {
+                                            "extract": "$.Link 1.Sub Link 2.Sub Sub Link 2.href",
+                                            "generate": "href",
+                                            "dataType": "string",
+                                            "status": "Active",
+                                            "sourceDataType": "string"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
                                 ]
-                            }
-                        ],
-                        "file": {
-                            "fileName": "aryanNew-{{timestamp}}.edi",
-                            "skipAggregation": true,
-                            "type": "filedefinition",
-                            "fileDefinition": {
-                                "_fileDefinitionId": "6305ea63d24baf42341c2778"
-                            }
-                        },
-                        "ftp": {
-                            "directoryPath": "/io.auto.qa/Zendesk_Tests",
-                            "fileName": "aryanNew-{{timestamp}}.edi"
-                        },
-                        "adaptorType": "FTPImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C51956",
-                "disabled": false,
-                "_integrationId": "56d6b23fe1fc35de53914730",
-                "skipRetries": false,
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    }
-                ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
-                    }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
                 ]
-            }
-        }
-    ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+
 }

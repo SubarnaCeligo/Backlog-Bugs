@@ -1,0 +1,121 @@
+{
+    "Source_Integration": "Delete_TC_ILM_C41595",
+    "templateJSON": {
+            "Source_Integration": "Delete_TC_ILM_C41595",
+            "templateJSON": {
+              "Source_Environment": "Production",
+              "Source_Integration": "Delete_TC_C41595",
+              "Clone_To_Integrate": "Delete_TC_Clone_C41595"
+            },
+            "Source_Environment": "Production",
+            "Destination_Enviornment": "Production",
+            "Clone_To_Integrate": "Delete_TC_ILM_Clone_C41595",
+            "Integration_Clone": true,
+            "New_connection": false,
+            "connections": ["HTTP SLACK CONNECTION"],
+            "qa__connections":["HTTP SLACK CONNECTION"]
+      },
+      "updateExport": {
+        "http": {
+            "relativeURI": "/exports",
+            "method": "GET",
+            "_asyncHelperId": "",
+            "formType": "http"
+        }
+      },
+    "qa__api_tdata": [{
+        "pageGenerators": [{
+            "type": "export",
+            "qa__export": {
+                "name": "http export",
+                "application" : "slack",
+                "_connectionId": "HTTP SLACK CONNECTION",
+                "apiIdentifier": "e88df6d451",
+                "asynchronous": true,
+                "oneToMany": false,
+                "http": {
+                    "relativeURI": "/exports",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }],
+        "createFlow": {
+            "name": "Del_TC_ILM_C41595_FLOW",
+            "disabled": true,
+            "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+            "_integrationId": "",
+            "skipRetries": false,
+            "pageGenerators": [{
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }]
+        },
+        "createIntegrations": {
+          "name": "Delete_TC_ILM_C41595"
+        },
+        "createasynHelpers": {
+            "name": "ILM_C41595_asyncHelper",
+            "http": {
+              "submit": {
+                "sameAsStatus": false,
+                "resourcePath": "/RequestReportResponse/RequestReportResult/ReportRequestInfo",
+                "transform": {
+                  "type": "expression",
+                  "expression": {
+                    "rules": [
+                      [{
+                          "extract": "/ReportType",
+                          "generate": "ReportType"
+                        },
+                        {
+                          "extract": "/ReportProcessingStatus",
+                          "generate": "ReportProcessingStatus"
+                        },
+                        {
+                          "extract": "/ReportRequestId",
+                          "generate": "ReportRequestId"
+                        }
+                      ]
+                    ],
+                    "version": "1"
+                  },
+                  "version": "1",
+                  "rules": [
+                    [{
+                        "extract": "/ReportType",
+                        "generate": "ReportType"
+                      },
+                      {
+                        "extract": "/ReportProcessingStatus",
+                        "generate": "ReportProcessingStatus"
+                      },
+                      {
+                        "extract": "/ReportRequestId",
+                        "generate": "ReportRequestId"
+                      }
+                    ]
+                  ]
+                }
+              },
+              "status": {
+                "_exportId": "633a09b54f7a5e78f9eda4f1",
+                "statusPath": "ReportProcessingStatus",
+                "inProgressValues": [
+                  "_SUBMITTED_",
+                  "_IN_PROGRESS_"
+                ],
+                "doneValues": [
+                  "_DONE_",
+                  "_DONE_NO_DATA_",
+                  "_CANCELLED_"
+                ]
+              },
+              "result": {
+                "_exportId": "633a09b54f7a5e78f9eda4f1"
+              }
+            }
+          },
+        "qa__asyncHelperExport": "633a005ce5c52b6cc5d3c67c"
+      }]
+    }

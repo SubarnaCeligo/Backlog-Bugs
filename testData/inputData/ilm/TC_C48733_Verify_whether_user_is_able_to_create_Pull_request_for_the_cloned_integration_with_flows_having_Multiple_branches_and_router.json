@@ -1,0 +1,277 @@
+{
+    "name": "TC_48742_Flowbranching",
+    "disabled": false,
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "templateJSON": {
+        "createPull": true,
+        "Source_Environment": "Production",
+        "Source_Integration": "Clone_DELETE_TC_C48729",
+        "Integration_Clone": true,
+        "Clone_To_Integrate": "DELETE_TC_48729",
+        "Destination_Enviornment": "Production",
+        "connections": [
+            "NETSUITE CONNECTION"
+        ],
+        "qa__connections": [
+            "NETSUITE CONNECTION"
+        ],
+        "Flow_Name_Update_Integration": "Clone_DELETE_TC_C48729",
+        "Installconnections": [
+            {
+                "useExistingConnection": {
+                    "useExistingConnection": true
+                },
+                "_connectionId": "NETSUITE CONNECTION"
+            }
+        ]
+    },
+    "pull": [
+        {
+            "integrationToPull": "DELETE_TC_48729",
+            "qa__oldConnections": [
+                "NETSUITE CONNECTION"
+            ],
+            "_oldConnections": [
+                "NETSUITE CONNECTION"
+            ]
+        }
+    ],
+    "jsonDataClone": {
+        "Source_Environment": "Production",
+        "Source_Integration": "DELETE_TC_48729",
+        "Integration_Clone": true,
+        "connections": [
+            "NETSUITE CONNECTION"
+        ],
+        "qa__connections": [
+            "NETSUITE CONNECTION"
+        ],
+        "Clone_To_Integrate": "Clone_DELETE_TC_C48729",
+        "Destination_Enviornment": "Production",
+        "Flow_Name_Update_Integration": "Clone_DELETE_TC_C48729"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C48729 Export",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "apiIdentifier": "e2edbd1fea",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "parsers": [],
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "1692",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_48742_Flowbranching",
+                "disabled": false,
+                "_integrationId": "",
+                "skipRetries": false,
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            },
+            "createIntegrations": {
+                "name": "DELETE_TC_48729"
+            }
+        }
+    ],
+    "routers": [
+        {
+            "id": "iph0mR",
+            "routeRecordsTo": "all_matching_branches",
+            "routeRecordsUsing": "input_filters",
+            "branches": [
+                {
+                    "name": "Branch 1.0",
+                    "qa__rules": [
+                        [
+                            "record.[Company Name]",
+                            "equal",
+                            "NStoFTP Test1"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "[Company Name]"
+                                ]
+                            ],
+                            "NStoFTP Test1"
+                        ]
+                    },
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "TC_C48744_Delete this",
+                                "parsers": [],
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "lookups": [],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "add",
+                                    "recordType": "customer",
+                                    "lookups": [],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "generate": "fax",
+                                                "extract": "fax",
+                                                "internalId": false
+                                            }
+                                        ],
+                                        "lists": []
+                                    }
+                                },
+                                "adaptorType": "NetSuiteDistributedImport"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Branch 1.1",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "TC_C48744_2_Delete_This",
+                                "adaptorType": "NetSuiteDistributedImport",
+                                "lookups": [],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "add",
+                                    "recordType": "customer",
+                                    "lookups": [],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "extract": "phone",
+                                                "generate": "phone",
+                                                "internalId": false
+                                            }
+                                        ],
+                                        "lists": []
+                                    }
+                                },
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "distributed": true
+                            }
+                        }
+                    ],
+                    "qa__rules": [
+                        [
+                            "record.Email",
+                            "equal",
+                            "NStoFTPTest1@gmail.com"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Email"
+                                ]
+                            ],
+                            "NStoFTPTest1@gmail.com"
+                        ]
+                    }
+                },
+                {
+                    "name": "Branch 1.2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "TC_C48733_3_DELETE_this",
+                                "adaptorType": "NetSuiteDistributedImport",
+                                "lookups": [],
+                                "netsuite_da": {
+                                    "useSS2Restlets": false,
+                                    "operation": "add",
+                                    "recordType": "customer",
+                                    "lookups": [],
+                                    "mapping": {
+                                        "fields": [
+                                            {
+                                                "generate": "defaultaddress",
+                                                "extract": "Billing Address 1",
+                                                "internalId": false
+                                            }
+                                        ],
+                                        "lists": []
+                                    }
+                                },
+                                "_connectionId": "NETSUITE CONNECTION",
+                                "distributed": true
+                            }
+                        }
+                    ],
+                    "qa__rules": [
+                        [
+                            "record.Fax",
+                            "equal",
+                            "56456965465656"
+                        ]
+                    ],
+                    "inputFilter": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "Fax"
+                                ]
+                            ],
+                            "56456965465656"
+                        ]
+                    }
+                }
+            ],
+            "script": {
+                "function": "branching"
+            }
+        }
+    ]
+}

@@ -23,7 +23,14 @@ test.describe("C120101,C120098,C120097,C120096", () => {
         await io.flowBuilder.click(selectors.basePagePO.SAVE);
         await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
         await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "MariaDB");
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.DESTINATIONTABLESEARCHPOSTGRE);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.homePage.addStep("*** Clicked on destination table search field ***");
         await io.flowBuilder.clickByText("Automation");
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
@@ -38,14 +45,22 @@ test.describe("C120101,C120098,C120097,C120096", () => {
         await io.homePage.addStep("*** Clicked on collapseall button ***");
         await io.flowBuilder.click(selectors.basePagePO.EXPAND_ALL);
         await io.homePage.addStep("*** Clicked on expandall button ***");
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.DESTINATION_MAPPING_PLACEHOLDER, "name");
+        await io.flowBuilder.loadingTime();
         await io.homePage.addStep("***Verified the Destination Field Meta Deta ***");
         await io.homePage.addStep("*** Added destination field ***");
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.fill(selectors.flowBuilderPagePO.SOURCE_MAPPING_PLACEHOLDER, "name");
+        await io.flowBuilder.loadingTime();
         await io.homePage.addStep("*** Added source field ***");
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
+        await io.flowBuilder.loadingTime();
         await io.homePage.addStep("*** Clicked on preview button ***");
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SEARCH);
+        await io.flowBuilder.loadingTime();
         await io.homePage.addStep("*** Clicked on search button ***");
         await io.homePage.addStep("*** Clicked all buttons on mapper2.0 page everything is working fine ***");
 

@@ -1,4 +1,5 @@
 {
+  "name": "TC_C40433",
   "skipRetries": false,
   "_integrationId": "62e8c2172dd80523719f9291",
   "pageGenerators": [
@@ -7,18 +8,21 @@
       "qa__export": {
         "name": "AutomationStandaloneExport__0DHHWCkYgQ",
         "_connectionId": "FTP CONNECTION",
-        "qa__path": "/FTP_uploads/TC_C40430.json",
+        "qa__path": "/FTP_uploads/TC_C30817.json",
         "asynchronous": true,
         "sandbox": false,
         "ftp": {
           "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-          "fileNameStartsWith": "TC_C40430.json"
+           "fileNameStartsWith": "TC_C30817.json"
         },
         "file": {
           "encoding": "utf8",
           "output": "records",
           "skipDelete": true,
-          "type": "json"
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
         },
         "adaptorType": "FTPExport"
       }
@@ -29,7 +33,6 @@
       "type": "import",
       "qa__import": {
         "name": "AutomationStandaloneImport__AdS8IsncY6",
-        "application": "Amazon Redshift",
         "_connectionId": "AMAZON REDSHIFT CONNECTION",
         "apiIdentifier": "ie375367f8",
         "oneToMany": false,
@@ -39,7 +42,7 @@
             "truncate table teststart"
           ],
           "queryType": [
-            "INSERT"
+            "per_record"
           ]
         },
         "adaptorType": "RDBMSImport"

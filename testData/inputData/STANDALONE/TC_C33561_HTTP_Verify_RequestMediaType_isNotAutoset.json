@@ -1,8 +1,6 @@
 {
     "name": "TC_C33561_HTTP_Verify_RequestMediaType_isNotAutoset",
     "referencename": "TC_C33561_HTTP_Verify_RequestMediaType_isNotAutoset",
-    "qa__api_tdata": [
-        {
             "pageGenerators": [
                 {
                     "type": "export",
@@ -33,7 +31,7 @@
                         "application": "freshdesk",
                         "parsers": [],
                         "qa__connectionId": "627b6bd17ca3007138a67d30",
-                        "_connectionId": "631a0d3a4ceac669f82fb092",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
                         "apiIdentifier": "i33c84266e",
                         "ignoreExisting": false,
                         "ignoreMissing": false,
@@ -78,6 +76,4 @@
                     }
                 ]
             }
-        }
-    ]
 }

@@ -1,0 +1,158 @@
+{
+  "integrationDetails": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C45257_Del",
+    "qa__api_tdata": [
+      {
+        "createIntegrations": {
+          "name": "TC_C45257_Del"
+        }
+      }
+    ]
+  },
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": "TC_C45257_Del",
+    "createSnapshot": true
+  },
+  "mapping": [
+    {
+      "extract": "7",
+      "generate": "External ID"
+    }
+  ],
+  "flowsData": {
+    "flowname1": "TC_C45257",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C45257 Export",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "e631426cc5",
+              "asynchronous": true,
+              "oneToMany": false,
+              "sandbox": false,
+              "parsers": [],
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "account",
+                  "searchId": "3603",
+                  "criteria": [],
+                  "columns": [],
+                  "useSS2Restlets": false
+                },
+                "distributed": {
+                  "executionContext": [],
+                  "executionType": [],
+                  "useSS2Framework": false
+                }
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C45257 Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "ie073a52fa",
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "internalid",
+                      "hardCodedValue": "99",
+                      "internalId": false
+                    },
+                    {
+                      "generate": "externalid",
+                      "hardCodedValue": "7",
+                      "internalId": false
+                    },
+                    {
+                      "generate": "taxitem",
+                      "hardCodedValue": "3",
+                      "internalId": true
+                    }
+                  ],
+                  "lists": []
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C45257",
+          "disabled": false,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "updatedBody": {
+    "_id": "",
+    "name": "TC_C45257 Import",
+    "_connectionId": "NETSUITE CONNECTION",
+    "distributed": true,
+    "apiIdentifier": "ie073a52fa",
+    "lookups": [],
+    "netsuite_da": {
+      "useSS2Restlets": false,
+      "operation": "add",
+      "recordType": "customer",
+      "lookups": [],
+      "mapping": {
+        "fields": [
+          {
+            "generate": "internalid",
+            "hardCodedValue": "99",
+            "internalId": false
+          },
+          {
+            "generate": "taxitem",
+            "hardCodedValue": "3",
+            "internalId": true
+          },
+          {
+            "generate": "externalid",
+            "hardCodedValue": "7",
+            "internalId": false
+          }
+        ],
+        "lists": []
+      }
+    },
+    "adaptorType": "NetSuiteDistributedImport"
+  }
+}

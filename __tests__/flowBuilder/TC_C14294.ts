@@ -16,6 +16,7 @@ test.describe("@Env-All @Zephyr-IO-T2765", () => {
     await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId);
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.RUN_NOW);
+    await io.homePage.loadingTime();
     await page.getByText('Run in progress');
     await io.homePage.click(selectors.flowBranchingPO.REMOVEPP);
     await io.homePage.click(selectors.flowBranchingPO.REMOVEDIALOG);

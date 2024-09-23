@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that EDI transactions can be filtered usi
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-89826 @Priority-P2 @Zephyr-IO-T37563 Verify that EDI transactions can be filtered using multiple Doc type values", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-89826 @Priority-P2 @Zephyr-IO-T37563 Verify that EDI transactions can be filtered using multiple Doc type values", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
