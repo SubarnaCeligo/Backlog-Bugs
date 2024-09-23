@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate user is able to delete the Azure synapse import', () => {
-    test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29719 @Priority-P2", async ({
+    test("@Env-All @Epic-IO-65860 @Zephyr-IO-T29719 @Priority-P2", async ({
         io,
         page
     }) => {

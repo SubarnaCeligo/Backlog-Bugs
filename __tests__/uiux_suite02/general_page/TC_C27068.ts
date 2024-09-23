@@ -6,7 +6,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-QA C27068 @Epic-IO-52851 @Zephyr-IO-T27068 @Zephyr-IO_T27072 @Zephyr-IO_T27069 @Zephyr-IO_T27070 @Zephyr-IO_T27071 @Env-QA Verify the application name is appended into the URL", async ({ io, page }) => {
+    test("@Env-All C27068 @Epic-IO-52851 @Zephyr-IO-T27068 @Zephyr-IO_T27072 @Zephyr-IO_T27069 @Zephyr-IO_T27070 @Zephyr-IO_T27071 @Env-All Verify the application name is appended into the URL", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);

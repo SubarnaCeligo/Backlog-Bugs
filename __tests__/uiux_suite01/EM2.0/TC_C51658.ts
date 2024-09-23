@@ -7,7 +7,7 @@ test.describe("C51658 Verify the Parent drawer underneath while checking the Err
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(errorFlowId)
     });
-    test("@Zephyr-IO-T19810 @Env-QA @Env-STAGING C51658 Verify the Parent drawer underneath while checking the Error Details in the New view(Edit Retry Data)", async ({ io, page }) => {
+    test("@Zephyr-IO-T19810 @Env-All C51658 Verify the Parent drawer underneath while checking the Error Details in the New view(Edit Retry Data)", async ({ io, page }) => {
         errorFlowId = await io.createResourceFromAPI(C51658, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51658', errorFlowId);
         const lastRun = page.getByText('Last run')
