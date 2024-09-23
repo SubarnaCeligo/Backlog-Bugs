@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
 test.describe('Test to validate user is able to see new connector "Azure Synapse" under "Databases" section when User tries to searched for application after clicking "create import" from resource --> imports page', () => {
-  test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29698 @Zephyr-IO-T29699 @Zephyr - IO-T29703 @Zephyr -IO-T29705 @Zephyr - IO-T29706 @Zephyr - IO-T29707 @Priority-P2" , async ({
+  test("@Env-All @Epic-IO-65860 @Zephyr-IO-T29698 @Zephyr-IO-T29699 @Zephyr - IO-T29703 @Zephyr -IO-T29705 @Zephyr - IO-T29706 @Zephyr - IO-T29707 @Priority-P2" , async ({
     io,
     page
   }) => {

@@ -7,7 +7,7 @@ test.describe("C52048 Verify the Resolved errors tab, when no results are return
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(id)
   });
-  test("@Zephyr-IO-T19829 @Env-QA @Env-STAGING C52048 Verify the Resolved errors tab, when no results are returned for filter selections", async ({
+  test("@Zephyr-IO-T19829 @@Env-All C52048 Verify the Resolved errors tab, when no results are returned for filter selections", async ({
     io,
     page
   }) => {

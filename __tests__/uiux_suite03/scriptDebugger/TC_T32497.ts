@@ -8,7 +8,7 @@ test.describe('@Author-Vikram Verify whether Function stubs data displayed on th
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
 
     });
-    test('@Env-QA @Zephyr-IO-T32495, @Zephyr-IO-T32496, @Zephyr-IO-T32497, @Zephyr-IO-T32498, @Zephyr-IO-T32499, @Zephyr-IO-T32500, @Zephyr-IO-T32503, @Zephyr-IO-T32504, @Zephyr-IO-T32508, @Zephyr-IO-T32509 @Epic-IO-45180 Verify whether all function stubs data displayed on the Flow builder', async ({
+    test('@Env-All@Zephyr-IO-T32495, @Zephyr-IO-T32496, @Zephyr-IO-T32497, @Zephyr-IO-T32498, @Zephyr-IO-T32499, @Zephyr-IO-T32500, @Zephyr-IO-T32503, @Zephyr-IO-T32504, @Zephyr-IO-T32508, @Zephyr-IO-T32509 @Epic-IO-45180 Verify whether all function stubs data displayed on the Flow builder', async ({
         io,
         page
     }) => {

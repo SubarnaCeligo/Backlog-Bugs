@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate user is able to see "Batch size", "Data URI template", "Concurrency ID lock template" fields under "Advanced" section with "?" help text icon and correct help text', () => {
-    test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29711 @Zephyr-IO-T29712 @Zephyr - IO-T29704 @Priority-P2", async ({
+    test("@Env-All @Epic-IO-65860 @Zephyr-IO-T29711 @Zephyr-IO-T29712 @Zephyr - IO-T29704 @Priority-P2", async ({
         io,
         page
     }) => {

@@ -7,7 +7,7 @@ test.describe("C51638 Verify the Footer buttons in the Error details tab of Reso
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(errorFlowId)
     });
-    test("@Zephyr-IO-T19790 @Env-QA @Env-STAGING C51638 Verify the Footer buttons in the Error details tab of Resolved Errors drawer", async ({ io, page }) => {
+    test("@Zephyr-IO-T19790 @Env-All C51638 Verify the Footer buttons in the Error details tab of Resolved Errors drawer", async ({ io, page }) => {
         errorFlowId = await io.createResourceFromAPI(C51638, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51638', errorFlowId);
         const lastRun = page.getByText('Last run')

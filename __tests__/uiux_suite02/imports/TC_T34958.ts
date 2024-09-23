@@ -5,7 +5,7 @@ test.describe("@Author-sagna123 T34958-Test to validate User is able to preview 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Priority-P2 @Env-QA @Zephyr-IO-T34958 @Bug-IO-82466 Test to validate User is able to preview the correct output without saving marketplace existing Import having hooks", async ({ io, page }) => {
+    test("@Priority-P2 @Env-All @Zephyr-IO-T34958 @Bug-IO-82466 Test to validate User is able to preview the correct output without saving marketplace existing Import having hooks", async ({ io, page }) => {
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");

@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate user is able to see "Azure Synapse" logo on the top right side corner of importpage', () => {
-  test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29714 @Priority-P2 This is to verify the Azure Synapse logo beside connection name after clicking create connection" , async ({
+  test("@Env-All @Epic-IO-65860 @Zephyr-IO-T29714 @Priority-P2 This is to verify the Azure Synapse logo beside connection name after clicking create connection" , async ({
     io,
     page
   }) => {

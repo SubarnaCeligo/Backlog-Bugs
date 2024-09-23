@@ -7,7 +7,7 @@ test.describe("@Author_sagna123 TC_T32822_Test to validate user is able to updat
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Bug-IO-77518 @Priority-P2 @Zephyr-IO-T32822 @Env-All", async ({ io, page }) => {
+    test("@Env-All @Bug-IO-77518 @Priority-P2 @Zephyr-IO-T32822 ", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports" );

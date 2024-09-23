@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("IO-T37757  Verify user is able to use celigo AI in SQL editor", () => {
-  test("@Env-QA @StoryID-IO-90942 @Zephyr-IO-T37757  @Author-SubarnaGhatak Verify user is able to use celigo AI in SQL editor", async ({io, page}) => {
+  test("@Env-All @StoryID-IO-90942 @Zephyr-IO-T37757  @Author-SubarnaGhatak Verify user is able to use celigo AI in SQL editor", async ({io, page}) => {
 
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
@@ -27,7 +27,7 @@ test.describe("IO-T37757  Verify user is able to use celigo AI in SQL editor", (
     );
     await page.waitForTimeout(5000);
     });
-  test("@Env-QA @StoryID-IO-90942 @Zephyr-IO-T37758 @Author-SubarnaGhatak Verify the Celigo AI functionality working fine for lookups", async ({io, page}) => {
+  test("@Env-All @StoryID-IO-90942 @Zephyr-IO-T37758 @Author-SubarnaGhatak Verify the Celigo AI functionality working fine for lookups", async ({io, page}) => {
 
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();

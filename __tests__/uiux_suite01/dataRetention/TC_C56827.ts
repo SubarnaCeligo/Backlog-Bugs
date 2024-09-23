@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C56827 from '../../../testData/inputData/Flows/C56827.json';
 
 test.describe("C56827 Verify purge all logs of the script option is disabled when there are no logs or when logs are deleted", () => {
-    test("@Env-QA @Zephyr-IO-T14584 C56827 Verify purge all logs of the script option is disabled when there are no logs or when logs are deleted", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T14584 C56827 Verify purge all logs of the script option is disabled when there are no logs or when logs are deleted", async ({io, page}) => {
         const id = await io.createResourceFromAPI(C56827, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SCRIPTS);
         await io.flowBuilder.click(`.MuiTableBody-root tr ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);

@@ -31,7 +31,7 @@ test.describe("IO-T32859  Verify user is able to use celigo AI in Salesforce SOQ
       page.locator(selectors.flowBuilderPagePO.OPENAI.PROMPT_QUERY).filter({ hasText: "Select" ||"SELECT" }).nth(0)
     ).toBeVisible({ timeout: 40000 });
   });
-  test("@Env-QA @StoryID-IO-80206 @Zephyr-IO-T35601 @Author-SubarnaGhatak Verify the Celigo AI functionality working fine for Dynamic lookup", async ({io, page}) => {
+  test("@Env-All @StoryID-IO-80206 @Zephyr-IO-T35601 @Author-SubarnaGhatak Verify the Celigo AI functionality working fine for Dynamic lookup", async ({io, page}) => {
 
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();

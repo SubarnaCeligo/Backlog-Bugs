@@ -5,7 +5,7 @@ test.describe("TC_C29010 Account Dashboard - Completed flows - When there is no 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Zephyr-IO-T6388 @Env-QA @Env-STAGING C29010 Account Dashboard - Completed flows - When there is no completed flow, the user sees the message “You don’t have any completed flows in the selected date range.", async ({
+  test("@Zephyr-IO-T6388 @Env-All C29010 Account Dashboard - Completed flows - When there is no completed flow, the user sees the message “You don’t have any completed flows in the selected date range.", async ({
     io,
     page
   }) => {

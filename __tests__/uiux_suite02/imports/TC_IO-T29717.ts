@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate user is able to see two options one to create import, one is to create lookup under "What would you like to do?" section, when user tries to create azure synapse import from flowbuilder page', () => {
-  test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29717 @Priority-P2 " , async ({
+  test("@Env-All @Epic-IO-65860 @Zephyr-IO-T29717 @Priority-P2 " , async ({
     io,
     page
   }) => {

@@ -7,7 +7,7 @@ test.describe("C20896 Verify user can able to toggle notification at flow level"
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(id)
     });
-    test("@Zephyr-IO-T279 @Env-QA @Env-STAGING C20896 Verify user can able to toggle notification at flow level", async ({ io, page }) => {
+    test("@Zephyr-IO-T279 @Env-All C20896 Verify user can able to toggle notification at flow level", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C20896, "FLOWS");
         await io.flowBuilder.loadingTime()
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_SETTINGS);

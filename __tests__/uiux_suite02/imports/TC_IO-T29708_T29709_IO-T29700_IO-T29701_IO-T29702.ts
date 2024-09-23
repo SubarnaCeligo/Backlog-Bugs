@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate user is able to see "Mock response" field inside "Mock response" section and it should be non mandatory, expandable and collapsable', () => {
-  test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29708 @Zephyr-IO-T29709 @Zephyr -IO-T29700 @Zephyr-IO-T29701 @Zephyr - IO-T29702 @Priority-P2", async ({
+  test("@Env-All @Epic-IO-65860 @Zephyr-IO-T29708 @Zephyr-IO-T29709 @Zephyr -IO-T29700 @Zephyr-IO-T29701 @Zephyr - IO-T29702 @Priority-P2", async ({
     io,
     page
   }) => {
