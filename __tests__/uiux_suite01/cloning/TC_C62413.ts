@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C62413 Verify New Outh 2.0 iclient form is getting display if you set up a new connection while cloning a flow`, () => {
-  test(`@Env-QA @Zephyr-IO-T16936 C62413 Verify New Outh 2.0 iclient form is getting display if you set up a new connection while cloning a flow`, async ({
+  test(`@Env-All @Zephyr-IO-T16936 C62413 Verify New Outh 2.0 iclient form is getting display if you set up a new connection while cloning a flow`, async ({
     io,
     page
   }) => {

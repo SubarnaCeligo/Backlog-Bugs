@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C51579_Verify connection form base URI while cloning`, () => {
-    test(`@Env-QA @Env-STAGING @Zephyr-IO-T18907 C51579_Verify connection form base URI while cloning UI_Backlog`, async ({ io }) => {
+    test(`@Env-All @Zephyr-IO-T18907 C51579_Verify connection form base URI while cloning UI_Backlog`, async ({ io }) => {
         await io.homePage.navigateTo(process.env.IO_Integration_URL);
         
         await io.homePage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR)
