@@ -8,7 +8,7 @@ test.describe("TC_T32664 when user email is changed from profile page, verify  N
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.flowBuilder.loadingTime();
   });
-  test("@Env-QA @Zephyr-IO-T32664 TC_T32664 Verify the notification pop-up for change email under profile", async ({
+  test("@Env-All @Zephyr-IO-T32664 TC_T32664 Verify the notification pop-up for change email under profile", async ({
     io,
     page
   }, testInfo) => {

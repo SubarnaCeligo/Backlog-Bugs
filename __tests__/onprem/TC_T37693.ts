@@ -5,7 +5,7 @@ test.describe("T37693_Verify system behavior when attempting to create a new pos
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-46210 @Env-QA @Env-PLATFORMFIVE @Priority-P2 @Zephyr-IO-T37693 T37693_Verify system behavior when attempting to create a new postgresql import without selecting on-premise connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-All @Env-PLATFORMFIVE @Priority-P2 @Zephyr-IO-T37693 T37693_Verify system behavior when attempting to create a new postgresql import without selecting on-premise connection", async ({ io, page }) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.addStep("*** Click on add destination or lookup ***");

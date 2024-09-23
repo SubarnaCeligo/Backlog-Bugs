@@ -10,7 +10,7 @@ test.describe("TC_C107741 Verify Blue dot on Filter icon displayed after selecti
         await io.homePage.loadingTime()
     });
 
-    test("@Zephyr-T24128 @Env-QA @Priority-P2 TC_C107741 Verify Blue dot on Filter icon displayed after selecting tag", async ({ io, page }) => {
+    test("@Zephyr-T24128 @Env-All @Priority-P2 TC_C107741 Verify Blue dot on Filter icon displayed after selecting tag", async ({ io, page }) => {
         await io.createResourceFromAPI(C107741, "FLOWS");
         await io.flowBuilder.click(selectors.basePagePO.RUNFLOW);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
