@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that the new search text box has a 'Searc
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38083 Verify that the new search text box has a 'Search by' pulldown list with all the supported searchable fields", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38083 Verify that the new search text box has a 'Search by' pulldown list with all the supported searchable fields", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

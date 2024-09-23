@@ -6,6 +6,12 @@ test.describe("TC_C50649", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
     test.step("*** Beginning of Test Suite ***", async ()=>{});
   });
+  test.afterEach(async ({io,page}, testInfo) => {
+    //*Create Deleted Connection
+    test.step("*** Deleting Connection ***", async ()=>{});
+    await io.connections.deleteConnection("TC_C50649");
+    await io.homePage.loadingTime();
+  });
 
   test("@Zephyr-IO-T23342 @Env-All TC_C50649", async ({io,page}, testInfo) => {
     test.step("*** Creating Connection ***", async ()=>{});
@@ -35,10 +41,5 @@ test.describe("TC_C50649", () => {
     await io.assert.expectToContainValue("Online",String(connNameStatus), "");
     test.step("*** Verified Connection should be Online ***", async ()=>{});
     test.step("*** Verified Should be able to update the token subschema through Postman ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
-    await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
-    // confirm  delete 
-    await io.homePage.click(selectors.basePagePO.DELETE_BUTTON);
-    await io.homePage.loadingTime();
   });
 });
