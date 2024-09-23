@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_CIO80906", () => {
-  test("@Env-QA @Zephyr-T35372 @Zephyr-T35373 @Zephyr-T35374 @Zephyr-T35375 @Zephyr-T35376 @Zephyr-T35377 @Zephyr-T35378 @Zephyr-T35379 @Zephyr-T35380 @Zephyr-T35381 @Zephyr-T35382 @Zephyr-T35383 @Zephyr-T35384 @Priority-P2 Verify error and success field values", async ({
+  test("@Env-All @Zephyr-T35372 @Zephyr-T35373 @Zephyr-T35374 @Zephyr-T35375 @Zephyr-T35376 @Zephyr-T35377 @Zephyr-T35378 @Zephyr-T35379 @Zephyr-T35380 @Zephyr-T35381 @Zephyr-T35382 @Zephyr-T35383 @Zephyr-T35384 @Priority-P2 Verify error and success field values", async ({
     io,
     page
   }) => {

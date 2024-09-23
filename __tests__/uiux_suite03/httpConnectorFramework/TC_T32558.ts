@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("Snowflake Bulk Load epic testcases (IO-68704)", () => {
-  test("@Zephyr-T32558 @Zephyr-T32559 @Zephyr-T32560 @Zephyr-T32561 @Zephyr-T32562 @Zephyr-T32563 @Zephyr-T32565 @Zephyr-T32566 @Zephyr-T32567 @Zephyr-T32568 @Zephyr-T32569 @Zephyr-T32570 @Zephyr-T32571 @Zephyr-T32574 @Zephyr-T32576 @Zephyr-T32581 @Zephyr-T32582 @Zephyr-T32587 @Zephyr-T32876 @Epic-IO-68704 @Priority-P2 @Env-QA Snowflake bulk load epic cases", async ({ io, page }) => {
+  test("@Zephyr-T32558 @Zephyr-T32559 @Zephyr-T32560 @Zephyr-T32561 @Zephyr-T32562 @Zephyr-T32563 @Zephyr-T32565 @Zephyr-T32566 @Zephyr-T32567 @Zephyr-T32568 @Zephyr-T32569 @Zephyr-T32570 @Zephyr-T32571 @Zephyr-T32574 @Zephyr-T32576 @Zephyr-T32581 @Zephyr-T32582 @Zephyr-T32587 @Zephyr-T32876 @Epic-IO-68704 @Priority-P2 @Env-All Snowflake bulk load epic cases", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.TOOLS);

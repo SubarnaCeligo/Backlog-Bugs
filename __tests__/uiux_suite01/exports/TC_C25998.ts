@@ -8,7 +8,7 @@ test.describe("C25998_VVerify stop button is not shown when the debug duration h
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Zephyr-IO-T4854 @Env-QA @Env-STAGING C25998_Verify stop button is not shown when the debug duration has expired UI_Backlog", async ({ io, page }) => {
+    test("@Zephyr-IO-T4854 @Env-All C25998_Verify stop button is not shown when the debug duration has expired UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
