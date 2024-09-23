@@ -8,7 +8,7 @@ test.describe("T37690_T37691_T37692 Verify old UI for existing PostgreSQ, MsSQL,
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-46210 @Env-All @Env-PLATFORMFIVE @Priority-P2 @Zephyr-IO-T37690 T37690_Verify old UI for existing MySQL import with on-premise connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-All  @Priority-P2 @Zephyr-IO-T37690 T37690_Verify old UI for existing MySQL import with on-premise connection", async ({ io, page }) => {
     await io.flowBuilder.addStep("*** Create an old mysql import ***");
     const id = await io.createResourceFromAPI(T37690, "IMPORT");
     await io.flowBuilder.loadingTime();
@@ -48,7 +48,7 @@ test.describe("T37690_T37691_T37692 Verify old UI for existing PostgreSQ, MsSQL,
     await io.api.deleteCall(`v1/imports/${id}`);
   });
 
-  test("@Epic-IO-46210 @Env-QA @Env-PLATFORMFIVE @Priority-P2 @Zephyr-IO-T37691 T37691_Verify old UI for existing MsSQL import with on-premise connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-All @Priority-P2 @Zephyr-IO-T37691 T37691_Verify old UI for existing MsSQL import with on-premise connection", async ({ io, page }) => {
     await io.flowBuilder.addStep("*** Create an old mssql import ***");
     const id = await io.createResourceFromAPI(T37691, "IMPORT");
     await io.flowBuilder.loadingTime();
@@ -88,7 +88,7 @@ test.describe("T37690_T37691_T37692 Verify old UI for existing PostgreSQ, MsSQL,
     await io.api.deleteCall(`v1/imports/${id}`);
   });
 
-  test("@Epic-IO-46210 @Env-QA @Env-PLATFORMFIVE @Priority-P2 @Zephyr-IO-T37692 T37692_Verify old UI for existing PostgreSQL import with on-premise connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-All @Priority-P2 @Zephyr-IO-T37692 T37692_Verify old UI for existing PostgreSQL import with on-premise connection", async ({ io, page }) => {
     await io.flowBuilder.addStep("*** Create an old postgresql import ***");
     const id = await io.createResourceFromAPI(T37692, "IMPORT");
     await io.flowBuilder.loadingTime();

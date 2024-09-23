@@ -6,7 +6,7 @@ test.describe("T37694_Verify cloning of flow with new import form cloud connecti
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Epic-IO-46210 @Env-All @Env-PLATFORMFIVE Priority-P2 @Zephyr-IO-T37694 T37694_Verify cloning of flow with new import from cloud connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-All  Priority-P2 @Zephyr-IO-T37694 T37694_Verify cloning of flow with new import from cloud connection", async ({ io, page }) => {
     T37694.name = `${T37694.name}-${Math.random().toString(36).slice(2, 7)}`;
     await io.flowBuilder.addStep("*** Create a new flow ***");
     const flowid = await io.createResourceFromAPI(T37694, "FLOWS");

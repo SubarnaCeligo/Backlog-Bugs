@@ -85,7 +85,7 @@ test.describe("T37693_Verify system behavior when attempting to create a new pos
     expect(isNewUI).toBeTruthy();
     await io.homePage.addStep("*** Navigated back to home page ***");
   });
-  test("@Epic-IO-46210 @Env-QA @Env-PLATFORMFIVE @Priority-P2 @Zephyr-IO-T37693 T37693_Verify system behavior when attempting to create a new mysql import without selecting on-premise connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-All @Priority-P2 @Zephyr-IO-T37693 T37693_Verify system behavior when attempting to create a new mysql import without selecting on-premise connection", async ({ io, page }) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.addStep("*** Click on add destination or lookup ***");
@@ -167,7 +167,7 @@ test.describe("T37693_Verify system behavior when attempting to create a new pos
     expect(isNewUI).toBeTruthy();
     await io.homePage.addStep("*** Navigated back to home page ***");
   });
-  test("@Epic-IO-46210 @Env-QA @Env-PLATFORMFIVE @Priority-P2 @Zephyr-IO-T37693 T37693_Verify system behavior when attempting to create a new mesql import without selecting on-premise connection", async ({ io, page }) => {
+  test("@Epic-IO-46210 @Env-All @Priority-P2 @Zephyr-IO-T37693 T37693_Verify system behavior when attempting to create a new mesql import without selecting on-premise connection", async ({ io, page }) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.addStep("*** Click on add destination or lookup ***");

@@ -7,6 +7,7 @@ test.describe(`C64881 Verify Iclient under HTTP`, () => {
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
+    await io.homePage.loadingTime();
     await io.exportsPage.click(selectors.importPagePO.HTTP_IMPORT);
     await expect(
       page.locator(selectors.connectionsPagePO.AUTHORIZATION_URL)

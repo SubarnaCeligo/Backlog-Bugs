@@ -12,6 +12,7 @@ test.describe(`C68273 verify application field under HTTP iclient is disabled`, 
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
     await io.connectionPage.click(selectors.connectionsPagePO.GUSTO_CONNECTION);
     await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_ICLIENT);
+    await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.importPagePO.HTTP_IMPORT);
     await expect(
       page.locator(selectors.connectionsPagePO.CONNECTION_SEARCH)
