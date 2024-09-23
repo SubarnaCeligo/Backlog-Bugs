@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("IO-T38205 - Verify the Label name is changed for GraphQL connector on click of handelbar icon beside Query", () => {
-    test("@Zephyr-IO-T38205 @Env-QA", async ({
+    test("@Zephyr-IO-T38205 @Env-All", async ({
         io,
         page
     }) => {

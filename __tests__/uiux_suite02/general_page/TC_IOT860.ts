@@ -8,7 +8,6 @@ test.describe("IO-T860 To verify  Adding the New ReadMe", () => {
   await io.integrationPage.click(selectors.flowBuilderPagePO.README);
   await io.integrationPage.click(selectors.flowBuilderPagePO.EDIT_README);
   await io.homePage.loadingTime();
-  await page.pause();
   const textarea = await page.$(selectors.integrationPagePO.READMEEDITOR);
   if (textarea) {
     // Click the textarea to focus on it
