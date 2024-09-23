@@ -69,6 +69,10 @@ test.describe("T1088_T991 Verify all the available fields in the Create password
     await io.signInPage.click(selectors.basePagePO.SUBMIT);
     await io.homePage.loadingTime();
     expect(await createMsg.isVisible()).toBeFalsy();
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.SIGN_OUT);
+    await io.homePage.loadingTime();
   });
 }
 );
