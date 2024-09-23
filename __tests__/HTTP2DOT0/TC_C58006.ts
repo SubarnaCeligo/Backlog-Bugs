@@ -85,10 +85,8 @@ test.describe("IO-58006 scenarios", () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.ENV3PL);
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.homePage.loadingTime();
-    // created connection validation in import
-    await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
-    await io.homePage.loadingTime();
-    await io.flowBuilder.click(selectors.basePagePO.IMPORTS);
+    await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
+    await io.homePage.goToMenu("Resources", "Imports");
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.flowBuilder.click(selectors.connectionsPagePO.THREEPL_CONNECTION);
@@ -239,10 +237,8 @@ test.describe("IO-58006 scenarios", () => {
     // validation in Export side
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
-    await io.flowBuilder.click(selectors.basePagePO.RESOURCES);
-    await io.homePage.loadingTime();
-    await io.flowBuilder.click(selectors.basePagePO.EXPORTS);
-    await io.homePage.loadingTime();
+    await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
+    await io.homePage.goToMenu("Resources", "Exports");
     await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.flowBuilder.click(selectors.connectionsPagePO.THREEPL_CONNECTION);
     await io.flowBuilder.loadingTime();
