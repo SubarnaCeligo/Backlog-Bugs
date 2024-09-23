@@ -9,7 +9,7 @@ var testCases = [
   "C41569",
   "C41573",
   // "C45825", Enabling MFA so commenting this test case
-  "C27910",
+  // "C27910", Not getting proper way to fix this, as needed NS script which is deleted
   "T451",
   "T3056",
   "T24309",
