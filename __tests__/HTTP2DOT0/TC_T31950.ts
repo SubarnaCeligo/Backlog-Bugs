@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("T31950 - Verify the new section should only be shown in the UI when the user selects 'export records from source application' under 'What would you like to export?' while creating a new export.", () => {
-  test("@Zephyr-IO-T31950 @Env-QA @Epic-IO-35739 @Priority-P2 - Verify the new section should only be shown in the UI when the user selects 'export records from source application' under 'What would you like to export?' while creating a new export.", async ({ io, page }) => {
+  test("@Zephyr-IO-T31950 @Env-All @Epic-IO-35739 @Priority-P2 - Verify the new section should only be shown in the UI when the user selects 'export records from source application' under 'What would you like to export?' while creating a new export.", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.TOOLS);

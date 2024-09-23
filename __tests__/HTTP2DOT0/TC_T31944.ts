@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("Support bulk API cases", () => {
-  test("@Zephyr-IO-T31944 @Zephyr-IO-T31945 @Zephyr-IO-T31946 @Zephyr-IO-T31947 @Zephyr-IO-T31948 @Zephyr-IO-T31949 @Zephyr-IO-T31951 @Zephyr-IO-T31952 @Zephyr-IO-T31953 @Zephyr-IO-T31954 @Zephyr-IO-T31961 @Zephyr-IO-T31962 @Epic-IO-35739 @Priority-P2 @Env-QA Support bulk API cases", async ({ io, page }) => {
+  test("@Zephyr-IO-T31944 @Zephyr-IO-T31945 @Zephyr-IO-T31946 @Zephyr-IO-T31947 @Zephyr-IO-T31948 @Zephyr-IO-T31949 @Zephyr-IO-T31951 @Zephyr-IO-T31952 @Zephyr-IO-T31953 @Zephyr-IO-T31954 @Zephyr-IO-T31961 @Zephyr-IO-T31962 @Epic-IO-35739 @Priority-P2 @Env-All Support bulk API cases", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
