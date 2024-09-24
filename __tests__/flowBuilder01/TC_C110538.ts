@@ -4,7 +4,7 @@ import C110682 from '../../testData/inputData/FlowBuilder/C110682.json';
 
 
 test.describe("Verify that the mini map is hidden by default when a flow is opened", () => {
-  test("Verify that the mini map is hidden by default when a flow is opened @Env-All @Priority-P2", async ({ io, page }) => {
+  test("Verify that the mini map is hidden by default when a flow is opened @Zephyr-IO-T13320 @Env-All @Priority-P2", async ({ io, page }) => {
     //Create a flow
     await io.createResourceFromAPI(C110682, "FLOWS");
 

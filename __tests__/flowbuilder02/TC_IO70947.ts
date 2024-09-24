@@ -5,7 +5,7 @@ import IO70947 from '../../testData/inputData/FlowBuilder/IO70947.json';
 test.describe(`IO70947 The default value in the “Action to take…” options should be “Please select”. The “Do nothing” option should be removed for DB imports only in case of Handlebar Expression`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);});
-  test(`IO70947 @Env-All @Priority-P2`, async ({io,page}) => {
+  test(`IO70947 @Env-All @Priority-P2 @Zephyr-IO-70947`, async ({io,page}) => {
     await io.createResourceFromAPI(IO70947, "FLOWS");
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);

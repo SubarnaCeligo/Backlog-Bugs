@@ -5,7 +5,7 @@ test.describe("C24625_Verify the behaviour of Retry & Resolve dropdown with <100
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All @Zephyr-IO-T7219 C24625_Verify the behaviour of Retry & Resolve dropdown with <1000 errors on account with Admin permission UI_Backlog", async ({ io, page, }) => {
+    test("@Env-All @Zephyr-IO-T7219 @Priority-P2 C24625_Verify the behaviour of Retry & Resolve dropdown with <1000 errors on account with Admin permission UI_Backlog", async ({ io, page, }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Tags 1000 errors- Mysql to mysql flow6_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

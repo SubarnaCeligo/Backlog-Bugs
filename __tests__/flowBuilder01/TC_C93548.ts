@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C93548 To verify that the there should not be an empty click between create and upload drop down", () => {
-  test("C93548 To verify that the there should not be an empty click between create and upload drop down @Env-All @Priority-P2", async ({io, page}) => {
+  test("C93548 To verify that the there should not be an empty click between create and upload drop down @Zephyr-IO-T8126 @Env-All @Priority-P2", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.homePagePO.TILE_VIEW);
       await io.homePage.click('button:has-text("Create")');

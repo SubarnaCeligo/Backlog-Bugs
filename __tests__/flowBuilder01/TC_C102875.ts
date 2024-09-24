@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import TC from '../../testData/inputData/FlowBuilder/C102875.json';
 
 test.describe("C102875_C102876_C102877_C102878_C102879", () => {
-    test("C102875_C102876 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C102875_C102876 @Env-All @Priority-P2 @Zephyr-IO-T26207", async ({ io, page }) => {
         await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
         const lastRun = page.getByText('Last run');
@@ -45,7 +45,7 @@ test.describe("C102875_C102876_C102877_C102878_C102879", () => {
         await io.assert.expectToBeValueInArray(elementTexts3, valueToVerify, 'Application not showing properly');
         await io.assert.expectToBeValueInArray(elementTexts3, valueToVerify1, 'Application not showing properly');
     });
-    test("C102877_C102878_C102879", async ({ io, page }) => {
+    test("C102877_C102878_C102879 @Zephyr-IO-T26207 @Env-All @Priority-P2  " , async ({ io, page }) => {
         //Home page: Dashboard
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.addStep("*** Navigated to home page ***");

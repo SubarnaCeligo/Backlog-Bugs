@@ -14,7 +14,10 @@ test.describe("TC_T37428_Test to validate closing tag is added automatically whe
         await io.homePage.addStep("*** Navigating to the Handlebars editor ***");
         await io.homePage.clickByText("Simple JSON record");
         await io.homePage.addStep("*** Navigating to the Simple JSON record editor ***");
+        await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.HANDLEBAR_CONTENT);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.loadingTime();
         await io.homePage.addStep("*** Clicking on the handlebar editor window ***");
         await page.keyboard.press('ArrowUp');
         await page.keyboard.press('ArrowRight');
@@ -28,6 +31,7 @@ test.describe("TC_T37428_Test to validate closing tag is added automatically whe
         await page.keyboard.type("nam");
         await page.keyboard.press('Control+Space');
         await page.keyboard.press('Tab');
+        await io.flowBuilder.loadingTime();
         await io.homePage.addStep("*** Filtering out the nam feild ***");
         await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.HANDLEBAR_CONTENT, '{{add name dResult": {{add id age}}');
         await io.homePage.addStep("*** Validating that the space here is not gettiung wiped out after selecting the respective feild from dropdown ***");

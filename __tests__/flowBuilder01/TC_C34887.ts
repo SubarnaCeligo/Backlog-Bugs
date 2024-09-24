@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C34887 verifying the presence of Restricted report type checkbox /reports/2021-06-30/documents/ relative URI", () => {
-    test("C34887 verifying the presence of Restricted report type checkbox /reports/2021-06-30/documents/ relative URI @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C34887 verifying the presence of Restricted report type checkbox /reports/2021-06-30/documents/ relative URI @Zephyr-IO-T6750 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

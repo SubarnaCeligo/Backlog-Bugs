@@ -5,7 +5,7 @@ test.describe("C26246_Verify the Resolved graph UI with different browsers", () 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C26246_Verify the Resolved graph UI with different browsers UI_Backlog @Env-All @Priority-P2", async ({ io, page, }) => {
+    test("C26246_Verify the Resolved graph UI with different browsers UI_Backlog @Zephyr-IO-T7361 @Env-All @Priority-P2", async ({ io, page, }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Tags 1000 errors- Mysql to mysql flow2_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

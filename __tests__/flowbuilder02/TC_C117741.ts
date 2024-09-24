@@ -5,7 +5,7 @@ test.describe("TC_C117741_Checking that focus is on first matched helper or fiel
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C117741 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C117741 @Env-All @Zephyr-IO-T18835 @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
         await io.homePage.addStep("*** Navigated to Sandbox Env ***");

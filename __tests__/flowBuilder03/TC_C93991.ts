@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C93991 from "@testData/FlowBuilder/C93991.json";
 
 test.describe('C93991 Verify user is able to unset hooks/transform filters/input output filters scripts', () => {
-    test('"@Zephyr-IO-T3646 @Env-All C93991 Verify user is able to unset hooks/transform filters/input output filters scripts', async ({ io, page }) => {
+    test('"@Zephyr-IO-T3646 @Env-All @Priority-P2 C93991 Verify user is able to unset hooks/transform filters/input output filters scripts', async ({ io, page }) => {
         await io.createResourceFromAPI(C93991, "FLOWS");
         await io.homePage.delay(2000);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);

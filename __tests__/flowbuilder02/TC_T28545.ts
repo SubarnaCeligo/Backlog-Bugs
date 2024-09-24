@@ -13,7 +13,7 @@ test.describe("TC_T28545", () => {
         await io.api.deleteFlowViaAPI(flowMap.get(IO_T4959.qa__api_tdata[0].name)['flowId']);
         await io.api.deleteScriptViaAPI(preMap);
     });
-    test("Verify the sentence case for each levels is in camel case @Env-All @Priority-P2", async ({ 
+    test("Verify the sentence case for each levels is in camel case @Zephyr-T28545 @Env-All @Priority-P2", async ({ 
         io, page
     }) => {
         //TC_T28545

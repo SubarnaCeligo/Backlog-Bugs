@@ -7,7 +7,7 @@ test.describe(`TC_IOT26989  Test to validate that the field "First record contai
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("IOT26989 @Env-All @Priority-P2", async ({ io, page}) => {
+    test("IOT26989 @Env-All @Priority-P2 @Zephyr-IO-T26989", async ({ io, page}) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Resources","Exports");

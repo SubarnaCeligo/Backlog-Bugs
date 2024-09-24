@@ -8,7 +8,7 @@ test.describe('T17393 Verify scheduling set for parent integration flow is prese
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowViaAPI(id);
     });
-    test('"@Zephyr-IO-T17393 @Env-All Verify scheduling set for parent integration flow is present in cloned integration flow', async ({ io, page }) => {
+    test('"@Zephyr-IO-T17393 @Env-All @Priority-P2 Verify scheduling set for parent integration flow is present in cloned integration flow', async ({ io, page }) => {
         id = await io.createResourceFromAPI(T17393, "FLOWS");
         await io.homePage.navigateTo(
             process.env["IO_Integration_URL"] + "flowBuilder/" + id
@@ -41,8 +41,7 @@ test.describe('T17393 Verify scheduling set for parent integration flow is prese
         await io.homePage.waitForElementAttached(selectors.basePagePO.ADD_NAME);
         await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'Clone Schedule Flow Test T17393');
         await io.flowBuilder.clickByText("Please select");
-        const intID = await io.api.loadIntegrations();
-        await io.flowBuilder.selectTextfromDropDown(page, intID.get('Automation Flows'))
+        await io.flowBuilder.clickByText("Automation Flows");
         await io.flowBuilder.click(selectors.flowBuilderPagePO.CLONE_FLOW_BUTTON);
 
         await io.homePage.waitForElementAttached(selectors.templatePagePO.CONFIGURE);

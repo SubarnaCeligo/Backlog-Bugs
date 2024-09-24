@@ -7,7 +7,7 @@ test.describe("Verify user should not see alert 133- XSS in debug tab of Flow bu
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         
     });
-    test("Verify user should not see alert 133- XSS in debug tab of Flow builder page when a connection named '><img src=x onerror=prompt(133)>' is used @Env-All @Priority-P2", async ({
+    test("Verify user should not see alert 133- XSS in debug tab of Flow builder page when a connection named '><img src=x onerror=prompt(133)>' is used @Env-All @Priority-P2 @Zephyr-IO-T2935", async ({
         io, page
     }) => {
         //Test Rail - https://celigo.testrail.io/index.php?/cases/view/14351

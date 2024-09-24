@@ -14,7 +14,7 @@ test.describe('C34783 UI is crashing when we select mapping option at page proce
         await io.api.deleteFlowViaAPI(id);
     });
 
-    test('@Env-All @Zephyr-IO-T9703 C34783 UI is crashing when we select mapping option at page processor after refreshing the browser in Orchestration Flow.', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T9703 @Priority-P2 C34783 UI is crashing when we select mapping option at page processor after refreshing the browser in Orchestration Flow.', async ({ io, page }) => {
         // create a flow
         id = await io.createResourceFromAPI(C34783, "FLOWS");
 
