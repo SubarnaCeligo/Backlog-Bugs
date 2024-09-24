@@ -5,7 +5,7 @@ import { getLicensePayload } from "@celigo/aut-utilities";
 test.describe("C1516_Verify once the free trail is started a notification is displayed with the number of trail days at the right top", () => {
   test("@Env-All @Zephyr-IO-T1036 C1516_Verify once the free trail is started a notification is displayed with the number of trail days at the right top UI_Backlog", async ({ io, page }) => {
     const licenses = await io.api.getCall("v1/licenses");
-    const platformLicense = licenses.find(l => l.sandbox === true);
+    const platformLicense = licenses.find(l => l.type === "platform");
     const payloadFormat = {
       ...getLicensePayload(platformLicense),
       expires: "2025-04-10T13:14:33.363Z",
