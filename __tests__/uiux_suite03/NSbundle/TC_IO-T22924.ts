@@ -21,6 +21,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T22924", () => {
         //Listener flow
         await io.flowBuilder.navigateTo(process.env.IO_Integration_URL + "flowBuilder/" + flow2.get(TC.listener.qa__api_tdata[0].name)['flowId']);
         await io.flowBuilder.loadingTime();
+        await io.homePage.reloadPage();
         const lastRun = page.getByText('Last run');
         await lastRun.waitFor({ state: 'visible', timeout: 600000 });
         const status = await page.$(selectors.flowBuilderPagePO.JOB_ERRORS);
