@@ -19,7 +19,7 @@ test.describe("TC_C44725", () => {
     await io.homePage.loadingTime();
   });
 
-  test("@Zephyr-IO-T1912 @Env-QA @Env-IAQA @Env-P5 TC_C44725", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T1912 @Env-All  TC_C44725", async ({io,page}, testInfo) => {
     // *Create flow
     test.step("*** Creating flow ***", async ()=>{});
     flowId = await io.createResourceFromAPI(FTP, "FLOWS");
