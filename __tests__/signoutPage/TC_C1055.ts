@@ -51,5 +51,9 @@ test.describe("C1055 Verify on IO account is opened successfuly upon selecting t
     await io.homePage.clickByTextByIndex('Next', 0);
     await io.homePage.fill(selectors.importPagePO.PASSWORD, 'IOqa@123456');
     await io.homePage.clickByText('Next');
+    await io.flowBuilder.loadingTime();
+    await io.homePage.waitForElementAttached(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.SIGN_OUT);
   });
 });

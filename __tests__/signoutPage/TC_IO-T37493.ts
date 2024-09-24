@@ -71,6 +71,5 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37493 @Zephyr-IO-T37506",
             "New password is required.",
             "'New password is required.' text is not displayed"
         );
-
     });
 });
