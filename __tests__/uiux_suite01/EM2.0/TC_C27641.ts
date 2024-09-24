@@ -9,7 +9,7 @@ test.describe("Verify flow run time is displayed correct on Line Graph when chan
     playload.showRelativeDateTime = false;
     const resp = await io.api.putCall('v1/preferences',playload);
   });
-  test("@Zephyr-IO-T7368 @Env-STAGING Verify flow run time is displayed correct on Line Graph when changed the 'last run' value", async ({ io, page }) => {
+  test("@Zephyr-IO-T7368 @Env-All Verify flow run time is displayed correct on Line Graph when changed the 'last run' value", async ({ io, page }) => {
 
     //Navigate to default integration
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);

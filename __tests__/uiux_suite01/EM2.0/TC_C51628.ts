@@ -7,7 +7,7 @@ test.describe("C51628 Verify the displayed buttons by editing the retry data in 
   test.afterEach(async ({ io }) => {
       await io.api.deleteFlowsWithId(id)
   });
-  test("@Zephyr-IO-T19780 @Env-STAGING C51628 Verify the displayed buttons by editing the retry data in the 'Error details' drawer>'Edit retry data'tab", async ({io, page}) => {
+  test("@Zephyr-IO-T19780 @Env-All C51628 Verify the displayed buttons by editing the retry data in the 'Error details' drawer>'Edit retry data'tab", async ({io, page}) => {
       id = await io.createResourceFromAPI(C51628,"FLOWS");
       await io.api.runBatchFlowViaAPI('TC_C51628', id);
       const lastRun = page.getByText('Last run');

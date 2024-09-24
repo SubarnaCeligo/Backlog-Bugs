@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_CIO54642", () => {
-  test("@Env-QA @Zephyr-IO-TCIO54642 Verify SSL type fields", async ({
+  test("@Env-All @Zephyr-IO-TCIO54642 Verify SSL type fields", async ({
     io,
     page
   }) => {
