@@ -1,0 +1,245 @@
+{
+    "qa__api_tdata": [
+        {
+            "skipRetries": false,
+            "name": "IO-T22924 Update flow",
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Netsuite customer search",
+                        "_connectionId": "NETSUITE CONNECTION ONLY BUNDLE",
+                        "_sourceId": "66eba8b8980c9f2e1a4e7a13",
+                        "apiIdentifier": "ed353c5747",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "6253c695bbf2c06775d39fe1588b982eeafd423bbd8fa2e740f60fb2",
+                        "test": {
+                            "limit": 1
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "26827",
+                                "restletVersion": "suitebundle",
+                                "markExportedBatchSize": 100
+                            },
+                            "distributed": {}
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "version": "1",
+                                "rules": []
+                            },
+                            "rules": [],
+                            "version": "1"
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Netsuite import",
+                        "_connectionId": "NETSUITE CONNECTION ONLY BUNDLE",
+                        "_sourceId": "66eba94ada98ff1891a1c12d",
+                        "distributed": true,
+                        "apiIdentifier": "id6ac1855d",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [
+                            {
+                                "name": "StaticLookup",
+                                "map": {
+                                    "T": "F",
+                                    "F": "T"
+                                },
+                                "default": "true",
+                                "allowFailures": true
+                            }
+                        ],
+                        "netsuite_da": {
+                            "restletVersion": "suitebundle",
+                            "operation": "addupdate",
+                            "recordType": "customer",
+                            "internalIdLookup": {
+                                "expression": "[\"internalid\",\"is\",\"242103\"]"
+                            },
+                            "lookups": [
+                                {
+                                    "name": "StaticLookup",
+                                    "map": {
+                                        "T": "F",
+                                        "F": "T"
+                                    },
+                                    "default": "true",
+                                    "allowFailures": true
+                                }
+                            ],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "extract": "{{Name}} : {{random “UUID” 3}}",
+                                        "generate": "comments",
+                                        "immutable": false,
+                                        "internalId": false,
+                                        "discardIfEmpty": false
+                                    },
+                                    {
+                                        "extract": "['Skip Export To Salesforce']",
+                                        "generate": "custentity_celigo_sfio_skip_export_to_sf",
+                                        "immutable": false,
+                                        "lookupName": "StaticLookup",
+                                        "dataType": "boolean",
+                                        "internalId": false,
+                                        "discardIfEmpty": false
+                                    }
+                                ],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "IO-T22924 Update flow",
+                "disabled": false,
+                    "skipRetries": false,
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+            }
+        }
+    ],
+    "listener": {
+        "qa__api_tdata": [
+            {
+                "skipRetries": false,
+                "name": "IO-T22924 listener flow",
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Netsuite listener",
+                            "description": "This is listener to test real time flow",
+                            "_connectionId": "NETSUITE CONNECTION ONLY BUNDLE",
+                            "_sourceId": "66ebed18e0cbe43c45e2dda7",
+                            "apiIdentifier": "e92f6fbc92",
+                            "asynchronous": true,
+                            "type": "distributed",
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "distributed": {
+                                "bearerToken": "******"
+                            },
+                            "netsuite": {
+                                "type": "distributed",
+                                "skipGrouping": false,
+                                "statsOnly": false,
+                                "restlet": {
+                                    "markExportedBatchSize": 100,
+                                    "columns": [],
+                                    "criteria": []
+                                },
+                                "distributed": {
+                                    "recordType": "customer",
+                                    "executionContext": [
+                                        "suitelet"
+                                    ],
+                                    "disabled": false,
+                                    "executionType": [
+                                        "xedit"
+                                    ],
+                                    "qualifier": [
+                                        [
+                                            "internalid",
+                                            "=",
+                                            "242103"
+                                        ],
+                                        "and",
+                                        [
+                                            "custentity_celigo_sfio_skip_export_to_sf",
+                                            "=",
+                                            "T"
+                                        ]
+                                    ],
+                                    "sublists": [],
+                                    "forceReload": false,
+                                    "ioEnvironment": "staging",
+                                    "ioDomain": "qa.staging.integrator.io",
+                                    "frameworkVersion": "suitebundle"
+                                }
+                            },
+                            "adaptorType": "NetSuiteExport"
+                        }
+                    }
+                ],
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "qa__import": {
+                            "name": "Ftp Import",
+                            "_connectionId": "FTP CONNECTION",
+                            "apiIdentifier": "i160155636",
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "file": {
+                                "fileName": "T22924.json",
+                                "skipAggregation": false,
+                                "type": "json"
+                            },
+                            "ftp": {
+                                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                                "fileName": "T22924.json"
+                            },
+                            "adaptorType": "FTPImport"
+                        }
+                    }
+                ],
+                "createFlow": {
+                    "name": "IO-T22924 listener flow",
+                    "disabled": false,
+                    "skipRetries": false,
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
