@@ -5,7 +5,7 @@ test.describe("TC_C20812_Verify, EM 2.0: Error message: If long text is present,
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C20812_Verify, EM 2.0: Error message: If long text is present, more empty space is appeared with scroll bar enabled UI_Backlog @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C20812_Verify, EM 2.0: Error message: If long text is present, more empty space is appeared with scroll bar enabled UI_Backlog @Env-All @Priority-P2 @Zephyr-IO-T7390", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByText("TC_C51620_Flow_DND");

@@ -4,7 +4,7 @@ import C110682 from '../../testData/inputData/FlowBuilder/C110682.json';
 
 
 test.describe("Verify the the map icon in controls when the map is visible on the page and when the map is hidden.", () => {
-    test("Verify the the map icon in controls when the map is visible on the page and when the map is hidden.@Env-All @Priority-P2", async ({ io, page }) => {
+    test("Verify the the map icon in controls when the map is visible on the page and when the map is hidden. @Zephyr-IO-T13324 @Env-All @Priority-P2", async ({ io, page }) => {
         //Create a flow
         await io.createResourceFromAPI(C110682, "FLOWS");
         

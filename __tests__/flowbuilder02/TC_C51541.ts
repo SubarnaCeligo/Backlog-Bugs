@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C51541, Verify the help descriptions for query parameters", () => {
-    test(" @Zephyr-IO-T18888 @Env-All C51541, Verify the help descriptions for query parameters", async ({ io, page }) => {
+    test(" @Zephyr-IO-T18888 @Env-All @Priority-P2 C51541, Verify the help descriptions for query parameters", async ({ io, page }) => {
           await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
           await io.homePage.loadingTime();
           await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

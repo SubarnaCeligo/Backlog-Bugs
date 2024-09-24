@@ -7,7 +7,7 @@ test.describe("T27370 Verify mapper2 use cases for NoSQLDBwith both record and r
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("Verify mapper2 use cases for MongoDB both record and row based input data(export data @Env-All @Priority-P2", async ({ io, page }) => {
+    test("Verify mapper2 use cases for MongoDB both record and row based input data(export data @Zephyr-IO-T27370 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.createResourceFromAPI(T27372, "FLOWS");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
@@ -61,7 +61,7 @@ test.describe("T27370 Verify mapper2 use cases for NoSQLDBwith both record and r
         await io.mappings.addStep("*** output data validated ***");
         }
     });
-    test("Verify mapper2 use cases for DynamoDB both record and row based input data(export data", async ({ io, page }) => {
+    test("Verify mapper2 use cases for DynamoDB both record and row based input data(export data @Zephyr-IO-T27370 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.createResourceFromAPI(T27371, "FLOWS");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);

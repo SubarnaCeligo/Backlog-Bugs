@@ -5,7 +5,7 @@ test.describe("C107001_Verify sorting column If a user navigates to the next bat
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C107001_Verify sorting column If a user navigates to the next batch of 1000 errors and applies new sorting UI_Backlog @Env-All @Priority-P2", async ({ io, page, }) => {
+    test("C107001_Verify sorting column If a user navigates to the next batch of 1000 errors and applies new sorting UI_Backlog @Zephyr-IO-T1656 @Env-All @Priority-P2", async ({ io, page, }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Tags 1000 errors- Mysql to mysql flow3_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

@@ -4,7 +4,7 @@ import C111309 from '../../testData/inputData/FlowBuilder/C111309.json';
 
 
 test.describe("C111309_C111390_Verify that flow deletion is not allowed for enabled flows on Flow Builder page", () => {
-  test("Verify that flow deletion is not allowed for enabled flows on Flow Builder page @Env-All @Priority-P2", async ({ io, page }) => {
+  test("Verify that flow deletion is not allowed for enabled flows on Flow Builder page @Zephyr-IO-T13327 @Env-All @Priority-P2", async ({ io, page }) => {
     //Create a flow 
     await io.createResourceFromAPI(C111309, "FLOWS");
 

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C107021 from '@testData/FlowBuilder/C107021.json';
 
 test.describe("C107021 verifying Save & close is primary button", () => {
-    test("C107021 verifying Save & close is primary button @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C107021 verifying Save & close is primary button @Zephyr-IO-T23745 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.createResourceFromAPI(C107021, "FLOWS");
         // export
         await io.connectionPage.click(selectors.flowBuilderPagePO.TRANSFER);

@@ -5,7 +5,7 @@ test.describe("TC_T26946_Test to verify the layout for 3 options without enablin
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_T26946 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("TC_T26946 @Zephyr-IO-T26946 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL); 
         await io.myAccountPage.addStep("*** Navigated to my account page ***");

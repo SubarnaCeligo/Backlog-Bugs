@@ -5,7 +5,7 @@ test.describe("TC_C111350", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_C111350 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("TC_C111350 @Env-All @Priority-P2 @Zephyr-IO-T8871", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Imports");

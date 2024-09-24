@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/FlowBuilder/C66299.json";
 
 test.describe(`C66299 Verify the display text will auto adjust to the full character length of the username field in Run history`, () => {
-  test(`@Env-All @Zephyr-IO-T20427 C66299 Verify the display text will auto adjust to the full character length of the username field in Run history`, async ({
+  test(`@Env-All @Zephyr-IO-T20427 @Priority-P2 C66299 Verify the display text will auto adjust to the full character length of the username field in Run history`, async ({
     io,
     page
   }) => {

@@ -5,7 +5,7 @@ test.describe("TC_C115891_Mapper 2.0 should be consistent same like Snowflake fo
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C115891 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C115891 @Zephyr-IO-T8172 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "AFE_AUTOSUGGESTIONS_mapper2.0_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

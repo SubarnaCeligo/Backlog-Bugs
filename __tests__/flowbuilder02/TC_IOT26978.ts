@@ -6,7 +6,7 @@ test.describe(`TC_IOT26978 Test to validate that new field "First record contain
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("IOT26978 @Env-All @Priority-P2", async ({ io ,page}) => {
+    test("IOT26978 @Env-All @Priority-P2 @Zephyr-IO-T26978", async ({ io ,page}) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
         await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);

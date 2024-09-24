@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C106452 from '../../testData/inputData/Flows/C106452.json';
 
 test.describe("C106452_C106453 Verified new icon(Bubble close icon)", () => {
-    test("C106452_C106453 Verified new icon(Bubble close icon) @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C106452_C106453 Verified new icon(Bubble close icon) @Zephyr-IO-T23737 @Env-All @Priority-P2", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(C106452, "FLOWS");
         await io.homePage.addStep('Hovering over "X" icon in header');
         await io.homePage.hover(selectors.flowBuilderPagePO.CLOSE_FLOW_BUILDER);

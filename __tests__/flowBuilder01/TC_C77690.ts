@@ -8,7 +8,7 @@ test.describe("C77690_To verify that the error is auto cancel after 6 seconds", 
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All @Zephyr-IO-T7554 C77690_To verify that the error is auto cancel after 6 seconds UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T7554 @Priority-P2 C77690_To verify that the error is auto cancel after 6 seconds UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

@@ -5,7 +5,7 @@ test.describe('TC_C50869_verify Account settings in MFA page', () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
     });
-    test('TC_C50869 @Env-All @Priority-P2', async({io, page}) => {
+    test('TC_C50869 @Env-All @Priority-P2 @Zephyr-IO-T19633', async({io, page}) => {
         await io.homePage.addStep("*** Navigated to Accounts page ***");
         await io.myAccountPage.click(selectors.myAccountPagePO.SECURITY)
         await io.homePage.addStep("*** Opened the the Security Tab ***");

@@ -6,7 +6,7 @@ test.describe("T27368 Check for NoSqlDbs if the mapper 2.0 is enabled and gettin
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("Check for NoSqlDbs if the mapper 2.0 is enabled and getting saved and persisted @Env-All @Priority-P2", async ({ io, page }) => {
+    test("Check for NoSqlDbs if the mapper 2.0 is enabled and getting saved and persisted @Zephyr-IO-T27368 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** starting test case for DynamoDB ***");
         await io.createResourceFromAPI(T27371, "FLOWS");
         await io.flowBuilder.loadingTime();

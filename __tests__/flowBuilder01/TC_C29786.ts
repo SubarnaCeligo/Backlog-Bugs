@@ -8,7 +8,7 @@ test.describe("C29786_Verify a NS realtime End to END flow in firefox browser", 
     test.afterEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All @Zephyr-IO-T6326 C29786_Verify a NS realtime End to END flow in firefox browser UI_Backlog", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T6326 @Priority-P2 C29786_Verify a NS realtime End to END flow in firefox browser UI_Backlog", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW)

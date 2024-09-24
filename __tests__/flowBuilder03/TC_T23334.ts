@@ -8,7 +8,7 @@ test.describe("TC_T23334 Verify that ‘View results' indicator should disappear
     await io.api.deleteFlowViaAPI(id);
   });
 
-  test("@Zephyr-IO-T23334 @Env-All C108586 Verify that ‘View results' indicator should disappear if a user refreshes the browser or logs out", async ({
+  test("@Zephyr-IO-T23334 @Env-All @Priority-P2 C108586 Verify that ‘View results' indicator should disappear if a user refreshes the browser or logs out", async ({
     io,
     page
   }) => {
