@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import TC from '@testData/FlowBuilder/T34772.json';
 
 test.describe("@Author_MaheshNivruttiSutar Verify Save button is clickable if we update Custom setting multiple time", () => {
-    test("@Bug-IO-82481 @Env-QA @Priority-P2 @Zephyr-IO-T34772", async ({ io, page }) => {
+    test("@Bug-IO-82481 @Env-All @Priority-P2 @Zephyr-IO-T34772", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(TC, "FLOWS");
         await io.homePage.loadingTime();
 

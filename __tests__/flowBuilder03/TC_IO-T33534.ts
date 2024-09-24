@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import TC from '@testData/FlowBuilder/T33534.json';
 
-test.describe("@Author_MaheshNivruttiSutar @Bug-IO-83426 @Env-QA @Priority-P2 @Zephyr-IO-T33534", () => {
+test.describe("@Author_MaheshNivruttiSutar @Bug-IO-83426  @Priority-P2 @Zephyr-IO-T33534", () => {
     test.describe.configure({ retries: 2 })
     test("@Bug-IO-83426 @Env-All @Priority-P2 @Zephyr-IO-T33534", async ({ io, page }) => {
         const id = await io.createResourceFromAPI(TC, "FLOWS");

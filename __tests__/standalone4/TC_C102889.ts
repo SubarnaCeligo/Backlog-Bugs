@@ -9,7 +9,7 @@ test.describe("TC_C102889_C102894_C102897_C102898_C102899", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
   });
-  test("TC_C102889_C102894_C102897_C102898_C102899 @Zephyr-IO-T23718 @Zephyr-IO-T23722 @Zephyr-IO-T23724 @Zephyr-IO-T23725 @Zephyr-IO-T23726 @Env-QA @Env-STAGING @Env-IAQA", async ({ io, page }, testInfo) => {
+  test("TC_C102889_C102894_C102897_C102898_C102899 @Zephyr-IO-T23718 @Zephyr-IO-T23722 @Zephyr-IO-T23724 @Zephyr-IO-T23725 @Zephyr-IO-T23726 @Env-All ", async ({ io, page }, testInfo) => {
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.basePagePO.MARKETPLACE);
     test.step("*** Clicking on the marketplace ***", async ()=>{});
