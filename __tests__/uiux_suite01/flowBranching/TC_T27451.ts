@@ -11,7 +11,7 @@ test.describe('@Bug-IO-67538  @Priority-P2 @Zephyr-IO-T27451 Verify On moving fr
         await io.api.deleteFlowViaAPI(id);
         await io.api.deleteScriptViaAPI(branchScript);
     });
-    test('@Env-All @Bug-IO-67538  @Priority-P2 @Zephyr-IO-T27451 @Env-QA Verify On moving from javascript mode to rules mode, test run results errors dont clear up', async ({ io, page }) => {
+    test('@Env-All @Bug-IO-67538  @Priority-P2 @Zephyr-IO-T27451 @Env-All Verify On moving from javascript mode to rules mode, test run results errors dont clear up', async ({ io, page }) => {
         TC.routers[0].script._scriptId = branchScript;
         id = await io.flowbranching.createFlowBranchFromAPI(TC);
         await io.flowBuilder.navigateTo(
