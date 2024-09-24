@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C58590 Verify the confirmation box is displaying as expected when the retention period is updated and clicked on save", () => {
-    test("@Env-QA @Env-IAQA @Zephyr-IO-T14587 C58590 Verify the confirmation box is displaying as expected when the retention period is updated and clicked on save", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T14587 C58590 Verify the confirmation box is displaying as expected when the retention period is updated and clicked on save", async ({io, page}) => {
         await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
         await io.myAccountPage.click(selectors.myAccountPagePO.DATA_RETENTION);
         await io.myAccountPage.click(selectors.myAccountPagePO.DATA_RETENTION_PERIOD);

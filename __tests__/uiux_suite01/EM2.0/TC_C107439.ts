@@ -13,7 +13,7 @@ test.describe("C107439_C106998 Verify the Sort Errors in new error view in Ascen
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(errorFlowId)
   });
-  test("@Zephyr-IO-T1657 @Zephyr-IO-T1653 @Env-QA @Env-STAGING C107439_C106998 Verify user can able to toggle sorting arrow and view changes", async ({ io, page }) => {
+  test("@Zephyr-IO-T1657 @Zephyr-IO-T1653 @Env-All C107439_C106998 Verify user can able to toggle sorting arrow and view changes", async ({ io, page }) => {
     errorFlowId = await io.createResourceFromAPI(C107439, "FLOWS");
     await io.api.runBatchFlowViaAPI('TC_C107439', errorFlowId);
     const lastRun = page.getByText('Last run')

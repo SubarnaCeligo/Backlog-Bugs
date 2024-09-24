@@ -9,7 +9,7 @@ test.describe('CT30323', () => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
     
-    test('@Env-QA @Zephyr-IO-T30323 verify connection form should not be saved and agent value is not selected  ', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T30323 verify connection form should not be saved and agent value is not selected  ', async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     const creds = replaceENVData(jsonCreds);
     await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);

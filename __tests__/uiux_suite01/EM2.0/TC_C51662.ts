@@ -7,7 +7,7 @@ test.describe(`C51662 Verify the default view of the Error details drawer`, () =
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(id)
   });
-  test(`@Zephyr-IO-T19814 @Env-QA @Env-STAGING C51662 Verify the default view of the Error details drawer`, async ({
+  test(`@Zephyr-IO-T19814 @Env-All C51662 Verify the default view of the Error details drawer`, async ({
     io,
     page
   }) => {

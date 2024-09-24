@@ -27,8 +27,14 @@ test.describe("TC_C108199 Verify user is able to create connection through expor
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
         await io.flowBuilder.addStep("Validating that the connection is created");
-        expect(await page.locator(':text("Create export")').isVisible()).toBeTruthy();
-        expect(await page.locator(':text("HTTP CONNECTION")').isVisible()).toBeTruthy();
+        await io.flowBuilder.loadingTime();
+        const childIntegration = await io.flowBuilder.getText('[data-test="drawer-header"]');
+        await io.assert.expectToBeTrue(childIntegration.toString().includes("Create export"), " name doesn't exist");
+        var dropDown = await page.locator(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN).getAttribute('value');;
+        await io.assert.expectToBeValue("HTTP CONNECTION", dropDown.toString(), "dropDown is not displayed.");
+      
+      
+        
 
     });
 });

@@ -8,7 +8,7 @@ test.describe(`C51630 Verify the "Previous" & "Next" options in the "Error detai
   test.afterEach(async ({ io }) => {
       await io.api.deleteFlowsWithId(id)
   });
-  test(`@Zephyr-IO-T19782 @Env-QA @Env-STAGING C51630 Verify the "Previous" & "Next" options in the "Error details" drawer`, async ({
+  test(`@Zephyr-IO-T19782 @Env-All C51630 Verify the "Previous" & "Next" options in the "Error details" drawer`, async ({
     io,
     page
   }) => {

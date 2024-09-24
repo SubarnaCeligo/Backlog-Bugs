@@ -10,7 +10,7 @@ test.describe("C23442 EM1.0 Timestamp on run dashboard does not follow user time
        
     });
 
-    test("@Zephyr-IO-T7410 @Env-QA @Env-STAGING C23442 EM1.0 Timestamp on run dashboard does not follow user time preference setting", async ({io, page}) => {
+    test("@Zephyr-IO-T7410 @Env-All C23442 EM1.0 Timestamp on run dashboard does not follow user time preference setting", async ({io, page}) => {
         errorFlowId = await io.createResourceFromAPI(C51656, "FLOWS");
         await io.homePage.loadingTime()
         await io.api.runBatchFlowViaAPI('TC_C51656', errorFlowId);

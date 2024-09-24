@@ -7,7 +7,7 @@ test.describe("C52047 Verify the Open errors tab, when no results are returned f
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(id)
     });
-    test("@Zephyr-IO-T19828 @Env-QA @Env-STAGING C52047 Verify the Open errors tab, when no results are returned for filter selections in both Current View & New View", async ({io, page}) => {
+    test("@Zephyr-IO-T19828 @Env-All C52047 Verify the Open errors tab, when no results are returned for filter selections in both Current View & New View", async ({io, page}) => {
         id = await io.createResourceFromAPI(C51661,"FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51661', id);
         const lastRun = page.getByText('Last run');

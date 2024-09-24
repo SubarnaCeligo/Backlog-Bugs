@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C96888 Verify Filter's rows are properly aligned for NS import on How can we find existing records? field", () => {
-  test("@Env-QA @Zephyr-IO-T25946 C96888 Verify Filter's rows are properly aligned for NS import on How can we find existing records? field", async ({
+  test("@Env-All @Zephyr-IO-T25946 C96888 Verify Filter's rows are properly aligned for NS import on How can we find existing records? field", async ({
     io,
     page
   }) => {

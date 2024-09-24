@@ -45,7 +45,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T31357 @Zephyr-IO-T31370 @
         await io.assert.expectToBeFalse(connfilter, 'Status is displyed');
 
     });
-    test("@Epic-IO-80150 @Priority-P2 @Env-All @Zephyr-IO-T31373", async ({ io, page }) => {
+    test("@Epic-IO-80150 @Priority-P2 @Env-All  @Zephyr-IO-T31373", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

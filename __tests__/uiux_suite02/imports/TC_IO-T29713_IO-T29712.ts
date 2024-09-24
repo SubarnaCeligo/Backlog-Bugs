@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate "Save", "Save & Close", "Close", buttons are working fine', () => {
-    test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29713 @Zephyr-IO-T29712 @Priority-P2", async ({
+    test("@Env-All @Epic-IO-65860 @Zephyr-IO-T29713 @Zephyr-IO-T29712 @Priority-P2", async ({
         io,
         page
     }) => {

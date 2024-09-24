@@ -7,7 +7,7 @@ test.describe(`C51644 Verify the error rows table header fields displayed in the
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(id)
   });
-  test(`@Zephyr-IO-T19796 @Env-QA @Env-STAGING C51644 Verify the error rows table header fields displayed in the New View`, async ({
+  test(`@Zephyr-IO-T19796 @Env-All C51644 Verify the error rows table header fields displayed in the New View`, async ({
     io,
     page
   }) => {

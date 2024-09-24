@@ -19,7 +19,7 @@
                 "apiIdentifier": "eb6f252971",
                 "asynchronous": true,
                 "groupByFields": [
-                    "id"
+                    "sku"
                 ],
                 "dynamodb": {
                     "region": "us-east-1",

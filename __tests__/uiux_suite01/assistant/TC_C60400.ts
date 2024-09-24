@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C60400 "Verify whether data types(select,integer) are supporting for path parameters in 2.0(ex:ADP) for resource type Talent and api endpoint Get all talent of a worker"`, () => {
-  test(`@Env-All @Zephyr-IO-T23198 @Priority-P2 C60400 "Verify whether data types(select,integer) are supporting for path parameters in 2.0(ex:ADP) for resource type Talent and api endpoint Get all talent of a worker"`, async ({
+  test(`@Env-All  @Zephyr-IO-T23198 C60400 "Verify whether data types(select,integer) are supporting for path parameters in 2.0(ex:ADP) for resource type Talent and api endpoint Get all talent of a worker"`, async ({
     io,
     page
   }) => {

@@ -1,170 +1,166 @@
 {
     "referencename": "TC_C51221",
     "name": "TC_C51221",
-    "qa__api_tdata": [
+    "pageGenerators": [
         {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "ftp_exp",
-                        "_connectionId": "FTP CONNECTION",
-                        "_sourceId": "6349032703b87c2be89a2886",
-                        "apiIdentifier": "e822e43474",
-                        "asynchronous": true,
-                        "sandbox": false,
-                        "ftp": {
-                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
-                            "fileNameStartsWith": "TC_C51221"
+            "type": "export",
+            "qa__export": {
+                "name": "ftp_exp",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "6349032703b87c2be89a2886",
+                "apiIdentifier": "e822e43474",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C51221"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C51221.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "shopify_imp",
+                "qa__connectionId": "SHOPIFY CONNECTION",
+                "_connectionId": "SHOPIFY CONNECTION",
+                "apiIdentifier": "i9a7e87c70",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "assistant": "shopify",
+                "sandbox": false,
+                "assistantMetadata": {
+                    "resource": "application_charge",
+                    "version": "v2",
+                    "operation": "create_application_charge"
+                },
+                "mapping": {
+                    "fields": [
+                        {
+                            "generate": "customer.email"
                         },
-                        "file": {
-                            "output": "records",
-                            "skipDelete": false,
-                            "type": "json"
+                        {
+                            "generate": "customer.first_name"
                         },
-                        "adaptorType": "FTPExport",
-                        "qa__path": "//FTP_uploads//TC_C51221.json"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "shopify_imp",
-                        "qa__connectionId": "SHOPIFY CONNECTION",
-                        "_connectionId": "SHOPIFY CONNECTION",
-                        "apiIdentifier": "i9a7e87c70",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "assistant": "shopify",
-                        "sandbox": false,
-                        "assistantMetadata": {
-                            "resource": "application_charge",
-                            "version": "v2",
-                            "operation": "create_application_charge"
+                        {
+                            "generate": "customer.last_name"
                         },
-                        "mapping": {
-                            "fields": [
-                                {
-                                    "generate": "customer.email"
-                                },
-                                {
-                                    "generate": "customer.first_name"
-                                },
-                                {
-                                    "generate": "customer.last_name"
-                                },
-                                {
-                                    "generate": "application_charge.name"
-                                },
-                                {
-                                    "generate": "application_charge.price"
-                                }
-                            ]
+                        {
+                            "generate": "application_charge.name"
                         },
-                        "mappings": [
+                        {
+                            "generate": "application_charge.price"
+                        }
+                    ]
+                },
+                "mappings": [
+                    {
+                        "extract": "$.fName",
+                        "generate": "name",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "generate": "destinamton",
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
                             {
-                                "extract": "$.fName",
-                                "generate": "name",
-                                "dataType": "string",
-                                "status": "Active",
-                                "sourceDataType": "string"
-                            },
-                            {
-                                "generate": "destinamton",
-                                "dataType": "objectarray",
-                                "status": "Active",
-                                "buildArrayHelper": [
+                                "extract": "$.cousins[*]",
+                                "sourceDataType": "objectarray",
+                                "mappings": [
                                     {
-                                        "extract": "$.cousins[*]",
-                                        "sourceDataType": "objectarray",
-                                        "mappings": [
-                                            {
-                                                "extract": "$.altFirstName",
-                                                "generate": "tests",
-                                                "dataType": "string",
-                                                "status": "Active",
-                                                "sourceDataType": "string"
-                                            },
-                                            {
-                                                "extract": "$.lName",
-                                                "generate": "testt",
-                                                "dataType": "string",
-                                                "status": "Active",
-                                                "sourceDataType": "string"
-                                            }
-                                        ]
+                                        "extract": "$.altFirstName",
+                                        "generate": "tests",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
                                     },
                                     {
-                                        "extract": "$.books[*]",
-                                        "sourceDataType": "objectarray",
-                                        "mappings": [
-                                            {
-                                                "generate": "tests",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            },
-                                            {
-                                                "generate": "testt",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            }
-                                        ]
+                                        "extract": "$.lName",
+                                        "generate": "testt",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            },
+                            {
+                                "extract": "$.books[*]",
+                                "sourceDataType": "objectarray",
+                                "mappings": [
+                                    {
+                                        "generate": "tests",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "testt",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
                                     }
                                 ]
                             }
-                        ],
-                        "http": {
-                            "relativeURI": [
-                                "/application_charges.json"
-                            ],
-                            "method": [
-                                "POST"
-                            ],
-                            "body": [
-                                null
-                            ],
-                            "batchSize": 1,
-                            "requestMediaType": "json",
-                            "successMediaType": "json",
-                            "errorMediaType": "json",
-                            "strictHandlebarEvaluation": true,
-                            "sendPostMappedData": true,
-                            "formType": "assistant",
-                            "response": {
-                                "resourceIdPath": [
-                                    null
-                                ]
-                            }
-                        },
-                        "rest": {
-                            "relativeURI": [
-                                "/application_charges.json"
-                            ],
-                            "method": [
-                                "POST"
-                            ],
-                            "body": [
-                                null
-                            ],
-                            "responseIdPath": [
-                                null
-                            ],
-                            "successPath": [
-                                null
-                            ],
-                            "successValues": [
-                                null
-                            ]
-                        },
-                        "adaptorType": "RESTImport"
+                        ]
                     }
-                }
-            ],
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/application_charges.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "batchSize": 1,
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "strictHandlebarEvaluation": true,
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourceIdPath": [
+                            null
+                        ]
+                    }
+                },
+                "rest": {
+                    "relativeURI": [
+                        "/application_charges.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        null
+                    ],
+                    "responseIdPath": [
+                        null
+                    ],
+                    "successPath": [
+                        null
+                    ],
+                    "successValues": [
+                        null
+                    ]
+                },
+                "adaptorType": "RESTImport"
+            },
             "createFlow": {
                 "name": "TC_C51221",
                 "disabled": false,

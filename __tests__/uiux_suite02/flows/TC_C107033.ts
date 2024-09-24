@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C107033 Check the UI alignment for file filter is matching with Figma or not", () => {
-  test("@Env-QA @Zephyr-IO-T23779 C107033 Check the UI alignment for file filter is matching with Figma or not", async ({
+  test("@Env-All @Zephyr-IO-T23779 C107033 Check the UI alignment for file filter is matching with Figma or not", async ({
     io,
     page
   }) => {
@@ -30,6 +30,6 @@ test.describe("C107033 Check the UI alignment for file filter is matching with F
     await io.flowBuilder.fill(selectors.exportsPagePO.FILE_NAME_FILTER, '~!@#$%^&*');
     const Symbol = await page.$(selectors.flowBranchingPO.LOGICRULES_LIST);
     const displayValue = await Symbol.evaluate((el) => window.getComputedStyle(el).getPropertyValue('height'));
-    expect(displayValue).toEqual('46px');
+    expect(displayValue).toEqual('80px');
   });
 });

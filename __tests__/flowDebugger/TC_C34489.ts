@@ -17,7 +17,7 @@ function isWithinPast10Minutes(dateTimeString) {
   return givenDate > tenMinutesAgo && givenDate <= currentTime
 }
 
-test.describe("C34489 C34477 @Zephyr-IO-T6159 @Zephyr-IO-T6171 @Env-QA @Env-IAQA verify the request logs in a list are sorted by timestamp in descending order", () => {
+test.describe("C34489 C34477 @Zephyr-IO-T6159 @Zephyr-IO-T6171 @Env-All  verify the request logs in a list are sorted by timestamp in descending order", () => {
   let id;
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);

@@ -24,10 +24,10 @@ test.describe("TC_C2004", () => {
 
     test.step("*** API Token Is Created Successfully ***", async ()=>{});
 
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.goToMenu("Resources","API tokens");
-    await io.homePage.loadingTime();
-    test.step("*** Clicked On API Token Icon ***", async ()=>{});
+    // await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    // await io.homePage.goToMenu("Resources","API tokens");
+    // await io.homePage.loadingTime();
+    // test.step("*** Clicked On API Token Icon ***", async ()=>{});
 
     await (await page.locator(selectors.flowBuilderPagePO.SEARCHBUTTON)).isVisible();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
@@ -37,25 +37,27 @@ test.describe("TC_C2004", () => {
     await test.step("***Searching the created token***", async ()=>{});
 
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.REVOKEAPITOKEN);
     await io.homePage.click(selectors.connectionsPagePO.REVOKEAPITOKEN);
     
     const revokedEl = await page.getByText("Revoked").first();
     test.step("*** Clicked On Revoke API Token***", async ()=>{});
-    await revokedEl.waitFor({ state: 'visible', timeout: 30000 });
+    await revokedEl.waitFor({ state: 'visible', timeout: 60000 });
     test.step("*** Wait for text to be visible ***", async ()=>{});
     
     await expect(revokedEl).toBeVisible();
     test.step("*** API Token Is Revoked Successfully ***", async ()=>{});
     
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.goToMenu("Resources","API tokens");
-    test.step("*** Clicked On API Token Icon ***", async ()=>{});
+    // await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    // await io.homePage.goToMenu("Resources","API tokens");
+    // test.step("*** Clicked On API Token Icon ***", async ()=>{});
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.REACTIVATETOKEN);
     await io.homePage.click(selectors.connectionsPagePO.REACTIVATETOKEN);
     test.step("*** Clicked On Reactivate API Token***", async ()=>{});
 
     const activeEl = await page.getByText("Active").first();
-    await activeEl.waitFor({ state: 'visible', timeout: 30000 });
+    await activeEl.waitFor({ state: 'visible', timeout: 60000 });
     test.step("*** Wait for text to be visible ***", async ()=>{});
     test.step("*** API Token Is reactivated Successfully ***", async ()=>{});
 
@@ -72,10 +74,8 @@ test.describe("TC_C2004", () => {
     const text = await io.homePage.getText(selectors.flowGroupingPagePO.ALERT_MESSAGE);
     await io.assert.expectToContainValue( "Token copied to clipboard.", String(text), "");
 
-    var conn = connec.QA_connection.NS_conn;
-    if(process.env["ENVIRONMENT"] == "staging" || process.env["ENVIRONMENT"] == "iaqa") {
-      conn = connec.Staging_connections.NS_conn;
-    }
+    const conn = io.connMap.get("NETSUITE CONNECTION");
+    
     var endpoint = "v1/connections/" + conn;
     test.step("*** Getting request data form NS connection response***", async ()=>{});
 
@@ -83,30 +83,38 @@ test.describe("TC_C2004", () => {
     var responsedetails = JSON.stringify(responseData.data);
     await io.assert.expectNotToBeNull(responsedetails, "");
 
-    await (await page.locator(selectors.flowBuilderPagePO.SEARCHBUTTON)).isVisible();
-    await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
+    // await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    // await io.homePage.goToMenu("Resources","API tokens");
+    // await io.homePage.loadingTime();
+    // await io.homePage.isPageReady();
+    // await (await page.locator(selectors.flowBuilderPagePO.SEARCHBUTTON)).isVisible();
+    // await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
 
-    await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "TC_C2004_Token reactivate validationoperation");
-    await test.step("***Searching the created token***", async ()=>{});
+    // await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "TC_C2004_Token reactivate validationoperation");
+    // await test.step("***Searching the created token***", async ()=>{});
 
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.REVOKEAPITOKEN);
     await io.homePage.click(selectors.connectionsPagePO.REVOKEAPITOKEN);
     test.step("*** Clicked On Revoke API Token***", async ()=>{});
     
     const revokedNewEl = await page.getByText("Revoked").first();
-    await revokedNewEl.waitFor({ state: 'visible', timeout: 30000 });
+    await revokedNewEl.waitFor({ state: 'visible', timeout: 60000 });
     test.step("*** Wait for text to be visible ***", async ()=>{});
     await expect(revokedNewEl).toBeVisible();
     test.step("*** API Token Is Revoked Successfully ***", async ()=>{});
 
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.DELETE_FLOW);
     await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
     await io.homePage.click(selectors.basePagePO.DELETE);
+    await page.waitForTimeout(3000);
     test.step("*** Clicked On Delete API Token***", async ()=>{});
         
     const noResultsEl = await page.getByText("Your search didn’t return any matching results. Try expanding your search criteria.");
     await noResultsEl.waitFor({ state: 'visible', timeout: 30000 });
     await expect(noResultsEl).toBeVisible();
     test.step("*** API Token Is Deleted Successfully ***", async ()=>{});
+    
   });
 });

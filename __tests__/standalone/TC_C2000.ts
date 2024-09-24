@@ -14,6 +14,7 @@ test.describe("TC_C2000", () => {
     await io.homePage.goToMenu("Resources","API tokens");
     test.step("*** Clicked on API token button ***", async ()=>{});
     await io.homePage.loadingTime();
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.CREATEAPITOKEN);
     await io.homePage.click(selectors.connectionsPagePO.CREATEAPITOKEN);
     test.step("*** Clicked On Create API Token Button ***", async ()=>{});
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, "TC_C2000_generating new token");
@@ -54,6 +55,7 @@ test.describe("TC_C2000", () => {
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.connectionsPagePO.NEWTOKENGENERATE);
     await page.waitForTimeout(3000);
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.COPY_TOKEN);
     test.step("*** Clicked On generate API Token***", async ()=>{});
 
     await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
@@ -78,6 +80,7 @@ test.describe("TC_C2000", () => {
     await test.step("***Searching the created token***", async ()=>{});
 
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.REVOKEAPITOKEN);
     await io.homePage.click(selectors.connectionsPagePO.REVOKEAPITOKEN);
     test.step("*** Clicked On Revoke API Token***", async ()=>{});
     
@@ -88,6 +91,7 @@ test.describe("TC_C2000", () => {
     test.step("*** API Token Is Revoked Successfully ***", async ()=>{});
     
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await io.homePage.waitForElementAttached(selectors.integrationPagePO.DELETE_FLOW);
     await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
     await io.homePage.click(selectors.basePagePO.DELETE);
     await page.waitForTimeout(3000);

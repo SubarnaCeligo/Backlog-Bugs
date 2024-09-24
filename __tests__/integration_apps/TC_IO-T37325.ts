@@ -14,7 +14,7 @@ test.describe(`@Author_MaheshNivruttiSutar Verify that the ‘Test connection’
         iClientId = await io.api.createConnectorLicenseViaId(connId, TEST.license);
     });
 
-    test(`@Epic-IO-90427 @Priority-P2 @Env-QA @Zephyr-IO-T37325`, async ({ io, page }) => {
+    test(`@Epic-IO-90427 @Priority-P2 @Env-All  @Zephyr-IO-T37325`, async ({ io, page }) => {
         await io.homePage.clickByText("Marketplace");
         await io.flowBuilder.loadingTime();
         await io.marketplacePage.fill(selectors.marketplacePagePO.SEARCH_MARKETPLACE, "C55424_DND_I");

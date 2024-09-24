@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(" @Author-Revathi-D TC_CIO77330 Support bulk API cases", () => {
-    test("@Zephyr-IO-T32342 @Zephyr-IO-T32343 @Zephyr-IO-T3344 @Zephyr-IO-T32345 @Zephyr-IO-T32346 @Zephyr-IO-T32349 @Zephyr-IO-T32341 @Zephyr-IO-T31956  @Epic-IO-72165 @Priority-P2 @Env-QA Support bulk API cases", async ({ io, page }) => {
+    test("@Zephyr-IO-T32342 @Zephyr-IO-T32343 @Zephyr-IO-T3344 @Zephyr-IO-T32345 @Zephyr-IO-T32346 @Zephyr-IO-T32349 @Zephyr-IO-T32341 @Zephyr-IO-T31956  @Epic-IO-72165 @Priority-P2 @Env-All Support bulk API cases", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.clickByText("Create");
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

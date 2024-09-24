@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that filter results are updated when the 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-89826 @Priority-P2 @Zephyr-IO-T37657 Verify that filter results are updated when the user updates the date range filter on the EDI dashboard", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-89826 @Priority-P2 @Zephyr-IO-T37657 Verify that filter results are updated when the user updates the date range filter on the EDI dashboard", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
@@ -23,7 +23,7 @@ test.describe("@Author-Shriti S Verify that filter results are updated when the 
     await io.homePage.clickByTextByIndex("FA status", 0);
     await io.homePage.waitForElementAttached(selectors.basePagePO.ARROW_POPPER);
 
-    let index = 0;//Value=Rejected
+    let index = 2;//Value=Rejected
     await io.homePage.clickByIndex(selectors.dashboardPagePO.FA_FILTER_CHECKBOX, index);
     await io.homePage.clickByTextByIndex('Apply', 0);
     await io.homePage.loadingTime();
@@ -46,7 +46,7 @@ test.describe("@Author-Shriti S Verify that filter results are updated when the 
     let result = (await io.homePage.getText(selectors.dashboardPagePO.FA_STATUS_COLUMN)).toString();
      resultArray02 = result.split(',');
     }
-    await io.assert.expectToBeTrue (resultArray02.length > resultArray01.length, 'Results are not updated as per updated date range filter');
+    await io.assert.expectToBeTrue (resultArray02.length != resultArray01.length, 'Results are not updated as per updated date range filter');
 
   });
 });

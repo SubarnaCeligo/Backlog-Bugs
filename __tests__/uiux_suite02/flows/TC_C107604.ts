@@ -5,6 +5,7 @@ import testMode from "@testData/Flows/C107604.json"
 test.describe("C107604_C107606 Verify drop-down in the HTTP Import when transferring files to the destination application.", () => {
   test("@Priority-P2 @Zephyr-IO-T1658 @Env-All C107604", async ({io, page}) => {
       await io.createResourceFromAPI(testMode, "FLOWS");
+      await io.flowBuilder.loadingTime();
       await io.flowBuilder.click(selectors.flowBuilderPagePO.TRANSFER);
       const helpBubble =selectors.myAccountPagePO.HELP_BUBBLE;
       const helptext_close = selectors.connectionsPagePO.HELPTEXT_CLOSE;

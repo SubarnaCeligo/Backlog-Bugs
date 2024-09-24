@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C65961 from "@testData/Flows/C65961.json";
 
 test.describe("C65961 Verify UI throws an error message if the Path is wrong for DisplayAfter, and Verify that the UI throws error only in simple view if the Path is wrong in custom settings", () => {
-  test("@Env-QA @Env-IAQA @Zephyr-IO-T25949 C65961 Verify UI throws an error message if the Path is wrong for DisplayAfter, and Verify that the UI throws error only in simple view if the Path is wrong in custom settings", async ({
+  test("@Env-All @Env-IAQA @Zephyr-IO-T25949 C65961 Verify UI throws an error message if the Path is wrong for DisplayAfter, and Verify that the UI throws error only in simple view if the Path is wrong in custom settings", async ({
     io,
     page
   }) => {

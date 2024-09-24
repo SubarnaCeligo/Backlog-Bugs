@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C22854 Verify the UI of the CSV Parser editor", () => {
-  test("@Env-QA @Zephyr-IO-T11542 C22854 Verify the UI of the CSV Parser editor", async ({
+  test("@Env-All @Zephyr-IO-T11542 C22854 Verify the UI of the CSV Parser editor", async ({
     io,
     page
   }) => {

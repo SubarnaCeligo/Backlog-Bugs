@@ -7,7 +7,7 @@ test.describe("C51639 Verify the download option in the Resolved Error drawer", 
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(id)
     });
-    test("@Zephyr-IO-T19791 @Env-QA @Env-STAGING C51639 Verify the download option in the Resolved Error drawer", async ({ io, page }) => {
+    test("@Zephyr-IO-T19791 @Env-All C51639 Verify the download option in the Resolved Error drawer", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C51639, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51639', id);
         const lastRun = page.getByText('Last run')
