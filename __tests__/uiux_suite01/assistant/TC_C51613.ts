@@ -5,7 +5,7 @@ test.describe(" C51613 Verify the name field under exports", () => {
   test.beforeEach(async ({ io }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All @Zephyr-IO-T18932 Verify the name field under exports", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T18932 @Priority-P2 Verify the name field under exports", async ({ io, page }) => {
     await io.homePage.clickByText("Resources")
     await io.homePage.clickByText( "Exports");
     await io.importsPage.clickByText("Create export");

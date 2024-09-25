@@ -116,7 +116,7 @@ test.describe("C112075_C112076_C112077_C112078_C112079", () => {
       )) as string;
 
       await io.assert.expectToContainValue(
-        "Private keyCopy the private key from the portal you want to use to authenticate the connection. Before you add it to integrator.io, you must replace all newline characters (\\\\n) throughout the private key. The private key must be in PEM format. You can convert PFX certificates or convert from a PPK file.1. Paste the private key into a text editor.2. Find \\\\n.3. Delete the \\\\n characters and press Enter or Return. Repeat this for each instance of \\\\n.4. Ensure -----BEGIN PRIVATE KEY----- appears before the key, and -----END PRIVATE KEY----- appears after the key.5. Copy and paste the reformatted private key (including the begin and end declarations) into integrator.io.Was this helpful?Field path: connection.http.auth.jwt.privateKey",
+        "Private keyCopy the private key from the portal you want to use to authenticate the connection. Before you add it to integrator.io, you must replace all newline characters (\\n) throughout the private key. The private key must be in PEM format. You can convert PFX certificates or convert from a PPK file.1. Paste the private key into a text editor.2. Find \\n.3. Delete the \\n characters and press Enter or Return. Repeat this for each instance of \\n.4. Ensure -----BEGIN PRIVATE KEY----- appears before the key, and -----END PRIVATE KEY----- appears after the key.5. Copy and paste the reformatted private key (including the begin and end declarations) into integrator.io.Was this helpful?Field path: connection.http.auth.jwt.privateKey",
         secretText,
         "secrettext name not found"
       );

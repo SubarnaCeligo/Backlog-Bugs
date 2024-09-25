@@ -6,7 +6,7 @@ test.describe("@Author-Shriti S Verify that EDI documents can be searched using 
 
 
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38139 Verify that EDI documents can be searched using Document number/Interchange sender ID/ Interchange receiver ID using exact search keyword", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38139 Verify that EDI documents can be searched using Document number/Interchange sender ID/ Interchange receiver ID using exact search keyword", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

@@ -8,7 +8,7 @@ test.describe("C113404", () => {
     await io.homePage.loadingTime()
   });
 
-  test("@Env-QA @Env-IAQA @Zephyr-IO-T15070 C113404 Verify user able see JWT field in HTTP 2.0 framework", async ({ io, page }) => {
+  test("@Env-All @Env-IAQA @Zephyr-IO-T15070 C113404 Verify user able see JWT field in HTTP 2.0 framework", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.homePage.loadingTime()
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
@@ -26,7 +26,7 @@ test.describe("C113404", () => {
     await io.assert.expectToBeValue(monitorExp.toString(), 'true', "Value is found");
   });
 
-  test("@Env-QA @Env-IAQA @Zephyr-IO-T15071 C113405 Verify the signature field and dropdown values", async ({ io, page }) => {
+  test("@Env-All @Env-IAQA @Zephyr-IO-T15071 C113405 Verify the signature field and dropdown values", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -60,7 +60,7 @@ test.describe("C113404", () => {
     );
   });
 
-  test("@Env-QA @Env-IAQA @Zephyr-IO-T15072 C113406 Verify the fields when user select HMAC signature method", async ({ io, page }) => {
+  test("@Env-All @Env-IAQA @Zephyr-IO-T15072 C113406 Verify the fields when user select HMAC signature method", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -84,7 +84,7 @@ test.describe("C113404", () => {
     await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");
   });
 
-  test("@Env-QA @Env-IAQA @Zephyr-IO-T15073 C113407 Verify the fields when user select RS/PS/ES signature method", async ({ io, page }) => {
+  test("@Env-All @Env-IAQA @Zephyr-IO-T15073 C113407 Verify the fields when user select RS/PS/ES signature method", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);
@@ -153,7 +153,7 @@ test.describe("C113404", () => {
   });
 
 
-  test("@Env-QA @Env-IAQA @Zephyr-IO-T15076 C113412 Verify user is able to see JWT in edit case", async ({ io, page }) => {
+  test("@Env-All @Env-IAQA @Zephyr-IO-T15076 C113412 Verify user is able to see JWT in edit case", async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_SEARCH);

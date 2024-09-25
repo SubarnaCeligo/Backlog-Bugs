@@ -1,29 +1,24 @@
 {
-  "referencename": "TC_C2015",
   "name": "TC_C2015",
+  "referencename": "TC_C2015",
+  "qa__dataVerification": {},
   "qa__api_tdata": [
     {
       "pageGenerators": [
         {
           "type": "export",
           "qa__export": {
-            "name": "AutomationStandalone_H5yQy",
-            "_connectionId": "FTP CONNECTION",
-            "apiIdentifier": "e9c3edcfda",
+            "application": "MySQL",
+            "name": "MySql_Export_TC_C2015",
+            "_connectionId": "MYSQL CONNECTION",
             "asynchronous": true,
+            "oneToMany": false,
             "sandbox": false,
-            "ftp": {
-              "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
-              "fileNameStartsWith": "TC_C51293",
-              "fileNameEndsWith": ".json"
+            "rawData": "603ce5ede9250226dcea4608ebe2f49f62cb498eb8e2348f7a97f2f1",
+            "rdbms": {
+              "query": "select * from Templates.Order limit 50"
             },
-            "file": {
-              "encoding": "utf8",
-              "output": "records",
-              "skipDelete": true,
-              "type": "json"
-            },
-            "adaptorType": "FTPExport"
+            "adaptorType": "RDBMSExport"
           }
         }
       ],
@@ -31,18 +26,57 @@
         {
           "type": "import",
           "qa__import": {
-            "name": "Automationstandalone_hfkhk",
-            "application": "MySQL",
-            "qa__connectionId": "6347a2e501bcaa111fefad8c",
-            "_connectionId": "6347aacf0eeae84271ac6beb",
-            "apiIdentifier": "i8f7473f2d",
+            "name": "Import_TC_C2015",
+            "modelMetadata": {
+              "orderid": {
+                "default": ""
+              },
+              "customerid": {
+                "default": ""
+              },
+              "employeeid": {
+                "default": ""
+              },
+              "shipvia": {
+                "default": ""
+              },
+              "freight": {
+                "default": ""
+              },
+              "shipname": {
+                "default": ""
+              },
+              "shipaddress": {
+                "default": ""
+              },
+              "shipcity": {
+                "default": ""
+              },
+              "shipregion": {
+                "default": ""
+              },
+              "shippostalcode": {
+                "default": ""
+              },
+              "shipcountry": {
+                "default": ""
+              }
+            },
+            "parsers": [],
+            "_connectionId": "MYSQL CONNECTION",
+            "application": "mysql",
             "ignoreExisting": false,
             "ignoreMissing": false,
             "oneToMany": false,
             "sandbox": false,
+            "lookups": [],
             "rdbms": {
-              "query": ["gdfgfgf"],
-              "queryType": ["INSERT"]
+              "query": [
+                "INSERT ITNO ABC"
+              ],
+              "queryType": [
+                "INSERT"
+              ]
             },
             "adaptorType": "RDBMSImport"
           }
@@ -51,8 +85,7 @@
       "createFlow": {
         "name": "TC_C2015",
         "disabled": false,
-        "qa__integrationId": "63232caf5342c33e615e7271",
-        "_integrationId": "63232c59d3a9897fe95f9f2a",
+        "_integrationId": "603ce75ac4fec33283691f43",
         "skipRetries": false,
         "pageProcessors": [
           {
@@ -66,7 +99,6 @@
         ],
         "pageGenerators": [
           {
-            "type": "export",
             "_exportId": "UPDATE WITH NEW EXPORTID"
           }
         ]

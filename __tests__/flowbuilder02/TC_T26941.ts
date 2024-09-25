@@ -5,7 +5,7 @@ test.describe("TC_T26941_Test to verify the existing behaviour of layout toggle 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("T26941 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("T26941 @Zephyr-IO-T26941 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "AFE_AUTOSUGGESTIONS_mapper2.0_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

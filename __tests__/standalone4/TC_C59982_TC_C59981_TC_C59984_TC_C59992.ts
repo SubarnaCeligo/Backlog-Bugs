@@ -52,7 +52,7 @@ test.describe("TC_C59982_TC_C59981_TC_C59984_TC_C59992", () => {
     await io.assert.checkElementState(selectors.playgroundPO.DISABLEWHENALL, "isEnabled");
     await io.assert.checkElementState(selectors.playgroundPO.DISABLEWHEN, "isEnabled")
     
-    await io.homePage.click("[id='in']");
+    await io.homePage.click(selectors.playgroundPO.INDIA_OPTION);
     await io.homePage.isPageReady();
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.playgroundPO.SELECT);

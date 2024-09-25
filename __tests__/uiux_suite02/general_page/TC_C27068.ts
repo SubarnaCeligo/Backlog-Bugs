@@ -6,7 +6,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-QA C27068 @Epic-IO-52851 @Zephyr-IO-T27068 @Zephyr-IO_T27072 @Zephyr-IO_T27069 @Zephyr-IO_T27070 @Zephyr-IO_T27071 @Env-QA Verify the application name is appended into the URL", async ({ io, page }) => {
+    test("@Env-All C27068 @Epic-IO-52851 @Zephyr-IO-T27068 @Zephyr-IO_T27072 @Zephyr-IO_T27069 @Zephyr-IO_T27070 @Zephyr-IO_T27071 @Env-All Verify the application name is appended into the URL", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.OPENAI.FLOW_DESCRIPTION_BUTTON);
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -45,7 +45,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.click(selectors.homePagePO.SEARCH_INTEGRATION);
         await io.exportsPage.fill(selectors.homePagePO.SEARCH_INTEGRATION, "zendesk");
         await io.exportsPage.loadingTime();
-        await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.CONNECTION_TABLE, 0);
+        await io.importsPage.clickByText('zendesk');
         await io.exportsPage.loadingTime();
         await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.HELP_TEXT_ICON);
         const exportUrl = await io.homePage.getCurrentUrl();
@@ -71,7 +71,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.click(selectors.homePagePO.SEARCH_INTEGRATION);
         await io.exportsPage.fill(selectors.homePagePO.SEARCH_INTEGRATION, "SHOPIFY CONNECTION");
         await io.exportsPage.loadingTime();
-        await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.CONNECTION_TABLE, 0);
+        await io.exportsPage.clickByText('SHOPIFY CONNECTION');
         await io.exportsPage.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.HELP_TEXT_ICON);
         const connectionUrl = await io.homePage.getCurrentUrl();

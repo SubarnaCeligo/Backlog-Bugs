@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate user is able to see new connector "Azure Synapse" under "Databases" section when User tries to searched for application after clicking "create connection" from resource --> connections page', () => {
-  test("@Env-QA @Env-STAGING @Zephyr-IO-T29337 @Zephyr-IO-T29338 @Zephyr-IO-T29339 @Zephyr-IO-T29340 @Zephyr-IO-T29341  @Priority-P2", async ({
+  test("@Env-All @Zephyr-IO-T29337 @Zephyr-IO-T29338 @Zephyr-IO-T29339 @Zephyr-IO-T29340 @Zephyr-IO-T29341  @Priority-P2", async ({
     io,
     page
   }) => {

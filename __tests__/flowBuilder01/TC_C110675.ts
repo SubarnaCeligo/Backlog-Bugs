@@ -5,7 +5,7 @@ test.describe("TC_C110675_Test to validate AFE auto suggestion features are work
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C110675 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C110675 @Zephyr-IO-T15685 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "AFE_AUTOSUGGESTIONS_mapper2.0_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

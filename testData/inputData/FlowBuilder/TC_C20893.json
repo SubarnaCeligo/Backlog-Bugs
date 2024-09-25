@@ -69,7 +69,6 @@
             "createFlow": {
                 "name": "TC_C20893",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
                 "skipRetries": false,
                 "pageProcessors": [
                     {

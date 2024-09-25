@@ -1,51 +1,48 @@
 {
     "skipRetries": false,
     "name": "TC_C44446",
-        "pageProcessors": [
-          {
-            "responseMapping": {
-              "fields": [],
-              "lists": []
-            },
-            "type": "import",
-            "qa__import": {
-              "name": "44446",
-              "application": "zendesk support",
-              "_connectionId":"HTTP ZENDESK CONNECTION",
-              "apiIdentifier": "i36c40c82c",
-              "ignoreExisting": false,
-              "ignoreMissing": false,
-              "oneToMany": false,
-              "sandbox": false,
-              "mappings": [
+       "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import":{
+            "_id": "66f2906fcbf04b2ed869a29f",
+            "createdAt": "2024-09-24T10:11:59.063Z",
+            "lastModified": "2024-09-24T10:12:34.287Z",
+            "name": "AutomationStandalone_vk6Vi",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i03ad4f44d",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mappings": [
                 {
-                  "extract": "$.orderid",
-                  "generate": "id",
-                  "dataType": "string"
-                },
-                {
-                  "extract": "$.customerid",
-                  "generate": "senderid",
-                  "dataType": "string"
-                },
-                {
-                  "extract": "$.employeeid",
-                  "generate": "reademployeeid",
-                  "dataType": "string"
+                    "extract": "$.orderid",
+                    "generate": "updatedorderId",
+                    "dataType": "string",
+                    "status": "Active",
+                    "sourceDataType": "number"
                 }
-              ],
-              "http": {
-                "relativeURI": ["/ticket.json"],
-                "method": ["POST"],
-                "body": [],
+            ],
+            "http": {
+                "relativeURI": [
+                    "/ticket.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    "{\"name\":\"New\"}"
+                ],
                 "batchSize": 1,
                 "sendPostMappedData": true,
+                "isRest": false,
                 "formType": "http"
-              },
-              "adaptorType": "HTTPImport"
-            }
-          }
-        ],
+            },
+            "adaptorType": "HTTPImport"
+        } 
+        }
+      ],
         "pageGenerators": [
           {
             "type": "export",
@@ -53,7 +50,7 @@
               "application": "MySQL",
               "name": "44446",
               "qa__connectionId": "MYSQL CONNECTION",
-              "_connectionId":"MSSQL CONNECTION",
+              "_connectionId":"MYSQL CONNECTION",
               "_sourceId": "62de3aff72bebb4e86c780fc",
               "apiIdentifier": "e6c813aa26",
               "asynchronous": true,

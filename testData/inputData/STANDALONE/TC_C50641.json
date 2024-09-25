@@ -1,7 +1,7 @@
 {
     "importJSON": {
         "type": "http",
-        "name": "orderhive invalid con setup",
+        "name": "TC_C50641 orderhive invalid setup",
         "sandbox": false,
         "http": {
             "formType": "http",

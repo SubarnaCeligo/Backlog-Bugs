@@ -6,7 +6,7 @@ test.describe("@Author-Shriti S Verify that search on EDI dashboard is case inse
 
 
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38150 Verify that search on EDI dashboard is case insensitive", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38150 Verify that search on EDI dashboard is case insensitive", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

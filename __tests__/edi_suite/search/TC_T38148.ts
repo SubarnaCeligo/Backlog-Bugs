@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that search term is trimmed if there are 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38148 Verify that search term is trimmed if there are leading/trailing spaces", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38148 Verify that search term is trimmed if there are leading/trailing spaces", async ({ io, page }) => {
 
     
     //Go to Dashboard

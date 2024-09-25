@@ -8,7 +8,7 @@ test.describe(`C51302 Verify when a retry is in progress and “Cancel” is cli
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowsWithId(id)
   });
-  test(`@Env-QA @Env-STAGING @Zephyr-IO-T23331 C51302 Verify when a retry is in progress and “Cancel” is clicked, few errors are successful and few errors are unsuccessful`, async ({
+  test(`@Env-All @Zephyr-IO-T23331 C51302 Verify when a retry is in progress and “Cancel” is clicked, few errors are successful and few errors are unsuccessful`, async ({
     io,
     page
   }) => {

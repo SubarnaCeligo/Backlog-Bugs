@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import file from "fs";
 
 test.describe("C106421 Verify user is able to click and download the yaml file to their system", () => {
-  test("@Zephyr-IO-T23713 @Env-All C106421 Verify user is able to click and download the yaml file to their system", async ({
+  test("@Zephyr-IO-T23713 @Env-All @Priority-P2 C106421 Verify user is able to click and download the yaml file to their system", async ({
     io,
     page
   }) => {

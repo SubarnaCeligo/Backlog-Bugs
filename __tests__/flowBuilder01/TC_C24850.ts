@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C24850 Verify that the flow event report results are sorted by the timestamp by default -(most recent at the top)", () => {
-    test("C24850 Verify that the flow event report results are sorted by the timestamp by default -(most recent at the top) @Env-All @Priority-P2", async ({io, page}) => {
+    test("C24850 Verify that the flow event report results are sorted by the timestamp by default -(most recent at the top) @Zephyr-IO-T4276 @Env-All @Priority-P2", async ({io, page}) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.homePage.waitForElementAttached(selectors.basePagePO.TOOLS);
         await io.homePage.goToMenu("Tools","Reports");

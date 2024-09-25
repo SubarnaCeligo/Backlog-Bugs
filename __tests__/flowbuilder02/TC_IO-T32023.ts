@@ -4,7 +4,7 @@ import TC from '../../testData/inputData/FlowBuilder/T32023.json';
 import { Mappings2dot0Page } from '@celigo/ui-core-automation/dist/src/pageFactory/pages/Mappings2dot0Page';
 import { Mappings } from '@celigo/aut-selectors/dist/src/selectors/Mappings';
 
-test.describe("@Author_MaheshNivruttiSutar @Bug-IO-80306 @Bug-IO-80221 @Env-QA @Priority-P2 @Zephyr-IO-T32021 @Zephyr-IO-T32023", () => {
+test.describe("@Author_MaheshNivruttiSutar @Bug-IO-80306 @Bug-IO-80221  @Priority-P2 @Zephyr-IO-T32021 @Zephyr-IO-T32023", () => {
     let intId;
     test.afterEach(async ({ io, page }) => {
         await io.api.deleteIntegration(intId);

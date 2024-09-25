@@ -8,7 +8,7 @@ test.describe("TC_C102620 Verify hover text is not showing when we have 'Source 
     await io.api.deleteFlowViaAPI(id);
   });
 
-  test("@Zephyr-IO-T23483 @Env-All C102620 Verify hover text is not showing when we have 'Source dropdown' is opened", async ({
+  test("@Zephyr-IO-T23483 @Env-All @Priority-P2 C102620 Verify hover text is not showing when we have 'Source dropdown' is opened", async ({
     io,
     page
   }) => {

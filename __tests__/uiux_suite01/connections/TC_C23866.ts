@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 
 test.describe("C23866 To Verify user is able to edit and save the 'Freshworks CRM' Connection", () => {
-    test("@Env-QA @Env-STAGING @Zephyr-IO-T1143 C23866 To Verify user is able to edit and save the 'Freshworks CRM' Connection", async ({io, page}) => {
+    test("@Env-All @Zephyr-IO-T1143 C23866 To Verify user is able to edit and save the 'Freshworks CRM' Connection", async ({io, page}) => {
       await io.homePage.navigateTo (io.data.links.CONNECTIONS_PAGE_URL);
       await io.homePage.fill(selectors.flowBuilderPagePO.SEARCH, "FRESHSALES_TEST");
       await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.JOBS_ROWS);

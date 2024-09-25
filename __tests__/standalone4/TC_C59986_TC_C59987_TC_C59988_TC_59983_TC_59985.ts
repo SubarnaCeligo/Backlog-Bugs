@@ -99,7 +99,7 @@ test.describe("TC_C59986_TC_C59987_TC_C59988_TC_59983_TC_59985", () => {
     const isRequiredWhenRequired = requriedwhen.includes("*");
     await io.assert.expectToBeFalse(isRequiredWhenRequired, "");
 
-    await io.assert.verifyElementContainsText("[for='defaultRequired']", "*");
+    await io.assert.verifyElementContainsText(selectors.playgroundPO.DEFAULTREQUIRED_LABEL, "*");
     var defaultvisible = await io.homePage.isVisible(selectors.playgroundPO.DEFAULTVISIBLE);
     await io.assert.expectToBeTrue(defaultvisible, "");
     await io.assert.checkElementState(selectors.playgroundPO.DEFAULTDISABLED, "isDisabled");
@@ -143,7 +143,7 @@ test.describe("TC_C59986_TC_C59987_TC_C59988_TC_59983_TC_59985", () => {
     const isRequiredWhenRequired2 = requriedwhen2.includes("*");
     await io.assert.expectToBeTrue(isRequiredWhenRequired2, "");
 
-    const defaultRequired = await page.locator("[for='defaultRequired']").textContent();
+    const defaultRequired = await page.locator(selectors.playgroundPO.DEFAULTREQUIRED_LABEL).textContent();
     const isDefaultRequired = defaultRequired.includes("*");
     await io.assert.expectToBeFalse(isDefaultRequired, "");
 

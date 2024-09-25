@@ -7,7 +7,7 @@ test.describe("C51623 Verify the Scroll bar for Message column in the Error rows
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowsWithId(id)
     });
-    test("@Zephyr-IO-T19775 @Env-QA @Env-STAGING C51623 Verify the Scroll bar for Message column in the Error rows page of New view by navigating from the Current View", async ({ io, page }) => {
+    test("@Zephyr-IO-T19775 @Env-All C51623 Verify the Scroll bar for Message column in the Error rows page of New view by navigating from the Current View", async ({ io, page }) => {
         id = await io.createResourceFromAPI(C51661, "FLOWS");
         await io.api.runBatchFlowViaAPI('TC_C51623', id);
         const lastRun = page.getByText('Last run')

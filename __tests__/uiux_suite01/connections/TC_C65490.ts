@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C65490 Verify Export for Parse files", () => {
-  test("@Env-QA @Zephyr-IO-T21560 C65490 Verify Export for Parse files", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T21560 C65490 Verify Export for Parse files", async ({io, page}) => {
       await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
       await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
       await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

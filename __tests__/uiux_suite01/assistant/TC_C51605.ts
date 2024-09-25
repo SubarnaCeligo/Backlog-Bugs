@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("TC_C51605 Verify help text for [Simple | HTTP] toggle button for Createlookup", () => {
-  test("@Env-All @Zephyr-IO-T18924 C51605 Verify help text for [Simple | HTTP] toggle button for Createlookup", async ({
+  test("@Env-All @Zephyr-IO-T18924  @Priority-P2 C51605 Verify help text for [Simple | HTTP] toggle button for Createlookup", async ({
     io,
     page
   }) => {

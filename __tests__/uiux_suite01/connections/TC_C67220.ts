@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C67220 Verify Auto-place the cursor in the search bar on the following places: Marketplace, Home Page, Integration Flows page", () => {
-  test("@Env-QA @Env-STAGING @Zephyr-IO-T19858 C67220 Verify Auto-place the cursor in the search bar on the following places: Marketplace, Home Page, Integration Flows page", async ({
+  test("@Env-All @Zephyr-IO-T19858 C67220 Verify Auto-place the cursor in the search bar on the following places: Marketplace, Home Page, Integration Flows page", async ({
     io,
     page
   }) => {

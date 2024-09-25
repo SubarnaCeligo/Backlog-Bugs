@@ -75,8 +75,6 @@
             "createFlow": {
                 "name": "TC_C18270_1",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
                     {
@@ -169,8 +167,6 @@
             "createFlow": {
                 "name": "TC_C18270_2",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
                     {

@@ -14,6 +14,7 @@ test.describe("TC_C20709", () => {
       [flowId]
     );
     await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
     // Clicking on import mapping
     await io.homePage.click(
       selectors.flowBuilderPagePO.IMPORT_MAPPINGS

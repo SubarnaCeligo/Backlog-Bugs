@@ -5,7 +5,7 @@ test.describe('Test to validate that user is able to run a flow with Azure synap
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-  test("@Env-QA @Epic-IO-65860 @Zephyr-IO-T29720 @Priority-P2 " , async ({
+  test("@Env-All @Epic-IO-65860 @Zephyr-IO-T29720 @Priority-P2 " , async ({
     io,
     page
   }) => {

@@ -7,7 +7,7 @@ test.describe(`TC_IOT26993 Test to validate that user is seeing "First record co
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("IOT26993 @Env-All @Priority-P2", async ({ io, page}) => {
+    test("IOT26993 @Env-All @Priority-P2 @Zephyr-IO-T26993", async ({ io, page}) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Resources","Exports");

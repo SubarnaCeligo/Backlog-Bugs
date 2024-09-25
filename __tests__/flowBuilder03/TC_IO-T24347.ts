@@ -15,7 +15,7 @@ test.describe('Verify user is able to download the files from UI, Verify downloa
         await io.api.deleteFlowViaAPI(id)
     });
 
-    test('@Env-All @Zephyr-IO-T24347 Verify user is able to download the files from UI, Verify downloaded file has correct data', async ({ io, page }) => {
+    test('@Env-All @Zephyr-IO-T24347 @Priority-P2 Verify user is able to download the files from UI, Verify downloaded file has correct data', async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
         await io.flowBuilder.loadingTime();

@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C2660 Verify export is hidden which is once used in the flow.", () => {
-  test("C2660 Verify export is hidden which is once used in the flow. @Env-All @Priority-P2", async ({io, page}) => {
+  test("C2660 Verify export is hidden which is once used in the flow. @Env-All @Priority-P2 @Zephyr-IO-T8876", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

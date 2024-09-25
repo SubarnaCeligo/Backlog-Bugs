@@ -4,7 +4,7 @@ test.describe("TC_T26947_TTest to verify the layout toggle addition and saving f
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_T26947 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("TC_T26947 @Zephyr-T26947 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
         await io.homePage.addStep("*** Navigated to Sandbox Env ***");

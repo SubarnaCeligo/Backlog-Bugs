@@ -1,7 +1,7 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import HTTP from "@testData/STANDALONE/HTTP_connection.json";
-// working, change selector for help icon
+
 test.describe("HTTP_standalone_import_label_Test_cases", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
     test.step("*** Beginning of Test Suite ***", async ()=>{});
@@ -31,7 +31,6 @@ test.describe("HTTP_standalone_import_label_Test_cases", () => {
     await io.homePage.loadingTime();
 
     test.step("*** Choosing the desired connection ***", async ()=>{});
-    // await io.homePage.click(selectors.basePagePO.SAVE);
     await io.homePage.loadingTime();
 
     var data = await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);

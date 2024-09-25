@@ -5,7 +5,7 @@ test.describe("TC_T26945_Test to verify that once user saves a particular view f
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("T26945 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("T26945 @Zephyr-T26945 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.flowBuilder.loadingTime();
         await io.homePage.addStep("*** Navigated to home page ***");

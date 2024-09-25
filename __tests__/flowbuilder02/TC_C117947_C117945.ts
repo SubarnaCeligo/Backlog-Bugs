@@ -5,7 +5,7 @@ test.describe("TC_C117947_C117945_Testing new key board shortcuts enhancements i
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C117947_C117945 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C117947_C117945 @Zephyr-IO-T18849 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
         await io.homePage.addStep("*** Navigated to Sandbox Env ***");

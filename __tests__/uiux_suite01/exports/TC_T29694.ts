@@ -5,7 +5,7 @@ test.describe("@Author_sagna123 TC_T29694_Test to validate the colour grading, f
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29694 @Env-QA @Env-STAGING", async ({ io, page }) => {
+    test("@Env-All @Epic-IO-65860 @Priority-P2 @Zephyr-IO-T29694 ", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Resources","Exports");

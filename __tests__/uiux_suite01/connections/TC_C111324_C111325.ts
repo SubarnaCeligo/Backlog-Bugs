@@ -7,7 +7,7 @@ test.describe(`C111324_C111325`, () => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 
   });
-  test("@Env-QA @Env-STAGING C111324_C111325", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T8849 @Zephyr-IO-T8850", async ({io, page}) => {
     await io.homePage.loadingTime()
     const id = await io.createResourceFromAPI(testData, "FLOWS");
     await io.homePage.loadingTime()
