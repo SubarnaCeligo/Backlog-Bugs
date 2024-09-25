@@ -5,7 +5,7 @@ test.describe(`C52775 Verify the Shopify connector is defaulting to the basic au
     test.beforeEach(async ({ io }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       });
-    test(`@Env-QA @Env-STAGING @Zephyr-IO-T1120 C52775 Verify the Shopify connector is defaulting to the basic auth when we open the connection form`, async({io,page}) => {
+    test(`@Env-All @Zephyr-IO-T1120 C52775 Verify the Shopify connector is defaulting to the basic auth when we open the connection form`, async({io,page}) => {
         await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
         await io.connectionPage.clickByText("Create connection")
         await io.connectionPage.waitForElementAttached(selectors.settingsPagePO.APP_NAME_INPUT)

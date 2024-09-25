@@ -7,7 +7,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37322 @Zephyr-IO-T37314",
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Epic-IO-90427 @Priority-P2 @Env-QA @Zephyr-IO-T37322 @crossbrowser Verify that the ‘Test connection’ button UI is displayed properly in different browsers.", async ({ io, page }) => {
+    test("@Epic-IO-90427 @Priority-P2 @Env-All @Zephyr-IO-T37322 @crossbrowser Verify that the ‘Test connection’ button UI is displayed properly in different browsers.", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
         await io.homePage.goToMenu("Resources", "Connections");
@@ -31,7 +31,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37322 @Zephyr-IO-T37314",
         });
         await io.assert.expectToBeValue("0px 24px 0px 16px", margin1, "Test connection button not moved");
     });
-    test("@Epic-IO-90427 @Priority-P2 @Env-QA @Zephyr-IO-T37314 Verify UI is showing properly on connections where we don't have 'Test connection' button", async ({ io, page }) => {
+    test("@Epic-IO-90427 @Priority-P2 @Env-All @Zephyr-IO-T37314 Verify UI is showing properly on connections where we don't have 'Test connection' button", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
         await io.homePage.goToMenu("Resources", "Connections");

@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/C63011.json";
 
 test.describe(`C63064 Verify in connection if user selected one api type in simple and move it to HTTP and then switch the toggle back to simple then check whether prevuiously selcted api type is persisted or not`, () => {
-  test(`@Env-QA @Env-STAGING @Zephyr-IO-T21825 C63064 Verify in connection if user selected one api type in simple and move it to HTTP and then switch the toggle back to simple then check whether prevuiously selcted api type is persisted or not`, async ({
+  test(`@Env-All @Zephyr-IO-T21825 C63064 Verify in connection if user selected one api type in simple and move it to HTTP and then switch the toggle back to simple then check whether prevuiously selcted api type is persisted or not`, async ({
     page,
     io
   }) => {

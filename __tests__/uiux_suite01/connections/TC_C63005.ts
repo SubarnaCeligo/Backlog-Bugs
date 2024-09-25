@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C63005 Verify connection dropdown list`, () => {
-  test(`@Env-QA @Zephyr-IO-T21796 C63005 Verify connection dropdown list`, async ({ io, page }) => {
+  test(`@Env-All @Zephyr-IO-T21796 C63005 Verify connection dropdown list`, async ({ io, page }) => {
     await io.flowBuilder.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);

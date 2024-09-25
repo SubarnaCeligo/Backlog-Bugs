@@ -5,7 +5,7 @@ test.describe("Verify the default field label in existing Amazon Redshift connec
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-STAGING @Zephyr-IO-T23964 Verify the default field label in existing Amazon Redshift connections", async ({ io, page }) => {
+  test("@Env-All  @Zephyr-IO-T23964 Verify the default field label in existing Amazon Redshift connections", async ({ io, page }) => {
     // Open an existing Amazon Redshift connection
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'Amazon Redshift')
