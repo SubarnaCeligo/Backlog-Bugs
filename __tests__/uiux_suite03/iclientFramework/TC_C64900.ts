@@ -9,7 +9,8 @@ test.describe(`C64900 Validate editing the iClient created in Resources -> iClie
     await io.homePage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "iClients");
     await io.flowBuilder.click(selectors.integrationPagePO.ADDNEWRESOURCE);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.APPLICATION);
-    await io.flowBuilder.clickByTextByIndex("3PL Central", 1, { exact: false });
+    await io.flowBuilder.clickByTextByIndex("3PL Central", 0);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.SEND_CLIENT_CREDENTIALS_VIA)
     await io.assert.verifyElementIsDisplayed(
       selectors.connectionsPagePO.SEND_CLIENT_CREDENTIALS_VIA,
       "'Send client credentials via' is not displayed"
