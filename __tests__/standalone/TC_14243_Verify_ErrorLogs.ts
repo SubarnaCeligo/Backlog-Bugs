@@ -9,7 +9,7 @@ test.describe("TC_14243_Verify_ErrorLogs_with_NS", () => {
     test.step("*** Navigate to Home Page ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("TC_14243_Login Error", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T4400 TC_14243_Login Error", async ({io,page}, testInfo) => {
     await io.homePage.goToMenu("Resources","Connections");
     test.step("*** clicked on connections in Homepage ***", async ()=>{});
 
