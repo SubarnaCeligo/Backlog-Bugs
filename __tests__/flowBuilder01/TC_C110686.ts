@@ -4,7 +4,7 @@ import C110682 from '../../testData/inputData/FlowBuilder/C110682.json';
 
 
 test.describe("Verify that the hide map(X) icon appears upon hovering over the map and validate the hovertext", () => {
-  test("Verify that the hide map(X) icon appears upon hovering over the map and validate the hovertext @Env-All @Priority-P2", async ({ io, page }) => {
+  test("Verify that the hide map(X) icon appears upon hovering over the map and validate the hovertext @Zephyr-IO-T13322 @Env-All @Priority-P2", async ({ io, page }) => {
     //Create a flow
     await io.createResourceFromAPI(C110682, "FLOWS");
 

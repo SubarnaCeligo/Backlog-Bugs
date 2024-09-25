@@ -7,7 +7,7 @@ test.describe('T11503 Verify Sample data is shown when we apply resource path fo
     test.afterEach(async ({ io }) => {
         await io.api.deleteFlowViaAPI(id);
     });
-    test('"@Zephyr-IO-T11503 @Env-All Verify Sample data is shown when we apply resource path for FTP/S3 exports ', async ({ io, page }) => {
+    test('"@Zephyr-IO-T11503 @Env-All @Priority-P2 Verify Sample data is shown when we apply resource path for FTP/S3 exports ', async ({ io, page }) => {
         id = await io.createResourceFromAPI(T11503, "FLOWS");
         await io.flowBuilder.loadingTime();
         //wait for flow to load

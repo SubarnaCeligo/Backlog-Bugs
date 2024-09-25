@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C106846", () => {
-  test("C106846 Test to validate that user is able to see cursor at next argument after he selects an item from Helpers section(For ex:- if the user selects dateadd then ui should show {{dateadd | the cursor should be at the end as shown here @Env-All @Priority-P2", async ({
+  test("C106846 Test to validate that user is able to see cursor at next argument after he selects an item from Helpers section(For ex:- if the user selects dateadd then ui should show {{dateadd | the cursor should be at the end as shown here @Zephyr-IO-T23884 @Env-All @Priority-P2", async ({
     io,
     page
   }) => {

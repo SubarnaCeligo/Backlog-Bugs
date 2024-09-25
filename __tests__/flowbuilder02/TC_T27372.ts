@@ -7,7 +7,7 @@ test.describe("T27372 Verify handlebar expression in Mapper 2.0 for NoSQL", () =
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("Verify handlebar expression in Mapper 2.0 for MongoDb @Env-All @Priority-P2", async ({ io, page }) => {
+    test("Verify handlebar expression in Mapper 2.0 for MongoDb @Zephyr-IO-T27372 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.createResourceFromAPI(T27372, "FLOWS");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
@@ -28,7 +28,7 @@ test.describe("T27372 Verify handlebar expression in Mapper 2.0 for NoSQL", () =
         await io.mappings.performWebActions(selectors.mappings.MAPPER2DOT0PO.PREVIEW,"preview");
         await io.mappings.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
     });
-    test("Verify handlebar expression in Mapper 2.0 for DynamoDb", async ({ io, page }) => {
+    test("Verify handlebar expression in Mapper 2.0 for DynamoDb @Zephyr-IO-T27372 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.createResourceFromAPI(T27371, "FLOWS");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);

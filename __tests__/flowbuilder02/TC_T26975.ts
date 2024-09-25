@@ -5,7 +5,7 @@ test.describe("TC_T26975_Test to validate that user is able to see array of obje
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test.skip("TC_T26975 @Env-All @Priority-P2", async ({ io, page }) => {
+    test.skip("TC_T26975 @Zephyr-IO-T26975 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);

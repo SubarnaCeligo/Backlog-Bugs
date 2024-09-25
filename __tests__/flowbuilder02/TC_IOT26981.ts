@@ -7,7 +7,7 @@ test.describe(`TC_IO-T26981  Test to validate that user is seeing below help tex
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("IOT26980 @Env-All @Priority-P2", async ({ io }) => {
+    test("IOT26980 @Env-All @Priority-P2 @Zephyr-IO-T26980", async ({ io }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
         await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);

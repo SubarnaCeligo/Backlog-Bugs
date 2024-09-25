@@ -9,7 +9,7 @@ test.describe("@Zephyr-IO-T20433 C66282 Verify flow cancel information with flow
     let actualJson;
     test.beforeEach(async ({ io, page }) => {
     });
-    test("@Env-All @Zephyr-IO-T20433 C66282 Verify flow cancel information with flow having multiple exports and make connection offline", async ({ io, page }) => {
+    test("@Env-All @Zephyr-IO-T20433 @Priority-P2 C66282 Verify flow cancel information with flow having multiple exports and make connection offline", async ({ io, page }) => {
     
     flowId = await io.createResourceFromAPI(T20433, "FLOWS");
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);

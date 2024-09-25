@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C67221 Verify For the default value of the ‘What would you like to do?’ field user should not show dropdowns`, () => {
-  test(`C67221 Verify For the default value of the ‘What would you like to do?’ field user should not show dropdowns @Env-All @Priority-P3`, async ({
+  test(`C67221 Verify For the default value of the ‘What would you like to do?’ field user should not show dropdowns @Env-All @Priority-P3 @Zephyr-IO-T23169`, async ({
     io,
     page
   }) => {

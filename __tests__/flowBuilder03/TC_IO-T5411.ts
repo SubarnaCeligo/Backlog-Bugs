@@ -8,7 +8,7 @@ test.describe("TC_IO-T5411 Verify toggle selection is persistent", () => {
     await io.api.deleteFlowViaAPI(id);
   });
 
-  test("@Zephyr-IO-T5411 @Env-All C23857 Verify toggle selection is persistent", async ({
+  test("@Zephyr-IO-T5411 @Env-All @Priority-P2 C23857 Verify toggle selection is persistent", async ({
     io,
     page
   }) => {

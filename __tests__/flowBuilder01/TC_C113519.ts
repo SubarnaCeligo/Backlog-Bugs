@@ -5,7 +5,7 @@ test.describe("TC_C113519_Verify hover text is not displayed when message drop d
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C113519 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C113519 @Env-All @Priority-P2 @Zephyr-IO-T8193", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "Tags 1000 errors- Mysql to mysql flow_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

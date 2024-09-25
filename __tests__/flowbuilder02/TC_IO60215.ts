@@ -5,7 +5,7 @@ test.describe("TC_IO60215_Expression should close with '}}' or '}}}' depending o
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("IO60215 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("IO60215 @Env-All @Priority-P2 @Zephyr-IO-60215", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "AFE_AUTOSUGGESTIONS_mapper2.0_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

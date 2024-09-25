@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import JS from '../../testData/inputData/FlowBuilder/C117949.json';
 
 test.describe("TC_C117949", () => {
-    test("TC_C117949 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("TC_C117949 @Zephyr-IO-T17973 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.SETTINGS);
         await io.flowBuilder.click(selectors.basePagePO.LAUNCH_EDITOR);

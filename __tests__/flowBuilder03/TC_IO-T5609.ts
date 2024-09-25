@@ -8,7 +8,7 @@ test.describe("TC_IO-T5609 Verify the background of preview Error panel in AFEs 
     await io.api.deleteFlowViaAPI(flowId);
   });
 
-  test("@Env-All @Zephyr-IO-T5609 C39808 Verify the background of preview Error panel in AFEs should be red in different browsers( Chrome, Safari, Firefox)", async ({
+  test("@Env-All @Zephyr-IO-T5609 @Priority-P2 C39808 Verify the background of preview Error panel in AFEs should be red in different browsers( Chrome, Safari, Firefox)", async ({
     io,
     page
   }) => {

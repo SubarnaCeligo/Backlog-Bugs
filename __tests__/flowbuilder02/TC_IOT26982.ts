@@ -7,7 +7,7 @@ test.describe(`TC_IO-T26982 Test to validate that user is able to see correct Fi
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("IOT26982 @Env-All @Priority-P2", async ({ io ,page}) => {
+    test("IOT26982 @Env-All @Priority-P2 @Zephyr-IO-T26982", async ({ io ,page}) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Resources","Exports");

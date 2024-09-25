@@ -5,7 +5,7 @@ test.describe("TC_IO60432_Text should hover if highlight is more than 2 secs ", 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("IO60432 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("IO60432 @Env-All @Priority-P2 @Zephyr-IO-60432", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "AFE_AUTOSUGGESTIONS_mapper2.0_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

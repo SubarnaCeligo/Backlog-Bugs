@@ -5,7 +5,7 @@ test.describe("TC_C110679_Test to validate AFE auto suggestion features are work
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C110679 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C110679 @Env-All @Priority-P2 @Zephyr-IO-T15689", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
         await io.homePage.addStep("*** Navigated to Sandbox Env ***");
