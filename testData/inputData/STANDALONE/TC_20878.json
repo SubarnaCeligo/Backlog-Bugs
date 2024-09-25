@@ -8,7 +8,7 @@
                     "type": "export",
                     "qa__export": {
                         "name": "Netsuite Export",
-                        "_connectionId": "628f00568f68e85ab2c63b22",
+                        "_connectionId": "NETSUITE CONNECTION",
                         "apiIdentifier": "e7bef86658",
                         "asynchronous": true,
                         "oneToMany": false,

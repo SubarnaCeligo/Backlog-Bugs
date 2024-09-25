@@ -9,13 +9,15 @@
       "type": "export",
       "qa__export": {
         "name": "TC_C52305",
+        "qa__path": "//FTP_uploads//TC_C51795.json",
         "_connectionId": "FTP CONNECTION",
+        "qa__connectionId": "62c88089ebd1cb63e0f066ca",
+        "apiIdentifier": "ee66d9e367",
         "asynchronous": true,
         "sandbox": false,
-        "qa__path": "//FTP_uploads//TC_C51211.json",
         "ftp": {
-          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
-          "fileNameStartsWith": "TC_C51211"
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+          "fileNameStartsWith": "TC_C51795"
         },
         "file": {
           "encoding": "utf8",
@@ -31,48 +33,50 @@
     {
       "type": "import",
       "qa__import": {
-        "name": "TC_C52305",
-        "_connectionId": "SHOPIFY CONNECTION",
-        "apiIdentifier": "ie928b7963",
+        "name": "TC_C51305_import",
+        "createdAt": "2024-08-26T11:01:23.974Z",
+        "lastModified": "2024-08-26T11:01:24.073Z",
+        "_connectionId": "LOOP RETURNS CONNECTION",
+        "qa__connectionId": "66cc6074b8b88e3562fa3cdd",
+        "apiIdentifier": "i94a7fbcf7",
         "ignoreExisting": false,
         "ignoreMissing": false,
         "oneToMany": false,
-        "assistant": "shopify",
+        "assistant": "loopreturns",
         "sandbox": false,
-        "assistantMetadata": {
-          "resource": "customer",
-          "version": "v2",
-          "operation": "creates_acustomer"
-        },
-        "lookups": [],
         "http": {
-          "relativeURI": ["/customers.json"],
-          "method": ["POST"],
-          "body": [null],
-          "headers": [],
-          "batchSize": 1,
+          "relativeURI": [
+            "/cart"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [
+            "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
+          ],
           "requestMediaType": "json",
           "successMediaType": "json",
           "errorMediaType": "json",
-          "strictHandlebarEvaluation": true,
+          "strictHandlebarEvaluation": false,
           "sendPostMappedData": true,
+          "_httpConnectorVersionId": "639184209998e4b191badcb2",
+          "_httpConnectorResourceId": "639184209998e4b191badcbd",
+          "_httpConnectorEndpointIds": [
+            "639184209998e4b191badccb"
+          ],
+          "isRest": false,
           "formType": "assistant",
-          "lookups": [],
           "response": {
-            "resourceIdPath": [null]
+            "errorPath": "errors.message",
+            "failPath": [
+              "errors.message"
+            ],
+            "successPath": [
+              "token"
+            ]
           }
         },
-        "rest": {
-          "relativeURI": ["/customers.json"],
-          "method": ["POST"],
-          "body": [null],
-          "headers": [],
-          "responseIdPath": [null],
-          "successPath": [null],
-          "successValues": [null],
-          "lookups": []
-        },
-        "adaptorType": "RESTImport"
+        "adaptorType": "HTTPImport"
       }
     }
   ]
