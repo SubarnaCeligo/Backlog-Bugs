@@ -9,7 +9,7 @@ test.describe("TC_C27500", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
   });
-  test("@Env-All @Zephyr-IO-T2831 |To sort the resources using the column headers i.e Last updated column", async ({io}) => {
+  test("@Env-All @Zephyr-IO-T2831|To sort the resources using the column headers i.e Last updated column", async ({io}) => {
     await io.homePage.loadingTime();
     //Connections Tab
     await io.homePage.loadingTime();
