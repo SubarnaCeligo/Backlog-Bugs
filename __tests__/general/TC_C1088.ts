@@ -13,7 +13,9 @@ test.describe("TC_C1088", () => {
     );
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime();
     var recycleBin =await (await page.$(selectors.flowBuilderPagePO.DASHBOARD1)).textContent();
+    await io.homePage.loadingTime();
     expect(recycleBin).toEqual("Recycle bin");
 await test.step(
       " Verified We should be able to access the Recycle bin from the T&H header. ***"

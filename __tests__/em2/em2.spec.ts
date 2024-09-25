@@ -65,3 +65,6 @@ require("./TC_C23890");
 require("./TC_C23891");
 require("./TC_C23895");
 require("./TC_C24216");
+require("./TC_C23528");
+require("./TC_C23853_FTP_Import_Edit_Retry_Validation");
+require("./TC_C23886");
