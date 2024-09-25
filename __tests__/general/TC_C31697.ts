@@ -28,6 +28,7 @@ test.describe("TC_C31697", () => {
     await io.homePage.navigateTo(io.connectorUrl + "exports");
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime();
      
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON)
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, TC_C31697[0].qaexportDoc1.name);
@@ -35,6 +36,7 @@ test.describe("TC_C31697", () => {
     var hrefexist1 = await io.homePage.isVisible(selectors.mappings.MAPPER2DOT0PO.DESCRIPTION);
     await await io.assert.expectToBeTrue(hrefexist1, "");
 
+  await io.homePage.loadingTime();
     await io.homePage.navigateTo(io.connectorUrl + "exports");
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
@@ -45,7 +47,9 @@ test.describe("TC_C31697", () => {
     var hrefexist2 = await io.homePage.isVisible(selectors.mappings.MAPPER2DOT0PO.DESCRIPTION);
     await await io.assert.expectToBeTrue(hrefexist2, "");
 
+    await io.homePage.loadingTime();
     await io.homePage.navigateTo(io.connectorUrl + "exports");
+    await io.homePage.loadingTime();
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON)
@@ -55,6 +59,7 @@ test.describe("TC_C31697", () => {
     await await io.assert.expectToBeTrue(hrefexist3, "");
 
     await io.homePage.navigateTo(io.connectorUrl + "exports");
+    await io.homePage.loadingTime();
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON)
@@ -66,6 +71,7 @@ test.describe("TC_C31697", () => {
     await io.homePage.navigateTo(io.connectorUrl + "exports");
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON)
     await io.homePage.fillWebPage(  selectors.flowBuilderPagePO.SEARCHBUTTON, TC_C31697[0].qaexportDoc5.name);
     await io.homePage.clickByTextByIndex(TC_C31697[0].qaexportDoc5.name,0);
@@ -74,6 +80,7 @@ test.describe("TC_C31697", () => {
 
     await io.homePage.navigateTo(io.connectorUrl + "exports");
     await io.homePage.isPageLoaded();
+    await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON)
     await io.homePage.fillWebPage(  selectors.flowBuilderPagePO.SEARCHBUTTON, TC_C31697[0].qaexportDoc6.name);
@@ -84,6 +91,7 @@ test.describe("TC_C31697", () => {
     await io.homePage.navigateTo(io.connectorUrl + "exports");
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON)
     await io.homePage.fillWebPage(  selectors.flowBuilderPagePO.SEARCHBUTTON, TC_C31697[0].qaexportDoc7.name);
     await io.homePage.clickByTextByIndex(TC_C31697[0].qaexportDoc7.name,0);
