@@ -4,7 +4,7 @@ import { randomString, randomNumber, decrypt } from "@celigo/aut-utilities";
 
 test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37965", () => {
     test.beforeEach('check sign out', async ({ io, page }) => {
-        await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        // await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         // const isNotLoggedIn = await io.loginPage.checkLoginState();
         // if (!isNotLoggedIn) {
         //     await io.homePage.waitForElementAttached(selectors.loginPagePO.EMAIL);
@@ -44,6 +44,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37965", () => {
         await io.signInPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
         await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
         await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
+        await io.flowBuilder.loadingTime();
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
 
