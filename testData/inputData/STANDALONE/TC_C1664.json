@@ -12,26 +12,18 @@
     "pageGenerators": [
         {
             "qa__export": {
-                "name": "Data loader",
-                "apiIdentifier": "e4262b9305",
+                "name": "Data_Loader_TC_C25614",
                 "asynchronous": true,
                 "type": "simple",
-                "qa__isDataLoader": "csv",
-                "qa__path": "//Dataloader_uploades//TC_C1664.csv",
+                "qa__isDataLoader": "json",
+                "qa__path": "//Dataloader_uploades//TC_C25614_OneToManyUpload.json",
+                "apiIdentifier": "e1b60663f6",
                 "sandbox": false,
-                "sampleData": "Name,Email\r\nVijay Ilage,Vijay@gmail.com\r\nSourabh Patil,Sourabh@Gmail.com\r\nFayan Fakir,Fayan@gmail.com",
-                "rawData": "df93fc47167440559d4c4b915a35e5bb",
+                "rawData": "EMPTY RAW DATA",
                 "file": {
                     "encoding": "utf8",
                     "output": "records",
-                    "type": "csv",
-                    "csv": {
-                        "columnDelimiter": ",",
-                        "rowDelimiter": "\n",
-                        "hasHeaderRow": true,
-                        "trimSpaces": true,
-                        "rowsToSkip": 0
-                    }
+                    "type": "json"
                 },
                 "adaptorType": "SimpleExport"
             }

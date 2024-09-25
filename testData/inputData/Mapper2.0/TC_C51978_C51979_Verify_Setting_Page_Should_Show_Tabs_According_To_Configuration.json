@@ -1,154 +1,150 @@
 {
   "name": "TC_C51978_79",
-  "qa__api_tdata": [
+  "pageProcessors": [
     {
-      "pageProcessors": [
-        {
-          "type": "import",
-          "qa__import": {
-            "name": "TC_C5178_79",
-            "_connectionId": "FTP CONNECTION",
-            "apiIdentifier": "i4b6a79e4e",
-            "oneToMany": false,
-            "sandbox": false,
-            "mappings": [
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C5178_79",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i4b6a79e4e",
+        "oneToMany": false,
+        "sandbox": false,
+        "mappings": [
+          {
+            "generate": "test",
+            "dataType": "objectarray",
+            "status": "Draft",
+            "buildArrayHelper": [
               {
-                "generate": "test",
-                "dataType": "objectarray",
-                "status": "Draft",
-                "buildArrayHelper": [
+                "extract": "$.fName",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "objectarray",
+                "mappings": [
                   {
-                    "extract": "$.fName",
-                    "conditional": {
-                      "when": "extract_not_empty"
-                    },
-                    "sourceDataType": "objectarray",
-                    "mappings": [
-                      {
-                        "dataType": "string",
-                        "status": "Draft",
-                        "sourceDataType": "string"
-                      }
-                    ]
-                  },
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                  }
+                ]
+              },
+              {
+                "extract": "$.father.fName",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "objectarray",
+                "mappings": [
                   {
-                    "extract": "$.father.fName",
-                    "conditional": {
-                      "when": "extract_not_empty"
-                    },
-                    "sourceDataType": "objectarray",
-                    "mappings": [
-                      {
-                        "dataType": "string",
-                        "status": "Draft",
-                        "sourceDataType": "string"
-                      }
-                    ]
-                  },
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                  }
+                ]
+              },
+              {
+                "extract": "$.siblings[*].children[*].fName",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "objectarray",
+                "mappings": [
                   {
-                    "extract": "$.siblings[*].children[*].fName",
-                    "conditional": {
-                      "when": "extract_not_empty"
-                    },
-                    "sourceDataType": "objectarray",
-                    "mappings": [
-                      {
-                        "dataType": "string",
-                        "status": "Draft",
-                        "sourceDataType": "string"
-                      }
-                    ]
-                  },
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                  }
+                ]
+              },
+              {
+                "extract": "$.cousins[*].lName",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "objectarray",
+                "mappings": [
                   {
-                    "extract": "$.cousins[*].lName",
-                    "conditional": {
-                      "when": "extract_not_empty"
-                    },
-                    "sourceDataType": "objectarray",
-                    "mappings": [
-                      {
-                        "dataType": "string",
-                        "status": "Draft",
-                        "sourceDataType": "string"
-                      }
-                    ]
-                  },
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
+                  }
+                ]
+              },
+              {
+                "extract": "$.mother.fName",
+                "conditional": {
+                  "when": "extract_not_empty"
+                },
+                "sourceDataType": "objectarray",
+                "mappings": [
                   {
-                    "extract": "$.mother.fName",
-                    "conditional": {
-                      "when": "extract_not_empty"
-                    },
-                    "sourceDataType": "objectarray",
-                    "mappings": [
-                      {
-                        "dataType": "string",
-                        "status": "Draft",
-                        "sourceDataType": "string"
-                      }
-                    ]
+                    "dataType": "string",
+                    "status": "Draft",
+                    "sourceDataType": "string"
                   }
                 ]
               }
-            ],
-            "file": {
-              "fileName": "TC_C5178_79.json",
-              "skipAggregation": false,
-              "type": "json"
-            },
-            "ftp": {
-              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
-              "fileName": "TC_C5178_79.json"
-            },
-            "adaptorType": "FTPImport"
-          }
-        }
-      ],
-      "pageGenerators": [
-        {
-          "type": "export",
-          "qa__export": {
-            "name": "test",
-            "qa__path": "/FTP_uploads/TC_C51211.json",
-            "_connectionId": "FTP CONNECTION",
-            "apiIdentifier": "ec9d985883",
-            "asynchronous": true,
-            "sandbox": false,
-            "ftp": {
-              "directoryPath": "/test",
-              "fileNameStartsWith": "test"
-            },
-            "file": {
-              "output": "records",
-              "skipDelete": true,
-              "type": "json"
-            },
-            "adaptorType": "FTPExport"
-          }
-        }
-      ],
-      "createFlow": {
-        "name": "TC_C51978_79",
-        "disabled": true,
-        "skipRetries": false,
-        "qa__integrationId": "56d6b23fe1fc35de53914730",
-        "_integrationId": "56d6b23fe1fc35de53914730",
-        "pageProcessors": [
-          {
-            "responseMapping": {
-              "fields": [],
-              "lists": []
-            },
-            "type": "import",
-            "_importId": "UPDATE WITH NEW"
+            ]
           }
         ],
-        "pageGenerators": [
-          {
-            "_exportId": "UPDATE WITH NEW",
-            "skipRetries": false
-          }
-        ]
+        "file": {
+          "fileName": "TC_C5178_79.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPimport",
+          "fileName": "TC_C5178_79.json"
+        },
+        "adaptorType": "FTPImport"
       }
     }
-  ]
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "test",
+        "qa__path": "/FTP_uploads/TC_C51211.json",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ec9d985883",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/test",
+          "fileNameStartsWith": "test"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C51978_79",
+    "disabled": true,
+    "skipRetries": false,
+    "qa__integrationId": "56d6b23fe1fc35de53914730",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "_exportId": "UPDATE WITH NEW",
+        "skipRetries": false
+      }
+    ]
+  }
 }
