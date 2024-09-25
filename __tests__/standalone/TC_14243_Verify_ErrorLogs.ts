@@ -9,7 +9,7 @@ test.describe("TC_14243_Verify_ErrorLogs_with_NS", () => {
     test.step("*** Navigate to Home Page ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All @Zephyr-IO-T4400 TC_14243_Login Error", async ({io,page}, testInfo) => {
+  test("TC_14243_Login Error", async ({io,page}, testInfo) => {
     await io.homePage.goToMenu("Resources","Connections");
     test.step("*** clicked on connections in Homepage ***", async ()=>{});
 
@@ -61,7 +61,7 @@ test.describe("TC_14243_Verify_ErrorLogs_with_NS", () => {
 
   // Need netsuite connection up for this
   
-  test("Export Saved Search Error", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T4400 Export Saved Search Error", async ({io,page}, testInfo) => {
     await io.flowBuilder.clickCreateFlowButton();
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();

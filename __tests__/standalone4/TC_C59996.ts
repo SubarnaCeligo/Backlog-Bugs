@@ -11,7 +11,7 @@ test.describe("TC_C59996", () => {
     await io.homePage.isPageReady();
     await io.homePage.click(selectors.homePagePO.PRODUCTION_WDIO);
   });
-  test("TC_C59996 @Env-All @Zephyt-IO-T22998 Verify the devplayground for the staticMap with different combinations", async ({io,page}, testInfo) => {
+  test("TC_C59996 @Env-All @Zephyr-IO-T22998 Verify the devplayground for the staticMap with different combinations", async ({io,page}, testInfo) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Tools","Playground");

@@ -9,7 +9,7 @@ test.describe("TC_C37321", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.goToFlowsPage();
   });
-  test("@Zephyr-IO-T2335  TC_C37321", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T2335 @Env-All TC_C37321", async ({io,page}, testInfo) => {
     await io.goToFlowsPage();
     await io.homePage.isPageLoaded();
     await test.step("*** Navigating to   Flows page ***",()=>{});

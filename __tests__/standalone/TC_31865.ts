@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt ,randomNumber} from "@celigo/aut-utilities";
 import HTTP from "@testData/STANDALONE/TC_31865_Connection.json";
 
-test.describe("@Env-All @Zephyr-IO-T4573 TC_31865", () => {
+test.describe("TC_31865", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
     test.step("*** Beginning of Test Suite ***", async ()=>{});
     await io.goToFlowsPage();
@@ -15,7 +15,7 @@ test.describe("@Env-All @Zephyr-IO-T4573 TC_31865", () => {
     await io.connections.deleteConnection( "Revoke Token HTTP shopify");
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("TC_31865", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T4573 TC_31865", async ({io,page}, testInfo) => {
     
     test.step("*** Beginning of Test ***", async ()=>{});
     var connId = await io.connections.createConnectionViaAPI(HTTP.apiJSON);
