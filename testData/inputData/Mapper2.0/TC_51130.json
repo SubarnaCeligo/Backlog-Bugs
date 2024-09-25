@@ -1,141 +1,137 @@
 {
     "name": "TC_C51130",
     "referencename": "TC_C51130",
-    "qa__api_tdata": [
+    "pageGenerators": [
         {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "51141",
-                        "_connectionId": "FTP CONNECTION",
-                        "apiIdentifier": "ee3b1295c1",
-                        "asynchronous": true,
-                        "sandbox": false,
-                        "sampleData": [
-                            {
-                                "Items": [
-                                    {
-                                        "Name": "Baker 7",
-                                        "Quantity": "10"
-                                    },
-                                    {
-                                        "Name": "Baker 8",
-                                        "Quantity": "20"
-                                    }
-                                ]
-                            }
-                        ],
-                        "ftp": {
-                            "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
-                            "fileNameStartsWith": "TC_C51141"
-                        },
-                        "file": {
-                            "output": "records",
-                            "skipDelete": true,
-                            "type": "json",
-                            "json": {
-                                "resourcePath": "*"
-                            }
-                        },
-                        "adaptorType": "FTPExport"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                            "name": "Import-1",
-                            "application": "shopify",
-                            "_connectionId": "HTTP SHOPIFY CONNECTION",
-                            "apiIdentifier": "ifcda63bd9",
-                            "ignoreExisting": false,
-                            "ignoreMissing": false,
-                            "oneToMany": false,
-                            "sandbox": false,
-                            "mapping": {
-                                "fields": [
-                                    {
-                                        "generate": "product.title",
-                                        "hardCodedValue": "test0627"
-                                    }
-                                ]
-                            },
-                            "mappings": [
-                                {
-                                    "extract": "$.Link 1",
-                                    "generate": "dest 11",
-                                    "dataType": "string",
-                                    "status": "Active",
-                                    "sourceDataType": "object"
-                                },
-                                {
-                                    "extract": "$.Link 1.href",
-                                    "generate": "dest 2",
-                                    "dataType": "string",
-                                    "status": "Active",
-                                    "sourceDataType": "string"
-                                },
-                                {
-                                    "extract": "$.Link 1.Sub Link 1",
-                                    "generate": "dest 3",
-                                    "dataType": "string",
-                                    "status": "Active",
-                                    "sourceDataType": "object"
-                                },
-                                {
-                                    "extract": "$.Link 1.Sub Link 1.href",
-                                    "generate": "dest 4",
-                                    "dataType": "string",
-                                    "status": "Active",
-                                    "sourceDataType": "string"
-                                },
-                                {
-                                    "extract": "$.Link 1.Sub Link 2",
-                                    "generate": "dest 5",
-                                    "dataType": "string",
-                                    "status": "Active",
-                                    "sourceDataType": "object"
-                                }
-                            ],
-                            "http": {
-                                "relativeURI": [
-                                    "/products.json"
-                                ],
-                                "method": [
-                                    "POST"
-                                ],
-                                "body": [],
-                                "batchSize": 1,
-                                "sendPostMappedData": true,
-                                "formType": "http"
-                            },
-                            "adaptorType": "HTTPImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C51130",
-                "disabled": false,
-                "_integrationId": "56d6b23fe1fc35de53914730",
-                "skipRetries": false,
-                "pageProcessors": [
+            "type": "export",
+            "qa__export": {
+                "name": "51141",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ee3b1295c1",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": [
                     {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
+                        "Items": [
+                            {
+                                "Name": "Baker 7",
+                                "Quantity": "10"
+                            },
+                            {
+                                "Name": "Baker 8",
+                                "Quantity": "20"
+                            }
+                        ]
                     }
                 ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C51141"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
                     }
-                ]
+                },
+                "adaptorType": "FTPExport"
             }
         }
-    ]
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                    "name": "Import-1",
+                    "application": "shopify",
+                    "_connectionId": "HTTP SHOPIFY CONNECTION",
+                    "apiIdentifier": "ifcda63bd9",
+                    "ignoreExisting": false,
+                    "ignoreMissing": false,
+                    "oneToMany": false,
+                    "sandbox": false,
+                    "mapping": {
+                        "fields": [
+                            {
+                                "generate": "product.title",
+                                "hardCodedValue": "test0627"
+                            }
+                        ]
+                    },
+                    "mappings": [
+                        {
+                            "extract": "$.Link 1",
+                            "generate": "dest 11",
+                            "dataType": "string",
+                            "status": "Active",
+                            "sourceDataType": "object"
+                        },
+                        {
+                            "extract": "$.Link 1.href",
+                            "generate": "dest 2",
+                            "dataType": "string",
+                            "status": "Active",
+                            "sourceDataType": "string"
+                        },
+                        {
+                            "extract": "$.Link 1.Sub Link 1",
+                            "generate": "dest 3",
+                            "dataType": "string",
+                            "status": "Active",
+                            "sourceDataType": "object"
+                        },
+                        {
+                            "extract": "$.Link 1.Sub Link 1.href",
+                            "generate": "dest 4",
+                            "dataType": "string",
+                            "status": "Active",
+                            "sourceDataType": "string"
+                        },
+                        {
+                            "extract": "$.Link 1.Sub Link 2",
+                            "generate": "dest 5",
+                            "dataType": "string",
+                            "status": "Active",
+                            "sourceDataType": "object"
+                        }
+                    ],
+                    "http": {
+                        "relativeURI": [
+                            "/products.json"
+                        ],
+                        "method": [
+                            "POST"
+                        ],
+                        "body": [],
+                        "batchSize": 1,
+                        "sendPostMappedData": true,
+                        "formType": "http"
+                    },
+                    "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C51130",
+        "disabled": false,
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
 }

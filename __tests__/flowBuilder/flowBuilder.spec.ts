@@ -85,3 +85,5 @@ require("./TC_C2476");
 require("./TC_C24788");
 require("./TC_C2574");
 require("./TC_C25954");
+require("./TC_C27342");
+require("./TC_C27500");
