@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate that the SQL server version under Application Details is hidden and Azure is selected by default.', () => {
-  test("@Env-QA @Env-STAGING @Zephyr-IO-T29342 @Priority-P2", async ({
+  test("@Env-All @Zephyr-IO-T29342 @Priority-P2", async ({
     io,
     page
   }) => {

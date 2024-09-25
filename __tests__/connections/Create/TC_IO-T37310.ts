@@ -10,7 +10,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37310 @Zephyr-IO-T37315 @
         await io.connections.createConnectionViaAPI(TC);
         await io.flowBuilder.loadingTime();
     });
-    test("@Epic-IO-90427 @Priority-P2 @Env-QA @Zephyr-IO-T37310 @Zephyr-IO-T37321", async ({ io, page }) => {
+    test("@Epic-IO-90427 @Priority-P2 @Env-All @Zephyr-IO-T37310 @Zephyr-IO-T37321", async ({ io, page }) => {
         //IO-T37310 Verify Moved the "Test connection" button from left to next to the "Close" button on Edit connection page
         //IO-T37321 Verify that the ‘Test connection’ button UI is displayed properly when the ‘Save & Close’ button is not enabled from Edit connection page
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -35,7 +35,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37310 @Zephyr-IO-T37315 @
         });
         await io.assert.expectToBeValue("0px 24px 0px 16px", margin1, "Test connection button not moved");
     });
-    test("@Epic-IO-90427 @Priority-P2 @Env-QA @Zephyr-IO-T37315", async ({ io, page }) => {
+    test("@Epic-IO-90427 @Priority-P2 @Env-All @Zephyr-IO-T37315", async ({ io, page }) => {
         await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
         await io.homePage.goToMenu("Resources", "Connections");

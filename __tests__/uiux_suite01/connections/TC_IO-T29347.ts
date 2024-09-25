@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate the colour grading, font, sentence case of newly added fields', () => {
-  test("@Env-QA @Env-STAGING @Zephyr-IO-T29347  @Priority-P2", async ({
+  test("@Env-All @Zephyr-IO-T29347  @Priority-P2", async ({
     io,
     page
   }) => {
