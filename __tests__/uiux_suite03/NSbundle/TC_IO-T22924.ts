@@ -34,10 +34,10 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T22924", () => {
         const lastRun = page.getByText('Last run');
         for (let attempt = 1; attempt <= 3; attempt++) {
             if (await lastRun.isVisible()) {
-                // console.log("True");
+                console.log("True");
                 break;
             } else {
-                // console.log("False");
+                console.log("False");
                 await io.homePage.reloadPage();
                 await new Promise(resolve => setTimeout(resolve, 300000)); // 10 minutes delay
             }
