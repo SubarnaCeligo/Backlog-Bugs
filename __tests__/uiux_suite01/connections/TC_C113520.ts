@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
 
-  test(`@Env-QA @Env-IAQA  @Zephyr-IO-T7777 @Zephyr-IO-T7778 @Zephyr-IO-T7779 @Zephyr-IO-T7780 @Zephyr-IO-T7781 Normal HTTP 2.0 framework connectors`, async ({ io, page }) => {
+  test(`@Env-All @Env-IAQA  @Zephyr-IO-T7777 @Zephyr-IO-T7778 @Zephyr-IO-T7779 @Zephyr-IO-T7780 @Zephyr-IO-T7781 Normal HTTP 2.0 framework connectors`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
     //Wait for the page to load
@@ -263,7 +263,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
   });
 
-  test(`@Env-QA  @Env-IAQA  @Zephyr-IO-T7777 @Zephyr-IO-T7778 @Zephyr-IO-T7779 @Zephyr-IO-T7780 @Zephyr-IO-T7781 Auth2.0 supported connector iClient page`, async ({ io, page }) => {
+  test(`@Env-All  @Env-IAQA  @Zephyr-IO-T7777 @Zephyr-IO-T7778 @Zephyr-IO-T7779 @Zephyr-IO-T7780 @Zephyr-IO-T7781 Auth2.0 supported connector iClient page`, async ({ io, page }) => {
     //Skipping the test case - HTTP form is not available for GUSTO connection
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);

@@ -11,7 +11,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37309 @Zephyr-IO-T37316'"
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Epic-IO-90427 @Priority-P2 @Env-QA @Zephyr-IO-T37309 @Zephyr-IO-T37311 @Zephyr-IO-T37312 @Zephyr-IO-T37313 @Zephyr-IO-T37320'", async ({ io, page, context }) => {
+    test("@Epic-IO-90427 @Priority-P2 @Env-All @Zephyr-IO-T37309 @Zephyr-IO-T37311 @Zephyr-IO-T37312 @Zephyr-IO-T37313 @Zephyr-IO-T37320'", async ({ io, page, context }) => {
         await io.homePage.goToMenu("Resources", "Connections");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.connectionsPagePO.CREATE_CONNECTION);
@@ -68,7 +68,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37309 @Zephyr-IO-T37316'"
         await io.assert.expectToBeValue(text1.toString(), "true", "Confirm save is not displayed");
         await io.connectionPage.click(selectors.mappings.MAPPER2DOT0PO.CLOSEBUTTON);
     });
-    test("@Epic-IO-90427 @Priority-P2 @Env-QA @Zephyr-IO-T37316 @Zephyr-IO-T37317 @Zephyr-IO-T37318 @Zephyr-IO-T37319", async ({ io, page }) => {
+    test("@Epic-IO-90427 @Priority-P2 @Env-All @Zephyr-IO-T37316 @Zephyr-IO-T37317 @Zephyr-IO-T37318 @Zephyr-IO-T37319", async ({ io, page }) => {
         id = await io.createResourceFromAPI(TC, "FLOWS");
         await io.flowBuilder.loadingTime();
 
@@ -204,7 +204,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T37309 @Zephyr-IO-T37316'"
         await io.flowBuilder.click(selectors.basePagePO.CLOSE);
         await io.flowBuilder.loadingTime();
     });
-    test("@Epic-IO-90427 @Priority-P2 @Env-QA @Zephyr-IO-T37323'", async ({ io, page, context }) => {
+    test("@Epic-IO-90427 @Priority-P2 @Env-All @Zephyr-IO-T37323'", async ({ io, page, context }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);

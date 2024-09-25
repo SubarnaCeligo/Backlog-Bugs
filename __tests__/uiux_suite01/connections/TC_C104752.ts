@@ -8,7 +8,7 @@ test.describe("C104752 Verify test connection for JDBC On-Prem cnnector", () => 
         await io.connections.deleteConnection(connectionName)
     });
     
-    test("@Env-QA @Env-STAGING @Zephyr-IO-T8204 C104752 Verify test connection for JDBC On-Prem cnnector", async ({
+    test("@Env-All @Zephyr-IO-T8204 C104752 Verify test connection for JDBC On-Prem cnnector", async ({
         io,
         page,
     }, testInfo) => {

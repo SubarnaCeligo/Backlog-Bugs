@@ -2,7 +2,7 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe('Test to validate user is able to see the "Azure Synapse" logo at top right corner', () => {
-  test("@Env-QA @Env-STAGING @Zephyr-IO-T29344 @Priority-P2 This is to verify the Azure Synapse logo beside connection name after clicking create connection" , async ({
+  test("@Env-All @Zephyr-IO-T29344 @Priority-P2 This is to verify the Azure Synapse logo beside connection name after clicking create connection" , async ({
     io,
     page
   }) => {
@@ -21,7 +21,7 @@ test.describe('Test to validate user is able to see the "Azure Synapse" logo at 
     expect(height).toBeGreaterThan(10);
     expect(width).toBeGreaterThan(10); 
   });
-  test("@Env-QA @Env-STAGING @Zephyr-IO-T29344 @Priority-P2 'Azure Synapse' logo at top right corner ", async ({
+  test("@Env-All  @Zephyr-IO-T29344 @Priority-P2 'Azure Synapse' logo at top right corner ", async ({
     io,
     page
   }) => {

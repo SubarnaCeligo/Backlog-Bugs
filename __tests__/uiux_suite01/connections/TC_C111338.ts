@@ -5,7 +5,7 @@ test.describe("TC_C111338  Verify old UI should be shown for all the new imports
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-STAGING @Zephyr-IO-T8861 TC_C111338  Verify old UI should be shown for all the new imports where the connection mode is on premise", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T8861 TC_C111338  Verify old UI should be shown for all the new imports where the connection mode is on premise", async ({ io, page }) => {
     await io.exportsPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "home");
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.flowBuilder.click(

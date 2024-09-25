@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import C120056 from '../../../testData/inputData/Connections/C120056.json'
 
 test.describe(`TC_C120056`, () => {
-  test(`@Env-QA @Env-STAGING @Zephyr-IO-T18657 C120056  Verify cloned integration has the Plain text option for media type`, async ({
+  test(`@Env-All @Zephyr-IO-T18657 C120056  Verify cloned integration has the Plain text option for media type`, async ({
     io,
     page
   }) => {
