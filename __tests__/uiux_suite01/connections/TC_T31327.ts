@@ -19,7 +19,8 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
     await io.connectionPage.clickByTextByIndex(connectionId.name, 0);
     await io.connectionPage.addStep("*** Selecting PEM format ***");
     await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
-    await io.connectionPage.clickByText("PEM");
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.SSL_PEM);
+    await io.connectionPage.click(selectors.connectionsPagePO.SSL_PEM);
 
     await io.connectionPage.addStep("*** Uploading json files for ssl certificate and key ***");
     let certFile = await page.$(`${selectors.connectionsPagePO.SSL_CLIENT_CERT_CONTAINER} ${selectors.basePagePO.UPLOAD_FILE}`);
@@ -57,7 +58,8 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
 
     await io.connectionPage.addStep("*** Selecting PEM format ***");
     await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
-    await io.connectionPage.clickByText("PEM");
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.SSL_PEM);
+    await io.connectionPage.click(selectors.connectionsPagePO.SSL_PEM);
 
     await io.connectionPage.addStep("*** Uploading xml files for ssl certificate and key ***");
     let certFile = await page.$(`${selectors.connectionsPagePO.SSL_CLIENT_CERT_CONTAINER} ${selectors.basePagePO.UPLOAD_FILE}`);
@@ -97,7 +99,8 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
 
     await io.connectionPage.addStep("*** Selecting PEM format ***");
     await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
-    await io.connectionPage.clickByText("PEM");
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.SSL_PEM);
+    await io.connectionPage.click(selectors.connectionsPagePO.SSL_PEM);
 
     await io.connectionPage.addStep("*** Uploading csv files for ssl certificate and key ***");
     let certFile = await page.$(`${selectors.connectionsPagePO.SSL_CLIENT_CERT_CONTAINER} ${selectors.basePagePO.UPLOAD_FILE}`);
@@ -137,7 +140,8 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
 
     await io.connectionPage.addStep("*** Selecting PEM format ***");
     await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
-    await io.connectionPage.clickByText("PEM");
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.SSL_PEM);
+    await io.connectionPage.click(selectors.connectionsPagePO.SSL_PEM);
 
     await io.connectionPage.addStep("*** Uploading txt files for ssl certificate and key ***");
     let certFile = await page.$(`${selectors.connectionsPagePO.SSL_CLIENT_CERT_CONTAINER} ${selectors.basePagePO.UPLOAD_FILE}`);
@@ -177,7 +181,8 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
 
     await io.connectionPage.addStep("*** Selecting PEM format ***");
     await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
-    await io.connectionPage.clickByText("PEM");
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.SSL_PEM);
+    await io.connectionPage.click(selectors.connectionsPagePO.SSL_PEM);  
 
     await io.connectionPage.addStep("*** Uploading cert and key files for ssl certificate and key ***");
     let certFile = await page.$(`${selectors.connectionsPagePO.SSL_CLIENT_CERT_CONTAINER} ${selectors.basePagePO.UPLOAD_FILE}`);
