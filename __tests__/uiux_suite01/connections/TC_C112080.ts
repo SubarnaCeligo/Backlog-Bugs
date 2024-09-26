@@ -1,4 +1,4 @@
-import {expect, test} from "@celigo/ui-core-automation";
+import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import * as C112080 from "@testData/Connections/TC_C112080.json";
 
@@ -6,25 +6,67 @@ import * as C112080 from "@testData/Connections/TC_C112080.json";
 test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
-  
-  }); 
-  //Skipped as per discussion with TC Owner and QA team
-  test.skip("@Env-All @Zephyr-IO-T14663 C112080 Verify user able to give all the secret key,payload,header values", async ({io, page}) => {
-      await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
-      await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
-      await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
-      await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
-      await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
-      await io.flowBuilder.loadingTime();
-      await io.connectionPage.click(selectors.connectionsPagePO.GENERAL);
-      await io.connectionPage.click(selectors.connectionsPagePO.APPLICATION_DETAILS);
-      await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
-      await io.connectionPage.selectTextfromDropDown(page, "jwtbearer");
-      await io.connectionPage.click(selectors.connectionsPagePO.SIGNATURE_METHOD);
-      await io.connectionPage.selectTextfromDropDown(page, "hmac-sha256");
-      await io.connectionPage.fill(selectors.connectionsPagePO.JWT_SECRET,'testttttt');
-      await io.connectionPage.enterHugeData(selectors.connectionsPagePO.JWT_PAYLOAD,'testt');
-      await io.connectionPage.enterHugeData(selectors.connectionsPagePO.HEADERS_BUTTON,'test');
+
+  });
+  test("@Env-All @Zephyr-IO-T14663 C112080 Verify user able to give all the secret key,payload,header values", async ({ io, page }) => {
+    await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
+    await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
+    await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'http');
+    await io.connectionPage.waitForElementAttached(selectors.basePagePO.HTTP_2DOT0)
+    await io.connectionPage.click(selectors.basePagePO.HTTP_2DOT0);
+    await io.flowBuilder.loadingTime();
+    await io.connectionPage.click(selectors.connectionsPagePO.GENERAL);
+    await io.connectionPage.click(selectors.connectionsPagePO.APPLICATION_DETAILS);
+    await io.connectionPage.click(selectors.connectionsPagePO.SLACK_AUTH_TYPE);
+    await io.connectionPage.selectTextfromDropDown(page, "jwtbearer");
+    await io.flowBuilder.loadingTime();
+    await io.connectionPage.click(selectors.connectionsPagePO.SIGNATURE_METHOD);
+    await io.connectionPage.selectTextfromDropDown(page, "hmac-sha256");
+    await io.flowBuilder.loadingTime();
+
+
+    //Fill secret key
+    await io.connectionPage.fill(selectors.connectionsPagePO.JWT_SECRET, 'SecretKey');
+    await io.flowBuilder.loadingTime();
+    // Locate the textarea
+    const textarea = await page.$(selectors.connectionsPagePO.JWT_PAYLOAD);
+
+    if (textarea) {
+      // Click the textarea to focus on it
+      await textarea.click();
+
+      // Select all text and delete it
+      await io.homePage.loadingTime();
+      await page.keyboard.press('Control+A');
+      await page.keyboard.press('Meta+A');
+      await page.keyboard.press('Backspace');
+    }
+    //Add new FDR
+    await io.homePage.loadingTime();
+    await io.exportsPage.fill(selectors.connectionsPagePO.JWT_PAYLOAD + ' textarea', JSON.stringify({ "key": "PayloadValue" }));
+
+    // Locate the textarea
+    const textarea2 = await page.$(selectors.connectionsPagePO.JWT_HEADERS);
+
+    if (textarea2) {
+      // Click the textarea to focus on it
+      await textarea2.click();
+
+      // Select all text and delete it
+      await io.homePage.loadingTime();
+      await page.keyboard.press('Control+A');
+      await page.keyboard.press('Meta+A');
+      await page.keyboard.press('Backspace');
+    }
+    //Add new FDR
+    await io.homePage.loadingTime();
+    await io.exportsPage.fill(selectors.connectionsPagePO.JWT_HEADERS + ' textarea', JSON.stringify({ "key": "HeaderValue" }));
+    await io.assert.verifyElementAttribute(selectors.connectionsPagePO.JWT_SECRET, 'value', 'SecretKey');
+    let filledData = (await io.connectionPage.getText(selectors.importPagePO.STUB_CONTENTS_CSS)).toString();
+    let filledDataArray: string[] = filledData.split(',');
+    await io.assert.expectToBeValueInArray(filledDataArray, '{"key":"PayloadValue"}', 'Payload is not filled');
+    await io.assert.expectToBeValueInArray(filledDataArray, '{"key":"HeaderValue"}', 'Header is not filled');
+
   });
   test("@Env-All @Zephyr-IO-T14664 C112081 Verify the payload and Header field values", async ({io, page}) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
