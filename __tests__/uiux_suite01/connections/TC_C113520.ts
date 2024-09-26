@@ -129,7 +129,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.assert.expectToContainValue('Enter your password. Your password serves as the secret that confirms your identity and verifies that you are the legitimate owner of the account linked to the provided username. Ensure the accuracy and confidentiality of your password.', helptext, 'Passowrh help text1 is not visible');
     await io.assert.expectToContainValue('Multiple layers of protection, including AES 256 encryption, are in place to keep your password safe. When editing this connection, you must re-enter this value each time; it is stored only when the connection is saved and never displayed as text.', helptext, 'Passowrh help text2 is not visible');
     await io.connectionPage.addStep("Verified help text for 'Username' and 'Password' fields");
-
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HELPTEXT_CLOSE);
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
     //TC_C113522 - Verify {username} && {password} are added in AFE handlebar for revoke token url ,access token url
@@ -217,6 +217,7 @@ test.describe(`C113520_C113521_C113522_C113523_C113524_C113525_C113526`, () => {
     await io.assert.expectToContainValue('Enter your password. Your password serves as the secret that confirms your identity and verifies that you are the legitimate owner of the account linked to the provided username. Ensure the accuracy and confidentiality of your password.', helptext, 'Passowrh help text1 is not visible');
     await io.assert.expectToContainValue('Multiple layers of protection, including AES 256 encryption, are in place to keep your password safe. When editing this connection, you must re-enter this value each time; it is stored only when the connection is saved and never displayed as text.', helptext, 'Passowrh help text2 is not visible');
     await io.connectionPage.addStep("Verified help text for 'Username' and 'Password' fields");
+    await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HELPTEXT_CLOSE);
     await io.flowBuilder.click(selectors.connectionsPagePO.HELPTEXT_CLOSE);
 
     //TC_C113522 - Verify {username} && {password} are added in AFE handlebar for revoke token url ,access token url
