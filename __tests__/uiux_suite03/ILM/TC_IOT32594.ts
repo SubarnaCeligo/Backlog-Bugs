@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe(`IOT32594 Verify if the user is able to restore the deleted Integration with ignore field configurations)`, () => {
+test.describe(`TC_IOT32594 Verify if the user is able to restore the deleted Integration with ignore field configurations)`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();

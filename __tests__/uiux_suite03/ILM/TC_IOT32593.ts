@@ -10,6 +10,7 @@ test.describe(`TC_IOT32593  Verify if the ignore configurations can be added fro
     io,
     page
   }) => {
+    
     await io.flowBuilder.clickByText("Create");
     await io.homePage.addStep(`*** Clicked on Create Button ***`)
       await io.flowBuilder.click(selectors.homePagePO.CREATE_NEW_INTEGRATION);
