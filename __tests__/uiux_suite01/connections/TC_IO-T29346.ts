@@ -3,9 +3,21 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt } from "@celigo/aut-utilities";
 
 test.describe("Test to validate connection is not created if user gives wrong credentials like host name, user name, password, data base name", () => {
-  test.afterEach(async ({ io }) => {
-    await io.connections.deleteConnection("AzureConnectionCred_T29346");
+  test.beforeEach(async ({ io, page }) => {
+    // await io.connections.deleteConnection("AzureConnectionCred_T29346");
     await io.myAccountPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
+    await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
+    await io.connectionPage.loadingTime();
+    await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'AzureConnectionCred_T29346');
+    await io.connectionPage.loadingTime();
+    let numOFConnections =await page.$$(selectors.importPagePO.TEST_RESULTS_CONTENTS);
+    if(numOFConnections){
+    for(let i = 0; i < numOFConnections.length; i++){
+      await io.connections.deleteConnection('AzureConnectionCred_T29346');
+      await io.connectionPage.loadingTime();
+    }
+  }
   });
 
   test("@Env-All @Zephyr-IO-T29346 @Priority-P2", async ({
@@ -37,6 +49,8 @@ test.describe("Test to validate connection is not created if user gives wrong cr
     await io.connectionPage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
     await io.connectionPage.click(selectors.integrationPagePO.EDIT);
     await io.connectionPage.click(selectors.flowBuilderPagePO.CLOSE);
+    await page.getByText("Testing your connection...", { exact: false }).waitFor({ state: `hidden`, timeout: 120000 });
+    await page.getByText("Saving..", { exact: false }).waitFor({ state: `hidden`, timeout: 120000 });
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "AzureConnectionCred_T29346");
     await io.connectionPage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
