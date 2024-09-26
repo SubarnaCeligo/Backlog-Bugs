@@ -2,7 +2,7 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
   "C99341",
-  // "C103075", -- Skipping because UI options are different, will discuss internally and discuss
+  // "C103075", -- Skipping because UI options are different, will discuss internally and decide
   "C107375",
   "C107377",
   "C107378",
