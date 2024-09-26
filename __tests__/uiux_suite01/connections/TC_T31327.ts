@@ -7,13 +7,14 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
     await io.connectionPage.addStep("*** Creating and saving new connection ***");
     T31328.name = "T31327.1";
     let connectionId = await io.api.postCall(`v1/connections`, T31328);
+    await io.connectionPage.loadingTime();
     await io.connectionPage.addStep("*** Editing the created connection ***");
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.loadingTime();
     await io.connectionPage.waitForElementAttached(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.waitForElementAttached(selectors.basePagePO.SEARCH_RECYCLEBIN);
-    await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
+    // await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
     await io.connectionPage.fill(selectors.basePagePO.SEARCH_RECYCLEBIN, connectionId.name);
     await io.connectionPage.clickByTextByIndex(connectionId.name, 0);
     await io.connectionPage.addStep("*** Selecting PEM format ***");
@@ -50,7 +51,7 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
     await io.connectionPage.waitForElementAttached(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.waitForElementAttached(selectors.basePagePO.SEARCH_RECYCLEBIN);
-    await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
+    // await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
     await io.connectionPage.fill(selectors.basePagePO.SEARCH_RECYCLEBIN, connectionId.name);
     await io.connectionPage.clickByTextByIndex(connectionId.name, 0);
 
@@ -90,7 +91,7 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
     await io.connectionPage.waitForElementAttached(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.waitForElementAttached(selectors.basePagePO.SEARCH_RECYCLEBIN);
-    await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
+    // await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
     await io.connectionPage.fill(selectors.basePagePO.SEARCH_RECYCLEBIN, connectionId.name);
     await io.connectionPage.clickByTextByIndex(connectionId.name, 0);
 
@@ -130,7 +131,7 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
     await io.connectionPage.waitForElementAttached(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.waitForElementAttached(selectors.basePagePO.SEARCH_RECYCLEBIN);
-    await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
+    // await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
     await io.connectionPage.fill(selectors.basePagePO.SEARCH_RECYCLEBIN, connectionId.name);
     await io.connectionPage.clickByTextByIndex(connectionId.name, 0);
 
@@ -170,7 +171,7 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
     await io.connectionPage.waitForElementAttached(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.waitForElementAttached(selectors.basePagePO.SEARCH_RECYCLEBIN);
-    await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
+    // await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
     await io.connectionPage.fill(selectors.basePagePO.SEARCH_RECYCLEBIN, connectionId.name);
     await io.connectionPage.clickByTextByIndex(connectionId.name, 0);
 
