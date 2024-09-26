@@ -6,7 +6,6 @@ test("@Env-All @Zephyr-IO-T6413 @Priority-P2 C29032 Auto-resolved feature will b
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL)
     await io.homePage.clickByText("Automation Flows")
     await io.homePage.waitForElementAttached("text='Newflow_DND'")
-    await page.pause();
     await io.homePage.clickByText("Newflow_DND")
     await io.flowBuilder.loadingTime();
    
