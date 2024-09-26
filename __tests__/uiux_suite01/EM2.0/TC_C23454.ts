@@ -14,11 +14,13 @@ test.describe("C23454_Display retries info", () => {
         errorFlowId = await io.createResourceFromAPI(C23454, "FLOWS");
         await io.flowBuilder.loadingTime();
         await io.api.runBatchFlowViaAPI('C23454_Resolve_Errors', errorFlowId);
+        await io.flowBuilder.click('[data-test="runHistory"]');
+        await io.flowBuilder.click('[data-test="dashboard"]');
         const lastRun = page.getByText('Last run')
         await lastRun.waitFor({ state: 'visible', timeout: 360000 });
         await io.flowBuilder.reloadPage()
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickByTextByIndex('1 error',1)
+        await io.flowBuilder.clickByTextByIndex('1 error',0);
         await io.flowBuilder.clickByText('Resolve & next')
         // Validating resolved count added
         await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.RESOLVE_TEXTCOUNT, '| Resolves: 1')

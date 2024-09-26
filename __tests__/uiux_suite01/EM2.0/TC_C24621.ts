@@ -19,7 +19,7 @@ test.describe("C24621_Verify the behaviour of Retry & Resolve dropdown with <100
         await lastRun.waitFor({ state: 'visible', timeout: 360000 });
         await io.flowBuilder.reloadPage();
         await io.flowBuilder.loadingTime();
-        await io.flowBuilder.clickByTextByIndex('1 error', 1)
+        await io.flowBuilder.clickByTextByIndex('1 error', 0)
         await io.flowBuilder.clickByText('Retry & next')
         await io.flowBuilder.clickByText('Resolved errors')
         await io.flowBuilder.clickByText('Retries')
