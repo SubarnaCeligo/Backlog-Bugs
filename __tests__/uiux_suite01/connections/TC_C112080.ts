@@ -157,7 +157,7 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
       "Connection creation error"
     );
   }); 
-  test("@Zephyr-IO-T14670 C112089 Verify the handlebar at payload & JWT headers", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T14670 C112089 Verify the handlebar at payload & JWT headers", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL)
     await io.homePage.loadingTime()
     await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, 'GITHUB DND');
