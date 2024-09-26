@@ -49,6 +49,7 @@ test.describe("Test to validate connection is not created if user gives wrong cr
     await io.connectionPage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
     await io.connectionPage.click(selectors.integrationPagePO.EDIT);
     await io.connectionPage.click(selectors.flowBuilderPagePO.CLOSE);
+    await page.getByText("Testing your connection...", { exact: false }).waitFor({ state: `hidden`, timeout: 120000 })
     await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_PAGE_SEARCH_BAR, "AzureConnectionCred_T29346");
     await io.connectionPage.click(selectors.connectionsPagePO.ACTIONS_MENU_BUTTON);
