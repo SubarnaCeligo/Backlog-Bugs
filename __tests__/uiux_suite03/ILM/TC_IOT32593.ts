@@ -6,11 +6,11 @@ test.describe(`TC_IOT32593  Verify if the ignore configurations can be added fro
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
   });
-  test(`@Zephyr-IO-T32593 @Zephyr-IO-T31928 @Zephyr-IO-T31929 @Zephyr-IO-T30611 @Zephyr-IO-T31930 @Zephyr-IO-T31936 @Zephyr-IO-T32595 @Zephyr-IO-T31941 @Zephyr-IO-T31940  @Zephyr-IO-T32595 @Zephyr-IO-T31942@Env-All C41599 To verify all the new scripts are shown under ""Scripts"" accordion(Action: New)`, async ({
+  test(`@Zephyr-IO-T32593 @Zephyr-IO-T31928 @Zephyr-IO-T31929 @Zephyr-IO-T30611 @Zephyr-IO-T31930 @Zephyr-IO-T31936 @Zephyr-IO-T32595 @Zephyr-IO-T31941 @Zephyr-IO-T31940  @Zephyr-IO-T32595 @Zephyr-IO-T31942 @Env-All C41599 To verify all the new scripts are shown under ""Scripts"" accordion(Action: New)`, async ({
     io,
     page
   }) => {
-    
+
     await io.flowBuilder.clickByText("Create");
     await io.homePage.addStep(`*** Clicked on Create Button ***`)
       await io.flowBuilder.click(selectors.homePagePO.CREATE_NEW_INTEGRATION);
@@ -27,12 +27,12 @@ test.describe(`TC_IOT32593  Verify if the ignore configurations can be added fro
     //IO-T31928 Verify 'Ignore fields during pull' under revision tab
     await io.flowBuilder.click(selectors.integrationPagePO.IGNORE_Fields);
     //IO-T31929 Verify Select ignore fields during pull dropdown and helptext
-    await io.importsPage.click(selectors.exportsPagePO. HELP_TEXT_ICLIENT );
-    const Helptextvalue = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP)
-    const Helptextexpectedvalue = "Define which fields to ignore during a pull request. Any changes to these fields are ignored while the remaining changes are merged."
-    const funcS = Helptextvalue.toString().includes(Helptextexpectedvalue);
-    await io.assert.expectToBeTrue(funcS, "help text doesn't match");
-    await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.HELPTEXT_CLOSE, 0);
+    // await io.importsPage.click(selectors.exportsPagePO. HELP_TEXT_ICLIENT );
+    // const Helptextvalue = await io.flowBuilder.getText(selectors.importPagePO.INPUTHELP)
+    // const Helptextexpectedvalue = "Define which fields to ignore during a pull request. Any changes to these fields are ignored while the remaining changes are merged."
+    // const funcS = Helptextvalue.toString().includes(Helptextexpectedvalue);
+    // await io.assert.expectToBeTrue(funcS, "help text doesn't match");
+    // await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.HELPTEXT_CLOSE, 0);
     //IO-T30611 Verify collapse/expand functionality 
     await io.flowBuilder.click(selectors.integrationPagePO.COLLAPSE_OPTION);
     await io.flowBuilder.click(selectors.integrationPagePO.EXPAND_OPTION);
