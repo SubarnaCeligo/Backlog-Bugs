@@ -14,10 +14,10 @@ var testCases = [
   "C58484",
   "C27545",
   "C22817",
-  "C69769",  //this test will fail as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
+  // "C69769",  //this test will fail as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
   "C113465",
   "C22828",
-  "C120059",  //this test will fail as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
+  // "C120059",  //this test will fail as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
   "C28883",
   "C2044",
   "C19744",

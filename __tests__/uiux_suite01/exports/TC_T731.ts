@@ -11,10 +11,15 @@ test.describe("T731 Selecting an existing SF export which doesn't have package d
     await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'Salesforce');
     await io.flowBuilder.click(selectors.importPagePO.SALESFORCE_IMPORT);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.REALTIME_EXPORT_TYPE);
-    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
+    await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
+    await io.flowBuilder.loadingTime();
+    await io.flowBuilder.fillWebPage(selectors.basePagePO.ADD_NAME,"SALESFORCE");
     await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
     await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'SALESFORCE CONNECTION');
     await io.exportsPage.clickByTextByIndex('SALESFORCE CONNECTION', 0);
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.SF_SOBJECT_TYPE);
+    await io.homePage.addStep("*** Clicked on selecting SOBJECT type ***");
+    await io.homePage.clickByText("Account");
     await io.flowBuilder.click(selectors.basePagePO.SAVE);
     await io.exportsPage.loadingTime();
 
