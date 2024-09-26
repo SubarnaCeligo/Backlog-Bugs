@@ -72,7 +72,7 @@ test.describe(`TC_IOT31938 Verify if the user is able to restore the deleted Int
     await io.flowBuilder.click(selectors.integrationPagePO.IGNORE_Fields);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click("//input[@class='rc-tree-select-selection-search-input']");
-    await io.integrationPage.fill("//input[@class='rc-tree-select-selection-search-input']", 'settings');
+    await io.integrationPage.fill("//input[@class='rc-tree-select-selection-search-input']", 'settings.name');
     //IO-T31937 Verify the dropdown when its have parent and child objects
     await io.flowBuilder.click("//span[@class='rc-tree-select-tree-checkbox']");
     ///IO-T31939 Verify the dropdown when user deselect the parent
@@ -81,12 +81,12 @@ test.describe(`TC_IOT31938 Verify if the user is able to restore the deleted Int
       await io.flowBuilder.click(selectors.basePagePO.SAVE);
       ///IO-T31938 Verify the dropdown when user deselect the child
       await io.flowBuilder.click("//input[@class='rc-tree-select-selection-search-input']");
-      await io.integrationPage.fill("//input[@class='rc-tree-select-selection-search-input']", 'settings');
+      await io.integrationPage.fill("//input[@class='rc-tree-select-selection-search-input']", 'settings.name');
         //IO-T31934 Verify the custom setting fields on export and import are geting disaplyed under ignore field
       await io.flowBuilder.click("//span[@class='rc-tree-select-tree-checkbox']");
       await io.flowBuilder.click(selectors.basePagePO.SAVE);
       await io.flowBuilder.click("//input[@class='rc-tree-select-selection-search-input']");
-      await io.integrationPage.fill("//input[@class='rc-tree-select-selection-search-input']", 'settings');
+      await io.integrationPage.fill("//input[@class='rc-tree-select-selection-search-input']", 'settings.name');
       await io.flowBuilder.clickByIndex("//span[contains(@class, 'rc-tree-select-tree-checkbox-checked')]",1);
       await io.flowBuilder.click(selectors.basePagePO.SAVE);
       await io.homePage.loadingTime();
