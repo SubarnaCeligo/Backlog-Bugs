@@ -89,6 +89,7 @@ test.describe(`TC_IOT31938 Verify if the user is able to restore the deleted Int
       await io.integrationPage.fill("//input[@class='rc-tree-select-selection-search-input']", 'settings');
       await io.flowBuilder.clickByIndex("//span[contains(@class, 'rc-tree-select-tree-checkbox-checked')]",1);
       await io.flowBuilder.click(selectors.basePagePO.SAVE);
+      await io.homePage.loadingTime();
       await io.flowBuilder.click(selectors.basePagePO.CLOSE);
       await io.flowBuilder.click(selectors.integrationPagePO.IGNORE_Fields);
 
