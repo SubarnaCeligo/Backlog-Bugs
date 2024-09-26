@@ -51,10 +51,7 @@ test.describe("Create Flow While Creating Integration", () => {
     await io.homePage.fill(selectors.basePagePO.SEARCH_RECYCLEBIN, "xyz");
     test.step("*** Clicked on Search box and provided a flow name which is not present in that particular page ***", async ()=>{});
     await io.homePage.loadingTime();
-    var test1 = await io.homePage.getText(selectors.integrationPagePO.NO_RESULT_MESSAGE)
-    var Msg =
-      "Your search didn’t return any matching results. Try expanding your search criteria.";
-    await io.assert.expectToBeValue(Msg,String(test1),"")
+    await io.assert.verifyElementDisplayedByText("Your search didn’t return any matching results. Try expanding your search criteria.", "");
     test.step("*** {'Your search didn’t return any matching results. Try expanding your search criteria.'} MESSAGE IS PRESENT ***", async ()=>{});
     
   });
