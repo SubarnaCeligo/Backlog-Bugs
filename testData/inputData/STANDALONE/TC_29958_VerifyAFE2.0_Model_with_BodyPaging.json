@@ -1,59 +1,31 @@
 {
     "name": "TC_29958_VerifyAFE2.0_Model_with_BodyPaging",
-    "disabled": false,
-    "timezone": "Asia/Calcutta",
-    "_integrationId": "56d6b23fe1fc35de53914730",
-    "skipRetries": false,
-    "pageGenerators": [
+    "referencename": "TC_29958_VerifyAFE2.0_Model_with_BodyPaging",
+    "qa__api_tdata": [
         {
-            "qa__export": {
-                "name": "Http Export",
-                "_connectionId": "HTTP SQUARE CONNECTION",
-                "apiIdentifier": "e94dd539b2",
-                "asynchronous": true,
-                "oneToMany": false,
-                "sandbox": false,
-                "http": {
-                    "relativeURI": "/v2/team-members/search",
-                    "method": "POST",
-                    "formType": "http",
-                    "paging": {
-                        "method": "body",
-                        "body": "{\n\"limit\": 1,\n\"cursor\": \"{{previous_page.full_response.cursor}}\"\n}"
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Http Export",
+                        "_connectionId": "HTTP SQUARE CONNECTION",
+                        "apiIdentifier": "e94dd539b2",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/v2/team-members/search",
+                            "method": "POST",
+                            "formType": "http",
+                            "paging": {
+                                "method": "body",
+                                "body": "{'limit': 1, 'cursor': '{{previous_page.full_response.cursor}}'}"
+                            }
+                        },
+                        "adaptorType": "HTTPExport"
                     }
-                },
-                "adaptorType": "HTTPExport"
-            }
-        }
-    ],
-    "pageProcessors": [
-        {
-            "type": "export",
-            "qa__export": {
-                "name": "Lookup",
-                "_connectionId": "HTTP SQUARE CONNECTION",
-                "apiIdentifier": "ebd2f2f745",
-                "asynchronous": true,
-                "isLookup": true,
-                "oneToMany": false,
-                "sandbox": false,
-                "parsers": [],
-                "http": {
-                    "relativeURI": "/v2/team-members/search",
-                    "method": "POST",
-                    "body": "{\n\"limit\": 1\n}",
-                    "formType": "http",
-                    "paging": {
-                        "method": "body",
-                        "body": "{\n\"limit\": 1,\n\"cursor\": \"{{previous_page.full_response.cursor}}\"\n}"
-                    }
-                },
-                "adaptorType": "HTTPExport"
-            },
-            "responseMapping": {
-                "fields": [],
-                "lists": []
-            }
+                }
+            ]
         }
     ]
 }

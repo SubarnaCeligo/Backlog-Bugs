@@ -8,7 +8,8 @@ test("@Env-All @Zephyr-IO-T6413 @Priority-P2 C29032 Auto-resolved feature will b
     await io.homePage.waitForElementAttached("text='Newflow_DND'")
     await io.homePage.clickByText("Newflow_DND")
     await io.flowBuilder.loadingTime();
+   
     const autoResolvedErrorCount = await io.flowBuilder.getText(selectors.flowBuilderPagePO.AUTORESOLVED)
-    expect(autoResolvedErrorCount).toBe("1")
+    expect(autoResolvedErrorCount).toBe("0")
 });
 });

@@ -45,7 +45,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.click(selectors.homePagePO.SEARCH_INTEGRATION);
         await io.exportsPage.fill(selectors.homePagePO.SEARCH_INTEGRATION, "zendesk");
         await io.exportsPage.loadingTime();
-        await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.CONNECTION_TABLE, 0);
+        await io.importsPage.clickByText('zendesk');
         await io.exportsPage.loadingTime();
         await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.HELP_TEXT_ICON);
         const exportUrl = await io.homePage.getCurrentUrl();
@@ -71,7 +71,7 @@ test.describe("@Author-Sudhanshukumar C27068 Verify the application name is appe
         await io.exportsPage.click(selectors.homePagePO.SEARCH_INTEGRATION);
         await io.exportsPage.fill(selectors.homePagePO.SEARCH_INTEGRATION, "SHOPIFY CONNECTION");
         await io.exportsPage.loadingTime();
-        await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.CONNECTION_TABLE, 0);
+        await io.exportsPage.clickByText('SHOPIFY CONNECTION');
         await io.exportsPage.loadingTime();
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.HELP_TEXT_ICON);
         const connectionUrl = await io.homePage.getCurrentUrl();

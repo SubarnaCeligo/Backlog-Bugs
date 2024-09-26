@@ -33,7 +33,7 @@ test.describe("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-All", () => 
         const marketplaceStep = await io.homePage.isVisible("text='Show more'")
         await io.assert.expectToBeFalse(marketplaceStep, "Field value found");
     });
-    test("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27514 @Env-IAQA", async ({ io, page }) => {
+    test("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27514 @Env-All", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
@@ -50,7 +50,7 @@ test.describe("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T27537 @Env-All", () => 
         const appCrash = await io.homePage.isVisible("text='Create lookup'")
         await io.assert.expectToBeTrue(appCrash, "Field value found");
     });
-    test("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T28631 @Env-IAQA", async ({ io, page }) => {
+    test("@Epic-IO-54540  @Priority-P2  @Zephyr-IO-T28631 @Env-All", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime()
         await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);

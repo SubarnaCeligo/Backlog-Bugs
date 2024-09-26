@@ -5,7 +5,7 @@ test.describe("TC_IO50904", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_IO50904 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("TC_IO50904 @Env-All @Priority-P2 @Zephyr-IO-50904", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.myAccountPage.navigateTo(io.data.links.IMPORTS_PAGE_URL);
         await io.homePage.addStep("*** Navigated back to import page ***");

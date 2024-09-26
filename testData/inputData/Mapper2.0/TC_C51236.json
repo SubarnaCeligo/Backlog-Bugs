@@ -1,150 +1,146 @@
 {
     "name": "TC_C51236",
     "referencename": "TC_C51236",
-    "qa__api_tdata": [
+    "pageGenerators": [
         {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "_id": "6345cbf8837ab517332c8bf0",
-                        "createdAt": "2022-10-11T20:03:04.083Z",
-                        "lastModified": "2022-10-12T08:22:44.789Z",
-                        "name": "ftp",
-                        "_connectionId": "FTP CONNECTION",
-                        "apiIdentifier": "ea96d6a7a0",
-                        "asynchronous": true,
-                        "sandbox": false,
-                        "sampleData": {
-                            "Link 1": {
-                                "href": "www.celigo.com",
-                                "Sub Link 1": {
-                                    "href": "www.celigo.com"
-                                },
-                                "Sub Link 2": {
-                                    "href": "www.celigo.com",
-                                    "Sub Sub Link 1": {
-                                        "href": "www.celigo.com"
-                                    },
-                                    "Sub Sub Link 2": {
-                                        "href": "www.celigo.com"
-                                    },
-                                    "Sub Sub Link 3": {
-                                        "href": "www.celigo.com"
-                                    },
-                                    "Sub Sub Link 4": {
-                                        "href": "www.celigo.com"
-                                    },
-                                    "Sub Sub Link 5": {
-                                        "href": "www.celigo.com"
-                                    },
-                                    "Sub Sub Link 6": {
-                                        "href": "www.celigo.com"
-                                    }
-                                }
+            "type": "export",
+            "qa__export": {
+                "_id": "6345cbf8837ab517332c8bf0",
+                "createdAt": "2022-10-11T20:03:04.083Z",
+                "lastModified": "2022-10-12T08:22:44.789Z",
+                "name": "ftp",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ea96d6a7a0",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                    "Link 1": {
+                        "href": "www.celigo.com",
+                        "Sub Link 1": {
+                            "href": "www.celigo.com"
+                        },
+                        "Sub Link 2": {
+                            "href": "www.celigo.com",
+                            "Sub Sub Link 1": {
+                                "href": "www.celigo.com"
+                            },
+                            "Sub Sub Link 2": {
+                                "href": "www.celigo.com"
+                            },
+                            "Sub Sub Link 3": {
+                                "href": "www.celigo.com"
+                            },
+                            "Sub Sub Link 4": {
+                                "href": "www.celigo.com"
+                            },
+                            "Sub Sub Link 5": {
+                                "href": "www.celigo.com"
+                            },
+                            "Sub Sub Link 6": {
+                                "href": "www.celigo.com"
                             }
-                        },
-                        "ftp": {
-                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
-                            "fileNameStartsWith": "TC_C51236"
-                        },
-                        "file": {
-                            "output": "records",
-                            "skipDelete": true,
-                            "type": "json"
-                        },
-                        "adaptorType": "FTPExport"
+                        }
                     }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "_id": "63467971ded6fe4d4020b775",
-                        "createdAt": "2022-10-12T08:23:13.349Z",
-                        "lastModified": "2022-10-12T09:54:58.137Z",
-                        "name": "name",
-                        "application": "BigCommerce",
-                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
-                        "apiIdentifier": "if32732ece",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "sandbox": false,
-                        "mappings": [
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C51236"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_id": "63467971ded6fe4d4020b775",
+                "createdAt": "2022-10-12T08:23:13.349Z",
+                "lastModified": "2022-10-12T09:54:58.137Z",
+                "name": "name",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "apiIdentifier": "if32732ece",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mappings": [
+                    {
+                        "generate": "LINKHReobject3",
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
                             {
-                                "generate": "LINKHReobject3",
-                                "dataType": "objectarray",
-                                "status": "Active",
-                                "buildArrayHelper": [
+                                "extract": "$.Link 1.href",
+                                "sourceDataType": "objectarray",
+                                "mappings": [
                                     {
-                                        "extract": "$.Link 1.href",
-                                        "sourceDataType": "objectarray",
-                                        "mappings": [
+                                        "generate": "LINKHREF_OBJ1",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
                                             {
-                                                "generate": "LINKHREF_OBJ1",
-                                                "dataType": "objectarray",
-                                                "status": "Active",
-                                                "buildArrayHelper": [
+                                                "extract": "$.Link 1.href",
+                                                "sourceDataType": "objectarray",
+                                                "mappings": [
                                                     {
                                                         "extract": "$.Link 1.href",
-                                                        "sourceDataType": "objectarray",
-                                                        "mappings": [
+                                                        "generate": "href",
+                                                        "dataType": "string",
+                                                        "status": "Active",
+                                                        "sourceDataType": "string"
+                                                    },
+                                                    {
+                                                        "generate": "obj2",
+                                                        "dataType": "objectarray",
+                                                        "status": "Active",
+                                                        "buildArrayHelper": [
                                                             {
                                                                 "extract": "$.Link 1.href",
-                                                                "generate": "href",
-                                                                "dataType": "string",
-                                                                "status": "Active",
-                                                                "sourceDataType": "string"
-                                                            },
-                                                            {
-                                                                "generate": "obj2",
-                                                                "dataType": "objectarray",
-                                                                "status": "Active",
-                                                                "buildArrayHelper": [
+                                                                "sourceDataType": "objectarray",
+                                                                "mappings": [
                                                                     {
                                                                         "extract": "$.Link 1.href",
-                                                                        "sourceDataType": "objectarray",
-                                                                        "mappings": [
+                                                                        "generate": "href1",
+                                                                        "dataType": "string",
+                                                                        "status": "Active",
+                                                                        "sourceDataType": "string"
+                                                                    },
+                                                                    {
+                                                                        "generate": "obj3",
+                                                                        "dataType": "objectarray",
+                                                                        "status": "Active",
+                                                                        "buildArrayHelper": [
                                                                             {
                                                                                 "extract": "$.Link 1.href",
-                                                                                "generate": "href1",
-                                                                                "dataType": "string",
-                                                                                "status": "Active",
-                                                                                "sourceDataType": "string"
-                                                                            },
-                                                                            {
-                                                                                "generate": "obj3",
-                                                                                "dataType": "objectarray",
-                                                                                "status": "Active",
-                                                                                "buildArrayHelper": [
+                                                                                "sourceDataType": "objectarray",
+                                                                                "mappings": [
                                                                                     {
-                                                                                        "extract": "$.Link 1.href",
-                                                                                        "sourceDataType": "objectarray",
-                                                                                        "mappings": [
+                                                                                        "extract": "$.Link 1.Sub Link 1.href",
+                                                                                        "generate": "href2",
+                                                                                        "dataType": "string",
+                                                                                        "status": "Active",
+                                                                                        "sourceDataType": "string"
+                                                                                    },
+                                                                                    {
+                                                                                        "generate": "obj4",
+                                                                                        "dataType": "objectarray",
+                                                                                        "status": "Draft",
+                                                                                        "buildArrayHelper": [
                                                                                             {
-                                                                                                "extract": "$.Link 1.Sub Link 1.href",
-                                                                                                "generate": "href2",
-                                                                                                "dataType": "string",
-                                                                                                "status": "Active",
-                                                                                                "sourceDataType": "string"
-                                                                                            },
-                                                                                            {
-                                                                                                "generate": "obj4",
-                                                                                                "dataType": "objectarray",
-                                                                                                "status": "Draft",
-                                                                                                "buildArrayHelper": [
+                                                                                                "extract": "$.Link 1.href",
+                                                                                                "sourceDataType": "objectarray",
+                                                                                                "mappings": [
                                                                                                     {
-                                                                                                        "extract": "$.Link 1.href",
-                                                                                                        "sourceDataType": "objectarray",
-                                                                                                        "mappings": [
-                                                                                                            {
-                                                                                                                "dataType": "string",
-                                                                                                                "status": "Draft",
-                                                                                                                "sourceDataType": "string"
-                                                                                                            }
-                                                                                                        ]
+                                                                                                        "dataType": "string",
+                                                                                                        "status": "Draft",
+                                                                                                        "sourceDataType": "string"
                                                                                                     }
                                                                                                 ]
                                                                                             }
@@ -164,45 +160,45 @@
                                     }
                                 ]
                             }
-                        ],
-                        "http": {
-                            "relativeURI": [],
-                            "method": [
-                                "PUT"
-                            ],
-                            "body": [],
-                            "batchSize": 1,
-                            "sendPostMappedData": true,
-                            "formType": "http"
-                        },
-                        "adaptorType": "HTTPImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C51236",
-                "disabled": true,
-                "skipRetries": false,
-                "_integrationId": "56d6b23fe1fc35de53914730",
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "6342939beb57377ef9eb1b95"
+                        ]
                     }
                 ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "634064784abae969f78b53fb",
-                        "skipRetries": false
-                    }
-                ],
-                "createdAt": "2022-10-09T09:16:22.871Z",
-                "autoResolveMatchingTraceKeys": true
+                "http": {
+                    "relativeURI": [],
+                    "method": [
+                        "PUT"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
             }
         }
-    ]
+    ],
+    "createFlow": {
+        "name": "TC_C51236",
+        "disabled": true,
+        "skipRetries": false,
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "6342939beb57377ef9eb1b95"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "634064784abae969f78b53fb",
+                "skipRetries": false
+            }
+        ],
+        "createdAt": "2022-10-09T09:16:22.871Z",
+        "autoResolveMatchingTraceKeys": true
+    }
 }

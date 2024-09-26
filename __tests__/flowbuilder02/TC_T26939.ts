@@ -5,7 +5,7 @@ test.describe("TC_T26939_Test to verify the existing behaviour of layout toggle 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_T26939 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("TC_T26939 @Zephyr-IO-T26939 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime()
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);

@@ -7,7 +7,7 @@ test.describe(`TC_IO-T26985 Test to validate that user is able to close the help
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("IOT26985 @Env-All @Priority-P2", async ({ io }) => {
+    test("IOT26985 @Env-All @Priority-P2 @Zephyr-IO-T26985", async ({ io }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
         await io.homePage.goToMenu("Resources","Exports");

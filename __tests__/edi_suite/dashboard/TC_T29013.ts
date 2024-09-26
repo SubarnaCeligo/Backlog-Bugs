@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify that clicking on the 'Rejected' FA status
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-QA @Env-IAQA @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29013 @Zephyr-IO-T34237 Verify that clicking on the 'Rejected' FA status shows the details of the document.", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-31713 @Priority-P2 @Zephyr-IO-T29013 @Zephyr-IO-T34237 Verify that clicking on the 'Rejected' FA status shows the details of the document.", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");

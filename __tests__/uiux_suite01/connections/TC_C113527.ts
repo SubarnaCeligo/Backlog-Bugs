@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C113527 Verify user is able to create connection using Password credentials Grant type iclient`, () => {
-  test(`@Env-QA @Zephyr-IO-T7782 C113527 Verify user is able to create connection using Password credentials Grant type iclient`, async ({ io, page }) => {
+  test(`@Env-All @Zephyr-IO-T7782 C113527 Verify user is able to create connection using Password credentials Grant type iclient`, async ({ io, page }) => {
     await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
     await io.connectionPage.click(
       selectors.connectionsPagePO.CREATE_CONNECTION

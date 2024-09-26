@@ -2,7 +2,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C60399 Verify whether data types(select,integer) are supporting for path parameters in 2.0(ex:ADP) for resource type time and api endpoint timeoff`, () => {
-  test(`@Env-QA @Env-STAGING @Zephyr-IO-T23197 C60399 Verify whether data types(select,integer) are supporting for path parameters in 2.0(ex:ADP) for resource type time and api endpoint timeoff`, async ({
+  test(`@Env-All  @Zephyr-IO-T23197 C60399 Verify whether data types(select,integer) are supporting for path parameters in 2.0(ex:ADP) for resource type time and api endpoint timeoff`, async ({
     io,
     page
   }) => {

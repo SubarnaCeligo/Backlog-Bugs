@@ -5,7 +5,7 @@ test.describe("TC_C117753_Test to validate the functionality of side arrow keys 
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C117753 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C117753 @Env-All @Zephyr-IO-T18846 @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "AFE_AUTOSUGGESTIONS_mapper2.0_DND");
         await io.homePage.addStep("*** Searched for the integration ***");

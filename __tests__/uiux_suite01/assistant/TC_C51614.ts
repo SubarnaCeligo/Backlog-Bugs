@@ -6,7 +6,7 @@ test.describe(" C51614 Verify the name field under lookups", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
 
-  test("@Env-All @Zephyr-IO-T18933 Verify the name field under lookups", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T18933 @Priority-P2 Verify the name field under lookups", async ({ io, page }) => {
     await io.homePage.clickByText("Tools")
     await io.homePage.clickByText("Flow builder");
     await io.flowBuilder.click(selectors.basePagePO.LOOKUP_ADD_BUTTON);

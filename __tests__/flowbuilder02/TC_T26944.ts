@@ -4,7 +4,7 @@ test.describe("TC_T26944_Test to verify that user is able to see same particular
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_T26944 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("TC_T26944 @Zephyr-IO-T26944 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.waitForElementAttached(selectors.basePagePO.RESOURCES);
         await io.homePage.goToMenu("Tools", "Playground");

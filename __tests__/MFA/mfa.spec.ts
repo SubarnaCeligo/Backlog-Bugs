@@ -32,6 +32,7 @@ var testCases = [
   "T17222",
   //"C45822", //MFA Reset case, it will effect the whole suite
   //"C45832"  //MFA Reset case, it will effect the whole suite
+  "C39939"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 

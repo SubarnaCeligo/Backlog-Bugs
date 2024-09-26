@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import testData from "@testData/Connections/Narvar.json";
 
 test.describe(`C55826 Verify connection dropdown Replace connection in flow builder page connection tab’s actions`, () => {
-  test(`@Env-QA @Zephyr-IO-T21792 C55826 Verify connection dropdown Replace connection in flow builder page connection tab’s actions`, async ({
+  test(`@Env-All @Zephyr-IO-T21792 C55826 Verify connection dropdown Replace connection in flow builder page connection tab’s actions`, async ({
     io,
     page
   }) => {

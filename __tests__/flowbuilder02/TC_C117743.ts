@@ -5,7 +5,7 @@ test.describe("TC_C117743_Checking that focus is shifting to typing when we clic
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C117743 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C117743 @Env-All @Zephyr-IO-T18837 @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
         await io.homePage.addStep("*** Navigated to Sandbox Env ***");

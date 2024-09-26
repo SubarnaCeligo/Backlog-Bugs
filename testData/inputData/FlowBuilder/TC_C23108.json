@@ -6,55 +6,25 @@
             "pageGenerators": [
                 {
                     "type": "export",
-                    "qa__export": {
-                        "name": "exp wrapper",
-                        "description": "automation testing",
-                        "_connectionId": "WRAPPER CONNECTION",
+                    "qa__export":
+                    {
+                        "name": "EXP wrapper",
+                        "_connectionId": "wrapper connection",
+                        "apiIdentifier": "ee7c423e66",
                         "asynchronous": true,
-                        "type": "test",
                         "oneToMany": false,
                         "sandbox": false,
-                        "test": {
-                            "limit": 1
-                        },
                         "wrapper": {
-                            "function": "operational"
+                            "function": "123"
                         },
                         "adaptorType": "WrapperExport"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "imp wrapper",
-                        "description": "automation testing",
-                        "_connectionId": "WRAPPER CONNECTION",
-                        "oneToMany": false,
-                        "sandbox": false,
-                        "wrapper": {
-                            "function": "operational"
-                        },
-                        "adaptorType": "WrapperImport"
                     }
                 }
             ],
             "createFlow": {
                 "name": "TC_C23108",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
                 "skipRetries": false,
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    }
-                ],
                 "pageGenerators": [
                     {
                         "_exportId": "UPDATE WITH NEW EXPORTID"

@@ -45,6 +45,10 @@ test.describe("C1052 Verify Signin With Google button on Signin form", () => {
     await io.signInPage.fill(selectors.loginPagePO.PASSWORD, decrypt(process.env["IO_Password"]));
     await io.myAccountPage.loadingTime()
     await io.signInPage.click(selectors.loginPagePO.SIGN_IN_BUTTON);
-    await io.assert.verifyJSElementValue(selectors.loginPagePO.EMAIL, process.env["IO_UserName"])
+    await io.assert.verifyJSElementValue(selectors.loginPagePO.EMAIL, process.env["IO_UserName"]);
+    await io.myAccountPage.loadingTime();
+    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
+    await io.homePage.click(selectors.basePagePO.SIGN_OUT);
+    await io.myAccountPage.loadingTime();
   });
 });

@@ -4,7 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe("Verify user is able to access the execution details(testMode field) via handlebar in Export Transformation 2.0 AFE screens.", () => {
     let flowMap;
-    test("@Env-All @Zephyr-IO_T35062 Verify user is able to access the execution details(testMode field) via handlebar in Export Transformation 2.0 AFE screens.", async ({
+    test("@Env-All @Zephyr-IO_T35062 @Priority-P2 Verify user is able to access the execution details(testMode field) via handlebar in Export Transformation 2.0 AFE screens.", async ({
         io, page
     }, testInfo) => {
         flowMap = await io.api.createImpOrExpAndFlowsThruAPI(IO_T35060, false);

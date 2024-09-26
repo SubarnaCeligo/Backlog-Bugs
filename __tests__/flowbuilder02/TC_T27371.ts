@@ -7,7 +7,7 @@ test.describe(`T27371 Verify mapper2 use cases for NoSQLDB `, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
 });
-  test(`Verify mapper2 use cases for MongoDB @Env-All @Priority-P2`, async ({
+  test(`Verify mapper2 use cases for MongoDB @Zephyr-IO-T27371 @Env-All @Priority-P2`, async ({
     io,
     page
   }) => {
@@ -58,7 +58,7 @@ test.describe(`T27371 Verify mapper2 use cases for NoSQLDB `, () => {
             if(i<labels.length) await page.locator(selectors.mappings.MAPPER2DOT0PO.ADDBUTTONS).nth(i).click();
     }
   });
-  test(`Verify mapper2 use cases for DynamoDB `, async ({
+  test(`Verify mapper2 use cases for DynamoDB @Zephyr-IO-T27371 @Env-All @Priority-P2`, async ({
     io,
     page
   }) => {

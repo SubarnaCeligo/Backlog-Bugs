@@ -4,7 +4,7 @@ import C110690 from '../../testData/inputData/FlowBuilder/C110690.json';
 
 
 test.describe("Verify that the map is hidden when hide map(X) icon is clicked.", () => {
-  test("Verify that the map is hidden when hide map(X) icon is clicked. @Env-All @Priority-P2", async ({ io, page }) => {
+  test("Verify that the map is hidden when hide map(X) icon is clicked. @Zephyr-IO-T13323 @Env-All @Priority-P2", async ({ io, page }) => {
     //Create a flow
     await io.createResourceFromAPI(C110690, "FLOWS");
 

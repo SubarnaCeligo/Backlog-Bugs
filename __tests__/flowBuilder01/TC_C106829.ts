@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C106829 Test to validate that user is able to see helper syntax for nested expressions only when the cursor is pointing nested expression", () => {
-  test("C106829 Test to validate that user is able to see helper syntax for nested expressions only when the cursor is pointing nested expression @Env-All @Priority-P2", async ({io, page}) => {
+  test("C106829 Test to validate that user is able to see helper syntax for nested expressions only when the cursor is pointing nested expression @Zephyr-IO-T23878 @Env-All @Priority-P2", async ({io, page}) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.goToMenu("Tools", "Flow builder");
     await io.homePage.loadingTime();

@@ -8,7 +8,7 @@
                     "type": "export",
                     "qa__export": {
                         "name": "Netsuite",
-                        "_connectionId": "NETSUITE CONNECTION",
+                        "_connectionId": "Netsuite_TC_20022_DND",
                         "apiIdentifier": "eec0b40cd1",
                         "asynchronous": true,
                         "oneToMany": false,
@@ -39,7 +39,7 @@
                     "type": "import",
                     "qa__import": {
                         "name": "Netsuite Import",
-                        "_connectionId": "NETSUITE CONNECTION",
+                        "_connectionId": "Netsuite_TC_20022_DND",
                         "distributed": true,
                         "apiIdentifier": "i15c49c068",
                         "ignoreExisting": false,

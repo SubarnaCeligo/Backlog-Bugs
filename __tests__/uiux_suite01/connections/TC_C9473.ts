@@ -2,7 +2,7 @@ import {expect, test} from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C9473 Accounting period lookup is not displayed in record type for users with 2FA Role", () => {
-  test("@Env-QA @Zephyr-IO-T2726 C9473 Accounting period lookup is not displayed in record type for users with 2FA Role", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T2726 C9473 Accounting period lookup is not displayed in record type for users with 2FA Role", async ({io, page}) => {
     await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
     await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);

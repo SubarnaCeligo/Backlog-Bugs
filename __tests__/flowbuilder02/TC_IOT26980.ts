@@ -7,7 +7,7 @@ test.describe(`TC_IO-T26980  Test to validate that the field "First record conta
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 
-    test("IOT26980 @Env-All @Priority-P2", async ({ io ,page}) => {
+    test("IOT26980 @Env-All @Priority-P2 @Zephyr-IO-T26980", async ({ io ,page}) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
         await io.myAccountPage.navigateTo(io.data.links.EXPORTS_PAGE_URL);

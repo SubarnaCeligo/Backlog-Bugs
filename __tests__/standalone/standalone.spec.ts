@@ -28,7 +28,7 @@ require("./TC_C14743_Verify_appropriate_ErrorCode_ErrorMessage_ErrorSource_areSh
 require("./TC_C14947");
 require("./TC_C14963_Verify_MDNSignature_Field_AS2_connection");
 require("./TC_C14964");
-require("./TC_C1659");
+// require("./TC_C1659"); -- Signout test case
 require("./TC_C1678_verify_autosuggestions");
 require("./TC_C1685_TC_C1087_Verify_Shared_Stack_Able_See_In_List_Delete_Shared_Stack");
 require("./TC_C1687");
@@ -69,3 +69,19 @@ require("./TC_C20767_Verify_Source_Value_InErrorDetails_For_Netsuite");
 require("./TC_C20796");
 require("./TC_C20835_Verify_AFE_Toggle_DataURI_Concurrency_Id_Lock");
 require("./TC_C20880_Verify_Connection_related_to_same_application_shown");
+require("./TC_14243_Verify_ErrorLogs");
+require("./TC_14526");
+require("./TC_20022");
+require("./TC_20084_Iclient_Sandbox");
+require("./TC_20878");
+require("./TC_24250_KB_doc");
+require("./TC_29977_VerifyAFE2.0_Model_with_SkipPaging");
+require("./TC_31865");
+require("./TC_41247__FormView_inGraphQLExport");
+require("./TC_29958_VerifyAFE2.0_Model_with_BodyPaging");
+require("./TC_29984_VerifyAFE2.0_Model_with_PagePaging");
+require("./TC_35749_With_Body");
+require("./TC_35749_Without_Body");
+require("./TC_C15501");
+require("./TC_C1664");
+require("./TC_C19442_FTP_FTP_DownloadFile");

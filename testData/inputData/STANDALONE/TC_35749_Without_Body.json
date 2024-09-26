@@ -1,38 +1,37 @@
 {
-  "skipRetries": false,
-  "_integrationId": "56d6b23fe1fc35de53914730",
-  "pageProcessors": [
-    {
-      "type": "import",
-      "qa__import": {
-        "name": "TC_35749_Without_Body",
-        "application": "zendesk support",
-        "parsers": [],
-        "_connectionId": "HTTP ZENDESK CONNECTION",
-        "mapping": {
-          "fields": [
-            {
-              "extract": "Name",
-              "generate": "Name"
-            }
+  "name": "TC_35749_Without_Body_FLOW",
+  "referencename": "TC_35749_Without_Body_FLOW",
+  "qa__api_tdata": [
+      {
+          "pageProcessors": [
+              {
+                  "type": "import",
+                  "qa__import": {
+                    "name": "TC_35749_Without_Body_FLOW",
+                    "application": "zendesk support",
+                    "parsers": [],
+                    "qa__connectionId": "627b6bd17ca3007138a67d30",
+                    "_connectionId": "HTTP ZENDESK CONNECTION",
+                    "oneToMany": false,
+                    "blob": true,
+                    "sandbox": false,
+                    "lookups": [],
+                    "http": {
+                      "relativeURI": [
+                        "organizations"
+                      ],
+                      "method": [
+                        "POST"
+                      ],
+                      "body": [""],
+                      "batchSize": 1,
+                      "sendPostMappedData": true,
+                      "formType": "http"
+                    },
+                    "adaptorType": "HTTPImport"
+                  }
+              }
           ]
-        },
-        "blob": true,
-        "lookups": [],
-        "http": {
-          "relativeURI": [
-            "organizations"
-          ],
-          "method": [
-            "POST"
-          ],
-          "batchSize": 1,
-          "sendPostMappedData": true,
-          "formType": "http"
-        },
-        "adaptorType": "HTTPImport"
       }
-    }
-  ],
-  "pageGenerators": []
+  ]
 }

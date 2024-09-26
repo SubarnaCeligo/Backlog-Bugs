@@ -5,7 +5,7 @@ test.describe("TC_C117740_Checking that focus is on ALL when we clicked Ctrl / C
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("C117701 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("C117701 @Env-All @Zephyr-IO-T26176 @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
         await io.homePage.addStep("*** Navigated to Sandbox Env ***");

@@ -15,6 +15,8 @@ test.describe("TC_C62670_TC_C62671_TC_C62672", () => {
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     test.step("*** clicked on create connection ***", async ()=>{});
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     await io.homePage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
     test.step("*** Select HTTP connection ***", async ()=>{});
     await io.homePage.loadingTime();
@@ -121,6 +123,8 @@ test.describe("TC_C62670_TC_C62671_TC_C62672", () => {
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     test.step("*** clicked on create connection ***", async ()=>{});
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     await io.homePage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
     test.step("*** Select HTTP connection ***", async ()=>{});
     await io.homePage.loadingTime();
@@ -171,6 +175,8 @@ test.describe("TC_C62670_TC_C62671_TC_C62672", () => {
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     test.step("*** clicked on create connection ***", async ()=>{});
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     await io.homePage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
     test.step("*** Select HTTP connection ***", async ()=>{});
     await io.homePage.loadingTime();

@@ -7,7 +7,7 @@ test.describe("TC_C108694 Verify the hotspot icons for Flow branching flow where
   test.afterEach(async ({ io, page }) => {
     await io.api.deleteFlowViaAPI(flowId);
   });
-  test("@Zephyr-IO-T23953 @Env-IAQA @Env-STAGING C108694 Verify the hotspot icons for Flow branching flow where first matching conditions has been set after the test run", async ({
+  test("@Zephyr-IO-T23953 @Env-All  C108694 Verify the hotspot icons for Flow branching flow where first matching conditions has been set after the test run", async ({
     io,
     page
   }) => {
