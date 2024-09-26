@@ -1,14 +1,16 @@
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import TC from '/../testData/inputData/FlowBuilder/C119812.json';
 
 test.describe(`C51602 Verify help text for [Simple | HTTP] toggle button for edit export`, () => {
   test(`@Priority-P2 @Zephyr-IO-T18921 @Env-All C51602`, async ({
     io,
     page
   }) => {
-    await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
-    await io.homePage.goToMenu("Tools", "Flow builder");
+    await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
+    await io.flowBuilder.loadingTime();
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.CREATEFLOW);
+    await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_SOURCE
     );
@@ -27,10 +29,8 @@ test.describe(`C51602 Verify help text for [Simple | HTTP] toggle button for edi
     await io.flowBuilder.loadingTime();
     await io.homePage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_OPERATION);
     await io.flowBuilder.loadingTime();
-    await io.flowBuilder.clickByText('Get Cart');
+    await io.flowBuilder.clickByText('Get cart');
     await io.flowBuilder.loadingTime();
-    
-
     await io.homePage.click(selectors.exportsPagePO.ASSISTANT_META_DATA_PATH_PARAMS_TOKEN);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(selectors.exportsPagePO.ASSISTANT_META_DATA_PATH_PARAMS_TOKEN,'12');
