@@ -8,7 +8,7 @@
                     "type": "import",
                     "qa__import": {
                         "name": "Ftp Import",
-                        "_connectionId": "632aaccd0dbc53086e8a915f",
+                        "_connectionId": "FTP CONNECTION",
                         "qa__connectionId": "632aac522870d20b3fc5ab76",
                         "apiIdentifier": "ic3a361949",
                         "oneToMany": false,
