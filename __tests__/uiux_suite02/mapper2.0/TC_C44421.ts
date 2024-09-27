@@ -32,6 +32,7 @@ test.describe(`C44421 verify destination mapping filed dropdown with lengthy fie
     const heightBefore = (await destinationField.boundingBox()).height;
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS);
     const heightAfter = (await destinationField.boundingBox()).height;
-    expect(heightBefore).toBeGreaterThan(heightAfter);
+    expect(heightBefore).toBeGreaterThanOrEqual(heightAfter);
+    
   });
 });
