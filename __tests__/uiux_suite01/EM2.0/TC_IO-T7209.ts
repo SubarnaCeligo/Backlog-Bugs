@@ -13,12 +13,14 @@ test.describe(`TC_IO-T7209 Verify dropdowns in different browsers`, () => {
     );
     await io.homePage.fill(
       selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR,
-      "Tags 1000 errors- Mysql to mysql flow5_DND"
+      "Automation Flows"
     );
     await io.flowBuilder.loadingTime();
-    await io.homePage.clickByText("Tags 1000 errors- Mysql to mysql flow5_DND");
+    
+    await io.homePage.clickByText("Automation Flows");
     await io.flowBuilder.loadingTime();
-    await io.homePage.clickByText("Mysql to mysql flow_DND");
+    await io.homePage.clickByText("Flow_With_Errors_DND");
+    
 
     await io.flowBuilder.waitForElementAttached(
       selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS
@@ -28,7 +30,7 @@ test.describe(`TC_IO-T7209 Verify dropdowns in different browsers`, () => {
     );
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RESOLVE_JOBS);
     await io.assert.verifyElementDisplayedByText(
-      "1000 errors",
+      "All errors ",
       "Error not available"
     );
     
@@ -41,7 +43,7 @@ test.describe(`TC_IO-T7209 Verify dropdowns in different browsers`, () => {
       selectors.flowBuilderPagePO.EM2DOT0PO.RETRY_JOBS_DROPDOWN
     );
     await io.assert.verifyElementDisplayedByText(
-      "1000 retriable errors",
+      "All retriable errors",
       "Error not available"
     );
   });

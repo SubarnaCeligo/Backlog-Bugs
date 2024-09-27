@@ -21,6 +21,7 @@ test.describe("C23454_Display retries info", () => {
         await io.flowBuilder.reloadPage()
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByTextByIndex('1 error',0);
+        await io.flowBuilder.loadingTime();
         await io.flowBuilder.clickByText('Resolve & next')
         // Validating resolved count added
         await io.assert.verifyElementContainsText(selectors.flowBuilderPagePO.RESOLVE_TEXTCOUNT, '| Resolves: 1')
