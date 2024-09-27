@@ -16,7 +16,7 @@ test.describe("T31328 Verify the above fields should be made mandatory for re-en
     await io.connectionPage.waitForElementAttached(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.waitForElementAttached(selectors.basePagePO.SEARCH_RECYCLEBIN);
-    await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
+    // await io.connectionPage.click(selectors.basePagePO.SEARCH_RECYCLEBIN);
     await io.connectionPage.fill(selectors.basePagePO.SEARCH_RECYCLEBIN, connectionId.name);
     await io.connectionPage.clickByTextByIndex(connectionId.name, 0);
 

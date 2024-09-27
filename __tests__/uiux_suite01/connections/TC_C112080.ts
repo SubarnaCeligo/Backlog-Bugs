@@ -171,14 +171,30 @@ test.describe("C112080_C112081_C112082_C2112083_C112089", () => {
     await io.connectionPage.click(selectors.connectionsPagePO.CONFIGURE_AUTHENTICATION);
     await io.homePage.loadingTime()
     await io.flowBuilder.click(selectors.basePagePO.CUSTOM_SETTING);
-    await io.connectionPage.fill(selectors.connectionsPagePO.SETTINGS_INLINE,'{"iss":"495629","aud":"test","exp":"7764","typ":"test","alg":"rsa256"}');
+    
+    const textarea = await page.$(selectors.connectionsPagePO.SETTINGS_INLINE_PARENT);
+
+    if (textarea) {
+      // Click the textarea to focus on it
+      await textarea.click();
+
+      // Select all text and delete it
+      await io.homePage.loadingTime();
+      await page.keyboard.press('Control+A');
+      await page.keyboard.press('Meta+A');
+      await page.keyboard.press('Backspace');
+    }
+    //Add new FDR
+    await io.connectionPage.fill(selectors.connectionsPagePO.SETTINGS_INLINE ,'{"iss":"495629","aud":"test","exp":"7764","typ":"test","alg":"rsa256"}');
+    await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.CONFIGURE_AUTHENTICATION);
+    await io.connectionPage.waitForElementAttached(selectors.connectionsPagePO.PAYLOAD);
     await io.connectionPage.click(selectors.connectionsPagePO.PAYLOAD);
     await io.flowBuilder.loadingTime();
     await io.homePage.waitForElementAttached(selectors.connectionsPagePO.DATA_PANEL);
     let dataPanel = (await io.homePage.getText(selectors.connectionsPagePO.DATA_PANEL)).toString();
     await io.assert.expectToContainValue(
-      '{  "connection": {    "name": "GITHUB DND",    "http": {      "unencrypted": {        "field": "value"      },      "encrypted": "********"    }  },  "settings": {    "connection": {      "iss": "495629",      "aud": "test",      "exp": "7764",      "typ": "test",      "alg": "rsa256"    }  }}',
+      '{  \"connection\": {    \"name\": \"GITHUB DND\",    \"http\": {      \"unencrypted\": {},      \"encrypted\": \"********\"    }  },  \"settings\": {    \"connection\": {      \"iss\": \"495629\",      \"aud\": \"test\",      \"exp\": \"7764\",      \"typ\": \"test\",      \"alg\": \"rsa256\"    }  }}',
       dataPanel,
       'Data Panel is not displayed'
     );
