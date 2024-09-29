@@ -120,8 +120,8 @@ test.describe(`TC_IOT32594 Verify if the user is able to restore the deleted Int
         await io.flowBuilder.click("//input[@class='rc-tree-select-selection-search-input']");
         //IO-T31933 Verify the suggestion when we enter the text
         await io.integrationPage.fill("//input[@class='rc-tree-select-selection-search-input']", 'flow.name');
-        const isDisplayed = await io.flowBuilder.isVisible(selectors.integrationPagePO.EXPAND_OPTION);
-        if (isDisplayed) {
+        const connfilter = await io.assert.checkElementState(selectors.integrationPagePO.EXPAND_OPTION, 'isDisplayed');
+        if (connfilter) {
           await io.flowBuilder.click(selectors.integrationPagePO.EXPAND_OPTION);
           await io.flowBuilder.click("//span[contains(@class, 'rc-tree-select-tree-checkbox-checked')]");
         }
