@@ -15,7 +15,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T38511 @Zephyr-IO-T38513 @
 
         //IO-T38511 Verify new field added on Audit log page to filter Audit log with dates
         await io.assert.verifyElementIsDisplayed(
-            '[data-test="AuditLogDateFilter"]',
+            selectors.homePagePO.AUDIT_FILTER,
             "Element is not displayed properly"
         );
         //IO-T38513 Verify The default value of the time filter should be set to “Last 30 days”
@@ -50,7 +50,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T38511 @Zephyr-IO-T38513 @
         await io.homePage.clickByText(
             'Apply'
         );
-        await io.assert.verifyElementText('[data-test="AuditLogDateFilter"]', "Last 30 days");
+        await io.assert.verifyElementText(selectors.homePagePO.AUDIT_FILTER, "Last 30 days");
 
 
         //IO-T38514 Verify Date filter filtering Audit log properly
