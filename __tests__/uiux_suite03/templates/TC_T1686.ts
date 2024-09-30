@@ -7,7 +7,7 @@ test.describe("T1686 To verify user is able to install SAP Ariba template @autho
     const intId = await io.api.getIntegrationDetails("Copy TC_T1686_DND", "_id");
     await io.api.deleteIntegration(intId);
   });
-  test("@Env-All T1686 To verify user is able to install SAP Ariba template @author_Kaushik UI_Backlog", async ({ io, page }) => {
+  test("@Env-All @Zephyr-IO-T1686 To verify user is able to install SAP Ariba template @author_Kaushik UI_Backlog", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
 
     await io.homePage.addStep("Select template from marketplace")
