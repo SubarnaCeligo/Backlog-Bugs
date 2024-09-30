@@ -6,7 +6,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify new field added on the differe
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Bug-IO-97121 @Priority-P2 @Env-QA @Zephyr-IO-T38522'", async ({ io, page, context }) => {
+    test("@Epic-IO-86043 @Priority-P2 @Env-QA @Zephyr-IO-T38522'", async ({ io, page, context }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
 

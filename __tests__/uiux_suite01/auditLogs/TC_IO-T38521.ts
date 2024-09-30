@@ -6,7 +6,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T38519 @Zephyr-IO-T38521'"
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Bug-IO-97121 @Priority-P2 @Env-QA @Zephyr-IO-T38519 @Zephyr-IO-T38521'", async ({ io, page, context }) => {
+    test("@Epic-IO-86043 @Priority-P2 @Env-QA @Zephyr-IO-T38519 @Zephyr-IO-T38521'", async ({ io, page, context }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.homePagePO.SANDBOX_BUTTON);
