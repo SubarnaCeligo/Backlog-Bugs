@@ -91,24 +91,13 @@ test.describe(`C52210 Verify the UI error pop up when there are multiple errors 
     await io.flowBuilder.addStep("Clicked on 'Preview'");
 
     await io.homePage.loadingTime();
-    let text = (
-      await io.homePage.getText(selectors.mappings.MAPPER2DOT0PO.CODE_PANEL)
-    ).toString();
+    
 
     await io.flowBuilder.click(selectors.mappings.MAPPER2DOT0PO.PREVIEW);
     await io.flowBuilder.addStep("Clicked on 'Preview'");
-
-    let result = false;
-    if (
-      text.includes(
-        `Mapper 2.0: company: You can't map boolean (source) to [number] (destination)
-         Mapper 2.0: test: You can't map [boolean] (source) to [number] (destination)
-         Mapper 2.0: name: You can't map [object] (source) to [number] (destination)`
-      )
-    ) {
-      result = true;
-    }
-
-    await expect(result).toBeTruthy();
+    let text = (
+      await io.homePage.getText(selectors.mappings.MAPPER2DOT0PO.CODE_PANEL)
+    ).toString();
+    expect(text).toContain("Mapper·2.0:·company:·You·can't·map·boolean·(source)·to·[number]·(destination)¬Mapper·2.0:·test:·You·can't·map·[boolean]·(source)·to·[number]·(destination)¬Mapper·2.0:·name:·You·can't·map·[object]·(source)·to·[number]·(destination)")
   });
 });
