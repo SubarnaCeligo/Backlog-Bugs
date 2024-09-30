@@ -1,8 +1,8 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
-  // "IOT457",
-  // "IOT480",
-  // "IOT17167",
+  "IOT457",
+  "IOT480",
+  "IOT17167",
   "IOT31938",
   "IOT32593",
   "IOT32594"
