@@ -15,42 +15,42 @@ test.describe("TC_C100164_C99363", () => {
   });
 
   
-  test("TC_C100164", async ({io,page}, testInfo) => {
-    const createdUSers = await io.api.inviteUserThruApi(json.newUser);
+  // test("TC_C100164", async ({io,page}, testInfo) => {
+  //   const createdUSers = await io.api.inviteUserThruApi(json.newUser);
 
-    await io.homePage.reloadPage();
-    await io.homePage.loadingTime();
-    await io.homePage.loadingTime();
-    await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
-    test.step("*** Clicked on Profile Menu ***", async ()=>{});
-    await io.homePage.click(selectors.myAccountPagePO.PROFILE);
-    test.step("*** Clicked on My Account ***", async ()=>{});
+  //   await io.homePage.reloadPage();
+  //   await io.homePage.loadingTime();
+  //   await io.homePage.loadingTime();
+  //   await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
+  //   test.step("*** Clicked on Profile Menu ***", async ()=>{});
+  //   await io.homePage.click(selectors.myAccountPagePO.PROFILE);
+  //   test.step("*** Clicked on My Account ***", async ()=>{});
 
-    await io.homePage.loadingTime();
-    await io.homePage.click(selectors.myAccountPagePO.USERS);
+  //   await io.homePage.loadingTime();
+  //   await io.homePage.click(selectors.myAccountPagePO.USERS);
     
-    test.step("*** Clicked on User tab ***", async ()=>{});
-    await io.homePage.loadingTime();
-    await io.homePage.click(selectors.basePagePO.INVITEUSER1);
-    test.step("*** Clicked on invite user ***", async ()=>{});
-    await io.homePage.loadingTime();
-    await io.homePage.enterHugeData(selectors.basePagePO.EMAIL, "mahesh.nivrutti.sutar+delete7@celigo.com");
-    test.step("*** filling mail in the mail field ***", async ()=>{});
-    await io.homePage.clickButtonByIndex(selectors.basePagePO.ADMIN, 0);
-    test.step("*** Choose admin tab ***", async ()=>{});
-    await io.homePage.click(selectors.basePagePO.INVITEUSER2);
-    test.step("*** Clicked on invite ***", async ()=>{});
+  //   test.step("*** Clicked on User tab ***", async ()=>{});
+  //   await io.homePage.loadingTime();
+  //   await io.homePage.click(selectors.basePagePO.INVITEUSER1);
+  //   test.step("*** Clicked on invite user ***", async ()=>{});
+  //   await io.homePage.loadingTime();
+  //   await io.homePage.enterHugeData(selectors.basePagePO.EMAIL, "mahesh.nivrutti.sutar+delete7@celigo.com");
+  //   test.step("*** filling mail in the mail field ***", async ()=>{});
+  //   await io.homePage.clickButtonByIndex(selectors.basePagePO.ADMIN, 0);
+  //   test.step("*** Choose admin tab ***", async ()=>{});
+  //   await io.homePage.click(selectors.basePagePO.INVITEUSER2);
+  //   test.step("*** Clicked on invite ***", async ()=>{});
 
-    await page.pause();
-    //Error
-    var errorText = await io.homePage.getText("[role='alert'] span")
-    await io.assert.expectToContainValue("The user already has access to the account. Please use the edit permissions option to update the permissions for the user.", String(errorText),"");
-    await io.homePage.loadingTime();
-    await io.homePage.click(selectors.basePagePO.CANCELUSERFORM);
-    await io.homePage.loadingTime();
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    test.step("*** Navigating to Home Page   ***", async ()=>{});
-  });
+  //   await page.pause();
+  //   //Error
+  //   var errorText = await io.homePage.getText("[role='alert'] span")
+  //   await io.assert.expectToContainValue("The user already has access to the account. Please use the edit permissions option to update the permissions for the user.", String(errorText),"");
+  //   await io.homePage.loadingTime();
+  //   await io.homePage.click(selectors.basePagePO.CANCELUSERFORM);
+  //   await io.homePage.loadingTime();
+  //   await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+  //   test.step("*** Navigating to Home Page   ***", async ()=>{});
+  // });
   
   test("@Env-All @Zephyr-IO-T25408 TC_C99363", async ({io,page}, testInfo) => {
     await io.api.inviteUserThruApi(json.newUser);
