@@ -26,7 +26,7 @@ test.describe("@Author-Shriti S Verify that documents dropwdown is changed to ma
         }, await element.elementHandle());
 
         // Log the font size
-        await io.assert.expectToBeValue("15px", fontSize, 'Font size for documents dropwdown is not updated');
+        await io.assert.expectToBeValue("15px", fontSize, 'Font size for documents dropdown is not updated');
 
 
     });
