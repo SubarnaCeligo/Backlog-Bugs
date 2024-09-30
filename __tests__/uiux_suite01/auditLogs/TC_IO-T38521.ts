@@ -13,17 +13,17 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T38519 @Zephyr-IO-T38521'"
         await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
         await io.homePage.click(selectors.myAccountPagePO.AUDIT_LOG);
         await io.homePage.loadingTime();
-        await io.myAccountPage.waitForElementAttached(selectors.homePagePO.AUDIT_FILTER);
+        await io.myAccountPage.waitForElementAttached('[data-test="AuditLogDateFilter"]');
 
         //IO-T38519 Verify new field added on Audit log page in Sandbox
         await io.assert.verifyElementIsDisplayed(
-            selectors.homePagePO.AUDIT_FILTER,
+            '[data-test="AuditLogDateFilter"]',
             "Element is not displayed properly"
         );
 
-        await io.flowBuilder.hover(selectors.homePagePO.AUDIT_FILTER);
+        await io.flowBuilder.hover('[data-test="AuditLogDateFilter"]');
         await io.homePage.loadingTime();
-        const ediTextElement = page.locator(selectors.homePagePO.AUDIT_FILTER);
+        const ediTextElement = page.locator('[data-test="AuditLogDateFilter"]');
         const ediTextColor = await ediTextElement.evaluate(el => {
             return window.getComputedStyle(el).color;
         });

@@ -15,7 +15,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T38511 @Zephyr-IO-T38513 @
 
         //IO-T38511 Verify new field added on Audit log page to filter Audit log with dates
         await io.assert.verifyElementIsDisplayed(
-            selectors.homePagePO.AUDIT_FILTER,
+            '[data-test="AuditLogDateFilter"]',
             "Element is not displayed properly"
         );
         //IO-T38513 Verify The default value of the time filter should be set to “Last 30 days”
@@ -26,7 +26,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T38511 @Zephyr-IO-T38513 @
 
 
         //IO-T38518 Verify user should be able to add/remove filter
-        const result = (await io.flowBuilder.getText(selectors.homePagePO.FILTER_RESULT)).toString();
+        const result = (await io.flowBuilder.getText('[role="group"] > div > div > span')).toString();
         await io.homePage.clickByText(
             'Last 30 days'
         );
@@ -39,7 +39,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T38511 @Zephyr-IO-T38513 @
         );
         await io.homePage.loadingTime();
         await io.homePage.delay(30000);
-        const result1 = (await io.flowBuilder.getText(selectors.homePagePO.FILTER_RESULT)).toString();
+        const result1 = (await io.flowBuilder.getText('[role="group"] > div > div > span')).toString();
         await io.homePage.clickByText(
             'Last hour'
         );
@@ -50,7 +50,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T38511 @Zephyr-IO-T38513 @
         await io.homePage.clickByText(
             'Apply'
         );
-        await io.assert.verifyElementText(selectors.homePagePO.AUDIT_FILTER, "Last 30 days");
+        await io.assert.verifyElementText('[data-test="AuditLogDateFilter"]', "Last 30 days");
 
 
         //IO-T38514 Verify Date filter filtering Audit log properly
@@ -67,7 +67,7 @@ test.describe("@Author_MaheshNivruttiSutar @Zephyr-IO-T38511 @Zephyr-IO-T38513 @
         );
 
         await io.assert.verifyElementIsDisplayed(
-            selectors.homePagePO.CALENDER_DATE,
+            ".rdrDateDisplay",
             "Calender is not displayed properly"
         );
         await io.homePage.clickByText(

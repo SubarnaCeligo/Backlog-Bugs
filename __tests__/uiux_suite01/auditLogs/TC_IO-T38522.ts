@@ -19,7 +19,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify new field added on the differe
             await io.homePage.clickButtonByIndex(selectors.myAccountPagePO.OPEN_ACTIONSMENU, 0);
             await io.homePage.click(selectors.basePagePO.AUDITLOG);
             await io.homePage.loadingTime();
-            await io.assert.verifyElementIsDisplayed(selectors.homePagePO.AUDIT_FILTER, "Element is not displayed properly on");
+            await io.assert.verifyElementIsDisplayed('[data-test="AuditLogDateFilter"]', "Element is not displayed properly on");
             await io.homePage.click(selectors.flowBuilderPagePO.CLOSEPOPUP);
         }
 
@@ -31,21 +31,21 @@ test.describe("@Author_MaheshNivruttiSutar Verify new field added on the differe
         await io.homePage.loadingTime();
         await io.homePage.click(selectors.flowBuilderPagePO.AUDIT_LOGS);
         await io.homePage.loadingTime();
-        await io.assert.verifyElementIsDisplayed(selectors.homePagePO.AUDIT_FILTER, "Element is not displayed properly on");
+        await io.assert.verifyElementIsDisplayed('[data-test="AuditLogDateFilter"]', "Element is not displayed properly on");
         await io.homePage.loadingTime();
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await io.homePage.loadingTime();
         await io.homePage.clickButtonByIndex(selectors.myAccountPagePO.OPEN_ACTIONSMENU, 0);
         await io.homePage.click(selectors.basePagePO.AUDITLOG);
         await io.homePage.loadingTime();
-        await io.assert.verifyElementIsDisplayed(selectors.homePagePO.AUDIT_FILTER, "Element is not displayed properly on");
+        await io.assert.verifyElementIsDisplayed('[data-test="AuditLogDateFilter"]', "Element is not displayed properly on");
         await io.homePage.click(selectors.flowBuilderPagePO.CLOSEPOPUP);
         await io.homePage.loadingTime();
 
         //Integration Page
         await io.homePage.click(selectors.myAccountPagePO.AUDIT_LOG);
         await io.homePage.loadingTime();
-        await io.assert.verifyElementIsDisplayed(selectors.homePagePO.AUDIT_FILTER, "Element is not displayed properly on");
+        await io.assert.verifyElementIsDisplayed('[data-test="AuditLogDateFilter"]', "Element is not displayed properly on");
 
         //Register connection page
         await io.homePage.click(selectors.basePagePO.CONNECTIONS);
@@ -53,6 +53,6 @@ test.describe("@Author_MaheshNivruttiSutar Verify new field added on the differe
         await io.homePage.clickButtonByIndex(selectors.myAccountPagePO.OPEN_ACTIONSMENU, 0);
         await io.homePage.click(selectors.basePagePO.AUDITLOG);
         await io.homePage.loadingTime();
-        await io.assert.verifyElementIsDisplayed(selectors.homePagePO.AUDIT_FILTER, "Element is not displayed properly on");
+        await io.assert.verifyElementIsDisplayed('[data-test="AuditLogDateFilter"]', "Element is not displayed properly on");
     });
 });
