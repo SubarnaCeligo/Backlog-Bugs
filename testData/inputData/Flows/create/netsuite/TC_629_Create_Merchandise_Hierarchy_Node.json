@@ -1,0 +1,102 @@
+{
+  "name": "TC_629_Create_Merchandise_Hierarchy_Node",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Create_Merchandise_Hierarchy_Node",
+        "_connectionId": "NETSUITE CONNECTION",
+        "adaptorType": "NetSuiteDistributedImport",
+        "lookups": [],
+        "distributed": true,
+        "netsuite_da": {
+          "useSS2Restlets": false,
+          "operation": "add",
+          "recordType": "merchandisehierarchynode",
+          "lookups": [],
+          "mapping": {
+            "lists": [],
+            "fields": [
+              {
+                "generate": "name",
+                "extract": "Name",
+                "internalId": false
+              },
+              {
+                "generate": "description",
+                "extract": "Description",
+                "internalId": false
+              }
+            ]
+          }
+        }
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": []
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "TC_629_FTPexport",
+        "adaptorType": "FTPExport",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "Create_Merchandise_Hierarchy"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "asynchronous": true,
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "//FTP_uploads/Create_Merchandise_Hierarchy.json"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "importRecordType": "merchandisehierarchynode",
+    "expected": {
+      "netsuite": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "Fetch Merchandise Hierarchy Node",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "savedsearchId": "3434",
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "name": "Automation",
+              "description": "Create_Merchandise_Hierarchy_Version"
+            }
+          ],
+          "standaloneexportflowID": "61ba073df1447d5e7f8e1ef6",
+          "importRecordType": "merchandisehierarchynode",
+          "uniqueField": "name",
+          "exportRecordType": "merchandisehierarchynode",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e7da08136b"
+        }
+      }
+    }
+  }
+}

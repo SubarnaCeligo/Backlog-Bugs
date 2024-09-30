@@ -1,0 +1,96 @@
+{
+    "_connectionId": "SALESFORCE CONNECTION",
+    "name": "NS_http_FLOW_42411",
+    "aliasName": "AUTOMATION_CONNECTION",
+    "aliasExpectedName": "AUTOMATION_CONNECTION",
+    "aliasResourceType": "connections",
+    "aliasResourceName": "SALESFORCE CONNECTION",
+    "qa_aliasResourceName": "SALESFORCE CONNECTION",
+    "skipRetries": false,
+    "_integrationId": "63200dc43bfc725f00638e41",
+    "qa__integrationId": "639ac0022a818e4415960959",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "NS Export_42411",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "apiIdentifier": "ea49e22e48",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "4537",
+                                "useSS2Restlets": false
+                            },
+                            "distributed": {
+                                "useSS2Framework": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import_42411",
+                        "application": "zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/test"
+                            ],
+                            "method": [
+                                "PUT"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "NS_http_FLOW_42411",
+                "disabled": false,
+                "_integrationId": "63200dc43bfc725f00638e41",
+                "qa__integrationId": "639ac0022a818e4415960959",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "skipRetries": false,
+    "_integrationId": "639ac0022a818e4415960959",
+    "aliasResourceType": "connections",
+    "aliasResourceName": "NETSUITE CONNECTION",
+    "aliasName": "Automation_TC_C42050",
+    "aliaseEditName": "Automation_Edit_TC_C42050",
+    "aliasExpectedName": "Automation_Edit_TC_C42050",
+    "expectedJSON": {
+        "alias": "automation_edit_tc_c42050",
+        "_connectionId": "NETSUITE CONNECTION"
+    }
+}

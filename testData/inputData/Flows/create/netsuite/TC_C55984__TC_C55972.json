@@ -1,0 +1,232 @@
+{
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "subsidiary": {
+                "internalid": "3",
+                "name":"HH Inc."
+              },
+              "location": {
+                "internalid": "22",
+                "name": "HYDERABAD"
+              },
+              "memo": "TC_C55984_memo"
+            }
+          ],
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63b6ab378049807fa2609c8a",
+          "importRecordType": "inventorycount",
+          "exportRecordType": "inventorycount",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e0bb996901"
+        }
+      }
+    }
+  },
+  "flowsData": {
+    "name1": "TC_C55984",
+    "name2": "TC_C55972",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e11d77d0ff",
+              "asynchronous": true,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C55984",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "ib7219ca86",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "add",
+                  "recordType": "inventorycount",
+                  "lookups": [],
+                  "mapping": {
+                      "fields": [
+                          {
+                              "generate": "subsidiary",
+                              "extract": "subsidiary",
+                              "internalId": false
+                          },
+                          {
+                              "extract": "location",
+                              "generate": "location",
+                              "internalId": false
+                          },
+                          {
+                              "generate": "memo",
+                              "extract": "memo",
+                              "internalId": false
+                          }
+                      ],
+                      "lists": [
+                          {
+                              "generate": "item",
+                              "fields": [
+                                  {
+                                      "generate": "item",
+                                      "extract": "items[*].item",
+                                      "internalId": false
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C55984",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      },
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e11d77d0ff",
+              "asynchronous": true,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C55972",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "ib7219ca86",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "update",
+                "recordType": "inventorycount",
+                "internalIdLookup": {
+                    "expression": "[\"memo\",\"is\",\"TC_C55984_memo\"]"
+                },
+                "lookups": [],
+                "mapping": {
+                    "fields": [],
+                    "lists": [
+                        {
+                            "generate": "item",
+                            "fields": [
+                                {
+                                    "generate": "item",
+                                    "extract": "items[*].item",
+                                    "internalId": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C55972",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

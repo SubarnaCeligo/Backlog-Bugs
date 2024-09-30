@@ -1,0 +1,31 @@
+{
+  "Source_Integration": "Delete_TC__C42120",
+  "Source_Environment": "Production",
+  "templateJSON": {
+    "Install_Template": true,
+    "Source_Environment": "Production",
+    "waitBeforeClickInstall": true,
+    "Upload_Path": "/testData/ALIASES/testData/TC_C42120.zip",
+    "New_connection": false,
+    "connections": [
+      "NETSUITE CONNECTION:NETSUITE CONNECTION"
+    ]
+  },
+  "flowName": "Del_TC__C42120_FLOW",
+  "flowId": "63318aa55d3c824a1a55ef0a",
+  "exportName": "Delete_TC_42120_Netsuite_Export",
+  "exportId": "63318aa55d3c824a1a55ef06",
+  "New_connection": false,
+  "connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "qa__connections": [
+    "NETSUITE CONNECTION"
+  ],
+  "verifyAliases": [
+    {
+      "alias": "ns_alias",
+      "_connectionId": ""
+    }
+  ]
+}

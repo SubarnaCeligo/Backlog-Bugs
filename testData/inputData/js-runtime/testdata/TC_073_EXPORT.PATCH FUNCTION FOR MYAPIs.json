@@ -1,0 +1,34 @@
+{
+  "script": "TC_073",
+  "name": "TC_073_EXPORT.PATCH FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": "Export Patched Successfully  "
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "MAIN EXPORT",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "1149",
+                "useSS2Restlets": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ]
+    }
+  ]
+}

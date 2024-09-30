@@ -1,0 +1,62 @@
+{
+  "name": "TC_C12169",
+  "disabled": false,
+  "qa__isDataLoader": "true",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+    "name": "Data loader",
+    "asynchronous": true,
+    "qa__path": "/Dataloader_uploades/TC_C12169.xlsx",
+    "qa__isDataLoader": "xlsx",
+    "type": "simple",
+    "sandbox": false,
+    "sampleData": "Document Number,Customer,Cust Internal ID,P.O. Number,Unit type,Part Number,Subsidiary,Location,Final Part #,Model Number,Serial Number,Received Date,OK to Start Date,Current Status,Priority,Repair Start Date,Repair Complete Date,QA Complete Date,Complete Date,Over-hauled,In Warranty,Warranty Covered,Cust. Complaint,Root Cause,Result,Action,Tech,Notes,WDR # ,OEM,WDR Date ,Within Warranty Period?,Warranty Stickers Intact?,Evaluation Summary,Evaluation Date,Warranty Coverage Approved?,Previous Repair Tech,Workmanship,Inadequate Training,Inadequate Procedure,Overlooked Issue,Overhaul End-of-Life,Test Equipment,Part Short Term Failure,CAR ISSUED,CAR Info.,# months,No Problem Found,Customer Error,Information Error,Additional Customer Requirement,Short Term Separate Issue,Out of Warranty Period,Part End-of-Life,Previously Intermittent,\"Warranty Covered, No Charge\",\"Warranty Denied, Customer Charged\",\"Warranty Denied, No Charge\",Bench Fee Charged,Other (add Note),\"NSB, No Problem Found\",\"NSB, Customer Error\",\"NSB, Information Error\",\"NSB, Additional Customer Requirement\",\"NSB, Short Term Separate Issue\",\"NSB, Out of Warranty Period\",\"NSB, Part End-of-Life\",\"NSB, Previously Intermittent\",Notes:\nRO02663,ON Semi - ID,1413,10022597,RFG-AE,3155027-028,1,1,Customer Repairs : 3155027-028 Repair,RFG-1250HALO,212893,10/7/11,10/7/11,Repair Complete,P4,10/26/11,12/1/11,12/1/11,12/1/11,,Yes,Yes,\"Power intermittently drops out for a couple of sec, then comes back on\",\"The pack that was in the unit was causing the gate drive to be too low.  Other new packs had this same issue.  Also, changing the exciter didn't change the gate drive.  Max gate drive at 0W output was 28.5V pk-pk, out lower limit is 32V pk-pk.\",Intermittent oscillation in open load.  Gate drive drops below 19V pk-pk.,\"This unit was sent to engineering for a time to try to figure out this issue.  While the issue has not been resolved, engineering is still looking into this.  I was able to get a high enough gate drive by using an old test pack that I had.  Also replaced the rev D exciter for reliability.  Put 47pF caps on drain.\",\"Pehrson, Jason\",\"QA approved, ready to ship 12/1/11 KLB.  Moved back to WIP on 11/30/11 RS.  Was asked to move to ENG on 11/11/11 RS.  Unit arrived on 10/7/11 RS.  PO rcvd on 10/4/11 RS.\",W11-10071,AE,10/7/11,Y,Y,exciter &  power pack issues,12/1/11,Y,AH,,,,,,,1,N,,9,,,,,,,,,,,,,1,0,0,0,0,0,0,0,0,Standard Repair Charge",
+    "file": {
+        "output": "records",
+        "type": "xlsx",
+        "encoding": "utf8",
+        "xlsx": {
+            "hasHeaderRow": false
+        }
+    },
+    "adaptorType": "SimpleExport"
+      }
+      }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "netsuite",
+          "_connectionId":"NETSUITE CONNECTION",
+        "distributed": true,
+        "apiIdentifier": "i405ce0b29",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [],
+        "netsuite_da": {
+            "useSS2Restlets": false,
+            "operation": "add",
+            "recordType": "customer",
+            "lookups": [],
+            "mapping": {
+                "fields": [
+                    {
+                        "generate": "accountnumber",
+                        "extract": "Column0",
+                        "internalId": false
+                    }
+                ],
+                "lists": []
+            }
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+        }
+      }
+    ]
+  }

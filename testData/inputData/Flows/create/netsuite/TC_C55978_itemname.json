@@ -1,0 +1,239 @@
+{
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "subsidiary": {
+                "internalid": "3",
+                "name":"HH Inc."
+              },
+              "location": {
+                "internalid": "22",
+                "name": "HYDERABAD"
+              },
+              "memo": "TC_C55983_DND",
+              "item": [
+                {
+                    "countdetail": {
+                        "item": {
+                            "internalid": "262312",
+                            "name": "55978_DND"
+                        },
+                        "quantity": 2,
+                        "location": {
+                            "internalid": "22",
+                            "name": "HYDERABAD"
+                        },
+                        "inventorydetail": [
+                            {
+                                "inventorynumber": "1",
+                                "inventorystatus": {
+                                    "internalid": "1",
+                                    "name": "Good"
+                                },
+                                "quantity": 1
+                            },
+                            {
+                                "inventorynumber": "2",
+                                "inventorystatus": {
+                                    "internalid": "1",
+                                    "name": "Good"
+                                },
+                                "quantity": 1
+                            }
+                        ]
+                    },
+                    "countquantity": 2,
+                    "item": {
+                        "internalid": "262312",
+                        "name": "55978_DND"
+                    },
+                    "rate": 0
+                }
+              ]
+            }
+          ],
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63b42572ba825d6a8a60c558",
+          "importRecordType": "inventorycount",
+          "exportRecordType": "inventorycount",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e171e36c73"
+        }
+      }
+    }
+  },
+  "flowsData": {
+    "name1": "TC_C55978_itemname",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e11d77d0ff",
+              "asynchronous": true,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C55983_itemname",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "ib7219ca86",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [
+                {
+                    "name": "dy_lkp",
+                    "recordType": "item",
+                    "resultField": "internalid",
+                    "expression": "[\"itemid\",\"is\",\"{{{items[*].item}}}\"]",
+                    "allowFailures": false
+                }
+              ],
+              "netsuite_da": {
+                "useSS2Restlets": true,
+                "operation": "update",
+                "recordType": "inventorycount",
+                "internalIdLookup": {
+                    "expression": "[\"memo\",\"is\",\"TC_C55983_DND\"]"
+                },
+                "lookups": [
+                    {
+                        "name": "dy_lkp",
+                        "recordType": "item",
+                        "resultField": "internalid",
+                        "expression": "[\"itemid\",\"is\",\"{{{items[*].item}}}\"]",
+                        "allowFailures": false
+                    }
+                ],
+                "mapping": {
+                    "fields": [
+                        {
+                            "generate": "celigo_recordmode_dynamic",
+                            "hardCodedValue": "true",
+                            "internalId": false
+                        }
+                    ],
+                    "lists": [
+                        {
+                            "generate": "item",
+                            "fields": [
+                                {
+                                    "generate": "item",
+                                    "extract": "items[*].item",
+                                    "internalId": true,
+                                    "isKey": true,
+                                    "discardIfEmpty": false,
+                                    "immutable": false,
+                                    "lookupName": "dy_lkp"
+                                },
+                                {
+                                    "generate": "countquantity",
+                                    "extract": "items[*].qty",
+                                    "internalId": false
+                                },
+                                {
+                                    "generate": "celigo_countdetail",
+                                    "subRecordMapping": {
+                                        "recordType": "countdetail",
+                                        "jsonPath": "$",
+                                        "mapping": {
+                                            "fields": [],
+                                            "lists": [
+                                                {
+                                                    "generate": "inventorydetail",
+                                                    "fields": [
+                                                        {
+                                                            "generate": "inventorynumber",
+                                                            "extract": "subrecord[*].lotNumber",
+                                                            "internalId": false,
+                                                            "useIterativeRow": true,
+                                                            "isKey": true,
+                                                            "discardIfEmpty": false,
+                                                            "immutable": false
+                                                        },
+                                                        {
+                                                            "generate": "inventorystatus",
+                                                            "extract": "subrecord[*].status",
+                                                            "internalId": false
+                                                        },
+                                                        {
+                                                            "generate": "quantity",
+                                                            "extract": "subrecord[*].quantity",
+                                                            "internalId": false
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        "lookups": []
+                                    },
+                                    "internalId": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C55978_itemname",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

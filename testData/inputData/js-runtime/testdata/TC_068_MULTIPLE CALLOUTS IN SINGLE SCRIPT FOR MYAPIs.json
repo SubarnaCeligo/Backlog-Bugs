@@ -1,0 +1,9 @@
+{
+  "script": "TC_068",
+  "name": "TC_068_MULTIPLE CALLOUTS IN SINGLE SCRIPT FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": "Pass [object Object] [object Object] undefined"
+    }
+  }
+}

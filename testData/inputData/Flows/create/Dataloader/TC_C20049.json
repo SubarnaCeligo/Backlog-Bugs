@@ -1,0 +1,77 @@
+{
+    "name": "TC_C20049",
+    "disabled": false,
+    "qa__isDataLoader": "true",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Data Loader",
+          "asynchronous": true,
+          "qa__path": "/Dataloader_uploades/TC_C25823.csv",
+          "qa__isDataLoader": "csv",
+          "type": "simple",
+          "file": {
+            "output": "records",
+            "type": "csv",
+            "encoding": "utf8",
+            "groupByFields": [
+              "id"
+            ],
+            "csv": {
+              "columnDelimiter": ",",
+              "rowDelimiter": "\n",
+              "hasHeaderRow": false,
+              "trimSpaces": false,
+              "rowsToSkip": 0
+            }
+          },
+          "adaptorType": "SimpleExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "ns import",
+          "_connectionId":"NETSUITE CONNECTION",
+          "distributed": true,
+          "lookups": [],
+          "netsuite_da": {
+            "useSS2Restlets": false,
+            "operation": "add",
+            "recordType": "customer",
+            "lookups": [],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "['Company Name']",
+                  "generate": "companyname",
+                  "internalId": false
+                },
+                {
+                  "extract": "Subsidiary",
+                  "generate": "subsidiary",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Lead Company Name']",
+                  "generate": "custentity31",
+                  "internalId": false
+                },
+                {
+                  "extract": "email",
+                  "generate": "email",
+                  "internalId": false
+                }
+              ],
+              "lists": []
+            }
+          },
+          "adaptorType": "NetSuiteDistributedImport"
+        }
+      }
+    ]
+}

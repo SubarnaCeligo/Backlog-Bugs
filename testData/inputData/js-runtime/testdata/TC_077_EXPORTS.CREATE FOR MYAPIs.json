@@ -1,0 +1,48 @@
+{
+    "script": "TC_077",
+    "name": "TC_077_EXPORTS.CREATE FOR MYAPIs",
+    "qa__dataVerification": {
+        "expected": {
+            "response": {
+                "_id": "5fe32c1c4dd92f63a1e47fd1",
+                "createdAt": "2020-12-23T11:38:04.853Z",
+                "lastModified": "2020-12-23T11:38:04.979Z",
+                "name": "create zendesk export",
+                "_connectionId": "ZENDESK CONNECTION",
+                "apiIdentifier": "e64c6196fb",
+                "asynchronous": true,
+                "type": "test",
+                "parsers": [],
+                "http": {
+                    "relativeURI": "/api/v2/tickets.json",
+                    "method": "GET",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "paging": {
+                        "method": "url",
+                        "path": "next_page",
+                        "lastPageStatusCode": 404,
+                        "lastPageValues": []
+                    },
+                    "response": {
+                        "resourcePath": "tickets",
+                        "successValues": []
+                    }
+                },
+                "rawData": "5dce7030918bf72896a38488ac27c8cc05664b1586c594cc82580b73",
+                "test": {
+                    "limit": 1
+                },
+                "rest": {
+                    "relativeURI": "/api/v2/tickets.json",
+                    "method": "GET",
+                    "resourcePath": "tickets",
+                    "pagingMethod": "nextpageurl",
+                    "nextPagePath": "next_page",
+                    "allowUndefinedResource": false
+                },
+                "adaptorType": "RESTExport"
+            }
+        }
+    }
+}

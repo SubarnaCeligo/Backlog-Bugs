@@ -1,0 +1,58 @@
+{
+    "script": "TC_074",
+    "name": "TC_074_EXPORTS.GET ID FOR MYAPIs",
+    "qa__dataVerification": {
+        "expected": {
+            "response": {
+                "_id": "5fe3332f4b36c55bd3ca6d00",
+                "createdAt": "2020-12-23T12:08:15.216Z",
+                "lastModified": "2020-12-23T12:08:15.265Z",
+                "name": "MAIN EXPORT",
+                "_connectionId": "NETSUITE CONNECTION",
+                "externalId": "TC_075",
+                "apiIdentifier": "ee81d52622",
+                "asynchronous": true,
+                "parsers": [],
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "1149",
+                        "criteria": [],
+                        "columns": [],
+                        "useSS2Restlets": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "MAIN EXPORT",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "externalId": "TC_075",
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "1149",
+                                "useSS2Restlets": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ]
+        }
+    ]
+}

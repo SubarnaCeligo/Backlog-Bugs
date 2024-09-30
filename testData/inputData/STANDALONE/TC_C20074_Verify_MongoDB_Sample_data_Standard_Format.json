@@ -25,7 +25,7 @@
     }
   ],
   "qa__connectionId": "62f5f35d33b1cc2065ea77e4",
-  "connectionId": "631a0dd34ceac669f82fb0a8",
+  "connectionId": "MONGODB CONNECTION",
   "expected_Json": {
     "data": {
       "name": "test"

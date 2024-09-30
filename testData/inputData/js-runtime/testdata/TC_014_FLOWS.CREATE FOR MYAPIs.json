@@ -1,0 +1,15 @@
+{
+  "script": "TC_014",
+  "name": "TC_014_FLOWS.CREATE FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": {
+        "_id": "5fed8f1e85c44c4bdc15b270",
+        "name": "TC_014",
+        "disabled": true,
+        "_integrationId": "5f9008596eb5c6461949f664",
+        "skipRetries": false
+      }
+    }
+  }
+}

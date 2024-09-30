@@ -1,0 +1,211 @@
+{
+  "script": "TC_016",
+  "name": "TC_016_FLOWS.GET ID FOR PRESAVEPAGE_HOOK_PRESAVEPAGE_HOOK_MAIN",
+  "referencename": "TC_016_FLOWS.GET ID FOR PRESAVEPAGE_HOOK_REFERENCE",
+  "qa__expectedDashboardCount": {
+    "successCount": "0",
+    "ignoreCount": "0",
+    "errorCount": "1"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "Salesforce": {
+        "name": "TC_004_IMPORT.GET ID FOR PRESAVEPAGE_HOOK_PRESAVEPAGE_HOOK_MAIN",
+        "_integrationId": "5f9008596eb5c6461949f664",
+        "import": {
+          "_connectionId": "SALESFORCE CONNECTION"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "Id": "0013m00002FhBOjAAN",
+              "Name": "Louis Fabre",
+              "Description": "{\"data\":[{\"id\":\"1355\",\"recordType\":\"customer\",\"Name\":\"Louis Fabre\",\"Email\":\"info@fabreart.com\",\"Phone\":\"(888) 888-8888\",\"Office Phone\":\"77777777777\",\"Fax\":\"\",\"Internal ID\":\"1355\",\"Comments\":\"static comment updated\",\"once export test field\":\"F\",\"Type\":\"An email.\",\"Title\":\"test2\",\"Memo\":\"test11\",\"Direction\":\"Incoming\",\"Shipping Address\":\"Louis Fabre\\nFabre Art\\n253 Main Street\\nSan Francisco CA 94131\",\"Sort_String\":\"S,M,L\",\"Dateformat_A\":\"11/12/2019\"},{\"id\":\"11247\",\"recordType\":\"customer\",\"Name\":\"Loui2New Strat2New\",\"Email\":\"abc12566@gmail.com\",\"Phone\":\"77777777777777\",\"Office Phone\":\"(999) 999-9999\",\"Fax\":\"\",\"Internal ID\":\"11247\",\"Comments\":\"67.9\",\"once export test field\":\"F\",\"Type\":\"\",\"Title\":\"\",\"Memo\":\"\",\"Direction\":\"\",\"Shipping Address\":\"\",\"Sort_String\":\"\",\"Dateformat_A\":\"11/4/2019\"},{\"id\":\"11248\",\"recordType\":\"customer\",\"Name\":\"Loui3 Strat3\",\"Email\":\"\",\"Phone\":\"22222222\",\"Office Phone\":\"(999) 999-9999\",\"Fax\":\"\",\"Internal ID\":\"11248\",\"Comments\":\"\",\"once export test field\":\"F\",\"Type\":\"\",\"Title\":\"\",\"Memo\":\"\",\"Direction\":\"\",\"Shipping Address\":\"\",\"Sort_String\":\"\",\"Dateformat_A\":\"10/29/2019\"},{\"id\":\"11347\",\"recordType\":\"customer\",\"Name\":\"Loui4 Strat4\",\"Email\":\"\",\"Phone\":\"11111111\",\"Office Phone\":\"243222342432\",\"Fax\":\"\",\"Internal ID\":\"11347\",\"Comments\":\"\",\"once export test field\":\"F\",\"Type\":\"\",\"Title\":\"\",\"Memo\":\"\",\"Direction\":\"\",\"Shipping Address\":\"\",\"Sort_String\":\"\",\"Dateformat_A\":\"10/29/2019\"}],\"dataURIs\":[\"https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=1355&compid=TSTDRV1143616\",\"https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=11247&compid=TSTDRV1143616\",\"https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=11248&compid=TSTDRV1143616\",\"https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=11347&compid=TSTDRV1143616\"]}"
+            },
+            {
+              "Id": "0013m00002FhBOkAAN",
+              "Name": "Loui2New Strat2New",
+              "Description": null
+            },
+            {
+              "Id": "0013m00002FhBOlAAN",
+              "Name": "Loui3 Strat3",
+              "Description": null
+            },
+            {
+              "Id": "0013m00002FhBOmAAN",
+              "Name": "Loui4 Strat4",
+              "Description": null
+            }
+          ],
+          "standaloneexportflowID": "5fa271858e25911404a30b46",
+          "uniqueField": "Name",
+          "importRecordType": "Account",
+          "exportRecordType": "users",
+          "isUIFlow": true,
+          "query": "Select id,Name, description from Account where name like 'Loui%'",
+          "exportapiIdentifier": "ed510d3745"
+        }
+      }
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "MAIN EXPORT",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3158",
+                "useSS2Restlets": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "SF Main Import",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "res1",
+                  "generate": "Description"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_016_FLOWS.GET ID FOR PRESAVEPAGE_HOOK_PRESAVEPAGE_HOOK_MAIN",
+        "disabled": false,
+        "_integrationId": "5f9008596eb5c6461949f664",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    },
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "REFERENCE EXPORT",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "3158",
+                "useSS2Restlets": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP Reference Import",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "apiIdentifier": "i26b095c86",
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "res1",
+                  "generate": "res1"
+                },
+                {
+                  "extract": "Name",
+                  "generate": "Custom Name"
+                }
+              ]
+            },
+            "file": {
+              "type": "csv",
+              "csv": {
+                "rowDelimiter": "\n",
+                "columnDelimiter": ",",
+                "includeHeader": true,
+                "wrapWithQuotes": false,
+                "replaceTabWithSpace": false,
+                "replaceNewlineWithSpace": false,
+                "truncateLastRowDelimiter": false
+              }
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "ns_ftp.csv"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_016_FLOWS.GET ID FOR PRESAVEPAGE_HOOK_REFERENCE",
+        "disabled": false,
+        "_integrationId": "5f9008596eb5c6461949f664",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}
