@@ -12,9 +12,11 @@ test.describe("@Author_sagna123 TC_T29688_T29689_Test to validate 'Data URI temp
         await io.homePage.addStep("*** Navigated back to export page ***");
         await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.homePage.addStep("*** Clicked on create export***");
+        await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, "Microsoft Azure synapse");
         await io.homePage.click(selectors.connectionsPagePO.AZURE_SYNAPSE);
         await io.homePage.addStep("*** Clicked on Azure synapse connection ***");
-        await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+        await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'AZURE SYNAPSE CONNECTOR');
         await io.homePage.addStep("*** Clicked on connection dropdown ***");
         await io.homePage.clickByText("AZURE SYNAPSE CONNECTOR");
         await io.homePage.addStep("*** Selected the connection ***");
