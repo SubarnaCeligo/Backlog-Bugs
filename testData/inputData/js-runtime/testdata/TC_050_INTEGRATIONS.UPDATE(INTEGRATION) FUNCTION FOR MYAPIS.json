@@ -1,0 +1,23 @@
+{
+    "script": "TC_050",
+    "script_QA": "TC_050_QA",
+    "name": "TC_050_INTEGRATIONS.UPDATE(INTEGRATION) FUNCTION FOR MYAPIS",
+    "qa__expectedDashboardCount": {
+        "successCount": "0",
+        "ignoreCount": "0",
+        "errorCount": "1"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "_id": "5fdb12964b36fc1e15b27976",
+            "lastModified": "2020-12-17T08:24:00.892Z",
+            "name": "update integration",
+            "install": [],
+            "_registeredConnectionIds": [],
+            "installSteps": [],
+            "uninstallSteps": [],
+            "flowGroupings": [],
+            "createdAt": "2020-12-17T08:11:02.097Z"
+        }
+    }
+}

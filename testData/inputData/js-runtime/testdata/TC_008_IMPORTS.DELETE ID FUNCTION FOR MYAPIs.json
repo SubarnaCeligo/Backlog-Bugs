@@ -1,0 +1,51 @@
+{
+    "script": "TC_008",
+    "name": "TC_008_IMPORTS.DELETE ID FUNCTION FOR MYAPIs",
+    "qa__dataVerification": {
+        "expected": {
+            "response": "Import Deleted Successfully "
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "SFTP Import",
+                        "parsers": [],
+                        "_connectionId": "FTP CONNECTION",
+                        "distributed": false,
+                        "apiIdentifier": "i1be61b2c8",
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "res1",
+                                    "generate": "response"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "customHeaderRows": [],
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "virtualexport.csv"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ]
+        }
+    ]
+}

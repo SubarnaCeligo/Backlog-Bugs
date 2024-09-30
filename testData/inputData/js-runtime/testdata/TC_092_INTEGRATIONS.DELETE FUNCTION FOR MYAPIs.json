@@ -1,0 +1,14 @@
+{
+  "script": "TC_092",
+  "name": "TC_092_INTEGRATIONS.DELETE FUNCTION FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": "Integration Deleted Successfully "
+    }
+  },
+  "qa__api_tdata": [{
+    "createIntegrations": {
+      "name": "TC_092"
+    }
+  }]
+}

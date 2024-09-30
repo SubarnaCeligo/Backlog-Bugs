@@ -1,0 +1,87 @@
+{
+    "script": "TC_005",
+    "name": "TC_005_IMPORTS.RUN(options)FUNCTION FOR MYAPIs",
+    "qa__expectedDashboardCount": {
+        "successCount": "8",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "response": {
+                "name": "FTP Import",
+                "parsers": [],
+                "_connectionId": "FTP CONNECTION",
+                "distributed": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "res1",
+                            "generate": "response"
+                        }
+                    ]
+                },
+                "file": {
+                    "type": "csv",
+                    "csv": {
+                        "rowDelimiter": "\n",
+                        "columnDelimiter": ",",
+                        "includeHeader": true,
+                        "wrapWithQuotes": false,
+                        "replaceTabWithSpace": false,
+                        "replaceNewlineWithSpace": false,
+                        "customHeaderRows": [],
+                        "truncateLastRowDelimiter": false
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "virtualexport.csv"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Import",
+                        "parsers": [],
+                        "_connectionId": "FTP CONNECTION",
+                        "distributed": false,
+                        "apiIdentifier": "i1be61b2c8",
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "res1",
+                                    "generate": "response"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "customHeaderRows": [],
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "virtualexport.csv"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ]
+        }
+    ]
+}

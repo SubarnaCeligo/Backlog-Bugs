@@ -1,0 +1,35 @@
+{
+    "script": "TC_009",
+    "name": "TC_009_IMPORTS.CREATE FUNCTION FOR MYAPIs",
+    "qa__dataVerification": {
+        "expected": {
+            "response": {
+                "name": "TC_009",
+                "parsers": [],
+                "_connectionId": "SALESFORCE CONNECTION",
+                "distributed": false,
+                "apiIdentifier": "i7f1829907",
+                "lookups": [],
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "Name",
+                            "generate": "Name"
+                        },
+                        {
+                            "extract": "res1",
+                            "generate": "Description"
+                        }
+                    ]
+                },
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "Account",
+                    "api": "soap",
+                    "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        }
+    }
+}

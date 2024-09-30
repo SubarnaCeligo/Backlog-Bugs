@@ -7,23 +7,19 @@
                 {
                     "type": "export",
                     "qa__export": {
-                        "name": "FTP Export TC_C27525",
-                        "qa__path": "//SFTP_uploads//TC_C27525.json",
-                        "_connectionId": "FTP CONNECTION",
+                        "name": "test",
+                        "_connectionId": "HTTP SHOPIFY CONNECTION",
+                        "apiIdentifier": "e31c1c5377",
                         "asynchronous": true,
-                        "sandbox": false,
-                        "ftp": {
-                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-                            "fileNameStartsWith": "TC_C27525",
-                            "fileNameEndsWith": ".json"
+                        "isLookup": true,
+                        "oneToMany": false,
+                        "pathToMany": "contacts",
+                        "http": {
+                            "relativeURI": "customers/7337750462550",
+                            "method": "GET",
+                            "formType": "http"
                         },
-                        "file": {
-                            "encoding": "utf8",
-                            "output": "records",
-                            "skipDelete": true,
-                            "type": "json"
-                        },
-                        "adaptorType": "FTPExport"
+                        "adaptorType": "HTTPExport"
                     }
                 }
             ],
@@ -31,18 +27,17 @@
                 {
                     "type": "import",
                     "qa__import": {
-                        "name": "Zendesk import",
-                        "application":"zendesk support",
-                        "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "apiIdentifier": "i087c4a05d",
+                        "name": "http import 27342",
+                        "application":"BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
                         "ignoreExisting": false,
                         "ignoreMissing": false,
                         "oneToMany": true,
-                        "pathToMany": "user_fields",
-                        "traceKeyTemplate": "{{record.name}}",
+                        "traceKeyTemplate": "{{record.customer.email}}",
+                        "sandbox": false,
                         "http": {
                             "relativeURI": [
-                                "/users"
+                                "/v3/brands"
                             ],
                             "method": [
                                 "POST"
@@ -59,8 +54,6 @@
             "createFlow": {
                 "name": "TC_C27525",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
                     {

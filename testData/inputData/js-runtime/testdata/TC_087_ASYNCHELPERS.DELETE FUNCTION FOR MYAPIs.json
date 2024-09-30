@@ -1,0 +1,73 @@
+{
+  "script": "TC_087",
+  "name": "TC_087_ASYNCHELPERS.DELETE FUNCTION FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": "asyncHelper Deleted Successfully "
+    }
+  },
+  "qa__api_tdata": [{
+    "createasynHelpers": {
+      "name": "TC_087",
+      "http": {
+        "submit": {
+          "sameAsStatus": false,
+          "resourcePath": "/RequestReportResponse/RequestReportResult/ReportRequestInfo",
+          "transform": {
+            "type": "expression",
+            "expression": {
+              "rules": [
+                [{
+                    "extract": "/ReportType",
+                    "generate": "ReportType"
+                  },
+                  {
+                    "extract": "/ReportProcessingStatus",
+                    "generate": "ReportProcessingStatus"
+                  },
+                  {
+                    "extract": "/ReportRequestId",
+                    "generate": "ReportRequestId"
+                  }
+                ]
+              ],
+              "version": "1"
+            },
+            "version": "1",
+            "rules": [
+              [{
+                  "extract": "/ReportType",
+                  "generate": "ReportType"
+                },
+                {
+                  "extract": "/ReportProcessingStatus",
+                  "generate": "ReportProcessingStatus"
+                },
+                {
+                  "extract": "/ReportRequestId",
+                  "generate": "ReportRequestId"
+                }
+              ]
+            ]
+          }
+        },
+        "status": {
+          "_exportId": "5fe9800f163cd53f7537fdcb",
+          "statusPath": "ReportProcessingStatus",
+          "inProgressValues": [
+            "_SUBMITTED_",
+            "_IN_PROGRESS_"
+          ],
+          "doneValues": [
+            "_DONE_",
+            "_DONE_NO_DATA_",
+            "_CANCELLED_"
+          ]
+        },
+        "result": {
+          "_exportId": "5fe9800f163cd53f7537fdca"
+        }
+      }
+    }
+  }]
+}

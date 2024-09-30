@@ -1,0 +1,59 @@
+{
+  "script": "TC_025",
+  "name": "TC_025_CONNECTIONS.CREATE FUNCTION FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": {
+        "_id": "5fd8e5f3f4a79975707ca1f3",
+        "createdAt": "2020-12-15T16:36:03.589Z",
+        "lastModified": "2020-12-15T16:36:03.698Z",
+        "type": "rest",
+        "name": " zendesk js runtime my api",
+        "assistant": "zendesk",
+        "isHTTP": true,
+        "http": {
+            "mediaType": "json",
+            "baseURI": "https://celigoqa.zendesk.com",
+            "ping": {
+                "relativeURI": "/api/v2/users.json",
+                "method": "GET"
+            },
+            "headers": [
+                {
+                    "name": "content-type",
+                    "value": "application/json"
+                }
+            ],
+            "encryptedFields": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "mounica.manavapati@celigo.com",
+                    "password": "******"
+                },
+                "oauth": {
+                    "scope": []
+                }
+            }
+        },
+        "rest": {
+            "baseURI": "https://celigoqa.zendesk.com",
+            "isHTTPProxy": true,
+            "mediaType": "json",
+            "authType": "basic",
+            "headers": [],
+            "encryptedFields": [],
+            "unencryptedFields": [],
+            "scope": [],
+            "pingRelativeURI": "/api/v2/users.json",
+            "pingMethod": "GET",
+            "refreshTokenHeaders": [],
+            "basicAuth": {
+                "username": "mounica.manavapati@celigo.com",
+                "password": "******"
+            }
+        }
+    }
+    }
+  }
+}

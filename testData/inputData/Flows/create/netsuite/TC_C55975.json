@@ -1,0 +1,114 @@
+{
+  "flowsData": {
+    "name": "TC_C55975",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "ea6a7df3df",
+              "asynchronous": true,
+              "sandbox": false,
+              "ftp": {
+                  "directoryPath": "/",
+                  "fileNameStartsWith": "TC_C55975"
+              },
+              "file": {
+                  "output": "records",
+                  "skipDelete": true,
+                  "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "i1c4f04a4f",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "add",
+                  "recordType": "inventorycount",
+                  "lookups": [],
+                  "mapping": {
+                      "fields": [],
+                      "lists": [
+                          {
+                              "generate": "item",
+                              "fields": [
+                                  {
+                                      "generate": "celigo_countdetail",
+                                      "subRecordMapping": {
+                                          "recordType": "countdetail",
+                                          "jsonPath": "$",
+                                          "mapping": {
+                                              "fields": [],
+                                              "lists": [
+                                                  {
+                                                      "generate": "inventorydetail",
+                                                      "fields": [
+                                                          {
+                                                              "generate": "inventorynumber",
+                                                              "hardCodedValue": "3",
+                                                              "internalId": false
+                                                          },
+                                                          {
+                                                              "generate": "quantity",
+                                                              "hardCodedValue": "17",
+                                                              "internalId": false
+                                                          }
+                                                      ]
+                                                  }
+                                              ]
+                                          },
+                                          "lookups": []
+                                      },
+                                      "internalId": false
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C55975",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

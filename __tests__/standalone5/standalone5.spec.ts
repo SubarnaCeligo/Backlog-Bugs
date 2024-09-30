@@ -55,3 +55,5 @@ require("./TC_C28196_FTP_Verify_Zip_Set_deafault_Compression_Algorithm");
 require("./TC_C28384");
 require("./TC_C29979");
 require("./TC_C29980_shopify");
+require("./TC_C28920");
+require("./TC_C28923");

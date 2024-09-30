@@ -1,0 +1,107 @@
+{
+  "qa_requestBody": {
+    "name": "Standalone Integration",
+    "sandbox": false,
+    "_registeredConnectionIds": [
+      "NETSUITE CONNECTION",
+      "SALESFORCE CONNECTION"
+    ],
+    "aliases": [
+      {
+        "alias": "nonexisting_resource",
+        "_exportId": ""
+      }
+    ]
+  },
+  "requestBody": {
+    "name": "Standalone Integration",
+    "sandbox": false,
+    "_registeredConnectionIds": [
+      "NETSUITE CONNECTION",
+      "SALESFORCE CONNECTION"
+    ],
+    "aliases": [
+      {
+        "alias": "nonexisting_resource",
+        "_exportId": ""
+      }
+    ]
+  },
+  "pageGenerators_qa": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "FTP Export",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e915125cd2",
+        "asynchronous": true,
+        "sandbox": false,
+        "sampleData": [
+          {
+            "ItemName": "ACC00001",
+            "BasePrice": "114.00",
+            "CustomerName": "Automation5",
+            "Memo": "TC_C2472",
+            "Qty": "1",
+            "Amount": "10.00"
+          }
+        ],
+        "ftp": {
+          "directoryPath": "/"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": false,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageGenerators_staging": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "FTP Export",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e915125cd2",
+        "asynchronous": true,
+        "sandbox": false,
+        "sampleData": [
+          {
+            "ItemName": "ACC00001",
+            "BasePrice": "114.00",
+            "CustomerName": "Automation5",
+            "Memo": "TC_C2472",
+            "Qty": "1",
+            "Amount": "10.00"
+          }
+        ],
+        "ftp": {
+          "directoryPath": "/"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": false,
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "error": {
+    "errors": [
+      {
+        "field": "aliases",
+        "code": "update_not_allowed",
+        "message": "The target resource must be attached to a connection that is registered to the same integration."
+      }
+    ]
+  }
+}

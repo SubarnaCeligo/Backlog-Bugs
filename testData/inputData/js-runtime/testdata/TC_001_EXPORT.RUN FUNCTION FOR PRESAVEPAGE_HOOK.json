@@ -1,0 +1,201 @@
+{
+    "script": "TC_001",
+    "name": "TC_001_EXPORT_RUN_FOR_PRESAVEPAGE_HOOK_MAIN",
+    "referencename": "TC_001_EXPORT_RUN_FOR_PRESAVEPAGE_HOOK_REFERENCE",
+    "qa__expectedDashboardCount": {
+        "successCount": "8",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Salesforce": {
+                "name": "TC_001_EXPORT_RUN_FOR_PRESAVEPAGE_HOOK_MAIN",
+                "_integrationId": "5f9008596eb5c6461949f664",
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "Name": "Louis Fabre",
+                            "Description": "{\"data\":[{\"id\":\"1355\",\"recordType\":\"customer\",\"Name\":\"Louis Fabre\",\"Email\":\"info@fabreart.com\",\"Phone\":\"(888) 888-8888\",\"Office Phone\":\"77777777777\",\"Real time export Checkbox\":\"F\",\"Priority\":\"50\",\"Skip Export To Salesforce\":\"F\",\"Comments\":\"static comment updated\",\"custom anusha field\":\"MF\",\"custom_Text_Field\":\"123456\"},{\"id\":\"11247\",\"recordType\":\"customer\",\"Name\":\"Loui2New Strat2New\",\"Email\":\"abc12566@gmail.com\",\"Phone\":\"77777777777777\",\"Office Phone\":\"(999) 999-9999\",\"Real time export Checkbox\":\"F\",\"Priority\":\"50\",\"Skip Export To Salesforce\":\"F\",\"Comments\":\"67.9\",\"custom anusha field\":\"MF\",\"custom_Text_Field\":\"\"},{\"id\":\"11248\",\"recordType\":\"customer\",\"Name\":\"Loui3 Strat3\",\"Email\":\"\",\"Phone\":\"22222222\",\"Office Phone\":\"(999) 999-9999\",\"Real time export Checkbox\":\"F\",\"Priority\":\"50\",\"Skip Export To Salesforce\":\"F\",\"Comments\":\"\",\"custom anusha field\":\"MF\",\"custom_Text_Field\":\"\"},{\"id\":\"11347\",\"recordType\":\"customer\",\"Name\":\"Loui4 Strat4\",\"Email\":\"\",\"Phone\":\"11111111\",\"Office Phone\":\"243222342432\",\"Real time export Checkbox\":\"F\",\"Priority\":\"50\",\"Skip Export To Salesforce\":\"F\",\"Comments\":\"\",\"custom anusha field\":\"MF\",\"custom_Text_Field\":\"\"}],\"dataURIs\":[\"https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=1355&compid=TSTDRV1143616\",\"https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=11247&compid=TSTDRV1143616\",\"https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=11248&compid=TSTDRV1143616\",\"https://tstdrv1143616.app.netsuite.com/app/common/entity/custjob.nl?id=11347&compid=TSTDRV1143616\"]}"
+                        }
+                    ],
+                    "standaloneexportflowID": "631edb0f798cc1729e8b05b8",
+                    "uniqueField": "Name",
+                    "importRecordType": "Account",
+                    "exportRecordType": "users",
+                    "isUIFlow": true,
+                    "query": "Select id,Name, description from Account where name like 'Louis fabre'",
+                    "exportapiIdentifier": "e580abab18",
+                    "qa__standaloneexportflowID": "631edd693097cb1636942172",
+                    "qa__exportapiIdentifier": "e08961e54f"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "MAIN EXPORT",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3160",
+                                "useSS2Restlets": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "SF Main Import",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "distributed": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "Name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "res1",
+                                    "generate": "Description"
+                                },
+                                {
+                                    "generate": "Phone",
+                                    "hardCodedValue": "TC_001"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_001_EXPORT_RUN_FOR_PRESAVEPAGE_HOOK_MAIN",
+                "disabled": false,
+                "_integrationId": "5f9008596eb5c6461949f664",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        },
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "REFERENCE EXPORT",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "3160",
+                                "useSS2Restlets": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Reference Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "distributed": false,
+                        "apiIdentifier": "i26b095c86",
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "res1",
+                                    "generate": "res1"
+                                },
+                                {
+                                    "extract": "Name",
+                                    "generate": "Custom Name"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "ns_ftp.csv"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_001_EXPORT_RUN_FOR_PRESAVEPAGE_HOOK_REFERENCE",
+                "disabled": false,
+                "_integrationId": "5f9008596eb5c6461949f664",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}
