@@ -5,7 +5,7 @@ test.describe("@Author-Shriti S Verify the message on UI when search returns no 
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38140 Verify the message on UI when search returns no results", async ({ io, page }) => {
+  test("@Env-All @Epic-IO-85710 @Priority-P2 @Zephyr-IO-T38140 @Zephyr-IO-T38489 Verify the message on UI when search returns no results", async ({ io, page }) => {
 
     //Go to Dashboard
     await io.myAccountPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + "dashboard");
@@ -24,6 +24,10 @@ test.describe("@Author-Shriti S Verify the message on UI when search returns no 
     await page.keyboard.press('Enter');
     await io.homePage.loadingTime();
     await io.assert.verifyElementDisplayedByText("No EDI activity to report.", 'Message is not displayed');
+
+    await io.homePage.addStep("IO-T38489 - Verify '1 - 0 of 0' is not displayed");
+    let isPaginationDisplayed = await io.homePage.isVisible("text='1 - 0 of 0'");
+    await io.assert.expectToBeFalse(isPaginationDisplayed, 'Invalid pagination displayed on UI');
   
   });
 });
