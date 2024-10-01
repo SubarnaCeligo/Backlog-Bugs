@@ -1,7 +1,7 @@
 {
     "QA_connection": {
         "FTP_Conn": "FTP CONNECTION",
-        "NS_conn": "628f00568f68e85ab2c63b22",
+        "NS_conn": "NETSUITE CONNECTION",
         "SF_conn": "SALESFORCE CONNECTION"
     },
     "Staging_connections": {

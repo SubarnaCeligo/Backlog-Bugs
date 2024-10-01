@@ -1,0 +1,18 @@
+{
+  "script": "TC_078",
+  "name": "TC_078_VERIFY ERROR OBJECT  FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": {
+        "errors": [{
+          "code": "script_error",
+          "message": "TypeError: Cannot read property '0' of undefined",
+          "source": "JavaScript(api)",
+          "stage": "invoke",
+          "location": "asas:14",
+          "stack": "TypeError: Cannot read property '0' of undefined\n    at handleRequest (handleRequest:14:16)"
+        }]
+      }
+    }
+  }
+}

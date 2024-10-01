@@ -112,6 +112,9 @@ for (let i of lastUpdated3) {
 if(lastUpdatedArray3[0].includes(" ago")) {
   await io.assert.expectToContainValue("ago",lastUpdatedArray3[0],"");
   }
+if(lastUpdatedArray3[0].includes("now")) {
+  await io.assert.expectToContainValue("now",lastUpdatedArray3[0],"");
+  }
   
 await test.step(
   "*** Verified the Timestamp on Run console page  ***"

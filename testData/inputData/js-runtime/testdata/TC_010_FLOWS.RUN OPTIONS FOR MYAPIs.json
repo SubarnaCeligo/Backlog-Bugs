@@ -1,0 +1,122 @@
+{
+  "script": "TC_010",
+  "name": "TC_010_FLOWS.RUN OPTIONS FOR MYAPIs",
+  "qa__expectedDashboardCount": {
+    "successCount": "8",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "Salesforce": {
+        "name": "TC_001_EXPORT_RUN_FOR_PRESAVEPAGE_HOOK_MAIN",
+        "_integrationId": "5f9008596eb5c6461949f664",
+        "import": {
+          "_connectionId": "SALESFORCE CONNECTION"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "Name": "Louis Fabre",
+              "Description": null
+            },
+            {
+              "Name": "Loui2New Strat2New",
+              "Description": null
+            },
+            {
+              "Name": "Loui3 Strat3",
+              "Description": null
+            },
+            {
+              "Name": "Loui4 Strat4",
+              "Description": null
+            }
+          ],
+          "standaloneexportflowID": "5fa271858e25911404a30b46",
+          "uniqueField": "Name",
+          "importRecordType": "Account",
+          "exportRecordType": "users",
+          "isUIFlow": true,
+          "query": "Select id,Name, description from Account where name like 'Loui%'",
+          "exportapiIdentifier": "ed510d3745"
+        }
+      }
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "MAIN EXPORT",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "1149",
+                "useSS2Restlets": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "SF Main Import",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "res1",
+                  "generate": "Description"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_010_FLOWS.RUN OPTIONS FOR MYAPIs",
+        "disabled": false,
+        "_integrationId": "5f9008596eb5c6461949f664",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

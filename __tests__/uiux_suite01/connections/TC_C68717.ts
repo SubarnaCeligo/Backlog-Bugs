@@ -40,6 +40,7 @@ test.describe(`C68717 Verify user is able to create connection for NS JDBC conne
       testData.connection.roleId
     );
     await io.flowBuilder.clickByIndex(selectors.basePagePO.SAVE, 1);
+    await page.getByText("Testing your connection...").waitFor({ state: "hidden", timeout:360000 });
     await io.assert.verifyElementDisplayedByText(
       "Your connection is working great! Nice Job!",
       "Connection creation error"

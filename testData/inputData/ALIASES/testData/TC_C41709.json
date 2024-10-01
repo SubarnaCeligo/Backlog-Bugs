@@ -1,0 +1,101 @@
+{
+  "name": "NS_SF_FLOW_C41709",
+  "aliasName": "63200dea51852e73fb076431",
+  "qa_aliasName": "63035ef8972083139cfaad1b",
+  "aliasResourceType": "flows",
+  "aliasResourceName": "63200dea51852e73fb076431",
+  "qa_aliasResourceName": "63035ef8972083139cfaad1b",
+  "skipRetries": false,
+  "_integrationId": "63200dc43bfc725f00638e41",
+  "qa__integrationId": "639ac0022a818e4415960959",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "NS Export_C41709",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "ea49e22e48",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "test": {
+              "limit": 1
+            },
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "4537",
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "useSS2Framework": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "SF_import_C41709",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "res1",
+                  "generate": "Description"
+                },
+                {
+                  "generate": "Phone",
+                  "hardCodedValue": "NS_SF_FLOW"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "NS_SF_FLOW_C41709",
+        "disabled": false,
+        "_integrationId": "63200dc43bfc725f00638e41",
+        "qa__integrationId": "639ac0022a818e441596095",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

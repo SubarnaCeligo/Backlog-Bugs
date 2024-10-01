@@ -1,5 +1,6 @@
 import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
+  // please do not add any more new test cases to Exports suite, because load is getting increased during jenkins run and test cases are getting failed
   "C27965",
   "C27969",
   "C28172",
@@ -14,10 +15,10 @@ var testCases = [
   "C58484",
   "C27545",
   "C22817",
-  "C69769",  //this test will fail as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
+  // "C69769",  //this test will fail as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
   "C113465",
   "C22828",
-  "C120059",  //this test will fail as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
+  // "C120059",  //this test will fail as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
   "C28883",
   "C2044",
   "C19744",
@@ -74,7 +75,7 @@ var testCases = [
   "T29674",
   "T29675",
   "T29676",
-  "T29677",
+   "T29677",
   "T29678",
   "T29679",
   "T29680",
@@ -89,8 +90,8 @@ var testCases = [
   "T29697",
   "IOT2505",
   "T7901",
-  "T32707",
-  "T32822",
+   "T32707",
+   "T32822",
   "IO-T33009",
   "C106842",
   "C22764",
@@ -108,6 +109,8 @@ var testCases = [
   "C51813",
   "IO-T35139",
   "IO-T35637"
+  // please do not add any more new test cases to Exports suite, because load is getting increased during jenkins run and test cases are getting failed
+
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {

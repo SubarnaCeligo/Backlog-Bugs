@@ -1,0 +1,23 @@
+{
+  "script": "TC_055",
+  "name": "TC_055_ACCESSTOKENS.UPDATE FUNCTION FOR MYAPIs",
+  "qa__expectedDashboardCount": {
+    "successCount": "8",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "response": {
+        "_id": "5fd33fc7672dd94a45d84391",
+        "token": "******",
+        "name": "js api token",
+        "revoked": false,
+        "fullAccess": true,
+        "legacyNetSuite": false,
+        "createdAt": "2020-12-11T09:45:43.081Z",
+        "lastModified": "2020-12-15T08:55:23.198Z"
+      }
+    }
+  }
+}

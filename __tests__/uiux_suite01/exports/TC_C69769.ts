@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 
 test.describe(`C69769 For both exports and imports, name field is still showing as sap litmos watermark instead of litmos`, () => {
   //Skipped this test case as we don;t have creds for the connection and the tracker is : https://celigo.atlassian.net/browse/IOAUT-15782
-  test.skip(`@Env-All @Zephyr-IO-T20886 C69769 For both exports and imports, name field is still showing as sap litmos watermark instead of litmos`, async ({
+  test(`@Env-All @Zephyr-IO-T20886 C69769 For both exports and imports, name field is still showing as sap litmos watermark instead of litmos`, async ({
     io,
     page
   }) => {

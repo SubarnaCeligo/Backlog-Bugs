@@ -27,7 +27,11 @@ test.describe("TC_C51221", () => {
     await fileInput.setInputFiles(`testData/assets${filepath}`);
     await io.homePage.loadingTime();
 
-    test.step("*** Save and close the import ***", async ()=>{});
+    test.step("*** Clicking on Preview ***", async ()=>{});
+    await io.homePage.click(
+      selectors.importPagePO.CLICKPREVIEW
+    );
+
     await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.loadingTime();
 

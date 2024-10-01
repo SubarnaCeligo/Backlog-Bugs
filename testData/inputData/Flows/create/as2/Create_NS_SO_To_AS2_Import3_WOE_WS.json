@@ -1,0 +1,235 @@
+{
+  "name": "Create_NS_SO_To_AS2_Import3_WOE_WS",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "1",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "NS_AS2_export",
+        "parsers": [],
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "salesorder",
+            "searchId": "3013",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          }
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "AS2_Import_WOE_WS",
+        "_connectionId": "5d25b08ef1845c6d3eee3733",
+        "qa__ediformat": "amazonedi855",
+        "distributed": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Type",
+              "generate": "Acknowledgment Type"
+            }
+          ],
+          "lists": [
+            {
+              "fields": [
+                {
+                  "extract": "*.Name",
+                  "qa__ignoreStar": true,
+                  "generate": "Assigned Identification",
+                  "qa__extract": "Name"
+                },
+                {
+                  "extract": "*.Quantity",
+                  "qa__ignoreStar": true,
+                  "generate": "Quantity Ordered",
+                  "qa__extract": "Quantity"
+                },
+                {
+                  "extract": "*.Item",
+                  "qa__ignoreStar": true,
+                  "generate": "Basis of Unit Price Code",
+                  "qa__extract": "Item"
+                }
+              ],
+              "generate": "PO1"
+            }
+          ]
+        },
+        "file": {
+          "skipAggregation": true,
+          "type": "filedefinition",
+          "fileDefinition": {
+            "_fileDefinitionId": "5d2702fdd10f1d0ea0934d20"
+          }
+        },
+        "as2": {
+          "fileNameTemplate": "AS2-Import-{{connection.name}}",
+          "messageIdTemplate": "AS2-msgId-Import-{{connection.name}}"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "adaptorType": "AS2Import"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "qa__path": "D:\\OpenAS2Server-2.6.2\\data\\OpenAS2F_OID-OpenAS2D_OID\\inbox\\noContentDispositionFilename-AS2-msgId-Import-AS2 WOE WS base64 mdn",
+    "fileName": "noContentDispositionFilename-AS2-msgId-Import-AS2 WOE WS base64 mdn",
+    "importRecordJSON": {
+      "entity": "rajaneesh",
+      "ITEM": "ACC00004",
+      "QTY": "2",
+      "Amount": "200",
+      "otherrefnum": "1717171717"
+    },
+    "application":"NETSUITE",    
+    "importapiIdentifier": "i1b36453f6",
+    "importRecordType": "Salesorder",
+    "expected": {
+      "AS2": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "Create_NS_SO_To_AS2_Import3_WOE_WS",
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "5d25b08ef1845c6d3eee3733"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "importRecordType": "Salesorder",
+          "fileName": "noContentDispositionFilename-AS2-msgId-Import-AS2 WOE WS base64 mdn",
+          "qa__path": "D:\\OpenAS2Server-2.6.2\\data\\OpenAS2F_OID-OpenAS2D_OID\\inbox\\noContentDispositionFilename-AS2-msgId-Import-AS2 WOE WS base64 mdn",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".edi",
+          "qa__columnDelimiter": "*"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "5e861874423f2a15b0b25c72",
+      "createdAt": "2020-04-02T16:53:08.723Z",
+      "lastModified": "2020-04-02T18:10:27.870Z",
+      "name": "AS2-NS_StandaloneImport3_WOE_WS",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "5bcda68a173ed818fb0c78ce",
+      "distributed": true,
+      "apiIdentifier": "i1b36453f6",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "salesorder",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "entity",
+              "extract": "entity",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "custbody_celigo_ext_ref_num",
+              "extract": "otherrefnum",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            }
+          ],
+          "lists": [
+            {
+              "generate": "item",
+              "fields": [
+                {
+                  "generate": "item",
+                  "extract": "ITEM",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                },
+                {
+                  "generate": "quantity",
+                  "extract": "QTY",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                },
+                {
+                  "generate": "amount",
+                  "extract": "Amount",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

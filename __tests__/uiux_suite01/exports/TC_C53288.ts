@@ -59,10 +59,12 @@ test.describe("C53288 Verify 'Limit - export a set number of records' for all th
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     await io.flowBuilder.fill(selectors.importPagePO.NAME, 'netsuite export');
     await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-    await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
+    //await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
+    await io.exportsPage.clickByTextByIndex('NETSUITE CONNECTION', 0);
     await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.exportsPagePO.NETSUITE_RECORD_TYPE);
-    await io.flowBuilder.clickByText("-Solution Review Status");
+   // await io.flowBuilder.fill(selectors.importPagePO.NETSUITE_RECORD_TYPE, 'A Private Cust3');
+    await io.flowBuilder.clickByText("A Private Cust3");
     await io.homePage.click(selectors.exportsPagePO.NETSUITE_SAVED_SEARCH);
     await io.flowBuilder.clickByText("!Bin Search");
     await io.flowBuilder.loadingTime();

@@ -4,131 +4,92 @@
         "ignoreCount": "0",
         "successCount": "2",
         "errorCount": "0"
-      },
-    "referencename": "TC_C66320",
-    "qa__api_tdata": [
+    },
+    "pageGenerators": [
         {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "litmos",
-                        "qa__connectionId": "Litmos",
-                        "_connectionId":"645b49400ba3011a44bef84c",
-                        "iaqa__connectionid":"645b49e715160965c6d945bc",
-                        "qaprod__connectionId": "645b49952c24bf3dced3dde4",
-                        "asynchronous": true,
-                        "assistant": "saplitmos",
-                        "oneToMany": false,
-                        "sandbox": false,
-                        "http": {
-                            "relativeURI": "/teams/owKIdvzSYZM1/teams?start={{{export.http.paging.skip}}}&source=Integrator.io",
-                            "method": "GET",
-                            "requestMediaType": "json",
-                            "successMediaType": "json",
-                            "errorMediaType": "json",
-                            "_httpConnectorVersionId": "63c6a53e1f8fd78444e02aef",
-                            "_httpConnectorResourceId": "63c6a53e1f8fd78444e02b04",
-                            "_httpConnectorEndpointId": "63c6a53e1f8fd78444e02b06",
-                            "formType": "assistant",
-                            "paging": {
-                                "method": "skip",
-                                "skip": 0
-                            }
-                        },
-                        "adaptorType": "HTTPExport"
-                        }
-                        }
-            ],
-            "pageProcessors": [
-                {
-                 "type": "import",
-                 "qa__import": {
-                    "name": "litmos",
-                    "qa__connectionId": "6453597c0baff47d6011bbe8",
-                    "_connectionId":"645b49400ba3011a44bef84c",
-                    "iaqa__coonectionid":"645b49e715160965c6d945bc",
-                    "qaprod__connectionId": "645b49952c24bf3dced3dde4",
-                    "ignoreExisting": false,
-                    "ignoreMissing": false,
-                    "oneToMany": false,
-                    "assistant": "saplitmos",
-                    "sandbox": false,
-                    "mapping": {
-                        "fields": [
-                            {
-                                "hardCodedValue": "Alliances",
-                                "generate": "Name"
-                            },
-                            {
-                                "hardCodedValue": "zanYrq_eO1c1",
-                                "generate": "Id"
-                            },
-                            {
-                                "hardCodedValue": "test",
-                                "generate": "Description"
-                            },
-                            {
-                                "hardCodedValue": "owKIdvzSYZM1",
-                                "generate": "ParentTeamId"
-                            },
-                            {
-                                "hardCodedValue": "1389064-Alliances",
-                                "generate": "TeamCodeForBulkImport"
-                            }
-                        ]
-                    },
-                    "http": {
-                        "relativeURI": [
-                            "/teams?source=Integrator.io"
-                        ],
-                        "method": [
-                            "POST"
-                        ],
-                        "body": [
-                            "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
-                        ],
-                        "requestMediaType": "json",
-                        "successMediaType": "json",
-                        "errorMediaType": "json",
-                        "strictHandlebarEvaluation": false,
-                        "sendPostMappedData": true,
-                        "_httpConnectorVersionId": "63c6a53e1f8fd78444e02aef",
-                        "_httpConnectorResourceId": "63c6a53e1f8fd78444e02b04",
-                        "_httpConnectorEndpointIds": [
-                            "63c6a53e1f8fd78444e02b3d"
-                        ],
-                        "formType": "assistant"
-                    },
-                    "adaptorType": "HTTPImport"
-
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C66320",
-                "disabled": false,
-                "qa__integrationId": "633408479fb96473a0c7372c",
-                "_integrationId": "63340890bb74b66e32a92640",
-                "qaprod__integrationId": "633408479fb96473a0c7372c",
-                "iaqa__integrationid":"63340890bb74b66e32a92640",
-                "skipRetries": false,
-                "pageProcessors": [
+            "type": "export",
+            "qa__export": {
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": [
                     {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
+                        "type": "order",
+                        "value": "1234"
                     }
                 ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
+                    "fileNameStartsWith": "TC_C22279.json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
                     }
-                ]
+                },
+                "adaptorType": "FTPExport"
             }
         }
-    ]
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Loop returns Export",
+                "_connectionId": "LOOP RETURNS CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "assistant": "loopreturns",
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/warehouse/return/1234/remove?line_item_id=123"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "headers": [],
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "strictHandlebarEvaluation": false,
+                    "sendPostMappedData": true,
+                    "_httpConnectorVersionId": "639184209998e4b191badcb2",
+                    "_httpConnectorResourceId": "639184209998e4b191badcb8",
+                    "_httpConnectorEndpointIds": [
+                        "6627063884a401f7ed761702"
+                    ],
+                    "isRest": false,
+                    "formType": "assistant",
+                    "lookups": []
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "TC_C66320",
+        "disabled": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
 }

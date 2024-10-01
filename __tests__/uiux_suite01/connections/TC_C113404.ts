@@ -181,7 +181,8 @@ test.describe("C113404", () => {
         }
       }
     }
-    await io.connectionPage.selectTextfromDropDown(page, id);
+    await io.connectionPage.click('[title="3PL ICLEINT"]');
+    await io.flowBuilder.loadingTime();
     await io.connectionPage.click(selectors.connectionsPagePO.EDIT_RESOURCE);
     const monitorExp2 = await io.homePage.isVisible("text='Use JWT'");
     await io.assert.expectToBeValue(monitorExp2.toString(), 'true', "Value is found");

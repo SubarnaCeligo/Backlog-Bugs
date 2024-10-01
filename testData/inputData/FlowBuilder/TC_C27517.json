@@ -6,24 +6,28 @@
             "pageGenerators": [
                 {
                     "type": "export",
-                    "qa__export": {
-                        "name": "FTP Export TC_C27525",
-                        "qa__path": "//SFTP_uploads//TC_C27525.json",
-                        "_connectionId": "FTP CONNECTION",
+                    "qa__export": 
+                    {
+                        "name": "123",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e8716eb766",
                         "asynchronous": true,
+                        "oneToMany": false,
                         "sandbox": false,
-                        "ftp": {
-                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-                            "fileNameStartsWith": "TC_C27525",
-                            "fileNameEndsWith": ".json"
+                        "http": {
+                            "relativeURI": "users/22734706889233",
+                            "method": "GET",
+                            "isRest": false,
+                            "formType": "http",
+                            "response": {
+                                "twoDArray": {
+                                    "doNotNormalize": false,
+                                    "hasHeader": false
+                                }
+                            }
                         },
-                        "file": {
-                            "encoding": "utf8",
-                            "output": "records",
-                            "skipDelete": true,
-                            "type": "json"
-                        },
-                        "adaptorType": "FTPExport"
+                        "rawData": "62ebb431e627016182cf3391a12b230e95564af8b2032ed9f2079e17",
+                        "adaptorType": "HTTPExport"
                     }
                 }
             ],

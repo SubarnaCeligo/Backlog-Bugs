@@ -1,0 +1,18 @@
+{
+    "skipRetries": false,
+    "aliasResourceType": "connections",
+    "aliasResourceName": "NETSUITE CONNECTION",
+    "qa_aliasResourceName": "NETSUITE CONNECTION",
+    "_integrationId": "63200dc43bfc725f00638e41",
+    "qa__integrationId": "639ac0022a818e4415960959",
+    "aliasName": "Automation_TC_C41707",
+    "aliasExpectedName": "Automation_TC_C41707",
+    "expectedJSON": {
+        "alias": "automation_tc_c41707",
+        "_connectionId": "NETSUITE CONNECTION"
+    },
+    "qa__expectedJSON": {
+        "alias": "automation_tc_c41707",
+        "_connectionId": "NETSUITE CONNECTION"
+    }
+}

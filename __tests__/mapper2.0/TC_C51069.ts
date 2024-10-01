@@ -18,8 +18,15 @@ test.describe("TC_C51069", () => {
       await selectors.flowBuilderPagePO.TRANSFER
     );
     await io.homePage.loadingTime();
-
     var filepath = FTP.pageGenerators[0].qa__export.qa__path;
+    const map = new Map();
+    map.set("uploadFile", filepath);
+    await io.homePage.fileUpload(map);
+    test.step("*** Clicking on Preview ***", async ()=>{});
+    await io.homePage.click(
+      selectors.importPagePO.CLICKPREVIEW
+    );
+   
     const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
     await fileInput.setInputFiles(`testData/assets${filepath}`);
     await io.homePage.loadingTime();

@@ -1,0 +1,102 @@
+{
+  "script": "TC_091",
+  "name": "TC_091_LISTENER_DATA_FOR_EXPORT.RUN",
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "Salesforce": {
+        "name": "TC_001_EXPORT_RUN_FOR_PRESAVEPAGE_HOOK_MAIN",
+        "_integrationId": "5f9008596eb5c6461949f664",
+        "import": {
+          "_connectionId": "SALESFORCE CONNECTION"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "Name": "TC_091",
+              "Description": "TC_091 test"
+            }
+          ],
+          "standaloneexportflowID": "5ffee49bfdb94723b048e736",
+          "uniqueField": "Name",
+          "importRecordType": "Account",
+          "exportRecordType": "users",
+          "isUIFlow": true,
+          "query": "Select id,Name, description from Account where name like 'TC_091'",
+          "exportapiIdentifier": "e6f30ef7ec"
+        }
+      }
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "test",
+            "type": "webhook",
+            "webhook": {
+              "provider": "integrator-extension"
+            },
+            "adaptorType": "WebhookExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "SF Main Import",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "testValue1",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "testValue2",
+                  "generate": "Description"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_091_LISTENER_DATA_FOR_EXPORT.RUN",
+        "disabled": false,
+        "_integrationId": "5f9008596eb5c6461949f664",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

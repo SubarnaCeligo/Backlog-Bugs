@@ -1,0 +1,174 @@
+{
+  "name": "TC_C32551_verification_of_subrecord_mapping",
+  "referencename": "TC_C32551_verification_of_subrecord_mapping",
+  "qa__dataVerification": {
+    "expected": {
+      "Netsuite": {
+        "name": "TC_C32551_imp",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "recordtype": "salesorder",
+              "memo": "TC_C32551",
+              "entity": {
+                "internalid": "7058",
+                "name": "001i000000c1imYAAQ"
+              },
+              "terms": {
+                "internalid": "2",
+                "name": "Net 30"
+              }
+            }
+          ],
+          "exportapiIdentifier": "eb050324ac",
+          "importRecordType": "salesorder",
+          "isUIFlow": true,
+          "generateSampleDropDownAvailable": true,
+          "standaloneexportflowID": "63174b615bca603be6bc95aa",
+          "savedsearchId": "4542",
+          "uniqueField": "memo"
+        }
+      }
+    }
+  },
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C32551_ftp_exp",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C32551",
+              "fileNameEndsWith": ".csv"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "csv",
+              "sortByFields": [],
+              "groupByFields": [
+                "Column0",
+                "Column1",
+                "Column2"
+              ],
+              "groupEmptyValues": true,
+              "csv": {
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n",
+                "hasHeaderRow": true,
+                "trimSpaces": true,
+                "rowsToSkip": 0
+              }
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C32551_imp",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "add",
+              "recordType": "salesorder",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "entity",
+                    "extract": "customer_name",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "memo",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "TC_C32551",
+                    "internalId": false
+                  }
+                ],
+                "lists": [
+                  {
+                    "generate": "item",
+                    "fields": [
+                      {
+                        "generate": "item",
+                        "extract": "*.item",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "celigo_inventorydetail",
+                        "subRecordMapping": {
+                          "recordType": "inventorydetail",
+                          "jsonPath": "$",
+                          "mapping": {
+                            "fields": [
+                              {
+                                "generate": "customform",
+                                "extract": "form",
+                                "internalId": false,
+                                "useAsAnInitializeValue": false
+                              }
+                            ],
+                            "lists": []
+                          },
+                          "lookups": []
+                        },
+                        "internalId": false
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C32551_verification_of_subrecord_mapping",
+        "disabled": false,
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

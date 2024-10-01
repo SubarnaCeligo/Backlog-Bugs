@@ -12,17 +12,18 @@ test.describe('T24909 Verify For the Test runs, the lightning bolt appears on al
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
-
+        await io.flowBuilder.loadingTime();
         const runTest = await page.locator(selectors.exportsPagePO.RUN_TEST).nth(0);
         expect(await runTest.screenshot()).toMatchSnapshot("RunTest.png",  {maxDiffPixelRatio: 0.2 });
 
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_SPECIFIC_SOURCE_DROPDOWN);
+        await io.flowBuilder.loadingTime();
         const specificSourceRunButton = await page.locator(`${selectors.flowBuilderPagePO.SELECT_PAGE_GENERATOR_POPPER} ${selectors.exportsPagePO.RUN_TEST}`).nth(1);
         await expect(specificSourceRunButton).toHaveText("Run test");
 
         specificSourceRunButton.click();
 
-        await io.flowBuilder.waitForElementAttached('[aria-label="active source"]');
-        io.assert.expectToBeTrue(await io.flowBuilder.isVisible('[aria-label="active source"]'), "Active source is not shown");
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ACTIVE_SOURCE);
+        io.assert.expectToBeTrue(await io.flowBuilder.isVisible(selectors.flowBuilderPagePO.ACTIVE_SOURCE), "Active source is not shown");
     });
 });

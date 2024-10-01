@@ -1,0 +1,20 @@
+{
+  "script": "TC_058",
+  "name": "TC_058_ACCESSTOKENS.CREATE FUNCTION FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": {
+        "_id": "5fd8bcadbe28e04421515494",
+        "token": "******",
+        "name": "Test",
+        "revoked": false,
+        "fullAccess": false,
+        "legacyNetSuite": false,
+        "_exportIds": [],
+        "_importIds": [],
+        "_apiIds": [],
+        "_connectionIds": []
+    }
+    }
+  }
+}

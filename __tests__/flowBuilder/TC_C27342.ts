@@ -14,7 +14,7 @@ test.describe("TC_C27342 | TC_C27334 ", () => {
     test.step("** Deleted flow **", async () => { });
   });
 
-  test("@Env-All @Zephyr-IO-T2823 |  Verify Tracekey is overidden with the Override trace key template value when given field reference. ", async ({ io, page }, testInfo) => {
+  test("@Env-All @Zephyr-IO-T2823| Verify Tracekey is overidden with the Override trace key template value when given field reference. ", async ({ io, page }, testInfo) => {
     await io.api.createImpOrExpAndFlowsThruAPI(TC);
     flowId = await io.api.getFlowId(TC.name);
     await test.step(
@@ -35,7 +35,7 @@ test.describe("TC_C27342 | TC_C27334 ", () => {
       selectors.mappings.MAPPER2DOT0PO.ADVANCED
     );
     await io.homePage.clickButtonByIndex(
-      '[aria-label="Open handlebars editor"]',
+      selectors.basePagePO.HANDLEBAR_EDITOR,
       1
     );
     await io.homePage.loadingTime();

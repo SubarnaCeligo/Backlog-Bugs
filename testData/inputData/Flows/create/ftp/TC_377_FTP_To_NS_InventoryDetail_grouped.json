@@ -1,0 +1,251 @@
+{
+	"skipRetries": false,
+	"_integrationId": "56d6b23fe1fc35de53914730",
+	"qa__expectedDashboardCount": {
+		"ignoreCount": "0",
+		"successCount": "2",
+		"errorCount": "0"
+	},
+	"pageProcessors": [
+		{
+			"type": "import",
+			"qa__import": {
+				"_connectionId": "NETSUITE CONNECTION",
+				"name": "NS_Inventoryadjustment",
+				"distributed": true,
+				"lookups": [],
+				"netsuite_da": {
+					"operation": "add",
+					"recordType": "inventoryadjustment",
+					"lookups": [],
+					"mapping": {
+						"lists": [
+							{
+								"generate": "inventory",
+								"fields": [
+									{
+										"generate": "item",
+										"extract": "Item",
+										"internalId": false,
+										"immutable": false,
+										"discardIfEmpty": true
+									},
+									{
+										"generate": "location",
+										"hardCodedValue": "17",
+										"internalId": true,
+										"immutable": false,
+										"discardIfEmpty": true
+									},
+									{
+										"generate": "adjustqtyby",
+										"extract": "Adjust Qty By",
+										"internalId": false,
+										"immutable": false,
+										"discardIfEmpty": true
+									},
+									{
+										"generate": "celigo_inventorydetail",
+										"immutable": false,
+										"discardIfEmpty": true,
+										"subRecordMapping": {
+											"qa__id": "jsonPath_inventory_sublist_celigo_inventorydetail",
+											"_id": "inventory[*].celigo_inventorydetail",
+											"recordType": "inventorydetail",
+											"jsonPath": "$",
+											"mapping": {
+												"fields": [
+													{
+														"generate": "celigo_replaceAllLines_inventoryassignment",
+														"hardCodedValue": true,
+														"internalId": false,
+														"immutable": false,
+														"discardIfEmpty": true,
+														"useFirstRow": false,
+														"useAsAnInitializeValue": false
+													}
+												],
+												"lists": [
+													{
+														"generate": "inventoryassignment",
+														"fields": [
+															{
+																"generate": "quantity",
+																"extract": "Status Qty",
+																"internalId": false,
+																"immutable": false,
+																"discardIfEmpty": true,
+																"useFirstRow": false,
+																"useAsAnInitializeValue": false
+															},
+															{
+																"generate": "receiptinventorynumber",
+																"extract": "Serial number",
+																"internalId": false,
+																"immutable": false,
+																"discardIfEmpty": true,
+																"useFirstRow": false,
+																"useAsAnInitializeValue": false
+															}
+														]
+													}
+												]
+											},
+											"lookups": []
+										}
+									}
+								]
+							}
+						],
+						"fields": [
+							{
+								"generate": "subsidiary",
+								"hardCodedValue": "3",
+								"internalId": true,
+								"immutable": false,
+								"discardIfEmpty": true
+							},
+							{
+								"generate": "memo",
+								"hardCodedValue": "Inventory5099",
+								"internalId": false
+							},
+							{
+								"generate": "account",
+								"extract": "Account",
+								"internalId": false,
+								"immutable": false,
+								"discardIfEmpty": true
+							},
+							{
+								"generate": "celigo_recordmode_dynamic",
+								"hardCodedValue": "true",
+								"internalId": false,
+								"immutable": false,
+								"discardIfEmpty": true
+							}
+						]
+					}
+				},
+				"adaptorType": "NetSuiteDistributedImport"
+			}
+		}
+	],
+	"timezone": "Asia/Calcutta",
+	"name": "TC_377_FTP_To_NS_InventoryDetail_grouped",
+	"disabled": false,
+	"qa__dataVerification": {
+		"expected": {
+			"Netsuite": {
+				"name": "TC_377_FTP_To_NS_InventoryDetail_grouped",
+				"_integrationId": "56d6b23fe1fc35de53914730",
+				"import": {
+					"_connectionId": "NETSUITE CONNECTION"
+				},
+				"qa__expectedDashboardCount": {
+					"successCount": "1",
+					"ignoreCount": "0",
+					"errorCount": "0"
+				},
+				"qa__dataVerification": {
+					"expectedJSON": [
+						{
+							"memo": "Inventory5099",
+							"inventory": [
+								{
+									"adjustqtyby": 1,
+									"exchangerate": 1,
+									"inventorydetail": {
+										"item": {
+											"name": "Inv serial item3"
+										},
+										"quantity": 1,
+										"inventoryassignment": [
+											{
+												"inventorystatus": {
+													"internalid": "1",
+													"name": "Good"
+												},
+												"quantity": 1,
+												"receiptinventorynumber": "S055"
+											}
+										]
+									},
+									"item": {
+										"name": "Inv serial item3"
+									},
+									"unitcost": 1197.79
+								},
+								{
+									"adjustqtyby": 1,
+									"exchangerate": 1,
+									"inventorydetail": {
+										"item": {
+											"name": "Inv serial item3"
+										},
+										"quantity": 1,
+										"inventoryassignment": [
+											{
+												"inventorystatus": {
+													"internalid": "1",
+													"name": "Good"
+												},
+												"quantity": 1,
+												"receiptinventorynumber": "S066"
+											}
+										]
+									},
+									"item": {
+										"name": "Inv serial item3"
+									},
+									"unitcost": 1197.79
+								}
+							],
+							"estimatedtotalvalue": 2395.58,
+							"account": {
+								"name": "4000 Sales"
+							}
+						}
+					],
+					"standaloneexportflowID": "60c211aea4004f2e4cfcd29a",
+					"uniqueField": "memo",
+					"importRecordType": "inventoryadjustment",
+					"isUIFlow": true,
+					"savedsearchId": "3212",
+					"exportapiIdentifier": "e531807107"
+				}
+			}
+		}
+	},
+	"pageGenerators": [
+		{
+			"qa__export": {
+				"_connectionId": "FTP CONNECTION",
+				"name": "FTPExport_Grouped",
+				"asynchronous": true,
+				"qa__path": "//FTP_uploads//TC_377_Itemfulfillment_grouped_data.csv",
+				"ftp": {
+					"directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+					"fileNameStartsWith": "TC_377_Itemfulfillment_grouped_data"
+				},
+				"file": {
+					"encoding": "utf8",
+					"output": "records",
+					"skipDelete": true,
+					"type": "csv",
+					"groupByFields": [
+						"External ID"
+					],
+					"csv": {
+						"columnDelimiter": ",",
+						"rowDelimiter": "\r",
+						"hasHeaderRow": true,
+						"trimSpaces": true,
+						"rowsToSkip": 0
+					}
+				},
+				"adaptorType": "FTPExport"
+			}
+		}
+	]
+}
