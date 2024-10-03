@@ -6,7 +6,7 @@ test.describe(`TC_IOT32593  Verify if the ignore configurations can be added fro
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
   });
-  test(`@Zephyr-IO-T32593 @Zephyr-IO-T31928 @Zephyr-IO-T31929 @Zephyr-IO-T30611 @Zephyr-IO-T31930 @Zephyr-IO-T31936 @Zephyr-IO-T32595 @Zephyr-IO-T31941 @Zephyr-IO-T31940  @Zephyr-IO-T32595 @Zephyr-IO-T31942 @Env-All C41599 To verify all the new scripts are shown under ""Scripts"" accordion(Action: New)`, async ({
+  test(`@Zephyr-IO-T32593 @Zephyr-IO-T31928 @Zephyr-IO-T31929 @Zephyr-IO-T30611 @Zephyr-IO-T31930 @Zephyr-IO-T31936 @Zephyr-IO-T32595 @Zephyr-IO-T31941 @Zephyr-IO-T31940  @Zephyr-IO-T32595 @Zephyr-IO-T31942 @Env-All  To verify ILM ignore fields`, async ({
     io,
     page
   }) => {
