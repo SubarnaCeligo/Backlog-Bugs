@@ -11,7 +11,7 @@ test.describe(`TC_IOT480 To verify all the new scripts are shown under ""Scripts
   }) => {
     await io.integrationPage.waitForElementAttached(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR);
     await io.homePage.addStep("*** Waiting for home page Search Bar ***")
-    wait io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_IOT480_DND');
+    await io.integrationPage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, 'Clone - TC_IOT480_DND');
     await io.homePage.addStep("*** Searching for Clone - TC_IOT480_DND ***")
     await io.flowBuilder.clickByTextByIndex("Clone - TC_IOT480_DND",0);
     await io.homePage.click(selectors.flowBuilderPagePO.CREATEFLOW);
