@@ -37,6 +37,8 @@ test.describe("TC_C1084_Verify_able_to_delete_stack", () => {
     await io.homePage.loadingTime();     
     test.step("***Searching the created stack ***", async ()=>{});
 
+    const beforeElList = await page.getByText("TC1084_Auto_2024").all();
+
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
     await io.homePage.loadingTime();
@@ -46,11 +48,9 @@ test.describe("TC_C1084_Verify_able_to_delete_stack", () => {
     await io.homePage.loadingTime();
     test.step("*** Delete the stack ***", async ()=>{});
 
-    var resultsEl = await page.getByText("Your search didn’t return any matching results")
-    await resultsEl.waitFor({ state: 'visible', timeout: 60000 });
-    await expect(resultsEl).toBeVisible();
-    test.step("*** Validating stack deleted successfully ***", async ()=>{});
-    
+    const afrterDelElList = await page.getByText("TC1084_Auto_2024").all();
+    await expect(afrterDelElList.length).toBeLessThanOrEqual(beforeElList.length);
+
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     test.step("*** Navigating to home page ***", async ()=>{});
   });

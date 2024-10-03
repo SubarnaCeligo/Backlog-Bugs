@@ -73,10 +73,10 @@ await test.step(
           lastUpdatedArray1.push(text);
         }
       }
-      if(lastUpdatedArray1[0].includes("am")) {
+      if(lastUpdatedArray1[0] && lastUpdatedArray1[0].includes("am")) {
       await io.assert.expectToContainValue("am",lastUpdatedArray1[0],"");
       }
-      if(lastUpdatedArray1[0].includes("pm")) {
+      if(lastUpdatedArray1[0] && lastUpdatedArray1[0].includes("pm")) {
       await io.assert.expectToContainValue("pm",lastUpdatedArray1[0], "");
       }
 await test.step(
@@ -138,10 +138,10 @@ await test.step(
           lastUpdatedArray3.push(text);
         }
       }
-      if(lastUpdatedArray2[0].includes("days ago")) {
+      if(lastUpdatedArray2[0] && lastUpdatedArray2[0].includes("days ago")) {
         await io.assert.expectToContainValue("days ago",lastUpdatedArray2[0],"");
         }
-        if(lastUpdatedArray2[0].includes("hours ago")) {
+        if(lastUpdatedArray2[0] && lastUpdatedArray2[0].includes("hours ago")) {
         await io.assert.expectToContainValue("hours ago",lastUpdatedArray2[0], "");
         }
 

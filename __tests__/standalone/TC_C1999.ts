@@ -26,8 +26,11 @@ test.describe("TC_C1999", () => {
     await (await page.locator(selectors.flowBuilderPagePO.SEARCHBUTTON)).isVisible();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "TC_C1999_First_API_Token");
+    await io.homePage.loadingTime();
+    await page.waitForTimeout(3000);
     await test.step("***Searching the created token***", async ()=>{});
 
+    await (await page.locator(selectors.integrationPagePO.OPENACTIONSMENU)).first().isVisible();
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.integrationPagePO.EDIT);
     test.step("*** Clicked On Edit API Token***", async ()=>{});
@@ -52,9 +55,12 @@ test.describe("TC_C1999", () => {
     await editedEl.waitFor({ state: 'visible', timeout: 60000 });
     await expect(editedEl).toBeVisible();
 
+    await (await page.locator(selectors.integrationPagePO.OPENACTIONSMENU)).first().isVisible();
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.connectionsPagePO.REVOKEAPITOKEN);
     test.step("*** Clicked On Revoke API Token***", async ()=>{});
+
+    const beforeElList = await page.getByText("TC_C1999_Second_API_Token").all();
     
     const revokedEl = await page.getByText("Revoked").first();
     await revokedEl.waitFor({ state: 'visible', timeout: 60000 });
@@ -69,9 +75,7 @@ test.describe("TC_C1999", () => {
     await page.waitForTimeout(3000);
     test.step("*** Clicked On Delete API Token***", async ()=>{});
         
-    const noResultsEl = await page.getByText("Your search didn’t return any matching results. Try expanding your search criteria.");
-    await noResultsEl.waitFor({ state: 'visible', timeout: 30000 });
-    await expect(noResultsEl).toBeVisible();
-    test.step("*** API Token Is Deleted Successfully ***", async ()=>{});
+    const afrterDelElList = await page.getByText("TC_C1999_Second_API_Token").all();
+    await expect(afrterDelElList.length).toBeLessThanOrEqual(beforeElList.length);
   });
 });

@@ -10,8 +10,10 @@ test.describe("TC_C26239_Template", () => {
     await test.step("*** Beginning of Test Suite ***",()=>{});
     await test.step("*** Deleting Integrations which might not get deleted due to error in previous test case run ***",()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.homePage.loadingTime();
     await io.api.deleteIntegrationRecursively(jsonData.integrationDetails.Source_Integration);
     await io.api.deleteIntegrationNonRecursively(jsonData.integrationDetails.Source_Integration);
+    await io.homePage.loadingTime();
   });
   test.afterEach(async ({io,page}, testInfo) => {
     await test.step("*** Deleting Integrations  ***",()=>{});
@@ -28,11 +30,13 @@ test.describe("TC_C26239_Template", () => {
     
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime();
     await test.step("*** Downloading Integration ***",()=>{});
     await io.integrationPage.downloadIntegrationFromUI( jsonData.downloadIntegration);
-
+    await io.homePage.loadingTime();
     await test.step("*** Deleting the template while installing from IO ***",()=>{});
     await io.integrationPage.deleteIntegrationWhileInstalling(  jsonData.integrationDetails, integrationIds[0] + ".zip");
+    await io.homePage.loadingTime();
     await test.step("*** Successfully Deleted Integration in the process of installing ***",()=>{});
   });
 });

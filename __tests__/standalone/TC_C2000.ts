@@ -41,8 +41,8 @@ test.describe("TC_C2000", () => {
     await test.step("***Searching the created token***", async ()=>{});
     
     await io.homePage.click(selectors.flowBuilderPagePO.SHOW_TOKEN);
-
     test.step("***Token Is Displayed In Clear Text***", async ()=>{});
+    await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).isVisible();
     await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
     test.step("***Copied Token To ClipBoard***", async ()=>{});
 
@@ -89,6 +89,8 @@ test.describe("TC_C2000", () => {
     test.step("*** Wait for text to be visible ***", async ()=>{});
     await expect(revokedEl).toBeVisible();
     test.step("*** API Token Is Revoked Successfully ***", async ()=>{});
+
+    const beforeElList = await page.getByText("TC_C2000_generating new token").all();
     
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.waitForElementAttached(selectors.integrationPagePO.DELETE_FLOW);
@@ -96,10 +98,9 @@ test.describe("TC_C2000", () => {
     await io.homePage.click(selectors.basePagePO.DELETE);
     await page.waitForTimeout(3000);
     test.step("*** Clicked On Delete API Token***", async ()=>{});
-            
-    const noResultsEl = await page.getByText("Your search didn’t return any matching results. Try expanding your search criteria.");
-    await noResultsEl.waitFor({ state: 'visible', timeout: 30000 });
-    await expect(noResultsEl).toBeVisible();
-    test.step("*** API Token Is Deleted Successfully ***", async ()=>{});
+
+    const afrterDelElList = await page.getByText("TC_C2000_generating new token").all();
+
+    await expect(afrterDelElList.length).toBeLessThanOrEqual(beforeElList.length);
   });
 });

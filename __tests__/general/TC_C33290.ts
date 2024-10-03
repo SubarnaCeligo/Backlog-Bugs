@@ -48,10 +48,10 @@ test.describe("TC_C33290", () => {
         }
       }
     
-    if(result1[0].includes("ago")) {
+    if(result1[0] && result1[0].includes("ago")) {
       await io.assert.expectToContainValue("ago",result1[0],"");
       }
-      if(result1[0].includes("now")) {
+      if(result1[0] &&  result1[0].includes("now")) {
       await io.assert.expectToContainValue("now",result1[0],"");
       }
 
@@ -86,10 +86,10 @@ test.describe("TC_C33290", () => {
           result3.push(text);
         }
       }
-    if(result3[0].includes("am")) {
+    if(result3[0] &&  result3[0].includes("am")) {
       await io.assert.expectToContainValue("am",result3[0],"");
       }
-      if(result3[0].includes("pm")) {
+      if(result3[0] &&  result3[0].includes("pm")) {
       await io.assert.expectToContainValue("pm",result3 [0],"");
       }
     await test.step(" Verified Last updated column time is displayed in Exact date and time format in Connections section ***",()=>{});

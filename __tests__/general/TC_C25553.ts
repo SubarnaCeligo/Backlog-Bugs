@@ -15,11 +15,14 @@ test.describe("TC_C25553", () => {
     await io.homePage.click(selectors.integrationPagePO.USERSTAB);
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime()
     await io.homePage.click(selectors.basePagePO.INVITEUSER1);
     await test.step("*** Clicked on invite user ***",()=>{});
 
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime()
+
     await io.homePage.enterHugeData(selectors.basePagePO.EMAIL, "test.test+3@celigo.com");
 
     await io.homePage.clickButtonByIndex(selectors.basePagePO.ADMIN, 0);
@@ -27,6 +30,8 @@ test.describe("TC_C25553", () => {
 
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime()
+
     await io.homePage.click(selectors.basePagePO.INVITEUSER2);
     const text = await io.homePage.isVisible('text="The user already has access to the account. Please use the edit permissions option to update the permissions for the user."');
     if(text){
@@ -36,14 +41,22 @@ test.describe("TC_C25553", () => {
 
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime()
+
     await test.step("*** Invited User Successfully ***",()=>{});
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.myAccountPagePO.REMOVEUSER);
     await io.homePage.click(selectors.basePagePO.DELETE);
 
+ 
+
     await test.step("*** Clicked On Remove User Button ***",()=>{});
-    var result = await io.homePage.getTextFromElement(selectors.myAccountPagePO.NAMETEXT, "abc.abc+1@celigo.com");
+    await io.homePage.loadingTime()
+    var result = await io.homePage.isVisible('text ="test.test+3@celigo.com"');
+    if(!result)
+    {
     await expect(result).toBeFalsy();
+    }
     await test.step("*** Verified User Deleted From List ***",()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

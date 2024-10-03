@@ -6,62 +6,83 @@
             "pageGenerators": [
                 {
                     "type": "export",
-                    "qa__export": {
-                        "name": "FTP Export TC_C27346",
-                        "qa__path": "//SFTP_uploads//TC_C27525.json",
-                        "_connectionId": "FTP CONNECTION",
+                    "qa__export": 
+                    {
+                        "name": "exp",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e4d8f57c2e",
                         "asynchronous": true,
+                        "oneToMany": false,
                         "sandbox": false,
-                        "ftp": {
-                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-                            "fileNameStartsWith": "TC_C27525",
-                            "fileNameEndsWith": ".json"
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "isRest": false,
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users",
+                                "twoDArray": {
+                                    "doNotNormalize": false,
+                                    "hasHeader": false
+                                }
+                            }
                         },
-                        "file": {
-                            "encoding": "utf8",
-                            "output": "records",
-                            "skipDelete": true,
-                            "type": "json"
+                        "type":"test",
+                        "test": {
+                            "limit": 1
                         },
-                        "adaptorType": "FTPExport"
+                        "rawData": "62ebb431e627016182cf3391aaf60750e1684eb196efda1662b62564",
+                        "adaptorType": "HTTPExport"
                     }
                 }
             ],
             "pageProcessors": [
                 {
                     "type": "export",
-                    "qa__export": {
-                        "name": "export zd per record",
-                        "application": "zendesk support",
+                    "qa__export": 
+                    {
+                        "name": "lookup",
                         "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "apiIdentifier": "eaed929ed0",
+                        "apiIdentifier": "e002c291e1",
                         "asynchronous": true,
                         "isLookup": true,
+                        "traceKeyTemplate": "{{record.user.id}}",
                         "oneToMany": true,
-                        "pathToMany": "user_fields",
+                        "pathToMany": "photo.thumbnails",
+                        "sandbox": false,
                         "http": {
-                            "relativeURI": "/userscheck",
+                            "relativeURI": "users/{{record._PARENT.id}}",
                             "method": "GET",
-                            "formType": "http"
+                            "isRest": false,
+                            "formType": "http",
+                            "response": {
+                                "twoDArray": {
+                                    "doNotNormalize": false,
+                                    "hasHeader": false
+                                }
+                            }
+                        },
+                        "type":"test",
+                        "test": {
+                            "limit": 1
                         },
                         "adaptorType": "HTTPExport"
                     }
                 },
                 {
                     "type": "import",
-                    "qa__import": {
-                        "name": "Zendesk import",
-                        "application":"zendesk support",
+                    "qa__import": 
+                    {
+                        "name": "import",
                         "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "apiIdentifier": "i087c4a05d",
+                        "apiIdentifier": "i4a341d55c",
                         "ignoreExisting": false,
                         "ignoreMissing": false,
-                        "oneToMany": true,
-                        "pathToMany": "user_fields",
-                        "traceKeyTemplate": "{{record.name}}",
+                        "oneToMany": false,
+                        "sandbox": false,
                         "http": {
                             "relativeURI": [
-                                "/users"
+                                "tickets"
                             ],
                             "method": [
                                 "POST"
@@ -69,6 +90,7 @@
                             "body": [],
                             "batchSize": 1,
                             "sendPostMappedData": true,
+                            "isRest": false,
                             "formType": "http"
                         },
                         "adaptorType": "HTTPImport"
@@ -78,11 +100,18 @@
             "createFlow": {
                 "name": "TC_C27346",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
                     {
+                        "responseMapping": {
+                            "fields": [
+                                {
+                                    "extract": "data",
+                                    "generate": "lookupresp"
+                                }
+                            ],
+                            "lists": []
+                        },
                         "type": "export",
                         "_exportId": "UPDATE WITH NEW EXPORTID"
                     },

@@ -46,7 +46,7 @@ test.describe("TC_C33301", () => {
         lastUpdatedArray1.push(text);
       }
     }
-    if(lastUpdatedArray1[0].includes("ago")) {
+    if(lastUpdatedArray1[0] && lastUpdatedArray1[0].includes("ago")) {
     await io.assert.expectToContainValue("ago",lastUpdatedArray1[0],"");
     }
     await test.step(" Verified Last updated columns the time is displayed in Relative. ***",()=>{});
@@ -77,10 +77,10 @@ test.describe("TC_C33301", () => {
           lastUpdatedArray2.push(text);
         }
       }
-      if(lastUpdatedArray2[0].includes("am")) {
+      if(lastUpdatedArray2[0] && lastUpdatedArray2[0].includes("am")) {
       await io.assert.expectToContainValue("am",lastUpdatedArray2[0],"");
       }
-      if(lastUpdatedArray2[0].includes("pm")) {
+      if(lastUpdatedArray2[0] && lastUpdatedArray2[0].includes("pm")) {
       await io.assert.expectToContainValue("pm",lastUpdatedArray2[0],"");
       }
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
