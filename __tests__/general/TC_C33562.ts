@@ -76,10 +76,10 @@ test.describe("TC_C33562", () => {
           lastUpdatedArray2.push(text);
         }
       }
-      if(lastUpdatedArray2[0].includes("am")) {
+      if(lastUpdatedArray2[0] && lastUpdatedArray2[0].includes("am")) {
       await io.assert.expectToContainValue("am",lastUpdatedArray2[0],"");
       }
-      if(lastUpdatedArray2[0].includes("pm")) {
+      if(lastUpdatedArray2[0] && lastUpdatedArray2[0].includes("pm")) {
       await io.assert.expectToContainValue("pm",lastUpdatedArray2[0],"");
       }
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);

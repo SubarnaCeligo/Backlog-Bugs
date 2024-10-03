@@ -71,7 +71,7 @@ await test.step(
           lastUpdatedArray1.push(text);
         }
       }
-      if(lastUpdatedArray1[0].includes("ago")) {
+      if(lastUpdatedArray1[0] && lastUpdatedArray1[0].includes("ago")) {
       await io.assert.expectToContainValue("ago",lastUpdatedArray1[0],"");
       }
     

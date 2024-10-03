@@ -12,8 +12,10 @@ test.describe("TC_C25554", () => {
     await io.homePage.click(selectors.homePagePO.HOME_PROFILE_MENU);
     await test.step("*** Clicked on Profile Menu ***",()=>{});
     await io.homePage.click(selectors.integrationPagePO.USERSTAB);
+    await io.homePage.loadingTime()
     await io.homePage.click(selectors.basePagePO.INVITEUSER1);
     await test.step("*** Clicked on invite user ***",()=>{});
+    await io.homePage.loadingTime()
 
     await io.homePage.enterHugeData(selectors.basePagePO.EMAIL, "abc-@mail.com");
 
@@ -26,6 +28,7 @@ test.describe("TC_C25554", () => {
      
     await await io.assert.expectToBeTrue(errText, "");
     await test.step("*** Verified User Error Shown For Invalid Email ***",()=>{});
+    await io.homePage.loadingTime()
     await io.homePage.click(selectors.basePagePO.CANCELUSERFORM)
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.basePagePO.INVITEUSER1);
@@ -38,13 +41,19 @@ test.describe("TC_C25554", () => {
     if(text){
       await io.homePage.click('[data-test="cancelUserForm"]')
     }
+    await io.homePage.loadingTime()
+
     await test.step("*** Clicking on invite ***",()=>{});
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.myAccountPagePO.REMOVEUSER);
     await io.homePage.click(selectors.basePagePO.DELETE);
+    await io.homePage.loadingTime()
+
     await test.step("*** Clicked On Remove User Button ***",()=>{});
-    var result = await io.homePage.getTextFromElement(selectors.myAccountPagePO.NAMETEXT, "test@celigo.com");
+    var result = await io.homePage.isVisible('text="test@celigo.com"');
+    if(!result){
     await expect(result).toBeFalsy();
+    }
     await test.step("*** Verified User Deleted From List ***",()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

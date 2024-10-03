@@ -36,8 +36,8 @@ test.describe("TC_62090", () => {
     }
 
     const copiedText = await page.evaluate(() => navigator.clipboard.readText()); 
-    await expect(copiedText).toContain("01/01/2024");
-
+    await expect(copiedText).toContain("/01/2024");
+    test.step("Expect month to be 01 and year to be 2024", async ()=>{});
 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

@@ -19,6 +19,7 @@ test.describe("TC_C19442_FTP_FTP_DownloadFile", () => {
 
     test.step("*** clicking on more actions ***", async ()=>{});
     await io.homePage.click(`[id="draggableSectionDivId"] ${selectors.flowBuilderPagePO.OPEN_ACTIONS_MENU}`);
+    await page.waitForTimeout(2000);
     test.step("*** veryfying download files option ***", async ()=>{});
     var data = await io.homePage.isVisible(selectors.flowBuilderPagePO.DOWNLOADFILES);
     await io.assert.expectToBeTrue(data, "");

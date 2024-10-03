@@ -20,7 +20,7 @@ test.describe("TC_C2822", () => {
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
     await test.step("*** Navigated to https://eu.integrator.io ***",async ()=>{});
-    var text = await io.homePage.getTextFromElement(selectors.importPagePO.GOOGLE_BUTTON, "Sign in with Google");
+    var text = await io.homePage.isVisible('text= "Sign in with Google"');
     await io.assert.expectToBeFalse(text,"")
     await test.step("*** Sign with google option is not visible. ***",()=>{});
   });

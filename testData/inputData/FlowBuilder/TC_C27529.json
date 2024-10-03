@@ -6,21 +6,31 @@
             "pageGenerators": [
                 {
                     "type": "export",
-                    "qa__export": {
-                        "name": "HTTP export Zendesk",
-                        "application": "zendesk support",
+                    "qa__export":
+                    {
+                        "name": "AutomationStandalone_TIxMj",
                         "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "apiIdentifier": "e33550710f",
+                        "apiIdentifier": "e750b3d66f",
                         "asynchronous": true,
+                        "type": "test",
                         "traceKeyTemplate": "{{join '/' record.id record.email}}",
                         "oneToMany": false,
                         "http": {
                             "relativeURI": "users",
                             "method": "GET",
+                            "isRest": false,
                             "formType": "http",
                             "response": {
-                                "resourcePath": "users"
+                                "resourcePath": "users",
+                                "twoDArray": {
+                                    "doNotNormalize": false,
+                                    "hasHeader": false
+                                }
                             }
+                        },
+                        "rawData": "62ebb431e627016182cf3391c698e2161133465daffa86fca773bd2d",
+                        "test": {
+                            "limit": 1
                         },
                         "adaptorType": "HTTPExport"
                     }
@@ -31,7 +41,7 @@
                     "type": "import",
                     "qa__import": {
                         "name": "Zendesk import",
-                        "application":"zendesk support",
+                        "application": "zendesk support",
                         "_connectionId": "HTTP ZENDESK CONNECTION",
                         "apiIdentifier": "i087c4a05d",
                         "ignoreExisting": false,
@@ -55,8 +65,6 @@
             "createFlow": {
                 "name": "TC_C27529",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
                     {

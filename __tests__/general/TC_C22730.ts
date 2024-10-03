@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt ,randomNumber} from "@celigo/aut-utilities";
 
 
-test.describe("TC_C22730", () => {
+test.describe.only("TC_C22730", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
     test.step("*** Beginning of Test Suite ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
@@ -12,8 +12,9 @@ test.describe("TC_C22730", () => {
   test("@Zephyr-IO-T2263 @Env-All  TC_C22730_Verify_Sort_Flows_Connections_Users", async ({io,page}, testInfo) => {
     await io.goToFlowsPage();
     await io.homePage.isPageReady();
-
+    await io.homePage.loadingTime();
     //Flows
+ 
     const namehead = await page.getByRole('columnheader', { name: 'Name/Description ' });
     const nameList = selectors.basePagePO.FLOWNAME;
     let order =
@@ -24,7 +25,9 @@ test.describe("TC_C22730", () => {
 
     //Connections
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.basePagePO.CONNECTIONS);
+    await io.homePage.loadingTime();
     const namehead1 =await page.getByRole('columnheader', { name: 'Name ' });;
     const nameList1 = selectors.basePagePO.FLOWNAME;
     let order1 =
@@ -37,7 +40,9 @@ test.describe("TC_C22730", () => {
 
     //Users
     await io.homePage.isPageReady();
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.integrationPagePO.USERSTAB);
+    await io.homePage.loadingTime();
     const namehead2 = await page.getByRole('columnheader', { name: 'Name' });
     const nameList2 = selectors.basePagePO.FLOWNAME;
     let order2 =

@@ -45,6 +45,18 @@ test.describe("TC_C1092_delet_integration", () => {
     var purge1 = await page.locator(selectors.basePagePO.CONFIRMPURGE);
     await purge1.click();
     await io.homePage.loadingTime();
+    if(await io.homePage.isVisible(selectors.integrationPagePO.OPENACTIONSMENU)){
+      await io.homePage.clickButtonByIndex(selectors.integrationPagePO.OPENACTIONSMENU, 0);
+      await io.homePage.loadingTime()
+      test.step(" clicking option menu ***", async ()=>{});
+      var purge = await page.locator(selectors.basePagePO.PURGE)[0];
+      await io.homePage.clickButtonByIndex(selectors.basePagePO.PURGE, 0);
+      test.step("*** clicking on the purge option  ***", async ()=>{});
+      await io.homePage.loadingTime()
+      var purge1 = await page.locator(selectors.basePagePO.CONFIRMPURGE);
+      await purge1.click();
+    }
+    await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     await io.homePage.clearTextValue(selectors.basePagePO.SEARCH_RECYCLEBIN);
     await io.homePage.fill(selectors.basePagePO.SEARCH_RECYCLEBIN, "TC_C33341");

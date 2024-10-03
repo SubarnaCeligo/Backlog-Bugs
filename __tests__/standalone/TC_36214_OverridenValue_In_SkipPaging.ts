@@ -87,6 +87,7 @@ test.describe("TC_36214_OverridenValue_In_SkipPaging", () => {
     await io.homePage.isVisible(selectors.basePagePO.CLOSE);
     await io.homePage.click(selectors.basePagePO.CLOSE);
     test.step("*** Clicking on Close ***", async ()=>{});
+    await page.waitForTimeout(5000);
     await io.flowBuilder.click(selectors.myAccountPagePO.LOGS);
     const platform = os.platform();
     if (platform === 'darwin') {
