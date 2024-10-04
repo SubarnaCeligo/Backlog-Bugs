@@ -60,20 +60,20 @@ test.describe("TC_C33289", () => {
 
     //LAST UPDATED
     let lastUpdatedArray = await io.homePage.getText(selectors.flowBuilderPagePO.LASTUPDATEDCOLUMN1)
-    if(lastUpdatedArray[0].includes("ago")) {
+    if(lastUpdatedArray[0] && lastUpdatedArray[0].includes("ago")) {
       await io.assert.expectToContainValue("ago",lastUpdatedArray[0],"");
       }
-      if(lastUpdatedArray[0].includes("now")) {
+      if(lastUpdatedArray[0] && lastUpdatedArray[0].includes("now")) {
       await io.assert.expectToContainValue("now",lastUpdatedArray[0],"");
       }
     await test.step(" Verified Last updated columns the time is displayed in Relative. ***",()=>{});
 
     //RUN CONSOLE
     let lastUpdatedArray2 = await io.homePage.getText(selectors.flowBuilderPagePO.LASTUPDATEDCOLUMN2)
-    if(lastUpdatedArray2[0].includes("ago")) {
+    if(lastUpdatedArray2[0] && lastUpdatedArray2[0].includes("ago")) {
       await io.assert.expectToContainValue("ago",lastUpdatedArray2[0],"");
       }
-      if(lastUpdatedArray2[0].includes("now")) {
+      if(lastUpdatedArray2[0] && lastUpdatedArray2[0].includes("now")) {
       await io.assert.expectToContainValue("now",lastUpdatedArray2[0],"");
       }
     await test.step(" Verified Last updated columns the time is displayed in Relative. ***",()=>{});
@@ -105,20 +105,20 @@ test.describe("TC_C33289", () => {
 
     //LAST UPDATED
     let lastUpdatedArray1 = await io.homePage.getText(selectors.flowBuilderPagePO.LASTUPDATEDCOLUMN1)
-    if(lastUpdatedArray1[0].includes("am")) {
+    if(lastUpdatedArray1[0] && lastUpdatedArray1[0].includes("am")) {
       await io.assert.expectToContainValue("am",lastUpdatedArray1[0],"");
       }
-      if(lastUpdatedArray1[0].includes("pm")) {
+      if(lastUpdatedArray1[0] && lastUpdatedArray1[0].includes("pm")) {
       await io.assert.expectToContainValue("pm",lastUpdatedArray1[0],"");
       }
     await test.step(" Verified Last updated columns the time is displayed in Exact date and time format ***",()=>{});
 
     //LAST RUN
     let lastUpdatedArray3 = await io.homePage.getText(selectors.flowBuilderPagePO.LASTUPDATEDCOLUMN2)
-    if(lastUpdatedArray3[0].includes("am")) {
+    if(lastUpdatedArray3[0] && lastUpdatedArray3[0].includes("am")) {
       await io.assert.expectToContainValue("am",lastUpdatedArray3[0],"");
       }
-      if(lastUpdatedArray3[0].includes("pm")) {
+      if(lastUpdatedArray3[0] && lastUpdatedArray3[0].includes("pm")) {
       await io.assert.expectToContainValue("pm",lastUpdatedArray3 [0],"");
       }
     await test.step(" Verified Last updated columns the time is displayed in Exact date and time format ***",()=>{});

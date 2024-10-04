@@ -86,6 +86,8 @@ test.describe("TC_36213_OverriddenValue_DisplayInAFE_InPagePaging", () => {
     test.step("*** Clicking on Close ***", async ()=>{});
     await io.homePage.loadingTime();
 
+    await page.waitForTimeout(5000);
+
     await io.flowBuilder.click(selectors.myAccountPagePO.LOGS);
 
     const platform = os.platform();

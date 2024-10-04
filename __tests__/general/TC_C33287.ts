@@ -109,8 +109,11 @@ for (let i of lastUpdated3) {
     lastUpdatedArray3.push(text);
   }
 }
-if(lastUpdatedArray3[0].includes(" ago")) {
+if(lastUpdatedArray3[0] && lastUpdatedArray3[0].includes(" ago")) {
   await io.assert.expectToContainValue("ago",lastUpdatedArray3[0],"");
+  }
+if(lastUpdatedArray3[0] && lastUpdatedArray3[0].includes("now")) {
+  await io.assert.expectToContainValue("now",lastUpdatedArray3[0],"");
   }
   
 await test.step(
@@ -177,10 +180,10 @@ await io.homePage.loadingTime();
       lastUpdatedArray4.push(text);
     }
   }
-  if(lastUpdatedArray4[0].includes("am")) {
+  if(lastUpdatedArray4[0] && lastUpdatedArray4[0].includes("am")) {
   await io.assert.expectToContainValue("am",lastUpdatedArray4[0],"");
   }
-  if(lastUpdatedArray4[0].includes("pm")) {
+  if(lastUpdatedArray4[0] && lastUpdatedArray4[0].includes("pm")) {
   await io.assert.expectToContainValue("pm",lastUpdatedArray4[0], "");
   }
 await test.step(
@@ -211,10 +214,10 @@ await test.step(
       lastUpdatedArray5.push(text);
     }
   }
-  if(lastUpdatedArray5[0].includes("am")) {
+  if(lastUpdatedArray5[0] && lastUpdatedArray5[0].includes("am")) {
     await io.assert.expectToContainValue("am",lastUpdatedArray5[0],"");
     }
-    if(lastUpdatedArray5[0].includes("pm")) {
+    if(lastUpdatedArray5[0] && lastUpdatedArray5[0].includes("pm")) {
     await io.assert.expectToContainValue("pm",lastUpdatedArray5[0], "");
     }
 await test.step(
@@ -248,10 +251,10 @@ await io.homePage.loadingTime();
       lastUpdatedArray6.push(text);
     }
   }
-  if(lastUpdatedArray6[0].includes("am")) {
+  if(lastUpdatedArray5[0] && lastUpdatedArray6[0].includes("am")) {
     await io.assert.expectToContainValue("am",lastUpdatedArray6[0],"");
     }
-    if(lastUpdatedArray6[0].includes("pm")) {
+    if(lastUpdatedArray5[0] && lastUpdatedArray6[0].includes("pm")) {
     await io.assert.expectToContainValue("pm",lastUpdatedArray6[0], "");
     }
 

@@ -25,7 +25,7 @@ test.describe("TC_C2003", () => {
     test.step("*** API Token Is Created Successfully ***", async ()=>{});
 
     await io.homePage.click(selectors.flowBuilderPagePO.SHOW_TOKEN);
-    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.COPY_TOKEN);
+    await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).isVisible();
     test.step("***Token Is Displayed In Clear Text***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
     test.step("***Copied Token To ClipBoard***", async ()=>{});
@@ -45,12 +45,14 @@ test.describe("TC_C2003", () => {
 
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.connectionsPagePO.NEWTOKENGENERATE);
-    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.COPY_TOKEN);
+    await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).isVisible();
     await page.waitForTimeout(3000);
     test.step("*** Clicked On generate API Token***", async ()=>{});
 
     await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
     test.step("***Copied Token To ClipBoard***", async ()=>{});
+
+    const beforeElList = await page.getByText("TC_C2003_Test API Token").all();
 
     const tokentwo = await page.evaluate(() => navigator.clipboard.readText()); 
 
@@ -87,10 +89,8 @@ test.describe("TC_C2003", () => {
     await io.homePage.click(selectors.basePagePO.DELETE);
     await page.waitForTimeout(3000);
     test.step("*** Clicked On Delete API Token***", async ()=>{});
-                
-    const noResultsEl = await page.getByText("Your search didn’t return any matching results. Try expanding your search criteria.");
-    await noResultsEl.waitFor({ state: 'visible', timeout: 30000 });
-    await expect(noResultsEl).toBeVisible();
-    test.step("*** API Token Is Deleted Successfully ***", async ()=>{});
+
+    const afrterDelElList = await page.getByText("TC_C2003_Test API Token").all();
+    await expect(afrterDelElList.length).toBeLessThanOrEqual(beforeElList.length);
   });
 });

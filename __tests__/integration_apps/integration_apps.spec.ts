@@ -12,7 +12,8 @@ var testCases = [
   "T5462",
   "T5455",
   "T14479",
-  // "IO-T37325", IO-87614 Reverted epic changes
+  // "IO-T37325", IO-87614 Reverted epic changes,
+  "T2262"
 ];
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 

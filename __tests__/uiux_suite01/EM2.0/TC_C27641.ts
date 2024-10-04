@@ -22,7 +22,7 @@ test.describe("Verify flow run time is displayed correct on Line Graph when chan
     await io.integrationPage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
  
     //Open the flow
-    await io.integrationPage.clickByText('Flow_With_Errors2_DND');
+    await io.integrationPage.clickByText('Flow_With_Errors_DND');
 
     //Open line graph
     await io.flowBuilder.click(selectors.flowBuilderPagePO.CHARTS);

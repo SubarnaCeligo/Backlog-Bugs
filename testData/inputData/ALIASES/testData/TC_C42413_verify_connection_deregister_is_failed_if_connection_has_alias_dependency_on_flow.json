@@ -1,0 +1,85 @@
+{
+  "Source_Integration": "Delete_TC_ILM_C42413",
+  "createAlias": {
+    "Source_Integration": "Delete_TC_ILM_C42413",
+    "aliasResourceType": "imports",
+    "aliasResourceName": "",
+    "aliasName": "alias123"
+  },
+  "verifyAliases": [
+    {
+      "alias": "alias123",
+      "_importId": ""
+    }
+  ],
+  "qa__api_tdata": [{
+    "pageGenerators": [{
+        "type": "export",
+        "qa__export": {
+          "name": "Delete_TC_ILM_C42413_Netsuite_Export",
+          "_connectionId": "NETSUITE CONNECTION",
+          "asynchronous": true,
+          "oneToMany": false,
+          "netsuite": {
+            "type": "restlet",
+            "skipGrouping": true,
+            "statsOnly": false,
+            "restlet": {
+              "recordType": "customer",
+              "searchId": "3906",
+              "useSS2Restlets": false
+            },
+            "distributed": {
+              "useSS2Framework": false
+            }
+          },
+          "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+          "name": "Delete_TC_ILM_C42413_Http_Import",
+          "application":"zendesk support",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "http": {
+              "relativeURI": [
+                  "/test"
+              ],
+              "method": [
+                  "PUT"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+          },
+          "adaptorType": "HTTPImport"
+      }
+    }],
+    "createFlow": {
+        "name": "Del_TC_ILM_C42413_FLOW",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [{
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+        }],
+        "pageGenerators": [{
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+        }]
+    },
+    "createIntegrations": {
+      "name": "Delete_TC_ILM_C42413"
+    }
+  }]
+}

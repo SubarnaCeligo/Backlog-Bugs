@@ -20,7 +20,7 @@ test.describe("TC_14526", () => {
   test("@Env-All @Zephyr-IO-T4589 TC_14526_Error2", async ({io,page}, testInfo) => {
     const data1 = await io.api.postCall( "/v1/netsuite/userroles",  JSON.stringify({ email: "dfghj@hhk.in" })
     );
-    await io.assert.expectToBeValue(String(data1), "Current password is required", "");
+    await io.assert.expectToBeValue(String(data1.errors[0].message), "Current password is required.", "");
     test.step(" Verifying error Current password is required ", async ()=>{});
   });
 });

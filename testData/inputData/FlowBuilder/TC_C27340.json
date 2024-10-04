@@ -7,14 +7,16 @@
                 {
                     "type": "export",
                     "qa__export": {
-                        "name": "Trace key export",
-                        "_connectionId": "HTTP MOCKY CONNECTION",
-                        "apiIdentifier": "eee8ac0210",
+                        "name": "test",
+                        "_connectionId": "HTTP SHOPIFY CONNECTION",
+                        "apiIdentifier": "e31c1c5377",
                         "asynchronous": true,
-                        "traceKeyTemplate": "{{record.officeVerificationNumber}}",
-                        "oneToMany": false,
+                        "isLookup": true,
+                        "traceKeyTemplate": "{{record.customer.id}}",
+                        "oneToMany": true,
+                        "pathToMany": "contacts",
                         "http": {
-                            "relativeURI": "3171da83-0f81-44b6-ad1a-ea25fe845871",
+                            "relativeURI": "customers/7337750462550",
                             "method": "GET",
                             "formType": "http"
                         },
@@ -24,76 +26,36 @@
             ],
             "pageProcessors": [
                 {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "test",
-                        "_connectionId": "HTTP MOCKY CONNECTION",
-                        "apiIdentifier": "e31c1c5377",
-                        "asynchronous": true,
-                        "isLookup": true,
-                        "traceKeyTemplate": "",
-                        "oneToMany": true,
-                        "pathToMany": "contacts",
-                        "http": {
-                            "relativeURI": "3171da83-0f81-44b6-ad1a-ea25fe845871",
-                            "method": "GET",
-                            "formType": "http"
-                        },
-                        "adaptorType": "HTTPExport"
-                    }
-                },
-                {
                     "type": "import",
                     "qa__import": {
-                        "name": "Create or Update NetSuite Order from SPSC 850",
-                        "_connectionId": "NETSUITE CONNECTION",
-                        "distributed": true,
-                        "apiIdentifier": "i02d51fc64",
+                        "name": "http import 27342",
+                        "application":"BigCommerce",
+                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
                         "ignoreExisting": false,
                         "ignoreMissing": false,
-                        "oneToMany": true,
-                        "pathToMany": "contacts[0].lookupresp",
-                        "lookups": [],
-                        "netsuite_da": {
-                            "useSS2Restlets": false,
-                            "operation": "add",
-                            "recordType": "customer",
-                            "lookups": [],
-                            "mapping": {
-                                "fields": [
-                                    {
-                                        "extract": "_PARENT.contacts[*].lookupresp.id",
-                                        "generate": "custentity12",
-                                        "internalId": false
-                                    }
-                                ],
-                                "lists": []
-                            }
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/v3/brands"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
                         },
-                        "adaptorType": "NetSuiteDistributedImport"
+                        "adaptorType": "HTTPImport"
                     }
                 }
             ],
             "createFlow": {
                 "name": "TC_C27340",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [
-                                {
-                                    "extract": "data[0]",
-                                    "generate": "lookupresp"
-                                }
-                            ],
-                            "lists": []
-                        },
-                        "type": "export",
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
-                    },
                     {
                         "responseMapping": {
                             "fields": [],

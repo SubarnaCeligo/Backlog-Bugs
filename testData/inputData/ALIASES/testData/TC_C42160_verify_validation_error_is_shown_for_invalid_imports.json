@@ -1,0 +1,62 @@
+{
+  "Source_Integration": "Delete_TC_ILM_C42160",
+  "createAlias": {
+    "Source_Integration": "Delete_TC_ILM_C42160",
+    "aliasResourceType": "imports",
+    "aliasResourceName": "",
+    "aliasName": "alias123asdhjllouh"
+  },
+  "qa__api_tdata": [{
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+          "name": "Delete_TC_ILM_C42160_Http_Import",
+          "application":"zendesk support",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "http": {
+              "relativeURI": [
+                  "/test"
+              ],
+              "method": [
+                  "PUT"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+          },
+          "adaptorType": "HTTPImport"
+      }
+    }],
+    "createFlow": {
+        "name": "Del_TC_ILM_C42160_FLOW",
+        "disabled": true,
+        "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+        "skipRetries": false,
+        "pageProcessors": [{
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+        }]
+    },
+    "createIntegrations": {
+      "name": "Delete_TC_ILM_C42160"
+    }
+  }],
+  "error" : {
+      "errors": [
+          {
+              "code": "update_not_allowed",
+              "field": "aliases",
+              "message": "The target resource must be attached to a connection that is registered to the same integration."
+          }
+      ]
+  }
+}

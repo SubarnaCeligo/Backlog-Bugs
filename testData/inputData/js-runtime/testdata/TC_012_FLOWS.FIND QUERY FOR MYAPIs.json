@@ -1,0 +1,111 @@
+{
+  "script": "TC_012",
+  "name": "TC_012_FLOWS.FIND QUERY FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": [
+        {
+          "_id": "5fe22bd253d36d03e620eb3e",
+          "lastModified": "2020-12-22T17:24:34.669Z",
+          "name": "TC_012_FLOWS.FIND QUERY FOR MYAPIs",
+          "disabled": false,
+          "_integrationId": "5f9008596eb5c6461949f664",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "5fe22bd153d36d03e620eb3c"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "5fe22bd053d36d03e620eb3a"
+            }
+          ],
+          "createdAt": "2020-12-22T17:24:34.592Z",
+          "externalId": "TC_012"
+        }
+      ]
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "MAIN EXPORT",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "1149",
+                "useSS2Restlets": false
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "SF Main Import",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "res1",
+                  "generate": "Description"
+                }
+              ]
+            },
+            "salesforce": {
+              "operation": "insert",
+              "sObjectType": "Account",
+              "api": "soap",
+              "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_012_FLOWS.FIND QUERY FOR MYAPIs",
+        "disabled": false,
+        "_integrationId": "5f9008596eb5c6461949f664",
+        "skipRetries": false,
+        "externalId": "TC_012",
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

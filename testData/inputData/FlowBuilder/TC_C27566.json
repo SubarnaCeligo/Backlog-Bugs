@@ -6,73 +6,103 @@
       "pageGenerators": [
         {
           "type": "export",
-          "qa__export": {
-            "name": "FTP Export TC_C27566",
-            "_connectionId": "FTP CONNECTION",
+          "qa__export":
+          {
+            "name": "AutomationStandalone_JfSCe",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "ea56d0e338",
             "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
             "sandbox": false,
-            "ftp": {
-              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-              "fileNameStartsWith": "TC_C27566",
-              "fileNameEndsWith": ".json"
+            "rawData": "62ebb431e627016182cf3391537243f04d034f0ea2fc5610021593e4",
+            "test": {
+                "limit": 1
             },
-            "file": {
-              "encoding": "utf8",
-              "output": "records",
-              "skipDelete": true,
-              "type": "json"
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": false,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "1913",
+                    "restletVersion": "suiteapp2.0",
+                    "markExportedBatchSize": 100
+                },
+                "distributed": {}
             },
-            "adaptorType": "FTPExport"
-          }
+            "adaptorType": "NetSuiteExport"
+        }
         }
       ],
       "pageProcessors": [
         {
           "type": "export",
-          "qa__export": {
-            "name": "ZD EXPORT",
-            "application": "zendesk support",
-            "_connectionId": "HTTP ZENDESK CONNECTION",
-            "apiIdentifier": "eaed929ed0",
+          "qa__export": 
+          {
+            "name": "ns lkp",
+            "_connectionId": "NETSUITE CONNECTION",
+            "apiIdentifier": "e950957c6c",
             "asynchronous": true,
             "isLookup": true,
+            "type": "test",
+            "traceKeyTemplate": "{{rows.0.id}}",
             "oneToMany": true,
-            "pathToMany": "user_fields",
-            "traceKeyTemplate": "{{join '/' record.email}}",
-            "http": {
-              "relativeURI": "/userscheck",
-              "method": "GET",
-              "formType": "http"
+            "sandbox": false,
+            "test": {
+                "limit": 1
             },
-            "adaptorType": "HTTPExport"
-          }
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": false,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "1913",
+                    "restletVersion": "suiteapp2.0",
+                    "criteria": [],
+                    "columns": [],
+                    "markExportedBatchSize": 100
+                },
+                "distributed": {
+                    "executionContext": [],
+                    "executionType": []
+                }
+            },
+            "adaptorType": "NetSuiteExport"
+        }
         },
         {
           "type": "import",
-          "qa__import": {
-            "name": "Zendesk import",
-            "application":"zendesk support",
+          "qa__import": 
+          {
+            "name": "http imprt",
             "_connectionId": "HTTP ZENDESK CONNECTION",
-            "apiIdentifier": "i087c4a05d",
+            "apiIdentifier": "i420c748cf",
             "ignoreExisting": false,
             "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
             "http": {
-              "relativeURI": ["/users"],
-              "method": ["POST"],
-              "body": [],
-              "batchSize": 1,
-              "sendPostMappedData": true,
-              "formType": "http"
+                "relativeURI": [
+                    ""
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "isRest": false,
+                "formType": "http"
             },
             "adaptorType": "HTTPImport"
-          }
+        }
         }
       ],
       "createFlow": {
         "name": "TC_C27566",
         "disabled": false,
-        "qa__integrationId": "62eca1efe386b563f638451e",
-        "_integrationId": "62ecc42648570015ab65cfa5",
         "skipRetries": false,
         "pageProcessors": [
           {

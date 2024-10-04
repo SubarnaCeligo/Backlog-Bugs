@@ -1,0 +1,153 @@
+{
+    "script": "TC_015",
+    "name": "TC_015_EXPORTS.UPDATE(EXPORT) FUNCTION FOR MYAPIs",
+    "referencename": "TC_015_EXPORTS.UPDATE(EXPORT) FUNCTION FOR MYAPIs",
+    "qa__expectedDashboardCount": {
+        "successCount": "8",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_015_EXPORTS.UPDATE(EXPORT) FUNCTION FOR MYAPIs",
+                "_integrationId": "5f9008596eb5c6461949f664",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__dataVerification": {
+                    "fileName": "virtualexport",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "MAIN EXPORT",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "asynchronous": true,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "1149",
+                                "useSS2Restlets": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Import",
+                        "parsers": [],
+                        "_connectionId": "FTP CONNECTION",
+                        "distributed": false,
+                        "apiIdentifier": "i1be61b2c8",
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "res1",
+                                    "generate": "response"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "customHeaderRows": [],
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "virtualexport.csv"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ]
+        },
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Reference Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "distributed": false,
+                        "apiIdentifier": "i26b095c86",
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "res1",
+                                    "generate": "res1"
+                                },
+                                {
+                                    "extract": "Name",
+                                    "generate": "Custom Name"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "ns_ftp.csv"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_015_EXPORTS.UPDATE(EXPORT) FUNCTION FOR MYAPIs",
+                "disabled": false,
+                "_integrationId": "5f9008596eb5c6461949f664",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

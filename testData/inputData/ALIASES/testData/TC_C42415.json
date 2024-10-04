@@ -1,0 +1,102 @@
+{
+  "name": "Del_TC_C42415_FLOW",
+  "Source_Integration": "",
+  "templateJSON": {
+    "Source_Environment": "Production",
+    "Source_Integration": ""
+  },
+  "Source_Environment": "Production",
+  "Destination_Enviornment": "Production",
+  "New_connection": false,
+  "connections": [
+    "HTTP ZENDESK CONNECTION"
+  ],
+  "qa__connections": [
+    "HTTP ZENDESK CONNECTION"
+  ],
+  "createAliasConnection": {
+    "aliasResourceType": "connections",
+    "aliasResourceName": "",
+    "aliasName": "connectionalias123"
+  },
+  "Destination_Integration": "63200dc43bfc725f00638e41",
+  "qa_Destination_Integration": "639ac0022a818e4415960959",
+  "Flow_To_Clone": "Del_TC_C42415_FLOW",
+  "Clone_Flow_Name": "Clone_Del_TC_C42415_FLOW",
+  "verifyAliases": [
+    {
+      "alias": "connectionalias123",
+      "_connectionId": ""
+    }
+  ],
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Delete__C42415_Http_Export",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "parsers": [],
+            "http": {
+              "relativeURI": "/test",
+              "method": "GET",
+              "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Delete__C42415_Http_Import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": [
+                "/test"
+              ],
+              "method": [
+                "PUT"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "Del_TC_C42415_FLOW",
+        "disabled": true,
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

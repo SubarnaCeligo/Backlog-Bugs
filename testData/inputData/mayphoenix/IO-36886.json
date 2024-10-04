@@ -1,0 +1,38 @@
+{
+    "name": "IO-36886_auto_flow_23",
+    "referencename": "IO-36886_auto_flow_23",
+    "qaprod__connectionId": "648034df7156af21b3c4dc6b",
+    "iaqa__connectionId": "649a8fa4053c894dac7449b8",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP_IO_36886_bug",
+                "qa__connectionId": "647da9cc261a5d0e7878710f",
+                "_connectionId": "6480356d52cdf865148eb978",
+                "qa__path": "/FTP_uploads/SalaryHistoryv2.csv",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "SalaryHistoryv2"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "csv",
+                    "csv": {
+                        "columnDelimiter": ",",
+                        "rowDelimiter": "\n",
+                        "keyColumns": [],
+                        "hasHeaderRow": false,
+                        "trimSpaces": true,
+                        "rowsToSkip": 0
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

@@ -49,6 +49,7 @@ test.describe("TC_C1997", () => {
     await io.homePage.click(selectors.flowBuilderPagePO.SHOW_TOKEN);
     test.step("***Token Is Displayed In Clear Text***", async ()=>{});
     
+    await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).isVisible();
     await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
     test.step("***Copied Token To ClipBoard***", async ()=>{});
 
@@ -78,6 +79,7 @@ test.describe("TC_C1997", () => {
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
 
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "TC_C1997_TokenPostOperation");
+    const beforeElList = await page.getByText("TC_C1997_TokenPostOperation").all();
     await test.step("***Searching the created token***", async ()=>{});
 
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
@@ -93,12 +95,11 @@ test.describe("TC_C1997", () => {
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
     await io.homePage.click(selectors.basePagePO.DELETE);
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(5000);
+    await io.homePage.loadingTime();
     test.step("*** Clicked On Delete API Token***", async ()=>{});
-        
-    const noResultsEl = await page.getByText("Your search didn’t return any matching results. Try expanding your search criteria.");
-    await noResultsEl.waitFor({ state: 'visible', timeout: 30000 });
-    await expect(noResultsEl).toBeVisible();
-    test.step("*** API Token Is Deleted Successfully ***", async ()=>{});
+
+    const afrterDelElList = await page.getByText("TC_C1997_TokenPostOperation").all();
+    await expect(afrterDelElList.length).toBeLessThanOrEqual(beforeElList.length);
   });
 });

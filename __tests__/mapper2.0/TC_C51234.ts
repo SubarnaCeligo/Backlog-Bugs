@@ -19,7 +19,19 @@ test.describe("TC_C51234 verify when user has 1 sources if it is removed and 2 n
     const _importId = flowDoc?.pageProcessors?.[0]?._importId;
 
     await io.homePage.loadingTime();
-    await io.homePage.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS);
+    await io.homePage.isPageReady();
+
+    const map = new Map();
+    const filepath = "/FTP_uploads/TC_C51221.json";
+    map.set("uploadFile", filepath);
+    await io.homePage.fileUpload(map);
+
+    test.step("*** Clicking on Preview ***", async ()=>{});
+    await io.homePage.click(
+      selectors.importPagePO.CLICKPREVIEW
+    );
+
+    await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();

@@ -14,6 +14,7 @@ test.describe("TC_C32179", () => {
     await io.homePage.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'AS2');
     await io.homePage.clickByText("AS2");
     await io.homePage.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
+    await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, 'AS2 Test');
     await io.homePage.loadingTime();
     await io.flowBuilder.clickByText('AS2 Test');
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'test_file_upload_as2');

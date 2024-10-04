@@ -1,0 +1,135 @@
+{
+    "name": "Del_TC_C41730",
+    "Source_Integration": "Del_TC_C41730",
+    "script": {
+        "name": "DND_TC_C41730",
+        "content": "import api from 'integrator-api';\nfunction preMap (options) {\n  let resp = api.exports.run({\n  _id: 'export_alias'\n   })\n    return options.data.map((d) => {\n    return {\n  data: d\n}\n})\n}"
+    },
+    "createAlias": {
+        "Source_Integration": "Del_TC_C41730",
+        "aliasName": "export_alias",
+        "aliasResourceType": "exports",
+        "aliasResourceName": "",
+        "flowID": ""
+    },
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C41730.json",
+                "_integrationId": "",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C41730",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C41730_Export",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "e51185aadc",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "test": {
+                            "limit": 1
+                        },
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "select name, id, type from account"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "TC_C41730_Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "ic4694b9d6",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "hooks": {
+                            "preMap": {
+                                "_scriptId": "",
+                                "function": "preMap"
+                            }
+                        },
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "Name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "Id",
+                                    "generate": "ID"
+                                },
+                                {
+                                    "extract": "Type",
+                                    "generate": "recordType"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "fileName": "TC_C41730.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "TC_C41730.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "Del_TC_C41730",
+                "disabled": false,
+                "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+                "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            },
+            "createIntegrations": {
+                "name": "Del_TC_C41730"
+            }
+        }
+    ]
+}

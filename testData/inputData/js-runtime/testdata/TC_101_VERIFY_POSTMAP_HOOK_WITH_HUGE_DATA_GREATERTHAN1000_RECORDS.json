@@ -1,0 +1,135 @@
+{
+    "script": "TC_101",
+    "name": "TC_101_VERIFY_POSTMAP_HOOK_WITH_HUGE_DATA(1000 PLUS RECORDS)",
+    "referencename": "TC_101_VERIFY_POSTMAP_HOOK_WITH_HUGE_DATA(1000 PLUS RECORDS)_REFERENCE",
+    "qa__expectedDashboardCount": {
+        "successCount": "8274",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "FTP Import",
+                "parsers": [],
+                "_connectionId": "FTP CONNECTION",
+                "distributed": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "res1",
+                            "generate": "response"
+                        }
+                    ]
+                },
+                "import": {
+                    "file": {
+                        "csv": {
+                            "rowDelimiter": "\n",
+                            "columnDelimiter": ",",
+                            "includeHeader": true,
+                            "wrapWithQuotes": false,
+                            "replaceTabWithSpace": false,
+                            "replaceNewlineWithSpace": false,
+                            "customHeaderRows": [],
+                            "truncateLastRowDelimiter": false
+                        }
+                    }
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC101",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "MAIN EXPORT",
+                        "_connectionId": "5ffdab318ff7642582e61c4e",
+                        "asynchronous": true,
+                        "netsuite": {
+                            "type": "restlet",
+                            "skipGrouping": true,
+                            "statsOnly": false,
+                            "restlet": {
+                                "recordType": "customer",
+                                "searchId": "4163",
+                                "useSS2Restlets": false
+                            }
+                        },
+                        "adaptorType": "NetSuiteExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP Reference Import",
+                        "_connectionId": "FTP CONNECTION",
+                        "distributed": false,
+                        "apiIdentifier": "i26b095c86",
+                        "isLookup": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "res1",
+                                    "generate": "res1"
+                                },
+                                {
+                                    "extract": "ID",
+                                    "generate": "Custom Name"
+                                }
+                            ]
+                        },
+                        "file": {
+                            "type": "csv",
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ",",
+                                "includeHeader": true,
+                                "wrapWithQuotes": false,
+                                "replaceTabWithSpace": false,
+                                "replaceNewlineWithSpace": false,
+                                "truncateLastRowDelimiter": false
+                            }
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                            "fileName": "TC101.csv"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_101_VERIFY_POSTMAP_HOOK_WITH_HUGE_DATA(1000 PLUS RECORDS)",
+                "disabled": false,
+                "_integrationId": "5f9008596eb5c6461949f664",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

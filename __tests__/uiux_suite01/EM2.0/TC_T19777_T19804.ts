@@ -15,9 +15,10 @@ test.describe(`TC_T19777_T19804 Verify by hovering over the error row and also V
   }) => {
     testdata.name = testdata.name + randomNumber();
     flowId = await io.createResourceFromAPI(testdata, "FLOWS");
-
     //Wait for flow run to complete
     await io.flowBuilder.waitForElementAttached(selectors.basePagePO.RUNFLOW);
+    await io.integrationPage.clickButtonByIndex(selectors.basePagePO.RUNFLOW, 0);
+    await io.flowBuilder.loadingTime();
     await io.integrationPage.clickButtonByIndex(selectors.basePagePO.RUNFLOW, 0);
     let flowID = await io.api.getFlowId(testdata.name);
     await io.api.verifyFlowStatusThroughAPI(

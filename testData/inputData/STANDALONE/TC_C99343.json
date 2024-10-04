@@ -1,14 +1,14 @@
 {
     "admin": {
-        "admintext": "A user in this role…\ncan:\nEdit account settings, all resources and integrations (current and future)\nInvite/manage users\nTroubleshoot flow errors\ncannot:\nManage account owner permissions\nTransfer account ownership"
+        "admintext": "A user in this role… can:Edit account settings, all resources and integrations (current and future)Invite/manage usersTroubleshoot flow errorscannot:Manage account owner permissionsTransfer account ownership"
     },
     "manageAll": {
-        "manageText": "A user in this role…\ncan:\nEdit all resources and integrations (current and future)\nTroubleshoot flow errors\ncannot:\nView/edit account settings\nInvite/manage users"
+        "manageText": "A user in this role…can:Edit all resources and integrations (current and future)Troubleshoot flow errorscannot:View/edit account settingsInvite/manage users"
     },
     "monitorAll": {
-        "monitorText": "A user in this role…\ncan:\nView all integrations (current and future)\nRun flows\nTroubleshoot flow errors (retry/resolve errors and edit retry data)\ncannot:\nModify integrations, flows or steps\nEnable/disable flows\nView or modify account resources (e.g. connections, API tokens etc.)\nView/edit account settings\nInvite/manage users"
+        "monitorText": "A user in this role…can:View all integrations (current and future)Run flowsTroubleshoot flow errors (retry/resolve errors and edit retry data)cannot:Modify integrations, flows or stepsEnable/disable flowsView or modify account resources (e.g. connections, API tokens etc.)View/edit account settingsInvite/manage users"
     },
     "custom": {
-        "customText": "For a custom role, you can configure one of the following integration permissions:\na) Manage selected integrations\nb) Monitor selected integrations\nc) Manage selected & monitor selected\nd) Monitor all (current & future) & manage selected\nCustom is an ideal role for users who should not see all but only selected integrations in your account, e.g. contractors.\n\nSee the help texts above for permission details of manage and monitor roles.\n\nNOTE:\nIf an integration is selected to both manage and monitor, manage will be applied.\nIf only \"Monitor all\" is selected in Custom, the \"Monitor all\" role will be auto-selected instead after inviting."
+        "customText": "For a custom role, you can configure one of the following integration permissions:     a) Manage selected integrationsb) Monitor selected integrationsc) Manage selected & monitor selectedd) Monitor all (current & future) & manage selectedCustom is an ideal role for users who should not see all but only selected integrations in your account, e.g. contractors.See the help texts above for permission details of manage and monitor roles.NOTE:  If an integration is selected to both manage and monitor, manage will be applied.  If only \"Monitor all\" is selected in Custom, the \"Monitor all\" role will be auto-selected instead after inviting."
     }
 }

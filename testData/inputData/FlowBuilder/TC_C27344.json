@@ -6,18 +6,32 @@
             "pageGenerators": [
                 {
                     "type": "export",
-                    "qa__export": {
-                        "name": "Trace key export",
-                        "_connectionId": "HTTP MOCKY CONNECTION",
-                        "apiIdentifier": "eee8ac0210",
+                    "qa__export": 
+                    {
+                        "name": "exp",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e4d8f57c2e",
                         "asynchronous": true,
-                        "traceKeyTemplate": "{{record.province}}",
                         "oneToMany": false,
+                        "sandbox": false,
                         "http": {
-                            "relativeURI": "e559d7e3-6c95-4315-8f3b-0445d3ea73f5",
+                            "relativeURI": "users",
                             "method": "GET",
-                            "formType": "http"
+                            "isRest": false,
+                            "formType": "http",
+                            "response": {
+                                "resourcePath": "users",
+                                "twoDArray": {
+                                    "doNotNormalize": false,
+                                    "hasHeader": false
+                                }
+                            }
                         },
+                        "type":"test",
+                        "test": {
+                            "limit": 1
+                        },
+                        "rawData": "62ebb431e627016182cf3391aaf60750e1684eb196efda1662b62564",
                         "adaptorType": "HTTPExport"
                     }
                 }
@@ -25,60 +39,66 @@
             "pageProcessors": [
                 {
                     "type": "export",
-                    "qa__export": {
-                        "name": "test",
-                        "_connectionId": "HTTP MOCKY CONNECTION",
-                        "apiIdentifier": "e31c1c5377",
+                    "qa__export": 
+                    {
+                        "name": "lookup",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "e002c291e1",
                         "asynchronous": true,
                         "isLookup": true,
-                        "traceKeyTemplate": "{{record.name}}",
                         "oneToMany": true,
-                        "pathToMany": "contacts",
+                        "pathToMany": "photo.thumbnails",
+                        "sandbox": false,
                         "http": {
-                            "relativeURI": "29ea8bea-78d7-4ac5-8abb-6604884d6d7e",
+                            "relativeURI": "users/{{record._PARENT.id}}",
                             "method": "GET",
-                            "formType": "http"
+                            "isRest": false,
+                            "formType": "http",
+                            "response": {
+                                "twoDArray": {
+                                    "doNotNormalize": false,
+                                    "hasHeader": false
+                                }
+                            }
+                        },
+                        "type":"test",
+                        "test": {
+                            "limit": 1
                         },
                         "adaptorType": "HTTPExport"
                     }
                 },
                 {
                     "type": "import",
-                    "qa__import": {
-                        "name": "Create or Update NetSuite Order from SPSC 850",
-                        "_connectionId": "NETSUITE CONNECTION",
-                        "distributed": true,
-                        "apiIdentifier": "i02d51fc64",
+                    "qa__import": 
+                    {
+                        "name": "import",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "i4a341d55c",
                         "ignoreExisting": false,
                         "ignoreMissing": false,
-                        "oneToMany": true,
-                        "pathToMany": "contacts[0].lookupresp",
-                        "lookups": [],
-                        "netsuite_da": {
-                            "useSS2Restlets": false,
-                            "operation": "add",
-                            "recordType": "customer",
-                            "lookups": [],
-                            "mapping": {
-                                "fields": [
-                                    {
-                                        "extract": "_PARENT.contacts[*].lookupresp[*].name",
-                                        "generate": "custentity12",
-                                        "internalId": false
-                                    }
-                                ],
-                                "lists": []
-                            }
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "tickets"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "isRest": false,
+                            "formType": "http"
                         },
-                        "adaptorType": "NetSuiteDistributedImport"
+                        "adaptorType": "HTTPImport"
                     }
                 }
             ],
             "createFlow": {
                 "name": "TC_C27344",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
                     {

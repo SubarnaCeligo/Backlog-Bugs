@@ -1,0 +1,39 @@
+{
+    "Custom_Settings": {
+        "fieldMap": {
+            "testSetting": {
+                "label": "test refresh type setting",
+                "helpText": "Choose an SAP Business ByDesign item to track your Amazon order total sales tax. The selected item is added as a line item on the SAP Business ByDesign sales order.",
+                "id": "testSetting",
+                "type": "exportSelect",
+                "name": "whitelists_name",
+                "displayAfter": "export.assistantMetadata.pathParams.whitelist_id",
+                "resource": {
+                    "virtual": {
+                        "asynchronous": true,
+                        "_connectionId": "",
+                        "http": {
+                            "relativeURI": "/whitelists",
+                            "method": "GET",
+                            "requestMediaType": "json",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "_httpConnectorVersionId": "639184209998e4b191badcb2",
+                            "_httpConnectorResourceId": "639184209998e4b191badcb3",
+                            "_httpConnectorEndpointId": "639184209998e4b191badcb4",
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": "data[0].id"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "layout": {
+            "fields": [
+                "testSetting"
+            ]
+        }
+    }
+}

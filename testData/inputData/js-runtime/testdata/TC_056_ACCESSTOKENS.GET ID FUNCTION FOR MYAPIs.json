@@ -1,0 +1,22 @@
+{
+  "script": "TC_056",
+  "name": "TC_056_ACCESSTOKENS.UPDATE FUNCTION FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": {
+        "_id": "5f92af7fffe5f7166aa07b40",
+        "token": "******",
+        "name": "JS runtime",
+        "revoked": false,
+        "fullAccess": true,
+        "legacyNetSuite": false,
+        "_exportIds": [],
+        "_importIds": [],
+        "_apiIds": [],
+        "_connectionIds": [],
+        "createdAt": "2020-10-23T10:25:03.843Z",
+        "lastModified": "2020-10-23T10:25:03.872Z"
+    }
+    }
+  }
+}

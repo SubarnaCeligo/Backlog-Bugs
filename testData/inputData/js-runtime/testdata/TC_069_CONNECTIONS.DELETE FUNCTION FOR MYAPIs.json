@@ -1,0 +1,53 @@
+{
+  "script": "TC_069",
+  "name": "TC_069_CONNECTIONS.DELETE FUNCTION FOR MYAPIs",
+  "qa__dataVerification": {
+    "expected": {
+      "response": "Deleted Successfully "
+    }
+  },
+  "qa__api_tdata": [{
+    "createConnections": {
+      "type": "rest",
+      "name": "TC_069_Zendesk Connection",
+      "assistant": "zendesk",
+      "isHTTP": true,
+      "http": {
+        "mediaType": "json",
+        "baseURI": "https://celigoqa.zendesk.com",
+        "ping": {
+          "relativeURI": "/api/v2/users.json",
+          "method": "GET"
+        },
+        "headers": [{
+          "name": "content-type",
+          "value": "application/json"
+        }],
+        "auth": {
+          "type": "basic",
+          "basic": {
+            "username": "mounica.manavapati@celigo.com",
+            "password": "celigo1234"
+          }
+        }
+      },
+      "rest": {
+        "baseURI": "https://celigoqa.zendesk.com",
+        "isHTTPProxy": true,
+        "mediaType": "json",
+        "authType": "basic",
+        "headers": [],
+        "encryptedFields": [],
+        "unencryptedFields": [],
+        "scope": [],
+        "pingRelativeURI": "/api/v2/users.json",
+        "pingMethod": "GET",
+        "refreshTokenHeaders": [],
+        "basicAuth": {
+          "username": "mounica.manavapati@celigo.com",
+          "password": "celigo1234"
+        }
+      }
+    }
+  }]
+}

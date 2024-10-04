@@ -2,6 +2,10 @@ import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
 test.describe("C77923 To verify that the user is able to create new connections while cloning, installing templates.", () => {
+  test.afterEach(async ({ io }) => {
+    const intId = await io.api.getIntegrationDetails("Copy C2397_DND", "_id");
+    await io.api.deleteIntegration(intId);
+  });
   test("@Env-All @Zephyr-IO-T4733 C77923 To verify that the user is able to create new connections while cloning, installing templates.", async ({io, page}) => {
       await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
       await io.homePage.waitForElementAttached(selectors.basePagePO.MARKETPLACE);

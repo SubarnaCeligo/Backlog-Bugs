@@ -81,3 +81,6 @@ require("./TC_C51239");
 require("./TC_C51978_C51979_Verify_Setting_Page_Should_Show_Tabs_According_To_Configuration");
 require("./TC_C52130_C52132");
 require("./TC_C52136");
+require("./TC_51798");
+require("./TC_C51801");
+require("./TC_C51802");
