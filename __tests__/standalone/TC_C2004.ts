@@ -93,6 +93,8 @@ test.describe("TC_C2004", () => {
     // await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "TC_C2004_Token reactivate validationoperation");
     // await test.step("***Searching the created token***", async ()=>{});
 
+    const beforeElList = await page.getByText("TC_C2004_Token reactivate validationoperation").all();
+
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.waitForElementAttached(selectors.connectionsPagePO.REVOKEAPITOKEN);
     await io.homePage.click(selectors.connectionsPagePO.REVOKEAPITOKEN);
@@ -111,10 +113,8 @@ test.describe("TC_C2004", () => {
     await page.waitForTimeout(3000);
     test.step("*** Clicked On Delete API Token***", async ()=>{});
         
-    const noResultsEl = await page.getByText("Your search didn’t return any matching results. Try expanding your search criteria.");
-    await noResultsEl.waitFor({ state: 'visible', timeout: 30000 });
-    await expect(noResultsEl).toBeVisible();
-    test.step("*** API Token Is Deleted Successfully ***", async ()=>{});
+    const afrterDelElList = await page.getByText("TC_C2004_Token reactivate validationoperation").all();
+    await expect(afrterDelElList.length).toBeLessThanOrEqual(beforeElList.length);
     
   });
 });

@@ -18,7 +18,7 @@ test.describe("TC_T19411_T19405  Verify the message when api failed to fetch the
         await io.homePage.addStep("*** Selected import records option ***");
         await io.flowBuilder.clickByText("Create flow step");
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN);
-        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'TESTONPREM');
+        await io.flowBuilder.fill(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN,'ORACLE_DB_Connection_Invalid_Creds');
         await io.flowBuilder.click(selectors.connectionsPagePO.CONNECTION_OPTION_TEXT);
     await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.NAME);
     await io.flowBuilder.fill(selectors.exportsPagePO.NAME, "offline");

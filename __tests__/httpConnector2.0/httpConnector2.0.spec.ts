@@ -67,3 +67,5 @@ require("./TC_C95473");
 require("./TC_C95476");
 require("./TC_C95481");
 require("./TC_C95485");
+require("./TC_C95488");
+require("./TC_C96035");
