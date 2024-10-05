@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T23485", () => {
+test.describe("TC_T25319", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_T23485 @Zephyr-IO-T23485 @Env-All @Priority-P2", async ({ io, page }) => {
+    test("TC_T25319 @Zephyr-IO-T25319 @Env-All @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "BacklogAutomationCases_DND");
         await io.homePage.addStep("*** Searched for the integration ***");
