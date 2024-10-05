@@ -1,0 +1,32 @@
+{
+    "license": {
+        "expires": "2055-01-01T00:00:00.000Z",
+        "type": "endpoint",
+        "tier": "enterprise",
+        "supportTier": "preferred",
+        "numEndpoints": 1000,
+        "numAddOnEndpoints": 0,
+        "numFlows": 5000,
+        "numAddOnFlows": 0,
+        "numAgents": 100,
+        "numAddOnAgents": 0,
+        "numSandboxEndpoints": 1000,
+        "numSandboxAddOnEndpoints": 0,
+        "numSandboxFlows": 1000,
+        "numSandboxAddOnFlows": 10,
+        "numSandboxTradingPartners": 0,
+        "numSandboxAddOnTradingPartners": 0,
+        "numSandboxAgents": 15,
+        "numSandboxAddOnAgents": 10,
+        "apiManagement": true,
+        "sandbox": true,
+        "resumable": false,
+        "sso": true,
+        "van": false,
+        "disableOverage": true,
+        "concurrency": 30,
+        "auditLogRetentionYears": 3,
+        "maxAllowedDataRetention": 30,
+        "edi": "false"
+    }
+}

@@ -1,8 +1,23 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { getLicensePayload } from "@celigo/aut-utilities";
+import TC from "./C1516.json";
 
 test.describe("C1516_Verify once the free trail is started a notification is displayed with the number of trail days at the right top", () => {
+  test.beforeEach('update license', async ({ io, page }) => {
+    const licenses = await io.api.getCall("v1/licenses");
+    await io.api.putCall(
+      `v1/test/licenses/${licenses._id}`,
+      TC.license
+    );
+  });
+  test.afterEach('update license', async ({ io, page }) => {
+    const licenses = await io.api.getCall("v1/licenses");
+    await io.api.putCall(
+      `v1/test/licenses/${licenses._id}`,
+      TC.license
+    );
+  });
   test("@Env-All @Zephyr-IO-T1036 C1516_Verify once the free trail is started a notification is displayed with the number of trail days at the right top UI_Backlog", async ({ io, page }) => {
     const licenses = await io.api.getCall("v1/licenses");
     const platformLicense = licenses.find(l => l.sandbox === true);
