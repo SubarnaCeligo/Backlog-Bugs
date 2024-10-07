@@ -14,14 +14,41 @@
             "_connectionId": "FTP CONNECTION",
             "asynchronous": true,
             "ftp": {
-              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
-              "fileNameStartsWith": "TC_C22295_upload.json"
+              "directoryPath": "/io.auto.qa/Shashiii/em2.0"
             },
             "file": {
-              "encoding": "utf8",
               "output": "records",
               "skipDelete": true,
-              "type": "json"
+              "type": "json",
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "version": "1",
+                  "rules": [
+                    "startswith",
+                    [
+                      "string",
+                      [
+                        "extract",
+                        "filename"
+                      ]
+                    ],
+                    "TC_C22295.json"
+                  ]
+                },
+                "rules": [
+                  "startswith",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "filename"
+                    ]
+                  ],
+                  "TC_C22295.json"
+                ],
+                "version": "1"
+              }
             },
             "adaptorType": "FTPExport"
           }

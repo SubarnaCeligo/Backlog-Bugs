@@ -27,8 +27,7 @@ test.describe("@Author-ParthPatel TC_C47524", () => {
       selectors.basePagePO.RUNFLOW
     );
     await io.homePage.loadingTime();
-
-    await page.pause();
+    
     var resultJSON = await io.api.validateJobCountFromAPI(
       flowbranch.name,
       flowbranch.qa__expectedDashboardCount

@@ -7,11 +7,11 @@
     "pageGenerators": [
         {
             "qa__export": {
-                "qa__path": "//FTP_uploads//TC_C2169.json",
+                "qa__path": "//FTP_uploads//TC_C47448.json",
                 "_connectionId": "FTP CONNECTION",
                 "ftp": {
                     "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-                    "fileNameStartsWith": "TC_C2169.json"
+                    "fileNameStartsWith": "TC_C47448.json"
                 },
                 "file": {
                     "encoding": "utf8",

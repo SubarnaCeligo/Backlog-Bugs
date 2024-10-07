@@ -3,7 +3,7 @@ import * as selectors from "@celigo/aut-selectors";
 import { decrypt ,randomNumber} from "@celigo/aut-utilities";
 
 
-test.describe.only("TC_C22730", () => {
+test.describe("TC_C22730", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
     test.step("*** Beginning of Test Suite ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);

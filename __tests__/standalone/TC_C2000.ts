@@ -27,12 +27,6 @@ test.describe("TC_C2000", () => {
     test.step("*** Clicked On Save And Close ***", async ()=>{});
     test.step("*** API Token Is Created Successfully ***", async ()=>{});
 
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
-    await io.homePage.loadingTime();
-    await io.homePage.goToMenu("Resources","API tokens");
-    await io.homePage.loadingTime();
-    test.step("*** Clicked on API token button ***", async ()=>{});
-    
     await (await page.locator(selectors.flowBuilderPagePO.SEARCHBUTTON)).isVisible();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
 
@@ -52,20 +46,6 @@ test.describe("TC_C2000", () => {
     const text = await io.homePage.getText(selectors.flowGroupingPagePO.ALERT_MESSAGE);
     await io.assert.expectToContainValue( "Token copied to clipboard.", String(text), "");
 
-    await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
-    await io.homePage.click(selectors.connectionsPagePO.NEWTOKENGENERATE);
-    await page.waitForTimeout(3000);
-    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.COPY_TOKEN);
-    test.step("*** Clicked On generate API Token***", async ()=>{});
-
-    await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
-    test.step("***Copied Token To ClipBoard***", async ()=>{});
-
-    var secondtokencopiedText = await page.evaluate(() => navigator.clipboard.readText()); 
-
-    await expect(secondtokencopiedText).not.toBe(firsttokencopiedText);
-    test.step("*** verify newly generated token ***", async ()=>{});
-    
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","API tokens");
@@ -79,6 +59,21 @@ test.describe("TC_C2000", () => {
     await io.homePage.loadingTime();
     await test.step("***Searching the created token***", async ()=>{});
 
+    await (await page.locator(selectors.integrationPagePO.OPENACTIONSMENU)).first().isVisible();
+    await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await (await page.locator(selectors.connectionsPagePO.NEWTOKENGENERATE)).first().isVisible();
+    await io.homePage.click(selectors.connectionsPagePO.NEWTOKENGENERATE);
+    test.step("*** Clicked On generate API Token***", async ()=>{});
+    
+    await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).first().isVisible();
+    await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
+    test.step("***Copied Token To ClipBoard***", async ()=>{});
+
+    var secondtokencopiedText = await page.evaluate(() => navigator.clipboard.readText()); 
+
+    await expect(secondtokencopiedText).not.toBe(firsttokencopiedText);
+    test.step("*** verify newly generated token ***", async ()=>{});
+    
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.waitForElementAttached(selectors.connectionsPagePO.REVOKEAPITOKEN);
     await io.homePage.click(selectors.connectionsPagePO.REVOKEAPITOKEN);

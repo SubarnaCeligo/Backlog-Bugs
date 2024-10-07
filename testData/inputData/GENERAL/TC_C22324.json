@@ -12,28 +12,57 @@
           {
             "type": "export",
             "qa__export":{
-                "name": "FTP",
-                "_connectionId":"FTP CONNECTION",
-                "apiIdentifier": "e1973d5bbf",
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e44d4417a9",
                 "asynchronous": true,
                 "sandbox": false,
                 "sampleData": {
-                    "id": [
-                        1,
-                        1,
-                        {
-                            "a": 1
-                        }
-                    ]
+                   "a": 
+                   { "id": 1
+                  }, 
+                  "b": { "id": [
+                          1
+                      ]
+                  
+              }
                 },
                 "ftp": {
-                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-                    "fileNameStartsWith": "C22324"
+                  "directoryPath": "/io.auto.qa/Shashiii"
                 },
                 "file": {
-                    "output": "records",
-                    "skipDelete": true,
-                    "type": "json"
+                  "output": "records",
+                  "skipDelete": true,
+                  "type": "json",
+                  "filter": {
+                    "type": "expression",
+                    "expression": {
+                      "version": "1",
+                      "rules": [
+                        "startswith",
+                        [
+                          "string",
+                          [
+                            "extract",
+                            "filename"
+                          ]
+                        ],
+                        "Harshithatest4.json"
+                      ]
+                    },
+                    "rules": [
+                      "startswith",
+                      [
+                        "string",
+                        [
+                          "extract",
+                          "filename"
+                        ]
+                      ],
+                      "Harshithatest4.json"
+                    ],
+                    "version": "1"
+                  }
                 },
                 "adaptorType": "FTPExport"
             }
