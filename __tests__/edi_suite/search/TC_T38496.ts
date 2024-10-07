@@ -79,8 +79,6 @@ test.describe("@Author-Shriti S Verify that search results are refreshed when us
 
     await io.assert.verifyElementDisplayedByText("No EDI activity to report.", 'Search results are not refreshed');
 
-
-    await page.pause();
     //Change search by field to sender ID
     //Open pulldown menu
     await io.homePage.loadingTime();
