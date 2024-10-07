@@ -7,76 +7,103 @@
   "qa__api_tdata": [
     {
       "pageGenerators": [
-        {
-          "type": "export",
-          "qa__export": {
-            "name": "AutomationStandalone_Tracekey test",
+      {
+        "type": "export",
+        "qa__export":{
+            "name": "FTP Export",
             "_connectionId": "FTP CONNECTION",
-            "_sourceId": "627b404f19e3d414730dd7d7",
-            "apiIdentifier": "e6dcc1c174",
+            "apiIdentifier": "e44d4417a9",
             "asynchronous": true,
+            "sandbox": false,
+            "sampleData": {
+
+                "a": { "id": { "m": { "n": 1 } } },
+                "b": { "id": { "m": { "n": 1 } } }
+
+            },
             "ftp": {
-              "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
-              "fileNameStartsWith": "TC_C22293.json"
+              "directoryPath": "/io.auto.qa/Shashiii/em2.0"
             },
             "file": {
-              "encoding": "utf8",
               "output": "records",
               "skipDelete": true,
-              "type": "json"
-            },
-            "adaptorType": "FTPExport"
-          }
-        }
-      ],
-      "pageProcessors": [
-        {
-          "type": "import",
-          "qa__import": {
-            "name": "test",
-            "_connectionId": "NETSUITE CONNECTION",
-            "_sourceId": "627affbc19e3d414730dcb18",
-            "distributed": true,
-            "apiIdentifier": "i658fe9efa",
-            "ignoreExisting": false,
-            "ignoreMissing": false,
-            "oneToMany": false,
-            "lookups": [],
-            "netsuite_da": {
-              "useSS2Restlets": false,
-              "operation": "add",
-              "recordType": "customer",
-              "lookups": [],
-              "mapping": {
-                "fields": [
-                  {
-                    "generate": "companyname",
-                    "internalId": false,
-                    "extract": "1232989"
-                  },
-                  {
-                    "generate": "custentity_esc_industry",
-                    "internalId": false,
-                    "extract": "id"
-                  },
-                  {
-                    "generate": "custentity_esc_annual_revenue",
-                    "internalId": false,
-                    "hardCodedValue": "asdfghjnvfty"
-                  },
-                  {
-                    "generate": "subsidiary",
-                    "hardCodedValue": "fd",
-                    "internalId": false
-                  }
+              "type": "json",
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "version": "1",
+                  "rules": [
+                    "startswith",
+                    [
+                      "string",
+                      [
+                        "extract",
+                        "filename"
+                      ]
+                    ],
+                    "TC_C22293.json"
+                  ]
+                },
+                "rules": [
+                  "startswith",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "filename"
+                    ]
+                  ],
+                  "TC_C22293.json"
                 ],
-                "lists": []
+                "version": "1"
               }
             },
-            "adaptorType": "NetSuiteDistributedImport"
-          }
+            "adaptorType": "FTPExport"
         }
-      ],
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "test",
+          "_connectionId": "NETSUITE CONNECTION",
+          "distributed": true,
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "lookups": [],
+          "netsuite_da": {
+            "useSS2Restlets": false,
+            "restletVersion": "suitebundle",
+            "operation": "add",
+            "recordType": "customer",
+            "lookups": [],
+            "mapping": {
+              "fields": [
+                {
+                  "generate": "companyname",
+                  "internalId": false,
+                  "extract": "1232989"
+                },
+                {
+                  "generate": "custentity_esc_industry",
+                  "internalId": false,
+                  "extract": "id[*]._"
+                },
+                {
+                  "generate": "custentity_esc_annual_revenue",
+                  "internalId": false,
+                  "hardCodedValue": "asdfghjnvfty"
+                }
+              ],
+              "lists": []
+            }
+          },
+          "adaptorType": "NetSuiteDistributedImport"
+        }
+      }
+    ],
       "createFlow": {
         "name": "TC_C22293",
         "disabled": false,

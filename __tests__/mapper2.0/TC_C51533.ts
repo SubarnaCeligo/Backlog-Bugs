@@ -13,6 +13,7 @@ test.describe("TC_C51533", () => {
     await io.homePage.isPageReady();
 
     test.step("*** Clicking on import mappings ***", async ()=>{});
+    await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
     await io.homePage.click(
       selectors.flowBuilderPagePO.IMPORT_MAPPINGS
     );

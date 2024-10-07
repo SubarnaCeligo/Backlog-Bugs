@@ -20,59 +20,87 @@
                 "sandbox": false,
                 "lookups": [
                     {
+                        "useImportHeaders": true,
                         "name": "EfbA5",
                         "map": {
                             "Medium": "Tall"
                         },
-                        "allowFailures": false,
-                        "useImportHeaders": true
+                        "allowFailures": false
                     },
                     {
-                        "name": "dynamic",
-                        "method": "GET",
                         "relativeURI": "/tickets/81.json",
-                        "extract": "invalid_value",
+                        "method": "GET",
                         "body": "",
-                        "allowFailures": true,
+                        "extract": "invalid_value",
+                        "useImportHeaders": true,
+                        "name": "dynamic",
                         "default": "32",
-                        "useImportHeaders": true
+                        "allowFailures": true
+                    },
+                    {
+                        "method": "GET",
+                        "body": "",
+                        "extract": "products[0].name",
+                        "useImportHeaders": true,
+                        "postBody": "",
+                        "name": "dynamic-random",
+                        "allowFailures": false
+                    },
+                    {
+                        "useImportHeaders": true,
+                        "name": "random",
+                        "map": {
+                            "Medium": "medium"
+                        },
+                        "allowFailures": false
                     }
                 ],
                 "mappings": [
                     {
-                        "generate": "measrements",
+                        "generate": "measurements",
                         "dataType": "object",
+                        "status": "Active",
                         "mappings": [
                             {
                                 "extract": "$.measurements[*].caption",
                                 "generate": "id",
-                                "dataType": "string"
+                                "dataType": "string",
+                                "status": "Active",
+                                "sourceDataType": "string"
                             },
                             {
                                 "generate": "pom",
                                 "dataType": "string",
-                                "hardCodedValue": "partofmeasurement"
+                                "hardCodedValue": "partofmeasurement",
+                                "status": "Active",
+                                "sourceDataType": "string"
                             },
                             {
                                 "generate": "sizes",
                                 "dataType": "object",
+                                "status": "Active",
                                 "mappings": [
                                     {
                                         "extract": "$.measurements[*].sizes[*].size",
                                         "generate": "size",
                                         "dataType": "string",
-                                        "lookupName": "EfbA5"
+                                        "lookupName": "random",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
                                     },
                                     {
-                                        "extract": "$.measurements[*].sizes[*].size",
                                         "generate": "tolerance",
                                         "dataType": "string",
-                                        "lookupName": "dynamic"
+                                        "lookupName": "dynamic-random",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
                                     },
                                     {
                                         "extract": "{{toFixed 123.4}}",
-                                        "generate": "measurements",
-                                        "dataType": "string"
+                                        "generate": "measure",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "sourceDataType": "string"
                                     }
                                 ]
                             }

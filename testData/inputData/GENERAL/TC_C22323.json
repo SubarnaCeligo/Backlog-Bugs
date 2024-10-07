@@ -13,20 +13,51 @@
                 "asynchronous": true,
                 "sandbox": false,
                 "sampleData": {
-                    "id": [
-                        1,
-                        null
-                    ]
+                   "a": 
+                   { "id": 1
+                  }, 
+                  "b": { "id": [
+                          1
+                      ]
+                  
+              }
                 },
                 "ftp": {
-                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-                    "fileNameStartsWith": "TC_C22323_upload"
+                  "directoryPath": "/io.auto.qa/Shashiii"
                 },
                 "file": {
-                    "encoding": "utf8",
-                    "output": "records",
-                    "skipDelete": true,
-                    "type": "json"
+                  "output": "records",
+                  "skipDelete": true,
+                  "type": "json",
+                  "filter": {
+                    "type": "expression",
+                    "expression": {
+                      "version": "1",
+                      "rules": [
+                        "startswith",
+                        [
+                          "string",
+                          [
+                            "extract",
+                            "filename"
+                          ]
+                        ],
+                        "Harshithatest3.json"
+                      ]
+                    },
+                    "rules": [
+                      "startswith",
+                      [
+                        "string",
+                        [
+                          "extract",
+                          "filename"
+                        ]
+                      ],
+                      "Harshithatest3.json"
+                    ],
+                    "version": "1"
+                  }
                 },
                 "adaptorType": "FTPExport"
             }

@@ -14,10 +14,6 @@ test.describe("@Author-ParthPatel TC_C47454", () => {
 
   test.afterEach(async ({io,page}, testInfo) => {
     await test.step("*** Deleting flow.***", async ()=>{
-      const element = await page.locator('[id*="_pendo-badge_"]');
-      if (await element.count() > 0) {
-        await element.evaluate(node => node.remove());
-      }
       await io.flowbranching.flowBranchingPage.decreaseDrawer();
       await io.api.deleteFlowsWithId([flowId]);
     });

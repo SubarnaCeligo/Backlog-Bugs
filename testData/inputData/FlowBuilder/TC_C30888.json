@@ -2,266 +2,243 @@
     "name": "TC_C30888",
     "referencename": "TC_C30888",
     "qa__api_tdata": [
-        {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "HTTP export Zendesk",
-                        "application": "zendesk support",
-                        "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "apiIdentifier": "e33550710f",
-                        "asynchronous": true,
-                        "traceKeyTemplate": "{{join '/' record.id record.email}}",
-                        "oneToMany": false,
-                        "http": {
-                            "relativeURI": "users",
-                            "method": "GET",
-                            "formType": "http",
-                            "response": {
-                                "resourcePath": "users"
-                            }
-                        },
-                        "adaptorType": "HTTPExport"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "Netsuite lookup",
-                        "_connectionId": "NETSUITE CONNECTION",
-                        "distributed": true,
-                        "apiIdentifier": "ic1633ce60",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "lookups": [],
-                        "netsuite_da": {
-                            "useSS2Restlets": false,
-                            "operation": "add",
-                            "recordType": "customer",
-                            "lookups": [],
-                            "mapping": {
-                                "fields": [
-                                    {
-                                        "generate": "accountnumber",
-                                        "extract": "company",
-                                        "internalId": false
-                                    }
-                                ],
-                                "lists": []
-                            }
-                        },
-                        "adaptorType": "NetSuiteDistributedImport"
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": 
+            {
+                "name": "zd exp",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "eb381950b3",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users",
+                    "method": "GET",
+                    "isRest": false,
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users",
+                        "twoDArray": {
+                            "doNotNormalize": false,
+                            "hasHeader": false
+                        }
                     }
                 },
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "Salesforce import",
-                        "_connectionId": "SALESFORCE CONNECTION",
-                        "apiIdentifier": "i465dea4dc",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "mapping": {
-                            "fields": [
-                                {
-                                    "extract": "id",
-                                    "generate": "Id"
-                                },
-                                {
-                                    "extract": "Name",
-                                    "generate": "Title"
-                                },
-                                {
-                                    "extract": "id",
-                                    "generate": "ParentId"
-                                },
-                                {
-                                    "extract": "id",
-                                    "generate": "OwnerId"
-                                },
-                                {
-                                    "extract": "Date",
-                                    "generate": "CreatedDate"
-                                }
-                            ]
-                        },
-                        "salesforce": {
-                            "operation": "insert",
-                            "sObjectType": "Note",
-                            "api": "soap",
-                            "removeNonSubmittableFields": false
-                        },
-                        "adaptorType": "SalesforceImport"
-                    }
+                "rawData": "62ebb431e627016182cf3391575ecb66d3e440789737144ef936539e",
+                "test": {
+                    "limit": 1
                 },
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "zendesk assistant import",
-                        "_connectionId": "ZENDESK CONNECTION",
-                        "apiIdentifier": "i03439b266",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "assistant": "zendesk",
-                        "assistantMetadata": {
-                            "resource": "end_users",
-                            "version": "v2",
-                            "operation": "update_end_user"
-                        },
-                        "mapping": {
-                            "fields": [
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "rulesTwoDotZero": {
+                            "mappings": [
                                 {
-                                    "extract": "id",
-                                    "generate": "user.id"
+                                    "generate": "orderid",
+                                    "dataType": "string",
+                                    "extract": "$.id",
+                                    "status": "Active",
+                                    "sourceDataType": "number"
                                 }
-                            ]
+                            ],
+                            "mode": "modify"
                         },
-                        "http": {
-                            "relativeURI": [
-                                "/api/v2/end_users/{{{}}}.json"
-                            ],
-                            "method": [
-                                "PUT"
-                            ],
-                            "body": [
-                                null
-                            ],
-                            "batchSize": 1,
-                            "requestMediaType": "json",
-                            "successMediaType": "json",
-                            "errorMediaType": "json",
-                            "strictHandlebarEvaluation": true,
-                            "sendPostMappedData": true,
-                            "formType": "assistant",
-                            "response": {
-                                "resourceIdPath": [
-                                    null
+                        "version": "2"
+                    },
+                    "rules": [
+                        []
+                    ],
+                    "version": "2"
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            "notequals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
                                 ]
-                            }
-                        },
-                        "rest": {
-                            "relativeURI": [
-                                "/api/v2/end_users/{{{}}}.json"
                             ],
-                            "method": [
-                                "PUT"
-                            ],
-                            "body": [
-                                null
-                            ],
-                            "responseIdPath": [
-                                null
-                            ],
-                            "successPath": [
-                                null
-                            ],
-                            "successValues": [
-                                null
+                            "1"
+                        ],
+                        "version": "1"
+                    },
+                    "rules": [
+                        "notequals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "id"
                             ]
-                        },
-                        "adaptorType": "RESTImport"
+                        ],
+                        "1"
+                    ],
+                    "version": "1"
+                },
+                "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "export",
+            "qa__export": 
+            {
+                "name": "zd lkp",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e82583c254",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "test",
+                "traceKeyTemplate": "{{record.id}}",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users",
+                    "method": "GET",
+                    "isRest": false,
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users",
+                        "twoDArray": {
+                            "doNotNormalize": false,
+                            "hasHeader": false
+                        }
                     }
                 },
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "Inspectorio assistantant (Rest)",
-                        "application":"inspectorio",
-                        "_connectionId": "62fd2747e91dc1244058d88a",
-                        "apiIdentifier": "i394d999b8",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "assistant": "inspectorio",
-                        "assistantMetadata": {
-                            "resource": "brand",
-                            "version": "v1",
-                            "operation": "create_brand"
-                        },
-                        "mapping": {
-                            "fields": [
-                                {
-                                    "extract": "id",
-                                    "generate": "brandId"
-                                },
-                                {
-                                    "extract": "first_name",
-                                    "generate": "name"
-                                }
-                            ]
-                        },
-                        "http": {
-                            "relativeURI": [
-                                "/api/v1/brands"
-                            ],
-                            "method": [
-                                "POST"
-                            ],
-                            "body": [
-                                "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
-                            ],
-                            "requestMediaType": "json",
-                            "successMediaType": "json",
-                            "errorMediaType": "json",
-                            "strictHandlebarEvaluation": false,
-                            "sendPostMappedData": true,
-                            "formType": "assistant"
-                        },
-                        "adaptorType": "HTTPImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C30888",
-                "disabled": false,
-                "_integrationId": "62eca1efe386b563f638451e",
-                "skipRetries": false,
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    },
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    },
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    },
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    }
-                ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
-                    }
-                ]
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
             }
+          },
+          {
+            "type": "import",
+            "qa__import":
+            {
+                "name": "zd2",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ia3ab0c421",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": true,
+                "sandbox": false,
+                "traceKeyTemplate": "{{record.id}}",
+                "mappings": [
+        {
+            "generate": "abcd",
+            "dataType": "string",
+            "status": "Draft",
+            "sourceDataType": "string"
+        },
+        {
+            "generate": "123",
+            "dataType": "string",
+            "status": "Draft",
+            "sourceDataType": "string"
+        },
+        {
+            "generate": "pqr",
+            "dataType": "string",
+            "status": "Draft",
+            "sourceDataType": "string"
+        },
+        {
+            "generate": "xyz",
+            "dataType": "string",
+            "status": "Draft",
+            "sourceDataType": "string"
         }
+    ],
+                "http": {
+                    "relativeURI": [
+                        "users/create_many"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{  \"users\": [    {      \"email\": \"roge@example.org\",      \"name\": \"Roger Wilco\",      \"organization_id\": 567812345,      \"role\": \"agent\"    },    {      \"email\": \"woge@example.org\",      \"name\": \"Woger Rilco\",      \"role\": \"admin\"    }  ]}"
+                    ],
+                    "batchSize": 2,
+                    "sendPostMappedData": true,
+                    "isRest": false,
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": [
+                            "jobstatus.records"
+                        ]
+                    }
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "active"
+                                ]
+                            ],
+                            "3"
+                        ],
+                        "version": "1"
+                    },
+                    "rules": [
+                        "equals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "active"
+                            ]
+                        ],
+                        "3"
+                    ],
+                    "version": "1"
+                },
+                "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C30888",
+          "disabled": false,
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "type": "export",
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
     ]
-}
+  }
+  

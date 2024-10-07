@@ -15,8 +15,8 @@
             "apiIdentifier": "e6dcc1c174",
             "asynchronous": true,
             "ftp": {
-              "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
-              "fileNameStartsWith": "TC_C22279.json"
+              "directoryPath": "/io.auto.qa/Shashiii/em2.0",
+              "fileNameStartsWith": "TC_C22308.json"
             },
             "file": {
               "encoding": "utf8",

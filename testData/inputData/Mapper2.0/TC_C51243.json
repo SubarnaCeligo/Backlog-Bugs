@@ -1,207 +1,203 @@
 {
     "referencename": "TC_C51243",
     "name": "TC_C51243",
-    "qa__api_tdata": [
+    "pageGenerators": [
         {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "ftp_exp",
-                        "_connectionId": "FTP CONNECTION",
-                        "_sourceId": "6349032703b87c2be89a2886",
-                        "apiIdentifier": "e822e43474",
-                        "asynchronous": true,
-                        "sandbox": false,
-                        "ftp": {
-                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
-                            "fileNameStartsWith": "TC_C51221"
+            "type": "export",
+            "qa__export": {
+                "name": "ftp_exp",
+                "_connectionId": "FTP CONNECTION",
+                "_sourceId": "6349032703b87c2be89a2886",
+                "apiIdentifier": "e822e43474",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C51221"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C51221.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandalone_Hz9sn",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i331e2dc4d",
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "name",
+                            "generate": "organization.name"
                         },
-                        "file": {
-                            "output": "records",
-                            "skipDelete": false,
-                            "type": "json"
-                        },
-                        "adaptorType": "FTPExport",
-                        "qa__path": "//FTP_uploads//TC_C51221.json"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "AutomationStandalone_Hz9sn",
-                        "_connectionId": "FTP CONNECTION",
-                        "apiIdentifier": "i331e2dc4d",
-                        "oneToMany": false,
-                        "sandbox": false,
-                        "mapping": {
-                            "fields": [
-                                {
-                                    "extract": "name",
-                                    "generate": "organization.name"
-                                },
-                                {
-                                    "extract": "notes",
-                                    "generate": "organization.notes"
-                                }
-                            ]
-                        },
-                        "mappings": [
+                        {
+                            "extract": "notes",
+                            "generate": "organization.notes"
+                        }
+                    ]
+                },
+                "mappings": [
+                    {
+                        "extract": "$.fName",
+                        "generate": "name",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "generate": "family",
+                        "dataType": "objectarray",
+                        "status": "Draft",
+                        "buildArrayHelper": [
                             {
-                                "extract": "$.fName",
-                                "generate": "name",
-                                "dataType": "string",
-                                "status": "Active",
-                                "sourceDataType": "string"
-                            },
-                            {
-                                "generate": "family",
-                                "dataType": "objectarray",
-                                "status": "Draft",
-                                "buildArrayHelper": [
+                                "extract": "$.father",
+                                "sourceDataType": "object",
+                                "mappings": [
                                     {
-                                        "extract": "$.father",
-                                        "sourceDataType": "object",
-                                        "mappings": [
-                                            {
-                                                "generate": "fname",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            },
-                                            {
-                                                "generate": "lname",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            },
-                                            {
-                                                "generate": "test",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            }
-                                        ]
+                                        "generate": "fname",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
                                     },
                                     {
-                                        "extract": "$.mother",
-                                        "sourceDataType": "object",
-                                        "mappings": [
-                                            {
-                                                "generate": "fname",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            },
-                                            {
-                                                "generate": "lname",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            },
-                                            {
-                                                "generate": "test",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            }
-                                        ]
+                                        "generate": "lname",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
                                     },
                                     {
-                                        "extract": "$.siblings[*].children[*]",
-                                        "sourceDataType": "objectarray",
-                                        "mappings": [
-                                            {
-                                                "generate": "fname",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            },
-                                            {
-                                                "generate": "lname",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            },
-                                            {
-                                                "generate": "test",
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            }
-                                        ]
+                                        "generate": "test",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
                                     }
                                 ]
                             },
                             {
-                                "generate": "cousins",
-                                "dataType": "objectarray",
-                                "status": "Draft",
-                                "buildArrayHelper": [
+                                "extract": "$.mother",
+                                "sourceDataType": "object",
+                                "mappings": [
                                     {
-                                        "extract": "$.siblings[*]",
-                                        "sourceDataType": "objectarray",
-                                        "mappings": [
-                                            {
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            }
-                                        ]
+                                        "generate": "fname",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
                                     },
                                     {
-                                        "extract": "$.children[*]",
-                                        "sourceDataType": "objectarray",
-                                        "mappings": [
-                                            {
-                                                "dataType": "string",
-                                                "status": "Draft",
-                                                "sourceDataType": "string"
-                                            }
-                                        ]
+                                        "generate": "lname",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "test",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            },
+                            {
+                                "extract": "$.siblings[*].children[*]",
+                                "sourceDataType": "objectarray",
+                                "mappings": [
+                                    {
+                                        "generate": "fname",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "lname",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    },
+                                    {
+                                        "generate": "test",
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
                                     }
                                 ]
                             }
-                        ],
-                        "file": {
-                            "fileName": "TC_C51243.json",
-                            "skipAggregation": false,
-                            "type": "json",
-                            "encoding": "utf8"
-                        },
-                        "ftp": {
-                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPimport",
-                            "fileName": "TC_C51243.json"
-                        },
-                        "adaptorType": "FTPImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C51243",
-                "disabled": false,
-                "qa__integrationId": "56d6b23fe1fc35de53914730",
-                "_integrationId": "56d6b23fe1fc35de53914730",
-                "skipRetries": false,
-                "pageProcessors": [
+                        ]
+                    },
                     {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
+                        "generate": "cousins",
+                        "dataType": "objectarray",
+                        "status": "Draft",
+                        "buildArrayHelper": [
+                            {
+                                "extract": "$.siblings[*]",
+                                "sourceDataType": "objectarray",
+                                "mappings": [
+                                    {
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            },
+                            {
+                                "extract": "$.children[*]",
+                                "sourceDataType": "objectarray",
+                                "mappings": [
+                                    {
+                                        "dataType": "string",
+                                        "status": "Draft",
+                                        "sourceDataType": "string"
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ],
-                "pageGenerators": [
-                    {
-                        "type": "export",
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
-                    }
-                ]
+                "file": {
+                    "fileName": "TC_C51243.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPimport",
+                    "fileName": "TC_C51243.json"
+                },
+                "adaptorType": "FTPImport"
             }
         }
-    ]
+    ],
+    "createFlow": {
+        "name": "TC_C51243",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "type": "export",
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
 }

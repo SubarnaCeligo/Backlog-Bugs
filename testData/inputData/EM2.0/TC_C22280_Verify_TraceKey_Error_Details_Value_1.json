@@ -14,8 +14,8 @@
             "_connectionId": "FTP CONNECTION",
             "asynchronous": true,
             "ftp": {
-              "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports",
-              "fileNameStartsWith": "C22280.json"
+              "directoryPath": "/io.auto.qa/Shashiii/em2.0",
+              "fileNameStartsWith": "TC_C22280.json"
             },
             "file": {
               "encoding": "utf8",

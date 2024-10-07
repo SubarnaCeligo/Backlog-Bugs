@@ -25,7 +25,7 @@ test.describe("TC_C2003", () => {
     test.step("*** API Token Is Created Successfully ***", async ()=>{});
 
     await io.homePage.click(selectors.flowBuilderPagePO.SHOW_TOKEN);
-    await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).isVisible();
+    await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).first().isVisible();
     test.step("***Token Is Displayed In Clear Text***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
     test.step("***Copied Token To ClipBoard***", async ()=>{});
@@ -43,12 +43,12 @@ test.describe("TC_C2003", () => {
     await io.homePage.loadingTime();
     await test.step("***Searching the created token***", async ()=>{});
 
+    await (await page.locator(selectors.integrationPagePO.OPENACTIONSMENU)).first().isVisible();
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.connectionsPagePO.NEWTOKENGENERATE);
-    await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).isVisible();
-    await page.waitForTimeout(3000);
     test.step("*** Clicked On generate API Token***", async ()=>{});
-
+    
+    await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).first().isVisible();
     await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
     test.step("***Copied Token To ClipBoard***", async ()=>{});
 

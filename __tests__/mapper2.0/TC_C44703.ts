@@ -1,9 +1,6 @@
-
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import { decrypt ,randomNumber} from "@celigo/aut-utilities";
 import TC from "@testData/Mapper2.0/TC_C44703.json";
-import { allure } from "allure-playwright";
 
 test.describe("TC_C44703", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
@@ -20,6 +17,7 @@ test.describe("TC_C44703", () => {
     await io.homePage.isPageReady();
 
     test.step("*** Open import mapping***", async ()=>{});
+    await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
     await io.homePage.clickButtonByIndex(
       selectors.basePagePO.ADD_DATA_PROCESSOR,
       1
@@ -47,7 +45,7 @@ test.describe("TC_C44703", () => {
     let obtained = await io.homePage.getText(
       selectors.mappings.RESULTTEXT
     );
-    console.log(obtained, "obtained");
+
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     await io.homePage.loadingTime();

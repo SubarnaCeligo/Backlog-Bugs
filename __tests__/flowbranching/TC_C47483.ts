@@ -29,7 +29,8 @@ test.describe("@Author-ParthPatel TC_C47483_orchestrated_flows", () => {
     await io.homePage.loadingTime();
     await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
     await io.homePage.loadingTime();
-    await io.flowbranching.flowBranchingPage.increaseDrawer(250);
+    await io.flowbranching.flowBranchingPage.increaseDrawer(400);
+    await io.homePage.loadingTime();
     let errors = await io.flowbranching.flowBranchingPage.getList(
       selectors.flowBuilderPagePO.JOB_ERRORS
     );

@@ -6,73 +6,108 @@
       "pageGenerators": [
         {
           "type": "export",
-          "qa__export": {
-            "name": "FTP Export TC_C27565",
-            "_connectionId": "FTP CONNECTION",
+          "qa__export": 
+          {
+            "name": "zd exp",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "eb381950b3",
             "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
             "sandbox": false,
-            "ftp": {
-              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-              "fileNameStartsWith": "TC_C27566",
-              "fileNameEndsWith": ".json"
+            "http": {
+                "relativeURI": "users",
+                "method": "GET",
+                "isRest": false,
+                "formType": "http",
+                "response": {
+                    "resourcePath": "users",
+                    "twoDArray": {
+                        "doNotNormalize": false,
+                        "hasHeader": false
+                    }
+                }
             },
-            "file": {
-              "encoding": "utf8",
-              "output": "records",
-              "skipDelete": true,
-              "type": "json"
+            "rawData": "62ebb431e627016182cf3391575ecb66d3e440789737144ef936539e",
+            "test": {
+                "limit": 1
             },
-            "adaptorType": "FTPExport"
-          }
+            "adaptorType": "HTTPExport"
+        }
         }
       ],
       "pageProcessors": [
         {
           "type": "export",
-          "qa__export": {
-            "name": "ZD EXP",
-            "application": "zendesk support",
+          "qa__export": 
+          {
+            "name": "zd lkp",
             "_connectionId": "HTTP ZENDESK CONNECTION",
-            "apiIdentifier": "eaed929ed0",
+            "apiIdentifier": "e82583c254",
             "asynchronous": true,
             "isLookup": true,
-            "oneToMany": true,
-            "pathToMany": "user_fields",
-            "traceKeyTemplate": "{{join '/' record.email}}",
+            "type": "test",
+            "traceKeyTemplate": "{{record.id}}",
+            "oneToMany": false,
+            "sandbox": false,
             "http": {
-              "relativeURI": "/userscheck",
-              "method": "GET",
-              "formType": "http"
+                "relativeURI": "users",
+                "method": "GET",
+                "isRest": false,
+                "formType": "http",
+                "response": {
+                    "resourcePath": "users",
+                    "twoDArray": {
+                        "doNotNormalize": false,
+                        "hasHeader": false
+                    }
+                }
+            },
+            "test": {
+                "limit": 1
             },
             "adaptorType": "HTTPExport"
-          }
+        }
         },
         {
           "type": "import",
-          "qa__import": {
-            "name": "Zendesk import",
-            "application":"zendesk support",
+          "qa__import":
+          {
+            "name": "zd2",
             "_connectionId": "HTTP ZENDESK CONNECTION",
-            "apiIdentifier": "i087c4a05d",
+            "apiIdentifier": "ia3ab0c421",
             "ignoreExisting": false,
             "ignoreMissing": false,
+            "oneToMany": true,
+            "sandbox": false,
+            "traceKeyTemplate": "{{record.id}}",
             "http": {
-              "relativeURI": ["/users"],
-              "method": ["POST"],
-              "body": [],
-              "batchSize": 1,
-              "sendPostMappedData": true,
-              "formType": "http"
+                "relativeURI": [
+                    "users/create_many"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    "{  \"users\": [    {      \"email\": \"roge@example.org\",      \"name\": \"Roger Wilco\",      \"organization_id\": 567812345,      \"role\": \"agent\"    },    {      \"email\": \"woge@example.org\",      \"name\": \"Woger Rilco\",      \"role\": \"admin\"    }  ]}"
+                ],
+                "batchSize": 2,
+                "sendPostMappedData": true,
+                "isRest": false,
+                "formType": "http",
+                "response": {
+                    "resourcePath": [
+                        "jobstatus.records"
+                    ]
+                }
             },
             "adaptorType": "HTTPImport"
-          }
+        }
         }
       ],
       "createFlow": {
         "name": "TC_C27565",
         "disabled": false,
-        "qa__integrationId": "62eca1efe386b563f638451e",
-        "_integrationId": "62ecc42648570015ab65cfa5",
         "skipRetries": false,
         "pageProcessors": [
           {
