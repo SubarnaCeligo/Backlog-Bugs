@@ -1,0 +1,19 @@
+{
+    "application": "github",
+    "_httpConnectorId": "6548d79caf4cb1cb5e6ec819",
+    "resourceType": "webhook",
+    "type": "webhook",
+    "webhook": {
+        "provider": "custom",
+        "_httpConnectorId": "6548d79caf4cb1cb5e6ec819",
+        "algorithm": "sha256",
+        "encoding": "base64",
+        "header": "X-Hub-Signature-256",
+        "key": "1234",
+        "verify": "hmac"
+    },
+    "assistantMetadata": {},
+    "name": "Github listener",
+    "sampleData": false,
+    "sandbox": false
+}

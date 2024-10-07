@@ -1,13 +1,16 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import flow from "@testData/FlowBuilder/C102620.json";
+import TC from "@testData/FlowBuilder/C102620.json";
 
 test.describe("TC_C102620 Verify hover text is not showing when we have 'Source dropdown' is opened", () => {
-  let id;
+  let id; let listeID;
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(id);
   });
-
+  test.beforeEach(async ({ io }) => {
+    listeID = await io.createResourceFromAPI(TC, "EXPORT");
+  });
   test("@Zephyr-IO-T23483 @Env-All @Priority-P2 C102620 Verify hover text is not showing when we have 'Source dropdown' is opened", async ({
     io,
     page
