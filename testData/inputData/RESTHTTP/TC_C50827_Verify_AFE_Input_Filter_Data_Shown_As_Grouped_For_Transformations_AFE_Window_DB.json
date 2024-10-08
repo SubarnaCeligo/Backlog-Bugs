@@ -1,0 +1,52 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "Microsoft SQL",
+        "name": "DB_50827",
+        "_connectionId": "MYSQL CONNECTION",
+        "apiIdentifier": "ef1756f845",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": [
+            "AGENT_NAME"
+        ],
+        "rdbms": {
+            "query": "select * from automation_lookup_afe"
+        },
+        "transform": {
+            "type": "expression",
+            "expression": {
+                "rules": [
+                    [
+                        {
+                            "extract": "*.AGENT_NAME",
+                            "generate": "name"
+                        }
+                    ]
+                ],
+                "version": "1"
+            },
+            "version": "1",
+            "rules": [
+                [
+                    {
+                        "extract": "*.AGENT_NAME",
+                        "generate": "name"
+                    }
+                ]
+            ]
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ],
+  "ExpectedData":[
+    {
+      "AGENT_NAME": "Ivan",
+      "AGENT_CODE": "A004"
+    }
+  ]
+}

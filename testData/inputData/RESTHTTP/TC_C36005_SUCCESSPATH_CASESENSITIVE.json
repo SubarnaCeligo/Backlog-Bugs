@@ -1,0 +1,74 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "create slack msg",
+          "application": "slack",
+          "qa__connectionId": "HTTP SLACK CONNECTION",
+          "_connectionId": "HTTP SLACK CONNECTION",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "http": {
+            "relativeURI": [
+              "conversations.create"
+            ],
+            "method": [
+              "POST"
+            ],
+            "body": [
+                "{\"name\":\"{{Test}}\"}"
+            ],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http",
+            "response": {
+              "successPath": [
+                "oK"
+              ],
+              "successValues": [
+                [
+                  "TRUE"
+                ]
+              ]
+            }
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "SUCCESSPATH SENSITIVE HTTP",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Slack_Message",
+          "_connectionId": "FTP CONNECTION",
+          "qa__path": "/FTP_uploads/name.json",
+          "asynchronous": true,
+          "sandbox": false,
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+            "fileNameStartsWith": "name"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,167 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "48_REstimport",
+            "application": "zendesk support",
+            "adaptorType": "HTTPImport",
+            "lookups": [{
+                "name": "CreateUpdateLookup",
+                "relativeURI": "search.json?query=type:organization notes:{{{[E Mail]}}}",
+                "allowFailures": false,
+                "method": "GET",
+                "extract": "results[0].id"
+            }],
+            "http": {
+                "relativeURI": [
+                    "organizations/{{lookup.CreateUpdateLookup}}.json",
+                    "organizations.json"
+                ],
+                "method": [
+                    "PUT",
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "formType": "http",
+                "qa__formType": "rest",
+                "existingLookupName": "CreateUpdateLookup",
+                "requestType": [
+                    "UPDATE",
+                    "CREATE"
+                ],
+                "strictHandlebarEvaluation": true,
+                "lookups": [{
+                    "method": "GET",
+                    "relativeURI": "search.json?query=type:organization notes:{{{[E Mail]}}}",
+                    "extract": "results[0].id",
+                    "allowFailures": false,
+                    "name": "CreateUpdateLookup",
+                    "useImportHeaders": false
+                }]
+            },
+            "rest": {
+                "lookups": [{
+                    "extract": "results[0].id",
+                    "method": "GET",
+                    "allowFailures": false,
+                    "name": "CreateUpdateLookup",
+                    "relativeURI": "search.json?query=type:organization notes:{{{[E Mail]}}}"
+                }],
+                "method": [
+                    "PUT",
+                    "POST"
+                ],
+                "body": [],
+                "requestType": [
+                    "UPDATE",
+                    "CREATE"
+                ],
+                "relativeURI": [
+                    "organizations/{{{CreateUpdateLookup}}}.json",
+                    "organizations.json"
+                ]
+            },
+            "mapping": {
+                "fields": [{
+                        "extract": "[Company Name]",
+                        "qa__ignoreBrackets": true,
+                        "generate": "organization.name",
+                        "qa__extract": "Company Name"
+                    },
+                    {
+                        "extract": "[E Mail]",
+                        "qa__ignoreBrackets": true,
+                        "generate": "organization.notes",
+                        "qa__extract": "E Mail"
+                    },
+                    {
+                        "extract": "phone",
+                        "generate": "organization.organization_fields.phone"
+                    },
+                    {
+                        "extract": "Fax",
+                        "generate": "organization.organization_fields.fax"
+                    }
+                ]
+            },
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "dataURITemplate": "{{{id}}}",
+            "distributed": false
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "timezone": "Asia/Calcutta",
+    "name": "48.SFTP Flow#4 SFTP(TXT) to ZDOrganizations_Pipe",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "zendesk": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "48.SFTP Flow#4 SFTP(TXT) to ZDOrganizations_Pipe",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "57aad5298ec9f8804906006d",
+                    "uniqueField": "notes",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "edb8215601",
+                    "expectedJSON": {
+                        "organization_fields": {
+                            "phone": "146465466",
+                            "fax": "54154541524152"
+                        },
+                        "notes": "AutoSFTPFlow481@gmail.com",
+                        "name": "Auto@SFTPFlow481"
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "48FTPexport",
+            "adaptorType": "FTPExport",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                "fileNameEndsWith": ".txt",
+                "fileNameStartsWith": "Flow48_SFTPTexttoZDOrg_Pipe"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "csv": {
+                    "columnDelimiter": "|",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                },
+                "encoding": "utf8",
+                "type": "csv"
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "dataURITemplate": "{{{[Company Name]}}}",
+            "qa__path": "//SFTP_uploads//Flow48_SFTPTexttoZDOrg_Pipe.txt"
+        }
+    }]
+}

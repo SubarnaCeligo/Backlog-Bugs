@@ -1,0 +1,53 @@
+{
+    "name": "TC_C99467",
+    "disabled": true,
+    "_integrationId": "_integrationId",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "JAZZHR Export",
+                "_connectionId": "JAZZ HR CONNECTION",
+                "apiIdentifier": "e074304bf2",
+                "asynchronous": true,
+                "assistant": "jazzhr",
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [
+                    {
+                        "type": "xml",
+                        "version": "1",
+                        "rules": {
+                            "V0_json": true,
+                            "stripNewLineChars": false,
+                            "trimSpaces": false
+                        }
+                    }
+                ],
+                "http": {
+                    "relativeURI": "/users/name/testname/page/{{{export.http.paging.page}}}",
+                    "method": "GET",
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "_httpConnectorVersionId": "646740d175132373cc23e868",
+                    "_httpConnectorResourceId": "646740d175132373cc23e879",
+                    "_httpConnectorEndpointId": "646740d175132373cc23e87a",
+                    "isRest": false,
+                    "formType": "assistant",
+                    "paging": {
+                        "method": "page",
+                        "page": 1
+                    },
+                    "response": {
+                        "twoDArray": {
+                            "doNotNormalize": true
+                        }
+                    }
+                },
+                "rawData": "6333fb239fb96473a0c7343bba93f85cdbf748588b9eed61dc84b090",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

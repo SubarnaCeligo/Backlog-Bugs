@@ -1,0 +1,124 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "80_REstimport",
+            "application": "zendesk support",
+            "adaptorType": "HTTPImport",
+            "http": {
+                "relativeURI": [
+                    "organizations.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "formType": "http",
+                "qa__formType": "rest",
+                "strictHandlebarEvaluation": true
+            },
+            "mapping": {
+                "fields": [{
+                        "extract": "name",
+                        "generate": "organization.name"
+                    },
+                    {
+                        "extract": "notes",
+                        "generate": "organization.notes"
+                    },
+                    {
+                        "extract": "phone",
+                        "dataType": "string",
+                        "generate": "organization.organization_fields.phone"
+                    },
+                    {
+                        "extract": "fax",
+                        "dataType": "string",
+                        "generate": "organization.organization_fields.fax"
+                    }
+                ]
+            },
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "distributed": false
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "timezone": "Asia/Calcutta",
+    "name": "80.SFTP_Flow#6_SFTP(JSON) to ZD(Organizations)_JSON",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "zendesk": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "80.SFTP_Flow#6_SFTP(JSON) to ZD(Organizations)_JSON",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "57aad5298ec9f8804906006d",
+                    "uniqueField": "notes",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "edb8215601",
+                    "expectedJSON": [{
+                            "organization_fields": {
+                                "phone": "33335555",
+                                "fax": "11112222"
+                            },
+                            "notes": "AutoSFTPtoZDOrganizatioJSON_1@gmail.com",
+                            "name": "Auto@SFTPtoZDOrganization_JSON_1"
+                        },
+                        {
+                            "organization_fields": {
+                                "phone": "55558888",
+                                "fax": "66664444"
+                            },
+                            "notes": "AutoSFTPtoZDOrganization_JSON_2@gmail.com",
+                            "name": "Auto@SFTPtoZDOrganization_JSON_2"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "80_FTPexport",
+            "adaptorType": "FTPExport",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                "fileNameEndsWith": ".json",
+                "fileNameStartsWith": "80_SFTP to ZDOrganizations_JSON"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "encoding": "utf8",
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//SFTP_uploads//80_SFTP to ZDOrganizations_JSON.json"
+        }
+    }]
+}

@@ -1,0 +1,191 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_406_SF_Mysql_AFE2.0",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "get mysql_afe_records_from_saleforce",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name,Email__c, Immutable_Number1__c,Ownership from Account where Name like 'mysql_afe2.0_automation_record%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "Name": {
+            "default": ""
+          },
+          "Email__c": {
+            "default": ""
+          },
+          "Immutable_Number1__c": {
+            "default": ""
+          },
+          "Ownership": {
+            "default": ""
+          }
+        },
+        "parsers": [],
+        "_connectionId": "MYSQL CONNECTION",
+        "application": "MySQL",
+        "distributed": false,
+        "lookups": [],
+        "rdbms": {
+          "query": [
+            "INSERT into insert_table_afe\n(\nName,\nEmail__c,\nImmutable_Number1__c,\nOwnership\n)\nVALUES\n(\n{{record.Name}},\n{{record.Email__c}},\n{{record.Immutable_Number1__c}},\n{{record.Ownership}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ]
+        },
+        "adaptorType": "RDBMSImport",
+        "name": "PP_Import "
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_406_SF_Mysql_AFE2.0",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "Name": "mysql_afe2.0_automation_record1",
+              "Email__c": "mysqlafeautomationrecord1@gmail.com",
+              "Immutable_Number1__c": 999,
+              "Ownership": "Public"
+            },
+            {
+              "Name": "mysql_afe2.0_automation_record2",
+              "Email__c": "mysqlafeautomationrecord2@gmail.com",
+              "Immutable_Number1__c": 998,
+              "Ownership": "Private"
+            }
+          ],
+          "uniqueField": "Name",
+          "exportRecordType": "Account",
+          "standaloneexportflowID": "6029f10712fd70663e3e0b7c",
+          "importRecordType": "organizations",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e4f89277a4",
+          "application":"MYSQL"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "4",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "MYSQL CONNECTION"
+        }
+      }
+    },
+    "importRecordJSON": [
+      {
+        "name": "mysql_afe2.0_automation_record1",
+        "email": "mysqlafeautomationrecord1@gmail.com",
+        "number": 999,
+        "ownership": "Public"
+      },
+      {
+        "name": "mysql_afe2.0_automation_record2",
+        "email": "mysqlafeautomationrecord2@gmail.com",
+        "number": 998,
+        "ownership": "Private"
+      }
+    ],
+    "application":"SALESFORCE",    
+    "importapiIdentifier": "i89ed40720",
+    "importapidoc": {
+      "_id": "6029f2b153b612272ca1d6a4",
+      "createdAt": "2021-02-15T04:04:01.731Z",
+      "lastModified": "2021-06-08T07:20:54.251Z",
+      "name": "TC_406_SF_Mysql_AFE2.0",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i89ed40720",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "Name"
+          },
+          {
+            "extract": "email",
+            "generate": "Email__c"
+          },
+          {
+            "extract": "number",
+            "generate": "Immutable_Number1__c"
+          },
+          {
+            "extract": "ownership",
+            "generate": "Ownership"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

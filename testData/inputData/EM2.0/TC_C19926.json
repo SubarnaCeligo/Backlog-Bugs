@@ -7,45 +7,18 @@
         {
           "type": "export",
           "qa__export": {
-            "name": "SF1",
-            "_connectionId": "SALESFORCE CONNECTION",
-            "type": "test",
+            "application": "MySQL",
+            "name": "AutomationStandalone_mysql export",
+            "_connectionId": "MYSQL CONNECTION",
             "asynchronous": true,
             "oneToMany": false,
             "sandbox": false,
-            "test": {
-              "limit": 1
+            "parsers": [],
+            "rawData": "603ce5ede9250226dcea4608bbeecb39ec21453e941914a2ce672fa3",
+            "rdbms": {
+              "query": "select * from Templates.Order LIMIT 5"
             },
-            "salesforce": {
-              "type": "soql",
-              "api": "rest",
-              "soql": {
-                "query": "select name from account"
-              }
-            },
-            "adaptorType": "SalesforceExport"
-          }
-        },
-        {
-          "type": "export",
-          "qa__export": {
-            "name": "SF2",
-            "_connectionId": "SALESFORCE CONNECTION",
-            "type": "test",
-            "asynchronous": true,
-            "oneToMany": false,
-            "sandbox": false,
-            "test": {
-              "limit": 1
-            },
-            "salesforce": {
-              "type": "soql",
-              "api": "rest",
-              "soql": {
-                "query": "select id from account"
-              }
-            },
-            "adaptorType": "SalesforceExport"
+            "adaptorType": "RDBMSExport"
           }
         }
       ],
@@ -53,22 +26,36 @@
         {
           "type": "import",
           "qa__import": {
-            "name": "MySQL Import",
-            "application": "mysql",
-            "_connectionId": "MYSQL CONNECTION",
+            "name": "imp",
+            "application": "zendesk support",
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
             "ignoreExisting": false,
             "ignoreMissing": false,
             "oneToMany": false,
             "sandbox": false,
-            "rdbms": {
-              "query": [
-                "insert into anusha(orderId, FirstName) values(1, \"abc\")"
-              ],
-              "queryType": [
-                "INSERT"
+            "lookups": [],
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "customern",
+                  "generate": "ticket.comment.by"
+                }
               ]
             },
-            "adaptorType": "RDBMSImport"
+            "http": {
+              "relativeURI": [
+                "/tickets.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
           }
         }
       ],
@@ -88,9 +75,6 @@
           }
         ],
         "pageGenerators": [
-          {
-            "_exportId": "UPDATE WITH NEW EXPORTID"
-          },
           {
             "_exportId": "UPDATE WITH NEW EXPORTID"
           }

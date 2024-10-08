@@ -1,0 +1,41 @@
+{
+  "name": "TC_C50870_2",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Test",
+        "qa__connectionId": "63468ac1452c1b20fbfed085",
+        "_connectionId": "GROUPING XML CONNECTION",
+        "apiIdentifier": "e51a415c01",
+        "asynchronous": true,
+        "pageSize": 2,
+        "oneToMany": false,
+        "sandbox": false,
+        "parsers": [
+          {
+            "type": "xml",
+            "version": "1",
+            "rules": {
+              "V0_json": false,
+              "trimSpaces": false,
+              "stripNewLineChars": false
+            }
+          }
+        ],
+        "http": {
+          "relativeURI": "11af21b4-93cc-457a-88d7-d56ff2803209",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "/catalog/book"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

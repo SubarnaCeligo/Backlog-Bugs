@@ -1,0 +1,115 @@
+{
+    "name": "TC_C41867_AmazonRedshift Lookup",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+              "application": "Amazon Redshift",
+              "_connectionId": "AMAZON REDSHIFT CONNECTION",
+                "rdbms": {
+                    "query": "select * from venue order by venueid asc limit 10"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+          "type": "export",
+          "qa__export": {
+            "_connectionId": "AMAZON REDSHIFT CONNECTION",
+            "asynchronous": true,
+            "parsers": [],
+            "isLookup": true,
+            "rdbms": {
+              "query": "select * from venue where venueid={{record.venueid}}"
+            },
+            "adaptorType": "RDBMSExport"
+          },
+          "responseMapping": {
+            "fields": [
+              {
+                "extract": "data",
+                "generate": "AmazonRedshift_Data"
+              }
+            ],
+            "lists": [
+
+            ],
+            "qa__index": 0
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP import for AmazonRedshift Lookup",
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "AmazonRedshift_Data[0].venueid",
+                  "generate": "id"
+                },
+                {
+                  "extract": "AmazonRedshift_Data[0].venuename",
+                  "generate": "Name"
+                },
+                {
+                  "extract": "AmazonRedshift_Data[0].venuecity",
+                  "generate": "City"
+                },
+                {
+                  "extract": "AmazonRedshift_Data[0].venuestate",
+                  "generate": "State"
+                }
+              ]
+            },
+            "file": {
+              "fileName": "AmazonRedshift_Lookup.json",
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation",
+              "fileName": "AmazonRedshift_Lookup.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "18",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "FTP import for AmazonRedshift Lookup",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ";"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "18",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "AmazonRedshift_Lookup",
+                    "folderName": "io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

@@ -1,126 +1,79 @@
+
 {
   "name": "TC_110824_C110829_C110808_C110827",
   "referencename": "TC_110824_C110829_C110808_C110827",
   "qa__api_tdata": [
-    {
-      "pageGenerators": [
-        {
-          "type": "export",
-          "qa__export": {
-            "name": "HTTP Export",
-            "application": "zendesk support",
-            "_connectionId": "HTTP ZENDESK CONNECTION",
-            "apiIdentifier": "e723a432b2",
-            "asynchronous": true,
-            "oneToMany": false,
-            "sandbox": false,
-            "http": {
-              "relativeURI": "/api/v2/tickets.json",
-              "method": "GET",
-              "formType": "http",
-              "response": {
-                "resourcePath": "tickets"
+      {
+          "pageGenerators": [
+            {
+              "type": "export",
+              "qa__export": {
+                  "name": "FTP xport",
+                  "_connectionId": "FTP CONNECTION",
+                  "apiIdentifier": "e930f9de29",
+                  "asynchronous": true,
+                  "sandbox": false,
+                  "ftp": {
+                      "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                      "fileNameStartsWith": "TC_C30817"
+                  },
+                  "file": {
+                      "encoding": "utf8",
+                      "output": "records",
+                      "skipDelete": true,
+                      "type": "json",
+                      "json": {
+                          "resourcePath": "*"
+                      }
+                  },
+                  "adaptorType": "FTPExport",
+                  "qa__path": "//FTP_uploads//TC_C30817.json"
               }
-            },
-            "transform": {
-              "type": "expression",
-              "expression": {
-                "rules": [
-                  [
-                    {
-                      "extract": "assignee_i",
-                      "generate": "id"
-                    }
-                  ]
-                ],
-                "version": "1"
-              },
-              "version": "1",
-              "rules": [
-                [
-                  {
-                    "extract": "assignee_i",
-                    "generate": "id"
-                  }
-                ]
-              ]
-            },
-            "adaptorType": "HTTPExport"
           }
-        }
-      ],
-      "pageProcessors": [
-        {
-          "type": "import",
-          "qa__import": {
-            "name": "Create New Record & Update Existing Record",
-            "application": "zendesk support",
-            "_connectionId": "ZENDESK CONNECTION",
-            "_sourceId": "6278efc10d8ea340b43d63d4",
-            "apiIdentifier": "i5a682c07c",
-            "ignoreExisting": false,
-            "ignoreMissing": false,
-            "oneToMany": false,
-            "mapping": {
-              "fields": [
-                {
-                  "extract": "name",
-                  "generate": "organization.name"
+          ],
+          "pageProcessors": [
+            {
+              "type": "import",
+              "qa__import": {
+                "lastModified": "2024-10-03T12:59:22.715Z",
+                "name": "As2",
+                "_connectionId": "AS2 connection",
+                "distributed": false,
+                "apiIdentifier": "icc48d4fe4",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                  "skipAggregation": true,
+                  "type": "json"
                 },
-                {
-                  "extract": "notes",
-                  "generate": "organization.description"
-                }
+                "as2": {
+                  "fileNameTemplate": "file-{{timestamp}}"
+                },
+                "adaptorType": "AS2Import"
+              }
+            }
+          ],
+          "createFlow": {
+              "name": "TC_110824_C110829_C110808_C110827",
+              "disabled": false,
+              "_integrationId": "66c56cbe55a0585788e46978",
+              "skipRetries": false,
+              "pageProcessors": [
+                  {
+                      "responseMapping": {
+                          "fields": [],
+                          "lists": []
+                      },
+                      "type": "import",
+                      "_importId": "UPDATE WITH NEW IMPORTID"
+                  }
+              ],
+              "pageGenerators": [
+                  {
+                      "_exportId": "UPDATE WITH NEW EXPORTID"
+                  }
               ]
-            },
-            "http": {
-              "relativeURI": [
-                "/organizations/360019660245.json",
-                "/organizations.json"
-              ],
-              "method": [
-                "PUT",
-                "POST"
-              ],
-              "body": [
-                "",
-                ""
-              ],
-              "batchSize": 1,
-              "requestType": [
-                "UPDATE",
-                "CREATE"
-              ],
-              "sendPostMappedData": true,
-              "existingExtract": "name",
-              "formType": "http"
-            },
-            "adaptorType": "HTTPImport"
           }
-        }
-      ],
-      "createFlow": {
-        "name": "TC_110824_C110829_C110808_C110827",
-        "disabled": false,
-        "qa__integrationId": "6228aed6bc8a2732cfe8044c",
-        "_integrationId": "631a1266abf51e7a86c80ab4",
-        "skipRetries": false,
-        "pageProcessors": [
-          {
-            "responseMapping": {
-              "fields": [],
-              "lists": []
-            },
-            "type": "import",
-            "_importId": "UPDATE WITH NEW IMPORTID"
-          }
-        ],
-        "pageGenerators": [
-          {
-            "_exportId": "UPDATE WITH NEW EXPORTID"
-          }
-        ]
       }
-    }
   ]
 }

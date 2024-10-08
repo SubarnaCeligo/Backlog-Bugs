@@ -158,3 +158,7 @@ require("./TC_C50813");
 require("./TC_C50816");
 require("./TC_C50819");
 require("./TC_C50831");
+require("./TC_C52000");
+require("./TC_C52193");
+require("./TC_C52403_C52401_Verify_Able_Add_Mapping_Sub_Record_Mapping_Window_default_locked_mapping");
+require("./TC_C52753_C52758");

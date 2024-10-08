@@ -1,0 +1,28 @@
+{
+  "name": "TC_C34890",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "34890-exports",
+        "application" : "Amazon Seller Central",
+        "unencrypted": {
+          "apiType": "Amazon-SP-API",
+          "restrictedReportType": false
+        },
+        "qa__connectionId": "AMAZON SP API CONNECTION",
+        "_connectionId": "AMAZON SP API CONNECTION",
+        "apiIdentifier": "ea63f93fdf",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/reports/2021-06-30/documents/amzn1.spdoc.1.4.na.1b3a046c-9b23-4c3a-af43-7bd43f5784bb.T1VKX9X0WK1VDG.47700",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

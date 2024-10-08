@@ -1,0 +1,131 @@
+{
+  "name": "TC_C55428_C55429",
+  "disabled": false,
+  "_integrationId": "62d6b4a955468141a906119e",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Http Zendesk",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e0d61666a5",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/users/1473313072",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Lookup",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "ef79acc48f",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/users",
+          "method": "GET",
+          "formType": "http"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Ftp Import",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i6f6be1291",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "user.id",
+              "generate": "Id"
+            },
+            {
+              "extract": "user.name",
+              "generate": "Name"
+            },
+            {
+              "extract": "user.email",
+              "generate": "Email"
+            },
+            {
+              "extract": "user.details",
+              "generate": "Details"
+            },
+            {
+              "extract": "user.notes",
+              "generate": "Notes"
+            },
+            {
+              "extract": "user.user_fields.phone",
+              "generate": "Phone"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_C55428_C55429.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+          "fileName": "TC_C55428_C55429.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "3",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "Id": 1473313072,
+      "Name": "Celigo IO Automation",
+      "Email": "mounica.manavapati@celigo.com",
+      "Details": "12345nov23",
+      "Notes": "testmail@gmail.com",
+      "Phone": null
+    },
+    "importapiIdentifier": "i6f6be1291",
+    "isUIFlow": true,
+    "expected": {
+      "FTP": {
+        "name": "TC_C55428_C55429",
+        "_integrationId": "62d6b4a955468141a906119e",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "3",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C55428_C55429",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO Automation SFTP Imports",
+          "fileType": ".json"
+        }
+      }
+    }
+  }
+}

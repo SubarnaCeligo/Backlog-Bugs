@@ -28,7 +28,7 @@ test.describe("TC_C27515", () => {
     test.step("Opened Flowbuilder of flow. ", async () => { });
     await io.homePage.loadingTime();
     await io.homePage.clickByIndex(
-      "[data-test='Import']",0
+     selectors.flowBuilderPagePO.IMPORT,0
     );
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();

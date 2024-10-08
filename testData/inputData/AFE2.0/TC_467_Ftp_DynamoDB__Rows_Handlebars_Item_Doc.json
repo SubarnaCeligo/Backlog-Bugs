@@ -1,0 +1,91 @@
+{
+    "name": "TC_467_Ftp_DynamoDB__Rows_Handlebars_Item_Doc",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "qa__path": "/FTP_uploads/TC_467_Ftp_DynamoDB__Rows_Handlebars_Item_Doc.csv",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_467_Ftp_DynamoDB__Rows_Handlebars_Item_Doc"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "groupByFields": ["orderID"],
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "rows handlebar",
+            "parsers": [],
+            "_connectionId": "DYNAMODB CONNECTION",
+            "distributed": false,
+            "dynamodb": {
+                "region": "us-east-1",
+                "method": "putItem",
+                "tableName": "afe_automation",
+                "partitionKey": "Amount",
+                "itemDocument": "{\n\"Name\":\"{{rows.[0].FirstName}}\",\n\"Emp_id\":{{rows.[1].Amount}},\n\"Comments\":\"{{rows.[2].LastName}}\"\n}"
+            },
+            "adaptorType": "DynamodbImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_467_Ftp_DynamoDB__Rows_Handlebars_Item_Doc",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                        "Comments": "one",
+                        "Name": "Automation AnushaNew2",
+                        "Emp_id": 290
+                    }],
+                    "uniqueField": "Emp_id",
+                    "standaloneexportflowID": "60ed6616b3d8081116d2dc4d",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ea8ee6c34e",
+                    "importRecordType": "afe_automation",
+                    "expressionAttributeName":"Name",
+                    "application":"DYNAMODB"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "DYNAMODB CONNECTION"
+                }
+            }
+        }
+    }
+}

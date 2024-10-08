@@ -1,0 +1,128 @@
+{
+    "name": "TC_C2729_Verify_create_and_run_async_helper_flow_in_IO_sandbox_environment",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "16",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Import FTP",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "id",
+                        "generate": "id"
+                    },
+                    {
+                        "extract": "email",
+                        "generate": "email"
+                    },
+                    {
+                        "extract": "currency",
+                        "generate": "currency"
+                    },
+                    {
+                        "extract": "admin_graphql_api_id",
+                        "generate": "admin_graphql_api_id"
+                    }
+                ]
+            },
+            "file": {
+                "fileName": "TC_706_Http_Shopify_Linkheader_Paging.csv",
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_706_Http_Shopify_Linkheader_Paging.csv"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "Ftp": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C2729_Verify_create_and_run_async_helper_flow_in_IO_sandbox_environment",
+                "qa__dataVerification": {
+                    "fileName": "TC_706_Http_Shopify_Linkheader_Paging",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "8",
+                    "ignoreCount": "0",
+                    "errorCount": "0",
+                    "pages": "1"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Http Amazon",
+            "application" : "Amazon Seller Central",
+            "_connectionId": "HTTP AMAZON CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/?Action=RequestReport&ReportType=_GET_FLAT_FILE_OPEN_LISTINGS_DATA_",
+                "method": "POST",
+                "formType": "HTTP",
+                "response": {
+                    "resourcePath": "/RequestReportResponse/RequestReportResult/ReportRequestInfo/ReportRequestId/text()"
+                },
+                "successMediaType": "json",
+                "asyncHelper": {
+                    "name": "AsyncExport",
+                    "statusPath": "ReportProcessingStatus",
+                    "inProgressValues": ["_SUBMITTED_", "_IN_PROGRESS_"],
+                    "doneValues": ["_DONE_", "_DONE_NO_DATA_", "_CANCELLED_"],
+                    "submitresourcePath": "/RequestReportResponse/RequestReportResult/ReportRequestInfo",
+                    "transform": {
+                        "fields": [{
+                                "extract": "/ReportType",
+                                "generate": "/ReportType"
+                            },
+                            {
+                                "extract": "/ReportProcessingStatus",
+                                "generate": "ReportProcessingStatus"
+                            },
+                            {
+                                "extract": "/ReportRequestId",
+                                "generate": "ReportRequestId"
+                            }
+                        ]
+                    }
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }]
+}

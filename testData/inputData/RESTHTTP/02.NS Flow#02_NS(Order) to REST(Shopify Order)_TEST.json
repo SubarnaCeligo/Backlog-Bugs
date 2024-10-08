@@ -1,0 +1,327 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "02_rest import",
+        "application": "HTTP SHOPIFY",
+        "http": {
+          "relativeURI": [
+            "orders.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "formType": "http",
+          "qa__formType": "rest",
+          "strictHandlebarEvaluation": true
+        },
+        "rest": {
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "relativeURI": [
+            "orders.json"
+          ]
+        },
+        "mapping": {
+          "fields": [
+            {
+              "generate": "order.customer.first_name",
+              "hardCodedValue": "Mounica"
+            },
+            {
+              "generate": "order.customer.last_name",
+              "hardCodedValue": "Manavapati"
+            },
+            {
+              "extract": "[PO/Check Number]",
+              "qa__extract": "PO/Check Number",
+              "qa__ignoreBrackets": true,
+              "generate": "order.note"
+            },
+            {
+              "generate": "order.financial_status",
+              "hardCodedValue": "paid"
+            }
+          ],
+          "lists": [
+            {
+              "fields": [
+                {
+                  "qa__extract": "Amount",
+                  "qa__ignoreStar": true,
+                  "extract": "*.Amount",
+                  "generate": "price"
+                },
+                {
+                  "qa__extract": "Item",
+                  "qa__ignoreStar": true,
+                  "extract": "*.Item",
+                  "generate": "title"
+                },
+                {
+                  "qa__extract": "Quantity",
+                  "qa__ignoreStar": true,
+                  "extract": "*.Quantity",
+                  "generate": "quantity"
+                }
+              ],
+              "generate": "order.line_items"
+            }
+          ]
+        },
+        "adaptorType": "HTTPImport",
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "dataURITemplate": "{{{id}}}",
+        "distributed": false
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "timezone": "Asia/Calcutta",
+  "name": "02.NS Flow#02_NS(Order) to REST(Shopify Order)_TEST",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "item": "ACC00001",
+      "Amount": "100",
+      "Quantity": "5",
+      "PO/Check Number": "2NStoShopifyOrder#1",
+      "Customer Name": "Mounica Manavapati"
+    },
+    "application":"NETSUITE",
+    "importapiIdentifier": "i00992a8b1",
+    "importRecordType": "orders",
+    "expected": {
+      "shopify": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "02.NS Flow#02_NS(Order) to REST(Shopify Order)_TEST",
+        "import": {
+          "_connectionId": "HTTP SHOPIFY CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "note": "2NStoShopifyOrder#1",
+            "financial_status": "paid",
+            "line_items": [
+              {
+                "quantity": 5,
+                "price": "100.00",
+                "title": "ACC00001"
+              }
+            ],
+            "customer": {
+              "last_name": "Manavapati",
+              "first_name": "Mounica"
+            }
+          },
+          "standaloneexportflowID": "572aeb3c5ac02fad176332a1",
+          "importRecordType": "orders",
+          "uniqueField": "note",
+          "exportRecordType": "salesorder",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ec5eca7bf3"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "57bd70b303d534f37a30059c",
+      "createdAt": "2018-02-19T13:52:08.349Z",
+      "lastModified": "2018-02-19T13:54:25.748Z",
+      "name": "02.NS Flow#01_NS(Order) to REST(Shopify Order)_TEST - NS import",
+      "_connectionId": "56d6b65d6f8ed15e4d0f9b8c",
+      "distributed": true,
+      "apiIdentifier": "i00992a8b1",
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "rawOverride": {
+          "operationMappings": {
+            "salesorder": {
+              "ignoreExistingRecordsOnAdd": false,
+              "ignoreNonExistingRecordsOnUpdate": false,
+              "mapping": {
+                "jsField": "internalid",
+                "lookupValue": "internalid",
+                "lookupSource": "salesorder",
+                "lookupType": "record",
+                "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping"
+              },
+              "operation": "add"
+            }
+          },
+          "requestMappingRef": {
+            "recordMappings": [
+              {
+                "recordType": "salesorder",
+                "children": [
+                  {
+                    "fieldMappings": [
+                      {
+                        "externalField": "$.Customer Name",
+                        "jsField": "entity",
+                        "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping"
+                      },
+                      {
+                        "externalField": "$.PO/Check Number",
+                        "jsField": "otherrefnum",
+                        "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping"
+                      },
+                      {
+                        "externalField": "$.PO/Check Number",
+                        "jsField": "tranid",
+                        "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping"
+                      }
+                    ],
+                    "celigo_classname": "Celigo.integrator.mapping.model.FieldMappingSet"
+                  },
+                  {
+                    "children": [
+                      {
+                        "fieldMappings": [
+                          {
+                            "externalField": "$.item",
+                            "jsField": "item",
+                            "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping"
+                          },
+                          {
+                            "externalField": "$.Quantity",
+                            "jsField": "quantity",
+                            "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping"
+                          },
+                          {
+                            "externalField": "$.Amount",
+                            "jsField": "amount",
+                            "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping"
+                          }
+                        ],
+                        "celigo_classname": "Celigo.integrator.mapping.model.FieldMappingSet"
+                      }
+                    ],
+                    "collectionIds": [
+                      "item"
+                    ],
+                    "celigo_classname": "Celigo.integrator.mapping.model.CollectionMapping"
+                  }
+                ],
+                "recordIdentifiers": {
+                  "celigo_classname": "Celigo.integrator.mapping.model.JsonPathRecordIdentifier",
+                  "jsonPath": "."
+                },
+                "celigo_classname": "Celigo.integrator.mapping.model.RecordMapping"
+              }
+            ],
+            "celigo_classname": "Celigo.integrator.mapping.model.DocumentMapping"
+          },
+          "requestMapper": {
+            "celigo_classname": "Celigo.integrator.mapper.json.JsonMapper"
+          },
+          "celigo_classname": "Celigo.integrator.hercules.Import"
+        },
+        "isMigrated": true,
+        "operation": "add",
+        "recordType": "salesorder",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "entity",
+              "extract": "Customer Name"
+            },
+            {
+              "generate": "otherrefnum",
+              "extract": "PO/Check Number"
+            },
+            {
+              "generate": "tranid",
+              "extract": "PO/Check Number"
+            }
+          ],
+          "lists": [
+            {
+              "generate": "item",
+              "fields": [
+                {
+                  "generate": "item",
+                  "extract": "item"
+                },
+                {
+                  "generate": "quantity",
+                  "extract": "Quantity"
+                },
+                {
+                  "generate": "amount",
+                  "extract": "Amount"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "02_NSExport",
+        "test": {
+          "limit": 1
+        },
+        "parsers": [],
+        "asynchronous": true,
+        "_connectionId": "NETSUITE CONNECTION",
+        "type": "test",
+        "netsuite": {
+          "statsOnly": false,
+          "type": "restlet",
+          "skipGrouping": false,
+          "restlet": {
+            "criteria": [],
+            "columns": [],
+            "searchId": "1936",
+            "recordType": "salesorder",
+            "hooks": {
+              "preSend": {
+                "fileInternalId": null,
+                "function": null
+              },
+              "batchSize": 20
+            }
+          },
+          "distributed": {
+            "executionContext": [
+              "userinterface",
+              "webstore"
+            ],
+            "executionType": [
+              "create",
+              "edit",
+              "xedit"
+            ]
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ]
+}

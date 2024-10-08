@@ -1,0 +1,118 @@
+{
+    "script": "TC_C43024",
+    "name": "TC_C43024_verification_file_size_property",
+    "referencename": "TC_C43024_verification_file_size_property",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "10",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "isUIFlow": true,
+        "expected": {
+            "Azure": {
+                "name": "TC_C43024_imp_azure",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                    "file": {
+                        "json": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "10",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "isUIFlow": true,
+                    "fileName": "TC_C43024",
+                    "folderName": "azurefilemetadata",
+                    "container": "azurefilemetadata",
+                    "fileType": ".json",
+                    "fileExtension": ".json"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [{
+        "pageGenerators": [{
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C43024_ftp_exp",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "type": "blob",
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C43024"
+                },
+                "file": {
+                    "output": "blobKeys",
+                    "skipDelete": true
+                },
+                "adaptorType": "FTPExport"
+            }
+        }],
+        "pageProcessors": [{
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C43024_imp_azure",
+                "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                "oneToMany": false,
+                "assistant": "azurestorageaccount",
+                "sandbox": false,
+                "mapping": {
+                    "fields": [{
+                        "extract": "fileMeta.fileName",
+                        "generate": "File_Name"
+                    }]
+                },
+                "file": {
+                    "fileName": "TC_C43024.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "azurefilemetadata"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }],
+        "createFlow": {
+            "name": "TC_C43024_verification_file_size_property",
+            "disabled": false,
+            "_integrationId": "6319b071abf51e7a86c7ba9d",
+            "qa__integrationId": "62d6b4a955468141a906119e",
+            "skipRetries": false,
+            "pageProcessors": [{
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }],
+            "pageGenerators": [{
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }]
+        }
+    }]
+}

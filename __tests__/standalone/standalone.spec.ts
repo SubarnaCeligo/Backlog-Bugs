@@ -104,3 +104,8 @@ require("./TC_C26328");
 require("./TC_C764");
 require("./TC_C_41539_Verify_Paging_Technique");
 require("./TC_auditlogfilters");
+require("./TC_102335");
+require("./TC_110688_C110687_1");
+require("./TC_110790_C110789");
+require("./TC_110802_C110793");
+require("./TC_110824_C110829_C110808_C110827");

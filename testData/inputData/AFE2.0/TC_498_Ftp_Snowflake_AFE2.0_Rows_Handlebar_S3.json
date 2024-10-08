@@ -1,0 +1,112 @@
+{
+    "name": "TC_498_Ftp_Snowflake_Rows_Handlebar_S3",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "3",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "/FTP_uploads/TC_410_Ftp_Mysql_Rows_Handlebar_AFE2.0.csv",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_410_Ftp_Mysql_Rows_Handlebar_AFE2.0"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "groupByFields": ["orderID"],
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "application": "Snowflake",
+                "name": "lookup",
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [],
+                "rdbms": {
+                    "query": "select * from afe_lookup_automation where Name={{rows.[0].Notes}}"
+                },
+                "adaptorType": "RDBMSExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data",
+                    "generate": "lookup"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "qa__import": {
+                "name": "Import",
+                "parsers": [],
+                "_connectionId": "S3 CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_498_Ftp_Snowflake_Rows_Handlebar_S3",
+                    "type": "json"
+                },
+                "s3": {
+                    "region": "ap-south-1",
+                    "bucket": "automations3import",
+                    "fileKey": "TC_498_Ftp_Snowflake_Rows_Handlebar_S3.json"
+                },
+                "adaptorType": "S3Import"
+            },
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import"
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "S3": {
+                "name": "TC_498_Ftp_Snowflake_Rows_Handlebar_S3.json",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "S3 CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "isUIFlow": true,
+                    "fileName": "TC_498_Ftp_Snowflake_Rows_Handlebar_S3",
+                    "bucketName": "automations3import",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

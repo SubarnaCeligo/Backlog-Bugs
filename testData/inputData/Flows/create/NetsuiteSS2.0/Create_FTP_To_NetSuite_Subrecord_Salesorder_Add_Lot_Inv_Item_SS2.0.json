@@ -1,0 +1,280 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "NETSUITE CONNECTION",
+        "name": "NSSRLotinventoryadd",
+        "distributed": true,
+        "lookups": [],
+        "netsuite_da": {
+          "useSS2Restlets": true,
+          "operation": "add",
+          "recordType": "salesorder",
+          "lookups": [],
+          "mapping": {
+            "lists": [
+              {
+                "generate": "item",
+                "fields": [
+                  {
+                    "generate": "item",
+                    "extract": "line_items[*].item_name",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "location",
+                    "extract": "line_items[*].item_location",
+                    "internalId": true
+                  },
+                  {
+                    "generate": "quantity",
+                    "extract": "line_items[*].item_qty",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "amount",
+                    "extract": "line_items[*].item_amount",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "celigo_inventorydetail",
+                    "subRecordMapping": {
+                      "qa__id": "jsonPath_item_sublist_celigo_inventorydetail",
+                      "_id": "item[*].celigo_inventorydetail",
+                      "recordType": "inventorydetail",
+                      "jsonPath": "line_items",
+                      "mapping": {
+                        "fields": [
+                          {
+                            "generate": "itemdescription",
+                            "extract": "description",
+                            "internalId": false
+                          }
+                        ],
+                        "lists": [
+                          {
+                            "generate": "inventoryassignment",
+                            "fields": [
+                              {
+                                "generate": "receiptinventorynumber",
+                                "extract": "inv_detail[*].serialnumber",
+                                "internalId": false
+                              },
+                              {
+                                "generate": "quantity",
+                                "extract": "inv_detail[*].qty",
+                                "internalId": false
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "lookups": []
+                    },
+                    "internalId": false
+                  }
+                ]
+              }
+            ],
+            "fields": [
+              {
+                "generate": "entity",
+                "extract": "customer_name",
+                "internalId": false
+              },
+              {
+                "generate": "subsidiary",
+                "hardCodedValue": "3",
+                "internalId": true
+              },
+              {
+                "generate": "otherrefnum",
+                "extract": "otherref_num",
+                "internalId": false
+              }
+            ]
+          }
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "FTP_To_NetSuite_Subrecord_Salesorder_Add_Lot_Inv_Item_SS2.0",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "Firstname": "keerthi",
+      "Lastname": "sriram",
+      "Email": "sukeerthisriram@zxsdf.com",
+      "Phone": "9809876567"
+    },
+    "application": "NETSUITE",
+    "importapiIdentifier": "i147b8f442",
+    "expected": {
+      "Netsuite": {
+        "name": "FTP_To_NetSuite_Subrecord_Salesorder_Add_Lot_Inv_Item_SS2.0",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "item": [
+                {
+                  "amount": 133,
+                  "inventorydetail": {
+                    "item": {
+                      "name": "Inventory lot number Item"
+                    },
+                    "quantity": 2,
+                    "inventoryassignment": [
+                      {
+                        "issueinventorynumber": {
+                          "name": "lot1"
+                        },
+                        "quantity": 1,
+                        "quantityavailable": 1
+                      },
+                      {
+                        "issueinventorynumber": {
+                          "name": "lot2"
+                        },
+                        "quantity": 1,
+                        "quantityavailable": 2
+                      }
+                    ]
+                  },
+                  "item": {
+                    "name": "Inventory lot number Item"
+                  },
+                  "location": {
+                    "internalid": "17",
+                    "name": "02: Boston : Receiving Inspection"
+                  },
+                  "quantity": 2
+                }
+              ],
+              "subsidiary": {
+                "internalid": "3",
+                "name": "HH Inc."
+              },
+              "otherrefnum": "555",
+              "entity": {
+                "name": "keerthi sriram"
+              }
+            }
+          ],
+          "standaloneexportflowID": "5c0900c619d5495dc1c398d5",
+          "uniqueField": "otherrefnum",
+          "importRecordType": "SalesOrder",
+          "exportRecordType": "SalesOrder",
+          "isUIFlow": true,
+          "savedsearchId": "3155",
+          "exportapiIdentifier": "e493dc93b2"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "5f9802ae0a45077b3a0928b0",
+      "createdAt": "2020-10-27T11:21:18.309Z",
+      "lastModified": "2020-10-27T11:21:18.353Z",
+      "name": "FTP_To_NetSuite_Add_Lot_Inv_Item_Customer_Add",
+      "parsers": [],
+      "_connectionId": "5a3ccfd4c365f63ff8ff9e87",
+      "distributed": true,
+      "apiIdentifier": "i147b8f442",
+      "lookups": [],
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "lists": [],
+          "fields": [
+            {
+              "generate": "isperson",
+              "hardCodedValue": "true",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "firstname",
+              "extract": "Firstname",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "lastname",
+              "extract": "Lastname",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "subsidiary",
+              "hardCodedValue": "3",
+              "internalId": true,
+              "immutable": false
+            },
+            {
+              "generate": "email",
+              "extract": "Email",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "phone",
+              "extract": "Phone",
+              "internalId": false,
+              "immutable": false
+            }
+          ]
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_connectionId": "FTP CONNECTION",
+        "name": "FTPExport_Lot_Inv_Item_FTP_SO",
+        "asynchronous": true,
+        "qa__path": "//FTP_uploads//Lot_Inv_Item_FTP_To_NS_SO_Subrecord_Add.json",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "Lot_Inv_Item_FTP_To_NS_SO_Subrecord_Add"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "Http Import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i9fd18432d",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": [
+                    "users"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    "{\"user\":{\"name\":\"{{record.name}}\",\"email\":\"{{record.email}}\",\"phone\":\"{{record.phone}}\"}}"
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_36034_Ftp_To_ZD_User_notContain#each",
+    "disabled": false,
+    "qa__dataVerification": {
+        "importRecordJSON": {
+            "name": "Mahesh Sutar",
+            "email": "tMahesh0@gmail.com",
+            "phone": "011088989465"
+        },
+        "importapiIdentifier": "i9fd18432d",
+        "importRecordType": "users",
+        "expected": {
+            "zendesk": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "TC_36034_Ftp_To_ZD_User_notContain#each",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": {
+                        "name": "Mahesh Sutar",
+                        "email": "tMahesh0@gmail.com",
+                        "phone": "011088989465"
+                    },
+                    "standaloneexportflowID": "61043d22b3d8081116d69f04",
+                    "importRecordType": "users",
+                    "uniqueField": "name",
+                    "exportRecordType": "Customer",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e2d12c784f"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Ftp Export",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e2d12c784f",
+            "qa__path": "/FTP_uploads/TC36034.json",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": [{
+                "name": "Mahesh Sutar",
+                "email": "tMahesh0@gmail.com",
+                "phone": "011088989465"
+            }],
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IOAutomation",
+                "fileNameStartsWith": "TC36034",
+                "fileNameEndsWith": ".json"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

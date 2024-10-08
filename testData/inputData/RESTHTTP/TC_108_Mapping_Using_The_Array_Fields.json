@@ -1,0 +1,182 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+          "name": "Create Orders",
+          "parsers": [],
+          "_connectionId": "SHOPIFY CONNECTION",
+          "apiIdentifier": "i57749e6ac",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "assistant": "shopify",
+          "sandbox": false,
+          "assistantMetadata": {
+            "resource": "order",
+            "version": "v2",
+            "operation": "creates_anorder"
+          },
+          "lookups": [],
+          "mapping": {
+            "lists": [
+              {
+                "fields": [
+                  {
+                    "extract": "Items[*].Quantity",
+                    "generate": "quantity",
+                    "qa__isLocked": true
+                  },
+                  {
+                    "extract": "Items[*].Name",
+                    "generate": "title"
+                  },
+                  {
+                    "generate": "price",
+                    "hardCodedValue": "10"
+                  }
+                ],
+                "generate": "order.line_items"
+              }
+            ],
+            "fields": [
+                {
+                  "generate": "order.email",
+                  "hardCodedValue": "john@gmail.com"
+                }
+              ]
+          },
+          "http": {
+            "relativeURI": [
+              "/orders.json"
+            ],
+            "method": [
+              "POST"
+            ],
+            "body": [
+              null
+            ],
+            "batchSize": 1,
+            "requestMediaType": "json",
+            "successMediaType": "json",
+            "errorMediaType": "json",
+            "requestType": [],
+            "strictHandlebarEvaluation": true,
+            "sendPostMappedData": true,
+            "formType": "assistant",
+            "response": {
+              "resourceIdPath": [
+                null
+              ],
+              "failPath": [],
+              "failValues": [],
+              "resourcePath": [],
+              "successPath": [],
+              "successValues": []
+            }
+          },
+          "rest": {
+            "relativeURI": [
+              "/orders.json"
+            ],
+            "method": [
+              "POST"
+            ],
+            "body": [
+              null
+            ],
+            "responseIdPath": [
+              null
+            ],
+            "successPath": [
+              null
+            ],
+            "successValues": [
+              null
+            ],
+            "requestType": []
+          },
+          "adaptorType": "RESTImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_108_Mapping_Using_The_Array_Fields",
+    "disabled": false,
+    "qa__dataVerification": {
+        "uniqueField": "note",
+        "standaloneexportflowID": "61c328b7d507f55f537cb36f",
+        "importRecordType": "orders",
+        "exportapiIdentifier": "e0c09d7c9d",
+        "expected": {
+          "shopify": {
+            "_integrationId": "62d6b4a955468141a906119e",
+            "name": "TC_108_Mapping_Using_The_Array_Fields",
+            "import": {
+              "_connectionId": "SHOPIFY CONNECTION"
+            },
+            "qa__expectedDashboardCount": {
+              "successCount": "2",
+              "ignoreCount": "0",
+              "errorCount": "0"
+            },
+            "qa__dataVerification": {
+              "uniqueField": "contact_email",
+              "standaloneexportflowID": "61c328b7d507f55f537cb36f",
+              "importRecordType": "orders",
+              "exportapiIdentifier": "e0c09d7c9d",
+              "expectedJSON": {
+                  "contact_email": "john@gmail.com",
+                  "line_items": [
+                    {
+                      "name": "Baker 1",
+                      "price": "10.00",
+                      "title": "Baker 1"
+                    },
+                    {
+                      "name": "Baker 2",
+                      "price": "10.00",
+                      "title": "Baker 2"
+                    }
+                  ]
+                }
+            }
+          }
+        }
+      },
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "Line-Items",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "6188f6ccc8318f1fea2efb99",
+            "qa__path": "/FTP_uploads/Line_Items_Data.json",
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+              "fileNameStartsWith": "Line_Items_Data"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "json": {
+                "encoding": "utf8",
+                "resourcePath": "*"
+              }
+            },
+            "adaptorType": "FTPExport"
+          }
+      }
+    ]
+  }

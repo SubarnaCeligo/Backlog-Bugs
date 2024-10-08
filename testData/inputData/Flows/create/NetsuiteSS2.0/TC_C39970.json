@@ -1,0 +1,200 @@
+{
+  "name": "TC_C39970",
+  "flowWait": 1200,
+  "qa__expectedDashboardCount": {
+    "successCount": "6",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "flowsData": {
+    "flowname1": "TC_C39970",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C39970 Export",
+              "application" : "HubSpot",
+              "_connectionId": "5c4eaf75576d68720829a033",
+              "apiIdentifier": "e5ccba7b3e",
+              "asynchronous": true,
+              "oneToMany": false,
+              "sandbox": false,
+              "http": {
+                  "relativeURI": "/crm/v3/objects/contacts",
+                  "method": "GET",
+                  "body": "{\n\"limit\":1,\n\"after\": \"41053\"\n}",
+                  "formType": "http",
+                  "paging": {
+                      "method": "url",
+                      "path": "{ \"limit\": 1, \"after\": \"{{previous_page.full_response.paging.next.after}}\" }"
+                  }
+              },
+              "rawData": "56d6b114e1fc35de5391472c9842626c924f4d5d92a4ad57243e1fd8",
+              "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C39970 PP lookup",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "e6f05fe080",
+              "asynchronous": true,
+              "isLookup": true,
+              "oneToMany": false,
+              "sandbox": false,
+              "netsuite": {
+                  "type": "restlet",
+                  "skipGrouping": true,
+                  "statsOnly": false,
+                  "restlet": {
+                      "recordType": "salesorder",
+                      "searchId": "194",
+                      "useSS2Restlets": false,
+                      "markExportedBatchSize": 100
+                  },
+                  "distributed": {
+                      "executionContext": [],
+                      "executionType": [],
+                      "useSS2Framework": false
+                  }
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          },
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C39970 Import",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "ic69ae1d77",
+              "oneToMany": false,
+              "sandbox": false,
+              "file": {
+                  "fileName": "TC_C39970-{{timestamp}}.json",
+                  "skipAggregation": false,
+                  "type": "json"
+              },
+              "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                  "fileName": "TC_C39970-{{timestamp}}.json"
+              },
+              "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C39970",
+          "disabled": true,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "export",
+                "_exportId": ""
+            },
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": ""
+            }
+          ],
+          "pageGenerators": [
+              {
+                  "_exportId": "",
+                  "skipRetries": false
+              }
+          ]
+        }
+      }
+    ]
+  },
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_C39970 Export",
+        "application" : "HubSpot",
+        "_connectionId": "5c4eaf75576d68720829a033",
+        "apiIdentifier": "e5ccba7b3e",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": "/crm/v3/objects/contacts",
+            "method": "GET",
+            "body": "{\n\"limit\":1,\n\"after\": \"41053\"\n}",
+            "formType": "http",
+            "paging": {
+                "method": "url",
+                "path": "{ \"limit\": 1, \"after\": \"{{previous_page.full_response.paging.next.after}}\" }"
+            }
+        },
+        "rawData": "56d6b114e1fc35de5391472c9842626c924f4d5d92a4ad57243e1fd8",
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "TC_C39970 PP lookup",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e6f05fe080",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "netsuite": {
+            "type": "restlet",
+            "skipGrouping": true,
+            "statsOnly": false,
+            "restlet": {
+                "recordType": "salesorder",
+                "searchId": "194",
+                "useSS2Restlets": false,
+                "markExportedBatchSize": 100
+            },
+            "distributed": {
+                "executionContext": [],
+                "executionType": [],
+                "useSS2Framework": false
+            }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C39970 Import",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ic69ae1d77",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+            "fileName": "TC_C39970-{{timestamp}}.json",
+            "skipAggregation": false,
+            "type": "json"
+        },
+        "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "fileName": "TC_C39970-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}

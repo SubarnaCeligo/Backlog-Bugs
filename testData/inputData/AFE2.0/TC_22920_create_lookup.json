@@ -1,0 +1,122 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "pageProcessors": [{
+            "type": "import",
+            "qa__import": {
+                "name": "Create and Update Organization",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i6ee235afa",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [{
+                        "method": "GET",
+                        "relativeURI": "users/autocomplete.json?name=Celigo",
+                        "extract": "users.[0].name",
+                        "allowFailures": false,
+                        "name": "Admin_Name",
+                        "useImportHeaders": true
+                    },
+                    {
+                        "map": {
+                            "USA": "United States"
+                        },
+                        "allowFailures": false,
+                        "name": "Country_Static",
+                        "useImportHeaders": true
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "organizations/{{record.id}}",
+                        "{{record.record_type}}"
+                    ],
+                    "method": ["PUT", "POST"],
+                    "body": [
+                        "{  \"organization\": { \n   \"name\": \"{{record.name}}\",\n   \"notes\": \"{{record.notes}}\",\n   \"organization_fields\": { \n   \"email\": \"{{record.email}}\",\n   \"billing_address_1\": \"{{join \"/\" record.billing_address_1 record.billing_city}}\",\n   \"billing_address2\": \"{{record.billing_address2}}\",\n   \"billing_city\": \"{{record.billing_city}}\",\n   \"billing_state\": \"{{record.billing_state}}\", \n   \"shipping_address_1\": \"{{lookup \"Admin_Name\" this}}\",\n   \"shipping_city\": \"{{record.shipping_city}}\",\n   \"shipping_state\": \"{{record.shipping_state}}\",\n   \"shipping_country\": \"{{lookup \"Country_Static\" record.shipping_country}}\"  \n   }\n   }\n   }",
+                        "{  \"organization\": { \n   \"name\": \"{{record.name}}\",\n   \"notes\": \"{{record.notes}}\",\n   \"organization_fields\": { \n   \"email\": \"{{record.email}}\",\n   \"billing_address_1\": \"{{join \"/\" record.billing_address_1 record.billing_city}}\",\n   \"billing_address2\": \"{{record.billing_address2}}\",\n   \"billing_city\": \"{{record.billing_city}}\",\n   \"billing_state\": \"{{record.billing_state}}\", \n   \"shipping_address_1\": \"{{lookup \"Admin_Name\" this}}\",\n   \"shipping_city\": \"{{record.shipping_city}}\",\n   \"shipping_state\": \"{{record.shipping_state}}\",\n   \"shipping_country\": \"{{lookup \"Country_Static\" record.shipping_country}}\"  \n   }\n   }\n   }"
+                    ],
+                    "batchSize": 1,
+                    "requestType": ["UPDATE", "CREATE"],
+                    "formType": "http",
+                    "existingExtract": "id",
+                    "lookups": [{
+                            "method": "GET",
+                            "relativeURI": "users/autocomplete.json?name=Celigo",
+                            "extract": "users.[0].name",
+                            "allowFailures": false,
+                            "name": "Admin_Name",
+                            "useImportHeaders": true
+                        },
+                        {
+                            "map": {
+                                "USA": "United States"
+                            },
+                            "allowFailures": false,
+                            "name": "Country_Static",
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "MYsql",
+                "application": "MySQL",
+                "_connectionId": "MYSQL CONNECTION",
+                "apiIdentifier": "i28426f858",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [{
+                    "query": "\"UPDATE `mysqldev`.`MYSQL_Import_InsertorUpdate_ExportFiled`SET FirstName = {{data.FirstName}},LastName = {{data.LastName}},Email = {{data.Email}},ItemName = {{data.ItemName}},Quantity = {{data.Quantity}},Amount = {{data.Amount}},Notes = {{data.Notes}}WHERE orderID = {{data.orderID}};\"",
+                    "extract": "1",
+                    "allowFailures": false,
+                    "name": "Alpha"
+                }],
+                "rdbms": {
+                    "query": ["fdsgrsf\n{{lookup lookupName contextPath}}"],
+                    "queryType": ["INSERT"],
+                    "lookups": [{
+                        "query": "\"UPDATE `mysqldev`.`MYSQL_Import_InsertorUpdate_ExportFiled`SET FirstName = {{data.FirstName}},LastName = {{data.LastName}},Email = {{data.Email}},ItemName = {{data.ItemName}},Quantity = {{data.Quantity}},Amount = {{data.Amount}},Notes = {{data.Notes}}WHERE orderID = {{data.orderID}};\"",
+                        "extract": "1",
+                        "allowFailures": false,
+                        "name": "Alpha"
+                    }]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_22920_create_lookup",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Organizations_Date_495",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e956f3b46a",
+            "qa__path": "/FTP_uploads/TC_503_OrganizationsData.json",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_503_OrganizationsData"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

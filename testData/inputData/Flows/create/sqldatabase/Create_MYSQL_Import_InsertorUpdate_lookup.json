@@ -1,0 +1,202 @@
+{
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "Create_MYSQL_Import_InsertorUpdate_lookup",
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "expectedJSON": [
+      {
+        "Name": "Auto@flow262record_Three",
+        "Email": "Auto@flow262record_One@mail.com",
+        "phone": "7777777777",
+        "usernotestitle": "record3title",
+        "usernotesmemo": "record3memo",
+        "usernotesType": "record3type",
+        "usernotesDirection": "record3direction"
+      },
+      {
+        "Name": "Auto@flow262record_Two",
+        "Email": "Auto@flow262record_One@mail.com",
+        "phone": "5555555555",
+        "usernotestitle": "record2title",
+        "usernotesmemo": "record2memo",
+        "usernotesType": "record2type",
+        "usernotesDirection": "record2direction"
+      },
+      {
+        "Name": "Auto@flow262record_One",
+        "Email": "Auto@flow262record_One@mail.com",
+        "phone": "7788994455",
+        "usernotestitle": "record1title",
+        "usernotesmemo": "record1memo",
+        "usernotesType": "record1type",
+        "usernotesDirection": "record1direction"
+      }
+    ],
+    "uniqueField": "Name",
+    "exportRecordType": "Customer",
+    "standaloneexportflowID": "5a742a44f5fb4406f7a2962c",
+    "isUIFlow": true,
+    "importRecordType": "organizations",
+    "exportapiIdentifier": "e7a39e07a4",
+    "application": "NETSUITE",
+    "importapiIdentifier": "i3ebd45851",
+    "importapidoc": {
+      "_id": "633bd53c68b255685a3f850d",
+      "createdAt": "2022-10-04T06:39:56.208Z",
+      "lastModified": "2022-11-01T11:06:36.504Z",
+      "name": "_DND-TC_C29923",
+      "_connectionId": "5a093d279dda7b71eb95b793",
+      "distributed": true,
+      "apiIdentifier": "i3ebd45851",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "useSS2Restlets": false,
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Email",
+              "generate": "email",
+              "internalId": false
+            },
+            {
+              "extract": "Title",
+              "generate": "title",
+              "internalId": false
+            },
+            {
+              "extract": "['Company Name']",
+              "generate": "companyname",
+              "internalId": false
+            },
+            {
+              "extract": "Type",
+              "generate": "isindividual",
+              "internalId": false
+            },
+            {
+              "extract": "Phone",
+              "generate": "phone",
+              "internalId": false
+            },
+            {
+              "extract": "Fax",
+              "generate": "fax",
+              "internalId": false
+            },
+            {
+              "generate": "subsidiary",
+              "internalId": true,
+              "discardIfEmpty": false,
+              "immutable": false,
+              "hardCodedValue": "3"
+            }
+          ],
+          "lists": [
+            {
+              "generate": "_shipping_addressbook",
+              "fields": [
+                {
+                  "extract": "['Shipping City']",
+                  "generate": "city",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping State/Province']",
+                  "generate": "state",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping Country']",
+                  "generate": "country",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping Address 1']",
+                  "generate": "addr1",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping Zip']",
+                  "generate": "zip",
+                  "internalId": false
+                }
+              ]
+            },
+            {
+              "generate": "_billing_addressbook",
+              "fields": [
+                {
+                  "extract": "['Billing Country']",
+                  "generate": "country",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing Zip']",
+                  "generate": "zip",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing City']",
+                  "generate": "city",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing Address 1']",
+                  "generate": "addr1",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing State/Province']",
+                  "generate": "state",
+                  "internalId": false
+                }
+              ]
+            },
+            {
+              "generate": "usernotes",
+              "fields": [
+                {
+                  "extract": "Direction",
+                  "generate": "direction",
+                  "internalId": false
+                },
+                {
+                  "extract": "Memo",
+                  "generate": "note",
+                  "internalId": false
+                },
+                {
+                  "extract": "Title",
+                  "generate": "title",
+                  "internalId": false
+                },
+                {
+                  "extract": "Type",
+                  "generate": "notetype",
+                  "internalId": false
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "6",
+    "errorCount": "0"
+  },
+  "import": {
+    "_connectionId": "MYSQL CONNECTION"
+  }
+}

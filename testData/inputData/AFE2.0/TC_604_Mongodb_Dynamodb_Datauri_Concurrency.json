@@ -1,0 +1,76 @@
+{
+    "name": "TC_604_Mongodb_Dynamodb_Datauri_Concurrency",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Import",
+            "_connectionId": "DYNAMODB CONNECTION",
+            "idLockTemplate": "{{record.name}}",
+            "dataURITemplate": "{{record._id}}",
+            "sandbox": false,
+            "dynamodb": {
+                "region": "us-east-1",
+                "method": "putItem",
+                "tableName": "afe_dataurl_concurrency_import",
+                "partitionKey": "_id",
+                "itemDocument": "{\n\"id\":\"{{record._id}}\",\n\"email\":\"{{record.email}}\",\n\"name\":\"{{record.name}}\",\n\"type\":\"{{record.type}}\"\n}"
+            },
+            "adaptorType": "DynamodbImport"
+        }
+    }],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Mongodb Export",
+            "_connectionId": "MONGODB CONNECTION",
+            "asynchronous": true,
+            "dataURITemplate": "{{record._id}}",
+            "oneToMany": false,
+            "sandbox": false,
+            "mongodb": {
+                "method": "find",
+                "collection": "afe_dataurl_concurrency"
+            },
+            "adaptorType": "MongodbExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "20",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_604_Mongodb_Dynamodb_Datauri_Concurrency",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                        "id": "614992c99f6d2ad427954b0b",
+                        "email": "mongodbdoc4@gmail.com",
+                        "name": "Mongodb_Doc_4",
+                        "type": "New"
+                    }],
+                    "uniqueField": "id",
+                    "standaloneexportflowID": "615160ab1ac0cc69b5be423b",
+                    "importRecordType": "afe_dataurl_concurrency_import",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e10c1ad608",
+                    "expressionAttributeName":"id",
+                    "application":"DYNAMODB"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "20",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "DYNAMODB CONNECTION"
+                }
+            }
+        }
+    }
+}

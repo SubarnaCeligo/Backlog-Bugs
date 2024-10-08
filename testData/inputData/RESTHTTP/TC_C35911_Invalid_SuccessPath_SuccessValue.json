@@ -1,0 +1,83 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "1",
+      "errorCount": "1"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "test_import",
+          "application": "slack",
+          "qa__connectionId": "HTTP SLACK CONNECTION",
+          "_connectionId": "HTTP SLACK CONNECTION",
+          "mapping": {
+            "fields": [
+              {
+                "generate": "channel",
+                "hardCodedValue": "#automation_channel"
+              },
+              {
+                "generate": "text",
+                "hardCodedValue": "testcase"
+              }
+            ]
+          },
+          "http": {
+            "relativeURI": [
+              "chat.postMessage"
+            ],
+            "method": [
+              "POST"
+            ],
+            "body": [
+
+            ],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http",
+            "response": {
+              "successPath": [
+                "okay"
+              ],
+              "successValues": [
+                [
+                  "Trust"
+                ]
+              ]
+            }
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C35911_Invalid_SuccessPath_SuccessValue",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Slack_Message",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "e956f3b46a",
+          "qa__path": "/FTP_uploads/SlackMSG.json",
+          "asynchronous": true,
+          "sandbox": false,
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "SlackMSG"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ]
+  }

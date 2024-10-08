@@ -1,0 +1,131 @@
+{
+    "name": "TC_510_Blob_Import_With_AFE",
+    "description": " ",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "name": "sf blob",
+                "type": "blob",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "adaptorType": "SalesforceExport",
+                "parsers": [],
+                "asynchronous": true,
+                "isLookup": "true",
+                "oneToMany": true,
+                "pathToMany": "Attachments",
+                "salesforce": {
+                    "sObjectType": "attachment",
+                    "type": "soql",
+                    "api": "rest",
+                    "distributed": {
+                        "referencedFields": [],
+                        "userDefinedReferencedFields": [],
+                        "relatedLists": []
+                    },
+                    "id": "{{data.Id}}"
+                }
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data[0].blobKey",
+                    "generate": "blobKey"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "qa__type": "blob",
+                "name": "NS Blob Import",
+
+                "_connectionId": "NETSUITE CONNECTION",
+                "adaptorType": "NetSuiteImport",
+                "distributed": false,
+                "qa__isLookup": true,
+                "parsers": [],
+                "lookups": [],
+                "oneToMany": true,
+                "pathToMany": "Attachments",
+                "blobKeyPath": "blobKey",
+                "netsuite": {
+                    "operation": "add",
+                    "recordType": "file",
+                    "file": {
+                        "name": "{{record.Name}}",
+                        "folder": "{{record._PARENT.NS_Internal_ID__c}}"
+                    }
+                }
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": []
+            }
+        }
+    ],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "sf",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "adaptorType": "SalesforceExport",
+            "asynchronous": true,
+            "parsers": [],
+            "salesforce": {
+                "type": "soql",
+                "distributed": {
+                    "referencedFields": [],
+                    "userDefinedReferencedFields": [],
+                    "relatedLists": []
+                },
+                "api": "rest",
+                "soql": {
+                    "query": "Select id,NS_Internal_ID__c,Name,Email__c,(select id,name,bodyLength from attachments) from Account where name = 'TC_510_NS_Import_AFE'"
+                }
+            }
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "3",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Netsuite": {
+                "name": "TC_510_Blob_Import_With_AFE",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "exportapiIdentifier": "eb9f51ab0a",
+                    "importRecordType": "folder",
+                    "isUIFlow": true,
+                    "isblob": true,
+                    "generateSampleDropDownAvailable": false,
+                    "standaloneexportflowID": "61935fedaba738048024097c",
+                    "savedsearchId": "3409",
+                    "uniqueField": "id",
+                    "expectedJSON": {
+                        "recordtype": "folder",
+                        "name": "Naveen_Blob_Testing",
+                        "id": "71738",
+                        "files": [{
+                            "name": "TC_510_FileData.json",
+                            "documentsize": "0"
+                        }]
+                    }
+                }
+            }
+        }
+    }
+}

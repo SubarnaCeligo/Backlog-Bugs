@@ -1,0 +1,184 @@
+{
+  "name": "Orches_Flow_173_ShiwireOrder_To_NS_SalesOrder_SS2.0",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Get Item details from all Orders",
+        "application": "Shipwire",
+        "_connectionId": "59dd0251090ccb745d0d6576",
+        "adaptorType": "HTTPExport",
+        "asynchronous": true,
+        "isLookup": true,
+        "parsers": [],
+        "http": {
+          "relativeURI": "orders/{{data.resource.id}}/items",
+          "method": "GET",
+          "response": {
+            "resourcePath": "resource.items"
+          }
+        }
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "data",
+            "generate": "lineitems"
+          }
+        ],
+        "qa__index": 0
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Create NS SalesOrder",
+        "_connectionId": "NETSUITE CONNECTION",
+        "adaptorType": "NetSuiteDistributedImport",
+        "lookups": [],
+        "distributed": true,
+        "netsuite_da": {
+          "useSS2Restlets": true,
+          "operation": "add",
+          "recordType": "salesorder",
+          "lookups": [],
+          "mapping": {
+            "lists": [
+              {
+                "generate": "item",
+                "fields": [
+                  {
+                    "generate": "item",
+                    "extract": "lineitems[*].resource.sku",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "quantity",
+                    "extract": "lineitems[*].resource.quantity",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "description",
+                    "extract": "lineitems[*].resource.description",
+                    "internalId": false
+                  }
+                ]
+              }
+            ],
+            "fields": [
+              {
+                "generate": "entity",
+                "hardCodedValue": "DL Customer 1",
+                "internalId": false
+              },
+              {
+                "generate": "otherrefnum",
+                "hardCodedValue": "8500",
+                "internalId": false
+              },
+              {
+                "generate": "custbody47",
+                "extract": "lineitems[*].resource.sku",
+                "internalId": false
+              }
+            ]
+          }
+        }
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": []
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "PG - Get orders from Shipwire.",
+        "application": "Shipwire",
+        "_connectionId": "59dd0251090ccb745d0d6576",
+        "adaptorType": "HTTPExport",
+        "asynchronous": true,
+        "parsers": [],
+        "http": {
+          "relativeURI": "orders?offset=0&limit=2",
+          "method": "GET",
+          "response": {
+            "resourcePath": "resource.items"
+          }
+        }
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "8",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "Orches_Flow_173_ShiwireOrder_To_NS_SalesOrder_SS2.0",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "8",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "exportapiIdentifier": "ea4ce45915",
+          "uniqueField": "custbody47",
+          "importRecordType": "SalesOrder",
+          "savedsearchId": "2362",
+          "isUIFlow": true,
+          "standaloneexportflowID": "59dd0348090ccb745d0d6579",
+          "expectedJSON": [
+            {
+              "item": [
+                {
+                  "amount": 10,
+                  "item": {
+                    "internalid": "12975",
+                    "name": "pen"
+                  },
+                  "quantity": 1
+                }
+              ],
+              "custbody47": "pen",
+              "otherrefnum": "8500",
+              "entity": {
+                "internalid": "2349115",
+                "name": "DL Customer 1"
+              }
+            },
+            {
+              "item": [
+                {
+                  "amount": 40,
+                  "item": {
+                    "internalid": "12976",
+                    "name": "pencil"
+                  },
+                  "quantity": 2
+                }
+              ],
+              "custbody47": "pencil",
+              "otherrefnum": "8500",
+              "entity": {
+                "internalid": "2349115",
+                "name": "DL Customer 1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

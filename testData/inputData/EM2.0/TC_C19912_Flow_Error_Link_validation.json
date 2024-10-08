@@ -1,50 +1,74 @@
 {
-  "name": "TC_C19912_Flow_Error_Link_validation",
-  "disabled": false,
-  "_integrationId": "56d6b23fe1fc35de53914730",
-  "skipRetries": false,
-  "pageGenerators": [
+  "name": "TC_C19912",
+  "referencename": "TC_C19912",
+  "qa__api_tdata": [
     {
-      "qa__export": {
-        "name": "254 FTPexport",
-        "adaptorType": "FTPExport",
-        "ftp": {
-          "directoryPath": "/io.auto.qa/FTP_EXPORTS",
-          "fileNameStartsWith": "TC_C36518.json"
-        },
-        "file": {
-          "output": "records",
-          "skipDelete": true,
-          "json": {
-            "resourcePath": "*"
-          },
-          "encoding": "utf8",
-          "type": "json"
-        },
-        "asynchronous": true,
-        "_connectionId": "FTP CONNECTION",
-        "qa__path": "/FTP_uploads/TC_C36518.json"
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "zendesk export",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "qa__connectionId": "ZENDESK CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "http": {
+              "relativeURI": "tickets/126/comment.json",
+              "method": "GET",
+              "formType": "http",
+              "response": {
+                "resourcePath": "comments"
+              }
+            },
+            "rawData": "EMPTY RAW DATA",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "import",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "id8d1db355",
+            "oneToMany": false,
+            "file": {
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/BQ",
+              "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C19912",
+        "disabled": false,
+        "_integrationId": "603ce75ac4fec33283691f43",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
       }
-    }
-  ],
-  "pageProcessors": [
-    {
-      "qa__import": {
-        "name": "TC_C19912_Flow_Error_Link_validation",
-        "parsers": [],
-        "_connectionId": "FTP CONNECTION",
-        "file": {
-          "fileName": "sample.json",
-          "skipAggregation": false,
-          "type": "json"
-        },
-        "ftp": {
-          "directoryPath": "testtest",
-          "fileName": "sample.json"
-        },
-        "adaptorType": "FTPImport"
-      },
-      "type": "import"
     }
   ]
 }

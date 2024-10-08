@@ -1,0 +1,112 @@
+{
+    "name": "TC_476_DL_MongoDb_Insert_And_Ignore_Existing",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "6",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Data Loader",
+            "qa__isDataLoader": "csv",
+            "qa__path": "//Dataloader_uploades//TC_476_DL_MongoDb_Insert.csv",
+            "asynchronous": true,
+            "type": "simple",
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "type": "csv",
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "SimpleExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "insert",
+            "_connectionId": "MONGODB CONNECTION",
+            "distributed": false,
+            "ignoreExisting": true,
+            "mongodb": {
+                "method": "insertMany",
+                "collection": "Afe_Automation_Insert",
+                "document": "{\n\"Amount\":\"{{record.Amount}}\",\n\"Date\":\"{{record.Date}}\",\n\"FirstName\":\"{{record.FirstName}}\",\n\"ItemName\":\"{{record.ItemName}}\",\n\"LastName\":\"hardcode\",\n\"orderID\":\"{{record.orderID}}\",\n\"Quantity\": \"{{record.Quantity}}\",\n\"Amount\":\"{{record.Amount}}\",\n\"Notes\":\"{{record.Notes}}\",\n\"Units\":\"{{record.units}}\",\n\"PO\":\"{{record.[PO#]}}\",\n\"id\":\"{{record.id}}\"\n}",
+                "ignoreLookupFilter": "{\n\"Name\":\n{\n\"$eq\":\"{{record.FirstName}}\"\n}\n}"
+            },
+            "adaptorType": "MongodbImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "Mongodb": {
+                "name": "TC_476_DL_MongoDb_Insert_And_Ignore_Existing",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "MONGODB CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "6",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "collection": "Afe_Automation_Insert",
+                    "expectedJSON": [{
+                            "Amount": "280",
+                            "Date": "07/15/2017",
+                            "FirstName": "Automation New1",
+                            "ItemName": "ACC00002",
+                            "LastName": "hardcode",
+                            "orderID": "TAG-Address-1",
+                            "Quantity": "55",
+                            "Notes": "Notes1",
+                            "Units": "100",
+                            "PO": "656",
+                            "id": "1"
+                        },
+                        {
+                            "Amount": "280",
+                            "Date": "07/15/2017",
+                            "FirstName": "Automation New2",
+                            "ItemName": "ACC00003",
+                            "LastName": "hardcode",
+                            "orderID": "TAG-Address-2",
+                            "Quantity": "55",
+                            "Notes": "Notes2",
+                            "Units": "100",
+                            "PO": "656",
+                            "id": "2"
+                        },
+                        {
+                            "Amount": "280",
+                            "Date": "07/15/2017",
+                            "FirstName": "Automation AnushaNew2",
+                            "ItemName": "ACC00003",
+                            "LastName": "hardcode",
+                            "orderID": "TAG-Address-3",
+                            "Quantity": "55",
+                            "Notes": "Notes3",
+                            "Units": "100",
+                            "PO": "656",
+                            "id": "3"
+                        }
+                    ],
+                    "uniqueField": "id",
+                    "standaloneexportflowID": "60efcadaa7ba2d1b785efdca",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e7d5c52dd8"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "create slack msg",
+          "application": "slack",
+          "qa__connectionId": "HTTP SLACK CONNECTION",
+          "_connectionId": "HTTP SLACK CONNECTION",
+          "apiIdentifier": "i5f3c02d68",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "http": {
+            "relativeURI": [
+              "chat.postMessage"
+            ],
+            "method": [
+              "POST"
+            ],
+            "body": [
+              "{\"channel\":\"{{record.SlackMSG}}\",\"text\":\"Test for slack\"}"
+            ],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http",
+            "response": {
+              "successPath": [
+                ""
+              ],
+              "successValues": [
+                [
+                  ""
+                ]
+              ],
+              "failPath": [
+                "OK    "
+              ],
+              "failValues": [
+                [
+                    "False   "
+                ]
+              ]
+            }
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C35914_Verify_FailPath_FailValues_HTTP",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Slack_Message",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "e956f3b46a",
+          "qa__path": "/FTP_uploads/SlackMSG.json",
+          "asynchronous": true,
+          "sandbox": false,
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "SlackMSG"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ]
+  }

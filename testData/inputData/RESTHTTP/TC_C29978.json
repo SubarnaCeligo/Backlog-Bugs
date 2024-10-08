@@ -1,0 +1,200 @@
+{
+  "skipRetries": false,
+  "_integrationId": "62d6b4a955468141a906119e",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "ftp",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "29978.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "29978.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C29978",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": [
+      {
+        "data": [
+          {
+            "id": "cus_8TEMHVY5moxIPI",
+            "object": "customer",
+            "address": null,
+            "balance": 0,
+            "created": 1463528816,
+            "currency": "usd",
+            "default_source": "card_18CHs82eZvKYlo2C9BGk8uHq",
+            "delinquent": true,
+            "description": "Ava Anderson"
+          }
+        ]
+      }
+    ],
+    "importapiIdentifier": "i981db879d",
+    "expected": {
+      "FTP": {
+        "name": "TC_C29978",
+        "_integrationId": "62d6b4a955468141a906119e",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "json": {
+              "columnDelimiter": " "
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "29978",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "633bfd1f380b0b2aca222dfb",
+      "createdAt": "2022-10-04T09:30:07.945Z",
+      "lastModified": "2022-10-04T09:32:11.738Z",
+      "name": "stripe",
+      "_connectionId": "5ba1f00ac603440c6aad4c17",
+      "apiIdentifier": "i981db879d",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "assistant": "stripe",
+      "sandbox": false,
+      "assistantMetadata": {
+        "resource": "customers",
+        "version": "v1",
+        "operation": "create_a_customer"
+      },
+      "mapping": {
+        "fields": [
+          {
+            "extract": "data[*].id",
+            "generate": "id"
+          },
+          {
+            "extract": "object",
+            "generate": "object"
+          },
+          {
+            "extract": "address",
+            "generate": "address"
+          },
+          {
+            "extract": "balance",
+            "generate": "balance"
+          },
+          {
+            "extract": "data[*].created",
+            "generate": "created"
+          },
+          {
+            "extract": "currency",
+            "generate": "currency"
+          },
+          {
+            "extract": "default_source",
+            "generate": "default_source"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "/v1/customers"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [
+          null
+        ],
+        "batchSize": 1,
+        "requestMediaType": "urlencoded",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "strictHandlebarEvaluation": true,
+        "sendPostMappedData": true,
+        "_httpConnectorVersionId": "6384ac104342b8126f874ae3",
+        "_httpConnectorResourceId": "6384ac104342b8126f874b62",
+        "_httpConnectorEndpointIds": [
+          "6384ac104342b8126f874bf3"
+        ],
+        "formType": "assistant",
+        "response": {
+          "resourceIdPath": [
+            null
+          ]
+        }
+      },
+      "rest": {
+        "relativeURI": [
+          "/v1/customers"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [
+          null
+        ],
+        "responseIdPath": [
+          null
+        ],
+        "successPath": [
+          null
+        ],
+        "successValues": [
+          null
+        ]
+      },
+      "adaptorType": "RESTImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "http",
+        "_connectionId": "HTTP STRIPE CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/v1/customers?starting_after=cus_MB5KpNmPy3W4hC",
+          "method": "GET",
+          "body": "{\n\"limit\":1\n}",
+          "formType": "http",
+          "paging": {
+            "method": "relativeuri",
+            "relativeURI": "{\"http.Paging.relativeURI\":\"starting_after=cus_MB5KpNmPy3W4hC\"}",
+            "lastPageStatusCode": 404
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

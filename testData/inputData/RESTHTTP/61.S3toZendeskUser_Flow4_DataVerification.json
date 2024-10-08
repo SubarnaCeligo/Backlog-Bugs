@@ -1,0 +1,300 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "8",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "61_REstimport",
+                "adaptorType": "HTTPImport",
+                "application": "zendesk support",
+                "lookups": [
+                    {
+                        "name": "AutomationS3lookup",
+                        "relativeURI": "search.json?query=type:user notes:{{{Column1}}}",
+                        "method": "GET",
+                        "extract": "results[0].id"
+                    },
+                    {
+                        "name": "a39a98b847024ae5979fcf0c90ed920b",
+                        "relativeURI": "search.json?query=type:organization name:{{{Column4}}}",
+                        "method": "GET",
+                        "extract": "results[0].id",
+                        "allowFailures": true,
+                        "default": "4653588569"
+                    },
+                    {
+                        "name": "46bbb03c0be94808bd960081a26ae6bf",
+                        "map": {
+                            "CE": "Celigo"
+                        },
+                        "allowFailures": true,
+                        "default": "Default Static value"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "users/{{lookup.AutomationS3lookup}}.json",
+                        "users.json"
+                    ],
+                    "method": [
+                        "PUT",
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "formType": "http",
+                    "qa__formType": "rest",
+                    "existingLookupName": "AutomationS3lookup",
+                    "requestType": [
+                        "UPDATE",
+                        "CREATE"
+                    ],
+                    "strictHandlebarEvaluation": true,
+                    "sendPostMappedData": true,
+                    "lookups": [
+                        {
+                            "method": "GET",
+                            "relativeURI": "search.json?query=type:user notes:{{{Column1}}}",
+                            "extract": "results[0].id",
+                            "allowFailures": false,
+                            "name": "AutomationS3lookup",
+                            "useImportHeaders": false
+                        },
+                        {
+                            "default": "4653588569",
+                            "extract": "results[0].id",
+                            "method": "GET",
+                            "name": "78963628fb7c4963bb44a0d545fafc5e",
+                            "allowFailures": true,
+                            "relativeURI": "search.json?query=type:organization name:{{{Column4}}}"
+                        },
+                        {
+                            "default": "Default Static value",
+                            "name": "0b04d0cf2be84509b672e917ad0d9c47",
+                            "allowFailures": true,
+                            "map": {
+                                "CE": "Celigo"
+                            }
+                        }
+                    ]
+                },
+                "mapping": {
+                    "fields": [
+                        {
+                            "generateDateFormat": "YYYY-MM-DDTHH:mm:ss z",
+                            "extract": "Column11",
+                            "extractDateFormat": "MM/DD/YYYY",
+                            "generateDateTimezone": "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+                            "dataType": "string",
+                            "generate": "user.user_fields.user_notes_date",
+                            "qa__dataType": "date",
+                            "extractDateTimezone": "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi"
+                        },
+                        {
+                            "extract": "Column0",
+                            "generate": "user.name"
+                        },
+                        {
+                            "extract": "Column1",
+                            "generate": "user.notes"
+                        },
+                        {
+                            "extract": "{{#if Column2}}{{Column2}}{{else}}99999999{{/if}}",
+                            "generate": "user.user_fields.phone"
+                        },
+                        {
+                            "immutable": true,
+                            "extract": "Column3",
+                            "generate": "user.user_fields.fax"
+                        },
+                        {
+                            "extract": "Column4",
+                            "generate": "user.organization_id",
+                            "lookupName": "78963628fb7c4963bb44a0d545fafc5e"
+                        },
+                        {
+                            "extract": "Column5",
+                            "generate": "user.user_fields.job_titles",
+                            "lookupName": "0b04d0cf2be84509b672e917ad0d9c47"
+                        },
+                        {
+                            "extract": "Column6",
+                            "generate": "user.user_fields.address_1"
+                        },
+                        {
+                            "extract": "Column7",
+                            "generate": "user.user_fields.address_2"
+                        },
+                        {
+                            "extract": "Column8",
+                            "generate": "user.user_fields.address_city"
+                        },
+                        {
+                            "extract": "Column9",
+                            "generate": "user.user_fields.address_state"
+                        },
+                        {
+                            "hardCodedValue": "Australia",
+                            "generate": "user.user_fields.address_country"
+                        },
+                        {
+                            "extract": "{{Column0}}{{Column0}}",
+                            "generate": "user.user_fields.user_notes_memo"
+                        }
+                    ]
+                },
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "dataURITemplate": "{{{id}}}",
+                "distributed": false,
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1"
+                    },
+                    "version": "1"
+                }
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "61.S3 to Zendesk_Flow 4_JSON",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "update_app": "Zendesk",
+        "UpdateRecordJSON": {
+            "notes": "s3updateuser@gmail.com",
+            "name": "Auto@S3export_UpdateUser"
+        },
+        "update_importapiIdentifier": "i3df2577a8",
+        "update_Record": "users",
+        "expected": {
+            "zendesk": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "61.S3 to Zendesk_Flow 4_JSON",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "8",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "notes",
+                    "standaloneexportflowID": "57aaf0188ec9f88049060166",
+                    "importRecordType": "users",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e8c9cb6192",
+                    "expectedJSON": [
+                        {
+                            "notes": "autos3user1@gmail.com",
+                            "user_fields": {
+                                "user_notes_date": "2016-08-31T00:00:00 IST",
+                                "user_notes_memo": "Auto@S3user1Auto@S3user1",
+                                "phone": "9490992768",
+                                "job_titles": "Celigo",
+                                "address_1": "1820GatewayDrive�",
+                                "address_country": "Australia",
+                                "address_2": "Suite260",
+                                "address_state": "California",
+                                "fax": "090-9090900",
+                                "address_city": "SanMateo"
+                            },
+                            "name": "Auto@S3user1"
+                        },
+                        {
+                            "notes": "autos3user2@gmail.com",
+                            "user_fields": {
+                                "user_notes_date": "2016-08-31T00:00:00 IST",
+                                "user_notes_memo": "Auto@S3user2Auto@S3user2",
+                                "phone": "9490992768",
+                                "job_titles": "Default Static value",
+                                "address_1": "1820GatewayDrive",
+                                "address_country": "Australia",
+                                "address_2": "Suite260",
+                                "address_state": "California",
+                                "fax": "090-9090900",
+                                "address_city": "SanMateo"
+                            },
+                            "name": "Auto@S3user2"
+                        },
+                        {
+                            "notes": "autos3user3@gmail.com",
+                            "user_fields": {
+                                "user_notes_date": "2016-08-31T00:00:00 IST",
+                                "user_notes_memo": "Auto@S3user3Auto@S3user3",
+                                "phone": "9490992768",
+                                "job_titles": "Default Static value",
+                                "address_1": "1820GatewayDrive",
+                                "address_country": "Australia",
+                                "address_2": "Suite260",
+                                "address_state": "California",
+                                "fax": "090-9090900",
+                                "address_city": "SanMateo"
+                            },
+                            "name": "Auto@S3user3"
+                        },
+                        {
+                            "notes": "s3updateuser@gmail.com",
+                            "user_fields": {
+                                "user_notes_date": "2016-08-31T00:00:00 IST",
+                                "user_notes_memo": "Auto@S3export_UpdateUserAuto@S3export_UpdateUser",
+                                "phone": "8500142514",
+                                "job_titles": "Celigo",
+                                "address_1": "AsandasVBIT",
+                                "address_country": "Australia",
+                                "address_2": "Inorbitmall",
+                                "address_state": "Telangana",
+                                "fax": "080-8080880",
+                                "address_city": "Hyderabad"
+                            },
+                            "name": "Auto@S3export_UpdateUser"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "61_S3export",
+                "adaptorType": "S3Export",
+                "s3": {
+                    "bucket": "automationsinglefile",
+                    "region": "us-east-1"
+                },
+                "transform": {
+                    "rules": []
+                },
+                "file": {
+                    "type": "csv",
+                    "output": "records",
+                    "skipDelete": false,
+                    "csv": {
+                        "columnDelimiter": "\t",
+                        "rowDelimiter": "\n",
+                        "hasHeaderRow": false,
+                        "trimSpaces": true,
+                        "rowsToSkip": 0
+                    },
+                    "encoding": "win1252"
+                },
+                "asynchronous": true,
+                "_connectionId": "S3 CONNECTION",
+                "qa__path": "/S3_uploads/S3 to Zendesk Flow 4.txt"
+            }
+        }
+    ]
+}

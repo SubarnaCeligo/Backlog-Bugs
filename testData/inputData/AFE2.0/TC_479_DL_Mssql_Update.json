@@ -1,0 +1,149 @@
+{
+    "name": "TC_479_DL_Mssql_Update",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Data Loader",
+            "asynchronous": true,
+            "type": "simple",
+            "qa__isDataLoader": "json",
+            "qa__path": "//Dataloader_uploades//TC_479_DL_Mssql_Update.json",
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "SimpleExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "Update_MSSQL",
+            "application": "Microsoft SQL",
+            "modelMetadata": {
+                "name": {
+                    "default": ""
+                },
+                "email": {
+                    "default": ""
+                },
+                "title": {
+                    "default": ""
+                },
+                "memo": {
+                    "default": ""
+                },
+                "direction": {
+                    "default": ""
+                },
+                "phone": {
+                    "default": null
+                },
+                "fax": {
+                    "default": "null"
+                }
+            },
+            "_connectionId": "MSSQL CONNECTION",
+            "distributed": false,
+            "lookups": [{
+                    "query": "SELECT * from AFE_Automation_Update where name='static_DND'",
+                    "extract": "type",
+                    "allowFailures": false,
+                    "name": "dynamic"
+                },
+                {
+                    "map": {
+                        "Autorecord": "1",
+                        "Recordauto": "2"
+                    },
+                    "allowFailures": false,
+                    "name": "static"
+                }
+            ],
+            "rdbms": {
+                "query": [
+                    "UPDATE AFE_Automation_Update\nSET \nemail={{record.email}},\nphone={{record.phone}},\ntitle={{record.title}},\ntype={{lookup \"dynamic\" record}},\nmemo={{lookup \"static\" record.memo}},\ndirection={{record.fax}}\nwhere name={{record.name}}"
+                ],
+                "queryType": ["UPDATE"],
+                "lookups": [{
+                        "query": "SELECT * from AFE_Automation_Update where name='static_DND'",
+                        "extract": "type",
+                        "allowFailures": false,
+                        "name": "dynamic"
+                    },
+                    {
+                        "map": {
+                            "Autorecord": "1",
+                            "Recordauto": "2"
+                        },
+                        "allowFailures": false,
+                        "name": "static"
+                    }
+                ]
+            },
+            "adaptorType": "RDBMSImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_479_DL_Mssql_Update",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "name": "AFE_Update1",
+                            "email": "u1@gma.com",
+                            "phone": null,
+                            "fax": null,
+                            "title": "Bhagat%\\a",
+                            "type": "automation     ",
+                            "memo": 1,
+                            "direction": "null           "
+                        },
+                        {
+                            "name": "AFE_Update2",
+                            "email": "u2@gma.com",
+                            "phone": null,
+                            "fax": null,
+                            "title": "Ram!#$",
+                            "type": "automation     ",
+                            "memo": 2,
+                            "direction": "null           "
+                        }
+                    ],
+                    "uniqueField": "name",
+                    "standaloneexportflowID": "60f051e5b3d8081116d36126",
+                    "importRecordType": "AFE_Automation_Update",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e891063b6c",
+                    "application":"MSSQL"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "MSSQL CONNECTION"
+                }
+            }
+        }
+    }
+}

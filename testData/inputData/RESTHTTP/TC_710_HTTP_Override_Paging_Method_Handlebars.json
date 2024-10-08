@@ -1,0 +1,107 @@
+{
+    "name": "TC_710_HTTP_Override_Paging_Method_Handlebars",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Page Number Parameter Export",
+          "application": "BigCommerce",
+          "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+          "qa__connectionId":"621cad647988314f51661dfb",
+          "asynchronous": true,
+          "oneToMany": false,
+          "http": {
+            "relativeURI": "/v2/products?page={{export.http.paging.page}}",
+            "method": "GET",
+            "formType": "http",
+            "paging": {
+              "method": "page",
+              "page": 1
+            }
+          },
+          "adaptorType": "HTTPExport"
+        }
+      }
+    ],
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "1036",
+      "errorCount": "0",
+      "pages": "26"
+    },
+    "qa__dataVerification": {
+      "exportRecordType": "users",
+      "expected": {
+        "FTP": {
+          "name": "TC_710_HTTP_Override_Paging_Method_Handlebars",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "FTP CONNECTION",
+            "file": {
+              "csv": {
+                "columnDelimiter": ","
+              }
+            }
+          },
+          "qa__expectedDashboardCount": {
+            "ignoreCount": "0",
+            "successCount": "1036",
+            "errorCount": "0",
+            "pages": "26"
+          },
+          "qa__dataVerification": {
+            "fileName": "Override_Paging_Hanldebars",
+            "exportRecordType": "accounts",
+            "isUIFlow": true,
+            "folderName": "/io.auto.qa/IO_UI_Automation",
+            "fileType": ".csv"
+          }
+        }
+      }
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "FTP_import_Page_Paging",
+          "_connectionId": "FTP CONNECTION",
+          "distributed": false,
+          "mapping": {
+            "fields": [
+                {
+                    "extract": "name",
+                    "generate": "Name"
+                },
+                {
+                    "extract": "price",
+                    "generate": "Price"
+                },
+                {
+                    "extract": "custom_url",
+                    "generate": "URL"
+                }
+            ]
+        },
+          "file": {
+            "type": "csv",
+            "csv": {
+              "rowDelimiter": "\n",
+              "columnDelimiter": ",",
+              "includeHeader": true,
+              "wrapWithQuotes": false,
+              "replaceTabWithSpace": false,
+              "replaceNewlineWithSpace": false
+            }
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "fileName": "Override_Paging_Hanldebars.csv"
+          },
+          "adaptorType": "FTPImport"
+        }
+      }
+    ]
+  }

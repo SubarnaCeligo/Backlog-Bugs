@@ -1,0 +1,196 @@
+{
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "FTP import",
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Comments",
+              "generate": "comments"
+            },
+            {
+              "extract": "Email",
+              "generate": "email"
+            },
+            {
+              "extract": "Name",
+              "generate": "name"
+            },
+            {
+              "extract": "Phone",
+              "generate": "phone"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "{{batch_of_records.[0].rows.[0].Comments}}.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "{{batch_of_records.[0].rows.[0].Comments}}.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "_integrationId": "63159bd0976915080d03da1a",
+  "timezone": "Asia/Calcutta",
+  "name": "TC_419_NS_FTP_Group_Rows_FileName",
+  "disabled": false,
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "importRecordJSON": {
+      "subsidiary": "HH Inc.",
+      "phone": "7070707070",
+      "companyname": "Gene Stevenson",
+      "email": "steveg@gmail.com",
+      "notes": "TC_419_NS_FTP_Group_Rows_FileName"
+    },
+    "application":"NETSUITE",
+    "importapiIdentifier": "i5f176a84b",
+    "exportRecordType": "Customer",
+    "expected": {
+      "FTP": {
+        "name": "TC_419_NS_FTP_Group_Rows_FileName",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_419_NS_FTP_Group_Rows_FileName",
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "60d176e47d6ab5377ab65749",
+      "createdAt": "2021-06-22T05:36:36.092Z",
+      "lastModified": "2021-06-22T05:50:06.524Z",
+      "name": "TC_419_NS_FTP_Group_Rows_FileName",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "5bc6e40ae08bd01f981f3aa5",
+      "distributed": true,
+      "apiIdentifier": "i5f176a84b",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "companyname",
+              "extract": "companyname",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "subsidiary",
+              "extract": "subsidiary",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "phone",
+              "extract": "phone",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "email",
+              "extract": "email",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "comments",
+              "extract": "notes",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            }
+          ],
+          "lists": []
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "TC_419 Export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "3220",
+            "useSS2Restlets": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+    "name": "TC_C55478",
+    "disabled": false,
+    "_integrationId": "62c3e71af6f3f2299501f5bf",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Http Export",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ea3f8d4c53",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "record": {
+                                "id": "1234567",
+                                "name": "Automation Testing",
+                                "type": "customer",
+                                "address": {
+                                    "street": "17 Cherry Tree Lane",
+                                    "City": "London"
+                                }
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "8967",
+                                "name": "Sherlock Holmes",
+                                "type": "customer",
+                                "address": {
+                                    "street": "221B Baker Street",
+                                    "City": "London"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": "/users/1473313072",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Lookup",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ef79acc48f",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                            "record": {
+                                "id": "987645",
+                                "name": "Testing",
+                                "type": "customer2",
+                                "address": {
+                                    "street": "17 Cherry Tree Lane2",
+                                    "City": "London2"
+                                }
+                            }
+                        },
+                        {
+                            "record": {
+                                "id": "896722",
+                                "name": "Sherlock Holmes2",
+                                "type": "customer2",
+                                "address": {
+                                    "street": "221B Baker Street2",
+                                    "City": "London2"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": "/users/1473313072",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Ftp Import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ib58d59914",
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "user.id",
+                            "generate": "ID"
+                        },
+                        {
+                            "extract": "user.name",
+                            "generate": "Name"
+                        },
+                        {
+                            "extract": "user.email",
+                            "generate": "Email"
+                        },
+                        {
+                            "extract": "user.details",
+                            "generate": "Details"
+                        },
+                        {
+                            "extract": "user.notes",
+                            "generate": "Notes"
+                        }
+                    ]
+                },
+                "file": {
+                    "fileName": "TC_C55478.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileName": "TC_C55478.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "3",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "importRecordJSON": {
+            "Id": 1473313072,
+            "Name": "Celigo IO Automation",
+            "Email": "mounica.manavapati@celigo.com",
+            "Details": "12345nov23",
+            "Notes": "testmail@gmail.com"
+        },
+        "importapiIdentifier": "ib58d59914",
+        "isUIFlow": true,
+        "expected": {
+            "FTP": {
+                "name": "TC_C55478",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C55478",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO Automation SFTP Imports",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

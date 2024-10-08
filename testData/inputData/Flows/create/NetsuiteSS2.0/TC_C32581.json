@@ -1,0 +1,137 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "0",
+        "errorCount": "1"
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "NETSUITE CONNECTION",
+                "name": "TC_C32581 Import",
+                "distributed": true,
+                "lookups": [],
+                "netsuite_da": {
+                    "useSS2Restlets": true,
+                    "operation": "add",
+                    "recordType": "salesorder",
+                    "lookups": [],
+                    "mapping": {
+                        "fields": [
+                            {
+                                "generate": "entity",
+                                "extract": "customer",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "location",
+                                "hardCodedValue": "17",
+                                "internalId": true
+                            },
+                            {
+                                "generate": "otherrefnum",
+                                "hardCodedValue": "222",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "celigo_recordmode_dynamic",
+                                "hardCodedValue": "true",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "celigo_replaceAllLines_item",
+                                "hardCodedValue": "true",
+                                "internalId": false
+                            }
+                        ],
+                        "lists": [
+                            {
+                                "generate": "item",
+                                "fields": [
+                                    {
+                                        "generate": "location",
+                                        "hardCodedValue": "17",
+                                        "internalId": true
+                                    },
+                                    {
+                                        "generate": "item",
+                                        "extract": "line_items[*].name",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "quantity",
+                                        "extract": "line_items[*].quantity",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "internalId": false,
+                                        "generate": "amount",
+                                        "extract": "line_items[*].amount"
+                                    },
+                                    {
+                                        "generate": "celigo_inventorydetail",
+                                        "subRecordMapping": {
+                                            "qa__id": "jsonPath_item_sublist_celigo_inventorydetail",
+                                            "_id": "item[*].celigo_inventorydetail",
+                                            "recordType": "inventorydetail",
+                                            "jsonPath": "line_items",
+                                            "mapping": {
+                                                "fields": [],
+                                                "lists": [
+                                                    {
+                                                        "generate": "inventoryassignment",
+                                                        "fields": [
+                                                            {
+                                                                "generate": "receiptinventorynumber",
+                                                                "extract": "102",
+                                                                "internalId": false
+                                                            },
+                                                            {
+                                                                "generate": "quantity",
+                                                                "extract": "inventory[*].sQty",
+                                                                "internalId": false
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            "lookups": []
+                                        },
+                                        "internalId": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C32581",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "name": "TC_C32581 Export",
+                "asynchronous": true,
+                "qa__path": "//FTP_uploads//TC_C32548.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C32548"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

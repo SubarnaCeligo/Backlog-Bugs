@@ -1,0 +1,147 @@
+{
+  "name": "TC_C56132",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "1",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "Netsuite": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C56132",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__dataVerification": {
+          "uniqueField": "title",
+          "isUIFlow": true,
+          "standaloneexportflowID": "6388348a1b361a45b34b0a7e",
+          "importRecordType": "supportcase",
+          "savedsearchId": "4868",
+          "exportapiIdentifier": "e43a90f1c3",
+          "expectedJSON": [
+            {
+              "company": {
+                "internalid": "7058",
+                "name": "sandbox"
+              },
+              "title": "TC_C56132",
+              "usernotes": [
+                {
+                  "note": "TC_C56132"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Delete this Export",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ec19887141",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": {
+              "companyname": "sandbox",
+              "subject": "TC_C56132",
+              "usernotes": [
+                {
+                  "memo": "Created neew note"
+                }
+              ]
+            },
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C56132"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Delete this Import",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "icc490bae3",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": true,
+              "operation": "add",
+              "recordType": "supportcase",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "company",
+                    "extract": "companyname",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "title",
+                    "extract": "subject",
+                    "internalId": false
+                  }
+                ],
+                "lists": [
+                  {
+                    "generate": "usernotes",
+                    "fields": [
+                      {
+                        "generate": "note",
+                        "extract": "usernotes[*].memo",
+                        "internalId": false
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C56132",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

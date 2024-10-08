@@ -1,0 +1,34 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C2230_HTTPtoFTP_handlebars",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "testingZDexp",
+                "application": "zendesk support",
+                "apiIdentifier": "e503d5075a",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "asynchronous": true,
+                "dataURITemplate": "{{ticket.id}}",
+                "traceKeyTemplate": "{{record.ticket.subject}}",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "tickets",
+                    "method": "POST",
+                    "body": "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"{{capitalize connection.name}}\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"{{lowercase settings.integration.name}}\"\n  }\n}",
+                    "formType": "http"
+                     },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

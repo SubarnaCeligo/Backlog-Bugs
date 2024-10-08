@@ -1,0 +1,19 @@
+{
+    "body": {
+    "application": "MySQL",
+    "name": "AutomationStandalone_TC_C51200",
+    "qa__connectionId": "MYSQL CONNECTION",
+    "_connectionId": "MYSQL CONNECTION",
+    "apiIdentifier": "e81cf35ed6",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "groupByFields": [
+        "id"
+    ],
+    "rdbms": {
+        "query": "select * from grouping"
+    },
+    "adaptorType": "RDBMSExport"
+}
+}

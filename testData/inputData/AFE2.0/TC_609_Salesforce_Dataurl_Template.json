@@ -1,0 +1,197 @@
+{
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "6",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "import",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "CloseDate",
+              "generate": "CloseDate"
+            },
+            {
+              "extract": "Description",
+              "generate": "Description"
+            },
+            {
+              "extract": "Name",
+              "generate": "Name"
+            },
+            {
+              "extract": "StageName",
+              "generate": "StageName"
+            },
+            {
+              "extract": "Type",
+              "generate": "Type"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_609_Salesforce_Dataurl_Template.json",
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_609_Salesforce_Dataurl_Template.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "_integrationId": "63159bd0976915080d03da1a",
+  "timezone": "Asia/Calcutta",
+  "name": "TC_609_Salesforce_Dataurl_Template",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": [
+      {
+        "name": "TC_609_Opp_Record",
+        "type": "Existing Customer - Upgrade",
+        "date": "2021-11-17",
+        "description": "This is datauri record",
+        "stage": "Prospecting"
+      },
+      {
+        "name": "TC_609_Opp_Record",
+        "type": "Existing Customer - Upgrade",
+        "date": "2021-11-17",
+        "description": "This is datauri record",
+        "stage": "Prospecting"
+      },
+      {
+        "name": "TC_609_Opp_Record",
+        "type": "Existing Customer - Upgrade",
+        "date": "2021-11-17",
+        "description": "This is datauri record",
+        "stage": "Prospecting"
+      }
+    ],
+    "application":"SALESFORCE",     
+    "importapiIdentifier": "id9a5259fd",
+    "exportRecordType": "Opportunity",
+    "isUIFlow": true,
+    "query": "select Name,Type,CloseDate, Description, StageName from Opportunity where Name LIKE 'TC_609_Opp_Record%'",
+    "expected": {
+      "FTP": {
+        "name": "TC_609_Salesforce_Dataurl_Template.json",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ";"
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "6",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_609_Salesforce_Dataurl_Template",
+          "folderName": "io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "61c0231b3e4d4209662bb541",
+      "createdAt": "2021-12-20T06:30:51.220Z",
+      "lastModified": "2021-12-20T06:32:49.187Z",
+      "name": "TC_609_Salesforce_Dataurl_Template",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": true,
+      "apiIdentifier": "id9a5259fd",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "Name"
+          },
+          {
+            "extract": "type",
+            "generate": "Type"
+          },
+          {
+            "extract": "date",
+            "generate": "CloseDate"
+          },
+          {
+            "extract": "description",
+            "generate": "Description"
+          },
+          {
+            "extract": "stage",
+            "generate": "StageName"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Opportunity",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "salesforce export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "dataURITemplate": "{{record.Name}}",
+        "oneToMany": false,
+        "sandbox": false,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name,Type,CloseDate, Description, StageName from Opportunity where Name LIKE 'TC_609_Opp_Record%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ]
+}

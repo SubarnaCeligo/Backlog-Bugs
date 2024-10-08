@@ -1,0 +1,160 @@
+{
+    "script": "TC_C43031",
+    "name": "TC_C43031_data_integrity_verification",
+    "referencename": "TC_C43031_data_integrity_verification",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "1",
+        "successCount": "10",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "isUIFlow": true,
+        "expected": {
+            "Azure": {
+                "name": "TC_C43031_imp_azure",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                    "file": {
+                        "json": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "10",
+                    "ignoreCount": "1",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "isUIFlow": true,
+                    "fileName": "TC_C43031",
+                    "folderName": "azurefilemetadata",
+                    "container": "azurefilemetadata",
+                    "fileType": ".json",
+                    "fileExtension": ".json"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [{
+        "pageGenerators": [{
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C43031_ftp_exp",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C43031",
+                    "fileNameEndsWith": ".json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            "not", [
+                                "equals", [
+                                    "string", [
+                                        "extract",
+                                        "id"
+                                    ]
+                                ],
+                                "200"
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        "not", [
+                            "equals", [
+                                "string", [
+                                    "extract",
+                                    "id"
+                                ]
+                            ],
+                            "200"
+                        ]
+                    ]
+                },
+                "adaptorType": "FTPExport"
+            }
+        }],
+        "pageProcessors": [{
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C43031_imp_azure",
+                "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                "oneToMany": false,
+                "assistant": "azurestorageaccount",
+                "sandbox": false,
+                "mapping": {
+                    "fields": [{
+                            "extract": "id",
+                            "generate": "ID"
+                        },
+                        {
+                            "extract": "first_name",
+                            "generate": "Name"
+                        },
+                        {
+                            "extract": "fileName",
+                            "generate": "File_Name"
+                        }
+                    ]
+                },
+                "file": {
+                    "fileName": "TC_C43031.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "http": {
+                    "type": "file",
+                    "relativeURI": [
+                        "azurefilemetadata"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "sendPostMappedData": true,
+                    "formType": "assistant",
+                    "response": {
+                        "resourcePath": [
+                            "files"
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }],
+        "createFlow": {
+            "name": "TC_C43031_data_integrity_verification",
+            "disabled": false,
+            "_integrationId": "6319b071abf51e7a86c7ba9d",
+            "qa__integrationId": "62d6b4a955468141a906119e",
+            "skipRetries": false,
+            "pageProcessors": [{
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }],
+            "pageGenerators": [{
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }]
+        }
+    }]
+}

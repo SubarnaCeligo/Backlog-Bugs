@@ -1,0 +1,136 @@
+{
+    "name": "TC_472_Ftp_Mysql_Update_Dynamic_Static",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP Export",
+            "qa__path": "/FTP_uploads/TC_472_Ftp_Mysql_Update_Dynamic_Static.json",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_472_Ftp_Mysql_Update_Dynamic_Static"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "update",
+            "application": "MySQL",
+            "modelMetadata": {
+                "Name": {
+                    "default": ""
+                },
+                "Email": {
+                    "default": ""
+                },
+                "Ownership": {
+                    "default": ""
+                }
+            },
+            "parsers": [],
+            "_connectionId": "MYSQL CONNECTION",
+            "distributed": false,
+            "lookups": [{
+                    "map": {
+                        "static": "5",
+                        "dynamic": "10"
+                    },
+                    "allowFailures": false,
+                    "name": "static"
+                },
+                {
+                    "query": "select * from update_table_afe where name='staticrecord'",
+                    "extract": "comments",
+                    "allowFailures": false,
+                    "name": "dynamic"
+                }
+            ],
+            "rdbms": {
+                "query": [
+                    "UPDATE update_table_afe SET Email__c={{record.Email}},Immutable_Number__c={{lookup \"static\" record.Ownership}},\ncomments={{lookup \"dynamic\" record}} where Name={{record.Name}}"
+                ],
+                "queryType": ["UPDATE"],
+                "lookups": [{
+                        "map": {
+                            "static": "5",
+                            "dynamic": "10"
+                        },
+                        "allowFailures": false,
+                        "name": "static"
+                    },
+                    {
+                        "query": "select * from update_table_afe where name='staticrecord'",
+                        "extract": "comments",
+                        "allowFailures": false,
+                        "name": "dynamic"
+                    }
+                ]
+            },
+            "adaptorType": "RDBMSImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_472_Ftp_Mysql_Update_Dynamic_Static",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "Name": "AFE_Mysql_Record@10",
+                            "Email__c": "",
+                            "Immutable_Number__c": 5,
+                            "Ownership": null,
+                            "comments": "dynamiclookup"
+                        },
+                        {
+                            "Name": "AFE_Mysql_Record@11",
+                            "Email__c": "Ram@$##!",
+                            "Immutable_Number__c": 10,
+                            "Ownership": null,
+                            "comments": "dynamiclookup"
+                        }
+                    ],
+                    "uniqueField": "Name",
+                    "standaloneexportflowID": "60ee9502cdcd434ee4619bf0",
+                    "importRecordType": "update_table_afe",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ef8c18b6a0",
+                    "application":"MYSQL"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "MYSQL CONNECTION"
+                }
+            }
+        }
+    }
+}

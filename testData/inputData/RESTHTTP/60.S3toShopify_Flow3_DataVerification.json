@@ -1,0 +1,173 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "60_REstimport",
+                "application": "shopify",
+                "adaptorType": "HTTPImport",
+                "http": {
+                    "relativeURI": [
+                        "orders.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "formType": "http",
+                    "qa__formType": "rest",
+                    "strictHandlebarEvaluation": true,
+                    "sendPostMappedData": true
+                },
+                "rest": {
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "relativeURI": [
+                        "orders.json"
+                    ]
+                },
+                "mapping": {
+                    "lists": [
+                        {
+                            "fields": [
+                                {
+                                    "extract": "*.Column2",
+                                    "generate": "title",
+                                    "qa__extract": "Column2"
+                                },
+                                {
+                                    "extract": "Column3",
+                                    "qa__useFirstRow": "true",
+                                    "generate": "quantity"
+                                },
+                                {
+                                    "extract": "*.Column4",
+                                    "generate": "price",
+                                    "qa__extract": "Column4"
+                                }
+                            ],
+                            "generate": "order.line_items"
+                        }
+                    ],
+                    "fields": [
+                        {
+                            "extract": "Column0",
+                            "generate": "order.customer.first_name"
+                        },
+                        {
+                            "extract": "Column1",
+                            "generate": "order.customer.last_name"
+                        },
+                        {
+                            "hardCodedValue": "Automation Order Notes",
+                            "generate": "order.note"
+                        }
+                    ]
+                },
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "dataURITemplate": "{{{id}}}",
+                "distributed": false
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "60.S3 to Shopify_Flow 3_JSON",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "shopify": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "60.S3 to Shopify_Flow 3_JSON",
+                "import": {
+                    "_connectionId": "HTTP SHOPIFY CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "note",
+                    "standaloneexportflowID": "572aeb3c5ac02fad176332a1",
+                    "importRecordType": "orders",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ec5eca7bf3",
+                    "expectedJSON": {
+                        "note": "Automation Order Notes",
+                        "line_items": [
+                            {
+                                "quantity": 20,
+                                "price": "233.00",
+                                "title": "ACC00001"
+                            },
+                            {
+                                "quantity": 20,
+                                "price": "152.00",
+                                "title": "ACC00002"
+                            },
+                            {
+                                "quantity": 20,
+                                "price": "95.00",
+                                "title": "ACC00003"
+                            }
+                        ],
+                        "customer": {
+                            "last_name": "Shopify1",
+                            "first_name": "AutoS3"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "60S3export",
+                "adaptorType": "S3Export",
+                "s3": {
+                    "bucket": "automations3export",
+                    "keyEndsWith": "Shopify Flow.csv.gz",
+                    "region": "us-east-1"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": false,
+                    "type": "csv",
+                    "compressionFormat": "gzip",
+                    "groupByFields": [
+                        "Column0",
+                        "Column1"
+                    ],
+                    "csv": {
+                        "columnDelimiter": ";",
+                        "rowDelimiter": "\n",
+                        "hasHeaderRow": false,
+                        "trimSpaces": false,
+                        "rowsToSkip": 0
+                    }
+                },
+                "asynchronous": true,
+                "_connectionId": "S3 CONNECTION",
+                "dataURITemplate": "{{{Column1}}}",
+                "qa__path": "//S3_uploads//S3 to Shopify Flow 3.csv"
+            }
+        }
+    ]
+}

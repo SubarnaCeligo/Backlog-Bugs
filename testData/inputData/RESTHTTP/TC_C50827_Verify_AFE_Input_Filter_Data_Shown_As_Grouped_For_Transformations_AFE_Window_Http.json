@@ -1,0 +1,165 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "HTTP_50827",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e607a4b5da",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": ["id"],
+        "http": {
+          "relativeURI": "/tickets/582676",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "ticket"
+          }
+        },
+        "rawData": "56d6b114e1fc35de5391472c2412a82a239c47918bb7a36d4ffaa6d1",
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              [
+                {
+                  "extract": "*.brand_id",
+                  "generate": "id"
+                }
+              ]
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            [
+              {
+                "extract": "*.brand_id",
+                "generate": "id"
+              }
+            ]
+          ]
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "ExpectedData":[
+    {
+      "url": "https://celigoqa.zendesk.com/api/v2/tickets/582676.json",
+      "id": 582676,
+      "external_id": null,
+      "via": {
+        "channel": "api",
+        "source": {
+          "from": {},
+          "to": {},
+          "rel": null
+        }
+      },
+      "created_at": "2023-07-13T17:17:52Z",
+      "updated_at": "2023-07-13T17:17:52Z",
+      "type": "task",
+      "subject": "My printer is on fire!",
+      "raw_subject": "My printer is on fire!",
+      "description": "The smoke is very colorful.",
+      "priority": "urgent",
+      "status": "open",
+      "recipient": null,
+      "requester_id": 1473313072,
+      "submitter_id": 1473313072,
+      "assignee_id": 1473313072,
+      "organization_id": null,
+      "group_id": 25032922,
+      "collaborator_ids": [],
+      "follower_ids": [],
+      "email_cc_ids": [],
+      "forum_topic_id": null,
+      "problem_id": null,
+      "has_incidents": false,
+      "is_public": true,
+      "due_at": null,
+      "tags": [
+        "true"
+      ],
+      "custom_fields": [
+        {
+          "id": 4485575108882,
+          "value": null
+        },
+        {
+          "id": 24838175,
+          "value": null
+        },
+        {
+          "id": 360005417319,
+          "value": null
+        },
+        {
+          "id": 32855665,
+          "value": null
+        },
+        {
+          "id": 360021374599,
+          "value": null
+        },
+        {
+          "id": 26700425,
+          "value": null
+        },
+        {
+          "id": 24786059,
+          "value": null
+        },
+        {
+          "id": 25373679,
+          "value": null
+        }
+      ],
+      "satisfaction_rating": null,
+      "sharing_agreement_ids": [],
+      "fields": [
+        {
+          "id": 4485575108882,
+          "value": null
+        },
+        {
+          "id": 24838175,
+          "value": null
+        },
+        {
+          "id": 360005417319,
+          "value": null
+        },
+        {
+          "id": 32855665,
+          "value": null
+        },
+        {
+          "id": 360021374599,
+          "value": null
+        },
+        {
+          "id": 26700425,
+          "value": null
+        },
+        {
+          "id": 24786059,
+          "value": null
+        },
+        {
+          "id": 25373679,
+          "value": null
+        }
+      ],
+      "followup_ids": [],
+      "brand_id": 611742,
+      "allow_channelback": false,
+      "allow_attachments": true,
+      "from_messaging_channel": false
+    }
+  ]
+}

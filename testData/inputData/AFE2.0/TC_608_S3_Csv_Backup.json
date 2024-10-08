@@ -1,0 +1,84 @@
+{
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "24",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "application": "MySQL",
+            "name": "Mysql_Flows",
+            "_connectionId": "MYSQL CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+                "query": "select * from automation_afe"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "s3 import",
+            "parsers": [],
+            "_connectionId": "S3 CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "TC_608_S3_Csv_Backup.csv",
+                "type": "csv",
+                "backupPath": "{{batch_of_records.[0].record.NOTES}}",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "s3": {
+                "region": "ap-south-1",
+                "bucket": "automations3import",
+                "fileKey": "TC_608_S3_Csv_Backup.csv",
+                "backupBucket": "{{batch_of_records.[0].record.NOTES}}"
+            },
+            "adaptorType": "S3Import"
+        }
+    }],
+    "name": "TC_608_S3_Csv_Backup",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "qa__dataVerification": {
+        "expected": {
+            "S3": {
+                "name": "TC_608_S3_Csv_Backup.csv",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "S3 CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "24",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "isUIFlow": true,
+                    "fileName": "TC_608_S3_Csv_Backup",
+                    "bucketName": "automations3import",
+                    "fileType": ".csv"
+                }
+            }
+        }
+    }
+}

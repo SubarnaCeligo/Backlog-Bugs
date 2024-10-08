@@ -1,0 +1,177 @@
+{
+  "name": "TC_C21274_8",
+  "referencename": "TC_C21274_8",
+  "importApiIdentifier": "i7a75261a9",
+  "importRecordJSON": {
+    "name": "11Test Cus 1",
+    "subsidiary": 3,
+    "items": [
+      {
+        "name": "ACC00002",
+        "amount": 2
+      }
+    ],
+    "orderId": "TC_C21274_8"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "Netsuite": {
+        "name": "TC_C21274_8",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId":"NETSUITE CONNECTION"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "tranid": "TC_C21274_8",
+              "item": [
+                {
+                  "amount": 2,
+                  "item": {
+                    "internalid": "501",
+                    "name": "ACC00002"
+                  }
+                },
+                {
+                  "amount": 1,
+                  "item": {
+                    "internalid": "501",
+                    "name": "ACC00002"
+                  }
+                }
+              ]
+            }
+            ],
+            "exportapiIdentifier": "e0a345c46f",
+            "importRecordType": "salesOrder",
+            "isUIFlow": true,
+            "standaloneexportflowID": "633af54638655762bc8b9763",
+            "savedsearchId": "4683",
+            "uniqueField": "tranid"
+        }
+      }
+  }
+},
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C21274_8",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e26804b51e",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C21274_8"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C21274_8",
+            "_connectionId":"NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": true,
+              "operation": "update",
+              "recordType": "salesorder",
+              "internalIdLookup": {
+                  "expression": "[\"tranid\",\"is\",\"{{{orderId}}}\"]"
+              },
+              "lookups": [],
+              "mapping": {
+                  "fields": [
+                      {
+                          "generate": "entity",
+                          "extractf": "name",
+                          "internalId": false,
+                          "discardIfEmpty": false,
+                          "immutable": false,
+                          "conditional": {
+                            "when": "record_updated"
+                          }
+                      },
+                      {
+                          "generate": "tranid",
+                          "extract": "orderId",
+                          "internalId": false
+                      }
+                  ],
+                  "lists": [
+                      {
+                          "generate": "item",
+                          "fields": [
+                              {
+                                  "generate": "item",
+                                  "extract": "items[*].name",
+                                  "internalId": false
+                              },
+                              {
+                                  "generate": "amount",
+                                  "extract": "items[*].amount",
+                                  "internalId": false
+                              },
+                              {
+                                "generate": "taxcode",
+                                "hardCodedValue": "CA-SAN MATEO",
+                                "internalId": false
+                              }
+                          ]
+                      }
+                  ]
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C21274_8",
+        "disabled": false,
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

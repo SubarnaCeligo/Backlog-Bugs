@@ -1,0 +1,116 @@
+{
+    "name": "TC_C41058_TC_C41059_send_in_http_import_with_diff_composite_records",
+    "referencename": "TC_C41058_TC_C41059_send_in_http_import_with_diff_composite_records",
+    "qa__dataVerification": {},
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "0",
+      "errorCount": "0"
+    },
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C41058_TC_C41059_exp",
+                "_connectionId":"FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                    "ticket": {
+                        "comment": {
+                            "body": "TC_C41059_TC_C41058"
+                        },
+                        "priority": "urgent",
+                        "subject": "My printer is on fire for TC_C41059_TC_C41058!"
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C41059_TC_C41058",
+                    "fileNameEndsWith": ".json"
+                },
+                "file": {
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C41058_TC_C41059_imp",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "method": "GET",
+                        "relativeURI": "/tickets.json",
+                        "extract": "tickets[*].subject",
+                        "allowFailures": false,
+                        "name": "Ticket_search",
+                        "useImportHeaders": true
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "/tickets.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        ""
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "ignoreLookupName": "Ticket_search",
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "method": "GET",
+                            "relativeURI": "/tickets.json",
+                            "extract": "tickets[*].subject",
+                            "allowFailures": false,
+                            "name": "Ticket_search",
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C41058_TC_C41059_send_in_http_import_with_diff_composite_records",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

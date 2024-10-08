@@ -1,0 +1,144 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Zendesk Create organizations",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "lookups": [{
+                    "name": "Admin_Name",
+                    "method": "GET",
+                    "relativeURI": "users/1473313072",
+                    "extract": "user.name",
+                    "allowFailures": false,
+                    "useImportHeaders": true
+                },
+                {
+                    "name": "Country_Static",
+                    "map": {
+                        "USA": "United States"
+                    },
+                    "allowFailures": false,
+                    "useImportHeaders": true
+                }
+            ],
+            "http": {
+                "relativeURI": ["organizations/create_many.json"],
+                "method": ["POST"],
+                "body": [
+                    "{\n\"organizations\":[\n{{#each batch_of_records}}\n{{#if @index}},{{/if}}\n{\n\"name\": \"{{record.name}}\",\n    \"notes\": \"{{connection.name}}\",\n    \"organization_fields\": {\n      \"email\": \"{{record.email}}\",\n      \"billing_address_1\": \"{{join \"/\" record.billing_address_1 record.billing_city}}\",\n      \"billing_address2\": \"{{record.billing_address2}}\",\n      \"billing_city\": \"{{record.billing_city}}\",\n      \"billing_state\": \"{{record.billing_state}}\",\n      \"shipping_address_1\": \"{{lookup \"Admin_Name\" this}}\",\n      \"shipping_city\": \"{{record.shipping_city}}\",\n      \"shipping_state\": \"{{record.shipping_state}}\",\n      \"shipping_country\": \"{{lookup \"Country_Static\" record.shipping_country}}\"\n    }\n}\n{{/each}}\n]}"
+                ],
+                "batchSize": 2,
+                "lookups": [{
+                        "name": "Admin_Name",
+                        "method": "GET",
+                        "relativeURI": "users/1473313072",
+                        "extract": "user.name",
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "Country_Static",
+                        "map": {
+                            "USA": "United States"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ],
+                "formType": "http",
+                "response": {
+                    "resourcePath": ["organization"]
+                }
+            },
+
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_495_FTP_Zendesk_Organizations_BatchofRecord_HTTP",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "name": "TC_495_FTP_Zendesk_Organizations_BatchofRecord_HTTP",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                            "name": "Greenhouse India 1",
+                            "notes": "",
+                            "organization_fields": {
+                                "email": "Green1@gmail.com",
+                                "billing_address_1": "Alpine st/Memphis",
+                                "billing_address2": null,
+                                "billing_city": "Memphis",
+                                "billing_state": "Tennesse",
+                                "shipping_address_1": "Celigo IO Automation",
+                                "shipping_city": "Memphis",
+                                "shipping_country": "United States",
+                                "shipping_state": "Tennesse"
+                            }
+                        },
+                        {
+                            "name": "Greenhouse India 2",
+                            "notes": "",
+                            "organization_fields": {
+                                "email": "Green2@gmail.com",
+                                "billing_address_1": "Maine st/LA",
+                                "billing_address2": null,
+                                "billing_city": "LA",
+                                "billing_state": "California",
+                                "shipping_address_1": "Celigo IO Automation",
+                                "shipping_city": "LA",
+                                "shipping_country": "United States",
+                                "shipping_state": "Tennesse"
+                            }
+                        }
+                    ],
+                    "standaloneexportflowID": "60f54061b3d8081116d40fff",
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "name",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ee7f69b89e"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Organizations_Date_495",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e956f3b46a",
+            "qa__path": "/FTP_uploads/TC_495_OrganizationsData.json",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_495_OrganizationsData"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

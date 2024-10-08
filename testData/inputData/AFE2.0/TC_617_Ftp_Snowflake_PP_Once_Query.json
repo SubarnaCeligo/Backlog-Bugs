@@ -1,0 +1,117 @@
+{
+    "name": "TC_617_Ftp_Snowflake_PP_Once_Query",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "6",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/TC_617_Ftp_Snowflake_Once.json",
+            "asynchronous": true,
+            "sandbox": false,
+            "parsers": [],
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_617_Ftp_Snowflake_Once"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "application": "Snowflake",
+                "name": "Snowflake PP export",
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "once",
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [],
+                "rdbms": {
+                    "query": "SELECT * from Automation_Once_Lookup",
+                    "once": {
+                        "query": "UPDATE Automation_Once_Lookup SET EXPORTED=true where Id={{record.ID}}"
+                    }
+                },
+                "adaptorType": "RDBMSExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data",
+                    "generate": "oncedata"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "qa__import": {
+                "name": "AutomationStandaloneImport__qSY3yRtvG1",
+                "_connectionId": "S3 CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [{
+                        "extract": "id",
+                        "generate": "id"
+                    }]
+                },
+                "file": {
+                    "fileName": "TC_617_Snowflake_Once.json",
+                    "type": "json"
+                },
+                "s3": {
+                    "region": "ap-south-1",
+                    "bucket": "automations3import",
+                    "fileKey": "TC_617_Snowflake_Once.json"
+                },
+                "adaptorType": "S3Import"
+            },
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import"
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "S3": {
+                "name": "TC_617_Snowflake_Once.json",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "S3 CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "6",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "isUIFlow": true,
+                    "fileName": "TC_617_Snowflake_Once",
+                    "bucketName": "automations3import",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,101 @@
+{
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "name":"TC_25454_query_shown_string",
+    "pageGenerators": [
+        {
+          "qa__export": {
+            "name": "FTP Export",
+            "qa__path": "/FTP_uploads/TC_464_Ftp_Snowflake_Rows_Handlebar_AFE2.0.csv",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_464_Ftp_Snowflake_Rows_Handlebar_AFE2.0"
+            },
+            "file": {
+              "encoding": "utf8",
+              "output": "records",
+              "skipDelete": true,
+              "type": "csv",
+              "groupByFields": [
+                "orderID"
+              ],
+              "csv": {
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n",
+                "hasHeaderRow": true,
+                "trimSpaces": true,
+                "rowsToSkip": 0
+              }
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+    "pageProcessors": [
+      {
+        "qa__import": {
+            "name": "TC_25454",
+            "modelMetadata": {
+              "orderID": {
+                "default": ""
+              },
+              "FirstName": {
+                "default": ""
+              },
+              "LastName": {
+                "default": ""
+              },
+              "ItemName": {
+                "default": ""
+              },
+              "Quantity": {
+                "default": ""
+              },
+              "Amount": {
+                "default": ""
+              },
+              "Notes": {
+                "default": ""
+              },
+              "units": {
+                "default": ""
+              },
+              "PO#": {
+                "default": ""
+              },
+              "Date": {
+                "default": ""
+              },
+              "Type": {
+                "default": null
+              },
+              "Comments": {
+                "default": "null"
+              }
+            },
+            "parsers": [],
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "distributed": false,
+            "lookups": [],
+            "rdbms": {
+              "query": [
+                "INSERT INTO afe_automation\n(\nNAME,\nEMP_ID,\nTYPE,\nNOTES,\nCOMMENTS\n)\nVALUES\n(\n{{rows.[0].FirstName}},\n{{rows.[1].Amount}},\n{{rows.[0].Type}},\n{{rows.[2].Notes}},\n{{rows.[0].Comments}}\n)"
+              ],
+              "queryType": [
+                "INSERT"
+              ]
+            },
+            "adaptorType": "RDBMSImport"
+          },
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+        "type": "import"
+      }
+    ]
+  }

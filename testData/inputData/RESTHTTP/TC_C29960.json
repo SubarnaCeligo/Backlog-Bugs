@@ -1,0 +1,182 @@
+{
+  "skipRetries": false,
+  "_integrationId": "62d6b4a955468141a906119e",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "import",
+        "parsers": [],
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i2f74d305f",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "generate": "email",
+              "hardCodedValue": "testingapis@hubspot.com"
+            },
+            {
+              "generate": "firstname",
+              "hardCodedValue": "Adrian"
+            },
+            {
+              "generate": "lastname",
+              "hardCodedValue": "Mott"
+            },
+            {
+              "generate": "website",
+              "hardCodedValue": "http://hubspot.com"
+            },
+            {
+              "generate": "company",
+              "hardCodedValue": "HubSpot"
+            },
+            {
+              "generate": "phone",
+              "hardCodedValue": "555-122-2323"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "29960.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "29960.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C29960",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "properties": [
+        {
+          "property": "email",
+          "value": "testingapis@hubspot.com"
+        },
+        {
+          "property": "firstname",
+          "value": "Adrian"
+        },
+        {
+          "property": "lastname",
+          "value": "Mott"
+        },
+        {
+          "property": "website",
+          "value": "http://hubspot.com"
+        },
+        {
+          "property": "company",
+          "value": "HubSpot"
+        },
+        {
+          "property": "phone",
+          "value": "555-122-2323"
+        }
+      ]
+    },
+    "application":"HTTP",    
+    "importapiIdentifier": "i0200b9451",
+    "expected": {
+      "FTP": {
+        "name": "TC_C29960",
+        "_integrationId": "62d6b4a955468141a906119e",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "json": {
+              "columnDelimiter": " "
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "1",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "29960",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "633bf046677022566eb291f7",
+      "createdAt": "2022-10-04T08:35:18.636Z",
+      "lastModified": "2022-10-20T16:29:15.772Z",
+      "name": "HTTP_DND",
+      "_connectionId": "5c4eaf75576d68720829a033",
+      "apiIdentifier": "i0200b9451",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "generate": "firstname",
+            "hardCodedValue": "Adrian"
+          },
+          {
+            "generate": "lastname",
+            "hardCodedValue": "Mott"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "/crm/v3/objects/contacts"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "sendPostMappedData": true,
+        "formType": "http"
+      },
+      "adaptorType": "HTTPImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "export",
+        "application": "HubSpot",
+        "qa__connectionId": "62eb88cfe627016182cf251a",
+        "_connectionId": "6319bd78abf51e7a86c7c4b7",
+        "apiIdentifier": "e5ccba7b3e",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/crm/v3/objects/contacts",
+          "method": "GET",
+          "body": "{\n\"limit\": 1, \"after\": \"41053\"\n}",
+          "formType": "http",
+          "paging": {
+            "method": "url",
+            "path": "{\"limit\": 1, \"after\": \"{{previous_page.full_response.paging.next.after}}\"}"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

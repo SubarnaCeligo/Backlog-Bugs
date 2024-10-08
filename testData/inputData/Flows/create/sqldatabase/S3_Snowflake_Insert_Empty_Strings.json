@@ -1,0 +1,95 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "S3_Snowflake_Insert_Empty_Strings_Using_Query",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "qa__path": "//S3_uploads//S3_Snowflake_Empty_String.json",
+            "name": "Amazon S3 Export",
+            "_connectionId": "S3 CONNECTION",
+            "asynchronous": true,
+            "s3": {
+                "region": "ap-south-1",
+                "bucket": "automations3export",
+                "keyStartsWith": "S3_Snowflake_Empty_String"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "S3Export"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Insert empty string into Snowflake",
+            "parsers": [],
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "distributed": false,
+            "lookups": [],
+            "modelMetadata": {
+                "NAME": {
+                    "default": ""
+                },
+                "EMAIL": {
+                    "default": ""
+                },
+                "PHONE": {
+                    "default": ""
+                },
+                "DATE": {
+                    "default": ""
+                },
+                "DESCRIPTION": {
+                    "default": ""
+                }
+            },
+            "rdbms": {
+                "query": ["INSERT INTO automation_insert (Name,Email,Phone,Date,Description)\nVALUES(\n{{data.NAME}},\n{{data.EMAIL}},\n{{data.PHONE}},\n{{data.DATE}},\n{{data.DESCRIPTION}}\n)"],
+                "queryType": ["INSERT"]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "S3_Snowflake_Insert_Empty_Strings_Using_Query",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                        "NAME": "Insert@emptystring",
+                        "EMAIL": "Insertemptystring@gmail.com",
+                        "PHONE": "",
+                        "DATE": "2020-05-16",
+                        "DESCRIPTION": "Insert empty string into automation"
+                    }],
+                    "dataURIs": [null],
+                    "uniqueField": "NAME",
+                    "standaloneexportflowID": "5ecbb6f206c2504f58954b63",
+                    "importRecordType": "automation_insert",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e76562ae3e",
+                    "application":"SNOWFLAKE"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "SNOWFLAKE CONNECTION"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+{
+    "name": "TC_516_FTP_Blob_Import&Export_AFE",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "qa__type": "blob",
+                "name": "Blob export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e9f43227e3",
+                "asynchronous": true,
+                "isLookup": true,
+                "sandbox": false,
+                "parsers": [],
+                "ftp": {
+                    "directoryPath": "{{record.Directory}}",
+                    "fileNameStartsWith": "{{record.FileName}}",
+                    "fileNameEndsWith": "{{record.FileExtension}}"
+                },
+                "file": {
+                    "output": "blobKeys",
+                    "skipDelete": true
+                },
+                "adaptorType": "FTPExport"
+            },
+            "responseMapping": {
+                "fields": [{
+                    "extract": "data[0].blobKey",
+                    "generate": "blobKey"
+                }],
+                "lists": [],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "qa__type": "blob",
+                "name": "Blob New Import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i8bdd9cc61",
+                "oneToMany": false,
+                "blobKeyPath": "blobKey",
+                "blob": true,
+                "sandbox": false,
+                "file": {
+                    "fileName": "{{join '-' record.FileName record.suffix}}.json",
+                    "skipAggregation": true
+                },
+                "ftp": {
+                    "directoryPath": "{{record.Directory}}",
+                    "fileName": "{{join '-' record.FileName record.suffix}}.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Blob File Data",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e1b5df8308",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "/FTP_uploads/File_Details.json",
+            "parsers": [],
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "File_Details",
+                "fileNameEndsWith": "json"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "3",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_516_FTP_Blob_Import&Export_AFE",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "3",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "FTP_Blob_Export-Imported",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

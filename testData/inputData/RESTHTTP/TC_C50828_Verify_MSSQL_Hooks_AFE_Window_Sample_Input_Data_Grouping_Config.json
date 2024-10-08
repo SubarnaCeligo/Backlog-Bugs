@@ -1,0 +1,22 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "Microsoft SQL",
+        "name": "DB_50828",
+        "_connectionId": "MSSQL CONNECTION",
+        "apiIdentifier": "e90fb973f0",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": ["Name", "Phone"],
+        "rawData": "56d6b114e1fc35de5391472cbd63f56df0b84bb982002fe5ebe0b54a",
+        "rdbms": {
+          "query": "SELECT * FROM Export INNER JOIN Usernotes_Fields ON (Export.CustID=Usernotes_Fields.CustID);"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ]
+}

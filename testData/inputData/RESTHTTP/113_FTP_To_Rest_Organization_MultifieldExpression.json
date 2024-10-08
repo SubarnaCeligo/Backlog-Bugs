@@ -1,0 +1,342 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "113_REstimport",
+            "application": "zendesk support",
+            "adaptorType": "HTTPImport",
+            "http": {
+                "relativeURI": [
+                    "organizations.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "formType": "http",
+                "qa__formType": "rest",
+                "strictHandlebarEvaluation": true
+            },
+            "rest": {
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "relativeURI": [
+                    "organizations.json"
+                ]
+            },
+            "mapping": {
+                "fields": [{
+                        "extract": "Name",
+                        "generate": "organization.name"
+                    },
+                    {
+                        "extract": "{{add [Add One] [Add two]}}",
+                        "generate": "organization.notes"
+                    },
+                    {
+                        "extract": "{{#and [And Field1] [And Field2]}} True {{else}} False {{/and}}",
+                        "generate": "organization.organization_fields.email"
+                    },
+                    {
+                        "extract": "{{avg Avg1 Avg2 Avg3}}",
+                        "generate": "organization.organization_fields.phone"
+                    },
+                    {
+                        "extract": "{{{base64Encode [Base64Encode Username]  \":\" [Base64Encode Pass]}}}",
+                        "generate": "organization.organization_fields.fax"
+                    },
+                    {
+                        "extract": "{{base64Encode [Base64Encodehtml Username] \":\" [Base64Encodehtml Pass]}}",
+                        "generate": "organization.organization_fields.subsidiary_name"
+                    },
+                    {
+                        "extract": "{{capitalize capitalize}}",
+                        "generate": "organization.organization_fields.subsidiary_id"
+                    },
+                    {
+                        "extract": "{{capitalizeAll capitalizeAll}}",
+                        "generate": "organization.organization_fields.billing_attention"
+                    },
+                    {
+                        "extract": "{{ceil Ceil}}",
+                        "generate": "organization.organization_fields.billing_phone"
+                    },
+                    {
+                        "extract": "{{#compare [compare fieldone] \">\" [compare fieldtwo]}} True {{else}} False {{/compare}}",
+                        "generate": "organization.organization_fields.billing_addressee"
+                    },
+                    {
+                        "extract": "{{#contains Contains \"BD\"}} This will {{else}} This will not {{/contains}}",
+                        "generate": "organization.organization_fields.billing_address_1"
+                    },
+                    {
+                        "extract": "{{dateFormat}}",
+                        "generate": "organization.organization_fields.billing_address2"
+                    },
+                    {
+                        "extract": "{{{decodeURI DecodeURI}}}",
+                        "generate": "organization.organization_fields.billing_city"
+                    },
+                    {
+                        "extract": "{{divide [Divide fieldone] [Divide fieldtwo]}}",
+                        "generate": "organization.organization_fields.billing_state"
+                    },
+                    {
+                        "extract": "{{#each People}}{{Name}}{{/each}}",
+                        "generate": "organization.organization_fields.billing_country"
+                    },
+                    {
+                        "extract": "{{{encodeURI encodeuri}}}",
+                        "generate": "organization.organization_fields.billing_zip"
+                    },
+                    {
+                        "extract": "{{floor Floor}}",
+                        "generate": "organization.organization_fields.billing_country_id"
+                    },
+                    {
+                        "extract": "{{#ifEven IfEven}} Even Number {{else}} Odd Number {{/ifEven}}",
+                        "generate": "organization.organization_fields.billing_custom_field"
+                    },
+                    {
+                        "extract": "{{#if Email}} Email is present {{else}} No Email{{/if}}",
+                        "generate": "organization.organization_fields.shipping_attention"
+                    },
+                    {
+                        "extract": "{{lowercase [Lower Case]}}",
+                        "generate": "organization.organization_fields.shipping_addressee"
+                    },
+                    {
+                        "extract": "{{multiply [Multiply One] [Multiple Two]}}",
+                        "generate": "organization.organization_fields.shipping_address_1"
+                    },
+                    {
+                        "extract": "{{#neither [Neither One] [Neither two]}} No Value is true {{else}} At least one value is true {{/neither}}",
+                        "generate": "organization.organization_fields.shipping_address_2"
+                    },
+                    {
+                        "extract": "{{#or [Or one] Ceil}} At least one is true {{else}} Nothing is true {{/or}}",
+                        "generate": "organization.organization_fields.shipping_phone"
+                    },
+                    {
+                        "extract": "{{replace Replace \"n\" \"mmm\"}}",
+                        "generate": "organization.organization_fields.shipping_city"
+                    },
+                    {
+                        "extract": "{{round Round}}",
+                        "generate": "organization.organization_fields.shipping_state"
+                    },
+                    {
+                        "extract": "{{sort sortstring}}",
+                        "generate": "organization.organization_fields.shipping_country"
+                    },
+                    {
+                        "extract": "{{subtract [Substract One] [Substract two]}}",
+                        "generate": "organization.organization_fields.shipping_zipcode"
+                    },
+                    {
+                        "extract": "{{sum Sum}}",
+                        "generate": "organization.organization_fields.shipping_custom_field"
+                    },
+                    {
+                        "extract": "{{toExponential Toexponentail \"3\"}}",
+                        "generate": "organization.organization_fields.shipping_country_id"
+                    },
+                    {
+                        "extract": "{{toFixed ToFixed \"3\"}}",
+                        "generate": "organization.organization_fields.address_address_1"
+                    },
+                    {
+                        "extract": "{{toPrecision ToPrecision \"4\"}}",
+                        "generate": "organization.organization_fields.address_address_2"
+                    },
+                    {
+                        "extract": "{{#unless Unless}} Empty {{else}} {{Unless}} {{/unless}}",
+                        "generate": "organization.organization_fields.address_city"
+                    },
+                    {
+                        "extract": "{{uppercase Uppercase}}",
+                        "generate": "organization.organization_fields.address_state"
+                    },
+                    {
+                        "extract": "{{#with With}} {{withone}} {{withtwo}} {{/with}}",
+                        "generate": "organization.organization_fields.address_country_name"
+                    },
+                    {
+                        "extract": "{{substring Substring 1 6}}",
+                        "generate": "organization.organization_fields.address_country_internalid"
+                    },
+                    {
+                        "extract": "{{join \"***\" Join1 Join2 Join3}}",
+                        "generate": "organization.organization_fields.address_zip"
+                    },
+                    {
+                        "extract": "{{timeStamp \"Asia/Kolkata\"}}",
+                        "generate": "organization.organization_fields.usernotes_title"
+                    },
+                    {
+                        "extract": "{{dateAdd \"Wed Feb 08 2017 17:27:13 GMT+0530\" \"-1E6\" \"Asia/Kolkata\"}}",
+                        "generate": "organization.organization_fields.usernotes_memo"
+                    },
+                    {
+                        "extract": "{{uppercase (replace Replace \"i\" \"aa\")}}",
+                        "generate": "organization.organization_fields.usernotes_type"
+                    },
+                    {
+                        "extract": "{{{regexMatch Regexreplaceandmatch \"[0-9][0-9][0-9]\" 1 \"g\"}}}",
+                        "generate": "organization.organization_fields.regexmatch"
+                    },
+                    {
+                        "extract": "{{{regexReplace Regexreplaceandmatch \"celigo\" \"[3-5][0-9][0-9]\" g}}}",
+                        "generate": "organization.organization_fields.regexreplace"
+                    },
+                    {
+                        "extract": "{{getValue (join \".\" \"dates\" (join \"-\" Schedulerequest_item.[0].date.Date.year Schedulerequest_item.[0].date.Date.month Schedulerequest_item.[0].date.Date.day))}}",
+                        "generate": "organization.organization_fields.getvalue"
+                    },
+                    {
+                        "extract": "{{getValue \"With.withone\" \"700\"}}",
+                        "generate": "organization.organization_fields.getvaluejson"
+                    },
+                    {
+                        "extract": "{{random}}",
+                        "generate": "organization.organization_fields.random"
+                    },
+                    {
+                        "extract": "{{random \"CRYPTO\" length}}",
+                        "generate": "organization.organization_fields.random1"
+                    },
+                    {
+                        "extract": "{{random \"UUID\" length}}",
+                        "generate": "organization.organization_fields.random2"
+                    },
+                    {
+                        "extract": "{{random 32}}",
+                        "generate": "organization.organization_fields.random3"
+                    },
+                    {
+                        "extract": "{{random 1}}",
+                        "generate": "organization.organization_fields.random4"
+                    }
+                ]
+            },
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "distributed": false
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "113_FTP_To_Rest_Organization_MultifieldExpression",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "zendesk": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "113_FTP_To_Rest_Organization_MultifieldExpression",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "name",
+                    "standaloneexportflowID": "57aad5298ec9f8804906006d",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "edb8215601",
+                    "expectedJSON": {
+                        "organization_fields": {
+                            "billing_phone": "9",
+                            "shipping_state": "17",
+                            "shipping_city": "immmtemmmtiommm",
+                            "address_state": "SALESFORCE IMPORT",
+                            "shipping_address_1": "504",
+                            "shipping_phone": " At least one is true ",
+                            "shipping_address_2": " At least one value is true ",
+                            "address_country_name": " Charles Angels ",
+                            "billing_state": "6.5",
+                            "shipping_country_id": "2.324e+4",
+                            "billing_address_1": " This will ",
+                            "billing_zip": "htts%3A%2F%2Fintegrator.com",
+                            "fax": "MTEzbXVsdGlAZ21haWwuY29tOjExM211bHRpMTIz",
+                            "shipping_custom_field": "62",
+                            "billing_address2": "2017-03-29T10:04:48.542Z",
+                            "email": " True ",
+                            "shipping_addressee": "celigo foobar",
+                            "billing_attention": "Celigo Foo Bar",
+                            "shipping_zipcode": "302.2",
+                            "billing_addressee": " True ",
+                            "address_country_internalid": "et th",
+                            "usernotes_title": "2017-03-29T15:34:48+05:30",
+                            "billing_country": "RahulLokeshViratKedarRavi",
+                            "shipping_attention": " Email is present ",
+                            "usernotes_memo": "2017-02-08T17:10:33+05:30",
+                            "subsidiary_name": "MTEzZm11bHRpQGdtYWlsLmNvbToxMTNtdWx0aTEyMw&#x3D;&#x3D;",
+                            "usernotes_type": "AANTENTAAON",
+                            "address_city": " 9984474745 ",
+                            "address_address_2": "12.12",
+                            "billing_city": "conn/call.back&state=12345",
+                            "phone": "30",
+                            "address_address_1": "123.123",
+                            "address_zip": "This***is***join",
+                            "subsidiary_id": "Celigo foo bar",
+                            "shipping_country": "Abudabi,Ireland,Switzerland,Venuzuela",
+                            "billing_country_id": "185",
+                            "billing_custom_field": " Odd Number ",
+                            "regexmatch": "345",
+                            "regexreplace": "123 celigo6 678 google 32",
+                            "getvalue": "0.5",
+                            "getvaluejson": "Charles",
+                            "random": "4964d5d03e9d4d199bda947bb43a3a48",
+                            "random1": "f433d678061148ca8fcf910b159fbdb1",
+                            "random2": "125129841bfe4798a361c09a3122d453",
+                            "random3": "74a503b235be4caa8284ee6a7f2face1",
+                            "random4": "f"
+                        },
+                        "notes": "31.4",
+                        "name": "Auto@113.Rest Multifield - Organization"
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "113_FTPexport",
+            "adaptorType": "FTPExport",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                "fileNameStartsWith": "113.Rest Multifield - Organization.json"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "encoding": "utf8",
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "dataURITemplate": "{{{[Add One]}}}",
+            "qa__path": "//FTP_uploads//113.Rest Multifield - Organization.json"
+        }
+    }]
+}

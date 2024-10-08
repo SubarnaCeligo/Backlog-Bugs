@@ -1,0 +1,107 @@
+{
+  "name": "TC_C32447",
+  "qa__api_tdata": [
+      {
+          "pageGenerators": [
+              {
+                  "type": "export",
+                  "qa__export": {
+                      "name": "TC_C32447 FTP Export",
+                      "adaptorType": "FTPExport",
+                      "ftp": {
+                          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                          "fileNameStartsWith": "TC_650.json"
+                      },
+                      "file": {
+                          "output": "records",
+                          "skipDelete": true,
+                          "json": {
+                              "resourcePath": "*"
+                          },
+                          "encoding": "utf8",
+                          "type": "json"
+                      },
+                      "asynchronous": true,
+                      "_connectionId": "FTP CONNECTION",
+                      "qa__path": "/FTP_uploads/TC_650.json"
+                  }
+              }
+          ],
+          "pageProcessors": [
+              {
+                  "type": "import",
+                  "qa__import": {
+                      "name": "TC_C32447 Import",
+                      "_connectionId": "NETSUITE CONNECTION",
+                      "distributed": true,
+                      "apiIdentifier": "i4448c710b",
+                      "ignoreExisting": false,
+                      "ignoreMissing": false,
+                      "oneToMany": false,
+                      "sandbox": false,
+                      "lookups": [],
+                      "netsuite_da": {
+                          "useSS2Restlets": true,
+                          "operation": "add",
+                          "recordType": "salesorder",
+                          "lookups": [],
+                          "mapping": {
+                              "fields": [],
+                              "lists": [
+                                  {
+                                      "generate": "item",
+                                      "fields": [
+                                          {
+                                              "generate": "celigo_inventorydetail",
+                                              "subRecordMapping": {
+                                                  "recordType": "inventorydetail",
+                                                  "jsonPath": "line[*].items",
+                                                  "mapping": {
+                                                      "fields": [
+                                                          {
+                                                              "generate": "itemdescription",
+                                                              "internalId": false,
+                                                              "useAsAnInitializeValue": false,
+                                                              "discardIfEmpty": false,
+                                                              "immutable": false,
+                                                              "extract": "description"
+                                                          }
+                                                      ],
+                                                      "lists": []
+                                                  },
+                                                  "lookups": []
+                                              }
+                                          }
+                                      ]
+                                  }
+                              ]
+                          }
+                      },
+                      "adaptorType": "NetSuiteDistributedImport"
+                  }
+              }
+          ],
+          "createFlow": {
+              "name": "TC_C32447",
+              "disabled": false,
+              "_integrationId": "56d6b23fe1fc35de53914730",
+              "skipRetries": false,
+              "pageProcessors": [
+                  {
+                      "responseMapping": {
+                          "fields": [],
+                          "lists": []
+                      },
+                      "type": "import",
+                      "_importId": "UPDATE WITH NEW IMPORTID"
+                  }
+              ],
+              "pageGenerators": [
+                  {
+                      "_exportId": "UPDATE WITH NEW EXPORTID"
+                  }
+              ]
+          }
+      }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "12",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "kcshcshcksb",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i94901582b",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+            "fileName": "TC_C36043.json",
+            "skipAggregation": false,
+            "type": "json"
+        },
+        "ftp": {
+            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPImports",
+            "fileName": "TC_C36043.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C36043",
+  "disabled": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "ygfr87uoih",
+        "application": "square",
+        "qa__connectionId": "617fb48c42fb010e47524339",
+        "_connectionId": "HTTP SQUARE CONNECTION",
+        "apiIdentifier": "e984885f71",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": "/v2/customers?cursor={{export.http.paging.token}}&limit=5",
+            "method": "GET",
+            "formType": "http",
+            "paging": {
+                "method": "token",
+                "path": "cursor"
+            }
+        },
+        "rawData": "56d6b114e1fc35de5391472cc0e1abf4d5354b988b3bf59edef8ca08",
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "Snowflake_Export_Test_NS_Customer",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Snowflake_Export_Test",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "parsers": [],
+            "asynchronous": true,
+            "type": "test",
+            "test": {
+                "limit": 1
+            },
+            "rdbms": {
+                "query": "select * from automation_test"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Snowflake_Test_Export_NS_Customer",
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "lookups": [],
+            "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                    "fields": [{
+                            "extract": "COMMENTS",
+                            "generate": "comments",
+                            "internalId": false
+                        },
+                        {
+                            "extract": "EMAIL",
+                            "generate": "email",
+                            "internalId": false
+                        },
+                        {
+                            "extract": "NAME",
+                            "generate": "companyname",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "subsidiary",
+                            "hardCodedValue": "3",
+                            "internalId": true
+                        }
+                    ],
+                    "lists": []
+                }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "Netsuite": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "Snowflake_Export_Test_NS_Customer",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "companyname",
+                    "standaloneexportflowID": "5eb9366ffd332052ea752aba",
+                    "importRecordType": "Customer",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e325433bc8",
+                    "savedsearchId": "3028",
+                    "expectedJSON": [{
+                        "subsidiary": {
+                            "internalid": "3",
+                            "name": "HH Inc."
+                        },
+                        "companyname": "Auto@snowflakensrecord",
+                        "recordtype": "customer",
+                        "email": "mynsrecord@gmail.com",
+                        "comments": "nstestrecord"
+                    }]
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                }
+            }
+        }
+    }
+}

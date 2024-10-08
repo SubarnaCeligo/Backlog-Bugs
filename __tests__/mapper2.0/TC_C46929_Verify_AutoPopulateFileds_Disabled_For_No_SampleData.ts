@@ -1,9 +1,6 @@
-
 import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import { decrypt ,randomNumber} from "@celigo/aut-utilities";
 import mapper from "@testData/Mapper2.0/TC_C46929_Verify_AutoPopulateFileds_Disabled_For_No_SampleData.json";
-import { allure } from "allure-playwright";
 
 test.describe("TC_C46929_Verify_AutoPopulateFileds_Disabled_For_No_SampleData", () => {
   test.beforeEach(async ({io,page}, testInfo) => {
@@ -18,6 +15,7 @@ test.describe("TC_C46929_Verify_AutoPopulateFileds_Disabled_For_No_SampleData", 
     await io.homePage.isPageReady();
 
     test.step("*** Navigatting to import mappings ***", async ()=>{});
+    await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
     await io.homePage.clickButtonByIndex(
       selectors.basePagePO.ADD_DATA_PROCESSOR,
       1

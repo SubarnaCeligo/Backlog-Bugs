@@ -1,0 +1,240 @@
+{
+  "name": "TC_499_Sf_Dynamodb_AFE2.0_Ftp",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "63159bd0976915080d03da1a",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "9",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "sf export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name, Flow_Error__c, DynamoDB_Id__c,StageName,CloseDate from Opportunity where Name LIKE 'SF_DynamoDB_Record%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "dynamodb export",
+        "_connectionId": "DYNAMODB CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "sandbox": false,
+        "dynamodb": {
+          "region": "us-east-1",
+          "method": "query",
+          "tableName": "limit-test",
+          "keyConditionExpression": "#n1 = :p1 AND #n2 =:p2",
+          "expressionAttributeNames": "{ \"#n1\": \"sku\", \"#n2\":\"id\"}",
+          "expressionAttributeValues": "{ \":p1\": \"{{record.Flow_Error__c}}\",\":p2\":{{record.DynamoDB_Id__c}} }"
+        },
+        "adaptorType": "DynamodbExport"
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "data",
+            "generate": "response"
+          }
+        ],
+        "qa__index": 0
+      }
+    },
+    {
+      "qa__import": {
+        "name": "import",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "CloseDate",
+              "generate": "CloseDate"
+            },
+            {
+              "extract": "StageName",
+              "generate": "StageName"
+            }
+          ],
+          "lists": [
+            {
+              "fields": [
+                {
+                  "extract": "response[*].createdate",
+                  "generate": "createdate"
+                },
+                {
+                  "extract": "response[*].sku",
+                  "generate": "sku"
+                },
+                {
+                  "extract": "response[*].id",
+                  "generate": "id"
+                }
+              ],
+              "generate": "response"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_499_Sf_Dynamodb_AFE2_Ftp.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_499_Sf_Dynamodb_AFE2_Ftp.csv"
+        },
+        "adaptorType": "FTPImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": [
+      {
+        "name": "SF_DynamoDB_Record1",
+        "flow": "celigo-tshirt",
+        "date": "2021-08-31",
+        "Stage": "Prospecting",
+        "Id": 101
+      },
+      {
+        "name": "SF_DynamoDB_Record2",
+        "flow": "celigo-tshirt",
+        "date": "2021-08-31",
+        "Stage": "Closed Won",
+        "Id": 102
+      },
+      {
+        "name": "SF_DynamoDB_Record3",
+        "flow": "celigo-tshirt",
+        "date": "2021-08-31",
+        "Stage": "Qualification",
+        "Id": 103
+      }
+    ],
+    "application":"SALESFORCE",  
+    "importapiIdentifier": "i6385904fa",
+    "exportRecordType": "Opportunity",
+    "expected": {
+      "FTP": {
+        "name": "TC_499_Sf_Dynamodb_AFE2_Ftp.csv",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "9",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "isUIFlow": true,
+          "fileName": "TC_499_Sf_Dynamodb_AFE2_Ftp",
+          "folderName": "io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "612e28e4cab50d4140ac6716",
+      "createdAt": "2021-08-31T13:04:36.063Z",
+      "lastModified": "2021-08-31T13:06:29.938Z",
+      "name": "TC_499_Sf_Dynamodb_AFE2.0_Ftp",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": true,
+      "apiIdentifier": "i6385904fa",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "Name"
+          },
+          {
+            "extract": "flow",
+            "generate": "Flow_Error__c"
+          },
+          {
+            "extract": "date",
+            "generate": "CloseDate"
+          },
+          {
+            "extract": "Stage",
+            "generate": "StageName"
+          },
+          {
+            "extract": "Id",
+            "generate": "DynamoDB_Id__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Opportunity",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

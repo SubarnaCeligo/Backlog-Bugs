@@ -1,0 +1,113 @@
+{
+    "name": "AmazonRedshift Import oneToMany_dataURITemplate_idLockTemplate",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+              "_connectionId": "FTP CONNECTION",
+              "sandbox": false,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C40430.json"
+              },
+              "qa__path": "//FTP_uploads//TC_C40430.json",
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "AMAZON REDSHIFT CONNECTION",
+                "application": "Amazon Redshift",
+                "parsers": [],
+                "rdbms": {
+                    "query": [
+                        "truncate table employees"
+                    ],
+                    "queryType": [
+                        "COPY"
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "application": "Amazon Redshift",
+                "_connectionId": "AMAZON REDSHIFT CONNECTION",
+                "oneToMany": true,
+                "pathToMany": "employees",
+                "idLockTemplate": "{{record.name}}",
+                "dataURITemplate": "{{record.name}}",
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "insert into employees values ({{record.name}},{{record.designation}},{{record.id}})"
+                    ],
+                    "queryType": [
+                        "INSERT"
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "5",
+        "errorCount": "0",
+        "pages": "1"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "AmazonRedshift Import First Page only",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [
+                        {
+                            "name":"Nick",
+                            "desgination":"Director",
+                            "id":3
+                        },
+                        {
+                            "name":"Samuel",
+                            "desgination":"Program Manager",
+                            "id":2
+                        },
+                        {
+                            "name":"Jhon",
+                            "desgination":"Senior Manager",
+                            "id":1
+                        }
+                    ],
+                    "uniqueField": "id",
+                    "exportapiIdentifier": "ee9a8e1c49",
+                    "application": "AMAZON REDSHIFT"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "5",
+                    "errorCount": "0",
+                    "pages": "1"
+                },
+                "import": {
+                    "_connectionId": "AMAZON REDSHIFT CONNECTION"
+                }
+            }
+        }
+    }
+}

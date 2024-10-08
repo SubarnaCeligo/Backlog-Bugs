@@ -1,0 +1,95 @@
+{
+    "name": "TC_C25160_C25161_C25163_C25451_C25167",
+    "qa__api_tdata": [
+      {
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import":{
+                "name": "sql_AFE2.0",
+                "modelMetadata": {
+                    "myField": {
+                        "default": ""
+                    }
+                },
+                "_connectionId": "MYSQL CONNECTION",
+                "qa__connectionId": "62e8e11136f8f637aa252cd0",
+                "application": "MySQL",
+                "apiIdentifier": "i5bc668941",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "select * from update",
+                        "select * from insert"
+                    ],
+                    "queryType": [
+                        "UPDATE",
+                        "INSERT"
+                    ],
+                    "updateExtract": "id"
+                },
+                "adaptorType": "RDBMSImport"
+            }
+          },
+          {
+            "type": "import",
+            "qa__import":{
+              "name": "sql_AFE1.0",
+              "modelMetadata": {
+                  "myField": {
+                      "default": ""
+                  }
+              },
+              "_connectionId": "MYSQL CONNECTION",
+              "qa__connectionId": "62e8e11136f8f637aa252cd0",
+              "apiIdentifier": "iaa4544682",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "rdbms": {
+                  "query": [
+                      "select * from {{data.myField}}",
+                      "select * from {{data.myField}}"
+                  ],
+                  "queryType": [
+                      "UPDATE",
+                      "INSERT"
+                  ],
+                  "updateExtract": "id"
+              },
+              "adaptorType": "RDBMSImport"
+          }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C25160_C25161_C25163_C25451_C25167",
+          "disabled": false,
+          "_integrationId": "62e8d3e7f389ab707f5d75ff",
+          "qa__integrationId": "62e8c2172dd80523719f9291",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            },
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

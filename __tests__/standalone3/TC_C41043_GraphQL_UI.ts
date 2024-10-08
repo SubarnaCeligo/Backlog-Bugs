@@ -6,7 +6,7 @@ test.describe("TC_C41043_GraphQLConn_UI", () => {
     test.step("*** Navigate to Home Page ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Zephyr-IO-T9953 @Env-All TC_C41043_GraphQLConn_UI", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T9953 @Env-QA TC_C41043_GraphQLConn_UI", async ({io,page}, testInfo) => {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","Connections");
     test.step("*** clicked on connection button ***", async ()=>{});

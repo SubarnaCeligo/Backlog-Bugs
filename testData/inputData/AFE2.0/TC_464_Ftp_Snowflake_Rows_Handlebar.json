@@ -1,0 +1,132 @@
+{
+    "name": "TC_464_Ftp_Snowflake_Rows_Handlebar",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP Export",
+            "qa__path": "/FTP_uploads/TC_464_Ftp_Snowflake_Rows_Handlebar_AFE2.0.csv",
+
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_464_Ftp_Snowflake_Rows_Handlebar_AFE2.0"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "groupByFields": [
+                    "orderID"
+                ],
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "rows handlebar",
+            "application": "Snowflake",
+            "modelMetadata": {
+                "orderID": {
+                    "default": ""
+                },
+                "FirstName": {
+                    "default": ""
+                },
+                "LastName": {
+                    "default": ""
+                },
+                "ItemName": {
+                    "default": ""
+                },
+                "Quantity": {
+                    "default": ""
+                },
+                "Amount": {
+                    "default": ""
+                },
+                "Notes": {
+                    "default": ""
+                },
+                "units": {
+                    "default": ""
+                },
+                "PO#": {
+                    "default": ""
+                },
+                "Date": {
+                    "default": ""
+                },
+                "Type": {
+                    "default": null
+                },
+                "Comments": {
+                    "default": "null"
+                }
+            },
+            "parsers": [],
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "distributed": false,
+            "lookups": [],
+            "rdbms": {
+                "query": [
+                    "INSERT INTO afe_automation\n(\nNAME,\nEMP_ID,\nTYPE,\nNOTES,\nCOMMENTS\n)\nVALUES\n(\n{{rows.[0].FirstName}},\n{{rows.[1].Amount}},\n{{rows.[0].Type}},\n{{rows.[2].Notes}},\n{{rows.[0].Comments}}\n)"
+                ],
+                "queryType": [
+                    "INSERT"
+                ]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_464_Ftp_Snowflake_Rows_Handlebar",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                        "NAME": "Automation AnushaNew2",
+                        "EMP_ID": 290,
+                        "TYPE": null,
+                        "NOTES": "NewNotes36",
+                        "COMMENTS": "null"
+                    }],
+                    "uniqueField": "EMP_ID",
+                    "standaloneexportflowID": "60ed2fbda7ba2d1b785e8a00",
+                    "importRecordType": "afe_automation",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ec9a58bb7b",
+                    "application":"SNOWFLAKE"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "SNOWFLAKE CONNECTION"
+                }
+            }
+        }
+    }
+}

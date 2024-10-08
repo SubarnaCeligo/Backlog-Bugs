@@ -1,0 +1,155 @@
+{
+    "name": "TC_505_Postgresql_Snowflake_Datauri_Concurrency",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Snowflake",
+            "application": "Snowflake",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "idLockTemplate": "{{record.agent_name}}",
+            "dataURITemplate": "{{record.agent_code}}",
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+                "query": [
+                    "INSERT INTO afe_dataurl_concurrency\n(\nAGENT_CODE,\nAGENT_NAME,\nWORKING_AREA,\nCOMMISSION,\nPHONE_NO\n)\nVALUES\n(\n{{trim record.agent_code}},\n{{trim record.agent_name}},\n{{trim record.working_area}},\n{{trim record.commission}},\n{{trim record.phone_no}}\n)"
+                ],
+                "queryType": ["INSERT"]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "pageGenerators": [{
+        "qa__export": {
+            "application": "PostgreSQL",
+            "name": "Postgresql Export",
+            "_connectionId": "POSTGRESQL CONNECTION",
+            "asynchronous": true,
+            "dataURITemplate": "{{record.agent_code}}",
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+                "query": "select * from automation_agents"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "24",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_505_Postgresql_Snowflake_Datauri_Concurrency",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "AGENT_CODE": "A007",
+                            "AGENT_NAME": "Ramasundar",
+                            "WORKING_AREA": "Bangalore",
+                            "COMMISSION": 15,
+                            "PHONE_NO": 7725814763
+                        },
+                        {
+                            "AGENT_CODE": "A003",
+                            "AGENT_NAME": "Alex",
+                            "WORKING_AREA": "London",
+                            "COMMISSION": 13,
+                            "PHONE_NO": 7512458969
+                        },
+                        {
+                            "AGENT_CODE": "A008",
+                            "AGENT_NAME": "Alford",
+                            "WORKING_AREA": "New York",
+                            "COMMISSION": 12,
+                            "PHONE_NO": 4425874365
+                        },
+                        {
+                            "AGENT_CODE": "A011",
+                            "AGENT_NAME": "Ravi Kumar",
+                            "WORKING_AREA": "Bangalore",
+                            "COMMISSION": 15,
+                            "PHONE_NO": 7745625874
+                        },
+                        {
+                            "AGENT_CODE": "A010",
+                            "AGENT_NAME": "Santakumar",
+                            "WORKING_AREA": "Chennai",
+                            "COMMISSION": 14,
+                            "PHONE_NO": 722388644
+                        },
+                        {
+                            "AGENT_CODE": "A012",
+                            "AGENT_NAME": "Lucida",
+                            "WORKING_AREA": "San Jose",
+                            "COMMISSION": 12,
+                            "PHONE_NO": 4452981425
+                        },
+                        {
+                            "AGENT_CODE": "A005",
+                            "AGENT_NAME": "Anderson",
+                            "WORKING_AREA": "Brisban",
+                            "COMMISSION": 13,
+                            "PHONE_NO": 4521447739
+                        },
+                        {
+                            "AGENT_CODE": "A001",
+                            "AGENT_NAME": "Subbarao",
+                            "WORKING_AREA": "Bangalore",
+                            "COMMISSION": 14,
+                            "PHONE_NO": 7712346674
+                        },
+                        {
+                            "AGENT_CODE": "A002",
+                            "AGENT_NAME": "Mukesh",
+                            "WORKING_AREA": "Mumbai",
+                            "COMMISSION": 11,
+                            "PHONE_NO": 2912358964
+                        },
+                        {
+                            "AGENT_CODE": "A006",
+                            "AGENT_NAME": "McDen",
+                            "WORKING_AREA": "London",
+                            "COMMISSION": 15,
+                            "PHONE_NO": 7822255588
+                        },
+                        {
+                            "AGENT_CODE": "A004",
+                            "AGENT_NAME": "Ivan",
+                            "WORKING_AREA": "Torento",
+                            "COMMISSION": 15,
+                            "PHONE_NO": 822544166
+                        },
+                        {
+                            "AGENT_CODE": "A009",
+                            "AGENT_NAME": "Benjamin",
+                            "WORKING_AREA": "Hampshair",
+                            "COMMISSION": 11,
+                            "PHONE_NO": 822536178
+                        }
+                    ],
+                    "uniqueField": "AGENT_CODE",
+                    "standaloneexportflowID": "6148793dff4e9e6b85eee7ff",
+                    "importRecordType": "afe_dataurl_concurrency",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e1a4347fe0",
+                    "application":"SNOWFLAKE"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "24",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "SNOWFLAKE CONNECTION"
+                }
+            }
+        }
+    }
+}

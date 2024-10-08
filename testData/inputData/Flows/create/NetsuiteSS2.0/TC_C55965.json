@@ -1,0 +1,143 @@
+{
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Delete this export",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ec00f501d6",
+            "asynchronous": true,
+            "sandbox": false,
+            "sampleData": {
+              "vendor": "VS",
+              "item": [
+                {
+                  "name": "post_ns_1",
+                  "rate": 1500,
+                  "cal": "by Line Quantity",
+                  "input": "RATE",
+                  "itempricing": [
+                    {
+                      "qty": 45,
+                      "lot": 1400
+                    },
+                    {
+                      "qty": 65,
+                      "lot": 1300
+                    }
+                  ]
+                }
+              ]
+            },
+            "ftp": {
+              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C55957"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "Delete this import",
+            "_connectionId": "NETSUITE CONNECTION",
+
+            "distributed": true,
+            "apiIdentifier": "id83ce15a1",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": true,
+              "operation": "add",
+              "recordType": "purchasecontract",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "vendor",
+                    "generate": "entity",
+                    "internalId": false
+                  },
+                  {
+                    "hardCodedValue": "true",
+                    "generate": "celigo_recordmode_dynamic",
+                    "internalId": false
+                  },
+                  {
+                    "hardCodedValue": "TC_C55959",
+                    "generate": "memo"
+                  }
+                ],
+                "lists": [
+                  {
+                    "generate": "item",
+                    "fields": [
+                      {
+                        "extract": "item[*].name",
+                        "generate": "item",
+                        "internalId": false
+                      },
+                      {
+                        "extract": "item[*].rate",
+                        "generate": "rate",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "celigo_itempricing",
+                        "subRecordMapping": {
+                          "recordType": "itempricing",
+                          "jsonPath": "item",
+                          "mapping": {
+                            "fields": [],
+                            "lists": []
+                          },
+                          "lookups": []
+                        },
+                        "internalId": false
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C55965",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

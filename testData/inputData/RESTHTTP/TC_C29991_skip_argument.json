@@ -1,0 +1,119 @@
+{
+  "name": "TC_C29991_Skip_Argument",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "30",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "export",
+        "application" : "Acumatica",
+        "_connectionId": "HTTP ACUMATICA CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": "Salesperson?$top=1&$skip={{{export.http.paging.skip}}}",
+            "method": "GET",
+            "formType": "http",
+            "paging": {
+                "method": "skip",
+                "lastPageStatusCode": 404
+            }
+        },
+        "adaptorType": "HTTPExport"
+    }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "get acumatica sales persons",
+        "application" : "Acumatica",
+        "_connectionId": "HTTP ACUMATICA CONNECTION",
+        "isLookup": true,
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+            "relativeURI": "Salesperson?$top=1&$skip={{{export.http.paging.skip}}}",
+            "method": "GET",
+            "formType": "http",
+            "paging": {
+                "method": "skip",
+                "lastPageStatusCode": 404
+            }
+        },
+        "adaptorType": "HTTPExport"
+    }
+    },
+    {
+      "qa__import": {
+        "name": "get salespersons",
+        "_connectionId": "FTP CONNECTION",
+        "qa__connectionId":"FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "id",
+              "generate": "id"
+            },
+            {
+              "extract": "rowNumber",
+              "generate": "rowNumber"
+            },
+            {
+              "extract": "SalespersonID.value",
+              "generate": "SalespersonID.value"
+            },
+            {
+              "extract": "IsActive.value",
+              "generate": "IsActive.value"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "Tc_Skip_Argument.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPImports",
+          "fileName": "Tc_Skip_Argument.json"
+        },
+        "adaptorType": "FTPImport"
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C29991",
+        "qa__dataVerification": {
+          "fileName": "Tc_Skip_Argument",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation_FTPImports",
+          "fileType": ".json"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "30",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        }
+      }
+    }
+  }
+}

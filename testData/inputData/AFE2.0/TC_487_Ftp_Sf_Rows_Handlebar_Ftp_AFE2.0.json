@@ -1,0 +1,190 @@
+{
+  "name": "TC_487_Ftp_Sf_Rows_Handlebar_Ftp_AFE2.0",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "63159bd0976915080d03da1a",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "ftp export",
+        "_connectionId": "FTP CONNECTION",
+        "asynchronous": true,
+        "qa__path": "/FTP_uploads/TC_410_Ftp_Mysql_Rows_Handlebar_AFE2.0.csv",
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_410_Ftp_Mysql_Rows_Handlebar_AFE2.0"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "csv",
+          "groupByFields": [
+            "orderID"
+          ],
+          "csv": {
+            "columnDelimiter": ",",
+            "rowDelimiter": "\n",
+            "hasHeaderRow": true,
+            "trimSpaces": true,
+            "rowsToSkip": 0
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "sf lookup",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Industry,Rating from Account where Name='{{rows.[0].Notes}}'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "data",
+            "generate": "lookup"
+          }
+        ],
+        "qa__index": 0
+      }
+    },
+    {
+      "qa__import": {
+        "name": "Import",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "TC_487_Ftp_Sf_Rows_Handlebar_Ftp_AFE2.json",
+          "type": "json",
+          "json": {
+            "body": "[\n{{#each batch_of_records}}\n{{#if @index}},{{/if}}\n{\n\"name\":\"{{rows.[0].LastName}}\",\n\"comments\":\"{{rows.[0].ItemName}}\",\n\"Rating\":\"{{rows.[0].lookup.[0].Rating}}\",\n\"Industry\":\"{{rows.[0].lookup.[0].Industry}}\"\n}\n{{/each}}\n]"
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_487_Ftp_Sf_Rows_Handlebar_Ftp_AFE2.json"
+        },
+        "adaptorType": "FTPImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "name": "NewNotes13",
+      "Industry": "Agriculture",
+      "Rating": "Hot"
+    },
+    "application":"SALESFORCE", 
+    "importapiIdentifier": "i6959b74f1",
+    "expected": {
+      "FTP": {
+        "name": "TC_487_Ftp_Sf_Rows_Handlebar_Ftp_AFE2.json",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ";"
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_487_Ftp_Sf_Rows_Handlebar_Ftp_AFE2",
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "6128ad8089e6f8623c6051c9",
+      "createdAt": "2021-08-27T09:16:48.356Z",
+      "lastModified": "2021-08-27T09:16:48.406Z",
+      "name": "TC_487_Ftp_Sf_Rows_Handlebar_Ftp_AFE2.0",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "parsers": [],
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i6959b74f1",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "Name"
+          },
+          {
+            "extract": "Industry",
+            "generate": "Industry"
+          },
+          {
+            "extract": "Rating",
+            "generate": "Rating"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

@@ -1,0 +1,209 @@
+{
+    "name": "TC_511_NS_Blob_Export_AFE",
+    "description": " ",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "name": "NS Lookup",
+
+                "_connectionId": "NETSUITE CONNECTION",
+                "apiIdentifier": "edd3cfff45",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [],
+                "netsuite": {
+                    "type": "restlet",
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "restlet": {
+                        "recordType": "customer",
+                        "searchId": "3410",
+                        "columns": [],
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "disabled": false,
+                        "forceReload": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data",
+                    "generate": "attachments"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "NS Blob export",
+
+                "_connectionId": "NETSUITE CONNECTION",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "oneToMany": true,
+                "pathToMany": "attachments",
+                "sandbox": false,
+                "parsers": [],
+                "netsuite": {
+                    "skipGrouping": true,
+                    "statsOnly": false,
+                    "internalId": "{{data._PARENT.[File Internal_Id]}}",
+                    "restlet": {
+                        "criteria": [],
+                        "columns": [],
+                        "useSS2Restlets": false
+                    },
+                    "distributed": {
+                        "disabled": false,
+                        "forceReload": false
+                    }
+                },
+                "adaptorType": "NetSuiteExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data[0].blobKey",
+                    "generate": "blobKey"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "sf1",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [{
+                        "extract": "Name",
+                        "generate": "Name"
+                    }]
+                },
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "Account",
+                    "api": "soap",
+                    "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "id",
+                    "generate": "entityid"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "qa__type": "blob",
+                "qa__isLookup": true,
+                "name": "Salesforce blob import",
+                "parsers": [],
+                "_connectionId": "SALESFORCE CONNECTION",
+                "adaptorType": "SalesforceImport",
+                "distributed": false,
+                "oneToMany": true,
+                "pathToMany": "attachments",
+                "blobKeyPath": "blobKey",
+                "lookups": [],
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "attachment",
+                    "attachment": {
+                        "name": "{{data._PARENT.File_name}}",
+                        "parentId": "{{data._PARENT.entityid}}"
+                    },
+                    "removeNonSubmittableFields": false
+                }
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": []
+            }
+        }
+    ],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Netsuite_Customer",
+
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "3410",
+                    "useSS2Restlets": false
+                },
+                "distributed": {
+                    "disabled": false,
+                    "forceReload": false
+                }
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "3",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "salesforce": {
+                "name": "TC_511_NS_Blob_Export_AFE",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "exportapiIdentifier": "e4ee3f1192",
+                    "exportRecordType": "customers",
+                    "importRecordType": "Attachments",
+                    "isUIFlow": true,
+                    "isblob": true,
+                    "generateSampleDropDownAvailable": false,
+                    "standaloneexportflowID": "6193af4a05f85b2022e0e972",
+                    "uniqueField": "Name",
+                    "query": "Select id,Name, (select id,name,bodyLength from attachments) from Account where name like 'TC_511_Customer'",
+                    "expectedJSON": [{
+                        "Name": "TC_511_Customer",
+                        "Attachments": [{
+                            "Name": "TC_511_Sample_Data.json",
+                            "BodyLength": 126
+                        }]
+                    }]
+                }
+            }
+        }
+    }
+}

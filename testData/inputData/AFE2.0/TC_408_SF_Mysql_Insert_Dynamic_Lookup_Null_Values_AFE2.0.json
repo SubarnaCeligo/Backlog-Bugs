@@ -1,0 +1,221 @@
+{
+  "skipRetries": false,
+  "_integrationId": "63159bd0976915080d03da1a",
+  "name": "TC_408_Sf_Mysql_Insert_Dynamic_Lookup_Null_Values_AFE2.0",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Get null value ,date format record from Salesforce",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name,Email,Order_NUmber__c, LeadSource,Description,BirthDate from Contact where Name='automation_mysql_lookup_record_1'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "insert null value and  dynamic lookup based on date field",
+        "application": "MySQL",
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "Name": {
+            "default": ""
+          },
+          "Email": {
+            "default": ""
+          },
+          "Order_NUmber__c": {
+            "default": ""
+          },
+          "LeadSource": {
+            "default": ""
+          },
+          "Description": {
+            "default": ""
+          },
+          "Birthdate": {
+            "default": ""
+          }
+        },
+        "parsers": [],
+        "_connectionId": "MYSQL CONNECTION",
+        "distributed": false,
+        "lookups": [
+          {
+            "map": {
+              "Web": "2"
+            },
+            "allowFailures": false,
+            "name": "static_lookup"
+          },
+          {
+            "query": "select * from insert_table_afe_table2 where doj={{Birthdate}}",
+            "extract": "comments",
+            "allowFailures": false,
+            "name": "dynamic_lookup"
+          }
+        ],
+        "rdbms": {
+          "query": [
+            "INSERT INTO insert_table_afe_table2\n(\nName,\nEmail__c,\nid,\ndoj,\nsector__id,\ncomments\n)\nVALUES\n(\n{{record.Name}},\n{{record.Email}},\n{{record.Order_NUmber__c}},\n{{record.Birthdate}},\n{{lookup \"static_lookup\" record.LeadSource}},\n{{lookup \"dynamic_lookup\" record}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ],
+          "lookups": [
+            {
+              "map": {
+                "Web": "2"
+              },
+              "allowFailures": false,
+              "name": "static_lookup"
+            },
+            {
+              "query": "select * from insert_table_afe_table2 where doj={{Birthdate}}",
+              "extract": "comments",
+              "allowFailures": false,
+              "name": "dynamic_lookup"
+            }
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "63159bd0976915080d03da1a",
+        "name": "TC_408_Sf_Mysql_Insert_Dynamic_Lookup_Null_Values_AFE2.0",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "Name": "automation_mysql_lookup_record_1",
+              "Email__c": "",
+              "id": 199,
+              "sector__id": 2,
+              "doj": "1997-01-20T00:00:00.000Z",
+              "comments": "Bhagat%? naa"
+            }
+          ],
+          "uniqueField": "Name",
+          "exportRecordType": "Contact",
+          "standaloneexportflowID": "602a1c6b0129c95d8a6f1173",
+          "importRecordType": "insert_table_afe_table2",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e0fb6947d3",
+          "application":"MYSQL"   
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "MYSQL CONNECTION"
+        }
+      }
+    },
+    "importRecordJSON": {
+      "name": "automation_mysql_lookup_record_1",
+      "date": "1997-01-20",
+      "leadsource": "Web",
+      "number": 199,
+      "description": "Bhagat%? naa"
+    },
+    "application":"SALESFORCE",     
+    "importapiIdentifier": "idae491ccd",
+    "importapidoc": {
+      "_id": "602a1cf353b612272ca1dd02",
+      "createdAt": "2021-02-15T07:04:19.974Z",
+      "lastModified": "2021-02-15T07:04:20.046Z",
+      "name": "create date/null/date record in sf",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "parsers": [],
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "idae491ccd",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "LastName"
+          },
+          {
+            "extract": "date",
+            "generate": "Birthdate"
+          },
+          {
+            "extract": "leadsource",
+            "generate": "LeadSource"
+          },
+          {
+            "extract": "number",
+            "generate": "Order_NUmber__c"
+          },
+          {
+            "extract": "description",
+            "generate": "Description"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Contact",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

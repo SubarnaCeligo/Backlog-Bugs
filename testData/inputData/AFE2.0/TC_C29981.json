@@ -1,0 +1,11 @@
+{
+    "name": "TC_C29981",
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "square",
+            "application": "square",
+            "_connectionId": "HTTP SQUARE CONNECTION",
+            "adaptorType": "HTTPExport"
+        }
+    }]
+}

@@ -201,7 +201,7 @@ test.describe("TC_C26325_C26915", () => {
 
 
   // This will be fixed as part of SSO related test cases
-  // test("@Env-All @Zephyr-IO-T5123 TC_C26317", async ({io,page}, testInfo) => {
+  // test("@Env-All @Zephyr-IO-T5115 TC_C26317", async ({io,page}, testInfo) => {
   //   await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   //   await io.homePage.loadingTime();
   //   await io.homePage.click(selectors.homePagePO.PROFILE_MENU);

@@ -28,6 +28,7 @@ test.describe("TC_C35303_Verify_SampleData_In_AFE_Contain_TransformedData_PPexpo
 
     test.step("*** Clicking on Import button ***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP);
+    await io.homePage.loadingTime();
 
     await io.homePage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
     test.step("*** Selected HTTP as the adaptor ***", async ()=>{});
@@ -91,6 +92,7 @@ test.describe("TC_C35303_Verify_SampleData_In_AFE_Contain_TransformedData_PPexpo
 
     test.step("*** Clicking on Add Processor ***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.PAGE_PROCESSOR);
+    await io.homePage.loadingTime();
 
     await io.homePage.click(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
     test.step("*** Selected HTTP as the adaptor ***", async ()=>{});

@@ -1,0 +1,85 @@
+{
+    "name": "TC_620_MongoDB_AFE_Validation",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Zendesk_UserData",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ea9123cd4f",
+            "qa__path": "/FTP_uploads/MongoDB_AFE.json",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "MongoDB_AFE"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "AFE_Mongodb",
+            "parsers": [],
+            "_connectionId": "MONGODB CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "mongodb": {
+                "method": "insertMany",
+                "collection": "Afe_Automation_Insert",
+                "document": "{\n\"Amount\":\"{{record.Amount}}\",\n\"Date\":\"{{record.Date}}\",\n\"FirstName\":\"{{record.FirstName}}\",\n\"ItemName\":\"{{record.ItemName}}\",\n\"LastName\":\"{{record.LastName}}\"\n}"
+            },
+            "adaptorType": "MongodbImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "Mongodb": {
+                "name": "TC_620_MongoDB_AFE_Validation",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "MONGODB CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "collection": "Afe_Automation_Insert",
+                    "expectedJSON": [{
+                            "Amount": "100",
+                            "Date": "02/23/2022",
+                            "FirstName": "James",
+                            "LastName": "Marcus",
+                            "ItemName": "SmartPhone"
+                        },
+                        {
+                            "Amount": "200",
+                            "Date": "02/23/2022",
+                            "FirstName": "Brian",
+                            "LastName": "Lee",
+                            "ItemName": "Television"
+                        }
+                    ],
+                    "uniqueField": "FirstName",
+                    "standaloneexportflowID": "60efcadaa7ba2d1b785efdca",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e7d5c52dd8"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+   
+    "timezone": "Asia/Calcutta",
+    "name": "TC_34889",
+    "disabled": false,
+    "pageGenerators": [
+        {
+        "type": "export",
+        "qa__export": {
+            "name": "sp_api",
+            "application" : "Amazon Seller Central",
+            "unencrypted": {
+                "apiType": "Amazon-SP-API",
+                "restrictedReportType": true
+            },
+            "qa__connectionId": "AMAZON SP API CONNECTION",
+            "_connectionId": "AMAZON SP API CONNECTION",
+            "apiIdentifier": "e0671ee785",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/reports/2021-06-30/documents/amzn1.spdoc.1.4.na.1b3a046c-9b23-4c3a-af43-7bd43f5784bb.T1VKX9X0WK1VDG.47700",
+                "method": "GET",
+                "successMediaType": "csv",
+                "formType": "http"
+            },
+            "file": {
+                "type": "csv",
+                "csv": {
+                    "columnDelimiter": "\t",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "rawData": "EMPTY RAW DATA",
+            "adaptorType": "HTTPExport"
+        }
+    }]
+}

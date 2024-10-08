@@ -1,0 +1,177 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "NETSUITE CONNECTION",
+                "name": "NetsuiteSR_update",
+                "distributed": true,
+                "lookups": [],
+                "netsuite_da": {
+                    "useSS2Restlets": true,
+                    "operation": "update",
+                    "recordType": "salesorder",
+                    "internalIdLookup": {
+                        "expression": "[\"otherrefnum\",\"equalto\",\"{{{Ext_ref_num}}}\"]",
+                        "qa__expression": [
+                            [
+                                "otherrefnum",
+                                "equalto",
+                                "{{{Ext_ref_num}}}"
+                            ]
+                        ]
+                    },
+                    "lookups": [],
+                    "mapping": {
+                        "fields": [
+                            {
+                                "generate": "memo",
+                                "hardCodedValue": "Record Updated",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "celigo_persist_new_line_insertion_order",
+                                "hardCodedValue": "true",
+                                "internalId": false
+                            }
+                        ],
+                        "lists": [
+                            {
+                                "generate": "item",
+                                "fields": [
+                                    {
+                                        "generate": "item",
+                                        "extract": "items[*].itemname",
+                                        "discardIfEmpty": false,
+                                        "isKey": true,
+                                        "immutable": false,
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "custcol_celigo_sfio_order_id",
+                                        "extract": "items[*].orderid",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "amount",
+                                        "extract": "items[*].amount",
+                                        "internalId": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "FTP_To_NS_SO_Update_Persistant_check",
+    "disabled": false,
+    "qa__dataVerification": {
+        "importRecordJSON": {
+            "Name": "2441660",
+            "PO": "TC_C24605",
+            "items": [
+                {
+                    "itemname": "ACC00001"
+                },
+                {
+                    "itemname": "ACC00002"
+                }
+            ]
+        },
+        "importapiIdentifier": "i98f170ed1",
+        "expected": {
+            "Netsuite": {
+                "name": "FTP_To_NetSuite_Subrecord_Salesorder_Update",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "item": [
+                                {
+                                    "item": {
+                                        "internalid": "502",
+                                        "name": "ACC00003"
+                                    },
+                                    "custcol_celigo_sfio_order_id": "1"
+                                },
+                                {
+                                    "item": {
+                                        "internalid": "387",
+                                        "name": "ACC00001"
+                                    },
+                                    "custcol_celigo_sfio_order_id": "2"
+                                },
+                                {
+                                    "item": {
+                                        "internalid": "501",
+                                        "name": "ACC00002"
+                                    },
+                                    "custcol_celigo_sfio_order_id": "3"
+                                },
+                                {
+                                    "item": {
+                                        "internalid": "504",
+                                        "name": "ACC00004"
+                                    },
+                                    "custcol_celigo_sfio_order_id": "4"
+                                }
+                            ],
+                            "memo": "Record Updated",
+                            "otherrefnum": "TC_C24605",
+                            "entity": {
+                                "name": "rajaneesh"
+                            }
+                        }
+                    ],
+                    "standaloneexportflowID": "62eb9391c9c10468159c245c",
+                    "uniqueField": "otherrefnum",
+                    "importRecordType": "SalesOrder",
+                    "exportRecordType": "SalesOrder",
+                    "isUIFlow": true,
+                    "savedsearchId": "4125",
+                    "exportapiIdentifier": "ec100195a1"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "name": "TC_C24605",
+                "asynchronous": true,
+                "qa__path": "//FTP_uploads//TC_C24605.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C24605"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

@@ -1,0 +1,116 @@
+{
+  "name": "TC_783_Rest_Custom_Request_Body_Pagination",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "export",
+        "application" : "square",
+        "qa__connectionId": "617fb48c42fb010e47524339",
+        "_connectionId": "HTTP SQUARE CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/v2/team-members/search",
+          "method": "POST",
+          "body": "{\n\"limit\": 1\n}",
+          "formType": "http",
+          "qa__formType": "rest",
+          "paging": {
+            "method": "body",
+            "body": "{\n\"limit\": 1,\n\"cursor\": \"{{previous_page.full_response.cursor}}\"\n}"
+          },
+          "response": {
+            "resourcePath": "team_members"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "name": "TC_783_Rest_Custom_Request_Body_Pagination",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_783_Rest_Custom_Request_Body_Pagination",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        }
+      }
+    }
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "import",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "id",
+              "generate": "id"
+            },
+            {
+              "extract": "given_name",
+              "generate": "given_name"
+            },
+            {
+              "extract": "family_name",
+              "generate": "family_name"
+            },
+            {
+              "extract": "email_address",
+              "generate": "email_address"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_783_Rest_Custom_Request_Body_Pagination.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_783_Rest_Custom_Request_Body_Pagination.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}

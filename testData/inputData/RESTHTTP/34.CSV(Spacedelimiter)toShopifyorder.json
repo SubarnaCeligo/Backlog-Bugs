@@ -1,0 +1,172 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "34REstimport",
+            "application": "shopify",
+            "adaptorType": "HTTPImport",
+            "lookups": [{
+                "name": "bDkPDOfln",
+                "map": {
+                    "NewNotes": "Newnoteimported"
+                },
+                "allowFailures": false
+            }],
+            "http": {
+                "relativeURI": [
+                    "orders.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "formType": "http",
+                "qa__formType": "rest",
+                "strictHandlebarEvaluation": true,
+                "sendPostMappedData": true,
+                "lookups": [{
+                    "name": "bDkPDOfln",
+                    "map": {
+                        "NewNotes": "Newnoteimported"
+                    },
+                    "allowFailures": false,
+                    "useImportHeaders": false
+                }]
+            },
+            "mapping": {
+                "lists": [{
+                    "fields": [{
+                            "extract": "*.ItemName",
+                            "generate": "title",
+                            "qa__extract": "ItemName"
+                        },
+                        {
+                            "extract": "Quantity",
+                            "qa__useFirstRow": "true",
+                            "generate": "quantity"
+                        },
+                        {
+                            "extract": "*.Amount",
+                            "generate": "price",
+                            "qa__extract": "Amount"
+                        }
+                    ],
+                    "generate": "order.line_items"
+                }],
+                "fields": [{
+                        "extract": "FirstName",
+                        "generate": "order.customer.first_name"
+                    },
+                    {
+                        "extract": "LastName",
+                        "generate": "order.customer.last_name"
+                    },
+                    {
+                        "extract": "Notes",
+                        "generate": "order.note",
+                        "lookupName": "bDkPDOfln"
+                    }
+                ]
+            },
+            "_connectionId": "HTTP SHOPIFY CONNECTION",
+            "dataURITemplate": "{{{Amount}}}",
+            "distributed": false
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "34.CSV(Spacedelimiter)toShopifyorder",
+    "disabled": false,
+    "qa__dataVerification": {
+        "uniqueField": "note",
+        "standaloneexportflowID": "572aeb3c5ac02fad176332a1",
+        "importRecordType": "orders",
+        "exportapiIdentifier": "ec5eca7bf3",
+        "expected": {
+            "shopify": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "34.CSV(Spacedelimiter)toShopifyorder",
+                "import": {
+                    "_connectionId": "HTTP SHOPIFY CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "note",
+                    "standaloneexportflowID": "572aeb3c5ac02fad176332a1",
+                    "importRecordType": "orders",
+                    "exportapiIdentifier": "ec5eca7bf3",
+                    "expectedJSON": {
+                        "note": "Newnoteimported",
+                        "line_items": [{
+                                "quantity": 45,
+                                "price": "290.00",
+                                "title": "ACC00001"
+                            },
+                            {
+                                "quantity": 45,
+                                "price": "210.00",
+                                "title": "ACC00002"
+                            },
+                            {
+                                "quantity": 45,
+                                "price": "300.00",
+                                "title": "ACC00003"
+                            }
+                        ],
+                        "customer": {
+                            "last_name": "one",
+                            "first_name": "Automation"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "34FTPexport",
+            "adaptorType": "FTPExport",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                "fileNameEndsWith": ".csv",
+                "fileNameStartsWith": "Shopify_space_Flow_34.csv"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "groupByFields": [
+                    "FirstName",
+                    "LastName"
+                ],
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": " ",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                },
+                "encoding": "utf8",
+                "type": "csv"
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "dataURITemplate": "{{{ItemName}}}",
+            "qa__path": "//FTP_uploads//Shopify_space_Flow_34.csv"
+        }
+    }]
+}

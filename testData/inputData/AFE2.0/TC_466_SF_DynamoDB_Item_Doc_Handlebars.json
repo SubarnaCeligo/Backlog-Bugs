@@ -1,0 +1,166 @@
+{
+  "name": "TC_466_SF_DynamoDB_Item_Doc_Handlebars",
+  "disabled": false,
+  "_integrationId": "63159bd0976915080d03da1a",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select LeadSource, Order_NUmber__c, Title, Once_Export__c from Contact where Name LIKE 'AFE_DynamoDB_Record%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "import",
+        "parsers": [],
+        "_connectionId": "DYNAMODB CONNECTION",
+        "distributed": false,
+        "dynamodb": {
+          "region": "us-east-1",
+          "method": "putItem",
+          "tableName": "afe_automation",
+          "itemDocument": "{\n\"Name\":\"{{record.Title}}\",\n\"Active\":\"{{record.Once_Export__c}}\",\n\"Emp_id\":{{record.Order_NUmber__c}},\n\"Type\":\"{{record.LeadSource}}\",\n\"Comments\":\"This record is created by automation\"\n}"
+        },
+        "adaptorType": "DynamodbImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "Dynamodb": {
+        "_integrationId": "63159bd0976915080d03da1a",
+        "name": "TC_466_SF_DynamoDB_Item_Doc_Handlebars",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "exportRecordType": "Account",
+          "expectedJSON": [
+            {
+              "Comments": "This record is created by automation",
+              "Emp_id": 11,
+              "Active": "true",
+              "Type": "",
+              "Name": "AFE_DynamoDB_Record"
+            },
+            {
+              "Comments": "This record is created by automation",
+              "Emp_id": 12,
+              "Active": "false",
+              "Type": "",
+              "Name": "AFE_DynamoDB_Record"
+            }
+          ],
+          "exportapiIdentifier": "e26d1ae3b7",
+          "standaloneexportflowID": "60ed5461a7ba2d1b785e9121",
+          "uniqueField": "Emp_id"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "4",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "DYNAMODB CONNECTION"
+        }
+      }
+    },
+    "importRecordJSON": [
+      {
+        "Name": "AFE_DynamoDB_Record1",
+        "Title": "AFE_DynamoDB_Record",
+        "OrderNumber": 11,
+        "Export": true
+      },
+      {
+        "Name": "AFE_DynamoDB_Record2",
+        "Title": "AFE_DynamoDB_Record",
+        "OrderNumber": 12,
+        "Export": false
+      }
+    ],
+    "application":"SALESFORCE",
+    "importapiIdentifier": "i7acb969b5",
+    "importapidoc": {
+      "_id": "60ed5639b3d8081116d2da11",
+      "createdAt": "2021-07-13T09:00:41.196Z",
+      "lastModified": "2021-07-13T09:00:41.259Z",
+      "name": "TC_466_SF_DynamoDB_Item_Doc_Handlebars",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "parsers": [],
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i7acb969b5",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "mapping": {
+        "fields": [
+          {
+            "extract": "Name",
+            "generate": "LastName"
+          },
+          {
+            "extract": "Title",
+            "generate": "Title"
+          },
+          {
+            "extract": "OrderNumber",
+            "generate": "Order_NUmber__c"
+          },
+          {
+            "extract": "Export",
+            "generate": "Once_Export__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Contact",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

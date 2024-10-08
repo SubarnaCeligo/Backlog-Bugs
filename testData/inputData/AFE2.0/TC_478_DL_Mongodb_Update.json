@@ -1,0 +1,91 @@
+{
+    "name": "TC_478_DL_Mongodb_Update",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Data Loader",
+            "asynchronous": true,
+            "qa__isDataLoader": "json",
+            "qa__path": "//Dataloader_uploades//TC_478_DL_Mongodb_Update.json",
+            "type": "simple",
+            "sandbox": false,
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "SimpleExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "update",
+            "parsers": [],
+            "_connectionId": "MONGODB CONNECTION",
+            "ignoreExisting": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mongodb": {
+                "method": "updateOne",
+                "collection": "Afe_Automation_Update",
+                "filter": "{\"Name\":{\"$eq\":\"{{record.Name}}\"}}",
+                "update": "{\n\"$set\":\n{\n\"Email__c\":\"{{record.Email__c}}\",\n\"Fax\":\"{{record.Fax}}\",\n\"Static_Text_Test__c\":\"{{record.Static_Text_Test__c}}\",\n\"Phone\":\"{{record.Phone}}\"\n}\n}"
+            },
+            "adaptorType": "MongodbImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "Mongodb": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_478_DL_Mongodb_Update",
+                "qa__dataVerification": {
+                    "collection":"Afe_Automation_Update",
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "Name",
+                    "standaloneexportflowID": "60efe5f5cdcd434ee461d588",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e09a1f83c6",
+                    "expectedJSON": [{
+                            "Email__c": "afemongoupdate@gmail.com",
+                            "Fax": "1234",
+                            "Static_Text_Test__c": "update comments1",
+                            "Name": "afemongoupdaterecord1",
+                            "Phone": "7032688938"
+                        },
+                        {
+                            "Email__c": "afemongoupdate@gmail.com",
+                            "Fax": "4321",
+                            "Static_Text_Test__c": "update comments1",
+                            "Name": "afemongoupdaterecord2",
+                            "Phone": "7032688937"
+                        }
+                    ]
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "MONGODB CONNECTION"
+                }
+            }
+        }
+    }
+}

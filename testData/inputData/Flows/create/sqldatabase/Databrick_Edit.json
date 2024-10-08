@@ -1,0 +1,27 @@
+{
+    "apiJSON": {
+        "type": "jdbc",
+        "name": "offline connection",
+        "jdbc": {
+          "type": "databricks",
+            "host": "jdbc:databricks://123",
+            "port": 3306,
+            "database": "databricks",
+            "user": "shreya.gupta@celigo.com",
+            "password": "******",
+            "qa__password": "Celigo@123"
+        }
+    },
+    "importJSON": {
+      "type": "jdbc",
+      "name": "Edit_Connection_Databricks",
+      "jdbc": {
+        "type": "databricks",
+          "host": "amRiYzpkYXccRhYnJpY2tcczOi8vZGJjLTljMDM0MmUzLTg0Y2UuY2xvdWQuZGF0YWJyaWNrcy5jb206NDQzL2RlZmF1bHQ7dHJhbnNwb3J0TW9kZT1odHRwO3NzbD0xO2h0dHBQYXRoPXNxbC9wcm90b2NvbHYxL28vMTIzMTYzMTE2NTc1MjQyNS8wNzI0LTA3MTc1My1rdjZ0aGVpdTtBdXRoTWVjaD0zO1VJRD1zaHJleWEuZ3VwdGFAY2VsaWdvLmNvbTtQV0Q9Q2VsaWdvQDEyMw==",
+          "port": 3306,
+          "database": "databricks",
+          "user": "shreya.gupta@celigo.com",
+          "password": "Q2VsaWdvcQDEyMw=="
+      }
+  }
+  }

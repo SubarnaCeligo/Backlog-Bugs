@@ -1,0 +1,176 @@
+{
+  "skipRetries": false,
+  "_integrationId": "62d6b4a955468141a906119e",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "6",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "User Data from Zendesk",
+        "_connectionId": "FTP CONNECTION",
+        "qa__connectionId": "62e77f86d61e942a8d4ec65d",
+        "apiIdentifier": "id868a046b",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "name",
+              "generate": "Name"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "ZendeskAdminUser.json",
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "ZendeskAdminUser.json"
+        },
+        "adaptorType": "FTPImport"
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "data",
+            "generate": "data"
+          }
+        ],
+        "qa__index": 0
+      }
+    },
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Get_Encrypted_File",
+        "_connectionId": "FTP CONNECTION",
+        "qa__connectionId": "62e77f86d61e942a8d4ec65d",
+        "apiIdentifier": "e2dcc06ac1",
+        "qa__path": "/FTP_uploads/TC_112_Org_Data.json",
+        "asynchronous": true,
+        "isLookup": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileNameStartsWith": "ZendeskAdminUser"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": false,
+          "encoding": "utf8",
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "FTPExport"
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "data",
+            "generate": "DecryptData"
+          }
+        ],
+        "qa__index": 1
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Zendesk_Organization",
+        "application":"zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "qa__connectionId": "GOOGLEDRIVE CONNECTION",
+        "apiIdentifier": "id405ef3fb",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": [
+            "/organizations"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [
+            "{\n\"organization\": \n  {\n  \"name\": \"{{record.DecryptData.0.Name}}\"\n  }\n  }"
+          ],
+          "batchSize": 1,
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "sendPostMappedData": true,
+          "formType": "http",
+          "qa__formType": "rest"
+        },
+        "adaptorType": "HTTPImport"
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": []
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_112_FTP_PGP_Encryption_With_4096bit_Key",
+  "disabled": false,
+  "qa__dataVerification": {
+    "expected": {
+      "zendesk": {
+        "name": "TC_112_FTP_PGP_Encryption_With_4096bit_Key",
+        "_integrationId": "62d6b4a955468141a906119e",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "6",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "name": "Celigo IO Automation"
+          },
+          "standaloneexportflowID": "61d3ef28f10f414c66d426de",
+          "generateSampleDropDownAvailable": false,
+          "uniqueField": "name",
+          "importRecordType": "organizations",
+          "isUIFlow": true,
+          "exportapiIdentifier": "efec8d58cc"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Get Zendesk user",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/api/v2/users.json?role=admin",
+          "method": "GET",
+          "formType": "http",
+          "qa__formType": "rest",
+          "response": {
+            "resourcePath": "users"
+          }
+        },
+        "rawData": "56d6b114e1fc35de5391472c200abe525aaf4e83b23b68257c1aadc9",
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

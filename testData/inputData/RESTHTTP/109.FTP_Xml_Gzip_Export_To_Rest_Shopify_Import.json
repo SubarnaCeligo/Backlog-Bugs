@@ -1,0 +1,209 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "109 REST import",
+            "application": "shopify",
+            "adaptorType": "HTTPImport",
+            "http": {
+                "relativeURI": [
+                    "orders.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "formType": "http",
+                "qa__formType": "rest",
+                "strictHandlebarEvaluation": true
+            },
+            "rest": {
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "relativeURI": [
+                    "orders.json"
+                ]
+            },
+            "mapping": {
+                "lists": [{
+                    "fields": [{
+                            "extract": "sublists.sublist[*].Item",
+                            "generate": "title"
+                        },
+                        {
+                            "extract": "sublists.sublist[*].Quantity",
+                            "generate": "quantity"
+                        },
+                        {
+                            "extract": "sublists.sublist[*].Price",
+                            "generate": "price"
+                        }
+                    ],
+                    "generate": "order.line_items"
+                }],
+                "fields": [{
+                        "extract": "Name",
+                        "generate": "order.customer.last_name"
+                    },
+                    {
+                        "extract": "recordType",
+                        "generate": "order.note"
+                    }
+                ]
+            },
+            "_connectionId": "HTTP SHOPIFY CONNECTION",
+            "distributed": false
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "109.FTP_Xml_Gzip_Export_To_Rest_Shopify_Import",
+    "disabled": false,
+    "qa__dataVerification": {
+        "uniqueField": "note",
+        "standaloneexportflowID": "572aeb3c5ac02fad176332a1",
+        "importRecordType": "orders",
+        "isUIFlow": true,
+        "exportapiIdentifier": "ec5eca7bf3",
+        "expected": {
+            "shopify": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "109.FTP_Xml_Gzip_Export_To_Rest_Shopify_Import",
+                "import": {
+                    "_connectionId": "HTTP SHOPIFY CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "uniqueField": "note",
+                    "standaloneexportflowID": "572aeb3c5ac02fad176332a1",
+                    "importRecordType": "orders",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ec5eca7bf3",
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": {
+                        "note": "salesorder",
+                        "line_items": [{
+                                "quantity": 1,
+                                "price": "109.00",
+                                "name": "ACC00001",
+                                "title": "ACC00001"
+                            },
+                            {
+                                "quantity": 1,
+                                "price": "109.00",
+                                "name": "ACC00001",
+                                "title": "ACC00001"
+                            },
+                            {
+                                "quantity": 1,
+                                "price": "100.00",
+                                "name": "ACC00002",
+                                "title": "ACC00002"
+                            },
+                            {
+                                "quantity": 1,
+                                "price": "100.00",
+                                "name": "ACC00002",
+                                "title": "ACC00002"
+                            }
+                        ],
+                        "customer": {
+                            "last_name": "108.FTP_Xml_Export_To_NS_Imp"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "109_FTPexport",
+            "adaptorType": "FTPExport",
+            "qa__customtransform": true,
+            "transform": {
+                "rules": [
+                    [{
+                            "extract": "CustomFieldTest[0]._",
+                            "generate": "CustomFieldTest"
+                        },
+                        {
+                            "extract": "Name[0]._",
+                            "generate": "Name"
+                        },
+                        {
+                            "extract": "Type[0]._",
+                            "generate": "Type"
+                        },
+                        {
+                            "extract": "recordType[0]._",
+                            "generate": "recordType"
+                        },
+                        {
+                            "extract": "sublists[0].sublist[*].Amount[0]._",
+                            "generate": "sublists.sublist[*].Amount"
+                        },
+                        {
+                            "extract": "sublists[0].sublist[*].Direction",
+                            "generate": "sublists.sublist[*].Direction"
+                        },
+                        {
+                            "extract": "sublists[0].sublist[*].Item[0]._",
+                            "generate": "sublists.sublist[*].Item"
+                        },
+                        {
+                            "extract": "sublists[0].sublist[*].Memo[0]._",
+                            "generate": "sublists.sublist[*].Memo"
+                        },
+                        {
+                            "extract": "sublists[0].sublist[*].Price[0]._",
+                            "generate": "sublists.sublist[*].Price"
+                        },
+                        {
+                            "extract": "sublists[0].sublist[*].Quantity[0]._",
+                            "generate": "sublists.sublist[*].Quantity"
+                        },
+                        {
+                            "extract": "sublists[0].sublist[*].Title[0]._",
+                            "generate": "sublists.sublist[*].Title"
+                        }
+                    ]
+                ],
+                "version": "1"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                "fileNameStartsWith": "109.FTP_Xml_Gzip_Export_To_Rest_Import.gz"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "xml": {
+                    "resourcePath": "/data"
+                },
+                "compressionFormat": "gzip",
+                "encoding": "utf8",
+                "type": "xml"
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//109.FTP_Xml_Gzip_Export_To_Rest_Import"
+        }
+    }]
+}

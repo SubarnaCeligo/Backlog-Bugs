@@ -1,0 +1,40 @@
+{
+  "name": "TC_C100794",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "application": "Google BigQuery",
+        "name": "Google Bigquery export with page size set and type as 'all'",
+        "description": "Google Bigquery export with page size set and type as 'all'",
+        "_connectionId": "BIGQUERY CONNECTION",
+        "type": "all",
+        "pageSize": 1,
+        "rdbms": {
+          "query": "select * FROM `1234.IO_EportAll`"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Google BigQuery Import",
+        "_connectionId": "BIGQUERY CONNECTION",
+        "apiIdentifier": "ib1b22bd5e",
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+          "query": ["dummy.table.one"],
+          "queryType": ["BULK INSERT"]
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ]
+}

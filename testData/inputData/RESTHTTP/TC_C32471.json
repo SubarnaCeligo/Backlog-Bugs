@@ -1,0 +1,58 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "http import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "ignoreExisting": true,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": [
+                    "users"
+                ],
+                "method": [
+                    "PUT"
+                ],
+                "body": [
+                    "{{#each data}}\n{{#if @index}} , {{/if}}\n{\n\"user\" :\t{\n \n     \"name\": \"10014user\",\n     \"email\": \"10014@celigoreact1234.com\"\n}\n}\n{{/each}}"
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "ignoreExtract": "form",
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C32471",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "ftp export",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/TC_C32471.json",
+            "asynchronous": true,
+            "sandbox": false,
+
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C32471",
+                "fileNameEndsWith": ".json"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

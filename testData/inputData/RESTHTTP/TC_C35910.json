@@ -1,0 +1,79 @@
+{
+    "name": "TC_C35910",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": false,
+            "type": "json"
+          },
+          "asynchronous": true,
+          "qa__path": "//Dataloader_uploades//TC_C35910.json",
+          "type": "simple",
+          "qa__isDataLoader": "json",
+          "adaptorType": "SimpleExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "import",
+          "application": "slack",
+          "qa__connectionId": "HTTP SLACK CONNECTION",
+          "_connectionId": "HTTP SLACK CONNECTION",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "mapping": {
+            "fields": [
+              {
+                "extract": "channel",
+                "generate": "channel"
+              },
+              {
+                "extract": "message",
+                "generate": "text"
+              }
+            ]
+          },
+          "http": {
+            "relativeURI": [
+              "chat.postMessage"
+            ],
+            "method": [
+              "POST"
+            ],
+            "body": [],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http",
+            "response": {
+              "failPath": [
+                "ok"
+              ],
+              "failValues": [
+                [
+                  "false"
+                ]
+              ]
+            }
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "qa__expectedDashboardCount": {
+      "successCount": "2",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    }
+  }

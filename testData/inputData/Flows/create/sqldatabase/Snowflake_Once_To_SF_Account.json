@@ -1,0 +1,92 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "Snowflake_Once_To_SF_Account",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Snowflake Once export",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "asynchronous": true,
+            "type": "once",
+            "rdbms": {
+                "query": "select * from Automation_Once",
+                "once": {
+                    "query": "UPDATE Automation_Once SET ONCE_TEST='false' where Name='{{{data.NAME}}}'"
+                }
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Once records into SF",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "ID",
+                        "generate": "Category_Internal_ID__c"
+                    },
+                    {
+                        "extract": "NAME",
+                        "generate": "Name"
+                    },
+                    {
+                        "extract": "ONCE_TEST",
+                        "generate": "Once_Export__c"
+                    }
+                ]
+            },
+            "salesforce": {
+                "operation": "insert",
+                "sObjectType": "Account",
+                "api": "soap",
+                "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "salesforce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "Snowflake Once to SF Account",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "Name": "once_export_record1",
+                            "Category_Internal_ID__c": "0032v00003W56xcAAB",
+                            "first_comment": "the export itslef is exporting records with false condition therefore changing the below 2 to false",
+                            "Once_Export__c": false
+                        },
+                        {
+                            "Name": "once_export_record2",
+                            "Category_Internal_ID__c": "0032v00003ZxCE4AAN",
+                            "Once_Export__c": false
+                        }
+                    ],
+                    "uniqueField": "Name",
+                    "standaloneexportflowID": "5f61e8f0dba9db1b1d7e8eef",
+                    "importRecordType": "account",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e4d23820a9"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                }
+            }
+        }
+    }
+}

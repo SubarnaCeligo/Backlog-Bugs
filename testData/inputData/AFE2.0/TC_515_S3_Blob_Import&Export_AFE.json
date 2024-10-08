@@ -1,0 +1,109 @@
+{
+    "name": "TC_515_S3_Blob_Import&Export_AFE",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "3",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "qa__type": "blob",
+                "name": "Blob Export",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "e500e3fb29",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "blob",
+                "sandbox": false,
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "{{record.ExportBucket}}",
+                    "keyStartsWith": "{{record.FileName}}",
+                    "keyEndsWith": "{{record.FileExtension}}"
+                },
+                "file": {
+                    "output": "blobKeys",
+                    "skipDelete": true
+                },
+                "adaptorType": "S3Export"
+            },
+            "responseMapping": {
+                "fields": [{
+                    "extract": "data[0].blobKey",
+                    "generate": "blobKey"
+                }],
+                "lists": [],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "qa__type": "blob",
+                "name": "Blob Import",
+                "_connectionId": "S3 CONNECTION",
+                "apiIdentifier": "i1fd1f8649",
+                "oneToMany": false,
+                "blobKeyPath": "blobKey",
+                "blob": true,
+                "sandbox": false,
+                "file": {
+                    "fileName": "{{join '-' record.FileName record.suffix}}.json",
+                    "skipAggregation": true
+                },
+                "s3": {
+                    "region": "us-east-1",
+                    "bucket": "{{record.ImportBucket}}",
+                    "fileKey": "{{join '-' record.FileName record.suffix}}.json"
+                },
+                "adaptorType": "S3Import"
+            }
+        }
+    ],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "File Details",
+            "_connectionId": "S3 CONNECTION",
+            "qa__path": "/S3_uploads/File_Details_S3.json",
+            "asynchronous": true,
+            "s3": {
+                "region": "us-east-1",
+                "bucket": "automations3export",
+                "keyStartsWith": "File_Details_S3"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "S3Export"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "S3": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "AmazonS3_Blob_Export-Imported",
+                "import": {
+                    "_connectionId": "S3 CONNECTION"
+                },
+                "qa__dataVerification": {
+                    "isUIFlow": true,
+                    "fileName": "AmazonS3_Blob_Export-Imported",
+                    "bucketName": "automations3import",
+                    "fileType": ".json"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "3",
+                    "errorCount": "0"
+                }
+            }
+        }
+    }
+}

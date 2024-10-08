@@ -1,0 +1,159 @@
+{
+  "skipRetries": false,
+  "_integrationId": "63159bd0976915080d03da1a",
+  "name": "TC_407_Sf_Mysql_Insert_Spl_Chars_Static_Handlebar_Template_AFE_2.0",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Get special char record from sf",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name , Order_NUmber__c from Contact where Name='@SecBhagat%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "Insert special chars into Mysql_AFE",
+        "application": "MySQL",
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "Name": {
+            "default": ""
+          },
+          "Order_NUmber__c": {
+            "default": ""
+          }
+        },
+        "_connectionId": "MYSQL CONNECTION",
+        "distributed": false,
+        "rdbms": {
+          "query": [
+            "INSERT INTO insert_table_afe\n(\nName,\nEmail__c,\nImmutable_Number1__c,\nOwnership\n)\nVALUES\n(\n{{record.Name}},\n{{join \"\" record.attributes.type '@gmail.com'}},\n{{record.Order_NUmber__c}},\n{{connection.name}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "63159bd0976915080d03da1a",
+        "name": "TC_407_Sf_Mysql_Insert_Spl_Chars_Static_Handlebar_Template_AFE_2.0",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "Name": "@SecBhagat%",
+              "Email__c": "Contact@gmail.com",
+              "Immutable_Number1__c": 555,
+              "Ownership": "My SQL Connection_Flows"
+            }
+          ],
+          "uniqueField": "Name",
+          "exportRecordType": "Contact",
+          "standaloneexportflowID": "602a08e80129c95d8a6f0ccd",
+          "importRecordType": "insert_table_afe",
+          "isUIFlow": true,
+          "exportapiIdentifier": "eb24dd9591",
+          "application":"MYSQL"          
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "MYSQL CONNECTION"
+        }
+      }
+    },
+    "importRecordJSON": {
+      "name": "@SecBhagat%",
+      "number": 555
+    },
+    "application":"SALESFORCE",      
+    "importapiIdentifier": "i1287e652d",
+    "importapidoc": {
+      "_id": "602a092312fd70663e3e0d62",
+      "createdAt": "2021-02-15T05:39:47.428Z",
+      "lastModified": "2021-02-15T05:41:05.780Z",
+      "name": "create special chars in sf",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i1287e652d",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "LastName"
+          },
+          {
+            "extract": "number",
+            "generate": "Order_NUmber__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Contact",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

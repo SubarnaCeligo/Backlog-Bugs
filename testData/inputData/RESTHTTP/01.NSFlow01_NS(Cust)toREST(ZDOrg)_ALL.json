@@ -1,0 +1,471 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "01_restimport",
+        "application": "zendesk support",
+        "http": {
+          "relativeURI": [
+            "organizations.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "formType": "http",
+          "qa__formType": "rest",
+          "body": [
+            "{{#each data}}{{#if @first}}{{{jsonSerialize this}}}{{/if}}{{/each}}"
+          ],
+          "batchSize": 1,
+          "strictHandlebarEvaluation": true
+        },
+        "rest": {
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "relativeURI": [
+            "organizations.json"
+          ]
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Details",
+              "generate": "organization.details",
+              "default": ""
+            },
+            {
+              "extract": "Random",
+              "generate": "organization.organization_fields.random",
+              "default": null
+            },
+            {
+              "extract": "Random1",
+              "generate": "organization.organization_fields.random1",
+              "default": "52"
+            },
+            {
+              "extract": "{{Random2}}",
+              "generate": "organization.organization_fields.random2",
+              "default": ""
+            },
+            {
+              "extract": "{{Random3}}",
+              "generate": "organization.organization_fields.random3",
+              "default": null
+            },
+            {
+              "extract": "{{Random4}}",
+              "generate": "organization.organization_fields.random4",
+              "default": "57"
+            },
+            {
+              "extract": "Company Name",
+              "generate": "organization.name"
+            },
+            {
+              "extract": "Email",
+              "generate": "organization.notes"
+            },
+            {
+              "extract": "Phone",
+              "generate": "organization.organization_fields.phone"
+            },
+            {
+              "extract": "Fax",
+              "generate": "organization.organization_fields.fax"
+            },
+            {
+              "extract": "Billing Address 1",
+              "generate": "organization.organization_fields.billing_address_1"
+            },
+            {
+              "extract": "Billing City",
+              "generate": "organization.organization_fields.billing_city"
+            },
+            {
+              "extract": "Billing Country",
+              "generate": "organization.organization_fields.billing_country"
+            },
+            {
+              "extract": "Billing State/Province",
+              "generate": "organization.organization_fields.billing_state"
+            },
+            {
+              "extract": "Billing Zip",
+              "generate": "organization.organization_fields.billing_zip"
+            },
+            {
+              "extract": "Shipping Address 1",
+              "generate": "organization.organization_fields.shipping_address_1"
+            },
+            {
+              "extract": "Shipping City",
+              "generate": "organization.organization_fields.shipping_city"
+            },
+            {
+              "extract": "Shipping Country",
+              "generate": "organization.organization_fields.shipping_country"
+            },
+            {
+              "extract": "Shipping State/Province",
+              "generate": "organization.organization_fields.shipping_state"
+            },
+            {
+              "extract": "Shipping Zip",
+              "generate": "organization.organization_fields.shipping_zipcode"
+            },
+            {
+              "extract": "Title",
+              "generate": "organization.organization_fields.usernotes_title"
+            },
+            {
+              "extract": "Memo",
+              "generate": "organization.organization_fields.usernotes_memo"
+            },
+            {
+              "extract": "Type",
+              "generate": "organization.organization_fields.usernotes_type"
+            },
+            {
+              "extract": "Direction",
+              "generate": "organization.organization_fields.usernotes_direction"
+            },
+            {
+              "extract": "Email",
+              "generate": "organization.organization_fields.email"
+            }
+          ]
+        },
+        "adaptorType": "HTTPImport",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "dataURITemplate": "{{{Name}}}",
+        "distributed": false
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "01.NS Flow#01_NS(Cust) to REST(ZD Org)_ALL",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "Email": "NS-CUST-ZD-ORG-ALL-AUTO_1@gmail.com",
+      "Shipping City": "hyd",
+      "Title": "NS-CUST-ZD-ORG-ALL-AUTO_1 title",
+      "Billing Country": "India",
+      "Billing Zip": "54545",
+      "Direction": "Incoming",
+      "Shipping State/Province": "AP",
+      "Shipping Country": "India",
+      "Company Name": "Auto@NS-CUST-ZD-ORG-ALL_1",
+      "Type": "Fax",
+      "Billing City": "HYD",
+      "Shipping Address 1": "add ship 1",
+      "Phone": "0110545646546465",
+      "Billing Address 1": "add 1",
+      "Fax": "3214324343",
+      "Billing State/Province": "TS",
+      "Shipping Zip": "1561561",
+      "Memo": "NS-CUST-ZD-ORG-ALL-AUTO_1 memo"
+    },
+    "application":"NETSUITE",
+    "importapiIdentifier": "i3ebd45851",
+    "importRecordType": "organizations",
+    "expected": {
+      "zendesk": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "01.NS Flow#01_NS(Cust) to REST(ZD Org)_ALL",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "organization_fields": {
+              "shipping_zipcode": "1561561",
+              "shipping_state": "AP",
+              "usernotes_title": "NS-CUST-ZD-ORG-ALL-AUTO_1 title",
+              "shipping_city": "hyd",
+              "billing_country": "India",
+              "shipping_address_1": "add ship 1",
+              "usernotes_memo": "NS-CUST-ZD-ORG-ALL-AUTO_1 memo",
+              "usernotes_type": "A fax.",
+              "billing_city": "HYD",
+              "usernotes_direction": "Incoming",
+              "billing_state": "TS",
+              "phone": "0110545646546465",
+              "billing_address_1": "add 1",
+              "billing_zip": "54545",
+              "fax": "(321) 432-4343",
+              "shipping_country": "India",
+              "email": "NS-CUST-ZD-ORG-ALL-AUTO_1@gmail.com",
+              "random1": "52",
+              "random4": "57"
+            },
+            "notes": "NS-CUST-ZD-ORG-ALL-AUTO_1@gmail.com",
+            "name": "Auto@NS-CUST-ZD-ORG-ALL_1"
+          },
+          "standaloneexportflowID": "57aad5298ec9f8804906006d",
+          "importRecordType": "organizations",
+          "uniqueField": "name",
+          "exportRecordType": "Customer",
+          "isUIFlow": true,
+          "exportapiIdentifier": "edb8215601"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "633bd53c68b255685a3f850d",
+      "createdAt": "2022-10-04T06:39:56.208Z",
+      "lastModified": "2022-11-01T11:06:36.504Z",
+      "name": "_DND-TC_C29923",
+      "_connectionId": "5a093d279dda7b71eb95b793",
+      "distributed": true,
+      "apiIdentifier": "i3ebd45851",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "useSS2Restlets": false,
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Email",
+              "generate": "email",
+              "internalId": false
+            },
+            {
+              "extract": "Title",
+              "generate": "title",
+              "internalId": false
+            },
+            {
+              "extract": "['Company Name']",
+              "generate": "companyname",
+              "internalId": false
+            },
+            {
+              "extract": "Type",
+              "generate": "isindividual",
+              "internalId": false
+            },
+            {
+              "extract": "Phone",
+              "generate": "phone",
+              "internalId": false
+            },
+            {
+              "extract": "Fax",
+              "generate": "fax",
+              "internalId": false
+            },
+            {
+              "generate": "subsidiary",
+              "internalId": true,
+              "discardIfEmpty": false,
+              "immutable": false,
+              "hardCodedValue": "3"
+            }
+          ],
+          "lists": [
+            {
+              "generate": "_shipping_addressbook",
+              "fields": [
+                {
+                  "extract": "['Shipping City']",
+                  "generate": "city",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping State/Province']",
+                  "generate": "state",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping Country']",
+                  "generate": "country",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping Address 1']",
+                  "generate": "addr1",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping Zip']",
+                  "generate": "zip",
+                  "internalId": false
+                }
+              ]
+            },
+            {
+              "generate": "_billing_addressbook",
+              "fields": [
+                {
+                  "extract": "['Billing Country']",
+                  "generate": "country",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing Zip']",
+                  "generate": "zip",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing City']",
+                  "generate": "city",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing Address 1']",
+                  "generate": "addr1",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing State/Province']",
+                  "generate": "state",
+                  "internalId": false
+                }
+              ]
+            },
+            {
+              "generate": "usernotes",
+              "fields": [
+                {
+                  "extract": "Direction",
+                  "generate": "direction",
+                  "internalId": false
+                },
+                {
+                  "extract": "Memo",
+                  "generate": "note",
+                  "internalId": false
+                },
+                {
+                  "extract": "Title",
+                  "generate": "title",
+                  "internalId": false
+                },
+                {
+                  "extract": "Type",
+                  "generate": "notetype",
+                  "internalId": false
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "01_NS Export",
+        "asynchronous": true,
+        "_connectionId": "NETSUITE CONNECTION",
+        "parsers": [],
+        "netsuite": {
+          "statsOnly": false,
+          "type": "restlet",
+          "restlet": {
+            "criteria": [],
+            "columns": [],
+            "searchId": "1917",
+            "recordType": "customer",
+            "hooks": {
+              "preSend": {
+                "fileInternalId": null,
+                "function": null
+              },
+              "batchSize": 20
+            }
+          },
+          "distributed": {
+            "executionContext": [
+              "userinterface",
+              "webstore"
+            ],
+            "executionType": [
+              "create",
+              "edit",
+              "xedit"
+            ]
+          },
+          "skipGrouping": false
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "version": "1",
+            "rules": [
+              "and",
+              [
+                "equals",
+                "qa__extractdate2019-07-25",
+                "qa__generatedate2019-07-12"
+              ],
+              [
+                "equals",
+                [
+                  "string",
+                  [
+                    "extract",
+                    "Email"
+                  ]
+                ],
+                "test@gmail.com"
+              ]
+            ]
+          },
+          "version": "1",
+          "rules": [
+            "and",
+            [
+              "equals",
+              "2019-07-25",
+              1234
+            ],
+            [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "Email"
+                ]
+              ],
+              "test@gmail.com"
+            ]
+          ]
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ]
+}

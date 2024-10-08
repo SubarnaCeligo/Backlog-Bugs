@@ -1,0 +1,113 @@
+{
+    "name": "HTTP_Skip_Paging_Method",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "HTTP_Export_SkipArgument_Paging_Method",
+                "qa__type": "all",
+                "application": "openair",
+                "_connectionId": "HTTP OPENAIR CONNECTION",
+                "asynchronous": true,
+                "parsers": [],
+                "http": {
+                    "method": "POST",
+                    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\">  <Auth>    <Login>      <company>{{{connection.http.unencrypted.companyId}}}</company>      <user>{{{connection.http.unencrypted.userId}}}</user>      <password>{{{connection.http.encrypted.password}}}</password>    </Login>  </Auth>  <Read type=\"User\" method=\"all\" limit=\"{{{export.http.paging.skip}}},1\"/></request>",
+                    "paging": {
+                        "method": "skip"
+                    },
+                    "response": {
+                        "resourcePath": "/response/Read/User",
+                        "successPath": "/response/Read/@status"
+                    }
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "exportRecordType": "users",
+        "expected": {
+            "FTP": {
+                "name": "HTTP_Skip Paging Method",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "HTTP_Skip_PagingMethod",
+                    "exportRecordType": "user",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                }
+            }
+        }
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP_import_SkipArgument_Paging",
+                "qa__path": "//FTP_uploads//HTTP_Skip_PagingMethod.csv",
+                "_connectionId": "FTP CONNECTION",
+                "distributed": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "id",
+                            "generate": "ID"
+                        },
+                        {
+                            "extract": "name",
+                            "generate": "Name"
+                        }
+                    ]
+                },
+                "file": {
+                    "type": "csv",
+                    "csv": {
+                        "rowDelimiter": "\n",
+                        "columnDelimiter": ",",
+                        "includeHeader": true,
+                        "wrapWithQuotes": false,
+                        "replaceTabWithSpace": false,
+                        "replaceNewlineWithSpace": false
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "HTTP_Skip_PagingMethod.csv"
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": []
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ]
+}

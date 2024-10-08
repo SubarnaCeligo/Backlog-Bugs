@@ -1,0 +1,22 @@
+{
+    "name": "TC_C20058_checking_uri_adv_section",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62e8c2172dd80523719f9291",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "TC_C20058",
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "Select id from table"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ]
+}

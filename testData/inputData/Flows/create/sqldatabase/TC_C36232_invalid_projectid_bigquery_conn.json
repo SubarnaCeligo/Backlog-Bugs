@@ -1,0 +1,30 @@
+{
+    "connectionDoc":{
+        "application": "Google BigQuery",
+        "type": "rdbms",
+        "name": "Google BigQuery Invalid Connection",
+        "sandbox": false,
+        "rdbms": {
+            "type": "bigquery",
+            "options": [],
+            "disableStrictSSL": false,
+            "bigquery": {
+                "projectId": "123890",
+                "clientEmail": "abcd@abc.com",
+                "privateKey": "123",
+                "dataset": "1234"
+            }
+        }
+    },
+    "exportDoc": {
+        "name": "TC_invalid",
+        "_connectionId": "",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+            "query": "Select * from abcd1234"
+        },
+        "adaptorType": "RDBMSExport"
+    }
+}

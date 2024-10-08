@@ -1,0 +1,99 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "S3_Snowflake_HandleBar_Helpers",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "qa__path": "//S3_uploads//S3_Snowflake_Handlebarhelper.json",
+            "name": "S3_Snowflake_Handlebarhelper",
+            "_connectionId": "S3 CONNECTION",
+            "asynchronous": true,
+            "s3": {
+                "region": "us-east-1",
+                "bucket": "automations3export",
+                "keyStartsWith": "S3_Snowflake_Handlebarhelper"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "S3Export"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Insert data into snowflake using handlebar helpers",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "distributed": false,
+            "modelMetadata": {
+                "id": {
+                    "default": ""
+                },
+                "FirstName": {
+                    "default": ""
+                },
+                "LastName": {
+                    "default": ""
+                },
+                "DOJ": {
+                    "default": ""
+                }
+            },
+            "lookups": [],
+            "parsers": [],
+            "rdbms": {
+                "query": ["INSERT INTO automation_handlebarhelper\n(\nEMP_ID,\nEMP_Name,\nEMP_Desg,\nHireDate\n)\nVALUES\n(\n{{abs data.id}},\n{{join \" \" data.FirstName data.LastName}},\n'QA_Engineer',\n{{dateFormat DD-MM-YYYY data.DOJ  YYYY-MM-DD}}\n)"],
+                "queryType": ["INSERT"]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "S3_Snowflake_HandleBar_Helpers",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                        "EMP_ID": 178,
+                        "EMP_NAME": "Sai Kaivalya",
+                        "EMP_DESG": "QA_Engineer",
+                        "HIREDATE": "2018-08-10"
+                    }, {
+                        "EMP_ID": 175,
+                        "EMP_NAME": "Karnam Manasa",
+                        "EMP_DESG": "QA_Engineer",
+                        "HIREDATE": "2018-10-08"
+                    }],
+                    "dataURIs": [null, null],
+                    "uniqueField": "EMP_ID",
+                    "standaloneexportflowID": "5ec23921ad511d2173b98199",
+                    "importRecordType": "AUTOMATION_HANDLEBARHELPER",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ed1a20545a",
+                    "application":"SNOWFLAKE"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "SNOWFLAKE CONNECTION"
+                }
+            }
+        }
+    }
+}

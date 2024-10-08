@@ -1,0 +1,23 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62e8c2172dd80523719f9291",
+    "name": "TC_C27542_AFE_preview_panel_verification",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "application": "MySQL",
+            "qa__connectionId": "62e8e11136f8f637aa252cd0",
+            "_connectionId":"MYSQL CONNECTION",
+            "apiIdentifier": "ef99147f5c",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+                "query": "Select * from Customer"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+      }
+    ]
+  }

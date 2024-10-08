@@ -1,0 +1,133 @@
+{
+    "name": "TC_C2726_Verify_Orchestartion_Flow",
+    "skipRetries": false,
+    "disabled": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "name": "zendesk pp export",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e6815f5b0b",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "parsers": [],
+                "http": {
+                    "relativeURI": "tickets",
+                    "method": "GET",
+                    "formType": "http",
+                    "qa__formType": "rest"
+                },
+                "adaptorType": "HTTPExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data[0].tickets[0].id",
+                    "generate": "ID.id"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP Import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ifcac4d363",
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [{
+                            "extract": "tickets[0].subject",
+                            "generate": "subject"
+                        },
+                        {
+                            "extract": "tickets[0].priority",
+                            "generate": "priority"
+                        },
+                        {
+                            "extract": "tickets[0].allow_channelback",
+                            "generate": "channelback"
+                        },
+                        {
+                            "extract": "tickets[0].allow_attachments",
+                            "generate": "attachments"
+                        },
+                        {
+                            "extract": "tickets[0].via.channel",
+                            "generate": "channel"
+                        },
+                        {
+                            "extract": "tickets[0].status",
+                            "generate": "status"
+                        },
+                        {
+                            "extract": "tickets[0].recipient",
+                            "generate": "receipient"
+                        }
+                    ]
+                },
+                "file": {
+                    "fileName": "TC_C2726.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                    "fileName": "TC_C2726.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [{
+        "type": "export",
+        "qa__export": {
+            "name": "Zendesk export",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "e2d9827c85",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "tickets",
+                "method": "GET",
+                "formType": "http",
+                "qa__formType": "rest"
+            },
+            "rawData": "56d6b114e1fc35de5391472cee6082d857e5409888bdb4b24ed2723f",
+            "adaptorType": "HTTPExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "3",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "Verify Orchestration_flow_Using_Special_character",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C2726",
+                    "folderName": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

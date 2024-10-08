@@ -1,0 +1,141 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "6",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "name": "Lookup",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e68df6a13e",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "parsers": [],
+                "http": {
+                    "relativeURI": "/users/autocomplete.json?name={{record.User}}",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "file": {
+                    "groupByFields": []
+                },
+                "adaptorType": "HTTPExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data",
+                    "generate": "User"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Zendesk Create organizations",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "http": {
+                    "relativeURI": ["organizations"],
+                    "method": ["POST"],
+                    "body": [
+                        "{\n  \"organization\": {\n      \"name\": \"{{record.name}}\",\n      \"notes\": \"{{record.notes}}\",\n      \"organization_fields\": {\n       \"email\": \"{{record.email}}\",\n       \"billing_address_1\": \"{{record.billing_address_1}}\",\n       \"billing_address2\": \"{{record.billing_address2}}\",\n       \"billing_city\": \"{{record.billing_city}}\",\n       \"billing_state\": \"{{record.billing_state}}\",\n       \"shipping_address_1\": \"{{record.User.0.users.0.name}}\",\n       \"shipping_city\": \"{{record.shipping_city}}\",\n       \"shipping_state\": \"{{record.shipping_state}}\",\n        \"shipping_country\": \"{{record.shipping_country}}\"\n         }\n        }\n     }"
+                    ],
+                    "batchSize": 1,
+                    "formType": "http"
+                },
+
+                "adaptorType": "HTTPImport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": []
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_509_Create_Organizations_Using_HTTP_PPExport",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "name": "TC_509_Create_Organizations_Using_HTTP_PPExport",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "6",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                            "name": "Hyundai 1",
+                            "notes": "",
+                            "organization_fields": {
+                                "email": "Hyundai1@gmail.com",
+                                "billing_address_1": "Alpine st",
+                                "billing_address2": null,
+                                "billing_city": "Memphis",
+                                "billing_state": "Tennesse",
+                                "shipping_address_1": null,
+                                "shipping_city": "Memphis",
+                                "shipping_country": "USA"
+                            }
+                        },
+                        {
+                            "name": "Hyundai 2",
+                            "notes": "",
+                            "organization_fields": {
+                                "email": "Hyundai2@gmail.com",
+                                "billing_address_1": "Maine st",
+                                "billing_address2": null,
+                                "billing_city": "LA",
+                                "billing_state": "California",
+                                "shipping_address_1": null,
+                                "shipping_city": "LA",
+                                "shipping_country": "USA"
+                            }
+                        }
+                    ],
+                    "standaloneexportflowID": "618a0a713c2b7223ba694a25",
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "name",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e153dda720"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Zendesk Organizations",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "6188f6ccc8318f1fea2efb99",
+            "qa__path": "/FTP_uploads/TC_509_OrganizationsData.json",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_509_OrganizationsData"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "encoding": "utf8",
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

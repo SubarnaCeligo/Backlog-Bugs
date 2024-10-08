@@ -1,0 +1,112 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "4249",
+        "successCount": "19",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "Large xlsx file",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "61c1b868e3069e3e7ac5834a",
+            "apiIdentifier": "i3f6767f8d",
+            "oneToMany": false,
+            "file": {
+                "fileName": "5MB-Data.xlsx",
+                "type": "xlsx"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "5MB.xlsx"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_106_FTP_Upload_file_XLSX>5MB",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "ftp": {
+                "name": "TC_106_FTP_Upload_file_XLSX>5MB",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "19",
+                    "ignoreCount": "4249",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "5MB-Data",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".xlsx"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Xlsx_File_of_5MB",
+            "adaptorType": "FTPExport",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                "fileNameStartsWith": "5MB-Data"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "encoding": "utf8",
+                "type": "xlsx",
+                "xlsx": {
+                    "hasHeaderRow": true
+                }
+            },
+            "qa__rules": [
+                [
+                    "record.myField",
+                    "equals",
+                    "TRUE"
+                ]
+            ],
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "rules": [
+                        "equals", [
+                            "string", [
+                                "extract",
+                                "myField"
+                            ]
+                        ],
+                        "TRUE"
+                    ],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                    "equals", [
+                        "string", [
+                            "extract",
+                            "myField"
+                        ]
+                    ],
+                    "TRUE"
+                ]
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//5MB-Data.xlsx"
+        }
+    }]
+}

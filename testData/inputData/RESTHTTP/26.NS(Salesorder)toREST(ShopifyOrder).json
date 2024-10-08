@@ -1,0 +1,255 @@
+{
+  "name": "26.NS Flow#1-NS(Salesorder) to Shopify(Order)-All",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "26_NS Export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "parsers": [],
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "salesorder",
+            "searchId": "1922",
+            "hooks": {
+              "batchSize": 20,
+              "preSend": {
+                "fileInternalId": null,
+                "function": null
+              }
+            },
+            "criteria": [],
+            "columns": []
+          },
+          "distributed": {
+            "executionContext": [
+              "userinterface",
+              "webstore"
+            ],
+            "executionType": [
+              "create",
+              "edit",
+              "xedit"
+            ]
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "26_ Rest Import",
+        "application": "shopify",
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "distributed": false,
+        "dataURITemplate": "{{{id}}}",
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Name",
+              "generate": "order.customer.first_name",
+              "dataType": "string"
+            },
+            {
+              "generate": "order.customer.last_name",
+              "hardCodedValue": "(Order) customer"
+            },
+            {
+              "extract": "[PO/Check Number]",
+              "qa__extract": "PO/Check Number",
+              "qa__ignoreBrackets": true,
+              "generate": "order.note"
+            }
+          ],
+          "lists": [
+            {
+              "fields": [
+                {
+                  "qa__extract": "Amount",
+                  "qa__ignoreStar": true,
+                  "extract": "*.Amount",
+                  "generate": "price"
+                },
+                {
+                  "qa__extract": "Item",
+                  "qa__ignoreStar": true,
+                  "extract": "*.Item",
+                  "generate": "title"
+                },
+                {
+                  "qa__extract": "Quantity",
+                  "qa__ignoreStar": true,
+                  "extract": "*.Quantity",
+                  "generate": "quantity"
+                }
+              ],
+              "generate": "order.line_items"
+            }
+          ]
+        },
+        "adaptorType": "HTTPImport",
+        "http": {
+          "relativeURI": [
+            "orders.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "formType": "http",
+          "qa__formType": "rest",
+          "strictHandlebarEvaluation": true
+        },
+        "rest": {
+          "relativeURI": [
+            "orders.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": []
+        }
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "entity": "rajaneesh",
+      "ITEM": "ACC00001",
+      "QTY": "1",
+      "Amount": "114",
+      "custbody47": "custom",
+      "otherrefnum": "1234"
+    },
+    "application":"NETSUITE",    
+    "importapiIdentifier": "ib152b3b52",
+    "importRecordType": "orders",
+    "expected": {
+      "shopify": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "26.NS Flow#1-NS(Salesorder) to Shopify(Order)-All",
+        "import": {
+          "_connectionId": "HTTP SHOPIFY CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "isUIFlow": true,
+          "generateSampleDropDownAvailable": false,
+          "exportapiIdentifier": "ec5eca7bf3",
+          "standaloneexportflowID": "572aeb3c5ac02fad176332a1",
+          "importRecordType": "orders",
+          "exportRecordType": "Salesorder",
+          "uniqueField": "note",
+          "expectedJSON": {
+            "note": "1234",
+            "line_items": [
+              {
+                "title": "ACC00001",
+                "quantity": 1,
+                "price": "114.00",
+                "name": "ACC00001"
+              }
+            ],
+            "customer": {
+              "first_name": "rajaneesh"
+            }
+          }
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "633bda8e68b255685a3f8a14",
+      "createdAt": "2022-10-04T07:02:38.993Z",
+      "lastModified": "2023-07-10T10:29:37.724Z",
+      "name": "DND_TC_C2761_NStoFTP",
+      "_connectionId": "5a093d279dda7b71eb95b793",
+      "distributed": true,
+      "apiIdentifier": "ib152b3b52",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "useSS2Restlets": false,
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "salesorder",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "entity",
+              "extract": "entity",
+              "internalId": false
+            },
+            {
+              "extract": "custbody47",
+              "generate": "custbody47",
+              "internalId": false
+            },
+            {
+              "extract": "otherrefnum",
+              "generate": "otherrefnum",
+              "internalId": false
+            }
+          ],
+          "lists": [
+            {
+              "generate": "item",
+              "fields": [
+                {
+                  "extract": "QTY",
+                  "generate": "quantity",
+                  "internalId": false
+                },
+                {
+                  "generate": "amount",
+                  "extract": "Amount",
+                  "internalId": false
+                },
+                {
+                  "generate": "item",
+                  "extract": "ITEM",
+                  "internalId": true
+                },
+                {
+                  "generate": "taxcode",
+                  "discardIfEmpty": false,
+                  "immutable": false,
+                  "hardCodedValue": "1030",
+                  "internalId": true
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

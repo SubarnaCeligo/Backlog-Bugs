@@ -1,0 +1,162 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Test export",
+            "application": "zendesk support",
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i3fba49e77",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [{
+                    "method": "GET",
+                    "relativeURI": "/users/autocomplete.json?name=Celigo",
+                    "extract": "users.[0].name",
+                    "allowFailures": false,
+                    "name": "Admin_Name",
+                    "useImportHeaders": false
+                },
+                {
+                    "map": {
+                        "USA": "United States"
+                    },
+                    "allowFailures": false,
+                    "name": "Country_Static",
+                    "useImportHeaders": false
+                }
+            ],
+            "http": {
+                "relativeURI": [
+                    "/organizations/{{rows.[0].id}}",
+                    "/{{rows.[0].record_type}}"
+                ],
+                "method": ["PUT", "POST"],
+                "body": [
+                    "{  \"organization\": { \n   \"name\": \"{{rows.[0].name}}\",\n   \"notes\": \"{{rows.[0].notes}}\",\n   \"organization_fields\": { \n   \"email\": \"{{rows.[0].email}}\",\n   \"billing_address_1\": \"{{rows.[0].billing_address_1}}\",\n   \"billing_address2\": \"{{rows.[0].billing_address2}}\",\n   \"billing_city\": \"{{rows.[0].billing_city}}\",\n   \"billing_state\": \"{{rows.[0].billing_state}}\", \n   \"shipping_address_1\": \"{{lookup \"Admin_Name\" this}}\",\n   \"shipping_city\": \"{{rows.[0].shipping_city}}\",\n   \"shipping_state\": \"{{rows.[0].shipping_state}}\",\n   \"shipping_country\": \"{{lookup \"Country_Static\" rows.[0].shipping_country}}\"  \n   }\n   }\n   }",
+                    "{  \"organization\": { \n   \"name\": \"{{rows.[0].name}}\",\n   \"notes\": \"{{rows.[0].notes}}\",\n   \"organization_fields\": { \n   \"email\": \"{{rows.[0].email}}\",\n   \"billing_address_1\": \"{{rows.[0].billing_address_1}}\",\n   \"billing_address2\": \"{{rows.[0].billing_address2}}\",\n   \"billing_city\": \"{{rows.[0].billing_city}}\",\n   \"billing_state\": \"{{rows.[0].billing_state}}\", \n   \"shipping_address_1\": \"{{lookup \"Admin_Name\" this}}\",\n   \"shipping_city\": \"{{rows.[0].shipping_city}}\",\n   \"shipping_state\": \"{{rows.[0].shipping_state}}\",\n   \"shipping_country\": \"{{lookup \"Country_Static\" rows.[0].shipping_country}}\"  \n   }\n   }\n   }"
+                ],
+                "batchSize": 1,
+                "requestType": ["UPDATE", "CREATE"],
+                "strictHandlebarEvaluation": true,
+                "formType": "http",
+                "qa__formType": "rest",
+                "existingExtract": "id",
+                "lookups": [{
+                        "method": "GET",
+                        "relativeURI": "/users/autocomplete.json?name=Celigo",
+                        "extract": "users.[0].name",
+                        "allowFailures": false,
+                        "name": "Admin_Name",
+                        "useImportHeaders": false
+                    },
+                    {
+                        "map": {
+                            "USA": "United States"
+                        },
+                        "allowFailures": false,
+                        "name": "Country_Static",
+                        "useImportHeaders": false
+                    }
+                ]
+            },
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_506_FTP_Zendesk_Organizations_Composite_With_Rows_Using_AFE_REST",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "name": "TC_506_FTP_Zendesk_Organizations_Composite_With_Rows_Using_AFE_REST",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                            "name": "Mackinson India 1",
+                            "notes": "",
+                            "organization_fields": {
+                                "email": "Mackinson1@gmail.com",
+                                "billing_address_1": "Alpine st",
+                                "billing_address2": null,
+                                "billing_city": "Memphis",
+                                "billing_state": "Tennesse",
+                                "shipping_address_1": "Celigo IO Automation",
+                                "shipping_city": "Memphis",
+                                "shipping_country": "United States",
+                                "shipping_state": "Tennesse"
+                            }
+                        },
+                        {
+                            "name": "Mackinson India 2",
+                            "notes": "",
+                            "organization_fields": {
+                                "email": "Mackinson2@gmail.com",
+                                "billing_address_1": "Maine st",
+                                "billing_address2": null,
+                                "billing_city": "LA",
+                                "billing_state": "California",
+                                "shipping_address_1": "Celigo IO Automation",
+                                "shipping_city": "LA",
+                                "shipping_country": "United States",
+                                "shipping_state": "Tennesse"
+                            }
+                        }
+                    ],
+                    "standaloneexportflowID": "614821f50b06e17eb526c990",
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "name",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ebce87222b"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Organizations_Date_497",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/TC_506_OrganizationsData.csv",
+            "apiIdentifier": "e956f3b46a",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_506_OrganizationsData"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "groupByFields": ["name"],
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

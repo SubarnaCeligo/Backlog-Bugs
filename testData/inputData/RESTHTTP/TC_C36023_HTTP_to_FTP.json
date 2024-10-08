@@ -1,0 +1,58 @@
+{
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+      "successCount": "232",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "pageGenerators": [
+      {
+        "qa__export":{
+            "name": "Get Customers",
+            "application": "square",
+            "qa__connectionId": "617fb48c42fb010e47524339",
+            "_connectionId": "HTTP SQUARE CONNECTION",
+            "http": {
+              "relativeURI": "/v2/customers?cursor={{export.http.paging.token}}&limit=5",
+              "method": "GET",
+              "formType": "http",
+              "paging": {
+                "method": "token",
+                "path": "cursor"
+              },
+              "response": {
+                "resourcePath": "customers"
+              }
+            },
+            "adaptorType": "HTTPExport"
+          }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "Token Pagination import",
+            "parsers": [
+
+            ],
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "file": {
+              "fileName": "Http_Next_Page_Token_Chargebee_QA.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "Http_Next_Page_Token_Chargebee_QA.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+      }
+    ],
+    "name": "TC_C36023_HTTP_to_FTP",
+    "disabled": false,
+    "timezone": "Asia/Calcutta"
+  }

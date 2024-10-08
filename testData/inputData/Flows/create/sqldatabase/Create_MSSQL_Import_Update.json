@@ -1,0 +1,335 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "Create_MSSQL_Import_Update",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "6",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "parsers": [],
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "2468",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          }
+        },
+        "adaptorType": "NetSuiteExport",
+        "name": "PG_Export "
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "modelMetadata": {
+          "Type": {
+            "default": ""
+          },
+          "Email": {
+            "default": ""
+          },
+          "Phone": {
+            "default": ""
+          },
+          "recordType": {
+            "default": ""
+          },
+          "Title": {
+            "default": ""
+          },
+          "id": {
+            "default": ""
+          },
+          "Fax": {
+            "default": ""
+          },
+          "Direction": {
+            "default": ""
+          },
+          "Memo": {
+            "default": ""
+          },
+          "Name": {
+            "default": ""
+          }
+        },
+        "parsers": [],
+        "_connectionId": "MSSQL CONNECTION",
+        "distributed": false,
+        "lookups": [],
+        "rdbms": {
+          "query": [
+            "UPDATE MSSQL_Import_Update SET Phone={{data.Phone}}, Fax={{data.Fax}},Email={{data.Email}},Title={{data.Title}},Type={{data.Type}},Memo={{data.Memo}}, Direction={{data.Direction}} WHERE Name={{data.Name}}"
+          ],
+          "queryType": [
+            "UPDATE"
+          ]
+        },
+        "adaptorType": "RDBMSImport",
+        "name": "PP_Import "
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "Create_MSSQL_Import_Update",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "Name": "MSSQL_Import_Update1",
+              "Email": "postgresqlupdate1@mail.com",
+              "Phone": "(770) 247-5425",
+              "Fax": "998877445566",
+              "Title": "updatetitle1",
+              "Type": "A fax.",
+              "Memo": "updatememo1",
+              "Direction": "Incoming"
+            },
+            {
+              "Name": "MSSQL_Import_Update2",
+              "Email": "postgresq1update2@mail.com",
+              "Phone": "(778) 899-6633",
+              "Fax": "112233665544",
+              "Title": "updatetitle2",
+              "Type": "A fax.",
+              "Memo": "updatememo2",
+              "Direction": "Outgoing"
+            },
+            {
+              "Name": "MSSQL_Import_Update3",
+              "Email": "postgresqlupdate3@mail.com",
+              "Phone": "(774) 411-2255",
+              "Fax": "(558) 822-8866",
+              "Title": "updatetitle3",
+              "Type": "A fax.",
+              "Memo": "updatememo3",
+              "Direction": "Incoming"
+            }
+          ],
+          "uniqueField": "Name",
+          "exportRecordType": "Customer",
+          "standaloneexportflowID": "5a8e889254a93d29c5893113",
+          "isUIFlow": true,
+          "importRecordType": "organizations",
+          "exportapiIdentifier": "e96e9edabf"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "6",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "MSSQL CONNECTION"
+        }
+      }
+    },
+    "importRecordJSON": [
+      {
+        "Email": "postgresqlupdate1@mail.com",
+        "Title": "updatetitle1",
+        "Direction": "Incoming",
+        "Company Name": "MSSQL_Import_Update1",
+        "Type": "Fax",
+        "subsidiary": "HH Inc.",
+        "Phone": "7702475425",
+        "Fax": "998877445566",
+        "Memo": "updatememo1"
+      },
+      {
+        "Email": "postgresq1update2@mail.com",
+        "Title": "updatetitle2",
+        "Direction": "Outgoing",
+        "subsidiary": "HH Inc.",
+        "Company Name": "MSSQL_Import_Update2",
+        "Type": "Fax",
+        "Phone": "7788996633",
+        "Fax": "112233665544",
+        "Memo": "updatememo2"
+      },
+      {
+        "Email": "postgresqlupdate3@mail.com",
+        "Title": "updatetitle3",
+        "Direction": "Incoming",
+        "Company Name": "MSSQL_Import_Update3",
+        "Type": "Fax",
+        "Phone": "7744112255",
+        "subsidiary": "HH Inc.",
+        "Fax": "5588228866",
+        "Memo": "updatememo3"
+      }
+    ],
+    "application": "NETSUITE",
+    "importapiIdentifier": "i3ebd45851",
+    "importapidoc": {
+      "_id": "633bd53c68b255685a3f850d",
+      "createdAt": "2022-10-04T06:39:56.208Z",
+      "lastModified": "2022-11-01T11:06:36.504Z",
+      "name": "_DND-TC_C29923",
+      "_connectionId": "5a093d279dda7b71eb95b793",
+      "distributed": true,
+      "apiIdentifier": "i3ebd45851",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "useSS2Restlets": false,
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Email",
+              "generate": "email",
+              "internalId": false
+            },
+            {
+              "extract": "Title",
+              "generate": "title",
+              "internalId": false
+            },
+            {
+              "extract": "['Company Name']",
+              "generate": "companyname",
+              "internalId": false
+            },
+            {
+              "extract": "Type",
+              "generate": "isindividual",
+              "internalId": false
+            },
+            {
+              "extract": "Phone",
+              "generate": "phone",
+              "internalId": false
+            },
+            {
+              "extract": "Fax",
+              "generate": "fax",
+              "internalId": false
+            },
+            {
+              "generate": "subsidiary",
+              "internalId": true,
+              "discardIfEmpty": false,
+              "immutable": false,
+              "hardCodedValue": "3"
+            }
+          ],
+          "lists": [
+            {
+              "generate": "_shipping_addressbook",
+              "fields": [
+                {
+                  "extract": "['Shipping City']",
+                  "generate": "city",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping State/Province']",
+                  "generate": "state",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping Country']",
+                  "generate": "country",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping Address 1']",
+                  "generate": "addr1",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Shipping Zip']",
+                  "generate": "zip",
+                  "internalId": false
+                }
+              ]
+            },
+            {
+              "generate": "_billing_addressbook",
+              "fields": [
+                {
+                  "extract": "['Billing Country']",
+                  "generate": "country",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing Zip']",
+                  "generate": "zip",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing City']",
+                  "generate": "city",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing Address 1']",
+                  "generate": "addr1",
+                  "internalId": false
+                },
+                {
+                  "extract": "['Billing State/Province']",
+                  "generate": "state",
+                  "internalId": false
+                }
+              ]
+            },
+            {
+              "generate": "usernotes",
+              "fields": [
+                {
+                  "extract": "Direction",
+                  "generate": "direction",
+                  "internalId": false
+                },
+                {
+                  "extract": "Memo",
+                  "generate": "note",
+                  "internalId": false
+                },
+                {
+                  "extract": "Title",
+                  "generate": "title",
+                  "internalId": false
+                },
+                {
+                  "extract": "Type",
+                  "generate": "notetype",
+                  "internalId": false
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

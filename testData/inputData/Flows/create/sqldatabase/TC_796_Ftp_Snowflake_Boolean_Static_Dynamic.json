@@ -1,0 +1,142 @@
+{
+    "name": "TC_796_Ftp_Snowflake_Boolean_Static_Dynamic",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "export",
+          "_connectionId": "FTP CONNECTION",
+          "asynchronous": true,
+          "qa__path": "/FTP_uploads/TC_796_Ftp_Snowflake_Boolean_Dynamic_Static.json",
+          "sandbox": false,
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "TC_796_Ftp_Snowflake_Boolean_Dynamic_Static"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "json",
+            "json": {
+              "resourcePath": "*"
+            }
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "qa__import": {
+          "name": "import",
+          "modelMetadata": {
+            "name": {
+              "default": ""
+            },
+            "email": {
+              "default": ""
+            },
+            "active": {
+              "default": ""
+            }
+          },
+          "_connectionId": "SNOWFLAKE CONNECTION",
+          "oneToMany": false,
+          "sandbox": false,
+          "lookups": [
+            {
+              "map": {
+                "false": "true",
+                "true": "false"
+              },
+              "allowFailures": false,
+              "name": "static"
+            },
+            {
+              "query": "select * from automation_fetch_boolean where NAME={{name}}",
+              "extract": "ACTIVE",
+              "allowFailures": false,
+              "name": "dynamic"
+            }
+          ],
+          "rdbms": {
+            "query": [
+              "INSERT INTO automation_dynamic_static_boolean_values\n(\nNAME,\nEMAIL,\nACTIVE,\nEXPORTED\n)\nVALUES\n(\n{{record.name}},\n{{record.email}},\n{{lookup \"static\" record.active}},\n{{lookup \"dynamic\" record}}\n)"
+            ],
+            "queryType": [
+              "INSERT"
+            ],
+            "lookups": [
+              {
+                "map": {
+                  "false": "true",
+                  "true": "false"
+                },
+                "allowFailures": false,
+                "name": "static"
+              },
+              {
+                "query": "select * from automation_fetch_boolean where NAME={{name}}",
+                "extract": "ACTIVE",
+                "allowFailures": false,
+                "name": "dynamic"
+              }
+            ]
+          },
+          "adaptorType": "RDBMSImport"
+        },
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import"
+      }
+    ],
+    "qa__dataVerification": {
+      "expected": {
+        "RDBMS": {
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "name": "TC_796_Ftp_Snowflake_Boolean_Static_Dynamic",
+          "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "expectedJSON": [
+              {
+                "NAME": "Fetch_Boolean_True_Record1",
+                "EMAIL": "fetchbooleantrue@celigo.com",
+                "ACTIVE": true,
+                "EXPORTED": true
+              },
+              {
+                "NAME": "Fetch_Boolean_false_Record2",
+                "EMAIL": "fetchbooleanfalse@gmail.com",
+                "ACTIVE": false,
+                "EXPORTED": false
+              }
+            ],
+            "uniqueField": "NAME",
+            "standaloneexportflowID": "6229a6cbadf1d40ef15db0a0",
+            "importRecordType": "automation_dynamic_static_boolean_values",
+            "isUIFlow": true,
+            "exportapiIdentifier": "ef9f62af72"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "2",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "import": {
+            "_connectionId": "SNOWFLAKE CONNECTION"
+          }
+        }
+      }
+    }
+  }

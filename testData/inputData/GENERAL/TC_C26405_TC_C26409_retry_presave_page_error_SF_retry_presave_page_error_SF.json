@@ -1,150 +1,151 @@
 {
-  "name": "TC_C26405_TC_C26409_retry_presave_page_error_SF",
-  "referencename": "TC_C26405_TC_C26409_retry_presave_page_error_SF",
+  "name": "TC_C26405_TC_C26409_retry_presave_page_error_SF_retry_presave_page_error_SF",
+  "Source_Integration": "Delete_TC_C41722",
+  "script1": {
+      "name": "ONE",
+      "content": "import api from 'integrator-api';\nfunction preSavePageFunction(options) {\n  let resp = api.exports.run({\n  _id: 'export_alias'\n   })\n    options.data[0].res = resp\n    options.data[0].res1 = JSON.stringify(resp)\n    return {\n      data: options.data,\n      errors: options.errors\n  }\n}"
+  },
+  "script2": {
+      "name":  "TWO",
+      "content": "import api from 'integrator-api';\nfunction preSavePageFunction(options) {\n  let resp = api.exports.run({\n  _id: 'export_alias'\n   })\n    options.data[0].res = resp\n    options.data[0].res1 = JSON.stringify(resp)\n    return {\n      data: options.data,\n      errors: options.errors\n  }\n}"
+  },
+  "createAlias": {
+      "Source_Integration": "Delete_TC_C41722",
+      "aliasName": "export_alias",
+      "aliasResourceType": "exports",
+      "aliasResourceName": "",
+      "flowID": ""
+  },
   "qa__expectedDashboardCount": {
-    "ignoreCount": "0",
-    "successCount": "0",
-    "errorCount": "1"
+      "ignoreCount": "0",
+      "successCount": "0",
+      "errorCount": "1"
   },
-  "qa__expectedDashboardCount1qa": {
-    "ignoreCount": "0",
-    "successCount": "1",
-    "errorCount": "0"
-  },
-  "qa__expectedDashboardCount1staging": {
-    "ignoreCount": "0",
-    "successCount": "0",
-    "errorCount": "0"
-  },
-  "data": {
-    "importRecordJSON": {
-      "lastname": "TC_C26409",
-      "firstname": "abc"
-    },
-    "application": "SALESFORCE",
-    "importapiIdentifier": "i6c9d427d8",
-    "importapidoc": {
-      "_id": "6342bddd1486c63a7cc0c9fb",
-      "createdAt": "2022-10-09T12:26:05.342Z",
-      "lastModified": "2022-10-09T12:26:21.639Z",
-      "name": "SF_contact_creation",
-      "_connectionId": "571f99ac7dcd19f174d07ad8",
-      "apiIdentifier": "i6c9d427d8",
-      "ignoreExisting": false,
-      "ignoreMissing": false,
-      "oneToMany": false,
-      "sandbox": false,
-      "mapping": {
-        "fields": [
-          {
-            "extract": "lastname",
-            "generate": "LastName"
-          },
-          {
-            "extract": "firstname",
-            "generate": "FirstName"
+  "qa__dataVerification": {
+      "expected": {
+          "FTP": {
+              "name": "TC_C41722.json",
+              "_integrationId": "",
+              "import": {
+                  "_connectionId": "FTP CONNECTION"
+              },
+              "qa__dataVerification": {
+                  "fileName": "TC_C41722",
+                  "isUIFlow": true,
+                  "folderName": "/io.auto.qa",
+                  "fileType": ".json"
+              }
           }
-        ]
-      },
-      "salesforce": {
-        "operation": "insert",
-        "sObjectType": "Contact",
-        "api": "soap",
-        "removeNonSubmittableFields": false
-      },
-      "adaptorType": "SalesforceImport"
-    }
+      }
   },
   "qa__api_tdata": [
-    {
-      "pageGenerators": [
-        {
-          "type": "export",
-          "qa__export": {
-            "name": "TC_C26409_exp",
-            "_connectionId": "SALESFORCE CONNECTION",
-            "asynchronous": true,
-            "type": "distributed",
-            "hooks": {
-              "preSavePage": {
-                "_scriptId": "",
-                "function": "preSavePage"
+      {
+          "pageGenerators": [
+              {
+                  "type": "export",
+                  "qa__export": {
+                      "name": "TC_C41722_Export",
+                      "_connectionId": "SALESFORCE CONNECTION",
+                      "apiIdentifier": "e51185aadc",
+                      "asynchronous": true,
+                      "type": "test",
+                      "oneToMany": false,
+                      "sandbox": false,
+                      "test": {
+                          "limit": 1
+                      },
+                      "hooks": {
+                          "preSavePage": {
+                              "_scriptId": "",
+                              "function": "preSavePageFunction"
+                          }
+                      },
+                      "salesforce": {
+                          "type": "soql",
+                          "api": "rest",
+                          "soql": {
+                              "query": "select name, id, type from account"
+                          }
+                      },
+                      "adaptorType": "SalesforceExport"
+                  }
               }
-            },
-            "oneToMany": false,
-            "sandbox": false,
-            "distributed": {
-              "bearerToken": "******"
-            },
-            "salesforce": {
-              "sObjectType": "Contact",
-              "distributed": {
-                "disabled": false,
-                "qualifier": "LastName LIKE '%TC_C26409%'"
+          ],
+          "pageProcessors": [
+              {
+                  "type": "import",
+                  "qa__import": {
+                      "name": "SS2.0 Script Instruction Count Error",
+                      "_connectionId": "NETSUITE CONNECTION",
+                      "distributed": true,
+                      "hooks": {
+                          "preMap": {
+                              "function": "preMap",
+                              "_scriptId": ""
+                          }
+                      },
+                      "ignoreExisting": false,
+                      "ignoreMissing": false,
+                      "oneToMany": false,
+                      "lookups": [],
+                      "netsuite_da": {
+                          "useSS2Restlets": true,
+                          "operation": "add",
+                          "recordType": "customer",
+                          "lookups": [],
+                          "mapping": {
+                              "fields": [
+                                  {
+                                      "generate": "companyname",
+                                      "extract": "entity.name",
+                                      "internalId": false
+                                  },
+                                  {
+                                      "generate": "subsidiary",
+                                      "discardIfEmpty": false,
+                                      "immutable": false,
+                                      "hardCodedValue": "3",
+                                      "internalId": true
+                                  }
+                              ],
+                              "lists": []
+                          },
+                          "hooks": {
+                              "postMap": {
+                                  "fileInternalId": "4118408",
+                                  "function": "postMap"
+                              }
+                          }
+                      },
+                      "adaptorType": "NetSuiteDistributedImport"
+                  }
               }
-            },
-            "adaptorType": "SalesforceExport"
-          }
-        }
-      ],
-      "pageProcessors": [
-        {
-          "type": "import",
-          "qa__import": {
-            "name": "TC_C26409_imp",
-            "_connectionId": "FTP CONNECTION",
-            "oneToMany": false,
-            "sandbox": false,
-            "mapping": {
-              "fields": [
-                {
-                  "extract": "lastname",
-                  "generate": "ID"
-                }
+          ],
+          "createFlow": {
+              "name": "TC_C26405_TC_C26409_retry_presave_page_error_SF_retry_presave_page_error_SF",
+              "disabled": false,
+              "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+              "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
+              "skipRetries": false,
+              "pageProcessors": [
+                  {
+                      "responseMapping": {
+                          "fields": [],
+                          "lists": []
+                      },
+                      "type": "import",
+                      "_importId": "UPDATE WITH NEW IMPORTID"
+                  }
+              ],
+              "pageGenerators": [
+                  {
+                      "_exportId": "UPDATE WITH NEW EXPORTID"
+                  }
               ]
-            },
-            "file": {
-              "fileName": "TC_C26409.json",
-              "skipAggregation": false,
-              "type": "json"
-            },
-            "ftp": {
-              "directoryPath": "io.auto.qa/IO_UI_Automation",
-              "fileName": "TC_C26409.json"
-            },
-            "adaptorType": "FTPImport"
+          },
+          "createIntegrations": {
+              "name": "Delete_TC_C41722"
           }
-        }
-      ],
-      "createFlow": {
-        "name": "TC_C26405_TC_C26409_retry_presave_page_error_SF",
-        "disabled": false,
-        "_integrationId": "56d6b23fe1fc35de53914730",
-        "skipRetries": false,
-        "pageProcessors": [
-          {
-            "responseMapping": {
-              "fields": [],
-              "lists": []
-            },
-            "type": "import",
-            "_importId": "UPDATE WITH NEW IMPORTID"
-          }
-        ],
-        "pageGenerators": [
-          {
-            "_exportId": "UPDATE WITH NEW EXPORTID"
-          }
-        ]
       }
-    }
-  ],
-  "scriptBody": {
-    "name": "TC_C26409",
-    "content": "function preSavePage(options) {\r\n  throw new Error(\"tc\");\r\n}"
-  },
-  "correctScriptBody": {
-    "name": "TC_C26409",
-    "content": "function preSavePage(options){\r\n options.data[0].lastname = options.data[0].LastName; \r\n return {\r\ndata: options.data\r\n}\r\n}"
-  }
+  ]
 }

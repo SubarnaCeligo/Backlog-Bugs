@@ -2,382 +2,225 @@
     "name": "TC_C28110",
     "referencename": "TC_C28110",
     "qa__api_tdata": [
-        {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "application": "MySQL",
-                        "name": "MySQL Export",
-                        "_connectionId": "MYSQL CONNECTION",
-                        "apiIdentifier": "e89800a217",
-                        "asynchronous": true,
-                        "hooks": {
-                            "preSavePage": {
-                                "_scriptId": "62fca2380cb90e1c9f9f9f22",
-                                "function": "test"
-                            }
-                        },
-                        "oneToMany": false,
-                        "sandbox": false,
-                        "rawData": "62ebb431e627016182cf33910161c601717a40daa39e328f0b03f75f",
-                        "rdbms": {
-                            "query": "select * from Templates.Order LIMIT 1"
-                        },
-                        "filter": {
-                            "type": "expression",
-                            "expression": {
-                                "rules": [
-                                    "not",
-                                    [
-                                        "equals",
-                                        [
-                                            "string",
-                                            [
-                                                "extract",
-                                                "customerid"
-                                            ]
-                                        ],
-                                        "0"
-                                    ]
-                                ],
-                                "version": "1"
-                            },
-                            "version": "1",
-                            "rules": [
-                                "not",
-                                [
-                                    "equals",
-                                    [
-                                        "string",
-                                        [
-                                            "extract",
-                                            "customerid"
-                                        ]
-                                    ],
-                                    "0"
-                                ]
-                            ]
-                        },
-                        "adaptorType": "RDBMSExport"
-                    }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "Zendesk Import",
-                        "application":"zendesk support",
-                        "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "apiIdentifier": "i8ddfc7b3d",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "sandbox": false,
-                        "mappings": [
-                            {
-                                "extract": "$.orderid",
-                                "generate": "orderid",
-                                "dataType": "string",
-                                "status": "Active"
-                            }
-                        ],
-                        "http": {
-                            "relativeURI": [
-                                "/tickets"
-                            ],
-                            "method": [
-                                "POST"
-                            ],
-                            "body": [
-                                "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
-                            ],
-                            "batchSize": 1,
-                            "sendPostMappedData": true,
-                            "formType": "http"
-                        },
-                        "filter": {
-                            "type": "expression",
-                            "expression": {
-                                "rules": [
-                                    "not",
-                                    [
-                                        "equals",
-                                        [
-                                            "string",
-                                            [
-                                                "extract",
-                                                "customerid"
-                                            ]
-                                        ],
-                                        "0"
-                                    ]
-                                ],
-                                "version": "1"
-                            },
-                            "version": "1",
-                            "rules": [
-                                "not",
-                                [
-                                    "equals",
-                                    [
-                                        "string",
-                                        [
-                                            "extract",
-                                            "customerid"
-                                        ]
-                                    ],
-                                    "0"
-                                ]
-                            ]
-                        },
-                        "adaptorType": "HTTPImport"
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": 
+            {
+                "name": "zd exp",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "eb381950b3",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users",
+                    "method": "GET",
+                    "isRest": false,
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users",
+                        "twoDArray": {
+                            "doNotNormalize": false,
+                            "hasHeader": false
+                        }
                     }
                 },
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "MySQL Import",
-                        "application": "MySQL",
-                        "_connectionId": "MYSQL CONNECTION",
-                        "apiIdentifier": "i2eb9ea799",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "sandbox": false,
-                        "rdbms": {
-                            "query": [
-                                "insert into"
-                            ],
-                            "queryType": [
-                                "INSERT"
-                            ]
-                        },
-                        "adaptorType": "RDBMSImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C28110",
-                "disabled": false,
-                "qa__integrationId": "62eca1efe386b563f638451e",
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "skipRetries": false,
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    },
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    }
-                ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
-                    }
-                ]
-            }
-        }
-    ],
-    "staging" : {
-        "qa__api_tdata": [
-            {
-                "pageGenerators": [
-                    {
-                        "type": "export",
-                        "qa__export": {
-                            "application": "MySQL",
-                            "name": "MySQL Export",
-                            "_connectionId": "MYSQL CONNECTION",
-                            "apiIdentifier": "e89800a217",
-                            "asynchronous": true,
-                            "hooks": {
-                                "preSavePage": {
-                                    "_scriptId": "6327d71b0dbc53086e888cfa",
-                                    "function": "sample"
-                                }
-                            },
-                            "oneToMany": false,
-                            "sandbox": false,
-                            "rdbms": {
-                                "query": "select * from Templates.Order LIMIT 1"
-                            },
-                            "filter": {
-                                "type": "expression",
-                                "expression": {
-                                    "rules": [
-                                        "not",
-                                        [
-                                            "equals",
-                                            [
-                                                "string",
-                                                [
-                                                    "extract",
-                                                    "customerid"
-                                                ]
-                                            ],
-                                            "0"
-                                        ]
-                                    ],
-                                    "version": "1"
-                                },
-                                "version": "1",
-                                "rules": [
-                                    "not",
-                                    [
-                                        "equals",
-                                        [
-                                            "string",
-                                            [
-                                                "extract",
-                                                "customerid"
-                                            ]
-                                        ],
-                                        "0"
-                                    ]
-                                ]
-                            },
-                            "adaptorType": "RDBMSExport"
-                        }
-                    }
-                ],
-                "pageProcessors": [
-                    {
-                        "type": "import",
-                        "qa__import": {
-                            "name": "Zendesk Import",
-                            "application": "zendesk support",
-                            "_connectionId": "ZENDESK CONNECTION",
-                            "apiIdentifier": "i8ddfc7b3d",
-                            "ignoreExisting": false,
-                            "ignoreMissing": false,
-                            "oneToMany": false,
-                            "sandbox": false,
+                "rawData": "62ebb431e627016182cf3391575ecb66d3e440789737144ef936539e",
+                "test": {
+                    "limit": 1
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            []
+                        ],
+                        "rulesTwoDotZero": {
                             "mappings": [
                                 {
-                                    "extract": "$.orderid",
                                     "generate": "orderid",
                                     "dataType": "string",
-                                    "status": "Active"
+                                    "extract": "$.id",
+                                    "status": "Active",
+                                    "sourceDataType": "number"
                                 }
                             ],
-                            "http": {
-                                "relativeURI": [
-                                    "/tickets"
-                                ],
-                                "method": [
-                                    "POST"
-                                ],
-                                "body": [
-                                    "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"The smoke is very colorful.\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire!\"\n  }\n}"
-                                ],
-                                "batchSize": 1,
-                                "sendPostMappedData": true,
-                                "formType": "http"
-                            },
-                            "filter": {
-                                "type": "expression",
-                                "expression": {
-                                    "rules": [
-                                        "not",
-                                        [
-                                            "equals",
-                                            [
-                                                "string",
-                                                [
-                                                    "extract",
-                                                    "customerid"
-                                                ]
-                                            ],
-                                            "0"
-                                        ]
-                                    ],
-                                    "version": "1"
-                                },
-                                "version": "1",
-                                "rules": [
-                                    "not",
-                                    [
-                                        "equals",
-                                        [
-                                            "string",
-                                            [
-                                                "extract",
-                                                "customerid"
-                                            ]
-                                        ],
-                                        "0"
-                                    ]
-                                ]
-                            },
-                            "adaptorType": "HTTPImport"
-                        }
+                            "mode": "modify"
+                        },
+                        "version": "2"
                     },
-                    {
-                        "type": "import",
-                        "qa__import": {
-                            "name": "MySQL Import",
-                            "application": "MySQL",
-                            "_connectionId": "MYSQL CONNECTION",
-                            "apiIdentifier": "i2eb9ea799",
-                            "ignoreExisting": false,
-                            "ignoreMissing": false,
-                            "oneToMany": false,
-                            "sandbox": false,
-                            "rdbms": {
-                                "query": [
-                                    "insert into"
-                                ],
-                                "queryType": [
-                                    "INSERT"
+                    "rules": [
+                        []
+                    ],
+                    "version": "2"
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            "notequals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "id"
                                 ]
-                            },
-                            "adaptorType": "RDBMSImport"
+                            ],
+                            "1"
+                        ],
+                        "version": "1"
+                    },
+                    "rules": [
+                        "notequals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "id"
+                            ]
+                        ],
+                        "1"
+                    ],
+                    "version": "1"
+                },
+                "adaptorType": "HTTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "export",
+            "qa__export": 
+            {
+                "name": "zd lkp",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e82583c254",
+                "asynchronous": true,
+                "isLookup": true,
+                "type": "test",
+                "traceKeyTemplate": "{{record.id}}",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users",
+                    "method": "GET",
+                    "isRest": false,
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "users",
+                        "twoDArray": {
+                            "doNotNormalize": false,
+                            "hasHeader": false
                         }
                     }
-                ],
-                "createFlow": {
-                    "name": "TC_C28110",
-                    "disabled": false,
-                    "qa__integrationId": "62eca1efe386b563f638451e",
-                    "_integrationId": "62ecc42648570015ab65cfa5",
-                    "skipRetries": false,
-                    "pageProcessors": [
-                        {
-                            "responseMapping": {
-                                "fields": [],
-                                "lists": []
-                            },
-                            "type": "import",
-                            "_importId": "UPDATE WITH NEW IMPORTID"
-                        },
-                        {
-                            "responseMapping": {
-                                "fields": [],
-                                "lists": []
-                            },
-                            "type": "import",
-                            "_importId": "UPDATE WITH NEW IMPORTID"
-                        }
-                    ],
-                    "pageGenerators": [
-                        {
-                            "_exportId": "UPDATE WITH NEW EXPORTID"
-                        }
-                    ]
-                }
+                },
+                "test": {
+                    "limit": 1
+                },
+                "adaptorType": "HTTPExport"
             }
-        ]
-    }
-}
+          },
+          {
+            "type": "import",
+            "qa__import":
+            {
+                "name": "zd2",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ia3ab0c421",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": true,
+                "sandbox": false,
+                "traceKeyTemplate": "{{record.id}}",
+                "mappings": [
+                    {
+                        "generate": "abcd",
+                        "dataType": "string",
+                        "status": "Draft",
+                        "sourceDataType": "string"
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "users/create_many"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{  \"users\": [    {      \"email\": \"roge@example.org\",      \"name\": \"Roger Wilco\",      \"organization_id\": 567812345,      \"role\": \"agent\"    },    {      \"email\": \"woge@example.org\",      \"name\": \"Woger Rilco\",      \"role\": \"admin\"    }  ]}"
+                    ],
+                    "batchSize": 2,
+                    "sendPostMappedData": true,
+                    "isRest": false,
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": [
+                            "jobstatus.records"
+                        ]
+                    }
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            "equals",
+                            [
+                                "string",
+                                [
+                                    "extract",
+                                    "active"
+                                ]
+                            ],
+                            "3"
+                        ],
+                        "version": "1"
+                    },
+                    "rules": [
+                        "equals",
+                        [
+                            "string",
+                            [
+                                "extract",
+                                "active"
+                            ]
+                        ],
+                        "3"
+                    ],
+                    "version": "1"
+                },
+                "adaptorType": "HTTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C28110",
+          "disabled": false,
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "type": "export",
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

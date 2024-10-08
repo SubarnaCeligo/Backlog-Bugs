@@ -1,0 +1,106 @@
+{
+    "name": "TC_C36042",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0",
+        "pages": "1"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "imp",
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "first_name",
+                        "generate": "first_name"
+                    },
+                    {
+                        "extract": "last_name",
+                        "generate": "last_name"
+                    },
+                    {
+                        "extract": "email",
+                        "generate": "email"
+                    }
+                ]
+            },
+            "file": {
+                "fileName": "TC_C36042.csv",
+                "skipAggregation": false,
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C36042.csv"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "Ftp": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "TC_C36042.csv",
+                "qa__dataVerification": {
+                    "fileName": "TC_C36042",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0",
+                    "pages": "1"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "export",
+            "application": "BigCommerce",
+            "qa__connectionId": "62eb89c0c9c10468159c2165",
+            "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/v2/customers?first_name=malla&limit=2{{#if export.http.paging.page}}&page={{export.http.paging.page}}{{/if}}",
+                "method": "GET",
+                "formType": "http",
+                "paging": {
+                    "method": "page",
+                    "page": 1,
+                    "lastPageStatusCode": 404
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }]
+}

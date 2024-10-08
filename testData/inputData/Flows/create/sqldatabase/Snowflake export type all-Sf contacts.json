@@ -1,0 +1,101 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "Snowflake export type all-Sf contacts",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "6",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Snowflake Export type-All",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "asynchronous": true,
+            "rdbms": {
+                "query": "select * from automation_all"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Snowflake All as SF contacts",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "NAME",
+                        "generate": "LastName"
+                    },
+                    {
+                        "extract": "COMMENTS",
+                        "generate": "Description"
+                    },
+                    {
+                        "extract": "EMAIL",
+                        "generate": "Email"
+                    },
+                    {
+                        "extract": "ID",
+                        "generate": "FirstName"
+                    }
+                ]
+            },
+            "salesforce": {
+                "operation": "insert",
+                "sObjectType": "Contact",
+                "api": "soap",
+                "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "salesforce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "Snowflake export type all-Sf contacts",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "Name": "51 Auto@snowflakerecord1",
+                            "Email": "myrecord1@gmail.com",
+                            "Description": "testrecord1"
+                        },
+                        {
+                            "Name": "52 Auto@snowflakerecord2",
+                            "Email": "myrecord2@gmail.com",
+                            "Description": "testrecord2"
+                        },
+                        {
+                            "Name": "53 Auto@snowflakerecord3",
+                            "Email": "myrecord3@gmail.com",
+                            "Description": "testrecord3"
+                        }
+                    ],
+                    "dataURIs": [
+                        "https://na116.salesforce.com/0033m00002QknrXAAR",
+                        "https://na116.salesforce.com/0033m00002QknrYAAR",
+                        "https://na116.salesforce.com/0033m00002QknrZAAR"
+                    ],
+                    "uniqueField": "Name",
+                    "standaloneexportflowID": "5eb9289cfd332052ea752834",
+                    "importRecordType": "contact",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e799f3bd8c"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "6",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                }
+            }
+        }
+    }
+}

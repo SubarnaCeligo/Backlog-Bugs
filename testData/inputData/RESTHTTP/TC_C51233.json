@@ -1,0 +1,34 @@
+{
+    "qa__export": {
+        "name": "Valid Export with XML mediatype",
+        "qa__connectionId": "6346544eded6fe4d4020adea",
+        "_connectionId": "GROUPING INVALID CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "parsers": [
+            {
+                "type": "xml",
+                "version": "1",
+                "rules": {
+                    "V0_json": false,
+                    "trimSpaces": false,
+                    "stripNewLineChars": false
+                }
+            }
+        ],
+        "groupByFields": [
+            "Test"
+        ],
+        "http": {
+            "relativeURI": "/xmlresponse",
+            "method": "GET",
+            "successMediaType": "xml",
+            "formType": "http",
+            "response": {
+                "resourcePath": "/"
+            }
+        },
+        "adaptorType": "HTTPExport"
+    }
+}

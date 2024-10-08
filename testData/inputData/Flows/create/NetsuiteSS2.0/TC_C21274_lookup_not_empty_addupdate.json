@@ -1,0 +1,168 @@
+{
+  "name": "TC_C21274_6",
+  "referencename": "TC_C21274_6",
+  "qa__dataVerification": {
+    "expected": {
+      "Netsuite": {
+        "name": "TC_C21274_6",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId":"NETSUITE CONNECTION"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "tranid": "TC_C21274_6",
+              "item": [
+                {
+                  "amount": 1,
+                  "item": {
+                    "internalid": "501",
+                    "name": "ACC00002"
+                  }
+                }
+              ]
+            }
+            ],
+            "exportapiIdentifier": "eb330057e8",
+            "importRecordType": "salesOrder",
+            "isUIFlow": true,
+            "standaloneexportflowID": "633ac0db6c72d76bba78a183",
+            "savedsearchId": "4681",
+            "uniqueField": "tranid"
+        }
+      }
+  }
+},
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C21274_6",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e26804b51e",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C21274_6"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C21274_6",
+            "_connectionId":"NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [
+              {
+                "recordType": "subsidiary",
+                "resultField": "name",
+                "expression": "[\"internalidnumber\",\"equalto\",\"{{{subsidiary}}}\"]",
+                "name": "subsidiary"
+              }
+            ],
+            "netsuite_da": {
+              "useSS2Restlets": true,
+              "operation": "addupdate",
+              "recordType": "salesorder",
+              "internalIdLookup": {
+                  "expression": "[\"tranid\",\"is\",\"{{{orderId}}}\"]"
+              },
+              "lookups": [
+                {
+                  "recordType": "subsidiary",
+                  "resultField": "name",
+                  "expression": "[\"internalidnumber\",\"equalto\",\"{{{subsidiary}}}\"]",
+                  "name": "subsidiary"
+                }
+              ],
+              "mapping": {
+                  "fields": [
+                      {
+                          "generate": "entity",
+                          "extract": "name",
+                          "internalId": false,
+                          "discardIfEmpty": false,
+                          "immutable": false,
+                          "conditional": {
+                              "when": "lookup_not_empty",
+                              "lookupName": "subsidiary"
+                          }
+                      },
+                      {
+                          "generate": "tranid",
+                          "extract": "orderId",
+                          "internalId": false
+                      }
+                  ],
+                  "lists": [
+                      {
+                          "generate": "item",
+                          "fields": [
+                              {
+                                  "generate": "item",
+                                  "extract": "items[*].name",
+                                  "internalId": false
+                              },
+                              {
+                                  "generate": "amount",
+                                  "extract": "items[*].amount",
+                                  "internalId": false
+                              }
+                          ]
+                      }
+                  ]
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C21274_6",
+        "disabled": false,
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

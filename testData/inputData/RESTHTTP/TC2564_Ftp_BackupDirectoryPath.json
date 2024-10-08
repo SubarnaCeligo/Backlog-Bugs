@@ -1,0 +1,109 @@
+{
+    "skipRetries": false,
+    "name": "TC2564_Ftp_BackupDirectoryPath",
+    "disabled": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Ftp Import",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i6c549080e",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "AddBackupPath.json",
+                "skipAggregation": false,
+                "type": "json",
+                "backupPath": "/io.auto.qa/IO_UI_Automatio"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPImports",
+                "fileName": "AddBackupPath.json",
+                "backupDirectoryPath": "/io.auto.qa/IO_UI_Automatio"
+            },
+            "adaptorType": "FTPImport"
+        },
+        "responseMapping": {
+            "lists": [],
+            "fields": []
+        }
+    }],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "SalesForce_Export",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "ebdd4cfd29",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "salesforce": {
+                "type": "soql",
+                "api": "rest",
+                "soql": {
+                    "query": "SELECT AccountNumber,AccountSource,Active__c,AnnualRevenue,Fax,Id,Name,NumberOfEmployees,NumberofLocations__c,Phone,Sic FROM Account where name like 'Auto@199Account'"
+                },
+                "distributed": {
+                    "referencedFields": [],
+                    "relatedLists": []
+                }
+            },
+            "adaptorType": "SalesforceExport"
+        }
+    }],
+    "qa__dataVerification": {
+        "importRecordJSON": {
+            "AccountNumber": "CC978213",
+            "AccountSource": null,
+            "Active__c": "Yes",
+            "AnnualRevenue": 30000000,
+            "BillingAddress": {
+                "city": "Mountain View",
+                "country": null,
+                "geocodeAccuracy": null,
+                "latitude": null,
+                "longitude": null,
+                "postalCode": null,
+                "state": "CA",
+                "street": "345 Shoreline Park\nMountain View, CA 94043\nUSA"
+            },
+            "BillingCity": "Mountain View",
+            "BillingStreet": "345 Shoreline Park\nMountain View, CA 94043\nUSA",
+            "DunsNumber": null,
+            "Fax": "(650) 867-9895",
+            "Id": "001o000000BHQf9AAH",
+            "Name": "GenePoint",
+            "NumberOfEmployees": 265,
+            "NumberofLocations__c": 1,
+            "Phone": "(650) 867-3450",
+            "Sic": "3712"
+        },
+        "importapiIdentifier": "i6c549080e",
+        "expected": {
+            "FTP": {
+                "name": "TC2564_Ftp_BackupDirectoryPath",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "AddBackupPath",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automatio",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

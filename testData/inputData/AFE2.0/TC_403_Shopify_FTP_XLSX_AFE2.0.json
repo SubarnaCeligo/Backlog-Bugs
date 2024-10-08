@@ -1,0 +1,79 @@
+{
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Shopify",
+            "application": "shopify",
+            "_connectionId": "HTTP SHOPIFY CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/orders/4501132231.json",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "resourcePath": "order"
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Shopify_Ftp_XLSX_Include_Header",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "file": {
+                "fileName": "{{batch_of_records.0.record.line_items.[0].title}}.xlsx",
+                "type": "xlsx",
+                "xlsx": {
+                    "includeHeader": true
+                }
+            },
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation",
+                "fileName": "{{batch_of_records.0.record.line_items.[0].title}}.xlsx"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "name": "TC_403_Shopify_FTP_XLSX_AFE2.0",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_403_Shopify_FTP_XLSX_AFE2.0",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "isUIFlow": true,
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "AutoItem5",
+                    "folderName": "io.auto.qa/IO_UI_Automation",
+                    "fileType": ".xlsx"
+                }
+            }
+        }
+    }
+}

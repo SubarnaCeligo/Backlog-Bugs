@@ -1,0 +1,219 @@
+{
+  "skipRetries": false,
+  "_integrationId": "63159bd0976915080d03da1a",
+  "name": "TC_415_Sf_Mssql_Insert_Null_Special_Chars_Default_Data",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "6",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "sf",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name,emp_id__c,Description, Type from Opportunity where Name LIKE 'mssql_automation_afe_record%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "mssql import",
+        "application": "Microsoft SQL",
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "Name": {
+            "default": ""
+          },
+          "emp_id__c": {
+            "default": ""
+          },
+          "Description": {
+            "default": ""
+          },
+          "Type": {
+            "default": ""
+          },
+          "Comments": {
+            "default": "automationrecord"
+          }
+        },
+        "_connectionId": "MSSQL CONNECTION",
+        "distributed": false,
+        "rdbms": {
+          "query": [
+            "INSERT INTO dbo.automation_mssql_afe\n(\nname,\nemp_id,\ntype,\nnotes,\ncomments\n)\nVALUES\n(\n{{record.Name}},\n{{record.emp_id__c}},\n{{record.Type}},\n{{record.Description}},\n{{record.Comments}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "63159bd0976915080d03da1a",
+        "name": "TC_415_Sf_Mssql_Insert_Null_Special_Chars_Default_Data",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "name": "mssql_automation_afe_record3",
+              "emp_id": 102,
+              "type": "",
+              "notes": "Ram!#$",
+              "comments": "automationrecord"
+            },
+            {
+              "name": "mssql_automation_afe_record2",
+              "emp_id": 101,
+              "type": "",
+              "notes": "@Sec/",
+              "comments": "automationrecord"
+            },
+            {
+              "name": "mssql_automation_afe_record1",
+              "emp_id": 100,
+              "type": "New Customer",
+              "notes": "Bhagat%\\aa",
+              "comments": "automationrecord"
+            }
+          ],
+          "uniqueField": "emp_id",
+          "exportRecordType": "Opportunity",
+          "standaloneexportflowID": "60cb0c987d6ab5377ab57095",
+          "importRecordType": "automation_mssql_afe",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e92f23b81d",
+          "application":"MSSQL"  
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "6",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "MSSQL CONNECTION"
+        }
+      }
+    },
+    "importRecordJSON": [
+      {
+        "name": "mssql_automation_afe_record1",
+        "type": "New Customer",
+        "date": "2021-06-17",
+        "stage": "Prospecting",
+        "id": 100,
+        "description": "Bhagat%\\aa"
+      },
+      {
+        "name": "mssql_automation_afe_record2",
+        "date": "2021-06-17",
+        "stage": "Qualification",
+        "id": 101,
+        "description": "@Sec/"
+      },
+      {
+        "name": "mssql_automation_afe_record3",
+        "date": "2021-06-17",
+        "stage": "Needs Analysis",
+        "id": 102,
+        "description": "Ram!#$"
+      }
+    ],
+    "application":"SALESFORCE",      
+    "importapiIdentifier": "i5877a95a3",
+    "importapidoc": {
+      "_id": "60cb0d497d6ab5377ab570b0",
+      "createdAt": "2021-06-17T08:52:25.472Z",
+      "lastModified": "2021-06-17T08:57:49.498Z",
+      "name": "TC_415_Sf_Mssql_Insert_Null_Special_Chars_Default_Data",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i5877a95a3",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "Name"
+          },
+          {
+            "extract": "type",
+            "generate": "Type"
+          },
+          {
+            "extract": "date",
+            "generate": "CloseDate"
+          },
+          {
+            "extract": "stage",
+            "generate": "StageName"
+          },
+          {
+            "extract": "id",
+            "generate": "emp_id__c"
+          },
+          {
+            "extract": "description",
+            "generate": "Description"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Opportunity",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

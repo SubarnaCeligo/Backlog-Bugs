@@ -1,0 +1,119 @@
+{
+    "name": "Amazon Import once per page of records With Handlebars",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "application": "Amazon Redshift",
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "pageSize": 2,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "select * from IO_Once_Per_Page_Of_Records_BQ order by ID"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "application": "Amazon Redshift",
+                "_connectionId": "AMAZON REDSHIFT CONNECTION",
+                "parsers": [],
+                "rdbms": {
+                    "query": [
+                        "truncate table IO_Once_Per_Page_Of_Records"
+                    ],
+                    "queryType": [
+                        "COPY"
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "application": "Amazon Redshift",
+                "_connectionId": "AMAZON REDSHIFT CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "insert into IO_Once_Per_Page_Of_Records values ({{batch_of_records.0.record.ID}},{{batch_of_records.0.record.NAME}},{{batch_of_records.0.record.POSITION}},{{batch_of_records.0.record.DEPARTMENT}},{{batch_of_records.0.record.DAYS_PRESENT}},{{batch_of_records.0.record.DAYS_ABSENT}},{{batch_of_records.0.record.LEAVE_BALANCE}},{{batch_of_records.0.record.LEAVES_USED}})"
+                    ],
+                    "queryType": [
+                        "MERGE"
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "18",
+        "errorCount": "0",
+        "pages": "3"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "AmazonRedshift Import once per page of records",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [
+                        {
+                            "id": 1,
+                            "name": "Gautham Raj S",
+                            "position": "Softwar QA Engineer 1",
+                            "department": "R&D, Eng",
+                            "Days_present": 250,
+                            "Days_Absent": 5,
+                            "leave_Balance": 10,
+                            "leaves_used": 4
+                        },
+                        {
+                            "id": 3,
+                            "name": "Raj S",
+                            "position": "Senior Softwar QA Engineer 1",
+                            "department": "R&D, Eng",
+                            "Days_present": 250,
+                            "Days_Absent": 5,
+                            "leave_Balance": 10,
+                            "leaves_used": 5
+                        },
+                        {
+                            "id": 5,
+                            "name": "Raj",
+                            "position": "Senior Softwar QA Engineer Lead 2",
+                            "department": "R&D, Eng",
+                            "Days_present": 250,
+                            "Days_Absent": 6,
+                            "leave_Balance": 20,
+                            "leaves_used": 8
+                        }
+                    ],
+                    "uniqueField": "id",
+                    "exportapiIdentifier": "ea9933db5f",
+                    "application": "AMAZON REDSHIFT"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "18",
+                    "errorCount": "0",
+                    "pages": "3"
+                },
+                "import": {
+                    "_connectionId": "AMAZON REDSHIFT CONNECTION"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,198 @@
+{
+    "name": "TC_506_Snowflake_Postgresql_Datauri_Concurrency",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Import",
+            "application": "PostgreSQL",
+            "modelMetadata": {
+                "AGENT_CODE": {
+                    "default": ""
+                },
+                "AGENT_NAME": {
+                    "default": ""
+                },
+                "WORKING_AREA": {
+                    "default": ""
+                },
+                "COMMISSION": {
+                    "default": ""
+                },
+                "PHONE_NO": {
+                    "default": ""
+                }
+            },
+            "_connectionId": "POSTGRESQL CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "idLockTemplate": "{{record.AGENT_NAME}}",
+            "dataURITemplate": "{{record.AGENT_CODE}}",
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+                "query": [
+                    "INSERT INTO afe_dataurl_concurrency_import\n(\nAGENT_CODE,\nAGENT_NAME,\nWORKING_AREA,\nCOMMISSION,\nNOTES,\nFILEKEY\n)\nVALUES\n(\n{{record.AGENT_CODE}},\n{{record.AGENT_NAME}},\n{{record.WORKING_AREA}},\n{{record.COMMISSION}},\n'Concurrency Test',\n'Import_Snowflake'\n)"
+                ],
+                "queryType": ["INSERT"]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "pageGenerators": [{
+        "qa__export": {
+            "application": "Snowflake",
+            "name": "snowflake export",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "asynchronous": true,
+            "dataURITemplate": "{{record.AGENT_CODE}}",
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+                "query": "SELECT * FROM afe_dataurl_concurrency_export"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "24",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_506_Snowflake_Postgresql_Datauri_Concurrency",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "agent_code": "A007",
+                            "agent_name": "Ramasundar",
+                            "working_area": "Bangalore",
+                            "commission": 15,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A003",
+                            "agent_name": "Alex",
+                            "working_area": "London",
+                            "commission": 13,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A008",
+                            "agent_name": "Alford",
+                            "working_area": "New York",
+                            "commission": 12,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A011",
+                            "agent_name": "Ravi Kumar",
+                            "working_area": "Bangalore",
+                            "commission": 15,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A010",
+                            "agent_name": "Santakumar",
+                            "working_area": "Chennai",
+                            "commission": 14,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A012",
+                            "agent_name": "Lucida",
+                            "working_area": "San Jose",
+                            "commission": 12,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A005",
+                            "agent_name": "Anderson",
+                            "working_area": "Brisban",
+                            "commission": 13,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A001",
+                            "agent_name": "Subbarao",
+                            "working_area": "Bangalore",
+                            "commission": 14,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A002",
+                            "agent_name": "Mukesh",
+                            "working_area": "Mumbai",
+                            "commission": 11,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A006",
+                            "agent_name": "McDen",
+                            "working_area": "London",
+                            "commission": 15,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A004",
+                            "agent_name": "Ivan",
+                            "working_area": "Torento",
+                            "commission": 15,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        },
+                        {
+                            "agent_code": "A009",
+                            "agent_name": "Benjamin",
+                            "working_area": "Hampshair",
+                            "commission": 11,
+                            "phone_no": null,
+                            "notes": "Concurrency Test",
+                            "filekey": "Import_Snowflake"
+                        }
+                    ],
+                    "uniqueField": "agent_code",
+                    "standaloneexportflowID": "6148a1c10b06e17eb5277a03",
+                    "importRecordType": "afe_dataurl_concurrency_import",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "eeba778404",
+                    "application":"POSTGRESQL"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "24",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "POSTGRESQL CONNECTION"
+                }
+            }
+        }
+    }
+}

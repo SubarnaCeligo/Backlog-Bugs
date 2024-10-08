@@ -1,0 +1,115 @@
+{
+  "name": "TC_787_Rest_Page_Number_Parameter_Pagination",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "50",
+    "errorCount": "0",
+    "pages": "12"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "imp",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "id",
+              "generate": "id"
+            },
+            {
+              "extract": "first_name",
+              "generate": "first_name"
+            },
+            {
+              "extract": "last_name",
+              "generate": "last_name"
+            },
+            {
+              "extract": "email",
+              "generate": "email"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_787_Rest_Page_Number_Parameter_Pagination.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_787_Rest_Page_Number_Parameter_Pagination.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "Ftp": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_787_Rest_Page_Number_Parameter_Pagination",
+        "qa__dataVerification": {
+          "fileName": "TC_787_Rest_Page_Number_Parameter_Pagination",
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "458",
+          "ignoreCount": "0",
+          "errorCount": "0",
+          "pages": "12"
+        },
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "export",
+        "application": "BigCommerce",
+        "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/v2/customers?cursor={{{export.http.paging.page}}&limit=2",
+          "method": "GET",
+          "formType": "http",
+          "qa__formType": "rest",
+          "paging": {
+            "method": "page",
+            "page": "1",
+            "relativeURI": "customers?limit=2",
+            "lastPageStatusCode": 404
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

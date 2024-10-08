@@ -1,0 +1,73 @@
+{
+    "name": "TC_C36732",
+    "referencename": "TC_C36732",
+    "expectedreqresp": {
+        "viewResponse": "{{··\"code\":·\"USER_ERROR\",··\"code\":·\"USER_ERROR\",··\"message\":·\"Before·you·can·create·the·Inventory·Detail,·please·enter·values·for:·\\nLocation\"··\"message\":·\"Before·you·can·create·the·Inventory·Detail,·please·enter·values·for:·\\nLocation\"}}"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "application": "Microsoft SQL",
+                        "name": "mssql",
+                        "_connectionId": "MSSQL CONNECTION",
+                        "apiIdentifier": "e41038e157",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "56d6b114e1fc35de5391472c7cd920ba29df41d199957794954d5d39",
+                        "rdbms": {
+                            "query": "select * from dbo.Orders_db where customerid is null"
+                        },
+                        "adaptorType": "RDBMSExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "ftp",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i55bb87877",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation",
+                            "fileName": "file-{{timestamp}}.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C36732",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

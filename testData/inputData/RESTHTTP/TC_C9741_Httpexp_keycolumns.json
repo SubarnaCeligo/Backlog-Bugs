@@ -1,0 +1,37 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C9741_Httpexp_keycolumns",
+    "disabled": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "httpexpkeycolumn",
+                "adaptorType": "HTTPExport",
+                "http": {
+                    "relativeURI": "Create_Flow141_CSV_Comma1",
+                    "method": "GET",
+                    "successMediaType": "csv",
+                    "formType": "http",
+                    "hasHeaderRow": "action",
+                    "rowsPerRecord": "action"
+                },
+                "file": {
+                    "csv": {
+                        "columnDelimiter": ",",
+                        "rowDelimiter": "\n",
+                        "hasHeaderRow": true,
+                        "trimSpaces": true,
+                        "rowsToSkip": 0
+                    },
+                    "type": "csv"
+                },
+                "asynchronous": true,
+                "_connectionId": "HTTP MOCKY CONNECTION",
+                "qa__path": "/Mocky_Uploads/Create_Flow141_Comma_Mocky.csv",
+                "qa__isMocky": "true"
+            }
+        }
+    ]
+}

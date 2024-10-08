@@ -1,0 +1,235 @@
+{
+    "name": "TC_513_Blob_Imort_With_AFE",
+    "description": " ",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "name": "sf blob",
+                "type": "blob",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "adaptorType": "SalesforceExport",
+                "parsers": [],
+                "asynchronous": true,
+                "isLookup": "true",
+                "oneToMany": true,
+                "pathToMany": "Attachments",
+                "salesforce": {
+                    "sObjectType": "attachment",
+                    "type": "soql",
+                    "api": "rest",
+                    "distributed": {
+                        "referencedFields": [],
+                        "userDefinedReferencedFields": [],
+                        "relatedLists": []
+                    },
+                    "id": "{{data.Id}}"
+                }
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data[0].blobKey",
+                    "generate": "blobKey"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "http_Zendesk_Import",
+                "application": "zendesk support",
+                "parsers": [],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "oneToMany": true,
+                "pathToMany": "Attachments",
+                "blobKeyPath": "blobKey",
+                "blob": true,
+                "lookups": [],
+                "http": {
+                    "relativeURI": [
+                        "/uploads.json?filename={{data.Name}}"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "upload.token",
+                    "generate": "token"
+                }],
+                "qa__index": 1
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "http_Zendesk_Ticket_import",
+                "application": "zendesk support",
+                "parsers": [],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ifa51617d9",
+                "lookups": [],
+                "http": {
+                    "relativeURI": [
+                        "tickets.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{{#each data}}{{#if @index}} , {{/if}}{\"ticket\": {\"Subject\": \"teses\",\"description\": \"This is attachment test\",\"comment\": {\"uploads\": [{{#each this.Attachments}}{{#if @index}} , {{/if}} \"{{token}}\"{{/each}}]},\"blobKey\": \"{{blobKey}}\"}}{{/each}}"
+                    ],
+                    "batchSize": 1,
+                    "ignoreEmptyNodes": false,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "id",
+                    "generate": "TicketID"
+                }],
+                "qa__index": 2
+            }
+        },
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Zendesk_Ticket_Lookup",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e4839028f9",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/tickets/{{record.TicketID}}/comments",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data",
+                    "generate": "Comments"
+                }],
+                "qa__index": 3
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AutomationStandaloneImport__CS19FfHNRR",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i9bbb8770e",
+                "oneToMany": true,
+                "pathToMany": "Comments",
+                "sandbox": false,
+                "mapping": {
+                    "fields": [{
+                            "extract": "comments[0].id",
+                            "generate": "id"
+                        },
+                        {
+                            "extract": "comments[0].type",
+                            "generate": "type"
+                        },
+                        {
+                            "extract": "comments[0].author_id",
+                            "generate": "author_id"
+                        },
+                        {
+                            "extract": "comments[0].body",
+                            "generate": "body"
+                        },
+                        {
+                            "extract": "comments[0].plain_body",
+                            "generate": "plain_body"
+                        }
+                    ]
+                },
+                "file": {
+                    "fileName": "Zendesk_Ticket_Attachment_Details.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation",
+                    "fileName": "Zendesk_Ticket_Attachment_Details.json"
+                },
+                "adaptorType": "FTPImport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": []
+            }
+        }
+    ],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "sf",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "adaptorType": "SalesforceExport",
+            "asynchronous": true,
+            "parsers": [],
+            "salesforce": {
+                "type": "soql",
+                "distributed": {
+                    "referencedFields": [],
+                    "userDefinedReferencedFields": [],
+                    "relatedLists": []
+                },
+                "api": "rest",
+                "soql": {
+                    "query": "Select id,Name,phone,fax,(select id,name from attachments),(select id,title,body from notes) from Account where name='TC_510_NS_Import_AFE'"
+                }
+            }
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "6",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_513_Blob_Imort_With_AFE",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "6",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "Zendesk_Ticket_Attachment_Details",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

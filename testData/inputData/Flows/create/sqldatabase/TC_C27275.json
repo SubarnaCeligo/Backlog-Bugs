@@ -1,0 +1,47 @@
+{
+    "name": "TC_C27275",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62e8c2172dd80523719f9291",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "application": "MySQL",
+                "qa__connectionId": "62e8e11136f8f637aa252cd0",
+                "_connectionId": "MYSQL CONNECTION",
+                "type": "once",
+                "rdbms": {
+                    "query": "select * from Once_Export where tag=false",
+                    "once": {
+                        "query": "update Once_Export set tag=true"
+                    }
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "FTP CONNECTION",
+                "file": {
+                    "fileName": "Export_With_Zero_Records.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "Export_With_Zero_Records.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "0",
+        "errorCount": "0"
+    }
+}

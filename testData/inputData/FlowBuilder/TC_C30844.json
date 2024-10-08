@@ -10,20 +10,32 @@
                         "name": "NS Export TC_C30844",
                         "_connectionId": "NETSUITE CONNECTION",
                         "asynchronous": true,
+                        "type": "test",
+                        "hooks": {
+                            "preSavePage": {
+                                "_scriptId": "UPDATE WITH NEW",
+                                "function": "preSavePage"
+                            }
+                        },
                         "oneToMany": false,
                         "sandbox": false,
+                        "test": {
+                            "limit": 100
+                        },
                         "netsuite": {
                             "type": "restlet",
                             "skipGrouping": true,
                             "statsOnly": false,
                             "restlet": {
+                                "hooks": {
+                                    "batchSize": 200
+                                },
                                 "recordType": "salesorder",
                                 "searchId": "-156",
                                 "useSS2Restlets": false,
+                                "restletVersion": "suitebundle",
                                 "batchSize": 200,
-                                "hooks": {
-                                    "batchSize": 200
-                                }
+                                "markExportedBatchSize": 100
                             },
                             "distributed": {
                                 "useSS2Framework": false
@@ -60,7 +72,7 @@
                     "type": "import",
                     "qa__import": {
                         "name": "HTTP BC Import TC_C30844",
-                        "application":"Big Commerce",
+                        "application": "Big Commerce",
                         "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
                         "ignoreExisting": false,
                         "ignoreMissing": false,
@@ -86,8 +98,6 @@
             "createFlow": {
                 "name": "TC_C30844",
                 "disabled": false,
-                "qa__integrationId": "62eca1efe386b563f638451e",
-                "_integrationId": "62ecc42648570015ab65cfa5",
                 "skipRetries": false,
                 "pageProcessors": [
                     {
@@ -106,5 +116,9 @@
                 ]
             }
         }
-    ]
+    ],
+    "script": {
+        "name": "preSavePage1252",
+        "content": "function preSavePage (options) {\n  // sample code that simply passes on what has been exported\n  if(options.data && options.data.length>0){\n    for (let i = 0; i < options.data.length; i++) {\n      options.data[i].fileName=options.files[i].fileMeta.fileName;\n      options.data[i].fileSize=options.files[i].fileMeta.fileSize;\n   }\n  }\n\nreturn {\n    data: options.data,\n    errors: options.errors,\n    abort: false,\n    newErrorsAndRetryData: []\n  }\n}"
+    }
 }

@@ -1,0 +1,92 @@
+{
+  "name": "TC_C36599",
+  "referencename": "TC_C36599",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "36599-export",
+            "_connectionId": "HTTP MOCK YASH CONNECTION",
+            "apiIdentifier": "eb09556f35",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "xml_type",
+              "method": "GET",
+              "formType": "http"
+            },
+            "rawData": "56d6b114e1fc35de5391472c8f7e1e1662fd4a3480601068fd6e7e61",
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "36599-import",
+            "unencrypted": {
+              "apiType": "Amazon-SP-API"
+            },
+            "useTechAdaptorForm": true,
+            "qa__connectionId": "AMAZON SP API CONNECTION",
+            "_connectionId": "AMAZON SP API CONNECTION",
+            "apiIdentifier": "i4fa3458a6",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "assistant": "amazonmws",
+            "sandbox": false,
+            "assistantMetadata": {
+              "resource": "orders",
+              "version": "v0",
+              "operation": "update_shipment_status"
+            },
+            "http": {
+              "relativeURI": [
+                "/orders/v0/orders/abc/shipment"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+                "{{#each data}}\n                {\n                  {{#each this}}\n                  {{#compare @key \"==\" \"ioRecordIndex\"}}  \n                  {{else}} \n                    {{#compare @key \"==\" \"ioFirstRecord\"}}  \n                      {{else}} \n                        {{#compare @key \"==\" \"ioLastRecord\"}}  \n                        {{else}} \n                          {{#if @index}},{{/if}} {{{jsonSerialize @key}}}: {{{jsonSerialize this}}} \n                        {{/compare}} \n                      {{/compare}}   \n                  {{/compare}}\n                  {{/each}}\n                }\n                {{/each}}"
+              ],
+              "requestMediaType": "json",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "strictHandlebarEvaluation": false,
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C36599",
+        "disabled": false,
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

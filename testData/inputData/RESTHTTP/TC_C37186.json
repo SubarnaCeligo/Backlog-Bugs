@@ -1,0 +1,85 @@
+{
+    "name": "TC_C37186",
+    "referencename": "TC_37186",
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "37186",
+                        "application" : "Amazon Seller Central",
+                        "unencrypted": {
+                            "useMWSDataFormat": true,
+                            "apiType": "Amazon-SP-API"
+                        },
+                        "qa__connectionId": "AMAZON SP API CONNECTION",
+                        "_connectionId": "AMAZON SP API CONNECTION",
+                        "apiIdentifier": "e0382c50ab",
+                        "asynchronous": true,
+                        "assistant": "amazonmws",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "reports/2021-06-30/reports",
+                            "method": "POST",
+                            "body": "{\"reportType\":\"GET_MERCHANT_LISTINGS_ALL_DATA\",\"dataStartTime\":\"{{{dateAdd '2018-05-20T20:11:24.000Z'}}}\",\"marketplaceIds\":[\"{{connection.http.unencrypted.marketplaceId}}\"]}",
+                            "formType": "assistant"
+                        },
+                        "rawData": "56d6b114e1fc35de5391472c8d35a3a984e04f49a6a6c168b01b7403",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "37186-import",
+                        "qa__connectionId": "62c88089ebd1cb63e0f066ca",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i6891c6697",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "37186.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/Zendesk_Tests/Automation",
+                            "fileName": "37186.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C37186",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

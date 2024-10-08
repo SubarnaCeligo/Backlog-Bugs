@@ -1,0 +1,12 @@
+{
+  "username_keypair": "DEVQA_KEYPAIR", 
+  "username_basic": "DEVQA",
+  "host": "celigo_partner",
+  "database_keypair": "TRAVIS_DB",
+  "database_basic": "TEST_SHIV",
+  "warehouse_keypair": "DEMO_WH",
+  "warehouse_basic": "QA_WAREHOUSE",
+  "password": "&UdY5#XKI2I!7dIi",
+  "private_key": "-----BEGIN ENCRYPTED PRIVATE KEY-----\nMIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQI/T9zlsZ+a4MCAggA\nMAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECDvZ0dvsZlzOBIIEyHLc72JSDEdj\ndtsXijxjYcdUpjlaCXBHtkbvIvfltY3BEbgtYFtvPsOiG9U3Sci+ScD7In4PACqm\nSn5k5S5Xp9ZVGcSe99agCzg5LlUfe41H2bb7hkfuv6ZbKzygS1bLVTXWWoTsvxe0\nc08Iy33Db5x+dW/i8WQE7jkndWYR/mfm00JGxYBzDOFivzKwqD1s9pPIkZ05YYjj\nnZt4ZOqswu2dFxGi93hw2V+s5TWi/MV7W8FV7a4DKjpN2MgmEQXec/ZWNOEtN/x5\nCeSPSypT21bxwivY2bviRGdhNeBNQTZYW2s/WGzLzg8gZV+y8y18qeF1Awen9iI8\nI5m9ZI4mj+h9W+s5cIhYZuWtdQk8o+eEJ5pTLkdhJ25UdxguyO5pWmEqAd+FFRmp\nXgyygOVeKpBFLwahOxH1sb/Jl2VLflUO9/LTzSrR7zqRGnRj92keJFMijm3ng72m\nYqEY7kWDfypaiyzCyYicc1kxnlvsvEAA9pwCSsb5DStj3i7fSQx52MhvHfyYX4BF\nb8kEBKB/sPQyqkXT3ARpluVTwhknh1MzcIPOOqIQc50Cuk0eGsJUdTgh4RsQJjXh\n2DJyoDuKBHCDBDQBK0NGt6Wv54LwuLRTpfpDVaBgWzhH890nhwk3cc5e4Pt38Ng1\nSTHtSFZrOmONiNhRrzX2S3Ld6tQmUrToVcV31hb7s+/yucO8XGTTO+xevTCcs1eA\nKPRJ7Doj/RwM0h8GDBxBZRJUP4OOjejM0cco21Vjb+g6lgk05jj6sEiZXxTX35zD\nRNOS2sf2h9QkmzqNzSv/nHXW0mlYznyECIEEQEbsPl6eI6BVoKwLEV5+DJ92MDUz\n1FbuJZhCjHDeUHwWo53HO+II3qhwjdepJ5peAiBxMSoiHO3VQxJtdgqe5lmE+UVe\n6FWi1lUSqyDbDvb1Ksqi+mecDNaQUTvv99OtjrM6+Pq78650+cQCcEaOeuXTKLVT\nwNZ4YGQks3VGkE0lpEDk6gKsJ8+9wSaTxzeiu5JLuL2+HnzlAGYqg1jVKkVftJDL\ni27AyEnEYV73aSH5KryARsjoJDQXcHstq94a6sPsBNd35z+jNgmgnUmAxmqOdBrR\ns9rP9ue9zXJ9bZBUgxGlRt6wXwb6LpD8rjATXH1x37uuPJVN0/lKSqJBeBOsnpeQ\nDCf8FAvfnPZKCehbHCgiQuTfP5c4t91lLThMR7QQH+Bt0hJ8xCRwQyNhMpLhez58\nbHPpTe3bK0JNuXMsCAlu/xM+oOmCx5gLYyDlb4mgnhL9NKJynM4MlXDy30sCGY9r\n0b0Nuz5WA8NOq0/5RfERw6WwM0u+nxmZQdGsI/ZOQi2Y/uGX4wSIiMM62ye/Xzat\n7rJ7ZGbsDu6ILkRpl9/X/VlM20WcmNf1JkJbNCQ/G8Yl2/SvKoEpPbhKNxgxSQ2V\nnJ018g++zNKKiykqDJtdMkQgQNZXFki/2uIWL+lY3M9A+3EX7HZo20ZHwpI3fitN\nNm+Elu7TV/bK4GnmLQ4WJLutMjMcuugumOSsWW+dipiS/SQ0dZweLYpAlRc+ZNik\ndc2a6he6qFdneMav4G53FcUq13VWml1IwUE3asWf3TPxRD+qfZNWadozw2ZCrRLo\nNM5m6KWWZ4RkXGLOgrYLlw==\n-----END ENCRYPTED PRIVATE KEY-----",
+  "passphrase": "secret"
+}

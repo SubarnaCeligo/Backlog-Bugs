@@ -1,0 +1,92 @@
+{
+    "name": "TC_C32197_Verify_File_Name_One_To_Many_True",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "export",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "e92fe1d808",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/tickets/126/comments.json",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "resourcePath": "comments"
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "7",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "exportRecordType": "users",
+        "expected": {
+            "FTP": {
+                "name": "TC_C32197_Verify_File_Name_One_To_Many_True",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "7",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "file-web",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IOAutomation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "ftp import",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i0d728ddc2",
+            "oneToMany": true,
+            "pathToMany": "attachments",
+            "sandbox": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "file_name",
+                        "generate": "name"
+                    },
+                    {
+                        "extract": "content_type",
+                        "generate": "type"
+                    }
+                ]
+            },
+            "file": {
+                "fileName": "file-{{batch_of_records.0.record._PARENT.via.channel}}.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IOAutomation",
+                "fileName": "file-{{batch_of_records.0.record._PARENT.via.channel}}.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }]
+}

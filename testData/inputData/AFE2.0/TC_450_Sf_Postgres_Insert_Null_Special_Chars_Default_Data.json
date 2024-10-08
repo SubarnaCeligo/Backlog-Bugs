@@ -1,0 +1,220 @@
+{
+  "skipRetries": false,
+  "_integrationId": "63159bd0976915080d03da1a",
+  "name": "TC_450_Sf_Postgres_Insert_Null_Special_Chars_Default_Data",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "6",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Saleesforce Export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name, Order_NUmber__c, LeadSource, Description, Birthdate from Contact where Name LIKE 'postgresql_afe_contact_record%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "postgresql import1",
+        "application": "PostgreSQL",
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "Name": {
+            "default": ""
+          },
+          "Order_NUmber__c": {
+            "default": ""
+          },
+          "LeadSource": {
+            "default": ""
+          },
+          "Description": {
+            "default": ""
+          },
+          "Comments": {
+            "default": "automationrecord"
+          },
+          "Birthdate": {
+            "default": ""
+          }
+        },
+        "parsers": [],
+        "_connectionId": "POSTGRESQL CONNECTION",
+        "distributed": false,
+        "lookups": [],
+        "rdbms": {
+          "query": [
+            "INSERT INTO afe_automation\n(\nname,\nemp_id,\ntype,\nnotes,\ncomments,\ndoj\n)\nVALUES\n(\n{{record.Name}},\n{{record.Order_NUmber__c}},\n{{record.LeadSource}},\n{{record.Description}},\n{{record.Comments}},\n{{record.Birthdate}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "63159bd0976915080d03da1a",
+        "name": "TC_450_Sf_Postgres_Insert_Null_Special_Chars_Default_Data",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "name": "postgresql_afe_contact_record1",
+              "emp_id": 875,
+              "type": "Web       ",
+              "notes": "Ram!#$",
+              "comments": "automationrecord",
+              "doj": "2021-06-01T00:00:00.000Z"
+            },
+            {
+              "name": "postgresql_afe_contact_record2",
+              "emp_id": 876,
+              "type": "          ",
+              "notes": "@Sec/",
+              "comments": "automationrecord",
+              "doj": "2021-07-01T00:00:00.000Z"
+            },
+            {
+              "name": "postgresql_afe_contact_record3",
+              "emp_id": 877,
+              "type": "          ",
+              "notes": "Bhagat%\\aa",
+              "comments": "automationrecord",
+              "doj": "2020-10-23T00:00:00.000Z"
+            }
+          ],
+          "uniqueField": "emp_id",
+          "exportRecordType": "Contact",
+          "standaloneexportflowID": "60dc04dcd5215215554c6294",
+          "importRecordType": "afe_automation",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e8c73e91e2",
+          "application":"POSTGRESQL"   
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "6",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "POSTGRESQL CONNECTION"
+        }
+      }
+    },
+    "importRecordJSON": [
+      {
+        "name": "postgresql_afe_contact_record1",
+        "leadsource": "Web",
+        "ordernumber": 875,
+        "date": "2021-06-01T00:00:00.000Z",
+        "description": "Ram!#$"
+      },
+      {
+        "name": "postgresql_afe_contact_record2",
+        "ordernumber": 876,
+        "date": "2021-07-01T00:00:00.000Z",
+        "description": "@Sec/"
+      },
+      {
+        "name": "postgresql_afe_contact_record3",
+        "ordernumber": 877,
+        "date": "2020-10-23T00:00:00.000Z",
+        "description": "Bhagat%\\aa"
+      }
+    ],
+    "application":"SALESFORCE",     
+    "importapiIdentifier": "ic21337089",
+    "importapidoc": {
+      "_id": "60dc0580ff0bea144bc58113",
+      "createdAt": "2021-06-30T05:47:44.459Z",
+      "lastModified": "2021-06-30T05:52:58.081Z",
+      "name": "TC_450_Sf_Postgres_Insert_Null_Special_Chars_Default_Data",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "ic21337089",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "LastName"
+          },
+          {
+            "extract": "leadsource",
+            "generate": "LeadSource"
+          },
+          {
+            "extract": "ordernumber",
+            "generate": "Order_NUmber__c"
+          },
+          {
+            "extract": "date",
+            "generate": "Birthdate"
+          },
+          {
+            "extract": "description",
+            "generate": "Description"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Contact",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

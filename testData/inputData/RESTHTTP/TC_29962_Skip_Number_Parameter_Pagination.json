@@ -1,0 +1,93 @@
+{
+    "name": "TC_29962_Skip_Number_Parameter_Pagination",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0",
+        "pages": "1"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "FTP IMPORT",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i03a053845",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "id",
+                        "generate": "ID"
+                    },
+                    {
+                        "extract": "rowNumber",
+                        "generate": "rowNumber"
+                    }
+                ]
+            },
+            "file": {
+                "fileName": "TC29962.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation",
+                "fileName": "TC29962.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "Ftp": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "TC_29962_Skip_Number_Parameter_Pagination",
+                "qa__dataVerification": {
+                    "fileName": "TC29962",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0",
+                    "pages": "1"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "HTTP EXPORT",
+            "_connectionId": "HTTP ACUMATICA CONNECTION",
+            "qa__connectionId": "62e7698bd61e942a8d4ebd1f",
+            "apiIdentifier": "ef528869c4",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/Customer?$filter=CustomerName eq 'Sareesh Goruju'&$top=1&$skip={{{export.http.paging.skip}}}",
+                "method": "GET",
+                "formType": "http",
+                "paging": {
+                    "method": "skip",
+                    "lastPageStatusCode": 404
+                }
+            },
+            "rawData": "56d6b114e1fc35de5391472c0b0dabb4844d4faf91763b8c8bf046ac",
+            "adaptorType": "HTTPExport"
+        }
+    }]
+}
