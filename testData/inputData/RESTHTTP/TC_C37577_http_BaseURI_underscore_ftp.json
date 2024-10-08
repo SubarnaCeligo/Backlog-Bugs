@@ -1,0 +1,87 @@
+{
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "1",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C37577_http_BaseURI_underscore_ftp",
+        "parsers": [],
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i2427b0e05",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "TC_C37577_http_BaseURI_underscore_ftp.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_C37577_http_BaseURI_underscore_ftp.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C37577_Http_BaseURI_underscore_ftp",
+  "disabled": false,
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "standaloneexportflowID": "",
+    "expected": {
+      "FTP": {
+        "name": "TC_C37577_Http_BaseURI_underscore_ftp.json",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_C37577_http_BaseURI_underscore_ftp",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "http_underscore",
+        "_connectionId": "62d92a076b28921bc3b18def",
+        "apiIdentifier": "e30309492a",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "celigo",
+          "method": "GET",
+          "formType": "http"
+        },
+        "rawData": "56d6b114e1fc35de5391472cc3d441d717574227b7a0edd59198244c",
+        "test": {
+          "limit": 1
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+    "name": "TC_480_DL_Mssql_Insert_Update",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Data Loader",
+            "asynchronous": true,
+            "type": "simple",
+            "qa__isDataLoader": "csv",
+            "qa__path": "//Dataloader_uploades//TC_480_DL_Mssql_Insert_Update.txt",
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "type": "csv",
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "SimpleExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "MSSQL Insert/pdate",
+            "application": "Microsoft SQL",
+            "modelMetadata": {
+                "name": {
+                    "default": ""
+                },
+                "email": {
+                    "default": ""
+                },
+                "phone": {
+                    "default": ""
+                },
+                "title": {
+                    "default": ""
+                },
+                "memo": {
+                    "default": ""
+                },
+                "fax": {
+                    "default": null
+                },
+                "direction": {
+                    "default": "null"
+                }
+            },
+            "_connectionId": "MSSQL CONNECTION",
+            "distributed": false,
+            "lookups": [{
+                    "query": "select * from AFE_Automation_Update where name='static_DND'",
+                    "extract": "type",
+                    "allowFailures": false,
+                    "name": "dynamic"
+                },
+                {
+                    "map": {
+                        "AutoRecord": "1",
+                        "RecordAuto": "2"
+                    },
+                    "allowFailures": false,
+                    "name": "static"
+                }
+            ],
+            "rdbms": {
+                "query": [
+                    "UPDATE AFE_Automation_Update\nSET \nphone={{record.phone}},\nfax={{record.fax}},\ntitle={{record.title}},\ntype={{lookup \"dynamic\" record}},\nmemo={{lookup \"static\" record.memo}},\ndirection={{record.direction}}\nwhere email={{record.email}}",
+                    "INSERT INTO AFE_Automation_Update\n(\nname,\nemail,\nphone,\nfax,\ntitle,\ntype,\nmemo,\ndirection\n)\nVALUES\n(\n{{record.name}},\n{{record.email}},\n{{record.phone}},\n{{record.fax}},\n{{record.title}},\n{{lookup \"dynamic\" record}},\n{{lookup \"static\" record.memo}},\n{{record.direction}}\n)"
+                ],
+                "queryType": ["UPDATE", "INSERT"],
+                "updateExtract": "email",
+                "lookups": [{
+                        "query": "select * from AFE_Automation_Update where name='static_DND'",
+                        "extract": "type",
+                        "allowFailures": false,
+                        "name": "dynamic"
+                    },
+                    {
+                        "map": {
+                            "AutoRecord": "1",
+                            "RecordAuto": "2"
+                        },
+                        "allowFailures": false,
+                        "name": "static"
+                    }
+                ]
+            },
+            "adaptorType": "RDBMSImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_480_DL_Mssql_Insert_Update",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "name": "updaterecord",
+                            "email": "r@mail.com",
+                            "phone": 1234,
+                            "fax": null,
+                            "title": "Bhag@t%!%",
+                            "type": "automation     ",
+                            "memo": 1,
+                            "direction": "null           "
+                        },
+                        {
+                            "name": "createrecord",
+                            "email": "",
+                            "phone": 0,
+                            "fax": null,
+                            "title": "S#$&*!@",
+                            "type": "automation     ",
+                            "memo": 2,
+                            "direction": "null           "
+                        }
+                    ],
+                    "uniqueField": "name",
+                    "standaloneexportflowID": "60f05622cdcd434ee461ea8d",
+                    "importRecordType": "AFE_Automation_Update",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ea7e38e601",
+                    "application":"MSSQL"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "MSSQL CONNECTION"
+                }
+            }
+        }
+    }
+}

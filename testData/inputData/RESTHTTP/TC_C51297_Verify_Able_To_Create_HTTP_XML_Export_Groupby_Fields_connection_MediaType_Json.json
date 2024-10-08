@@ -1,0 +1,35 @@
+{
+  "body": {
+    "name": "AutomationStandalone_TC_C51297",
+    "application": "zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "apiIdentifier": "e607a4b5da",
+    "asynchronous": true,
+    "oneToMany": false,
+    "sandbox": false,
+    "parsers": [
+      {
+        "type": "xml",
+        "version": "1",
+        "rules": {
+          "V0_json": false,
+          "trimSpaces": false,
+          "stripNewLineChars": false
+        }
+      }
+    ],
+    "groupByFields": [
+      "id"
+    ],
+    "http": {
+      "relativeURI": "/tickets",
+      "method": "GET",
+      "successMediaType": "xml",
+      "formType": "http",
+      "response": {
+        "resourcePath": "/tickets"
+      }
+    },
+    "adaptorType": "HTTPExport"
+  }
+}

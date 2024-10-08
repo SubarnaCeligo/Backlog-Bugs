@@ -1,0 +1,22 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "MySQL",
+        "_connectionId": "MYSQL CONNECTION",
+        "name": "asfd",
+        "apiIdentifier": "ef993426d8",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": ["AGENT_NAME"],
+        "rawData": "56d6b114e1fc35de5391472ce3454ca8717d4edbbe11c28e8105c0e5",
+        "rdbms": {
+          "query": "select * from automation_lookup_afe"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ]
+}

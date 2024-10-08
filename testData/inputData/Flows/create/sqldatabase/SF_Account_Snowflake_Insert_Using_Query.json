@@ -1,0 +1,183 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "SF_Account_Snowflake_Insert_Using_Query",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Get an Account from Salesforce",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "parsers": [],
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name,Email__c,Phone,Description,Custom_Date_Field__c from Account where Name='Insert@snowflakerecord1'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Insert record into snowflake using sql query",
+        "parsers": [],
+        "_connectionId": "SNOWFLAKE CONNECTION",
+        "distributed": false,
+        "lookups": [],
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "Name": {
+            "default": ""
+          },
+          "Email__c": {
+            "default": ""
+          },
+          "Phone": {
+            "default": ""
+          },
+          "Description": {
+            "default": ""
+          },
+          "Custom_Date_Field__c": {
+            "default": ""
+          }
+        },
+        "rdbms": {
+          "query": [
+            "INSERT INTO automation_insert(Name,email,phone,date,description)\nVALUES(\n{{data.Name}},\n{{data.Email__c}},\n{{data.Phone}},\n{{data.Custom_Date_Field__c}},\n{{data.Description}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "Name": "Insert@snowflakerecord1",
+      "Email": "snowflakeinsertrecord@gmail.com",
+      "Phone": "7032688920",
+      "Date": "2020-05-16",
+      "Description": "Insert Snowflake record1 into automation"
+    },
+    "application": "SALESFORCE",
+    "importapiIdentifier": "i7645b91e7",
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "SF_Account_Snowflake_Insert_Using_Query",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "NAME": "Insert@snowflakerecord1",
+              "EMAIL": "snowflakeinsertrecord@gmail.com",
+              "PHONE": "7032688920",
+              "DATE": "2020-05-16",
+              "DESCRIPTION": "Insert Snowflake record1 into automation"
+            }
+          ],
+          "dataURIs": [
+            null
+          ],
+          "uniqueField": "NAME",
+          "standaloneexportflowID": "5ebfaa463b4f5e2f0cc8a1e3",
+          "importRecordType": "Account",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e296d53692"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "SNOWFLAKE CONNECTION"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "5ebfa862c6585a2cc3a21e95",
+      "createdAt": "2020-05-16T08:46:26.325Z",
+      "lastModified": "2020-05-16T08:48:31.622Z",
+      "name": "Snowflake Record-SF account",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i7645b91e7",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "Name",
+            "generate": "Name"
+          },
+          {
+            "extract": "Email",
+            "generate": "Email__c"
+          },
+          {
+            "extract": "Phone",
+            "generate": "Phone"
+          },
+          {
+            "extract": "Date",
+            "generate": "Custom_Date_Field__c"
+          },
+          {
+            "extract": "Description",
+            "generate": "Description"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_792_Snowflake_Bulk_Insert_Datatype",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "_comment": "only 2 records are exported to snowflake, so 2 records are expected in dashboard",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "tickets",
+        "_connectionId": "ZENDESK CONNECTION",
+        "asynchronous": true,
+        "assistant": "zendesk support",
+        "oneToMany": false,
+        "sandbox": false,
+        "assistantMetadata": {
+          "resource": "tickets_api",
+          "version": "v2",
+          "operation": "show_multiple_tickets"
+        },
+        "qa__assistant": {
+          "resource": "Tickets",
+          "endpoint": "Show Multiple Tickets",
+          "queryParams": {
+            "ids": "81,126"
+          }
+        },
+        "http": {
+          "relativeURI": "/api/v2/ticket/show_many.json?ids=81,126",
+          "method": "GET",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "formType": "assistant",
+          "paging": {
+            "method": "url",
+            "path": "next_page",
+            "lastPageStatusCode": 404
+          },
+          "response": {
+            "resourcePath": "tickets"
+          }
+        },
+        "rest": {
+          "relativeURI": "/api/v2/tickets/show_many.json?ids=81,126",
+          "method": "GET",
+          "resourcePath": "tickets",
+          "pagingMethod": "nextpageurl",
+          "nextPagePath": "next_page",
+          "allowUndefinedResource": false
+        },
+        "adaptorType": "RESTExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Bulk insert snowflake",
+        "_connectionId": "SNOWFLAKE CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "id",
+              "generate": "ID"
+            },
+            {
+              "extract": "subject",
+              "generate": "NAME"
+            },
+            {
+              "extract": "has_incidents",
+              "generate": "EXPORTED",
+              "dataType": "string"
+            }
+          ]
+        },
+        "rdbms": {
+          "query": [],
+          "queryType": [
+            "BULK INSERT"
+          ],
+          "bulkInsert": {
+            "tableName": "bulk_import_snowflake"
+          }
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_792_Snowflake_Bulk_Insert_Datatype",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "ID": 126,
+              "NAME": "Orches_Flow_Blob_2071",
+              "EXPORTED": "false"
+            },
+            {
+              "ID": 81,
+              "NAME": "Orches_Flow_Blob_202_Rest_Ticket",
+              "EXPORTED": "false"
+            },
+            {
+              "ID": 15632,
+              "NAME": null,
+              "EXPORTED": "false"
+            }
+          ],
+          "uniqueField": "ID",
+          "standaloneexportflowID": "62282b947620ac1e26ed581a",
+          "importRecordType": "bulk_import_snowflake",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e1fc640aa1"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "SNOWFLAKE CONNECTION"
+        }
+      }
+    }
+  }
+}

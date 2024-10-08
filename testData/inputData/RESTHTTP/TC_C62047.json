@@ -1,0 +1,86 @@
+{
+    "name": "TC_C62047",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "skipRetries": false,
+    "_integrationId": "63ef42898e3b3849cfd64d1f",
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "qa__connectionId": "640056f4fd8d7d3f5470c5c7",
+                "_connectionId": "632aaccd0dbc53086e8a915f",
+                "qa__path": "//FTP_uploads//TC_C62047.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/E2E_FTPExports",
+                    "fileNameStartsWith": "TC_C62047.json",
+                    "fileNameEndsWith": "TC_C62047.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import",
+            "qa__import": {
+                "qa__connectionId": "640056f4fd8d7d3f5470c5c7",
+                "_connectionId": "632aaccd0dbc53086e8a915f",
+                "mappings": [
+                    {
+                        "extract": "{{regexMatch record.Debiteur_Account__r.BillingStreet \"[\\d]+$\" \"g\"}}",
+                        "generate": "name",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    }
+                ],
+                "file": {
+                    "fileName": "TC_C62047.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC_C62047.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_487_FTP_SortByFields_Descending_To_FTP_Import",
+                "_integrationId": "63ef42898e3b3849cfd64d1f",
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C62047",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

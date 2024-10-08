@@ -1,0 +1,121 @@
+{
+  "name": "TC_326_Mysql_FTP_Input_Filter",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "26",
+    "ignoreCount": "24",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "application": "MySQL",
+        "name": "Mysql export",
+        "_connectionId": "MYSQL CONNECTION",
+        "asynchronous": true,
+        "pageSize": 5,
+        "rdbms": {
+          "query": "select * from automation_customer"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "Input filter",
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "qa__inputFilter": true,
+        "qa__rules": [
+          [
+            "record.GRADE",
+            "less",
+            "1"
+          ]
+        ],
+        "file": {
+          "fileName": "TC_326.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_326.csv"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              "less",
+              [
+                "string",
+                [
+                  "extract",
+                  "GRADE"
+                ]
+              ],
+              "1"
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            "less",
+            [
+              "string",
+              [
+                "extract",
+                "GRADE"
+              ]
+            ],
+            "1"
+          ]
+        },
+        "adaptorType": "FTPImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "Ftp": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_326_Mysql_FTP_Input_Filter",
+        "qa__dataVerification": {
+          "fileName": "TC_326",
+          "folderName":"/io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "24",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        }
+      }
+    }
+  }
+}

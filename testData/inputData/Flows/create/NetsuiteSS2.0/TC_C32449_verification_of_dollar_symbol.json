@@ -1,0 +1,27 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "NETSUITE CONNECTION",
+                "distributed": true,
+                "apiIdentifier": "i6b2257003",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [],
+                "netsuite_da": {
+                    "useSS2Restlets": true,
+                    "operation": "add",
+                    "recordType": "inventorytransfer",
+                    "lookups": []
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+        }
+    ],
+    "pageGenerators": []
+}

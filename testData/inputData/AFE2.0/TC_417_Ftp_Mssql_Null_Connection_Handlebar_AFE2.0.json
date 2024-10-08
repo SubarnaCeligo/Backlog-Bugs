@@ -1,0 +1,104 @@
+{
+    "name": "TC_417_Ftp_Mssql_Null_Connection_Handlebar",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "export",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/TC_417_Ftp_Mssql_Static_Record_Null_Default_Data.json",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_417_Ftp_Mssql_Static_Record_Null_Default_Data"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "import",
+            "application": "Microsoft SQL",
+            "modelMetadata": {
+                "emp_id": {
+                    "default": ""
+                },
+                "name": {
+                    "default": ""
+                },
+                "type": {
+                    "default": "null"
+                },
+                "notes": {
+                    "default": null
+                }
+            },
+            "_connectionId": "MSSQL CONNECTION",
+            "distributed": false,
+            "rdbms": {
+                "query": [
+                    "INSERT INTO automation_mssql_afe\n(\nname,\nemp_id,\ntype,\nnotes\n)\nVALUES\n(\n{{connection.name}},\n{{record.emp_id}},\n{{record.type}},\n{{record.notes}}\n)"
+                ],
+                "queryType": ["INSERT"]
+            },
+            "adaptorType": "RDBMSImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_417_Ftp_Mssql_Null_Connection_Handlebar",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "name": "MSSQL EXPORT Connection",
+                            "emp_id": 105,
+                            "type": "null"
+                        },
+                        {
+                            "name": "MSSQL EXPORT Connection",
+                            "emp_id": 106,
+                            "type": "null"
+                        }
+                    ],
+                    "uniqueField": "emp_id",
+                    "standaloneexportflowID": "60cb2b4ca4004f2e4cfeb67c",
+                    "importRecordType": "automation_mssql_afe",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ecbceb0e59",
+                    "application":"MSSQL"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "MSSQL CONNECTION"
+                }
+            }
+        }
+    }
+}

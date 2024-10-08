@@ -1,0 +1,204 @@
+{
+  "skipRetries": false,
+  "_integrationId": "62834fec26c05c588e38ec62",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "timezone": "Asia/Calcutta",
+  "name": "TC_453_Verify_NS_RT_Flow_withQualificationCriteriaAs_InternalID",
+  "disabled": false,
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "Customers",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ie807d0a15",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "TC_453_Verify_NS_RT_Flow_withQualificationCriteriaAs_InternalID.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_453_Verify_NS_RT_Flow_withQualificationCriteriaAs_InternalID.csv"
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "companyname",
+              "generate": "CompanyName"
+            },
+            {
+              "extract": "subsidiary.name",
+              "generate": "SubsidaryName"
+            },
+            {
+              "extract": "phone",
+              "generate": "Phone"
+            }
+          ]
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "NS RT",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e967cb9c17",
+        "asynchronous": true,
+        "type": "distributed",
+        "oneToMany": false,
+        "sandbox": false,
+        "netsuite": {
+          "type": "distributed",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "distributed": {
+            "recordType": "customer",
+            "executionContext": [
+              "userinterface",
+              "webservices",
+              "csvimport",
+              "suitelet",
+              "custommassupdate",
+              "userevent"
+            ],
+            "executionType": [
+              "create",
+              "edit",
+              "xedit"
+            ],
+            "qualifier": [
+              "internalid",
+              "!=",
+              "6534551"
+            ],
+            "qa__qualifier": [
+              "Internal ID",
+              "is not",
+              "6534551"
+            ],
+            "sublists": [],
+            "useSS2Framework": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "importRecordJSON": {
+      "subsidiary": "HH Inc.",
+      "phone": "1741245874",
+      "companyname": "TC_453_NS_RT"
+    },
+    "application":"NETSUITE",   
+    "importapiIdentifier": "i3e8e1e472",
+    "exportRecordType": "Customer",
+    "expected": {
+      "FTP": {
+        "name": "TC_453_NS_RT_Flow_withQualificationCriteriaAs_InternalID",
+        "_integrationId": "62834fec26c05c588e38ec62",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_453_Verify_NS_RT_Flow_withQualificationCriteriaAs_InternalID",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "634026096eb39f2bf28c6401",
+      "createdAt": "2022-10-07T13:13:45.124Z",
+      "lastModified": "2022-10-07T13:31:35.595Z",
+      "name": "NS customer",
+      "_connectionId": "5a093d279dda7b71eb95b793",
+      "distributed": true,
+      "apiIdentifier": "i3e8e1e472",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "useSS2Restlets": false,
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "companyname",
+              "extract": "companyname",
+              "internalId": false
+            },
+            {
+              "extract": "email",
+              "generate": "email",
+              "internalId": false
+            },
+            {
+              "extract": "phone",
+              "generate": "phone",
+              "internalId": false
+            },
+            {
+              "extract": "fax",
+              "generate": "fax",
+              "internalId": false
+            },
+            {
+              "generate": "subsidiary",
+              "discardIfEmpty": false,
+              "immutable": false,
+              "hardCodedValue": "3",
+              "internalId": true
+            },
+            {
+              "generate": "comments",
+              "extract": "comments",
+              "internalId": false
+            }
+          ],
+          "lists": []
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

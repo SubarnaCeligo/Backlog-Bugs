@@ -1,0 +1,101 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "kdhsiuwgs",
+
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i2e98cf012",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                    "fields": [
+                        {
+                            "generate": "companyname",
+                            "extract": "profile.title",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "entitystatus",
+                            "discardIfEmpty": false,
+                            "immutable": false,
+                            "hardCodedValue": "13",
+                            "internalId": true
+                        },
+                        {
+                            "generate": "customform",
+                            "discardIfEmpty": false,
+                            "immutable": false,
+                            "hardCodedValue": "35",
+                            "internalId": true
+                        },
+                        {
+                            "generate": "subsidiary",
+                            "discardIfEmpty": false,
+                            "immutable": false,
+                            "hardCodedValue": "6",
+                            "internalId": true
+                        },
+                        {
+                            "generate": "contact",
+                            "extract": "profile.display_name",
+                            "internalId": false
+                        }
+                    ],
+                    "lists": []
+                }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C35907",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "hjvytdytt",
+            "application": "slack",
+            "qa__connectionId": "62da2bdd73c08d7560d1b414",
+            "_connectionId": "HTTP SLACK CONNECTION",
+            "apiIdentifier": "e953313b17",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "users.profile.get",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "failPath": "OK",
+                    "failValues": [
+                    [
+                        "false"
+                    ]
+                ]
+                }
+            },
+            "rawData": "56d6b114e1fc35de5391472c057f6ab8ea414780a2a8872f4ea538f9",
+            "adaptorType": "HTTPExport"
+        }
+      }
+    ]
+  }

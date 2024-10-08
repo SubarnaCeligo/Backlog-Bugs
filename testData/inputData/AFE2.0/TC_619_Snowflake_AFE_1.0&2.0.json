@@ -1,0 +1,134 @@
+{
+    "name": "TC_619_Snowflake_AFE_1.0&2.0",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "3",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "AFE_Data",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ea9123cd4f",
+            "qa__path": "/FTP_uploads/AFE_Data_1.0&2.0.json",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "AFE_Data_1.0&2.0"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+            "type": "import",
+            "qa__import": {
+                "name": "AFE 1.0 import",
+                "application": "Snowflake",
+                "modelMetadata": {
+                    "myField": {
+                        "default": ""
+                    }
+                },
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "apiIdentifier": "ia632ae5be",
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "INSERT INTO afe_automation\n(\nNAME,\nEMP_ID,\nTYPE,\nNOTES,\nCOMMENTS\n)\nVALUES\n(\n{{join ' ' data.NAME \"1.0\"}},\n{{data.EMP_ID}},\n{{data.TYPE}},\n{{data.NOTES}},\n{{substring data.COMMENTS 10 14}}\n)"
+                    ],
+                    "queryType": ["INSERT"]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "AFE 2.0 import",
+                "application": "Snowflake",
+                "modelMetadata": {
+                    "NAME": {
+                        "default": ""
+                    },
+                    "EMP_ID": {
+                        "default": ""
+                    },
+                    "TYPE": {
+                        "default": ""
+                    },
+                    "NOTES": {
+                        "default": ""
+                    },
+                    "COMMENTS": {
+                        "default": ""
+                    },
+                    "DOJ": {
+                        "default": ""
+                    }
+                },
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "apiIdentifier": "ie247bcd25",
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "INSERT INTO afe_automation\n(\nNAME,\nEMP_ID,\nTYPE,\nNOTES,\nCOMMENTS\n)\nVALUES\n(\n{{join ' ' record.NAME \"2.0\"}},\n{{record.EMP_ID}},\n{{record.TYPE}},\n{{record.NOTES}},\n{{substring record.COMMENTS 10 14}}\n)"
+                    ],
+                    "queryType": ["INSERT"]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "name": "TC_619_Snowflake_AFE_1.0&2.0",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "SNOWFLAKE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                            "NAME": "Jonathan Mayers 1.0",
+                            "EMP_ID": 1,
+                            "TYPE": "Customer",
+                            "NOTES": "AFE Test",
+                            "COMMENTS": "Test",
+                            "DOJ": null
+                        },
+                        {
+                            "NAME": "Jonathan Mayers 2.0",
+                            "EMP_ID": 1,
+                            "TYPE": "Customer",
+                            "NOTES": "AFE Test",
+                            "COMMENTS": "Test",
+                            "DOJ": null
+                        }
+                    ],
+                    "uniqueField": "NAME",
+                    "importRecordType": "afe_automation",
+                    "exportapiIdentifier": "ec21dbec49",
+                    "isUIFlow": true,
+                    "standaloneexportflowID": "6215eb730f36bf7cbd9d18a9",
+                    "application":"SNOWFLAKE"
+                }
+            }
+        }
+    }
+}

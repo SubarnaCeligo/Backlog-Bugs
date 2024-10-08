@@ -1,0 +1,62 @@
+{
+  "integrationDetails": {
+    "Source_Integration": "TC_C29769",
+    "qa__api_tdata": [{
+      "createIntegrations": {
+        "name": "TC_C29769"
+      }
+    }]
+  },
+  "flowsData": {
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "NS RT export",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "e424d485b2",
+              "asynchronous": true,
+              "type": "test",
+              "oneToMany": false,
+              "sandbox": false,
+              "test": {
+                  "limit": 1
+              },
+              "netsuite": {
+                  "type": "restlet",
+                  "skipGrouping": true,
+                  "statsOnly": false,
+                  "restlet": {
+                      "recordType": "account",
+                      "searchId": "576",
+                      "criteria": [],
+                      "columns": [],
+                      "useSS2Restlets": false
+                  },
+                  "distributed": {
+                      "executionContext": [],
+                      "executionType": [],
+                      "useSS2Framework": false
+                  }
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "flow",
+          "disabled": true,
+          "_integrationId": "",
+          "skipRetries": false,
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "Snowflake_Delta_To_SF_Contact",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Snowflake Delta Export",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "startDate": "2020-09-13T00:00:00.000Z",
+            "qa__startdate": "09/13/2020",
+            "qa__startime": "5:30:00 AM",
+            "asynchronous": true,
+            "type": "delta",
+            "rdbms": {
+                "query": "select * from delta where Timestamp>{{lastExportDateTime}}"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Insert as contact",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "ID",
+                        "generate": "NS_Contact_ID__c"
+                    },
+                    {
+                        "extract": "EMAIL",
+                        "generate": "Email"
+                    },
+                    {
+                        "extract": "NAME",
+                        "generate": "LastName"
+                    }
+                ]
+            },
+            "salesforce": {
+                "operation": "insert",
+                "sObjectType": "Contact",
+                "api": "soap",
+                "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "salesforce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "Snowflake Delta to SF Contact",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "Name": "deltatest1",
+                            "Email": "deltatest1@gmail.com",
+                            "NS_Contact_ID__c": "1"
+                        },
+                        {
+                            "Name": "deltatest2",
+                            "Email": "deltatest2@gmail.com",
+                            "NS_Contact_ID__c": "2"
+                        }
+                    ],
+                    "uniqueField": "Name",
+                    "standaloneexportflowID": "5f61d5cadba9db1b1d7e8bb1",
+                    "importRecordType": "contact",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ecc15c91d1"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "4",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                }
+            }
+        }
+    }
+}

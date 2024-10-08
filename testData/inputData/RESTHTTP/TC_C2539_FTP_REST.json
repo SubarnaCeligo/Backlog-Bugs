@@ -1,0 +1,59 @@
+{
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_C2539_FTP_REST",
+  "import": {
+    "_connectionId": "HTTP ZENDESK CONNECTION"
+  },
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expectedJSON": {
+      "name": "absolute_ticket",
+      "notes": "981",
+      "email": "absolute@gmail.com"
+    },
+    "exportapiIdentifier": "ef2fb4dce1",
+    "application": "HTTP",
+    "importapiIdentifier": "i518c226eb",
+    "generateSampleDropDownAvailable": false,
+    "importRecordType": "users",
+    "isUIFlow": true,
+    "standaloneexportflowID": "62b5add634420d228504792b",
+    "uniqueField": "name",
+    "importapidoc": {
+      "_id": "62b5c97c6d35c36b8b387901",
+      "createdAt": "2022-06-24T14:26:04.894Z",
+      "lastModified": "2022-06-24T14:26:04.952Z",
+      "name": "Testq123",
+      "parsers": [],
+      "_connectionId": "56d6d3c95900861a56d64677",
+      "apiIdentifier": "i518c226eb",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "http": {
+        "relativeURI": [
+          "users.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [
+          "{\n  \"user\": {\n    \"email\": \"absolute@gmail.com\",\n    \"name\": \"absolute_ticket\",\n    \"notes\": \"981\"\n  }\n}"
+        ],
+        "batchSize": 1,
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "sendPostMappedData": true,
+        "formType": "rest"
+      },
+      "adaptorType": "HTTPImport"
+    }
+  }
+}

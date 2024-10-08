@@ -1,0 +1,118 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Create_Zendesk_Organisations",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "distributed": false,
+                "apiIdentifier": "i2696c4ddc",
+                "lookups": [
+                    {
+                        "method": "GET",
+                        "relativeURI": "users/1473313072",
+                        "extract": "user.name",
+                        "allowFailures": false,
+                        "name": "Admin_Name",
+                        "useImportHeaders": true
+                    }
+                ],
+                "http": {
+                    "relativeURI": [
+                        "organizations"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{\n  \"organization\": {\n    \"name\": \"{{connection.name}}\",\n    \"notes\": \"{{record.notes}}\",\n    \"organization_fields\": {\n      \"email\": \"{{record.email}}\",\n      \"billing_address_1\": \"{{record.billing_address_1}}\",\n      \"billing_address2\": \"{{record.billing_address2}}\",\n      \"billing_city\": \"{{record.billing_city}}\",\n      \"billing_state\": \"{{record.billing_state}}\",\n      \"shipping_address_1\": \"{{lookup \"Admin_Name\" this}}\",\n      \"shipping_city\": \"{{record.shipping_city}}\",\n      \"shipping_state\": \"{{record.shipping_state}}\",\n      \"shipping_country\": \"{{record.shipping_country}}\"\n    }\n  }\n}"
+                    ],
+                    "batchSize": 1,
+                    "lookups": [
+                        {
+                            "method": "GET",
+                            "relativeURI": "users/1473313072",
+                            "extract": "user.name",
+                            "allowFailures": false,
+                            "name": "Admin_Name",
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_471_Zendesk_Create_Organisation_With_AFE2.0",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "name": "TC_471_Zendesk_Create_Organisation_With_AFE2.0",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": {
+                        "name": "HTTP ZENDESK CONNECTION",
+                        "notes": "",
+                        "organization_fields": {
+                            "email": "Celigo@gmail.com",
+                            "billing_address_1": "Alpine st",
+                            "billing_address2": "null",
+                            "billing_city": "Memphis",
+                            "billing_state": "Tennesse",
+                            "shipping_address_1": "Celigo IO Automation",
+                            "shipping_city": "Memphis",
+                            "shipping_country": "USA",
+                            "shipping_state": "Tennesse"
+                        }
+                    },
+                    "standaloneexportflowID": "60ee875bcdcd434ee461984b",
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "name",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e1b4d1dfe3"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "OrganisationsData_Zendesk",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e93faaa83c",
+                "qa__path": "/FTP_uploads/TC_471_Organisationdata.json",
+                "asynchronous": true,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_471_Organisationdata"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ]
+}

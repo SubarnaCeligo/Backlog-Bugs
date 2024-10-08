@@ -1,0 +1,229 @@
+{
+  "name": "TC_486_Ns_Sf_Ftp_Json_Doc_Afe2.0",
+  "disabled": false,
+  "_integrationId": "63159bd0976915080d03da1a",
+  "skipRetries": false,
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "SF export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select LeadSource,Department, Phone from Contact where Name='{{record.Name}}'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "data",
+            "generate": "response"
+          }
+        ],
+        "qa__index": 0
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Import into FTP",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "TC_486_NS_SF_Ftp_Json_Doc_AFE2.json",
+          "type": "json",
+          "json": {
+            "body": "[\n{{#each batch_of_records}}\n{{#if @index}},{{/if}}\n{\n\"name\":\"{{record.Name}}\",\n\"email\":\"{{record.Email}}\",\n\"source\":\"{{record.response.[0].LeadSource}}\",\n\"dept\":\"{{record.response.[0].Department}}\",\n\"phone\":{{record.response.[0].Phone}}\n}\n{{/each}}\n]"
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_486_NS_SF_Ftp_Json_Doc_AFE2.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Ns Export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "apiIdentifier": "e28d26828a",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "3389",
+            "useSS2Restlets": false
+          },
+          "distributed": {
+            "disabled": false,
+            "forceReload": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "6",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "importRecordJSON1": [
+      {
+        "name": "Cary Kelley",
+        "Department": "QA Engineer",
+        "source": "Web",
+        "phone": 70326889388
+      },
+      {
+        "name": "Lillian Greenwood",
+        "Department": "QA Team",
+        "source": "Phone Inquiry",
+        "phone": 70326889098
+      },
+      {
+        "name": "Whitney Wright",
+        "Department": "EMPHOURLY",
+        "source": "Partner Referral",
+        "phone": 666
+      }
+    ],
+    "importapiIdentifier1": "ie88063919",
+    "importRecordJSON": [
+      {
+        "name": "Cary Kelley",
+        "email": "carykelley@gmail.com",
+        "comments": "Same Value"
+      },
+      {
+        "name": "Lillian Greenwood",
+        "email": "lilliangreenwood@celigo.com",
+        "comments": "Same Value"
+      },
+      {
+        "name": "Whitney Wright",
+        "email": "whitneywright@abc.com",
+        "comments": "Same Value"
+      }
+    ],
+    "application":"NETSUITE",  
+    "importapiIdentifier": "i557b38845",
+    "expected": {
+      "FTP": {
+        "name": "TC_486_NS_SF_Ftp_Json_Doc_AFE2.json",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ";"
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "6",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_486_NS_SF_Ftp_Json_Doc_AFE2",
+          "folderName": "io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "6128917c5c38332481e8d17b",
+      "createdAt": "2021-08-27T07:17:16.500Z",
+      "lastModified": "2021-08-27T07:33:30.241Z",
+      "name": "TC_486_Ns_Sf_Ftp_Json_Doc_Afe2.0_NS",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "5bc6e40ae08bd01f981f3aa5",
+      "distributed": true,
+      "apiIdentifier": "i557b38845",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "companyname",
+              "extract": "name",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "email",
+              "extract": "email",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "comments",
+              "extract": "comments",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "subsidiary",
+              "hardCodedValue": "3",
+              "internalId": true,
+              "immutable": false,
+              "discardIfEmpty": false
+            }
+          ],
+          "lists": []
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

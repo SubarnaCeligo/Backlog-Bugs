@@ -1,0 +1,91 @@
+{
+  "flowsData": {
+    "flowname1": "TC_C32555",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "TC_C32555 Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e4318fa6f4",
+              "asynchronous": true,
+              "sandbox": false,
+              "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                  "fileNameStartsWith": "TC_C43032.json"
+              },
+              "file": {
+                  "output": "metadata",
+                  "skipDelete": true
+              },
+              "adaptorType": "FTPExport"
+          }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "TC_C32555 Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "i51ed691b6",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                  "useSS2Restlets": true,
+                  "operation": "add",
+                  "recordType": "vendorbill",
+                  "lookups": [],
+                  "mapping": {
+                      "fields": [],
+                      "lists": [
+                          {
+                              "generate": "item",
+                              "fields": [
+                                  {
+                                      "generate": "celigo_inventorydetail",
+                                      "subRecordMapping": {
+                                          "recordType": "inventorydetail",
+                                          "jsonPath": "$"
+                                      }
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C32555",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

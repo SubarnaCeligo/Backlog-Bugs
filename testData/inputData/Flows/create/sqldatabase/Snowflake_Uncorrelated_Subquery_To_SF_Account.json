@@ -1,0 +1,84 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "Snowflake_Uncorrelated_Subquery_To_SF_Account",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Snowflake Uncorrelated subquery",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "asynchronous": true,
+            "rdbms": {
+                "query": "select CUST_CODE,CUST_NAME,CUST_CITY from automation_customer where OPENING_AMT= (select max(PRICE) from automation_products)"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Uncorrelated subquery as SF account",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "distributed": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "CUST_CITY",
+                        "generate": "Subsidiary_Name__c"
+                    },
+                    {
+                        "extract": "CUST_NAME",
+                        "generate": "Name"
+                    },
+                    {
+                        "extract": "CUST_CODE",
+                        "generate": "Upsert__c"
+                    }
+                ]
+            },
+            "salesforce": {
+                "operation": "insert",
+                "sObjectType": "Account",
+                "api": "soap",
+                "removeNonSubmittableFields": false
+            },
+            "adaptorType": "SalesforceImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "Salesforce": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "Snowflake Uncorrelated subquery as SF account",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                        "Name": "Shilton",
+                        "Upsert__c": "C00006",
+                        "Subsidiary_Name__c": "Torento"
+                    }],
+                    "dataURIs": [
+                        "https://na116.salesforce.com/0013m000029OnjBAAS"
+                    ],
+                    "uniqueField": "Name",
+                    "standaloneexportflowID": "5eba78b5dd8e181a927145b6",
+                    "importRecordType": "contact",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e1e59054a4"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                }
+            }
+        }
+    }
+}

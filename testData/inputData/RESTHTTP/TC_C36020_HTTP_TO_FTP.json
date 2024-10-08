@@ -1,0 +1,59 @@
+{
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+      "successCount": "22",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "pageGenerators": [
+      {
+        "qa__export":{
+            "name": "Skip parameter  pagination Export",
+            "application": "Acumatica",
+            "_connectionId": "HTTP ACUMATICA CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "parsers": [
+
+            ],
+            "http": {
+              "relativeURI": "/ShipVia?$top=100&$skip={{{export.http.paging.skip}}}",
+              "method": "GET",
+              "formType": "http",
+              "paging": {
+                "method": "skip",
+                "lastPageStatusCode": 404
+              }
+            },
+            "adaptorType": "HTTPExport"
+          }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "Skip number import",
+            "parsers": [
+
+            ],
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "file": {
+              "fileName": "Skip_Paging_QA.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "Skip_Paging_QA.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+      }
+    ],
+    "name": "TC_C36020_HTTP_to_FTP",
+    "disabled": false,
+    "timezone": "Asia/Calcutta"
+  }

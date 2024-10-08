@@ -1,0 +1,99 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "EDIFACT Import",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i83425f2fd",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "EDIFACT_Imported-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.edi",
+                "type": "filedefinition",
+                "qa__type": "delimited/edifact",
+                "qa__ediformat": "amazonvcedifactorders",
+                "fileDefinition": {
+                    "_fileDefinitionId": "61c40c142341004bf2f98be1"
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "EDIFACT_Imported-{{timestamp \"YYYY-MM-DDTHH:mm:ssZ\" \"Asia/Calcutta\"}}.edi"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_111_EDI-Export&Import_Flow",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "TC_111_EDI-Export&Import_Flow",
+                "qa__dataVerification": {
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": "*"
+                        }
+                    },
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "EDIFACT_Imported",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".edi",
+                    "qa__columnDelimiter": "*"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": "*"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "EDIFACT_Export",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e3d75793b8",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                "fileNameStartsWith": "EDIFACT_Sample"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "encoding": "utf8",
+                "type": "filedefinition",
+                "qa__type": "delimited/edifact",
+                "qa__ediformat": "amazonvcedifactorders",
+                "fileDefinition": {
+                    "_fileDefinitionId": "61c40bb92341004bf2f98bc5"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

@@ -1,0 +1,43 @@
+{
+    "name": "TC_C1665_C23132",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62e8c2172dd80523719f9291",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C2169.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "//FTP_uploads//TC_C2169.json",
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "_connectionId": "BIGQUERY CONNECTION",
+                "rdbms": {
+                    "query": [
+                        "insert into `1234.IO_Dummy` values ({{batch_of_records.0.record.Id}},{{connection.name}}, {{import.name}})"
+                    ],
+                    "queryType": [
+                        "MERGE"
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ]
+}

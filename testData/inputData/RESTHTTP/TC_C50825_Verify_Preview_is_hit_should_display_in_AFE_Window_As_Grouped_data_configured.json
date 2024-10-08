@@ -1,0 +1,91 @@
+{
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C50825",
+        "_connectionId": "FTP CONNECTION",
+        "qa__inputFilter": true,
+        "qa__rules": [
+          [
+            "record.id",
+            "equals",
+            "582676"
+          ]
+        ],
+        "apiIdentifier": "id75e8a8e6",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "xyz.xlsx",
+          "skipAggregation": false,
+          "type": "xlsx"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/TC",
+          "fileName": "xyz.xlsx"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "id"
+                ]
+              ],
+              "582676"
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            "equals",
+            [
+              "string",
+              [
+                "extract",
+                "id"
+              ]
+            ],
+            "582676"
+          ]
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "asfd",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e607a4b5da",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": [
+          "id"
+        ],
+        "http": {
+          "relativeURI": "/tickets",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "tickets"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

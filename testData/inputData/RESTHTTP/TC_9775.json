@@ -1,0 +1,128 @@
+{
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+      "successCount": "2",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "pageGenerators": [
+      {
+        "qa__export":{
+            "name": "Get NetSuite customers",
+            "description": "Get all customers from NetSuite that have been created since this flow last ran.",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "parsers": [
+
+            ],
+            "test": {
+              "limit": 1
+            },
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": false,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "996",
+                "criteria": [
+
+                ],
+                "columns": [
+
+                ],
+                "useSS2Restlets": false
+              },
+              "distributed": {
+                "executionContext": [
+
+                ],
+                "executionType": [
+
+                ],
+                "useSS2Framework": false
+              }
+            },
+            "transform": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "inputFilter": {
+              "type": "expression",
+              "expression": {
+                "version": "1"
+              },
+              "version": "1"
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "Zendesk_Users",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "mapping": {
+              "fields": [
+                {
+                  "extract": "Name",
+                  "generate": "user.name"
+                },
+                {
+                  "extract": "Email",
+                  "generate": "user.email"
+                },
+                {
+                  "extract": "Phone",
+                  "generate": "user.phone"
+                }
+              ]
+            },
+            "http": {
+              "relativeURI": [
+                "users.json"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [
+
+              ],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "formType": "http",
+              "response": {
+                "successPath": [
+                  "user.name"
+                ],
+                "successValues": [
+                  [
+                    "Int1"
+                  ]
+                ]
+              }
+            },
+            "adaptorType": "HTTPImport"
+          }
+      }
+    ],
+    "name": "TC_9775_NS_to_Http",
+    "disabled": false,
+    "timezone": "Asia/Calcutta"
+  }

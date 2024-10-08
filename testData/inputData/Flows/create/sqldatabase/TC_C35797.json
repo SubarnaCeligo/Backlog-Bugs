@@ -1,0 +1,26 @@
+{
+    "qa": {
+        "application": "Google BigQuery",
+        "name": "test",
+        "_connectionId": "BIGQUERY CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+            "query": "select * from `1234.More_KB`"
+        },
+        "adaptorType": "RDBMSExport"
+    },
+    "staging": {
+        "application": "Google BigQuery",
+        "name": "test",
+        "_connectionId": "BIGQUERY CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+            "query": "select * from `1234.More_KB`"
+        },
+        "adaptorType": "RDBMSExport"
+    }
+}

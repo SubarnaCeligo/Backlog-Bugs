@@ -1,0 +1,138 @@
+{
+  "name": "TC_711_HTTP_Export_Transform_Rules_Filters_to_FTP_Import",
+  "timezone": "Asia/Calcutta",
+  "description": " ",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_711_HTTP_Export_Transform_Rules_Filters_to_FTP_Import",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "i4d3e451b5",
+        "oneToMany": false,
+        "sandbox": false,
+        "distributed": false,
+        "parsers": [],
+        "mapping": {
+          "fields": [
+            {
+              "extract": "name",
+              "generate": "name"
+            },
+            {
+              "extract": "id",
+              "generate": "_integrationId"
+            },
+            {
+              "extract": "state",
+              "generate": "type"
+            },
+            {
+              "extract": "email",
+              "generate": "disabled"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_711_HTTP_Export_Transform_Rules_Filters_to_FTP_Import.json",
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+          "fileName": "TC_711_HTTP_Export_Transform_Rules_Filters_to_FTP_Import.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Get_Customer_OpenAir_1",
+        "application" : "openair",
+        "_connectionId": "HTTP OPENAIR CONNECTION",
+        "apiIdentifier": "ef4bea4db6",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "method": "POST",
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\"><Auth><Login><company>{{{connection.http.unencrypted.companyId}}}</company><user>{{{connection.http.unencrypted.userId}}}</user><password>{{{connection.http.encrypted.password}}}</password></Login></Auth><Read type=\"Customer\" limit=\"5\" method=\"equal to\">  <Customer>   <company>HackSmith.co</company>  </Customer>  <_Return> <name/> <id/> <addr/></_Return></Read></request>",
+          "requestMediaType": "xml",
+          "formType": "http",
+          "response": {
+            "resourcePath": "/response/Read/Customer",
+            "successPath": "/response/Read/@status",
+            "successValues": ["0"]
+          }
+        },
+        "transform": {
+          "rules": [
+            [
+              {
+                "extract": "name[*]._",
+                "generate": "name"
+              },
+              {
+                "extract": "id[*]._",
+                "generate": "id"
+              },
+              {
+                "extract": "addr[*].Address[*].email[*]._",
+                "generate": "email"
+              },
+              {
+                "extract": "addr[*].Address[*].state[*]._",
+                "generate": "state"
+              }
+            ]
+          ],
+          "version": "1"
+        },
+        "qa__rules": [["record.id", "equals", "322992"]],
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": ["equals", ["string", ["extract", "id"]], "322992"],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": ["equals", ["string", ["extract", "id"]], "322992"]
+        },
+
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "1",
+    "ignoreCount": "3",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "isUIFlow": true,
+    "expected": {
+      "FTP": {
+        "name": "TC_711_HTTP_Export_Transform_Rules_Filters_to_FTP_Import",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "FTP CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "3",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_711_HTTP_Export_Transform_Rules_Filters_to_FTP_Import",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO Automation SFTP Imports",
+          "fileType": ".json"
+        }
+      }
+    }
+  }
+}

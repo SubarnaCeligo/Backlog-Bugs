@@ -1,0 +1,9 @@
+[
+    {
+        "connectionId": "HTTP MOCKY CONNECTION"
+    },
+    {
+        "qa__connectionId": "HTTP ZENDESK CONNECTION",
+        "connectionId": "HTTP ZENDESK CONNECTION"
+    }
+]

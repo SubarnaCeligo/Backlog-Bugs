@@ -1,0 +1,81 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "http import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [{
+                "method": "GET",
+                "relativeURI": "/contacts/v1/search/query",
+                "extract": "contacts[0].firstname.value",
+                "allowFailures": false,
+                "name": "source",
+                "useImportHeaders": true
+            }],
+            "http": {
+                "relativeURI": [
+                    "users",
+                    "users.json"
+                ],
+                "method": [
+                    "PUT",
+                    "POST"
+                ],
+                "body": [
+                    "{{#each data}}\n{{#if @index}} , {{/if}}\n{\n\"user\" :\t{\n \n     \"name\": \"10014user\",\n     \"email\": \"10014@celigoreact1234.com\"\n}\n}\n{{/each}}",
+                    "{{#each data}}\n{{#if @index}} , {{/if}}\n{\n\"user\" :\t{\n \n     \"name\": \"10014user\",\n     \"email\": \"10014@celigo123467.com\"\n}\n}\n{{/each}}"
+                ],
+                "batchSize": 1,
+                "requestType": [
+                    "UPDATE",
+                    "CREATE"
+                ],
+                "sendPostMappedData": false,
+                "existingLookupName": "source",
+                "formType": "http",
+                "lookups": [{
+                    "method": "GET",
+                    "relativeURI": "/contacts/v1/search/query",
+                    "extract": "contacts[0].firstname.value",
+                    "allowFailures": false,
+                    "name": "source",
+                    "useImportHeaders": true
+                }]
+            },
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C32195",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "ftp export",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/TC_C32195.json",
+            "asynchronous": true,
+            "sandbox": false,
+
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C32195",
+                "fileNameEndsWith": ".json"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

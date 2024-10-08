@@ -1,0 +1,107 @@
+{
+  "name": "TC_788_Rest_Skip_Number_Parameter_Pagination",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "1226",
+    "errorCount": "0",
+    "pages": "31"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "TC_788_Rest_Skip_Number_Parameter_Pagination",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "id",
+              "generate": "id"
+            },
+            {
+              "extract": "rowNumber",
+              "generate": "rowNumber"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_788_Rest_Skip_Number_Parameter_Pagination.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_788_Rest_Skip_Number_Parameter_Pagination.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "Ftp": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_788_Rest_Skip_Number_Parameter_Pagination",
+        "qa__dataVerification": {
+          "fileName": "TC_788_Rest_Skip_Number_Parameter_Pagination",
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1226",
+          "ignoreCount": "0",
+          "errorCount": "0",
+          "pages": "31"
+        },
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "export",
+        "application" : "Acumatica",
+        "_connectionId": "HTTP ACUMATICA CONNECTION",
+        "apiIdentifier": "ee77a27595",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/Customer?cursor={{{export.http.paging.skip}}&$top=100",
+          "method": "GET",
+          "formType": "http",
+          "qa__formType": "rest",
+          "paging": {
+            "method": "skip",
+            "skip": "1",
+            "relativeURI": "/Customer?$top=100",
+            "lastPageStatusCode": 404
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

@@ -1,31 +1,73 @@
 {
-    "name": "TC_C28455",
+    "name": "TC_C41722_EXPORT_RUN_FOR_PRESAVEPAGE_HOOK_MAIN",
+    "Source_Integration": "Delete_TC_C41722",
+    "script1": {
+        "name": "ONE",
+        "content": "import api from 'integrator-api';\nfunction preSavePageFunction(options) {\n  let resp = api.exports.run({\n  _id: 'export_alias'\n   })\n    options.data[0].res = resp\n    options.data[0].res1 = JSON.stringify(resp)\n    return {\n      data: options.data,\n      errors: options.errors\n  }\n}"
+    },
+    "script2": {
+        "name":  "TWO",
+        "content": "import api from 'integrator-api';\nfunction preSavePageFunction(options) {\n  let resp = api.exports.run({\n  _id: 'export_alias'\n   })\n    options.data[0].res = resp\n    options.data[0].res1 = JSON.stringify(resp)\n    return {\n      data: options.data,\n      errors: options.errors\n  }\n}"
+    },
+    "createAlias": {
+        "Source_Integration": "Delete_TC_C41722",
+        "aliasName": "export_alias",
+        "aliasResourceType": "exports",
+        "aliasResourceName": "",
+        "flowID": ""
+    },
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C41722.json",
+                "_integrationId": "",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C41722",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
     "qa__api_tdata": [
         {
             "pageGenerators": [
                 {
                     "type": "export",
                     "qa__export": {
-                        "name": "HTTP Export",
-                        "application": "zendesk support",
-                        "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "apiIdentifier": "e7a61dd0d3",
+                        "name": "TC_C41722_Export",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "e51185aadc",
                         "asynchronous": true,
-                        "hooks": {
-                            "preSavePage": {
-                                "_scriptId": "6329d7a43bca9939eedc1323",
-                                "function": "preSavePage"
-                            }
-                        },
+                        "type": "test",
                         "oneToMany": false,
                         "sandbox": false,
-                        "http": {
-                            "relativeURI": "/users",
-                            "method": "GET",
-                            "formType": "http"
+                        "test": {
+                            "limit": 1
                         },
-                        "rawData": "61e68956b587067a214ac5eddb6d12d82b3e4e5eaaed17480e86c2ca",
-                        "adaptorType": "HTTPExport"
+                        "hooks": {
+                            "preSavePage": {
+                                "_scriptId": "",
+                                "function": "preSavePageFunction"
+                            }
+                        },
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "select name, id, type from account"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
                     }
                 }
             ],
@@ -33,44 +75,57 @@
                 {
                     "type": "import",
                     "qa__import": {
-                        "name": "HTTP Import",
-                        "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "apiIdentifier": "ie5cb56d65",
+                        "name": "SS2.0 Script Instruction Count Error",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
                         "hooks": {
-                            "postMap": {
-                                "_scriptId": "6329d77f676c0425cb197cc3",
-                                "function": "postMap"
-                            },
                             "preMap": {
-                                "_scriptId": "6329d6fe676c0425cb197cb1",
-                                "function": "preMap"
+                                "function": "preMap",
+                                "_scriptId": ""
                             }
                         },
                         "ignoreExisting": false,
                         "ignoreMissing": false,
                         "oneToMany": false,
-                        "sandbox": false,
-                        "http": {
-                            "relativeURI": [
-                                "/users"
-                            ],
-                            "method": [
-                                "POST"
-                            ],
-                            "body": [],
-                            "batchSize": 1,
-                            "sendPostMappedData": true,
-                            "formType": "http"
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": true,
+                            "operation": "add",
+                            "recordType": "customer",
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "generate": "companyname",
+                                        "extract": "entity.name",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "subsidiary",
+                                        "discardIfEmpty": false,
+                                        "immutable": false,
+                                        "hardCodedValue": "3",
+                                        "internalId": true
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "hooks": {
+                                "postMap": {
+                                    "fileInternalId": "4118408",
+                                    "function": "postMap"
+                                }
+                            }
                         },
-                        "adaptorType": "HTTPImport"
+                        "adaptorType": "NetSuiteDistributedImport"
                     }
                 }
             ],
             "createFlow": {
-                "name": "TC_C28455",
+                "name": "TC_C41722_EXPORT_RUN_FOR_PRESAVEPAGE_HOOK_MAIN",
                 "disabled": false,
-                "_integrationId": "6317518c5bca603be6bc9af0",
-                "qa__integrationId": "6317333395653f0f15147f47",
+                "qa__integrationId": "UPDATE WITH NEW INTEGRATION ID",
+                "_integrationId": "UPDATE WITH NEW INTEGRATION ID",
                 "skipRetries": false,
                 "pageProcessors": [
                     {
@@ -87,101 +142,10 @@
                         "_exportId": "UPDATE WITH NEW EXPORTID"
                     }
                 ]
+            },
+            "createIntegrations": {
+                "name": "Delete_TC_C41722"
             }
         }
-    ],
-    "Staging": {
-        "qa__api_tdata": [
-            {
-                "pageGenerators": [
-                    {
-                        "type": "export",
-                        "qa__export": {
-                            "name": "HTTP Export",
-                            "application": "zendesk support",
-                            "_connectionId": "HTTP ZENDESK CONNECTION",
-                            "qa__connectionId": "632181ed0ba04c4c54215d08",
-                            "apiIdentifier": "e7a61dd0d3",
-                            "asynchronous": true,
-                            "hooks": {
-                                "preSavePage": {
-                                    "_scriptId": "632ac4560dbc53086e8aa2f0",
-                                    "function": "preSavePage"
-                                }
-                            },
-                            "oneToMany": false,
-                            "sandbox": false,
-                            "http": {
-                                "relativeURI": "/users",
-                                "method": "GET",
-                                "formType": "http"
-                            },
-                            "rawData": "61e68956b587067a214ac5eddb6d12d82b3e4e5eaaed17480e86c2ca",
-                            "adaptorType": "HTTPExport"
-                        }
-                    }
-                ],
-                "pageProcessors": [
-                    {
-                        "type": "import",
-                        "qa__import": {
-                            "name": "HTTP Import",
-                            "_connectionId": "HTTP ZENDESK CONNECTION",
-                            "qa__connectionId": "632181ed0ba04c4c54215d08",
-                            "apiIdentifier": "ie5cb56d65",
-                            "hooks": {
-                                "postMap": {
-                                    "_scriptId": "632ac5400dbc53086e8aa394",
-                                    "function": "postMap"
-                                },
-                                "preMap": {
-                                    "_scriptId": "632ac4d30dbc53086e8aa345",
-                                    "function": "preMap"
-                                }
-                            },
-                            "ignoreExisting": false,
-                            "ignoreMissing": false,
-                            "oneToMany": false,
-                            "sandbox": false,
-                            "http": {
-                                "relativeURI": [
-                                    "/users"
-                                ],
-                                "method": [
-                                    "POST"
-                                ],
-                                "body": [],
-                                "batchSize": 1,
-                                "sendPostMappedData": true,
-                                "formType": "http"
-                            },
-                            "adaptorType": "HTTPImport"
-                        }
-                    }
-                ],
-                "createFlow": {
-                    "name": "TC_C28455",
-                    "disabled": false,
-                    "_integrationId": "6317518c5bca603be6bc9af0",
-                    "qa__integrationId": "6317333395653f0f15147f47",
-                    "skipRetries": false,
-                    "pageProcessors": [
-                        {
-                            "responseMapping": {
-                                "fields": [],
-                                "lists": []
-                            },
-                            "type": "import",
-                            "_importId": "UPDATE WITH NEW IMPORTID"
-                        }
-                    ],
-                    "pageGenerators": [
-                        {
-                            "_exportId": "UPDATE WITH NEW EXPORTID"
-                        }
-                    ]
-                }
-            }
-        ]
-    }
+    ]
 }

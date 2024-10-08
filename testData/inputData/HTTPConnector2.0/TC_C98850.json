@@ -4,7 +4,7 @@
         "ignoreCount": "0",
         "successCount": "2",
         "errorCount": "0"
-      },
+    },
     "referencename": "TC_C98850",
     "qa__api_tdata": [
         {
@@ -13,61 +13,53 @@
                     "type": "export",
                     "qa__export": {
                         "name": "WARE",
-    "qa__connectionId": "64b977ec385d1d6779a8af7b",
-    "_connectionId":"64c12af28690140af00be446",
-    "iaqa__connectionId":"64c12c2e9e3ad21e6bf454c6",
-    "qaprod__connectionId":"64c12d44b3e592259e41b0c7",
-    "apiIdentifier": "e73f283029",
-    "asynchronous": true,
-    "assistant": "ware2go",
-    "oneToMany": false,
-    "sandbox": false,
-    "http": {
-        "relativeURI": "/v1/merchants/{{{connection.http.unencrypted.merchantId}}}/inventory/568912384",
-        "method": "GET",
-        "requestMediaType": "json",
-        "successMediaType": "json",
-        "errorMediaType": "json",
-        "_httpConnectorVersionId": "638880df6d37a9300c09ddef",
-        "_httpConnectorResourceId": "638880df6d37a9300c09ddf0",
-        "_httpConnectorEndpointId": "638880df6d37a9300c09ddf2",
-        "formType": "assistant"
-    },
-    "adaptorType": "HTTPExport"
-                        }
-                        }
+                        "_connectionId": "Ware2go connection",
+                        "apiIdentifier": "e73f283029",
+                        "asynchronous": true,
+                        "assistant": "ware2go",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/v1/merchants/{{{connection.http.unencrypted.merchantId}}}/inventory/568912384",
+                            "method": "GET",
+                            "requestMediaType": "json",
+                            "successMediaType": "json",
+                            "errorMediaType": "json",
+                            "_httpConnectorVersionId": "638880df6d37a9300c09ddef",
+                            "_httpConnectorResourceId": "638880df6d37a9300c09ddf0",
+                            "_httpConnectorEndpointId": "638880df6d37a9300c09ddf2",
+                            "formType": "assistant"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
             ],
             "pageProcessors": [
                 {
-                 "type": "import",
-                 "qa__import": {
-                    "name": "FTP",
-    "qa__connectionId": "63739feed48a291bac1e744d",
-    "_connectionId":"64ba66840d1c0968515e1d01",
-    "iaqa__connectionId":"64b52a7f0ea57e6bbd2fb1ab",
-    "qaprod__connectionId":"63739feed48a291bac1e744d",
-    "apiIdentifier": "i6382abbd0",
-    "oneToMany": false,
-    "sandbox": false,
-    "file": {
-        "fileName": "Ware2go.json",
-        "skipAggregation": false,
-        "type": "json"
-    },
-    "ftp": {
-        "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
-        "fileName": "Ware2go.json"
-    },
-    "adaptorType": "FTPImport"
-
+                    "type": "import",
+                    "qa__import": {
+                        "name": "FTP",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i6382abbd0",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "Ware2go.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                            "fileName": "Ware2go.json"
+                        },
+                        "adaptorType": "FTPImport"
                     }
                 }
             ],
             "createFlow": {
                 "name": "TC_C98850",
                 "disabled": false,
-                "qa__integrationId": "633408479fb96473a0c7372c",
-                "_integrationId": "631a1266abf51e7a86c80ab4",
+                "_integrationId": "_integrationId",
                 "skipRetries": false,
                 "pageProcessors": [
                     {

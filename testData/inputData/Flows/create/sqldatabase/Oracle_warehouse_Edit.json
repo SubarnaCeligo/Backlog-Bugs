@@ -1,0 +1,28 @@
+{
+    "apiJSON": {
+        "type": "jdbc",
+        "name": "Edit_Connection_MYSQL",
+        "jdbc": {
+            "type": "oracle:thin",
+            "host": "jdbc:oracle:thin:@(description=(retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.us-sanjose-1.oraclecloud.com))(connect_data=(service_name=g2527e14b9f6988_dd03yxy831a812he_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))",
+            "port": 3306,
+            "database": "mysqldev",
+            "user": "ao0BbjI9R3mMEX7",
+            "password": "******",
+            "qa__password": "ZHE4Sm1telZ6Y2VMVERyNjh4UTI="
+        }
+    },
+    "importJSON": {
+        "type": "jdbc",
+        "name": "Edit_Connection_MYSQL",
+        "jdbc": {
+            "type": "oracle:thin",
+            "host": "mysql-dev.cu9ep4kmgkddck.us-east-1.rds.amazonaws.com",
+            "port": 3306,
+            "database": "demoDB",
+            "user": "ao0BbjI9R3mMEX7",
+            "password": "******",
+            "qa__password": "ZHE4Sm1telZ6Y2VMVERyNjh4UTI="
+        }
+    }
+  }

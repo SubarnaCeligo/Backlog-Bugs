@@ -1,0 +1,301 @@
+{
+  "skipRetries": false,
+  "_integrationId": "62d6b4a955468141a906119e",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "parsers": [],
+        "file": {
+          "xml": {
+            "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><data>{{#each data}}    <count>{{count}}</count>    <facets>{{facets}}</facets>    <next_page>{{next_page}}</next_page>    <previous_page>{{previous_page}}</previous_page>    <results>      {{#each results as |a|}}        <result>          <Name>{{name}}</Name>          <Notes>{{notes}}</Notes>          <phone>{{organization_fields.phone}}</phone>          <Fax>{{organization_fields.fax}}</Fax>          <Subsidiary_Name>{{organization_fields.subsidiary_name}}</Subsidiary_Name>          <Billing_Phone>{{organization_fields.billing_phone}}</Billing_Phone>           <Billing_City>{{organization_fields.billing_city}}</Billing_City>          <Billing_Country>{{organization_fields.billing_country}}{{organization_fields.billing_country}}</Billing_Country>          <Billing_State>{{organization_fields.billing_state}}</Billing_State>          <Billing_Addressee>{{organization_fields.billing_addressee}}</Billing_Addressee>          <Billing_Adress1>{{organization_fields.billing_address_1}}</Billing_Adress1>          <Billing_Address2>{{organization_fields.billing_address2}}</Billing_Address2>          <Billing_Zip>{{organization_fields.billing_zip}}</Billing_Zip>        </result>      {{/each}}    </results>{{/each}}</data>"
+          },
+          "type": "xml"
+        },
+        "ftp": {
+          "fileName": "ORD_GC_{{timestamp \"X\"}}.xml",
+          "directoryPath": "/io.auto.qa/IO_UI_Automation"
+        },
+        "_connectionId": "FTP CONNECTION",
+        "name": "FTPImport105flow",
+        "distributed": false,
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "Create_Zendesk_Organization_To_FTP_Xml_Handlebars",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "billing_phone": "770247545451",
+      "notes": "105.Rest_Export_To_Ftp_XML@mail.com",
+      "BillingCity": "Hyderabad",
+      "Country_Id": "789",
+      "Billing_addressee": "Billing Addressee",
+      "BillingZip": "500064",
+      "subsidiary_name": "Subsidiary",
+      "BillingCountry": "India@#$",
+      "phone": "123456987",
+      "name": "Rest_Export_To_Ftp_XML_Handlebars",
+      "Billing_address_2": "Billing Address2",
+      "Billing_address_1": "Billing Address1",
+      "fax": "789456",
+      "BillingState": "Telangana"
+    },
+    "application":"HTTP ZENDESK",    
+    "importapiIdentifier": "i09dc8d517",
+    "expected": {
+      "FTP": {
+        "name": "Create_Zendesk_Organization_To_FTP_Xml_Handlebars",
+        "_integrationId": "62d6b4a955468141a906119e",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "isUIFlow": true,
+          "fileName": "ORD_GC_",
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".xml",
+          "qa__columnDelimiter": ","
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "57bf2f110d657b555503a65e",
+      "createdAt": "2019-10-20T17:26:27.785Z",
+      "lastModified": "2019-10-28T07:04:10.802Z",
+      "name": "22.REST Import",
+      "sampleData": {
+        "organization": {
+          "organization_fields": {
+            "subsidiary_name": null,
+            "subsidiary_id": null,
+            "shipping_zipcode": null,
+            "shipping_state": null,
+            "shipping_phone": null,
+            "shipping_custom_field": null,
+            "shipping_country_id": null,
+            "shipping_country": null,
+            "shipping_city": null,
+            "shipping_attention": null,
+            "shipping_address_2": null,
+            "shipping_address_1": null,
+            "shipping_addressee": null,
+            "phone": "9490993784",
+            "onceexport": true,
+            "fax": "['010-10101']",
+            "email": null,
+            "dropdown": null,
+            "billing_zip": null,
+            "billing_state": null,
+            "billing_phone": null,
+            "billing_custom_field": null,
+            "billing_country_id": null,
+            "billing_country": null,
+            "billing_city": null,
+            "billing_attention": null,
+            "billing_address_1": null,
+            "billing_addressee": null,
+            "billing_address2": null,
+            "address_zip": null,
+            "address_state": "Telanagana",
+            "address_country_name": "India",
+            "address_country_internalid": null,
+            "address_city": "Hyderabad",
+            "address_address_2": "AmeerPet",
+            "address_address_1": "['SR NagarSR Nagar']"
+          },
+          "group_id": null,
+          "notes": "acc1002@gmail.com",
+          "details": "",
+          "updated_at": "2016-06-08T07:02:21Z",
+          "created_at": "2016-05-11T09:26:57Z",
+          "external_id": null,
+          "shared_comments": false,
+          "shared_tickets": false,
+          "name": "Acc1002",
+          "id": 3588305495,
+          "url": "https://celigoqa.zendesk.com/api/v2/organizations/3588305495.json"
+        }
+      },
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "56d6cdf0483389d14f39a78f",
+      "distributed": false,
+      "apiIdentifier": "i09dc8d517",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "organization.name"
+          },
+          {
+            "extract": "notes",
+            "generate": "organization.notes"
+          },
+          {
+            "extract": "fax",
+            "generate": "organization.organization_fields.fax"
+          },
+          {
+            "extract": "phone",
+            "generate": "organization.organization_fields.phone"
+          },
+          {
+            "extract": "BillingCity",
+            "generate": "organization.organization_fields.billing_city"
+          },
+          {
+            "extract": "BillingState",
+            "generate": "organization.organization_fields.billing_state"
+          },
+          {
+            "extract": "BillingCountry",
+            "generate": "organization.organization_fields.billing_country"
+          },
+          {
+            "extract": "subsidiary",
+            "generate": "organization.organization_fields.subsidiary_id"
+          },
+          {
+            "extract": "BillingZip",
+            "generate": "organization.organization_fields.billing_zip"
+          },
+          {
+            "extract": "ShippingCity",
+            "generate": "organization.organization_fields.shipping_city"
+          },
+          {
+            "extract": "ShippingState",
+            "generate": "organization.organization_fields.shipping_state"
+          },
+          {
+            "extract": "ShippingCountry",
+            "generate": "organization.organization_fields.shipping_country"
+          },
+          {
+            "extract": "ShippingZip",
+            "generate": "organization.organization_fields.shipping_zipcode"
+          },
+          {
+            "extract": "Subsidiary name",
+            "generate": "organization.organization_fields.subsidiary_name"
+          },
+          {
+            "extract": "Billing_address_1",
+            "generate": "organization.organization_fields.billing_address_1"
+          },
+          {
+            "extract": "Billing_address_2",
+            "generate": "organization.organization_fields.billing_address2"
+          },
+          {
+            "extract": "Billing_addressee",
+            "generate": "organization.organization_fields.billing_addressee"
+          },
+          {
+            "extract": "billing_phone",
+            "generate": "organization.organization_fields.billing_phone"
+          },
+          {
+            "extract": "Country_Id",
+            "generate": "organization.organization_fields.billing_country_id"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "organizations.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "strictHandlebarEvaluation": true,
+        "sendPostMappedData": true,
+        "formType": "http",
+        "response": {
+          "resourceIdPath": [
+            ""
+          ]
+        }
+      },
+      "rest": {
+        "relativeURI": [
+          "organizations.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "responseIdPath": [
+          ""
+        ],
+        "successPath": [
+          ""
+        ]
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "RESTImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "parsers": [],
+        "application": "zendesk support",
+        "http": {
+          "relativeURI": "search.json?query=type:organization name:\"Rest_Export_To_Ftp_XML_Handlebars\"",
+          "method": "GET",
+          "formType": "http",
+          "qa__formType": "rest",
+          "paging": {
+            "lastPageValues": []
+          },
+          "response": {
+            "successValues": []
+          }
+        },
+        "asynchronous": true,
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "name": "RESTExport105flow",
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

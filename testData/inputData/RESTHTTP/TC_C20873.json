@@ -1,0 +1,97 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageGenerators": [
+        {
+          "qa__export": {
+            "name": "Get Bigcommerce Orders",
+            "application": "BigCommerce",
+            "qa__connectionId": "HTTP BIGCOMMERCE CONNECTION",
+            "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+            "asynchronous": true,
+            "http": {
+                "relativeURI": "/v2/orders",
+                "method": "GET",
+                "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+        }
+        }
+      ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "Create shopify orders",
+            "application": "shopify",
+            "_connectionId": "HTTP SHOPIFY CONNECTION",
+            "apiIdentifier": "i4879c89b0",
+            "lookups": [
+                {
+                    "name": "countrystaticlookup",
+                    "map": {
+                        "USA": "US"
+                    },
+                    "allowFailures": false,
+                    "useImportHeaders": true
+                }
+            ],
+            "mapping": {
+                "fields": [
+                    {
+                        "extract": "billing_address.country",
+                        "generate": "order.billing_address.country",
+                        "lookupName": "countrystaticlookup"
+                    },
+                    {
+                        "extract": "{{join delimiterField billing_address.first_name billing_address.last_name}}",
+                        "generate": "order.billing_address.first_name"
+                    },
+                    {
+                        "extract": "billing_address.city",
+                        "generate": "order.billing_address.city"
+                    }
+                ],
+                "lists": [
+                    {
+                        "fields": [
+                            {
+                                "generate": "quantity",
+                                "hardCodedValue": "1"
+                            }
+                        ],
+                        "generate": "order.line_items"
+                    }
+                ]
+            },
+            "http": {
+                "relativeURI": [
+                    "/orders.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http",
+                "lookups": [
+                    {
+                        "name": "countrystaticlookup",
+                        "map": {
+                            "USA": "US"
+                        },
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    }
+                ]
+            },
+            "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C20873",
+    "disabled": false
+
+  }

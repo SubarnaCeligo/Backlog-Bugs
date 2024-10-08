@@ -1,0 +1,105 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "create orders",
+        "application": "shopify",
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "qa__connectionId":"HTTP SHOPIFY CONNECTION",
+        "lookups": [
+          {
+            "name": "getproducttitle",
+            "method": "GET",
+            "relativeURI": "/products.json?product_type={{{items[*].product_type}}}",
+            "extract": "products[0].variants[0].title",
+            "allowFailures": false,
+            "useImportHeaders": true
+          }
+        ],
+        "mapping": {
+          "fields": [
+            {
+              "extract": "first_name",
+              "generate": "product.title"
+            }
+          ],
+          "lists": [
+            {
+              "fields": [
+                {
+                  "generate": "quantity",
+                  "hardCodedValue": "1"
+                },
+                {  "extract": "title",
+                  "generate": "title",
+                  "lookupName": "getproducttitle"
+                },
+                {
+                  "generate": "price",
+                  "hardCodedValue": "45"
+                }
+              ],
+              "generate": "order.line_items"
+            }
+          ]
+        },
+        "http": {
+          "relativeURI": [
+            "/orders.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "formType": "http",
+          "lookups": [
+            {
+              "name": "getproducttitle",
+              "method": "GET",
+              "relativeURI": "/products.json?product_type={{{items[*].product_type}}}",
+              "extract": "products[0].variants[0].title",
+              "allowFailures": false,
+              "useImportHeaders": true
+            }
+          ]
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C2436_FTP_To_Shopify",
+  "disabled": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "get product",
+        "adaptorType": "FTPExport",
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "2436_testdata"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "asynchronous": true,
+        "_connectionId": "FTP CONNECTION",
+        "qa__connectionId":"FTP CONNECTION",
+        "qa__path": "//FTP_uploads//2436_testdata.json"
+      }
+    }
+  ]
+}

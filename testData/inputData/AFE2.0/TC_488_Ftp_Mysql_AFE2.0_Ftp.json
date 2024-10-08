@@ -1,0 +1,112 @@
+{
+    "name": "TC_488_Ftp_Mysql_AFE2.0_Ftp",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "6",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "ftp export",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "qa__path": "/FTP_uploads/TC_488_Ftp_Mysql_AFE2_Ftp.json",
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_488_Ftp_Mysql_AFE2_Ftp"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "application": "MySQL",
+                "name": "mysql export",
+                "_connectionId": "MYSQL CONNECTION",
+                "apiIdentifier": "eca91afa46",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "select AGENT_NAME,WORKING_AREA,NOTES from automation_afe where AGENT_CODE={{record.code}}"
+                },
+                "adaptorType": "RDBMSExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data",
+                    "generate": "response"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "qa__import": {
+                "name": "import",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_488_Ftp_Mysql_AFE2_Ftp.json",
+                    "type": "json",
+                    "json": {
+                        "body": "[\n{{#each batch_of_records}}\n{{#if @index}},{{/if}}\n{\n\"name\":\"{{record.response.[0].AGENT_NAME}}\",\n\"email\":\"{{record.email}}\",\n\"emp_id\":\"{{record.emp_id}}\",\n\"code\":\"{{record.code}}\",\n\"area\":\"{{record.response.[0].WORKING_AREA}}\",\n\"notes\":\"{{record.response.[0].NOTES}}\"\n}\n{{/each}}\n]"
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC_488_Ftp_Mysql_AFE2_Ftp.json"
+                },
+                "adaptorType": "FTPImport"
+            },
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import"
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_488_Ftp_Mysql_AFE2_Ftp.json",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ";"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "6",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_488_Ftp_Mysql_AFE2_Ftp",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,93 @@
+{
+    "name": "TC_C1697_with_invalid_lookup",
+    "referencename": "TC_C1697_with_invalid_lookup",
+    "qa__dataVerification": {},
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "TC_C1697_exp",
+                "application": "MySQL",
+                "qa__connectionId": "62e8e11136f8f637aa252cd0",
+                "_connectionId": "MYSQL CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "Select * from Customer limit 1"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "TC_C1697_imp",
+                "_connectionId": "POSTGRESQL CONNECTION",
+                "ignoreExisting": true,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "query": "Select * from public.\"Automation1\"",
+                        "extract": "itemname",
+                        "allowFailures": false,
+                        "name": "Invalid_lookup"
+                    }
+                ],
+                "rdbms": {
+                    "query": [
+                        "INSERT INTO public.\"Automation\"\n(\n\"Email\",\n\"Date\",\n\"Phone\",\n\"Name\"\n) \nVALUES\n(\n  'TC_C1697@abc.com',\n  '2022-08-23', \n  12345678,\n  {{record.Cust_name}} \n  )"
+                    ],
+                    "queryType": [
+                        "INSERT"
+                    ],
+                    "ignoreLookupName": "Invalid_lookup",
+                    "lookups": [
+                        {
+                            "query": "Select * from public.\"Automation1\"",
+                            "extract": "itemname",
+                            "allowFailures": false,
+                            "name": "Invalid_lookup"
+                        }
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C1697_with_invalid_lookup",
+          "disabled": false,
+          "_integrationId": "62e8d3e7f389ab707f5d75ff",
+          "qa__integrationId": "62e8c2172dd80523719f9291",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

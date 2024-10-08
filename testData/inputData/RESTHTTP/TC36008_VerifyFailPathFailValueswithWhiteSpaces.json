@@ -1,0 +1,88 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62cbbb2a8c8337627f65774c",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "Slack_Import",
+          "application": "slack",
+          "qa__connectionId": "HTTP SLACK CONNECTION",
+          "_connectionId": "HTTP SLACK CONNECTION",
+          "apiIdentifier": "ia93f25874",
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "sandbox": false,
+          "http": {
+            "relativeURI": [
+              "chat.postMessage"
+            ],
+            "method": [
+              "POST"
+            ],
+            "body": [
+              "{\"channel\":\"{{record.SlackMSG}}\",\"text\":\"Test for slack\"}"
+            ],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http",
+            "response": {
+            "errorPath": "",
+            "failPath": [
+                "\"ok \""
+            ],
+            "failValues": [
+                [
+                    "\"false \""
+                ]
+            ],
+            "resourceIdPath": [
+                ""
+            ],
+            "successPath": [
+                ""
+            ],
+            "successValues": [
+                [
+                    ""
+                ]
+            ]
+        }
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC36008_VerifyFailPathFailValueswithWhiteSpaces",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Ftp Export",
+          "_connectionId": "FTP CONNECTION",
+    "apiIdentifier": "edf556d48a",
+          "qa__path": "/FTP_uploads/TC36008.json",
+          "asynchronous": true,
+          "sandbox": false,
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "fileNameStartsWith": "TC36008"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,116 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "S3_Snowflake_Merge_Query_Using_Handlebars",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "6",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "qa__path": "//S3_uploads//merge_query_handlebars.json",
+            "name": "S3 export",
+            "_connectionId": "S3 CONNECTION",
+            "asynchronous": true,
+            "s3": {
+                "region": "ap-south-1",
+                "bucket": "automations3export",
+                "keyStartsWith": "merge_query_handlebars"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "S3Export"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "handlebars in merge query",
+            "parsers": [],
+            "modelMetadata": {
+                "category_name": {
+                    "default": ""
+                },
+                "amount": {
+                    "default": ""
+                }
+            },
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "lookups": [],
+            "distributed": false,
+            "rdbms": {
+                "query": [
+                    "MERGE INTO sales_category_handlebar t \r\n    USING sales_category_staging_handlebar s\r\n ON (s.category_id = t.category_id)\r\n WHEN MATCHED\r\n    THEN UPDATE SET \r\n        t.category_name = {{data.0.category_name}},\r\n        t.amount = {{data.0.amount}}\r\n WHEN NOT MATCHED\r\n    THEN INSERT (category_id, category_name, amount)\r\n         VALUES (s.category_id, s.category_name, s.amount)"
+                ],
+                "queryType": [
+                    "MERGE"
+                ]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "S3_Snowflake_Merge_Query_Using_Handlebars",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "CATEGORY_ID": 2,
+                            "CATEGORY_NAME": "Comfort Bicycles",
+                            "AMOUNT": 25000
+                        },
+                        {
+                            "CATEGORY_ID": 5,
+                            "CATEGORY_NAME": "Children Bicycles",
+                            "AMOUNT": 15000
+                        },
+                        {
+                            "CATEGORY_ID": 6,
+                            "CATEGORY_NAME": "Children Bicycles",
+                            "AMOUNT": 15000
+                        },
+                        {
+                            "CATEGORY_ID": 1,
+                            "CATEGORY_NAME": "Children Bicycles",
+                            "AMOUNT": 15000
+                        },
+                        {
+                            "CATEGORY_ID": 3,
+                            "CATEGORY_NAME": "Children Bicycles",
+                            "AMOUNT": 15000
+                        },
+                        {
+                            "CATEGORY_ID": 4,
+                            "CATEGORY_NAME": "Children Bicycles",
+                            "AMOUNT": 15000
+                        }
+                    ],
+                    "uniqueField": "CATEGORY_ID",
+                    "standaloneexportflowID": "5f6481591d1e60508b79b3f8",
+                    "importRecordType": "sales_category_handlebar",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e2c4646d5a",
+                    "application":"SNOWFLAKE"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "6",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "SNOWFLAKE CONNECTION"
+                }
+            }
+        }
+    }
+}

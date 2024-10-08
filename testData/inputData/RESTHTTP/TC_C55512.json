@@ -1,0 +1,90 @@
+{
+    "skipRetries": false,
+    "name": "TC_C55512",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Http Import",
+                "application": "zendesk support",
+                "mockResponse": [
+                    {
+                        "statusCode": 200,
+                        "id": "9222623681426",
+                        "_json": {
+                            "organization": {
+                                "test_url": "https://organizations/9222623681426.json",
+                                "test_id": 9222623681426,
+                                "test_name": "Mary Poppins",
+                                "test_external_id": null,
+                                "test_domain_names": [],
+                                "test_details": "17 Cherry Tree Lane",
+                                "test_notes": "customer",
+                                "test_group_id": null
+                            }
+                        },
+                        "_headers": {
+                            "date": "Thu, 22 Dec 2022 10:50:18 GMT",
+                            "content-type": "application/json; charset=utf-8",
+                            "content-length": "2506",
+                            "connection": "close"
+                        }
+                    }
+                ],
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "ief51edf4a",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "user.user_fields.fax",
+                            "generate": "users.user_fields.fax"
+                        }
+                    ]
+                },
+                "http": {
+                    "relativeURI": [
+                        "users/1473313072"
+                    ],
+                    "method": [
+                        "PUT"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Http Export",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "e23c77902d",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "users/1473313072",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

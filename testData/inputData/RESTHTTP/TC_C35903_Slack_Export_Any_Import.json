@@ -1,0 +1,99 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "0",
+    "errorCount": "1"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "jxnasjxnas",
+
+        "_connectionId": "NETSUITE CONNECTION",
+        "distributed": true,
+        "apiIdentifier": "i937763037",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [],
+        "netsuite_da": {
+          "useSS2Restlets": false,
+          "operation": "add",
+          "recordType": "customer",
+          "lookups": [],
+          "mapping": {
+            "fields": [
+              {
+                "generate": "companyname",
+                "hardCodedValue": "Heist_786218723",
+                "internalId": false
+              },
+              {
+                "generate": "customform",
+                "discardIfEmpty": false,
+                "immutable": false,
+                "hardCodedValue": "35",
+                "internalId": true
+              },
+              {
+                "generate": "subsidiary",
+                "discardIfEmpty": false,
+                "immutable": false,
+                "hardCodedValue": "6",
+                "internalId": true
+              },
+              {
+                "generate": "entitystatus",
+                "discardIfEmpty": false,
+                "immutable": false,
+                "hardCodedValue": "13",
+                "internalId": true
+              },
+              {
+                "generate": "contact",
+                "discardIfEmpty": false,
+                "immutable": false,
+                "hardCodedValue": "61983",
+                "internalId": true
+              }
+            ],
+            "lists": []
+          }
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C35903_Slack_Export_Any_Import",
+  "disabled": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "sjacjasnckas",
+        "application": "slack",
+        "qa__connectionId": "HTTP SLACK CONNECTION",
+        "_connectionId": "HTTP SLACK CONNECTION",
+        "apiIdentifier": "e0986b6413",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "parsers": [],
+        "http": {
+          "relativeURI": "users.profile.get",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "successPath": "abc",
+            "successValues": ["def"]
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

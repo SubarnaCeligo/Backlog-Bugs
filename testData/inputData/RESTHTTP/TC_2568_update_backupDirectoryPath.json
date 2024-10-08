@@ -1,0 +1,113 @@
+{
+    "skipRetries": false,
+    "name": "TC_2568_update_backupDirectoryPath",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "1",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+    "name": "ZN Import",
+    "application":"zendesk support",
+    "parsers": [],
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "apiIdentifier": "ib4248d043",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "lookups": [],
+    "http": {
+        "relativeURI": [
+            "/users"
+        ],
+        "method": [
+            "POST"
+        ],
+        "body": [
+            "{\"user\":\n{\"name\":\"{{record.name}}\",\n\"email\":\"{{record.email}}\",\n\"phone\":\"{{record.phone}}\"\n}}"
+        ],
+        "batchSize": 1,
+        "sendPostMappedData": true,
+        "formType": "http"
+    },
+    "adaptorType": "HTTPImport"
+}
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "disabled": false,
+    "qa__dataVerification": {
+      "importRecordJSON": {
+        "name": "Mahesh Sutar",
+    "email": "Mahesh0@gmail.com",
+    "phone": "8989465213"
+      },
+      "importapiIdentifier": "ib4248d043",
+      "importRecordType": "users",
+      "expected": {
+        "zendesk": {
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "name": "TC_2568_update_backupDirectoryPath",
+          "import": {
+            "_connectionId": "HTTP ZENDESK CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "1",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "expectedJSON": {
+                "name": "Mahesh Sutar",
+    "email": "mahesh0@gmail.com",
+    "phone": "8989465213"
+              },
+            "standaloneexportflowID": "62dfc6be04d1e307982b75d6",
+            "generateSampleDropDownAvailable": false,
+            "importRecordType": "users",
+            "uniqueField": "name",
+            "isUIFlow": true,
+            "exportapiIdentifier": "ec67e4c804"
+          }
+        }
+      }
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+    "name": "Ftp Export",
+    "qa__path": "/FTP_uploads/TC_2568.json",
+    "_connectionId": "FTP CONNECTION",
+    "apiIdentifier": "ef49f42896",
+    "asynchronous": true,
+    "sandbox": false,
+    "sampleData": {
+        "name": "Mahesh Sutar",
+        "email": "Mahesh0@gmail.com",
+        "phone": "8989465213"
+    },
+    "ftp": {
+        "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+        "fileNameStartsWith": "TC_2568",
+        "fileNameEndsWith": ".json"
+    },
+    "file": {
+        "encoding": "utf8",
+        "output": "records",
+        "skipDelete": true,
+        "type": "json"
+    },
+    "adaptorType": "FTPExport"
+}
+      }
+    ]
+  }

@@ -1,0 +1,148 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "HTTP_50828",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "eda8dd006e",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": ["id", "priority"],
+        "http": {
+          "relativeURI": "/tickets/126",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "ticket"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "PreviwedData": {
+    "data": [
+      [
+        {
+          "url": "https://celigoqa.zendesk.com/api/v2/tickets/126.json",
+          "id": 126,
+          "external_id": null,
+          "via": {
+            "channel": "web",
+            "source": {
+              "from": {},
+              "to": {},
+              "rel": null
+            }
+          },
+          "created_at": "2017-10-18T13:36:36Z",
+          "updated_at": "2023-08-24T07:10:25Z",
+          "type": null,
+          "subject": "Orches_Flow_Blob_2071",
+          "raw_subject": "Orches_Flow_Blob_2071",
+          "description": "Orches_Flow_Blob_207",
+          "priority": "low",
+          "status": "pending",
+          "recipient": null,
+          "requester_id": 1473313072,
+          "submitter_id": 1473313072,
+          "assignee_id": 1473313072,
+          "organization_id": null,
+          "group_id": 25032922,
+          "collaborator_ids": [],
+          "follower_ids": [],
+          "email_cc_ids": [],
+          "forum_topic_id": null,
+          "problem_id": null,
+          "has_incidents": false,
+          "is_public": true,
+          "due_at": null,
+          "tags": [
+            "true"
+          ],
+          "custom_fields": [
+            {
+              "id": 4485575108882,
+              "value": null
+            },
+            {
+              "id": 24838175,
+              "value": "Pagination"
+            },
+            {
+              "id": 360005417319,
+              "value": false
+            },
+            {
+              "id": 32855665,
+              "value": false
+            },
+            {
+              "id": 360021374599,
+              "value": null
+            },
+            {
+              "id": 26700425,
+              "value": null
+            },
+            {
+              "id": 24786059,
+              "value": null
+            },
+            {
+              "id": 25373679,
+              "value": null
+            }
+          ],
+          "satisfaction_rating": null,
+          "sharing_agreement_ids": [],
+          "fields": [
+            {
+              "id": 4485575108882,
+              "value": null
+            },
+            {
+              "id": 24838175,
+              "value": "Pagination"
+            },
+            {
+              "id": 360005417319,
+              "value": false
+            },
+            {
+              "id": 32855665,
+              "value": false
+            },
+            {
+              "id": 360021374599,
+              "value": null
+            },
+            {
+              "id": 26700425,
+              "value": null
+            },
+            {
+              "id": 24786059,
+              "value": null
+            },
+            {
+              "id": 25373679,
+              "value": null
+            }
+          ],
+          "followup_ids": [],
+          "brand_id": 611742,
+          "allow_channelback": false,
+          "allow_attachments": true,
+          "from_messaging_channel": false
+        }
+      ]
+      ],
+    "errors": [],
+    "abort": false,
+    "newErrorsAndRetryData": []
+  }
+}

@@ -1,0 +1,129 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "79_REstimport",
+            "application": "zendesk support",
+            "adaptorType": "HTTPImport",
+            "application": "zendesk support",
+            "http": {
+                "relativeURI": [
+                    "organizations.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "formType": "http",
+                "qa__formType": "rest",
+                "strictHandlebarEvaluation": true
+            },
+            "rest": {
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "relativeURI": [
+                    "organizations.json"
+                ]
+            },
+            "mapping": {
+                "fields": [{
+                        "extract": "[Company Name]",
+                        "qa__ignoreBrackets": true,
+                        "generate": "organization.name",
+                        "qa__extract": "Company Name"
+                    },
+                    {
+                        "extract": "[E Mail]",
+                        "qa__ignoreBrackets": true,
+                        "generate": "organization.notes",
+                        "qa__extract": "E Mail"
+                    },
+                    {
+                        "extract": "phone",
+                        "dataType": "string",
+                        "generate": "organization.organization_fields.phone"
+                    },
+                    {
+                        "extract": "Fax",
+                        "dataType": "string",
+                        "generate": "organization.organization_fields.fax"
+                    }
+                ]
+            },
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "distributed": false
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "timezone": "Asia/Calcutta",
+    "name": "79.FTP_Flow#6_FTP(xlsx) to ZD(Organization)_XLSX",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": "false",
+        "expected": {
+            "zendesk": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "79.FTP_Flow#6_FTP(xlsx) to ZD(Organization)_XLSX",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "57aad5298ec9f8804906006d",
+                    "uniqueField": "notes",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "edb8215601",
+                    "expectedJSON": {
+                        "organization_fields": {
+                            "phone": "11111111",
+                            "fax": "22222222"
+                        },
+                        "notes": "AutoFTPtoZDOrganization_XSLX_1@gmail.com",
+                        "name": "Auto@FTPtoZDOrganization_XSLX_1"
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "79_FTPexport",
+            "adaptorType": "FTPExport",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                "fileNameEndsWith": ".xlsx",
+                "fileNameStartsWith": "79.FTPFlow6_FTP(xlsx) to ZD(Organization)"
+            },
+            "file": {
+                "output": "records",
+                "xlsx": {
+                    "hasHeaderRow": true
+                },
+                "skipDelete": true,
+                "encoding": "utf8",
+                "type": "xlsx"
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//79.FTPFlow6_FTP(xlsx) to ZD(Organization).xlsx"
+        }
+    }]
+}

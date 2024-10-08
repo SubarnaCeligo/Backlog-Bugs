@@ -8,7 +8,7 @@
         {
             "qa__export": {
                 "name": "Http Export",
-                "_connectionId": "62d8d1b46ef33428ce43ad5e",
+                "_connectionId": "HTTP ACUMATICA CONNECTION",
                 "apiIdentifier": "e7d400cb26",
                 "application": "Shopify",
                 "asynchronous": true,
@@ -31,7 +31,7 @@
             "type": "export",
             "qa__export": {
                 "name": "Lookup",
-                "_connectionId": "62d8d1b46ef33428ce43ad5e",
+                "_connectionId": "HTTP ACUMATICA CONNECTION",
                 "apiIdentifier": "ee0dbca233",
                 "asynchronous": true,
                 "application": "Shopify",

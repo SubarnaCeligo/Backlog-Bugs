@@ -1,0 +1,86 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "FTP",
+            "_connectionId":"FTP CONNECTION",
+            "apiIdentifier": "i83b56a34c",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [
+                    {
+                        "extract": "id",
+                        "generate": "id"
+                    },
+                    {
+                        "extract": "name",
+                        "generate": "name"
+                    }
+                ]
+            },
+            "file": {
+                "fileName": "TC_C9787.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+                "fileName": "TC_C9787.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C9787",
+    "disabled": false,
+    "qa__dataVerification":{
+        "expected": {
+          "FTP": {
+            "name": "TC_C9787",
+            "_integrationId": "62d6b4a955468141a906119e",
+            "import": {
+              "_connectionId": "FTP CONNECTION",
+              "file": {
+            }
+            },
+            "qa__expectedDashboardCount": {
+              "successCount": "4",
+              "ignoreCount": "0",
+              "errorCount": "0"
+            },
+            "qa__dataVerification": {
+              "fileName": "TC_C9787",
+              "folderName": "io.auto.qa/IO Automation SFTP Imports",
+              "fileType": ".json"
+            }
+          }
+        }
+      },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "HTTP",
+            "application": "BigCommerce",
+            "qa__connectionId": "62eb89c0c9c10468159c2165",
+            "_connectionId":"HTTP BIGCOMMERCE CONNECTION",
+            "apiIdentifier": "ecedb15329",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/v2/coupons?limit=2",
+                "method": "GET",
+                "formType": "http"
+            },
+            "rawData": "62d6ad03d498a83cb657f2c3c1c1dc4f6f0f4f1f96dc0f35df5d3161",
+            "adaptorType": "HTTPExport"
+        }
+    }]
+}

@@ -1,0 +1,107 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "application": "zendesk support",
+        "qa__connectionId": "6316da60bbc6bc3e6db91511",
+        "_connectionId": "6317156b5bca603be6bc5fcf",
+        "http": {
+          "relativeURI": [
+            "/v1.0/companies(1a2e0c9a-6950-eb11-bb50-000d3aaafb42)/customers({{id}})"
+          ],
+          "method": [
+            "PATCH"
+          ],
+          "body": [
+            "{\n      \"number\": \"{{record.number}}\",\n      \"displayName\": \"{{record.displayName}}\",\n      \"type\": \"{{record.type}}\",\n      \"phoneNumber\": \"{{record.phoneNumber}}\",\n      \"email\": \"{{record.email}}\",\n      \"currencyCode\": \"{{record.currencyCode}}\",\n      \"address\": {\n        \"street\": \"{{record.address.street}}\",\n        \"city\": \"{{record.address.city}}\",\n        \"state\": \"{{record.address.state}}\",\n        \"countryLetterCode\": \"{{record.address.countryLetterCode}}\",\n        \"postalCode\": \"{{record.address.postalCode}}\"\n      }\n    }"
+          ],
+          "headers": [
+            {
+              "name": "If-Match",
+              "value": "*"
+            }
+          ],
+          "batchSize": 1,
+          "formType": "http",
+          "qa__formType": "rest"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C29917_RESTImport_withPATCH_operation_usingAFE_BuildRequestBody",
+  "disabled": false,
+  "qa__dataVerification": {
+    "expected": {
+      "MSD365BC": {
+        "_integrationId": "62834fec26c05c588e38ec62",
+        "name": "TC_C29917_RESTImport_withPATCH_operation_usingAFE_BuildRequestBody",
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "id": "ea63e96b-f0e7-ec11-82f8-6045bd81b6a0",
+              "number": "C05260",
+              "displayName": "TC_C29917",
+              "type": "Company",
+              "phoneNumber": "5634216799",
+              "email": "robert.townes1@contoso.com",
+              "address": {
+                "street": "oldcity 1\r\noldcity 2",
+                "city": "Hyderabad",
+                "state": "Telangana",
+                "countryLetterCode": "IN",
+                "postalCode": "500053"
+              }
+            }
+          ],
+          "uniqueField": "id",
+          "standaloneexportflowID": "62a205031bf5be58603a62ca",
+          "importRecordType": "customer",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e6a6fa4aaf"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "629a0401bbe3f43a8c74c25f"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_connectionId": "FTP CONNECTION",
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C29917",
+          "fileNameEndsWith": ".json"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads/TC_C29917.json"
+      }
+    }
+  ]
+}

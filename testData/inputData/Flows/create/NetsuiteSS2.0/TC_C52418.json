@@ -1,0 +1,212 @@
+{
+  "name": "TC_C52418",
+  "referencename": "TC_C52418",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C52418",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "uniqueField": "itemid",
+          "isUIFlow": true,
+          "standaloneexportflowID": "637def5f182f7d6ef6cec116",
+          "importRecordType": "serviceitem",
+          "exportapiIdentifier": "eaf2544a52",
+          "expectedJSON": [
+            {
+              "itemvendor": [
+                {
+                  "itemvendorprice": {
+                    "itemvendorpricelines": [
+                      {
+                        "vendorcurrency": {
+                          "internalid": "1",
+                          "name": "USA"
+                        },
+                        "vendorprice": 123
+                      }
+                    ]
+                  },
+                  "subsidiary": {
+                    "internalid": "3",
+                    "name": "HH Inc."
+                  },
+                  "vendor": {
+                    "internalid": "4572893",
+                    "name": "38721"
+                  }
+                }
+              ],
+              "itemid": "TC_C52418",
+              "recordtype": "serviceitem"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_ZbCiU",
+            "_connectionId": "FTP CONNECTION",
+            "_sourceId": "63735bd4d48a291bac1e672e",
+            "apiIdentifier": "e46db10734",
+            "asynchronous": true,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+              "fileNameStartsWith": "TC_C52418",
+              "fileNameEndsWith": ".json"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_teshht",
+
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i50c6c1cdd",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "addupdate",
+              "recordType": "serviceitem",
+              "internalIdLookup": {
+                "expression": "[\"internalid\",\"is\",\"45451554\"]"
+              },
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "hardCodedValue": "true",
+                    "generate": "celigo_write_log",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "itemid",
+                    "extract": "nlobjFieldIds.itemid",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "custitem_celigo_sfio_sf_id",
+                    "extract": "nlobjSublistIds.itemvendor.lines[*].vendor",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "taxschedule",
+                    "extract": "nlobjFieldIds.taxschedule",
+                    "internalId": true
+                  }
+                ],
+                "lists": [
+                  {
+                    "generate": "itemvendor",
+                    "fields": [
+                      {
+                        "generate": "vendor",
+                        "extract": "nlobjSublistIds.itemvendor.lines[*].vendor",
+                        "internalId": true
+                      },
+                      {
+                        "generate": "vendorcode",
+                        "extract": "nlobjSublistIds.itemvendor.lines[*].vendorcode",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "preferredvendor",
+                        "extract": "nlobjSublistIds.itemvendor.lines[*].preferredvendor",
+                        "internalId": false
+                      },
+                      {
+                        "generate": "celigo_itemvendorprice",
+                        "subRecordMapping": {
+                          "recordType": "itemvendorprice",
+                          "jsonPath": "nlobjSublistIds.itemvendor.lines",
+                          "mapping": {
+                            "fields": [],
+                            "lists": [
+                              {
+                                "generate": "itemvendorpricelines",
+                                "fields": [
+                                  {
+                                    "extract": "celigo_itemvendorprice.nlobjSublistIds.itemvendorpricelines.lines[*].vendorcurrency",
+                                    "generate": "vendorcurrency",
+                                    "internalId": true
+                                  },
+                                  {
+                                    "extract": "celigo_itemvendorprice.nlobjSublistIds.itemvendorpricelines.lines[*].vendorprice",
+                                    "generate": "vendorprice",
+                                    "internalId": false
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "lookups": []
+                        },
+                        "internalId": false
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C52418",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

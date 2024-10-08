@@ -1,0 +1,110 @@
+{
+  "name": "TC_784_Rest_Link_Header_Pagination",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "16",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "imp",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "id",
+              "generate": "id"
+            },
+            {
+              "extract": "email",
+              "generate": "email"
+            },
+            {
+              "extract": "currency",
+              "generate": "currency"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_784_Rest_Link_Header_Pagination.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_784_Rest_Link_Header_Pagination.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "Ftp": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_784_Rest_Link_Header_Pagination",
+        "qa__dataVerification": {
+          "fileName": "TC_784_Rest_Link_Header_Pagination",
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "16",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "expirt",
+        "application": "shopify",
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/customers.json",
+          "method": "GET",
+          "formType": "http",
+          "qa__formType": "rest",
+          "paging": {
+            "method": "linkheader",
+            "lastPageStatusCode": 404,
+            "linkHeaderRelation": "next"
+          },
+          "response": {
+            "resourcePath": "customers"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

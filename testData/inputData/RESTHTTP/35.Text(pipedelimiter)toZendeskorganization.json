@@ -1,0 +1,107 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "4",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+          "type": "import",
+          "qa__import": {
+            "name": "Ftp_imp",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "TC_095_Ftp_Text_Pipe_Delimiter.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPImports",
+              "fileName": "TC_095_Ftp_Text_Pipe_Delimiter.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "35.Text (pipe delimiter) to Zendesk organization",
+    "disabled": false,
+    "qa__dataVerification": {
+      "generateSampleDropDownAvailable": false,
+      "update_importapiIdentifier": "id85b3ae05",
+      "update_Record": "organizations",
+      "update_app": "Zendesk",
+      "UpdateRecordJSON": {
+        "notes": "AutoTest@customer51.com",
+        "name": "Auto@kamala11"
+      },
+      "expected": {
+        "FTP": {
+          "name": "Create_Zendesk_Organization_To_FTP_Xml_Handlebars",
+          "_integrationId": "62d6b4a955468141a906119e",
+          "import": {
+            "_connectionId": "FTP CONNECTION",
+            "file": {
+              "csv": {
+                "columnDelimiter": ","
+              }
+            }
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "2",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "isUIFlow": true,
+            "fileName": "TC_095_Ftp_Text_Pipe_Delimiter",
+            "folderName": "/io.auto.qa/IO_UI_Automation_FTPImports",
+            "fileType": ".json"
+          }
+        }
+      }
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "35FTPexport",
+          "adaptorType": "FTPExport",
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+            "fileNameStartsWith": "35FTP to zendesk flow.txt"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "csv",
+            "csv": {
+              "columnDelimiter": "|",
+              "rowDelimiter": "\n",
+              "hasHeaderRow": true,
+              "trimSpaces": true,
+              "rowsToSkip": 0
+            }
+          },
+          "asynchronous": true,
+          "_connectionId": "FTP CONNECTION",
+          "dataURITemplate": "{{{CompanyName}}}",
+          "qa__path": "//FTP_uploads//35FTP to zendesk flow.txt"
+        }
+      }
+    ]
+  }
+  

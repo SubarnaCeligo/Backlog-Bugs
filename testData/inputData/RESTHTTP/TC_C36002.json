@@ -1,0 +1,69 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "0",
+      "errorCount": "1"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "FTP_import_Token_Paging",
+          "_connectionId": "FTP CONNECTION",
+          "distributed": false,
+          "file": {
+            "type": "csv",
+            "csv": {
+              "rowDelimiter": "\n",
+              "columnDelimiter": ",",
+              "includeHeader": true,
+              "wrapWithQuotes": false,
+              "replaceTabWithSpace": false,
+              "replaceNewlineWithSpace": false
+            }
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "fileName": "FailPathValidation.csv"
+          },
+          "adaptorType": "FTPImport"
+        }
+      }
+
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "Verify_Valid_FailValues_HTTP",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "TC_C36002",
+            "application": "slack",
+            "qa__connectionId": "62d7d34f6ef33428ce43869f",
+            "_connectionId": "HTTP SLACK CONNECTION",
+            "apiIdentifier": "ed63e7774f",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "conversations",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "failPath": "ok",
+                    "failValues": [
+                        "false  "
+                    ]
+                }
+            },
+            "test": {
+                "limit": 1
+            },
+            "adaptorType": "HTTPExport"
+        }
+      }
+    ]
+  }

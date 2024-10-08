@@ -1,0 +1,94 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i41a0b11f8",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [
+                    {
+                        "extract": "ok",
+                        "generate": "OK"
+                    }
+                ]
+            },
+            "file": {
+                "fileName": "TC_C35927.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C35927.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C35927_slack_successpath_exp",
+    "disabled": false,
+    "qa__dataVerification": {
+      "expected": {
+        "FTP": {
+          "name": "TC_C35927.json",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "FTP CONNECTION",
+            "file": {
+              "json": {
+                "columnDelimiter": " "
+              }
+            }
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "2",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "fileName": "TC_C35927",
+            "isUIFlow": true,
+            "folderName": "/io.auto.qa/IO_UI_Automation",
+            "fileType": ".json"
+          }
+        }
+      }
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "application": "slack",
+          "qa__connectionId": "62da2bdd73c08d7560d1b414",
+            "_connectionId": "HTTP SLACK CONNECTION",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "team.info",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "successPath": "ok"
+                }
+            },
+            "rawData": "56d6b114e1fc35de5391472ceba35edf3e1344b69a044acbe3c5547d",
+            "test": {
+                "limit": 1
+            },
+            "adaptorType": "HTTPExport"
+        }
+      }
+    ]
+  }

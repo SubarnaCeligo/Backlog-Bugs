@@ -1,0 +1,136 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "name": "ZD_Imp",
+          "application": "zendesk support",
+          "distributed": false,
+          "http": {
+            "relativeURI": ["users.json"],
+            "method": ["POST"],
+            "body": [
+              "{\"user\":\n    {\n    \"name\":\"{{record.first_name}}\",\n    \"email\":\"{{record.email}}\",\n    \"phone\":\"{{record.phone}}\"\n    }\n}"
+            ],
+            "batchSize": 1,
+            "sendPostMappedData": true,
+            "formType": "http",
+            "qa__formType": "rest"
+          },
+          "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C29915_FTP_2_RestZD",
+    "disabled": false,
+    "qa__dataVerification": {
+      "expected": {
+        "zendesk": {
+          "_integrationId": "62d6b4a955468141a906119e",
+          "name": "TC_C29915_FTP_2_RestZD",
+          "import": {
+            "_connectionId": "HTTP ZENDESK CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "4",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "expectedJSON": [
+              {
+                "name": "@Captian kohli",
+                "email": "viratkohli0@rcb.com",
+                "phone": "8500245456"
+              },
+              {
+                "name": "@Captian Dhoni",
+                "email": "msdhoni@csk.com",
+                "phone": "9490245456"
+              }
+            ],
+            "standaloneexportflowID": "628e14985d893e7b1a126491",
+            "importRecordType": "users",
+            "uniqueField": "name",
+            "isUIFlow": true,
+            "exportapiIdentifier": "e24b155969"
+          }
+        }
+      }
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "FTP_Exp",
+          "_connectionId": "FTP CONNECTION",
+          "asynchronous": true,
+          "apiIdentifier": "ee55214862",
+          "sandbox": false,
+          "qa__path": "/FTP_uploads/TC_C29915_FTP_2_RestZD.json",
+          "ftp": {
+            "directoryPath": "io.auto.qa/IO_Automation_SFTP_Exports"
+          },
+          "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "json",
+            "json": {
+              "resourcePath": "*"
+            },
+            "filter": {
+              "ftp_filter_rules": [
+                ["filename", "begins_with", "10L_Small_165Mb_UnEncrypted"],
+                ["filename", "equal", "abc"],
+                ["filesize","greater","10","kb"],
+                ["filesize","less","200","kb"]
+              ],
+              "type": "expression",
+              "expression": {
+                "rules": [
+                  "and",
+                  [
+                    "startswith",
+                    ["string", ["extract", "filename"]],
+                    "10L_Small_165Mb_UnEncrypted"
+                  ],
+                  ["equals", ["string", ["extract", "filename"]], "abc"],
+                  [
+                    "or",
+                    ["greaterthan", ["string", ["extract", "filesize"]], "10-kb"],
+                    ["lessthan", ["string", ["extract", "filesize"]], "200-kb"]
+                  ]
+                ],
+                "version": "1"
+              },
+              "rules": [
+                "and",
+                [
+                  "startswith",
+                  ["string", ["extract", "filename"]],
+                  "10L_Small_165Mb_UnEncrypted"
+                ],
+                ["equals", ["string", ["extract", "filename"]], "abc"],
+                [
+                  "or",
+                  ["greaterthan", ["string", ["extract", "filesize"]], "10-kb"],
+                  ["lessthan", ["string", ["extract", "filesize"]], "200-kb"]
+                ]
+              ],
+              "version": "1"
+            }
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,84 @@
+{
+    "name": "TC_618_Ftp_Backup_Directory_Path",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Ftp_Export",
+            "qa__path": "/FTP_uploads/TC_618_Ftp_Export_Backup_Dir.json",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "parsers": [],
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_618_Ftp_Export_Backup_Dir",
+                "backupDirectoryPath": "/io.auto.qa/{{{connection.name}}}"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "backupPath": "/io.auto.qa/{{{connection.name}}}",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "import",
+            "_connectionId": "S3 CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "TC_618.json",
+                "type": "json"
+            },
+            "s3": {
+                "region": "ap-south-1",
+                "bucket": "automations3import",
+                "fileKey": "TC_618.json"
+            },
+            "adaptorType": "S3Import"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "isUIFlow": true,
+        "expected": {
+            "S3": {
+                "name": "TC_618.json",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "S3 CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "isUIFlow": true,
+                    "fileName": "TC_618",
+                    "bucketName": "automations3import",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

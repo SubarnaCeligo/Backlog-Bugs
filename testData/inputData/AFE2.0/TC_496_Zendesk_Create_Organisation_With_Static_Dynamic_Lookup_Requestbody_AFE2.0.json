@@ -1,0 +1,147 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Create_Organisations",
+            "application": "zendesk support",
+            "parsers": [],
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i81515f948",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "formType": "http",
+                "qa__formType": "rest",
+                "relativeURI": ["/{{record.record_type}}"],
+                "method": ["POST"],
+                "body": [
+                    "{\n  \"organization\": {\n    \"name\": \"{{record.name}}\",\n    \"notes\": \"{{record.notes}}\",\n    \"organization_fields\": {\n      \"email\": \"{{record.email}}\",\n      \"billing_address_1\": \"{{connection.name}}\",\n      \"billing_address2\": \"{{record.billing_address2}}\",\n      \"billing_city\": \"{{join \"-\" record.billing_city record.billing_city}}\",\n      \"billing_state\": \"{{record.billing_state}}\",\n      \"shipping_address_1\": \"{{lookup \"Admin_Name\" this}}\",\n      \"shipping_city\": \"{{record.shipping_city}}\",\n      \"shipping_state\": \"{{record.shipping_state}}\",\n      \"shipping_country\": \"{{lookup \"Country_Static_lookup\" record.shipping_country}}\"\n    }\n  }\n}"
+                ],
+                "batchSize": 1,
+                "strictHandlebarEvaluation": true,
+                "lookups": [{
+                        "method": "GET",
+                        "relativeURI": "users/1473313072",
+                        "extract": "user.name",
+                        "allowFailures": false,
+                        "name": "Admin_Name",
+                        "useImportHeaders": false
+                    },
+                    {
+                        "map": {
+                            "USA": "United States"
+                        },
+                        "allowFailures": false,
+                        "name": "Country_Static_lookup",
+                        "useImportHeaders": false
+                    }
+                ]
+            },
+            "lookups": [{
+                    "method": "GET",
+                    "relativeURI": "users/1473313072",
+                    "extract": "user.name",
+                    "allowFailures": false,
+                    "name": "Admin_Name",
+                    "useImportHeaders": false
+                },
+                {
+                    "map": {
+                        "USA": "United States"
+                    },
+                    "allowFailures": false,
+                    "name": "Country_Static_lookup",
+                    "useImportHeaders": false
+                }
+            ],
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_496_Zendesk_Create_Organisation_With_Static_Dynamic_Lookup_Requestbody_AFE2.0",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "name": "TC_496_Zendesk_Create_Organisation_With_Static_Dynamic_Lookup_Requestbody_AFE2.0",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                            "name": "Celigo_India1",
+                            "notes": "This is created by automation",
+                            "organization_fields": {
+                                "email": "Celigo2@gmail.com",
+                                "billing_address_1": "HTTP Zendesk Connection",
+                                "billing_address2": "null",
+                                "billing_city": "LA-LA",
+                                "billing_state": "California",
+                                "shipping_address_1": "Celigo IO Automation",
+                                "shipping_city": "LA",
+                                "shipping_country": "United States",
+                                "shipping_state": null
+                            }
+                        },
+                        {
+                            "name": "Celigo_India2",
+                            "notes": "This is created by automation",
+                            "organization_fields": {
+                                "email": "Celigo1@gmail.com",
+                                "billing_address_1": "HTTP Zendesk Connection",
+                                "billing_address2": "null",
+                                "billing_city": "Memphis-Memphis",
+                                "billing_state": "Tennesse",
+                                "shipping_address_1": "Celigo IO Automation",
+                                "shipping_city": "Memphis",
+                                "shipping_country": "United States",
+                                "shipping_state": null
+                            }
+                        }
+                    ],
+                    "standaloneexportflowID": "612771130026c7767620618d",
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "name",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e3bdbb03a4"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP_OrganisationsData",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e93faaa83c",
+            "qa__path": "/FTP_uploads/TC_496_Organizations_Data.json",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_496_Organizations_Data"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

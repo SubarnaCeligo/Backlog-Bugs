@@ -1,0 +1,64 @@
+{
+  "name": "TC_C32619",
+  "skipRetries": false,
+  "pageGenerators": [{
+        "qa__export": {
+            "name": "Http Amazon",
+            "application" : "Amazon Seller Central",
+            "_connectionId": "HTTP AMAZON CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/?Action=RequestReport&ReportType=_GET_FLAT_FILE_OPEN_LISTINGS_DATA_",
+                "method": "POST",
+                "formType": "HTTP",
+                "response": {
+                    "resourcePath": "/RequestReportResponse/RequestReportResult/ReportRequestInfo/ReportRequestId/text()"
+                },
+                "successMediaType": "json",
+                "asyncHelper": {
+                    "name": "AsyncExport",
+                    "statusPath": "ReportProcessingStatus",
+                    "inProgressValues": ["_SUBMITTED_", "_IN_PROGRESS_"],
+                    "doneValues": ["_DONE_", "_DONE_NO_DATA_", "_CANCELLED_"],
+                    "doneWithoutValues": ["_DONE_", "_DONE_NO_DATA_", "_CANCELLED_"],
+                    "errorValues": ["_ff", "_gg"],
+                    "submitresourcePath": "/RequestReportResponse/RequestReportResult/ReportRequestInfo",
+                    "transform": {
+                        "fields": [{
+                                "extract": "/ReportType",
+                                "generate": "/ReportType"
+                            },
+                            {
+                                "extract": "/ReportProcessingStatus",
+                                "generate": "ReportProcessingStatus"
+                            },
+                            {
+                                "extract": "/ReportRequestId",
+                                "generate": "ReportRequestId"
+                            }
+                        ]
+                    },
+                    "asyncExport": {
+                        "qa__export": {
+                            "name": "Get Customers",
+                            "asynchronous": true,
+                            "oneToMany": false,
+                            "type": "all",
+                            "sandbox": false,
+                            "http": {
+                                "relativeURI": "/?Action=GetReportRequestList&ReportRequestIdList.Id.1={{data.ReportRequestId}}",
+                                "method": "POST"
+                            },
+                            "response": {
+                                "resourcePath": "/GetReportRequestListResponse/GetReportRequestListResult/ReportRequestInfo"
+                            }
+                        }
+                    }
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }]
+}

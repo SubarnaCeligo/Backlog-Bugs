@@ -1,0 +1,97 @@
+{
+    "name": "TC_C36041",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "skipRetries": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "HTTP Acumatica",
+            "application": "Acumatica",
+            "qa__connectionId": "62e7698bd61e942a8d4ebd1f",
+            "_connectionId": "HTTP ACUMATICA CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/Customer?$filter=CustomerName eq 'Sareesh Goruju'&$top=1&${{#if export.http.paging.skip}}&$skip={{export.http.paging.skip}}{{/if}}",
+                "method": "GET",
+                "formType": "http",
+                "paging": {
+                    "method": "skip",
+                    "skip": "",
+                    "lastPageStatusCode": 404
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0",
+        "pages": "1"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_C36041.csv",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0",
+                    "pages": "1"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_C36041",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                }
+            }
+        }
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "TC_C36041",
+            "_connectionId": "FTP CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [{
+                    "extract": "id",
+                    "generate": "id"
+                }]
+            },
+            "file": {
+                "fileName": "TC_C36041.csv",
+                "skipAggregation": false,
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C36041.csv"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }]
+}

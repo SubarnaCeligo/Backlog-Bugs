@@ -1,0 +1,21 @@
+{
+    "body": {
+        "flowId": "",
+        "fieldPath": "http.relativeURI",
+        "export": {
+            "_id": "",
+            "name": "Shopify HTTP Delta Export",
+            "_connectionId": "",
+            "asynchronous": true,
+            "type": "delta",
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/admin/api/2023-01/customers/search.json?query={{lastExportDateTime}}",
+                "method": "GET",
+                "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }
+}

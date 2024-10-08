@@ -1,0 +1,97 @@
+{
+    "name": "TC_477_Ftp_Mongodb_Rows_Handlebar",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "export",
+            "qa__path": "/FTP_uploads/TC_477.csv",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_477"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "groupByFields": ["orderID"],
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "rows handlebar",
+            "parsers": [],
+            "_connectionId": "MONGODB CONNECTION",
+            "distributed": false,
+            "ignoreExisting": true,
+            "mongodb": {
+                "method": "insertMany",
+                "collection": "Afe_Automation_Insert",
+                "document": "{\n\"Amount\":\"{{rows.[0].Amount}}\",\n\"Date\":\"{{rows.[2].Date}}\",\n\"FirstName\":\"{{rows.[1].FirstName}}\",\n\"ItemName\":\"{{rows.[0].ItemName}}\",\n\"orderID\":\"{{rows.[1].orderID}}\",\n\"Quantity\": \"{{rows.[2].Quantity}}\",\n\"Amount\":\"{{rows.[0].Amount}}\",\n\"Notes\":\"{{rows.[1].Notes}}\",\n\"Units\":\"{{rows.[2].units}}\",\n\"PO\":\"{{rows.[0].[PO#]}}\"\n}",
+                "ignoreLookupFilter": "{\n\"Name\":\n{\n\"$eq\":\"{{rows.[0].ItemName}}\"\n}\n}"
+            },
+            "adaptorType": "MongodbImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_477_Ftp_Mongodb_Rows_Handlebar",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                        "Amount": "280",
+                        "Date": "07/15/2017",
+                        "FirstName": "Automation2",
+                        "ItemName": "ACC00001",
+                        "orderID": "TAG-Address-1",
+                        "Quantity": "105",
+                        "Notes": "NewNotes24",
+                        "Units": "100",
+                        "PO": "656"
+                    }],
+                    "uniqueField": "FirstName",
+                    "standaloneexportflowID": "60efda82a7ba2d1b785f0067",
+                    "importRecordType": "Afe_Automation_Insert",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e6371585df",
+                    "collection": "Afe_Automation_Insert",
+                    "application":"MONGODB"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "MONGODB CONNECTION"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Ftp export",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/TC_482_Ftp_S3_XML_Afe.json",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_482_Ftp_S3_XML_Afe"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "s3 import xml",
+            "_connectionId": "S3 CONNECTION",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "{{batch_of_records.[0].record.notes}}.xml",
+                "type": "xml",
+                "xml": {
+                    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<record>\n  {{#each batch_of_records}}\n  <name>{{record.name}}</name>\n  <email>{{record.email}}</email>\n  <type>{{record.type}}</type>\n  {{/each}}\n  </record>"
+                }
+            },
+            "s3": {
+                "region": "ap-south-1",
+                "bucket": "{{batch_of_records.[0].record.description}}",
+                "fileKey": "{{batch_of_records.[0].record.notes}}.xml"
+            },
+            "adaptorType": "S3Import"
+        }
+    }],
+    "name": "TC_482_Ftp_S3_XML_AFE2.0",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "bucketName": "automations3import",
+        "expected": {
+            "S3": {
+                "name": "TC_482_Ftp_S3_XML_AFE2.0.xml",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "S3 CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ";"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "isUIFlow": true,
+                    "fileName": "TC_482_Ftp_S3_XML_AFE2",
+                    "bucketName": "automations3import",
+                    "fileType": ".xml"
+                }
+            }
+        }
+    }
+}

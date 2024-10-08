@@ -1,0 +1,101 @@
+{
+    "timezone": "Asia/Calcutta",
+    "name": "TC_514_Handlebars_and-Lookups_With_XML_Mediatype_HTTP",
+    "disabled": false,
+    "skipRetries": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Create_Open_Air-Customers",
+            "application": "openair",
+            "_connectionId": "HTTP OPENAIR CONNECTION",
+            "http": {
+                "relativeURI": [],
+                "method": ["POST"],
+                "body": [
+                    "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\"> <Auth> <Login> <company>{{{connection.http.unencrypted.companyId}}}</company> <user>{{{connection.http.unencrypted.userId}}}</user> <password>{{{connection.http.encrypted.password}}}</password> </Login> </Auth> <Add type=\"Customer\"> <Customer> <name>{{record.Name}}</name> <addr> <Address> <state>{{record.state}}</state> <email>{{record.Email}}</email> <addr2>{{record.address2}}</addr2> <addr3>{{record.address3}}</addr3> <city>{{record.city}}</city> <fax>{{record.Phone}}</fax> <addr1>{{record.address_1}}</addr1> <country>{{lookup \"Country_Lookup\" record.country}}</country> <phone>{{record.Phone}}</phone> </Address> </addr> </Customer> </Add> </request>"
+                ],
+                "batchSize": 1,
+                "formType": "http",
+                "lookups": [{
+                    "map": {
+                        "USA": "United States"
+                    },
+                    "allowFailures": false,
+                    "name": "Country_Lookup",
+                    "useImportHeaders": true
+                }],
+                "response": {
+                    "successPath": ["response/Add/@status"]
+                }
+            },
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "openair": {
+                "name": "TC_514_Handlebars_and-Lookups_With_XML_Mediatype_HTTP",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "HTTP OPENAIR CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": {
+                        "name": "Blaker.co",
+                        "addr": {
+                            "Address": {
+                                "country": "United States",
+                                "addr2": "yaledale",
+                                "addr1": "Alpine st",
+                                "city": "Memphis",
+                                "addr3": "St bvd",
+                                "state": "Tennesse",
+                                "fax": "647-0010001",
+                                "email": "Baker@gmail.com"
+                            }
+                        }
+                    },
+                    "standaloneexportflowID": "619dfb7169bcdc6553f5a823",
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "name",
+                    "importRecordType": "Customer",
+                    "exportRecordType": "Contact",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e95649e4eb"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "OpenAir_Customers",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ea9123cd4f",
+            "qa__path": "/FTP_uploads/TC_514_Customers_Data.json",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_514_Customers_Data"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

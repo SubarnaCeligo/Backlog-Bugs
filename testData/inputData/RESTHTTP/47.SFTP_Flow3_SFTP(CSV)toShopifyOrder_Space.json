@@ -1,0 +1,149 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "47_REstimport",
+            "application": "shopify",
+            "adaptorType": "HTTPImport",
+            "http": {
+                "relativeURI": [
+                    "orders.json"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "formType": "http",
+                "qa__formType": "rest",
+                "strictHandlebarEvaluation": true
+            },
+            "mapping": {
+                "lists": [{
+                    "fields": [{
+                            "extract": "*.ItemName",
+                            "qa__ignoreStar": true,
+                            "generate": "title",
+                            "qa__extract": "ItemName"
+                        },
+                        {
+                            "extract": "*.Quantity",
+                            "qa__ignoreStar": true,
+                            "generate": "quantity",
+                            "qa__extract": "Quantity"
+                        },
+                        {
+                            "extract": "*.Amount",
+                            "qa__ignoreStar": true,
+                            "generate": "price",
+                            "qa__extract": "Amount"
+                        }
+                    ],
+                    "generate": "order.line_items"
+                }],
+                "fields": [{
+                        "extract": "FirstName",
+                        "generate": "order.customer.first_name"
+                    },
+                    {
+                        "extract": "lastName",
+                        "generate": "order.customer.last_name"
+                    },
+                    {
+                        "extract": "Notes",
+                        "generate": "order.note"
+                    },
+                    {
+                        "hardCodedValue": "paid",
+                        "generate": "order.financial_status"
+                    }
+                ]
+            },
+            "_connectionId": "HTTP SHOPIFY CONNECTION",
+            "dataURITemplate": "{{{id}}}",
+            "distributed": false
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "timezone": "Asia/Calcutta",
+    "name": "47.SFTPFlow#3SFTP(CSV)toShopifyOrder_Space",
+    "disabled": false,
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "expected": {
+            "shopify": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "47.SFTPFlow#3SFTP(CSV)toShopifyOrder_Space",
+                "import": {
+                    "_connectionId": "HTTP SHOPIFY CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "standaloneexportflowID": "572aeb3c5ac02fad176332a1",
+                    "uniqueField": "note",
+                    "importRecordType": "orders",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ec5eca7bf3",
+                    "expectedJSON": {
+                        "note": "47sftptoshorder1",
+                        "financial_status": "paid",
+                        "line_items": [{
+                            "quantity": 8,
+                            "price": "140.00",
+                            "title": "AutoItem5"
+                        }],
+                        "customer": {
+                            "last_name": "Manavapati",
+                            "first_name": "Mounica"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "47FTPexport",
+            "adaptorType": "FTPExport",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                "fileNameEndsWith": ".txt",
+                "fileNameStartsWith": "Flow47_SFTPCSVtoShopifyorder_Space"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "groupByFields": [
+                    "Notes"
+                ],
+                "csv": {
+                    "columnDelimiter": " ",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                },
+                "encoding": "utf8",
+                "type": "csv"
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "dataURITemplate": "{{{Notes}}}",
+            "qa__path": "//SFTP_uploads//Flow47_SFTPCSVtoShopifyorder_Space.txt"
+        }
+    }]
+}

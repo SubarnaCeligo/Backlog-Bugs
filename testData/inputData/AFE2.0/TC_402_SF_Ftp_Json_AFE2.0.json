@@ -1,0 +1,149 @@
+{
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "Sf_Ftp_Json_AFE",
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "file": {
+          "fileName": "TC_402_{{connectionName}}.json",
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/{{batch_of_records.[0].record.Category_Name__c}}",
+          "fileName": "TC_402_{{connectionName}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "_integrationId": "63159bd0976915080d03da1a",
+  "timezone": "Asia/Calcutta",
+  "name": "TC_402_Sf_Ftp_Json_Afe2.0",
+  "disabled": false,
+  "qa__dataVerification": {
+    "standaloneexportflowID": "",
+    "importRecordJSON": {
+      "name": "sf_ftp_afe_json_record1",
+      "type": "Prospect",
+      "category": "IO_UI_Automation",
+      "Subsidiary_Internal_ID__c": "500"
+    },
+    "application":"SALESFORCE",
+    "importapiIdentifier": "ib42d8bc4a",
+    "exportRecordType": "Account",
+    "isUIFlow": true,
+    "query": "select Name, Type, Subsidiary_Internal_ID__c, Category_Name__c from Account where Name='sf_ftp_afe_json_record1'",
+    "expected": {
+      "FTP": {
+        "name": "TC_402_FTP Automation Account-2.json",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ";"
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_402_FTP Automation Account-2",
+          "folderName": "io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "6024fd5f53b612272ca124b9",
+      "createdAt": "2021-02-11T09:48:15.684Z",
+      "lastModified": "2021-06-01T13:11:45.949Z",
+      "name": "TC_402_Sf_Ftp_Json_Afe2.0",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "ib42d8bc4a",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "Name"
+          },
+          {
+            "extract": "type",
+            "generate": "Type"
+          },
+          {
+            "extract": "category",
+            "generate": "Category_Name__c"
+          },
+          {
+            "extract": "Subsidiary_Internal_ID__c",
+            "generate": "Subsidiary_Internal_ID__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "SF_Account_JSON",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name, Type, Subsidiary_Internal_ID__c, Category_Name__c from Account where Name='sf_ftp_afe_json_record1'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ]
+}

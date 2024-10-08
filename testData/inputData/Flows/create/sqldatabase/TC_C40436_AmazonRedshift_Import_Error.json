@@ -1,0 +1,48 @@
+{
+    "name": "TC_C40436_AmazonRedshift_Import_Error",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62e8c2172dd80523719f9291",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C40430.json"
+                },
+                "qa__path": "//FTP_uploads//TC_C40430.json",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "application": "Amazon Redshift",
+                "_connectionId": "AMAZON REDSHIFT CONNECTION",
+                "oneToMany": true,
+                "pathToMany": "employees",
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "insert into employees values ({{record.name}},{{record.designation}},123456789987654432211122)"
+                    ],
+                    "queryType": [
+                        "INSERT"
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ]
+}

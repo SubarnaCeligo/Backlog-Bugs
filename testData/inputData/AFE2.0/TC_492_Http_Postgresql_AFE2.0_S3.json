@@ -1,0 +1,307 @@
+{
+  "name": "TC_492_Http_Postgresql_AFE2.0_S3",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "63159bd0976915080d03da1a",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "6",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Htpp export",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "search.json?query=type:user \"Random name generator\"",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "results"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "PostgreSQL",
+        "name": "Postgresql lookup",
+        "_connectionId": "POSTGRESQL CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+          "query": "select * from afe_lookup_automation where email={{record.email}}"
+        },
+        "adaptorType": "RDBMSExport"
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "data",
+            "generate": "response"
+          }
+        ],
+        "qa__index": 0
+      }
+    },
+    {
+      "qa__import": {
+        "name": "import",
+        "_connectionId": "S3 CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "role",
+              "generate": "role"
+            },
+            {
+              "extract": "notes",
+              "generate": "notes"
+            }
+          ],
+          "lists": [
+            {
+              "fields": [
+                {
+                  "extract": "response[*].date_of_joining",
+                  "generate": "date_of_joining"
+                },
+                {
+                  "extract": "response[*].name",
+                  "generate": "name"
+                },
+                {
+                  "extract": "response[*].emp_id",
+                  "generate": "emp_id"
+                },
+                {
+                  "extract": "response[*].email",
+                  "generate": "email"
+                }
+              ],
+              "generate": "response"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_492_Http_Postgresql_S3_Afe.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "s3": {
+          "region": "ap-south-1",
+          "bucket": "automations3import",
+          "fileKey": "TC_492_Http_Postgresql_S3_Afe.csv"
+        },
+        "adaptorType": "S3Import"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": [
+      {
+        "name": "Josephine R. Fender",
+        "email": "fenderjose@abcd.com",
+        "notes": "Random name generator"
+      },
+      {
+        "name": "Michael K. Powell",
+        "email": "powell@random.com",
+        "notes": "Random name generator"
+      },
+      {
+        "name": "Pedro B. Finley",
+        "email": "pedro@germany.com",
+        "notes": "Random name generator"
+      }
+    ],
+    "application":"ZENDESK",
+    "importapiIdentifier": "i3489e2ea2",
+    "exportRecordType": "users",
+    "expected": {
+      "S3": {
+        "name": "TC_492_Http_Postgresql_S3_Afe.csv",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "S3 CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "6",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "isUIFlow": true,
+          "fileName": "TC_492_Http_Postgresql_S3_Afe",
+          "bucketName": "automations3import",
+          "fileType": ".csv"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "612b6829cab50d4140abec88",
+      "createdAt": "2021-08-29T10:57:45.724Z",
+      "lastModified": "2021-08-29T10:58:58.283Z",
+      "name": "TC_492_Http_Postgresql_AFE2.0_S3_Json_Doc",
+      "sampleData": {
+        "user": {
+          "id": 1244158452,
+          "url": "https://celigotestacc3.zendesk.com/api/v2/users/1244158452.json",
+          "name": "Jack Doe",
+          "email": "vipul.srivastava@celigo.com",
+          "created_at": "2015-08-06T10:08:13Z",
+          "updated_at": "2017-04-10T01:01:18Z",
+          "time_zone": "Eastern Time (US & Canada)",
+          "phone": null,
+          "shared_phone_number": null,
+          "photo": null,
+          "locale_id": 1,
+          "locale": "en-US",
+          "organization_id": 155025082,
+          "role": "admin",
+          "verified": true,
+          "external_id": null,
+          "tags": [],
+          "alias": null,
+          "active": true,
+          "shared": false,
+          "shared_agent": false,
+          "last_login_at": "2017-04-10T01:01:18Z",
+          "two_factor_auth_enabled": null,
+          "signature": null,
+          "details": null,
+          "notes": null,
+          "custom_role_id": null,
+          "moderator": true,
+          "ticket_restriction": null,
+          "only_private_comments": false,
+          "restricted_agent": false,
+          "suspended": false,
+          "chat_only": false,
+          "user_fields": {
+            "user_decimal": 5.1,
+            "user_dropdown": "option_1",
+            "user_date": "2012-07-23T00:00:00Z"
+          }
+        }
+      },
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "59bf72926011691dc7023bc5",
+      "distributed": true,
+      "apiIdentifier": "i3489e2ea2",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "assistant": "zendesk",
+      "sandbox": false,
+      "assistantMetadata": {
+        "resource": "users_api",
+        "version": "v2",
+        "operation": "create_users_api"
+      },
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "user.name"
+          },
+          {
+            "extract": "email",
+            "generate": "user.email"
+          },
+          {
+            "extract": "notes",
+            "generate": "user.notes"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "/api/v2/users.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [
+          null
+        ],
+        "batchSize": 1,
+        "strictHandlebarEvaluation": true,
+        "sendPostMappedData": true,
+        "formType": "assistant",
+        "response": {
+          "resourceIdPath": [
+            null
+          ]
+        }
+      },
+      "rest": {
+        "relativeURI": [
+          "/api/v2/users.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [
+          null
+        ],
+        "responseIdPath": [
+          null
+        ],
+        "successPath": [
+          null
+        ],
+        "successValues": [
+          null
+        ]
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "RESTImport"
+    }
+  }
+}

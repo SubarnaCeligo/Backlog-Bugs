@@ -1,0 +1,22 @@
+{
+    "name": "TC_C20070_copy_into_preview",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62e8c2172dd80523719f9291",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "TC_C20070",
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "copy into Automation_insert from 's3://automations3export/TC_C26503.csv'"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ]
+}

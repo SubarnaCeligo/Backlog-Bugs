@@ -1,0 +1,90 @@
+{
+  "name": "TC_364_Dynamodb_FTP_Once_Export",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Dynamo DB once export",
+        "_connectionId": "DYNAMODB CONNECTION",
+        "asynchronous": true,
+        "type": "once",
+        "parsers": [],
+        "once": {
+          "booleanField": "Sync"
+        },
+        "dynamodb": {
+          "region": "us-east-1",
+          "method": "query",
+          "tableName": "automation_once_table",
+          "keyConditionExpression": "#n1=:p1",
+          "filterExpression": "RecordType=:p2",
+          "expressionAttributeNames": "{\"#n1\":\"RecordId\"}",
+          "expressionAttributeValues": "{\":p1\":1,\":p2\":\"item\"}",
+          "onceExportPartitionKey": "RecordId"
+        },
+        "adaptorType": "DynamodbExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Dynamo_FTP_Import",
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "file": {
+          "fileName": "TC_364.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_364.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_364_Dynamodb_FTP_Once_Export",
+        "qa__dataVerification": {
+          "fileName": "TC_364",
+          "folderName":"/io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        }
+      }
+    }
+  }
+}

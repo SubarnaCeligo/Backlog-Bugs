@@ -1,0 +1,131 @@
+{
+    "name": "TC_454_DL_Snowflake_Static_Dynamic_Null_Default_Data",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Data Loader",
+            "asynchronous": true,
+            "type": "simple",
+            "qa__isDataLoader": "json",
+            "qa__path": "//Dataloader_uploades//TC_454_DL_Snowflake_Static_Dynamic_Null_Default_Data.json",
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "SimpleExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "import",
+            "application": "Snowflake",
+            "modelMetadata": {
+                "emp_id": {
+                    "default": ""
+                },
+                "type": {
+                    "default": ""
+                },
+                "comments": {
+                    "default": "null"
+                },
+                "doj": {
+                    "default": null
+                }
+            },
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "distributed": false,
+            "lookups": [{
+                    "map": {
+                        "new": "autorecord",
+                        "test": "recordauto"
+                    },
+                    "allowFailures": false,
+                    "name": "static"
+                },
+                {
+                    "query": "select * from afe_automation where name='static_afe_record'",
+                    "extract": "NOTES",
+                    "allowFailures": false,
+                    "name": "dynamic"
+                }
+            ],
+            "rdbms": {
+                "query": [
+                    "INSERT into afe_automation\n(\nname,\nemp_id,\ntype,\nnotes,\ncomments,\ndoj\n)\nVALUES\n(\n{{connection.name}},\n{{record.emp_id}},\n{{lookup \"static\" record.type}},\n{{lookup \"dynamic\" record}},\n{{record.comments}},\n{{record.doj}}\n)"
+                ],
+                "queryType": ["INSERT"],
+                "lookups": [{
+                        "map": {
+                            "new": "autorecord",
+                            "test": "recordauto"
+                        },
+                        "allowFailures": false,
+                        "name": "static"
+                    },
+                    {
+                        "query": "select * from afe_automation where name='static_afe_record'",
+                        "extract": "NOTES",
+                        "allowFailures": false,
+                        "name": "dynamic"
+                    }
+                ]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "name": "TC_454_DL_Snowflake_Static_Dynamic_Null_Default_Data",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "SNOWFLAKE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                            "first_comment": "changing the name from Snowflake Automation Account to Snowflake-Partner for now and comments to empty instead null",
+                            "NAME": "Snowflake-Partner",
+                            "EMP_ID": 4,
+                            "TYPE": "autorecord",
+                            "NOTES": "speci@!%&#",
+                            "COMMENTS": "",
+                            "DOJ": null
+                        },
+                        {
+                            "NAME": "Snowflake-Partner",
+                            "EMP_ID": 5,
+                            "TYPE": "recordauto",
+                            "NOTES": "speci@!%&#",
+                            "COMMENTS": "",
+                            "DOJ": null
+                        }
+                    ],
+                    "uniqueField": "EMP_ID",
+                    "importRecordType": "afe_automation",
+                    "exportapiIdentifier": "e2828120fa",
+                    "isUIFlow": true,
+                    "standaloneexportflowID": "60e1b8031f8e826681f2e88d",
+                    "application":"SNOWFLAKE"
+                }
+            }
+        }
+    }
+}

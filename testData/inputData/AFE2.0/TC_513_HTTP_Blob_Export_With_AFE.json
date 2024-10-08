@@ -1,0 +1,137 @@
+{
+    "name": "TC_513_HTTP_Blob_Export_With_AFE",
+    "description": " ",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "name": "HTTP blob zendesk export-PP",
+                "application": "zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "adaptorType": "HTTPExport",
+                "asynchronous": true,
+                "parsers": [],
+                "isLookup": true,
+                "type": "blob",
+                "oneToMany": true,
+                "pathToMany": "attachments",
+                "http": {
+                    "relativeURI": "{{data.content_url}}",
+                    "method": "GET"
+                }
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data[0].blobKey",
+                    "generate": "blobKey"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "qa__type": "blob",
+                "name": "NS Blob Import",
+
+                "_connectionId": "NETSUITE CONNECTION",
+                "adaptorType": "NetSuiteImport",
+                "distributed": false,
+                "qa__isLookup": true,
+                "parsers": [],
+                "lookups": [],
+                "oneToMany": true,
+                "pathToMany": "attachments",
+                "blobKeyPath": "blobKey",
+                "netsuite": {
+                    "operation": "add",
+                    "recordType": "file",
+                    "file": {
+                        "name": "{{record.file_name}}",
+                        "folder": "71744"
+                    }
+                }
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": []
+            }
+        }
+    ],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "HTTP Zendesk Tickets export-PG",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "adaptorType": "HTTPExport",
+            "asynchronous": true,
+            "http": {
+                "relativeURI": "/tickets/126/comments.json",
+                "method": "GET",
+                "response": {
+                    "resourcePath": "comments"
+                }
+            }
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "12",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Netsuite": {
+                "name": "TC_513_HTTP_Blob_Export_With_AFE",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "12",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "exportapiIdentifier": "e6a52e32ed",
+                    "importRecordType": "folder",
+                    "isUIFlow": true,
+                    "isblob": true,
+                    "generateSampleDropDownAvailable": false,
+                    "standaloneexportflowID": "6195f69af584a645337757ee",
+                    "savedsearchId": "3413",
+                    "uniqueField": "id",
+                    "expectedJSON": {
+                        "recordtype": "folder",
+                        "name": "Blob Import",
+                        "id": "71744",
+                        "files": [{
+                                "name": "Zendesk.txt",
+                                "documentsize": "0"
+                            },
+                            {
+                                "name": "lists1.json",
+                                "documentsize": "0"
+                            },
+                            {
+                                "name": "shopify_getallcustomers_to_FTP.csv",
+                                "documentsize": "0"
+                            },
+                            {
+                                "name": "PSX_20160928_095542.jpg",
+                                "documentsize": "0"
+                            },
+                            {
+                                "name": "redacted.txt",
+                                "documentsize": "0"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

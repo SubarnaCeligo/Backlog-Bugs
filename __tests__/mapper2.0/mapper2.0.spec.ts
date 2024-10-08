@@ -90,3 +90,4 @@ require("./TC_C51240");
 require("./TC_C51243");
 require("./TC_C51244");
 require("./TC_C51324");
+require("./TC_C44424_HTTP_To_HTTP");

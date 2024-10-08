@@ -1,0 +1,177 @@
+{
+  "skipRetries": false,
+  "_integrationId": "63159bd0976915080d03da1a",
+  "name": "TC_409_Sf_Mysql_Insert_null/Null_AFE_2.0",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Get default record from sf",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name, Immutable_Number1__c from Account where Name='mysql_default_data_insert_record'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "Insert null and \"null\" values into Mysql from default data",
+        "application": "MySQL",
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "Name": {
+            "default": ""
+          },
+          "Email": {
+            "default": "defaultemail@gmail.com"
+          },
+          "Id": {
+            "default": null
+          },
+          "date": {
+            "default": "2020-02-15"
+          },
+          "comments": {
+            "default": "null"
+          },
+          "Immutable_Number1__c": {
+            "default": ""
+          }
+        },
+        "parsers": [],
+        "_connectionId": "MYSQL CONNECTION",
+        "distributed": false,
+        "lookups": [],
+        "rdbms": {
+          "query": [
+            "INSERT INTO insert_table_afe_table2\n(\nName,\nEmail__c,\nid,\nsector__id,\ndoj,\ncomments\n)\nVALUES\n(\n{{record.Name}},\n{{record.Email}},\n{{record.Immutable_Number1__c}},\n{{record.Id}},\n{{record.date}},\n{{record.comments}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "63159bd0976915080d03da1a",
+        "name": "TC_409_Sf_Mysql_Insert_null/Null_AFE_2.0",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "Name": "mysql_default_data_insert_record",
+              "Email__c": "defaultemail@gmail.com",
+              "id": 229,
+              "sector__id": null,
+              "doj": "2020-02-15T00:00:00.000Z",
+              "comments": "null"
+            }
+          ],
+          "uniqueField": "Name",
+          "exportRecordType": "Account",
+          "standaloneexportflowID": "602a433112fd70663e3e17c0",
+          "importRecordType": "insert_table_afe_table2",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ed694b68b2",
+          "application":"MYSQL"  
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "MYSQL CONNECTION"
+        }
+      }
+    },
+    "importRecordJSON": {
+      "name": "mysql_default_data_insert_record",
+      "number": 229
+    },
+    "application":"SALESFORCE",      
+    "importapiIdentifier": "i79da50225",
+    "importapidoc": {
+      "_id": "602a42a512fd70663e3e17b4",
+      "createdAt": "2021-02-15T09:45:09.839Z",
+      "lastModified": "2021-02-15T09:45:09.903Z",
+      "name": "Insert default record into Sf",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "parsers": [],
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i79da50225",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "Name"
+          },
+          {
+            "extract": "number",
+            "generate": "Immutable_Number1__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

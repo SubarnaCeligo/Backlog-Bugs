@@ -1,0 +1,107 @@
+{
+    "name": "TC_C36303_NextPageToken_Paging",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "skipRetries": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Square Export",
+            "application": "square",
+            "_connectionId": "HTTP SQUARE CONNECTION",
+            "qa__connectionId": "62e768e662bde02ff36d87a8",
+            "apiIdentifier": "e886a6d786",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/v2/customers?cursor={{export.http.paging.token}}&limit=5",
+                "method": "GET",
+                "formType": "http",
+                "paging": {
+                    "method": "token",
+                    "path": "cursor"
+                },
+                "response": {
+                    "resourcePath": "customers"
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "116",
+        "errorCount": "0",
+        "pages": "6"
+    },
+    "qa__dataVerification": {
+        "exportRecordType": "users",
+        "expected": {
+            "FTP": {
+                "name": "TC_C36303_NextPageToken_Paging",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "116",
+                    "errorCount": "0",
+                    "pages": "6"
+                },
+                "qa__dataVerification": {
+                    "fileName": "NextPageToken",
+                    "exportRecordType": "accounts",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Ftp Import",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i72e9bd39b",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "id",
+                        "generate": "ID"
+                    },
+                    {
+                        "extract": "given_name",
+                        "generate": "First_Name"
+                    },
+                    {
+                        "extract": "family_name",
+                        "generate": "Last_Name"
+                    },
+                    {
+                        "extract": "email_address",
+                        "generate": "Email"
+                    }
+                ]
+            },
+            "file": {
+                "fileName": "NextPageToken.json",
+                "skipAggregation": false,
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "NextPageToken.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }]
+}

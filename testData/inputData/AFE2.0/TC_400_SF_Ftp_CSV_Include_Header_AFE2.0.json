@@ -1,0 +1,175 @@
+{
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "sf_ftp_csv_include_header_afe2.0",
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "file": {
+          "fileName": "TC_400_{{batch_of_records.[0].record.Subsidiary_Name__c}}.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/{{batch_of_records.[0].record.Subsidiary_Name__c}}",
+          "fileName": "TC_400_{{batch_of_records.[0].record.Subsidiary_Name__c}}.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "_integrationId": "631a1266abf51e7a86c80ab4",
+  "qa__integrationId": "6228aed6bc8a2732cfe8044c",
+  "timezone": "Asia/Calcutta",
+  "name": "TC_400_SF_Ftp_CSV_Include_Header_AFE2.0",
+  "disabled": false,
+  "qa__dataVerification": {
+    "standaloneexportflowID": "",
+    "importRecordJSON": [
+      {
+        "name": "sf_ftp_afe2.0_csv_record1",
+        "email": "ftpcsvincludeheaderrecord1@gmail.com",
+        "number": 100,
+        "export": "TRUE",
+        "subsidiary": "IO_UI_Automation"
+      },
+      {
+        "name": "sf_ftp_afe2.0_csv_record2",
+        "email": "ftpcsvincludeheaderrecord2@gmail.com",
+        "number": 101,
+        "export": "FALSE",
+        "subsidiary": "IO_UI_Automation"
+      }
+    ],
+    "application":"SALESFORCE",
+    "importapiIdentifier": "if6511c958",
+    "exportRecordType": "Account",
+    "isUIFlow": true,
+    "query": "select Name,Email__c, Immutable_Number1__c, Once_Export__c from Account where Name like 'mysql_afe2.0_automation_record%'",
+    "expected": {
+      "FTP": {
+        "name": "TC_400_IO_UI_Automation.csv",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "4",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_400_IO_UI_Automation",
+          "folderName": "io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "60239a6124ef955cc1edbc7e",
+      "createdAt": "2021-02-10T08:33:37.674Z",
+      "lastModified": "2021-06-01T10:16:30.083Z",
+      "name": "TC_400_SF_Ftp_CSV_Include_Header_AFE2.0",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "if6511c958",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "Name"
+          },
+          {
+            "extract": "email",
+            "generate": "Email__c"
+          },
+          {
+            "extract": "number",
+            "generate": "Immutable_Number1__c"
+          },
+          {
+            "extract": "export",
+            "generate": "Once_Export__c"
+          },
+          {
+            "extract": "subsidiary",
+            "generate": "Subsidiary_Name__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Salesforce_Account_Get_afe2.0_records",
+        "iaqa__connectionId": "SALESFORCE CONNECTION",
+        "qaprod__connectionId": "SALESFORCE CONNECTION",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name,Email__c, Immutable_Number1__c, Once_Export__c, Subsidiary_Name__c from Account where Name like 'sf_ftp_afe2.0_csv_record%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ]
+}

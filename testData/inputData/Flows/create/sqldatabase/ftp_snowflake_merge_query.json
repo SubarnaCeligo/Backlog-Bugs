@@ -1,0 +1,160 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "ftp_snowflake_merge_query",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP Export",
+
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "qa__path": "//FTP_uploads//ns.json",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "ns"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Merge query",
+            "modelMetadata": {
+                "id": {
+                    "default": ""
+                },
+                "recordType": {
+                    "default": ""
+                },
+                "ID": {
+                    "default": ""
+                },
+                "Script ID": {
+                    "default": ""
+                },
+                "Event": {
+                    "default": ""
+                },
+                "Date": {
+                    "default": ""
+                },
+                "Formula Date": {
+                    "default": ""
+                },
+                "Attendee Name": {
+                    "default": ""
+                },
+                "Email Address": {
+                    "default": ""
+                },
+                "Phone Number": {
+                    "default": ""
+                },
+                "Payment Status": {
+                    "default": ""
+                },
+                "Company Name": {
+                    "default": ""
+                },
+                "Notes": {
+                    "default": ""
+                },
+                "Event.TrainingClass": {
+                    "default": ""
+                },
+                "Attendee.SalesforceId": {
+                    "default": ""
+                },
+                "Event.InternalId": {
+                    "default": ""
+                },
+                "Internal ID": {
+                    "default": ""
+                }
+            },
+            "parsers": [],
+            "lookups": [],
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "distributed": false,
+            "rdbms": {
+                "query": [
+                    "MERGE INTO sales_category t \r\n    USING sales_category_staging s\r\n ON (s.category_id = t.category_id)\r\n WHEN MATCHED\r\n    THEN UPDATE SET \r\n        t.category_name = s.category_name,\r\n        t.amount = s.amount\r\n WHEN NOT MATCHED\r\n    THEN INSERT (category_id, category_name, amount)\r\n         VALUES (s.category_id, s.category_name, s.amount)"
+                ],
+                "queryType": [
+                    "MERGE"
+                ]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "ftp_snowflake_merge_query",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "CATEGORY_ID": 5,
+                            "CATEGORY_NAME": "Electric Bikes",
+                            "AMOUNT": 10000
+                        },
+                        {
+                            "CATEGORY_ID": 6,
+                            "CATEGORY_NAME": "Mountain Bikes",
+                            "AMOUNT": 10000
+                        },
+                        {
+                            "CATEGORY_ID": 2,
+                            "CATEGORY_NAME": "Comfort Bicycles",
+                            "AMOUNT": 25000
+                        },
+                        {
+                            "CATEGORY_ID": 1,
+                            "CATEGORY_NAME": "Children Bicycles",
+                            "AMOUNT": 15000
+                        },
+                        {
+                            "CATEGORY_ID": 3,
+                            "CATEGORY_NAME": "Cruisers Bicycles",
+                            "AMOUNT": 13000
+                        },
+                        {
+                            "CATEGORY_ID": 4,
+                            "CATEGORY_NAME": "Cyclocross Bicycles",
+                            "AMOUNT": 20000
+                        }
+                    ],
+                    "uniqueField": "CATEGORY_ID",
+                    "standaloneexportflowID": "5f63331382c8700ef399af76",
+                    "importRecordType": "sales_category",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ed1fe19799",
+                    "application":"SNOWFLAKE"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "SNOWFLAKE CONNECTION"
+                }
+            }
+        }
+    }
+}

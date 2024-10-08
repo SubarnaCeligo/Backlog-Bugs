@@ -1,0 +1,35 @@
+{
+    "qa": {
+        "application": "Google BigQuery",
+        "name": "test",
+        "_connectionId": "BIGQUERY CONNECTION",
+        "asynchronous": true,
+        "type": "test",
+        "oneToMany": false,
+        "sandbox": false,
+        "test": {
+            "limit": 1
+        },
+        "rdbms": {
+            "query": "select * from `1234.H_R`"
+        },
+        "adaptorType": "RDBMSExport"
+    },
+    "staging": {
+        "application": "Google BigQuery",
+            "name": "test",
+            "_connectionId": "BIGQUERY CONNECTION",
+            "apiIdentifier": "e23179707f",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "test": {
+                "limit": 1
+            },
+            "rdbms": {
+                "query": "select * from `1234.H_R`"
+            },
+            "adaptorType": "RDBMSExport"
+    }
+}

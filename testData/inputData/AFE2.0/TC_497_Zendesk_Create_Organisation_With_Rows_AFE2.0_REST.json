@@ -1,0 +1,155 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Create organizations with AFE rows",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i3fd309503",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "formType": "http",
+                "qa__formType": "rest",
+                "relativeURI": ["/organizations/create_many.json"],
+                "method": ["POST"],
+                "body": [
+                    "{\n  \"organizations\": [{\n    \"name\": \"{{rows.[0].name}}\",\n    \"notes\": \"{{connection.name}}\",\n    \"organization_fields\": {\n      \"email\": \"{{rows.[0].email}}\",\n      \"billing_address_1\": \"{{join \"/\" rows.[0].billing_address_1 rows.[0].billing_city}}\",\n      \"billing_city\": \"{{rows.[0].billing_city}}\",\n      \"billing_state\": \"{{rows.[0].billing_state}}\",\n      \"shipping_address_1\": \"{{lookup \"Admin_Name\" this}}\",\n      \"shipping_city\": \"{{rows.[0].shipping_city}}\",\n      \"shipping_state\": \"{{rows.[0].shipping_state}}\",\n      \"shipping_country\": \"{{lookup \"Country_Static\" rows.[0].shipping_country}}\"\n    }\n  }]\n}"
+                ],
+                "batchSize": 1,
+                "strictHandlebarEvaluation": true,
+                "lookups": [{
+                        "map": {
+                            "USA": "United States"
+                        },
+                        "allowFailures": false,
+                        "name": "Country_Static",
+                        "useImportHeaders": false
+                    },
+                    {
+                        "method": "GET",
+                        "relativeURI": "/users/1473313072",
+                        "extract": "user.name",
+                        "allowFailures": false,
+                        "name": "Admin_Name",
+                        "useImportHeaders": false
+                    }
+                ]
+            },
+            "lookups": [{
+                    "map": {
+                        "USA": "United States"
+                    },
+                    "allowFailures": false,
+                    "name": "Country_Static",
+                    "useImportHeaders": false
+                },
+                {
+                    "method": "GET",
+                    "relativeURI": "/users/1473313072",
+                    "extract": "user.name",
+                    "allowFailures": false,
+                    "name": "Admin_Name",
+                    "useImportHeaders": false
+                }
+            ],
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_497_Zendesk_Create_Organisation_With_Rows_AFE2.0_REST",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "name": "TC_497_Zendesk_Create_Organisation_With_Rows_AFE2.0_REST",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                            "name": "Ronson1",
+                            "notes": "HTTP Zendesk Connection",
+                            "organization_fields": {
+                                "email": "Ronson1@gmail.com",
+                                "billing_address_1": "Alpine st/Memphis",
+                                "billing_address2": null,
+                                "billing_city": "Memphis",
+                                "billing_state": "Tennesse",
+                                "shipping_address_1": "Celigo IO Automation",
+                                "shipping_city": "Memphis",
+                                "shipping_country": "United States",
+                                "shipping_state": null
+                            }
+                        },
+                        {
+                            "name": "Ronson2",
+                            "notes": "HTTP Zendesk Connection",
+                            "organization_fields": {
+                                "email": "Ronson2@gmail.com",
+                                "billing_address_1": "Maine st/LA",
+                                "billing_address2": null,
+                                "billing_city": "LA",
+                                "billing_state": "California",
+                                "shipping_address_1": "Celigo IO Automation",
+                                "shipping_city": "LA",
+                                "shipping_country": "United States",
+                                "shipping_state": null
+                            }
+                        }
+                    ],
+                    "standaloneexportflowID": "6128b098cab50d4140aba09d",
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "name",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ee35ccc580"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Organizations_Date_497",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/TC_497_OrganizationsData.csv",
+            "apiIdentifier": "e956f3b46a",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_497_OrganizationsData"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "groupByFields": ["name"],
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

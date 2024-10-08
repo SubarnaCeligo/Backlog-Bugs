@@ -1,0 +1,213 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "Salesforce_Snowflake_Dynamic_Static",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Get Contacts",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "parsers": [],
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select NS_Contact_ID__c,Name,Email,LeadSource,Once_Export__c from Contact where Name LIKE 'snowflake_dyna_sta_rec%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "dynamic+static",
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "NS_Contact_ID__c": {
+            "default": ""
+          },
+          "Name": {
+            "default": ""
+          },
+          "Email": {
+            "default": ""
+          },
+          "LeadSource": {
+            "default": ""
+          },
+          "Once_Export__c": {
+            "default": ""
+          }
+        },
+        "_connectionId": "SNOWFLAKE CONNECTION",
+        "parsers": [],
+        "distributed": false,
+        "lookups": [
+          {
+            "query": "select * from Automation_dynamic_static where Name='donot_delete_record_automation'",
+            "extract": "CONTACTNUMBER",
+            "allowFailures": false,
+            "name": "dynamiclookup"
+          },
+          {
+            "map": {
+              "Web": "web",
+              "Other": "other"
+            },
+            "allowFailures": false,
+            "name": "staticlookup"
+          }
+        ],
+        "rdbms": {
+          "query": [
+            "Insert INTO Automation_dynamic_static\n(\nID,\nNAME,\nEMAIL,\nCONTACTNUMBER,\nSOURCE,\nACTIVE\n)\nVALUES\n(\n{{data.NS_Contact_ID__c}},\n{{data.Name}},\n{{data.Email}},\n{{lookup \"dynamiclookup\" data}},\n{{lookup \"staticlookup\" data.LeadSource}},\n{{data.Once_Export__c}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ],
+          "lookups": [
+            {
+              "query": "select * from Automation_dynamic_static where Name='donot_delete_record_automation'",
+              "extract": "CONTACTNUMBER",
+              "allowFailures": false,
+              "name": "dynamiclookup"
+            },
+            {
+              "map": {
+                "Web": "web",
+                "Other": "other"
+              },
+              "allowFailures": false,
+              "name": "staticlookup"
+            }
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "id": "12345",
+      "name": "snowflake_dyna_sta_rec1",
+      "email": "dynamic_static_rec@gmail.com",
+      "source": "Web",
+      "active": "true"
+    },
+    "application": "SALESFORCE",
+    "importapiIdentifier": "i101cec692",
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "Salesforce_Snowflake_Dynamic_Static",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "ID": "12345",
+              "NAME": "snowflake_dyna_sta_rec1",
+              "EMAIL": "dynamic_static_rec@gmail.com",
+              "CONTACTNUMBER": 7032688938,
+              "SOURCE": "web",
+              "ACTIVE": true
+            }
+          ],
+          "uniqueField": "NAME",
+          "standaloneexportflowID": "5f62feb882c8700ef399a565",
+          "importRecordType": "Contact",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e339a3091a",
+          "application":"SNOWFLAKE"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "SNOWFLAKE CONNECTION"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "5f63007782c8700ef399a584",
+      "createdAt": "2020-09-17T06:21:43.870Z",
+      "lastModified": "2020-09-17T06:23:18.348Z",
+      "name": "Import Contacts into Salesforce",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i101cec692",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "id",
+            "generate": "NS_Contact_ID__c"
+          },
+          {
+            "extract": "name",
+            "generate": "LastName"
+          },
+          {
+            "extract": "email",
+            "generate": "Email"
+          },
+          {
+            "extract": "source",
+            "generate": "LeadSource"
+          },
+          {
+            "extract": "active",
+            "generate": "Once_Export__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Contact",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

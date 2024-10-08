@@ -1,0 +1,115 @@
+{
+    "name": "TC_709_HTTP_Token_Paging_Method_Handlebars_RelativeURI",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+           "name": "HTTP square Token pagination",
+           "application" : "square",
+            "_connectionId": "HTTP SQUARE CONNECTION",
+            "qa__connectionId":"617fb48c42fb010e47524339",
+            "apiIdentifier": "e650228f61",
+            "asynchronous": true,
+            "oneToMany": false,
+            "http": {
+                "relativeURI": "/v2/customers?cursor={{export.http.paging.token}}&limit=5",
+                "method": "GET",
+                "formType": "http",
+                "paging": {
+                    "method": "token",
+                    "path": "cursor"
+                },
+                "response": {
+                    "resourcePath": "customers"
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+      }
+    ],
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "234",
+      "errorCount": "0",
+      "pages": "6"
+    },
+    "qa__dataVerification": {
+      "exportRecordType": "users",
+      "expected": {
+        "FTP": {
+          "name": "TC_709_HTTP_Token_Paging_Method_Handlebars_RelativeURI",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "FTP CONNECTION",
+            "file": {
+              "csv": {
+                "columnDelimiter": ","
+              }
+            }
+          },
+          "qa__expectedDashboardCount": {
+            "ignoreCount": "0",
+            "successCount": "234",
+            "errorCount": "0",
+            "pages": "6"
+          },
+          "qa__dataVerification": {
+            "fileName": "Token_Paging_Hanldebars",
+            "exportRecordType": "accounts",
+            "isUIFlow": true,
+            "folderName": "/io.auto.qa/IO_UI_Automation",
+            "fileType": ".csv"
+          }
+        }
+      }
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "FTP_import_Token_Paging",
+          "_connectionId": "FTP CONNECTION",
+          "distributed": false,
+          "mapping": {
+            "fields": [
+                {
+                    "extract": "id",
+                    "generate": "ID"
+                },
+                {
+                    "extract": "given_name",
+                    "generate": "First_Name"
+                },
+                {
+                    "extract": "family_name",
+                    "generate": "Last_Name"
+                },
+                {
+                    "extract": "email_address",
+                    "generate": "Email"
+                }
+            ]
+        },
+          "file": {
+            "type": "csv",
+            "csv": {
+              "rowDelimiter": "\n",
+              "columnDelimiter": ",",
+              "includeHeader": true,
+              "wrapWithQuotes": false,
+              "replaceTabWithSpace": false,
+              "replaceNewlineWithSpace": false
+            }
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "fileName": "Token_Paging_Hanldebars.csv"
+          },
+          "adaptorType": "FTPImport"
+        }
+      }
+    ]
+  }

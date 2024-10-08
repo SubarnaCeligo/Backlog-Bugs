@@ -1,0 +1,105 @@
+{
+    "name": "TC_780_Http_Next_Page_Url_S3",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "HTTP export",
+          "application": "zendesk support",
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "asynchronous": true,
+          "oneToMany": false,
+          "sandbox": false,
+          "http": {
+            "relativeURI": "/search.json?query=created<2018-07-17 type:ticket&per_page=1",
+            "method": "GET",
+            "formType": "http",
+            "paging": {
+              "method": "url",
+              "path": "next_page",
+              "lastPageStatusCode": 404
+            },
+            "response": {
+              "resourcePath": "results"
+            }
+          },
+          "adaptorType": "HTTPExport"
+        }
+      }
+    ],
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "4",
+      "errorCount": "0"
+    },
+    "qa__dataVerification": {
+      "expected": {
+        "S3": {
+          "name": "TC_780_Http_Next_Page_Url_S3",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "S3 CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "4",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "fileName": "TC_780_Http_Next_Page_Url_S3",
+            "isUIFlow": true,
+            "bucketName": "automations3import",
+            "fileType": ".json"
+          }
+        }
+      }
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "S3 IMPORT",
+          "_connectionId": "S3 CONNECTION",
+          "oneToMany": false,
+          "sandbox": false,
+          "mapping": {
+            "fields": [
+              {
+                "extract": "id",
+                "generate": "id"
+              },
+              {
+                "extract": "subject",
+                "generate": "subject"
+              },
+              {
+                "extract": "description",
+                "generate": "description"
+              },
+              {
+                "extract": "raw_subject",
+                "generate": "raw_subject"
+              },
+              {
+                "extract": "status",
+                "generate": "status"
+              }
+            ]
+          },
+          "file": {
+            "fileName": "TC_780_Http_Next_Page_Url_S3.json",
+            "type": "json"
+          },
+          "s3": {
+            "region": "ap-south-1",
+            "bucket": "automations3import",
+            "fileKey": "TC_780_Http_Next_Page_Url_S3.json"
+          },
+          "adaptorType": "S3Import"
+        }
+      }
+    ]
+  }

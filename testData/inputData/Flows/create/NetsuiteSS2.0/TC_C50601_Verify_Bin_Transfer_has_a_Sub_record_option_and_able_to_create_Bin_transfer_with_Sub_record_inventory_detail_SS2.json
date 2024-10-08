@@ -1,0 +1,241 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Import",
+                "_connectionId": "NETSUITE CONNECTION",
+                "distributed": true,
+                "lookups": [],
+                "netsuite_da": {
+                    "useSS2Restlets": true,
+                    "operation": "add",
+                    "recordType": "bintransfer",
+                    "lookups": [],
+                    "mapping": {
+                        "fields": [
+                            {
+                                "extract": "location",
+                                "generate": "location",
+                                "internalId": false
+                            },
+                            {
+                                "extract": "memo",
+                                "generate": "memo",
+                                "internalId": false
+                            },
+                            {
+                                "generate": "celigo_recordmode_dynamic",
+                                "hardCodedValue": "true",
+                                "internalId": false
+                            }
+                        ],
+                        "lists": [
+                            {
+                                "generate": "inventory",
+                                "fields": [
+                                    {
+                                        "extract": "inventory.item",
+                                        "generate": "item",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "extract": "inventory.quantity",
+                                        "generate": "quantity",
+                                        "internalId": false
+                                    },
+                                    {
+                                        "generate": "celigo_inventorydetail",
+                                        "subRecordMapping": {
+                                            "qa__id": "jsonPath_inventory_sublist_celigo_inventorydetail",
+                                            "_id": "inventory[*].celigo_inventorydetail",
+                                            "recordType": "inventorydetail",
+                                            "jsonPath": "$",
+                                            "mapping": {
+                                                "fields": [
+                                                    {
+                                                        "extract": "inventory.quantity",
+                                                        "generate": "quantity",
+                                                        "internalId": false,
+                                                        "useAsAnInitializeValue": false
+                                                    },
+                                                    {
+                                                        "extract": "inventory.item",
+                                                        "generate": "item",
+                                                        "internalId": false,
+                                                        "useAsAnInitializeValue": false
+                                                    },
+                                                    {
+                                                        "extract": "location",
+                                                        "generate": "location",
+                                                        "internalId": false
+                                                    },
+                                                    {
+                                                        "generate": "celigo_recordmode_dynamic",
+                                                        "hardCodedValue": "true",
+                                                        "internalId": false,
+                                                        "useAsAnInitializeValue": false
+                                                    }
+                                                ],
+                                                "lists": [
+                                                    {
+                                                        "generate": "inventoryassignment",
+                                                        "fields": [
+                                                            {
+                                                                "extract": "inventory.inventorydetail.inventoryassignment.binnumber",
+                                                                "generate": "binnumber",
+                                                                "internalId": false
+                                                            },
+                                                            {
+                                                                "extract": "inventory.inventorydetail.inventoryassignment.tobinnumber",
+                                                                "generate": "tobinnumber",
+                                                                "internalId": false
+                                                            },
+                                                            {
+                                                                "extract": "inventory.inventorydetail.quantity",
+                                                                "generate": "quantity",
+                                                                "internalId": false
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            "lookups": []
+                                        },
+                                        "internalId": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "adaptorType": "NetSuiteDistributedImport"
+            }
+        }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C50601",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "Netsuite": {
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "memo": "TC_C50601",
+                            "location": {
+                                "internalid": "1",
+                                "name": "02: Boston"
+                            },
+                            "inventory": [
+                                {
+                                    "description": "Staedtler® Mars Vinyl Eraser Blue",
+                                    "inventorydetail": {
+                                        "itemdescription": "Staedtler® Mars Vinyl Eraser Blue",
+                                        "item": {
+                                            "internalid": "12358",
+                                            "name": "ERA00002"
+                                        },
+                                        "unit": {
+                                            "internalid": "4",
+                                            "name": "Each"
+                                        },
+                                        "quantity": 1,
+                                        "inventoryassignment": [
+                                            {
+                                                "binnumber": {
+                                                    "internalid": "1",
+                                                    "name": "1001"
+                                                },
+                                                "inventorystatus": {
+                                                    "internalid": "1",
+                                                    "name": "Good"
+                                                },
+                                                "quantity": 1,
+                                                "tobinnumber": {
+                                                    "internalid": "2",
+                                                    "name": "1002"
+                                                },
+                                                "toinventorystatus": {
+                                                    "internalid": "1",
+                                                    "name": "Good"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "item": {
+                                        "internalid": "12358",
+                                        "name": "ERA00002"
+                                    },
+                                    "itemunits": {
+                                        "internalid": "4",
+                                        "name": "Ea"
+                                    },
+                                    "preferredbin": "1001",
+                                    "quantity": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "standaloneexportflowID": "6335a40ca0e7ad168336d1ad",
+                    "importRecordType": "bintransfer",
+                    "uniqueField": "memo",
+                    "exportRecordType": "bintransfer",
+                    "isUIFlow": true,
+                    "savedsearchId": "4668",
+                    "exportapiIdentifier": "ef307e764d"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Data Loader",
+                "qa__path": "/Dataloader_uploades/TC_C50601.json",
+                "qa__isDataLoader": "json",
+                "apiIdentifier": "e9cc77e56e",
+                "asynchronous": true,
+                "type": "simple",
+                "sandbox": false,
+                "sampleData": {
+                    "location": "01: San Francisco",
+                    "memo": "TC_C50601",
+                    "inventory": {
+                        "item": "1 Item with Multiselect 1022 : ERA00001",
+                        "quantity": 1,
+                        "inventorydetail": {
+                            "item": "1 Item with Multiselect 1022 : ERA00001",
+                            "quantity": 1,
+                            "inventoryassignment": {
+                                "binnumber": "2001",
+                                "tobinnumber": "2002",
+                                "quantity": 1
+                            }
+                        }
+                    }
+                },
+                "rawData": "50761cf17e4a42d88c1afae7c5af7ac7",
+                "file": {
+                    "encoding": "utf8",
+                    "skipDelete": false,
+                    "output": "records",
+                    "type": "json"
+                },
+                "adaptorType": "SimpleExport"
+            }
+        }
+    ]
+}

@@ -1,0 +1,197 @@
+{
+  "skipRetries": false,
+  "_integrationId": "62d6b4a955468141a906119e",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "418",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "FTP",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "generate": "given_name",
+              "hardCodedValue": "HTTP"
+            },
+            {
+              "generate": "family_name",
+              "hardCodedValue": "Square"
+            },
+            {
+              "generate": "email_address",
+              "hardCodedValue": "square@example.com"
+            },
+            {
+              "generate": "phone_number",
+              "hardCodedValue": "+67836788"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "C29959.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "C29959.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C29959",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "given_name": "HTTP",
+      "family_name": "Square",
+      "email_address": "square@example.com",
+      "phone_number": "+67836788"
+    },
+    "application":"SQUARE",     
+    "importapiIdentifier": "id97305d0d",
+    "expected": {
+      "FTP": {
+        "name": "TC_29959.json",
+        "_integrationId": "62d6b4a955468141a906119e",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "json": {
+              "columnDelimiter": " "
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "72",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "C29959",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "633bfae468b255685a3fb569",
+      "createdAt": "2022-10-04T09:20:36.814Z",
+      "lastModified": "2022-10-04T09:23:30.919Z",
+      "name": "square dnd",
+      "_connectionId": "62e790a01582197de4a4198d",
+      "apiIdentifier": "id97305d0d",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "assistant": "squareup",
+      "sandbox": false,
+      "assistantMetadata": {
+        "resource": "team",
+        "version": "v2",
+        "operation": "create_a_team_member"
+      },
+      "mapping": {
+        "fields": [
+          {
+            "extract": "given_name",
+            "generate": "team_member.given_name"
+          },
+          {
+            "extract": "family_name",
+            "generate": "team_member.family_name"
+          },
+          {
+            "extract": "email_address",
+            "generate": "team_member.email_address"
+          },
+          {
+            "extract": "phone_number",
+            "generate": "team_member.phone_number"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "/v2/team-members"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [
+          null
+        ],
+        "batchSize": 1,
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "strictHandlebarEvaluation": true,
+        "sendPostMappedData": true,
+        "formType": "assistant",
+        "response": {
+          "resourceIdPath": [
+            null
+          ]
+        }
+      },
+      "rest": {
+        "relativeURI": [
+          "/v2/team-members"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [
+          null
+        ],
+        "responseIdPath": [
+          null
+        ],
+        "successPath": [
+          null
+        ],
+        "successValues": [
+          null
+        ]
+      },
+      "adaptorType": "RESTImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "HTTP",
+        "qa__connectionId": "62e768e662bde02ff36d87a8",
+        "_connectionId": "HTTP SQUARE CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/v2/team-members/search",
+          "method": "POST",
+          "body": "{\"limit\": 1, \"cursor\": \"e0Z69rvyLExpIxcQ2phrBtjRgvMffeaOg6C\"}",
+          "formType": "http",
+          "paging": {
+            "method": "body",
+            "body": "{\"limit\": 1, \"cursor\": \"{{previous_page.full_response.cursor}}\"}"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

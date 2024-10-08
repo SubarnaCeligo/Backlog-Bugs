@@ -1,0 +1,223 @@
+{
+    "name": "TC_C52407",
+    "referencename": "TC_C52407",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "qa__dataVerification": {
+      "expected": {
+        "netsuite": {
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "name": "TC_C52407",
+          "import": {
+            "_connectionId": "NETSUITE CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "2",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "uniqueField": "itemid",
+            "isUIFlow": true,
+            "standaloneexportflowID": "637f434a21de5a3a2c94674c",
+            "importRecordType": "inventoryitem",
+            "exportapiIdentifier": "ecec030a7b",
+            "expectedJSON": [
+              {
+                "itemvendor": [
+                    {
+                        "itemvendorprice": {
+                            "itemvendorpricelines": [
+                                {
+                                    "vendorcurrency": {
+                                        "internalid": "1",
+                                        "name": "USA"
+                                    },
+                                    "vendorprice": 123
+                                }
+                            ]
+                        },
+                        "preferredvendor": false,
+                        "subsidiary": {
+                            "internalid": "3",
+                            "name": "HH Inc."
+                        },
+                        "vendor": {
+                            "internalid": "4572893",
+                            "name": "38721"
+                        }
+                    }
+                ],
+                "itemid": "Automation_TC_C52407",
+                "recordtype": "inventoryitem"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "AutomationStandalone_ZbCiU",
+              "_connectionId": "FTP CONNECTION",
+              "qa__path": "//FTP_uploads//TC_C52407.json",
+              "_sourceId": "63735bd4d48a291bac1e672e",
+              "apiIdentifier": "e46db10734",
+              "asynchronous": true,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+                "fileNameStartsWith": "TC_C52407",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "AutomationStandalone_UJCr2",
+
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "iae4dcbda2",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "inventoryitem",
+                "lookups": [],
+                "mapping": {
+                  "fields": [
+                    {
+                      "extract": "nlobjSublistIds.itemvendor.lines[*].vendor",
+                      "generate": "custitem_celigo_sfio_sf_id",
+                      "internalId": false
+                    },
+                    {
+                      "generate": "celigo_write_log",
+                      "discardIfEmpty": false,
+                      "immutable": false,
+                      "hardCodedValue": "true",
+                      "internalId": false
+                    },
+                    {
+                      "generate": "itemid",
+                      "extract": "nlobjFieldIds.itemid",
+                      "internalId": false
+                    }
+                  ],
+                  "lists": [
+                    {
+                      "generate": "itemvendor",
+                      "fields": [
+                        {
+                          "generate": "vendor",
+                          "internalId": true,
+                          "dataType": "number",
+                          "discardIfEmpty": false,
+                          "immutable": false,
+                          "extract": "nlobjSublistIds.itemvendor.lines[*].vendor"
+                        },
+                        {
+                          "extract": "nlobjSublistIds.itemvendor.lines[*].vendorcode",
+                          "generate": "vendorcode",
+                          "internalId": false
+                        },
+                        {
+                          "extract": "nlobjSublistIds.itemvendor.lines[*].preferredvendor",
+                          "generate": "preferredvendor",
+                          "internalId": false
+                        },
+                        {
+                          "generate": "celigo_itemvendorprice",
+                          "subRecordMapping": {
+                            "recordType": "itemvendorprice",
+                            "jsonPath": "nlobjSublistIds.itemvendor.lines",
+                            "mapping": {
+                              "fields": [],
+                              "lists": [
+                                {
+                                  "generate": "itemvendorpricelines",
+                                  "fields": [
+                                    {
+                                      "generate": "vendorcurrency",
+                                      "extract": "celigo_itemvendorprice.nlobjSublistIds.itemvendorpricelines.lines[*].vendorcurrency",
+                                      "internalId": true,
+                                      "isKey": true,
+                                      "discardIfEmpty": false,
+                                      "immutable": false
+                                    },
+                                    {
+                                      "generate": "vendorprice",
+                                      "extract": "celigo_itemvendorprice.nlobjSublistIds.itemvendorpricelines.lines[*].vendorprice",
+                                      "internalId": false
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "lookups": []
+                          },
+                          "internalId": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "rules": [],
+                  "version": "1"
+                },
+                "version": "1",
+                "rules": []
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C52407",
+          "disabled": false,
+          "qa__integrationId": "63770ef45726fd765472c332",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

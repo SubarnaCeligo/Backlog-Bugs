@@ -1,0 +1,87 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "Snowflake_Correlated_subquery_To_SF_Contact",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "Snowflake Correlated subquery",
+          "_connectionId": "SNOWFLAKE CONNECTION",
+          "asynchronous": true,
+          "rdbms": {
+            "query": "select AGENT_NAME,COMMISSION,PHONE_NO from automation_agents where AGENT_CODE=(select AGENT_CODE from AUTOMATION_ORDERS where ORD_NUM=200106)"
+          },
+          "adaptorType": "RDBMSExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "Correlated subquery as SF contact",
+          "_connectionId": "SALESFORCE CONNECTION",
+          "distributed": false,
+          "mapping": {
+            "fields": [
+              {
+                "extract": "AGENT_NAME",
+                "generate": "LastName"
+              },
+              {
+                "extract": "COMMISSION",
+                "generate": "FirstName"
+              },
+              {
+                "extract": "PHONE_NO",
+                "generate": "Phone"
+              }
+            ]
+          },
+          "salesforce": {
+            "operation": "insert",
+            "sObjectType": "Contact",
+            "api": "soap",
+            "removeNonSubmittableFields": false
+          },
+          "adaptorType": "SalesforceImport"
+        }
+      }
+    ],
+    "qa__dataVerification": {
+      "expected": {
+        "Salesforce": {
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "name": "Snowflake Correlated subquery to SF contact",
+          "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "expectedJSON": [
+              {
+                "Name": "11 Mukesh",
+                "Phone": "2912358964"
+              }
+            ],
+            "uniqueField": "Name",
+            "standaloneexportflowID": "5eba6551dd8e181a927141ed",
+            "importRecordType": "contact",
+            "isUIFlow": true,
+            "exportapiIdentifier": "e8005c739d"
+          },
+          "qa__expectedDashboardCount": {
+            "ignoreCount": "0",
+            "successCount": "2",
+            "errorCount": "0"
+          },
+          "import": {
+            "_connectionId": "SALESFORCE CONNECTION"
+          }
+        }
+      }
+    }
+  }

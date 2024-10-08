@@ -1,0 +1,132 @@
+{
+    "name": "TC_416_DL_Mssql_Dynamic_Static_Empty_Str_AFE",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Data Loader",
+            "asynchronous": true,
+            "type": "simple",
+            "qa__isDataLoader": "json",
+            "qa__path": "//Dataloader_uploades//TC_416_DL_Mssql_Dynamic_Static_Empty_Str_AFE.json",
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "SimpleExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "import",
+            "application": "Microsoft SQL",
+            "modelMetadata": {
+                "name": {
+                    "default": ""
+                },
+                "emp_id": {
+                    "default": ""
+                },
+                "type": {
+                    "default": ""
+                },
+                "notes": {
+                    "default": ""
+                },
+                "comments": {
+                    "default": ""
+                }
+            },
+            "parsers": [],
+            "_connectionId": "MSSQL CONNECTION",
+            "distributed": false,
+            "lookups": [{
+                    "query": "select * from automation_mssql_afe where emp_id=1000",
+                    "extract": "notes",
+                    "allowFailures": false,
+                    "name": "dynamic_lookup"
+                },
+                {
+                    "map": {
+                        "1": "automation record",
+                        "2": "record automation"
+                    },
+                    "allowFailures": false,
+                    "name": "static_lookup"
+                }
+            ],
+            "rdbms": {
+                "query": [
+                    "INSERT into automation_mssql_afe\n(\nname,\nemp_id,\ntype,\nnotes,\ncomments\n)\nVALUES\n(\n{{record.name}},\n{{record.emp_id}},\n{{record.type}},\n{{lookup \"dynamic_lookup\" record}},\n{{lookup \"static_lookup\" record.comments}}\n)"
+                ],
+                "queryType": ["INSERT"],
+                "lookups": [{
+                        "query": "select * from automation_mssql_afe where emp_id=1000",
+                        "extract": "notes",
+                        "allowFailures": false,
+                        "name": "dynamic_lookup"
+                    },
+                    {
+                        "map": {
+                            "1": "automation record",
+                            "2": "record automation"
+                        },
+                        "allowFailures": false,
+                        "name": "static_lookup"
+                    }
+                ]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "name": "TC_416_DL_Mssql_Dynamic_Static_Empty_Str_AFE",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "MSSQL CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                            "name": "mssql_afe_testrecord1",
+                            "emp_id": 103,
+                            "type": "",
+                            "notes": "Bhagat%\\\\aa#",
+                            "comments": "automation record"
+                        },
+                        {
+                            "name": "mssql_afe_testrecord2",
+                            "emp_id": 104,
+                            "type": "",
+                            "notes": "Bhagat%\\\\aa#",
+                            "comments": "record automation"
+                        }
+                    ],
+                    "uniqueField": "emp_id",
+                    "importRecordType": "automation_mssql_afe",
+                    "exportapiIdentifier": "efee77b4a3",
+                    "isUIFlow": true,
+                    "standaloneexportflowID": "60cb19a6a4004f2e4cfeb2d8",
+                    "application":"MSSQL"
+                }
+            }
+        }
+    }
+}

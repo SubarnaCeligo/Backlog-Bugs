@@ -1,0 +1,66 @@
+{
+    "name": "TC_C41931",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "5",
+        "errorCount": "0"
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "sam",
+                "application": "shopify",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "apiIdentifier": "efb1399889",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "customers",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "56d6b114e1fc35de5391472cc779add50a0a4780889415eaac03f329",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "GrapHQL_import",
+                "qa__connectionId": "62dfab3b23ebed49287d8ba2",
+                "_connectionId": "GRAPHQL CONNECTION",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "dataURITemplate": "{{records.customers.id}}.",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{\"query\":\"{   customers(first: 1) {     edges {       cursor       node {         id         firstName         lastName         email         addresses {           id           name           address1           address2           company           city           provinceCode           zip           phone           countryCodeV2         }         metafields(first: 150) {           edges {             cursor             node {               id               namespace               key               value               valueType               description             }           }         }       }     }   } }\"}"
+                    ],
+                    "sendPostMappedData": true,
+                    "formType": "graph_ql",
+                    "response": {
+                        "resourceIdPath": [
+                            ""
+                        ]
+                    }
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

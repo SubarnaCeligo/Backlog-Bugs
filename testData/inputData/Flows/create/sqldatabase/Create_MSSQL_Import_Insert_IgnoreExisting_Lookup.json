@@ -1,0 +1,189 @@
+{
+    "name": "Create_MSSQLImport_Insert_IgnoreExisting_Lookup",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "6",
+        "successCount": "6",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//Dataloader_uploades//Mysqlinsertignorewithlookup.csv",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "Mysqlinsertignorewithlookup.csv"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "FTPExport",
+            "name": "PG_Export "
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "import1",
+            "modelMetadata": {
+                "PO#": {
+                    "default": ""
+                },
+                "orderID": {
+                    "default": ""
+                },
+                "FirstName": {
+                    "default": ""
+                },
+                "Amount": {
+                    "default": ""
+                },
+                "Quantity": {
+                    "default": ""
+                },
+                "ItemName": {
+                    "default": ""
+                },
+                "id": {
+                    "default": ""
+                },
+                "units": {
+                    "default": ""
+                },
+                "LastName": {
+                    "default": ""
+                },
+                "Date": {
+                    "default": ""
+                },
+                "Notes": {
+                    "default": ""
+                }
+            },
+            "parsers": [],
+            "_connectionId": "MSSQL CONNECTION",
+            "distributed": false,
+            "ignoreExisting": true,
+            "lookups": [{
+                "name": "Test",
+                "query": "select Name from Insert_ignore_existing_lookup where Name={{data.orderID}}",
+                "allowFailures": false,
+                "extract": "Name"
+            }],
+            "rdbms": {
+                "query": ["INSERT INTO Insert_ignore_existing_lookup(Name,Email,Phone,Fax,Itemname,Quantity,Amount,Notes,Date)VALUES({{data.orderID}},{{data.FirstName}},{{data.[PO#]}},{{data.[PO#]}},{{data.ItemName}},{{data.Quantity}},{{data.Amount}},{{data.Notes}},{{data.Date}})"],
+                "queryType": ["INSERT"],
+                "ignoreExtract": "Test",
+                "lookups": [{
+                    "name": "Test",
+                    "query": "select Name from Insert_ignore_existing_lookup where Name={{data.orderID}}",
+                    "allowFailures": false,
+                    "extract": "Name"
+                }]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "Create_MSSQLImport_Insert_IgnoreExisting_Lookup",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                        "Name": "TAG-Address-1",
+                        "Email": "Automation AnushaNew1",
+                        "Phone": "656",
+                        "Fax": "656",
+                        "Itemname": "ACC00002",
+                        "Quantity": "55",
+                        "Amount": "280",
+                        "Notes": "NewNotes24",
+                        "Date": "07/15/2017"
+                    }, {
+                        "Name": "TAG-Address-2",
+                        "Email": "Automation AnushaNew2",
+                        "Phone": "656",
+                        "Fax": "656",
+                        "Itemname": "ACC00003",
+                        "Quantity": "55",
+                        "Amount": "280",
+                        "Notes": "NewNotes36",
+                        "Date": "07/15/2017"
+                    }, {
+                        "Name": "TAG-Address-3",
+                        "Email": "Automation AnushaNew3",
+                        "Phone": "656",
+                        "Fax": "656",
+                        "Itemname": "ACC00003",
+                        "Quantity": "55",
+                        "Amount": "280",
+                        "Notes": "NewNotes",
+                        "Date": "07/15/2017"
+                    }, {
+                        "Name": "TAG-Address-4",
+                        "Email": "Automation AnushaNew3",
+                        "Phone": "656",
+                        "Fax": "656",
+                        "Itemname": "ACC00003",
+                        "Quantity": "55",
+                        "Amount": "280",
+                        "Notes": "NewNotes",
+                        "Date": "07/15/2017"
+                    }, {
+                        "Name": "TAG-Address-5",
+                        "Email": "Automation AnushaNew3",
+                        "Phone": "656",
+                        "Fax": "656",
+                        "Itemname": "ACC00003",
+                        "Quantity": "55",
+                        "Amount": "280",
+                        "Notes": "NewNotes",
+                        "Date": "07/15/2017"
+                    }, {
+                        "Name": "TAG-Address-6",
+                        "Email": "Automation AnushaNew3",
+                        "Phone": "656",
+                        "Fax": "656",
+                        "Itemname": "ACC00003",
+                        "Quantity": "55",
+                        "Amount": "280",
+                        "Notes": "NewNotes",
+                        "Date": "07/15/2017"
+                    }],
+                    "uniqueField": "Name",
+                    "standaloneexportflowID": "5a8f0b3a495f27594a8a3a16",
+                    "importRecordType": "Insert_ignore_existing_lookup",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e13da83d54",
+                    "update_app": "Zendesk",
+                    "update_importapiIdentifier": "id85b3ae05",
+                    "update_Record": "organizations",
+                    "application":"MSSQL"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "3",
+                    "successCount": "6",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "MSSQL CONNECTION"
+                }
+            }
+        }
+    }
+}

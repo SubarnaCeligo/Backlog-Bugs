@@ -1,0 +1,109 @@
+{
+  "name": "TC_418_Mssql_Double_Null_Default_Data",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Data Loader",
+        "asynchronous": true,
+        "type": "simple",
+        "qa__isDataLoader": "json",
+        "qa__path": "//Dataloader_uploades//TC_418_Mssql_Double_Null_Default_Data.json",
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "type": "json"
+        },
+        "adaptorType": "SimpleExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "test",
+        "modelMetadata": {
+          "name": {
+            "default": ""
+          },
+          "emp_id": {
+            "default": ""
+          },
+          "additional_information": [
+            {
+              "default": ""
+            },
+            {
+              "default": ""
+            },
+            {
+              "default": ""
+            },
+            {
+              "default": ""
+            },
+            {
+              "default": ""
+            },
+            {
+              "default": ""
+            },
+            {
+              "default": ""
+            }
+          ]
+        },
+        "parsers": [],
+        "_connectionId": "MSSQL CONNECTION",
+        "distributed": false,
+        "lookups": [],
+        "rdbms": {
+          "query": [
+            "INSERT INTO automation_mssql_afe(name,emp_id) VALUES({{record.name}},{{record.emp_id}})"
+          ],
+          "queryType": [
+            "INSERT"
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "name": "TC_418_Mssql_Double_Null_Default_Data",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "MSSQL CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "name": "test",
+              "emp_id": 500
+            }
+          ],
+          "uniqueField": "emp_id",
+          "importRecordType": "automation_mssql_afe",
+          "exportapiIdentifier": "e260b9bd15",
+          "isUIFlow": true,
+          "standaloneexportflowID": "60cee3e1d99bd92eb5bd42ec"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "skipRetries": false,
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "33237_import",
+        "qa__connectionId": "62c88089ebd1cb63e0f066ca",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ib9c39403c",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "33237.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/yash_modi",
+          "fileName": "33237.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C33237",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "generateSampleDropDownAvailable": false,
+    "standaloneexportflowID": "",
+    "expected": {
+      "FTP": {
+        "name": "TC_C33237",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "33237",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/yash_modi",
+          "fileType": ".json"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "33237_export",
+        "application" : "Amazon Seller Central",
+        "unencrypted": {
+          "apiType": "Amazon-SP-API"
+        },
+        "qa__connectionId": "AMAZON SP API CONNECTION",
+        "_connectionId": "AMAZON SP API CONNECTION",
+        "apiIdentifier": "ea81ddcbb6",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/reports/2021-06-30/reports",
+          "method": "POST",
+          "body": "{\"reportType\":\"GET_MERCHANT_LISTINGS_DATA\",\"marketplaceIds\":[\"ATVPDKIKX0DER\"]}",
+          "formType": "http",
+          "response": {}
+        },
+        "rawData": "56d6b114e1fc35de5391472c49c98a81bd544b4c9aac01c987dcbd19",
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

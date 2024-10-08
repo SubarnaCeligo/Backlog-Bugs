@@ -1,0 +1,193 @@
+{
+  "skipRetries": false,
+  "_integrationId": "63159bd0976915080d03da1a",
+  "name": "TC_469_Sf_Mysql_Update_AFE2.0",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Salesforce Export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "apiIdentifier": "e5874db042",
+        "asynchronous": true,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name, Email__c, Immutable_Number1__c from Account where Name LIKE 'updatemysqlrecord%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "mysql update",
+        "application": "MySQL",
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "Name": {
+            "default": ""
+          },
+          "Email__c": {
+            "default": ""
+          },
+          "Immutable_Number1__c": {
+            "default": ""
+          },
+          "Ownership": {
+            "default": null
+          },
+          "comments": {
+            "default": "null"
+          }
+        },
+        "parsers": [],
+        "_connectionId": "MYSQL CONNECTION",
+        "distributed": false,
+        "lookups": [],
+        "rdbms": {
+          "query": [
+            "UPDATE update_table_afe SET Email__c={{record.Email__c}},Immutable_Number__c={{record.Immutable_Number1__c}},Ownership={{record.Ownership}},comments={{record.comments}} where Name={{record.Name}}"
+          ],
+          "queryType": [
+            "UPDATE"
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "63159bd0976915080d03da1a",
+        "name": "TC_469_Sf_Mysql_Update_AFE2.0",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "Name": "updatemysqlrecord1",
+              "Email__c": "update1@gmail.com",
+              "Immutable_Number__c": 10,
+              "Ownership": null,
+              "comments": "null"
+            },
+            {
+              "Name": "updatemysqlrecord2",
+              "Email__c": "update2@gmail.com",
+              "Immutable_Number__c": 11,
+              "Ownership": null,
+              "comments": "null"
+            }
+          ],
+          "uniqueField": "Immutable_Number__c",
+          "exportRecordType": "Account",
+          "standaloneexportflowID": "60e1aa25e7163d657f2c6d23",
+          "importRecordType": "update_table_afe",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ea9e568d86",
+          "application":"MYSQL" 
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "4",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "MYSQL CONNECTION"
+        }
+      }
+    },
+    "importRecordJSON": [
+      {
+        "Name": "updatemysqlrecord1",
+        "Number": 10,
+        "Email": "update1@gmail.com"
+      },
+      {
+        "Name": "updatemysqlrecord2",
+        "Number": 11,
+        "Email": "update2@gmail.com"
+      }
+    ],
+    "application":"SALESFORCE",
+    "importapiIdentifier": "ifc73ad366",
+    "importapidoc": {
+      "_id": "60ee8cd5cdcd434ee4619923",
+      "createdAt": "2021-07-14T07:05:57.307Z",
+      "lastModified": "2021-07-14T07:05:57.369Z",
+      "name": "TC_469_Sf_Mysql_Update_AFE2.0",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "parsers": [],
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "ifc73ad366",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "mapping": {
+        "fields": [
+          {
+            "extract": "Name",
+            "generate": "Name"
+          },
+          {
+            "extract": "Number",
+            "generate": "Immutable_Number1__c"
+          },
+          {
+            "extract": "Email",
+            "generate": "Email__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

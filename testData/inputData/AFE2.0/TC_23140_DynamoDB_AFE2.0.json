@@ -1,0 +1,105 @@
+{
+    "name": "TC_23140_DynamoDB_AFE2.0",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "db_export",
+            "_connectionId": "DYNAMODB CONNECTION",
+            "apiIdentifier": "e2cc06bb84",
+            "asynchronous": true,
+            "sandbox": false,
+            "rawData": "56d6b114e1fc35de5391472cb13ad2984d2843afa300973e76125fe9",
+            "dynamodb": {
+                "region": "us-east-1",
+                "method": "query",
+                "tableName": "export_once_partition",
+                "keyConditionExpression": "#n1=:p1",
+                "expressionAttributeNames": "{ \"#n1\":\"emp_id\"}",
+                "expressionAttributeValues": "{\":p1\":\"0013m000026SHWHAA4\"}"
+            },
+            "adaptorType": "DynamodbExport"
+        }
+    }],
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "name": "db_export",
+                "_connectionId": "DYNAMODB CONNECTION",
+                "apiIdentifier": "e46e6368ce",
+                "asynchronous": true,
+                "isLookup": true,
+                "sandbox": false,
+                "dynamodb": {
+                    "region": "us-east-1",
+                    "method": "query",
+                    "tableName": "export_once_partition",
+                    "keyConditionExpression": "#n1=:p1",
+                    "expressionAttributeNames": "{ \"#n1\":\"emp_id\"}",
+                    "expressionAttributeValues": "{\":p1\":\"0013m000026SHWHAA4\"}"
+                },
+                "adaptorType": "DynamodbExport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "ftp imp",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ica1ceee84",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_23140.json",
+                    "skipAggregation": false,
+                    "type": "json",
+                    "encoding": "utf8"
+                },
+                "ftp": {
+                    "directoryPath": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileName": "TC_23140.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "qa__expectedDashboardCount": {
+        "successCount": "3",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_23140_DynamoDB_AFE2.0",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "json": {
+                            "columnDelimiter": "*"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "3",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "file": {
+                        "json": {
+                            "columnDelimiter": "*"
+                        }
+                    },
+                    "generateSampleDropDownAvailable": false,
+                    "fileName": "TC_23140",
+                    "isUIFlow": true,
+                    "folderName": "io.auto.qa/IO Automation SFTP Imports",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

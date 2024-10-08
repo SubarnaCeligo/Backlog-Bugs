@@ -1,0 +1,182 @@
+{
+    "name": "TC_C21274_Extract_Not_Empty_addupdate",
+    "qa__dataVerification": {
+        "expected": {
+            "Netsuite": {
+                "name": "TC_C21274_Extract_Not_Empty_addupdate",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "memo": "TC_C21274_Extract_not_empty_addupdate",
+                            "item": [
+                                {
+                                    "amount": 100,
+                                    "item": {
+                                        "internalid": "12776",
+                                        "name": "Inv serial item3"
+                                    }
+                                }
+                            ],
+                            "entity": {
+                                "internalid": "2441660",
+                                "name": "rajaneesh"
+                            }
+                        }
+                    ],
+                    "exportapiIdentifier": "eed238ec90",
+                    "importRecordType": "SalesOrder",
+                    "isUIFlow": true,
+                    "standaloneexportflowID": "633be0f78a329e41bcd7ad1a",
+                    "savedsearchId": "4687",
+                    "uniqueField": "memo"
+                }
+            }
+        }
+    },
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C21274_Extract_Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "efff30b6ab",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "sampleData": {
+                            "entity": "rajaneesh",
+                            "otherrefnum": "333",
+                            "QTY": "2",
+                            "ITEM": "Inv serial item3",
+                            "Amount": 100,
+                            "Location": "17"
+                        },
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C21274_Salesorder"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "21274_Extract_Import",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "apiIdentifier": "iaf9da02d7",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": true,
+                            "operation": "addupdate",
+                            "recordType": "salesorder",
+                            "internalIdLookup": {
+                                "expression": "[\"memo\",\"is\",\"TC_C21274_Extract_not_empty_addupdate\"]"
+                            },
+                            "lookups": [],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "extract": "entity",
+                                        "generate": "entity",
+                                        "discardIfEmpty": false,
+                                        "immutable": false,
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        },
+                                        "internalId": false
+                                    },
+                                    {
+                                        "hardCodedValue": "TC_C21274_Extract_not_empty_addupdate",
+                                        "generate": "memo",
+                                        "internalId": false
+                                    }
+                                ],
+                                "lists": [
+                                    {
+                                        "generate": "item",
+                                        "fields": [
+                                            {
+                                                "generate": "quantity",
+                                                "discardIfEmpty": false,
+                                                "immutable": false,
+                                                "conditional": {
+                                                    "when": "extract_not_empty"
+                                                },
+                                                "internalId": false,
+                                                "extract": "QTY"
+                                            },
+                                            {
+                                                "extract": "ITEM",
+                                                "generate": "item",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "extract": "Amount",
+                                                "generate": "amount",
+                                                "internalId": false
+                                            },
+                                            {
+                                                "extract": "L",
+                                                "generate": "location",
+                                                "discardIfEmpty": false,
+                                                "immutable": false,
+                                                "conditional": {
+                                                    "when": "extract_not_empty"
+                                                },
+                                                "internalId": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C21274_Extract_Not_Empty_addupdate",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

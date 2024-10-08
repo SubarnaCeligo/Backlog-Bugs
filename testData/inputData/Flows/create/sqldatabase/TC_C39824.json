@@ -1,0 +1,81 @@
+{
+    "name": "TC_C39824",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "_comment": "updating dashboard count for test case as no of success records is not 2 but 234", 
+        "successCount": "234",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "application": "Snowflake",
+            "name": "Snowflake export-Page size 100",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "asynchronous": true,
+            "pageSize": 1,
+            "rdbms": {
+                "query": "select * from automation_test"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "FTP import",
+                "_connectionId": "FTP CONNECTION",
+                "distributed": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "COMMENTS",
+                            "generate": "COMMENTS"
+                        },
+                        {
+                            "extract": "EMAIL",
+                            "generate": "EMAIL"
+                        },
+                        {
+                            "extract": "NAME",
+                            "generate": "NAME"
+                        }
+                    ]
+                },
+                "file": {
+                  "fileName": "TC_C39824.json",
+                  "type": "json"
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                  "fileName": "TC_C39824.json"
+                },
+                "adaptorType": "FTPImport"
+              }
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "ftp": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "TC_C39824",
+                "qa__dataVerification": {
+                    "fileName": "TC_C39824",
+                    "folderName":"/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "234",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                }
+            }
+        }
+    }
+}

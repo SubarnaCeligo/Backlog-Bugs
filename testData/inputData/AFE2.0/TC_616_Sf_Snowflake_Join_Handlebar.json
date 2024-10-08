@@ -1,0 +1,216 @@
+{
+  "name": "TC_616_Sf_Snowflake_Join_Handlebar",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "_integrationId": "63159bd0976915080d03da1a",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Salesforce Export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name,Line_ID__c, StageName, Description,Flow_Error__c, CloseDate from Opportunity  where Name LIKE 'Autosnow_Join_Record%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "Import",
+        "application": "Snowflake",
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "Name": {
+            "default": ""
+          },
+          "Line_ID__c": {
+            "default": ""
+          },
+          "StageName": {
+            "default": ""
+          },
+          "Description": {
+            "default": ""
+          },
+          "Flow_Error__c": {
+            "default": ""
+          },
+          "CloseDate": {
+            "default": ""
+          }
+        },
+        "_connectionId": "SNOWFLAKE CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+          "query": [
+            "INSERT INTO afe_automation\n(\nNAME,\nEMP_ID,\nTYPE,\nNOTES,\nCOMMENTS,\nDOJ\n)\nVALUES\n(\n{{record.Name}},\n{{record.Line_ID__c}},\n{{record.StageName}},\n{{join ' ' record.Description record.Flow_Error__c}},\n{{record.Description}},\n{{record.CloseDate}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": [
+      {
+        "name": "Autosnow_Join_Record2",
+        "date": "2021-11-30",
+        "flow": "Join2",
+        "line": 20,
+        "Stage": "Qualification",
+        "Description": "Au_R"
+      },
+      {
+        "name": "Autosnow_Join_Record1",
+        "date": "2021-11-30",
+        "flow": "Join1",
+        "line": 21,
+        "Stage": "Prospecting",
+        "Description": "Au_R"
+      }
+    ],
+    "application":"SALESFORCE",       
+    "importapiIdentifier": "i63c9841db",
+    "exportRecordType": "Opportunity",
+    "expected": {
+      "RDBMS": {
+        "name": "TC_616_Sf_Snowflake_Join_Handlebar",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "SNOWFLAKE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "4",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "NAME": "Autosnow_Join_Record1",
+              "EMP_ID": 21,
+              "TYPE": "Prospecting",
+              "NOTES": "Au_R Join1",
+              "COMMENTS": "Au_R",
+              "DOJ": "2021-11-30"
+            },
+            {
+              "NAME": "Autosnow_Join_Record2",
+              "EMP_ID": 20,
+              "TYPE": "Qualification",
+              "NOTES": "Au_R Join2",
+              "COMMENTS": "Au_R",
+              "DOJ": "2021-11-30"
+            }
+          ],
+          "uniqueField": "EMP_ID",
+          "importRecordType": "afe_automation",
+          "exportapiIdentifier": "e6fe02550c",
+          "isUIFlow": true,
+          "standaloneexportflowID": "61a708a269bcdc6553f9385f",
+          "application":"SNOWFLAKE"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "61a7075a69bcdc6553f937e1",
+      "createdAt": "2021-12-01T05:25:46.988Z",
+      "lastModified": "2021-12-01T05:25:47.052Z",
+      "name": "TC_616_Sf_Snowflake_Join_Handlebar",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "parsers": [],
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i63c9841db",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "Name"
+          },
+          {
+            "extract": "date",
+            "generate": "CloseDate"
+          },
+          {
+            "extract": "flow",
+            "generate": "Flow_Error__c"
+          },
+          {
+            "extract": "line",
+            "generate": "Line_ID__c"
+          },
+          {
+            "extract": "Stage",
+            "generate": "StageName"
+          },
+          {
+            "extract": "Description",
+            "generate": "Description"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Opportunity",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

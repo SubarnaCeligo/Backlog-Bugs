@@ -1,0 +1,66 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "ajxaxabx",
+            "application": "shopify",
+            "parsers": [],
+            "_connectionId": "HTTP SHOPIFY CONNECTION",
+            "apiIdentifier": "iee30760f1",
+            "ignoreExisting": true,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "http": {
+                "relativeURI": [
+                    "/contacts/v1/contact"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [
+                    "{\n      \"property\": \"{{record.items.name}}\",\n      \"value\": \"{{connection.http.unencrypted.field}}\"\n    }"
+                ],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "ignoreExtract": "Customer",
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C32217",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "ghjhgygh",
+      "_connectionId": "FTP CONNECTION",
+      "qa__path": "/FTP_uploads/TC_C30440.json",
+      "apiIdentifier": "e61eec43a0",
+      "asynchronous": true,
+      "sandbox": false,
+
+      "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C30440",
+          "fileNameEndsWith": ".json"
+      },
+      "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+      },
+      "adaptorType": "FTPExport"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,105 @@
+{
+    "name": "TC_C33550",
+    "referencename": "TC_C33550",
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "generateSampleDropDownAvailable": false,
+        "standaloneexportflowID": "",
+        "expected": {
+            "FTP": {
+                "name": "TC_C33550",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "33550",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/Zendesk_Tests/Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "33550",
+                        "application" : "Amazon Seller Central",
+                        "unencrypted": {
+                            "useMWSDataFormat": true,
+                            "apiType": "Amazon-SP-API"
+                        },
+                        "qa__connectionId": "AMAZON SP API CONNECTION",
+                        "_connectionId": "AMAZON SP API CONNECTION",
+                        "apiIdentifier": "e32c52103a",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "/orders/v0/orders/111-8852338-6175405",
+                            "method": "GET",
+                            "formType": "http",
+                            "response": {}
+                        },
+                        "rawData": "56d6b114e1fc35de5391472cd8a6123ddbde4218b88a2f41685195c4",
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "33550-import",
+                        "qa__connectionId": "62c88089ebd1cb63e0f066ca",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "i6891c6697",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "33550.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/Zendesk_Tests/Automation",
+                            "fileName": "33550.json"
+                        },
+                        "adaptorType": "FTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C33550",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

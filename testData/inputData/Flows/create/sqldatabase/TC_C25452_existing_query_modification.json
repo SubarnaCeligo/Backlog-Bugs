@@ -1,0 +1,55 @@
+{
+    "name": "TC_C25452_existing_query_modification",
+    "qa__api_tdata": [
+      {
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import":{
+                "name": "TC_C25452",
+                "modelMetadata": {
+                    "myField": {
+                        "default": ""
+                    }
+                },
+                "_connectionId":"MYSQL CONNECTION",
+                "qa__connectionId":"62e8e11136f8f637aa252cd0",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "select * from Customer",
+                        "insert into Customer(name) value('ABC')"
+                    ],
+                    "queryType": [
+                        "UPDATE",
+                        "INSERT"
+                    ],
+                    "updateExtract": "name"
+                },
+                "adaptorType": "RDBMSImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C25452_existing_query_modification",
+          "disabled": false,
+          "_integrationId":"62e8d3e7f389ab707f5d75ff",
+          "qa__integrationId": "62e8c2172dd80523719f9291",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

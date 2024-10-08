@@ -1,0 +1,51 @@
+{
+    "name": "TC_21277",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "Source_Environment": "Production",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "qa__api_tdata": [
+        {
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "name": "Netsuite Account Import 21277",
+                        "adaptorType": "NetSuiteDistributedImport",
+                        "distributed": true,
+                        "lookups": [],
+                        "netsuite_da": {
+                            "useSS2Restlets": true,
+                            "lookups": [],
+                            "recordType": "account",
+                            "operation": "add"
+                        }
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_21277",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

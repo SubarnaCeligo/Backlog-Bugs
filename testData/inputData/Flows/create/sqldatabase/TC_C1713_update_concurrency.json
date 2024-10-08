@@ -1,0 +1,71 @@
+{
+    "name": "TC_C1713_update_concurrency",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62e8c2172dd80523719f9291",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+		"ignoreCount": "150",
+		"successCount": "150",
+		"errorCount": "0"
+	},
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId":"MYSQL CONNECTION",
+                "qa__connectionId": "630073de2dac2950afa7948b",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "Select * from TC_C1713 limit 150"
+                },
+                "adaptorType": "RDBMSExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "modelMetadata": {
+                    "NameCol": {
+                        "default": ""
+                    }
+                },
+                "_connectionId":"MYSQL CONNECTION",
+                "qa__connectionId": "630073de2dac2950afa7948b",
+                "ignoreExisting": true,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "lookups": [
+                    {
+                        "query": "Select * from TC_C1713 where {{data.NameCol}}=\"TC\"",
+                        "extract": "NameCol",
+                        "allowFailures": false,
+                        "name": "TC"
+                    }
+                ],
+                "rdbms": {
+                    "query": [
+                        "insert INTO TC_C1713(NameCol) value(\"TC_C1713\")"
+                    ],
+                    "queryType": [
+                        "INSERT"
+                    ],
+                    "ignoreLookupName": "TC",
+                    "lookups": [
+                        {
+                            "query": "Select * from TC_C1713 where {{data.NameCol}}=\"TC\"",
+                            "extract": "NameCol",
+                            "allowFailures": false,
+                            "name": "TC"
+                        }
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ]
+}

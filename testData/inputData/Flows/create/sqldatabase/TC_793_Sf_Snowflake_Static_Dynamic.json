@@ -1,0 +1,218 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_793_Sf_Snowflake_Static_Dynamic",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "successCount": "4",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "salesforce export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name,Title,Email, LeadSource, Level__c from Contact where Name LIKE 'Snowflake_Static_Settings_Rec%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "snwoflake",
+        "modelMetadata": {
+          "attributes": {
+            "type": {
+              "default": ""
+            },
+            "url": {
+              "default": ""
+            }
+          },
+          "Name": {
+            "default": ""
+          },
+          "Title": {
+            "default": ""
+          },
+          "Email": {
+            "default": ""
+          },
+          "LeadSource": {
+            "default": ""
+          }
+        },
+        "_connectionId": "SNOWFLAKE CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [
+          {
+            "map": {
+              "Web": "high",
+              "Phone Inquiry": "low"
+            },
+            "allowFailures": true,
+            "default": "",
+            "name": "static_empty"
+          },
+          {
+            "map": {
+              "Secondary": "employee",
+              "Primary": "student"
+            },
+            "allowFailures": true,
+            "default": null,
+            "name": "static_null"
+          }
+        ],
+        "rdbms": {
+          "query": [
+            "INSERT INTO automation_mappings_settings\n(\nname,\nemail,\nnotes,\npriority,\ntype\n)\nVALUES\n(\n{{record.Name}},\n{{record.Email}},\n{{record.Title}},\n{{lookup \"static_empty\" record.LeadSource}},\n{{lookup \"static_null\" record.Level__c}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ],
+          "lookups": [
+            {
+              "map": {
+                "Web": "high",
+                "Phone Inquiry": "low"
+              },
+              "allowFailures": true,
+              "default": "",
+              "name": "static_empty"
+            },
+            {
+              "map": {
+                "Secondary": "employee",
+                "Primary": "student"
+              },
+              "allowFailures": true,
+              "default": null,
+              "name": "static_null"
+            }
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": [
+      {
+        "name": "Snowflake_Static_Settings_Rec1",
+        "title": "Settings_Mappings",
+        "source": "Web",
+        "email": "static_record1@gmail.com",
+        "level": "Secondary"
+      },
+      {
+        "name": "Snowflake_Static_Settings_Rec2",
+        "title": "Settings_Mappings",
+        "source": "Other",
+        "email": "static_record2@gmail.com",
+        "level": "Tertiary"
+      }
+    ],
+    "application": "SALESFORCE",
+    "importapiIdentifier": "i6ee8bbf43",
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_793_Sf_Snowflake_Static_Dynamic",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "NAME": "Snowflake_Static_Settings_Rec2",
+              "EMAIL": "static_record2@gmail.com",
+              "NOTES": "Settings_Mappings",
+              "PRIORITY": "",
+              "TYPE": null
+            },
+            {
+              "NAME": "Snowflake_Static_Settings_Rec1",
+              "EMAIL": "static_record1@gmail.com",
+              "NOTES": "Settings_Mappings",
+              "PRIORITY": "high",
+              "TYPE": "employee"
+            }
+          ],
+          "uniqueField": "NAME",
+          "standaloneexportflowID": "6228b8ee402acd26d2e2dbc2",
+          "importRecordType": "automation_mappings_settings",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e997373f34"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "4",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "SNOWFLAKE CONNECTION"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "63511e8718a8b362b60a1000",
+      "createdAt": "2022-10-20T10:10:15.794Z",
+      "lastModified": "2022-10-20T10:11:13.111Z",
+      "name": "DND_TC_793_Sf_Snowflake_Static_Dynamic",
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "apiIdentifier": "i6ee8bbf43",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "LastName"
+          },
+          {
+            "extract": "title",
+            "generate": "Title"
+          },
+          {
+            "extract": "source",
+            "generate": "LeadSource"
+          },
+          {
+            "extract": "email",
+            "generate": "Email"
+          },
+          {
+            "extract": "level",
+            "generate": "Level__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Contact",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

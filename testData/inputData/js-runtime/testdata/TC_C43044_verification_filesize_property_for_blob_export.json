@@ -1,0 +1,131 @@
+{
+    "script": "TC_C43044",
+    "name": "TC_C43044_blob_export",
+    "referencename": "TC_C43044_blob_export",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "10",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "isUIFlow": true,
+        "expected": {
+            "netsuite": {
+                "name": "TC_C43044_NS_imp",
+                "_integrationId": "6319b071abf51e7a86c7ba9d",
+                "qa__integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "NETSUITE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "10",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "exportapiIdentifier": "eacf68b633",
+                    "importRecordType": "folder",
+                    "isUIFlow": true,
+                    "isblob": true,
+                    "generateSampleDropDownAvailable": false,
+                    "standaloneexportflowID": "63071048d834a135bd6bb47a",
+                    "savedsearchId": "4539",
+                    "uniqueField": "name",
+                    "expectedJSON": {
+                        "recordtype": "folder",
+                        "name": "TC_C43044",
+                        "id": "71850",
+                        "files": [
+                            {
+                                "name": "TC_C43044.jpeg-23269"
+                            },
+                            {
+                                "name": "TC_C43044.pdf-3802"
+                            },
+                            {
+                                "name": "TC_C43044.zip-2454"
+                            },
+                            {
+                                "name": "TC_C43044.txt-15"
+                            },
+                            {
+                                "name": "TC_C43044.png-23269"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C43044_exp",
+                        "_connectionId": "FTP CONNECTION",
+                        "asynchronous": true,
+                        "type": "blob",
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C43044"
+                        },
+                        "file": {
+                            "output": "blobKeys",
+                            "skipDelete": true
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "TC_C43044_NS_imp",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": false,
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "blob": true,
+                        "sandbox": false,
+                        "netsuite": {
+                            "operation": "add",
+                            "recordType": "file",
+                            "file": {
+                                "name": "{{record.fileName}}",
+                                "folder": "71850"
+                            }
+                        },
+                        "adaptorType": "NetSuiteImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C43044_blob_export",
+                "disabled": false,
+                "_integrationId": "6319b071abf51e7a86c7ba9d",
+                "qa__integrationId": "62d6b4a955468141a906119e",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

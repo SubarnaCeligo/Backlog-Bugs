@@ -1,0 +1,47 @@
+{
+    "name": "TC_C36436_Verify_NewRadio_optionsAdded_forSnowflake",
+    "qa__api_tdata": [
+      {
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import":{
+                "name": "Snowflake",
+                "application": "Snowflake",
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "apiIdentifier": "i5dac5f2d8",
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": [],
+                    "queryType": [
+                        "BULK INSERT"
+                    ],
+                    "bulkInsert": {
+                        "tableName": "Automation"
+                    }
+                },
+                "adaptorType": "RDBMSImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C36436_Verify_NewRadio_optionsAdded_forSnowflake",
+          "disabled": false,
+          "_integrationId": "62e8d3e7f389ab707f5d75ff",
+          "qa__integrationId": "62e8c2172dd80523719f9291",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

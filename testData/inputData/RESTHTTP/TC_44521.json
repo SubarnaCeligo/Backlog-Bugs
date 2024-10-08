@@ -1,0 +1,31 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+   
+    "timezone": "Asia/Calcutta",
+    "name": "TC_44521",
+    "disabled": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "export",
+            "application" : "Amazon Seller Central",
+            "unencrypted": {
+                "apiType": "Amazon-SP-API",
+                "useMWSDataFormat": true
+            },
+            "qa__connectionId": "AMAZON SP API CONNECTION",
+            "_connectionId": "AMAZON SP API CONNECTION",
+            "apiIdentifier": "e943a05d2c",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "fba/inbound/v0/shipments/FBA15ZZB6K8S/transport",
+                "method": "GET",
+                "formType": "http"
+            },
+            "rawData": "56d6b114e1fc35de5391472ca6620eb4893349f68ff17c4355e43ab3",
+            "adaptorType": "HTTPExport"
+        }
+    }]
+}

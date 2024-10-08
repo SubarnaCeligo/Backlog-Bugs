@@ -1,0 +1,79 @@
+{
+    "name": "Snowflake_Export_PageSize_100",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "598",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Snowflake export-Page size 100",
+            "_connectionId": "SNOWFLAKE CONNECTION",
+            "asynchronous": true,
+            "pageSize": 100,
+            "rdbms": {
+                "query": "select * from automation_pagesize"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "IMPORT INTO FTP",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "file": {
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": true,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "Snowflakeexportpagesize100.csv"
+            },
+            "adaptorType": "FTPImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "ftp": {
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "name": "Snowflake export-Page size 100",
+                "qa__dataVerification": {
+                    "fileName": "Snowflakeexportpagesize100",
+                    "folderName":"/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "598",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ","
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,174 @@
+{
+  "name": "TC_C21274_9",
+  "referencename": "TC_C21274_9",
+  "importApiIdentifier": "if6e416598",
+  "importRecordJSON": {
+    "name": "11Test Cus 1",
+    "subsidiary": 3,
+    "items": [
+      {
+        "name": "ACC00002",
+        "amount": 2
+      }
+    ],
+    "orderId": "TC_C21274_9"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "Netsuite": {
+        "name": "TC_C21274_9",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId":"NETSUITE CONNECTION"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "tranid": "TC_C21274_9",
+              "department": {
+                "internalid": "5",
+                "name": "Production"
+              },
+              "location": {
+                "internalid": "22",
+                "name": "HYDERABAD"
+              },
+              "item": [
+                {
+                  "amount": 2,
+                  "item": {
+                    "internalid": "501",
+                    "name": "ACC00002"
+                  }
+                }
+              ]
+            }
+            ],
+            "exportapiIdentifier": "e7970308ac",
+            "importRecordType": "salesOrder",
+            "isUIFlow": true,
+            "standaloneexportflowID": "633c2c8211d4e3675119f712",
+            "savedsearchId": "4690",
+            "uniqueField": "tranid"
+        }
+      }
+  }
+},
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "TC_C21274_9",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e26804b51e",
+            "asynchronous": true,
+            "sandbox": false,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C21274_9"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "TC_C21274_9",
+            "_connectionId":"NETSUITE CONNECTION",
+            "distributed": true,
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [
+              {}
+            ],
+            "netsuite_da": {
+              "useSS2Restlets": true,
+              "operation": "update",
+              "recordType": "salesorder",
+              "internalIdLookup": {
+                  "expression": "[\"tranid\",\"is\",\"{{{orderId}}}\"]"
+              },
+              "lookups": [],
+              "mapping": {
+                  "fields": [
+                      {
+                          "generate": "entity",
+                          "extract": "name",
+                          "internalId": false
+                      },
+                      {
+                          "generate": "tranid",
+                          "extract": "orderId",
+                          "internalId": false
+                      },
+                      {
+                          "generate": "location",
+                          "hardCodedValue": "17",
+                          "discardIfEmpty": false,
+                          "immutable": false,
+                          "conditional": {
+                              "when": "ignore_if_set"
+                          },
+                          "internalId": true
+                      },
+                      {
+                          "generate": "department",
+                          "hardCodedValue": "Production",
+                          "discardIfEmpty": false,
+                          "immutable": false,
+                          "conditional": {
+                              "when": "ignore_if_set"
+                          },
+                          "internalId": false
+                      }
+                  ],
+                  "lists": []
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C21274_9",
+        "disabled": false,
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

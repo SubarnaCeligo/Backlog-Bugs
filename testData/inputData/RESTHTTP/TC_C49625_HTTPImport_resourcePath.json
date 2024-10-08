@@ -1,0 +1,29 @@
+{
+    "skipRetries": false,
+    "url":"https://qa.staging.integrator.io/imports/edit/imports/",
+    "url_s":"https://staging.integrator.io/imports/edit/imports/",
+    "url_p":"https://platform1.dev.integrator.io/imports/edit/imports/",
+    "pageProcessors":
+        {
+            "name": "Http Import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i0d238d03b",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": [
+                "organizations"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "sendPostMappedData": true,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+  }

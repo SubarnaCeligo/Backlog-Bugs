@@ -1,0 +1,11 @@
+{
+    "name": "TC_C29981",
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Zendesk",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "adaptorType": "HTTPExport"
+        }
+    }]
+}

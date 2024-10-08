@@ -1,0 +1,227 @@
+{
+  "name": "TC_C52408",
+  "referencename": "TC_C52408",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_C52408",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "uniqueField": "itemid",
+          "isUIFlow": true,
+          "standaloneexportflowID": "63848a78c7d76c583e7559ae",
+          "importRecordType": "serializedassemblyitem",
+          "exportapiIdentifier": "e2207d21b4",
+          "expectedJSON": [
+            {
+              "itemvendor": [
+                {
+                  "itemvendorprice": {
+                    "itemvendorpricelines": [
+                      {
+                        "vendorcurrency": {
+                          "internalid": "2",
+                          "name": "British pound"
+                        },
+                        "vendorprice": 6200
+                      },
+                      {
+                        "vendorcurrency": {
+                          "internalid": "1",
+                          "name": "USA"
+                        },
+                        "vendorprice": 800
+                      }
+                    ]
+                  },
+                  "preferredvendor": false,
+                  "subsidiary": {
+                    "internalid": "3",
+                    "name": "HH Inc."
+                  },
+                  "vendor": {
+                    "internalid": "4572894",
+                    "name": "49384"
+                  }
+                },
+                {
+                  "itemvendorprice": {
+                    "itemvendorpricelines": [
+                      {
+                        "vendorcurrency": {
+                          "internalid": "1",
+                          "name": "USA"
+                        },
+                        "vendorprice": 123
+                      },
+                      {
+                        "vendorcurrency": {
+                          "internalid": "2",
+                          "name": "British pound"
+                        },
+                        "vendorprice": 145
+                      }
+                    ]
+                  },
+                  "preferredvendor": false,
+                  "subsidiary": {
+                    "internalid": "3",
+                    "name": "HH Inc."
+                  },
+                  "vendor": {
+                    "internalid": "4572893",
+                    "name": "38721"
+                  }
+                }
+              ],
+              "itemid": "TC_C52408DND",
+              "recordtype": "serializedassemblyitem"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "AutomationStandalone_ZbCiU",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "ftp": {
+              "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+              "fileNameStartsWith": "TC_C52408",
+              "fileNameEndsWith": ".json"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json"
+            },
+            "adaptorType": "FTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "AutomationStandalone_wsroI",
+
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "iebda5b165",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+              "useSS2Restlets": false,
+              "operation": "update",
+              "recordType": "serializedassemblyitem",
+              "internalIdLookup": {
+                "expression": "[\"internalid\",\"is\",\"258101\"]"
+              },
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "celigo_write_log",
+                    "discardIfEmpty": false,
+                    "immutable": false,
+                    "hardCodedValue": "true",
+                    "internalId": false
+                  }
+                ],
+                "lists": [
+                  {
+                    "generate": "itemvendor",
+                    "fields": [
+                      {
+                        "generate": "vendor",
+                        "extract": "nlobjSublistIds.itemvendor.lines[*].vendor",
+                        "internalId": true
+                      },
+                      {
+                        "generate": "celigo_itemvendorprice",
+                        "subRecordMapping": {
+                          "recordType": "itemvendorprice",
+                          "jsonPath": "nlobjSublistIds.itemvendor.lines",
+                          "mapping": {
+                            "fields": [],
+                            "lists": [
+                              {
+                                "generate": "itemvendorpricelines",
+                                "fields": [
+                                  {
+                                    "generate": "vendorprice",
+                                    "extract": "celigo_itemvendorprice.nlobjSublistIds.itemvendorpricelines.lines[*].vendorprice",
+                                    "internalId": false
+                                  },
+                                  {
+                                    "generate": "vendorcurrency",
+                                    "extract": "celigo_itemvendorprice.nlobjSublistIds.itemvendorpricelines.lines[*].vendorcurrency",
+                                    "isKey": true,
+                                    "discardIfEmpty": false,
+                                    "immutable": false,
+                                    "internalId": true
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "lookups": []
+                        },
+                        "internalId": false
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C52408",
+        "disabled": false,
+        "qa__integrationId": "56d6b23fe1fc35de53914730",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

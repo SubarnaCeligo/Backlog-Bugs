@@ -1,0 +1,92 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "import",
+          "_connectionId": "FTP CONNECTION",
+          "oneToMany": false,
+          "sandbox": false,
+          "mapping": {
+            "fields": [
+              {
+                "extract": "ok",
+                "generate": "ok"
+              },
+              {
+                "extract": "error",
+                "generate": "error"
+              }
+            ]
+          },
+          "file": {
+            "fileName": "TC_C35904_Verify_HTTPExport_failPath_failValues_withInvalidSetup.json",
+            "type": "json"
+          },
+          "ftp": {
+            "directoryPath": "io.auto.qa/IO_UI_Automation",
+            "fileName": "TC_C35904_Verify_HTTPExport_failPath_failValues_withInvalidSetup.json"
+          },
+          "adaptorType": "FTPImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C35904_Verify_HTTPExport_failPath_failValues_withInvalidSetup",
+    "disabled": false,
+    "qa__dataVerification": {
+      "expected": {
+        "FTP": {
+          "name": "TC_C35904_Verify_HTTPExport_failPath_failValues_withInvalidSetup.json",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "FTP CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "2",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "fileName": "TC_C35904_Verify_HTTPExport_failPath_failValues_withInvalidSetup",
+            "folderName": "io.auto.qa/IO_UI_Automation",
+            "fileType": ".json"
+          }
+        }
+      }
+    },
+    "pageGenerators": [
+      {
+        "type": "export",
+        "qa__export": {
+          "application": "slack",
+          "qa__connectionId": "HTTP SLACK CONNECTION",
+            "_connectionId": "HTTP SLACK CONNECTION",
+            "apiIdentifier": "ee744310b9",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/team.info",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "failPath": "no",
+                    "failValues": [
+                        "fal"
+                    ]
+                }
+            },
+            "rawData": "56d6b114e1fc35de5391472c8296f6241b5c42ecb7d0ea0b62d62d53",
+            "adaptorType": "HTTPExport"
+        }
+      }
+    ]
+  }

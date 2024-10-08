@@ -1,0 +1,229 @@
+{
+  "name": "TC_501_Ns_Mongodb_AFE2.0_Ftp",
+  "disabled": false,
+  "_integrationId": "63159bd0976915080d03da1a",
+  "skipRetries": false,
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "mongodb lookup",
+        "_connectionId": "MONGODB CONNECTION",
+        "asynchronous": true,
+        "isLookup": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "mongodb": {
+          "method": "find",
+          "collection": "multipledate",
+          "filter": "{\"name\":\"{{record.Name}}\"}",
+          "projection": "{\"value\":true,\"address\":true,\"joining\":true}"
+        },
+        "adaptorType": "MongodbExport"
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "data",
+            "generate": "response"
+          }
+        ],
+        "qa__index": 0
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "import",
+        "_connectionId": "FTP CONNECTION",
+        "oneToMany": false,
+        "sandbox": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Comments",
+              "generate": "Comments"
+            },
+            {
+              "extract": "Name",
+              "generate": "Name"
+            }
+          ],
+          "lists": [
+            {
+              "fields": [
+                {
+                  "extract": "response[*]._id",
+                  "generate": "_id"
+                },
+                {
+                  "extract": "response[*].address",
+                  "generate": "address"
+                },
+                {
+                  "extract": "response[*].value",
+                  "generate": "value"
+                },
+                {
+                  "extract": "response[*].joining",
+                  "generate": "joining"
+                }
+              ],
+              "generate": "response"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_501_Ns_Mongodb_AFE2_Ftp.csv",
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_501_Ns_Mongodb_AFE2_Ftp.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "NS export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "3390",
+            "useSS2Restlets": false
+          },
+          "distributed": {
+            "disabled": false,
+            "forceReload": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "6",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "importRecordJSON": [
+      {
+        "name": "delta-test-1",
+        "comments": "Mongo_Record1"
+      },
+      {
+        "name": "delta-test-2",
+        "comments": "Mongo_Record2"
+      }
+    ],
+    "application":"NETSUITE",     
+    "importapiIdentifier": "i8574d2c53",
+    "expected": {
+      "FTP": {
+        "name": "TC_501_Ns_Mongodb_AFE2_Ftp.json",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "6",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_501_Ns_Mongodb_AFE2_Ftp",
+          "folderName": "io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "612f2b045c38332481e9d65e",
+      "createdAt": "2021-09-01T07:25:56.974Z",
+      "lastModified": "2021-09-01T07:25:57.019Z",
+      "name": "TC_501_Ns_Mongodb_AFE2.0_Ftp",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "parsers": [],
+      "_connectionId": "5bcdddc3c0b2676eadb14e3b",
+      "distributed": true,
+      "apiIdentifier": "i8574d2c53",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "companyname",
+              "extract": "name",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "comments",
+              "extract": "comments",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "subsidiary",
+              "hardCodedValue": "3",
+              "internalId": true,
+              "immutable": false,
+              "discardIfEmpty": false
+            }
+          ],
+          "lists": []
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

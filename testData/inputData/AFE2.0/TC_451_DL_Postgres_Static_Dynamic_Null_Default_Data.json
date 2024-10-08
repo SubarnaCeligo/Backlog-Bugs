@@ -1,0 +1,128 @@
+{
+    "name": "TC_451_DL_Postgres_Static_Dynamic_Null_Default_Data",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Data Loader",
+            "asynchronous": true,
+            "type": "simple",
+            "qa__isDataLoader": "json",
+            "qa__path": "//Dataloader_uploades//TC_451_DL_Postgres_Static_Dynamic_Null_Default_Data.json",
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "SimpleExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "import",
+            "application": "PostgreSQL",
+            "modelMetadata": {
+                "emp_id": {
+                    "default": ""
+                },
+                "comments": {
+                    "default": "null"
+                },
+                "doj": {
+                    "default": null
+                }
+            },
+            "_connectionId": "POSTGRESQL CONNECTION",
+            "distributed": false,
+            "lookups": [{
+                    "map": {
+                        "new": "autorecord",
+                        "test": "recordauto"
+                    },
+                    "allowFailures": false,
+                    "name": "staticlookup"
+                },
+                {
+                    "query": "select * from afe_automation where emp_id=400",
+                    "extract": "notes",
+                    "allowFailures": false,
+                    "name": "dynamiclookup"
+                }
+            ],
+            "rdbms": {
+                "query": [
+                    "INSERT into afe_automation\n(\nname,\nemp_id,\ntype,\nnotes,\ncomments,\ndoj\n)\nVALUES\n(\n{{connection.name}},\n{{record.emp_id}},\n{{lookup \"staticlookup\" record.type}},\n{{lookup \"dynamiclookup\" record}},\n{{record.comments}},\n{{record.doj}}\n)"
+                ],
+                "queryType": ["INSERT"],
+                "lookups": [{
+                        "map": {
+                            "new": "autorecord",
+                            "test": "recordauto"
+                        },
+                        "allowFailures": false,
+                        "name": "staticlookup"
+                    },
+                    {
+                        "query": "select * from afe_automation where emp_id=400",
+                        "extract": "notes",
+                        "allowFailures": false,
+                        "name": "dynamiclookup"
+                    }
+                ]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "name": "TC_451_DL_Postgres_Static_Dynamic_Null_Default_Data",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "POSTGRESQL CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                            "name": "PostgreSQL",
+                            "emp_id": 888,
+                            "type": "autorecord",
+                            "notes": "speci@!%&#*",
+                            "comments": "null",
+                            "doj": null
+                        },
+                        {
+                            "name": "PostgreSQL",
+                            "emp_id": 889,
+                            "type": "recordauto",
+                            "notes": "speci@!%&#*",
+                            "comments": "null",
+                            "doj": null
+                        }
+                    ],
+                    "uniqueField": "emp_id",
+                    "importRecordType": "afe_automation",
+                    "exportapiIdentifier": "e721a3170f",
+                    "isUIFlow": true,
+                    "standaloneexportflowID": "60dc1237844415637ae16a7e",
+                    "application":"POSTGRESQL"
+                
+                }
+            }
+        }
+    }
+}

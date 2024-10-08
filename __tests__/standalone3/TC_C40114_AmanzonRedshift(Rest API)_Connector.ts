@@ -6,7 +6,7 @@ test.describe("TC_C40114_AmazonRedshift(Rest API)_Connector", () => {
     test.step("*** Navigate to Home Page ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Zephyr-IO-T7558 @Env-All TC_C40114_AmazonRedshift(Rest API)_Connector", async function({io,page}) {
+  test("@Zephyr-IO-T7558 @Env-QA TC_C40114_AmazonRedshift(Rest API)_Connector", async function({io,page}) {
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","Connections");
     test.step("*** Navigated to Connections Page ***", async ()=>{});

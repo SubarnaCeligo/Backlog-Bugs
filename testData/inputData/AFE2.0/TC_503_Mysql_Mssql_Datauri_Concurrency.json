@@ -1,0 +1,204 @@
+{
+    "name": "TC_503_Mysql_Mssql_Datauri_Concurrency",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "import",
+            "application": "Microsoft SQL",
+            "modelMetadata": {
+                "AGENT_CODE": {
+                    "default": ""
+                },
+                "AGENT_NAME": {
+                    "default": ""
+                },
+                "WORKING_AREA": {
+                    "default": ""
+                },
+                "COMMISSION": {
+                    "default": ""
+                },
+                "PHONE_NO": {
+                    "default": ""
+                },
+                "NOTES": {
+                    "default": ""
+                },
+                "FILEKEY": {
+                    "default": ""
+                }
+            },
+            "_connectionId": "MSSQL CONNECTION",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "idLockTemplate": "{{record.AGENT_NAME}}",
+            "dataURITemplate": "{{record.AGENT_CODE}}",
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+                "query": [
+                    "INSERT INTO afe_dataurl_concurrency\n(\nAGENT_CODE,\nAGENT_NAME,\nWORKING_AREA,\nCOMMISSION,\nPHONE_NO,\nNOTES,\nFILEKEY\n)\nvalues\n(\n{{record.AGENT_CODE}},\n{{record.AGENT_NAME}},\n{{record.WORKING_AREA}},\n{{record.COMMISSION}},\n{{record.PHONE_NO}},\n{{record.NOTES}},\n'Insert'\n)"
+                ],
+                "queryType": ["INSERT"]
+            },
+            "adaptorType": "RDBMSImport"
+        }
+    }],
+    "pageGenerators": [{
+        "qa__export": {
+            "application": "MySQL",
+            "name": "Mysql Export",
+            "_connectionId": "MYSQL CONNECTION",
+            "asynchronous": true,
+            "dataURITemplate": "{{record.AGENT_CODE}}",
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+                "query": "select * from automation_afe"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "24",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_503_Mysql_Mssql_Datauri_Concurrency",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "AGENT_CODE": "A001",
+                            "AGENT_NAME": "Subbarao",
+                            "WORKING_AREA": "Bangalore",
+                            "COMMISSION": 14,
+                            "PHONE_NO": 2147483647,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A002",
+                            "AGENT_NAME": "Mukesh",
+                            "WORKING_AREA": "Mumbai",
+                            "COMMISSION": 11,
+                            "PHONE_NO": 2147483647,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A003",
+                            "AGENT_NAME": "Alex",
+                            "WORKING_AREA": "London",
+                            "COMMISSION": 13,
+                            "PHONE_NO": 2147483647,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A004",
+                            "AGENT_NAME": "Ivan",
+                            "WORKING_AREA": "Torento",
+                            "COMMISSION": 15,
+                            "PHONE_NO": 822544166,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A005",
+                            "AGENT_NAME": "Anderson",
+                            "WORKING_AREA": "Brisban",
+                            "COMMISSION": 13,
+                            "PHONE_NO": 2147483647,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A006",
+                            "AGENT_NAME": "McDen",
+                            "WORKING_AREA": "London",
+                            "COMMISSION": 15,
+                            "PHONE_NO": 2147483647,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A007",
+                            "AGENT_NAME": "Ramasundar",
+                            "WORKING_AREA": "Bangalore",
+                            "COMMISSION": 15,
+                            "PHONE_NO": 2147483647,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A008",
+                            "AGENT_NAME": "Alford",
+                            "WORKING_AREA": "New York",
+                            "COMMISSION": 12,
+                            "PHONE_NO": 2147483647,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A009",
+                            "AGENT_NAME": "Benjamin",
+                            "WORKING_AREA": "Hampshair",
+                            "COMMISSION": 11,
+                            "PHONE_NO": 822536178,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A010",
+                            "AGENT_NAME": "Santakumar",
+                            "WORKING_AREA": "Chennai",
+                            "COMMISSION": 14,
+                            "PHONE_NO": 722388644,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A011",
+                            "AGENT_NAME": "Ravi Kumar",
+                            "WORKING_AREA": "Bangalore",
+                            "COMMISSION": 15,
+                            "PHONE_NO": 2147483647,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        },
+                        {
+                            "AGENT_CODE": "A012",
+                            "AGENT_NAME": "Lucida",
+                            "WORKING_AREA": "San Jose",
+                            "COMMISSION": 12,
+                            "PHONE_NO": 2147483647,
+                            "NOTES": "automations3import",
+                            "FILEKEY": "Insert"
+                        }
+                    ],
+                    "uniqueField": "AGENT_CODE",
+                    "standaloneexportflowID": "61482868ff4e9e6b85ee509c",
+                    "importRecordType": "afe_dataurl_concurrency",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e3f530b972",
+                    "application":"MSSQL"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "24",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "MSSQL CONNECTION"
+                }
+            }
+        }
+    }
+}

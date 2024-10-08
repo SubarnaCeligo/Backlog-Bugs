@@ -1,0 +1,112 @@
+{
+    "skipRetries": false,
+    "name": "TC36033_Http_Import_SendPostMapped_True",
+    "disabled": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Http Import",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i0d238d03b",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "name",
+                        "generate": "organization.name"
+                    },
+                    {
+                        "extract": "description",
+                        "generate": "organization.notes"
+                    }
+                ]
+            },
+            "http": {
+                "relativeURI": [
+                    "organizations"
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Ftp Export",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e064b0c7eb",
+            "qa__path": "/FTP_uploads/TC36033.json",
+            "asynchronous": true,
+            "sandbox": false,
+            "parsers": [],
+            "sampleData": [{
+                "name": "Auto@MaheshOrg",
+                "description": "Testing Automation"
+            }],
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
+                "fileNameStartsWith": "TC36033",
+                "fileNameEndsWith": ".json"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json",
+                "json": {
+                    "resourcePath": "*"
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "qa__dataVerification": {
+        "importRecordJSON": {
+            "name": "Auto@MaheshOrg",
+            "notes": "Testing Automation"
+        },
+        "importapiIdentifier": "i0d238d03b",
+        "importRecordType": "organizations",
+        "expected": {
+            "zendesk": {
+                "name": "TC36033_Http_Import_SendPostMapped_True",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                        "name": "Auto@MaheshOrg",
+                        "notes": "Testing Automation"
+                    }],
+                    "standaloneexportflowID": "62ce74c0a7777017e5a58a0c",
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "name",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e4cbd95393"
+                }
+            }
+        }
+    }
+}

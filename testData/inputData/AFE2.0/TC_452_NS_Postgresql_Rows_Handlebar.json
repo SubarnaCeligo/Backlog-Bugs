@@ -1,0 +1,204 @@
+{
+  "skipRetries": false,
+  "_integrationId": "63159bd0976915080d03da1a",
+  "name": "TC_452_NS_Postgresql_Rows_Handlebar",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "ns export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "3242",
+            "useSS2Restlets": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "qa__import": {
+        "name": "import",
+        "application": "PostgreSQL",
+        "modelMetadata": {
+          "id": {
+            "default": ""
+          },
+          "recordType": {
+            "default": ""
+          },
+          "Company Name": {
+            "default": ""
+          },
+          "SF ID": {
+            "default": ""
+          },
+          "Category": {
+            "default": ""
+          },
+          "Comments": {
+            "default": ""
+          },
+          "notes": {
+            "default": "null"
+          },
+          "doj": {
+            "default": null
+          },
+          "dataURI": {
+            "default": ""
+          }
+        },
+        "parsers": [],
+        "_connectionId": "POSTGRESQL CONNECTION",
+        "distributed": false,
+        "lookups": [],
+        "rdbms": {
+          "query": [
+            "INSERT INTO afe_automation\n(\nname,\nemp_id,\ntype,\nnotes,\ncomments,\ndoj\n)\nVALUES\n(\n{{rows.[0].[Company Name]}},\n{{rows.[0].[SF ID]}},\n{{rows.[0].Category}},\n{{rows.[0].Comments}},\n{{rows.[0].notes}},\n{{rows.[0].doj}}\n)"
+          ],
+          "queryType": [
+            "INSERT"
+          ]
+        },
+        "adaptorType": "RDBMSImport"
+      },
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import"
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "63159bd0976915080d03da1a",
+        "name": "TC_452_NS_Postgresql_Rows_Handlebar",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "name": "postgresql_automation_record",
+            "emp_id": 900,
+            "type": "Individual",
+            "notes": "t(*$%ER$U!!@",
+            "comments": "null",
+            "doj": null
+          },
+          "uniqueField": "emp_id",
+          "exportRecordType": "Customer",
+          "standaloneexportflowID": "60dc4e07844415637ae1793f",
+          "importRecordType": "afe_automation",
+          "isUIFlow": true,
+          "exportapiIdentifier": "eb8553ad0b",
+          "application":"POSTGRESQL" 
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "POSTGRESQL CONNECTION"
+        }
+      }
+    },
+    "importRecordJSON": {
+      "name": "postgresql_automation_record",
+      "id": "900",
+      "category": "Individual",
+      "subsidiary": "HH Inc.",
+      "comments": "t(*$%ER$U!!@"
+    },
+    "application":"NETSUITE",  
+    "importapiIdentifier": "i3dae0908e",
+    "importapidoc": {
+      "_id": "60dc4e8ed8686e5a2fc149a1",
+      "createdAt": "2021-06-30T10:59:26.636Z",
+      "lastModified": "2021-06-30T11:05:35.095Z",
+      "name": "TC_452_NS_Postgresql_Rows_Handlebar",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "5bc6e40ae08bd01f981f3aa5",
+      "distributed": true,
+      "apiIdentifier": "i3dae0908e",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "companyname",
+              "extract": "name",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "custentity26",
+              "extract": "id",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "category",
+              "extract": "category",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "subsidiary",
+              "extract": "subsidiary",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "comments",
+              "extract": "comments",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            }
+          ],
+          "lists": []
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

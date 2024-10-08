@@ -1,0 +1,107 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "10",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "Inconsistnet Columns in rows_Import",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i585d4071e",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+                "fileName": "Inconsistent_Columns_In-Rows.csv",
+                "type": "csv",
+                "csv": {
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": ",",
+                    "includeHeader": false,
+                    "wrapWithQuotes": false,
+                    "replaceTabWithSpace": false,
+                    "replaceNewlineWithSpace": false,
+                    "truncateLastRowDelimiter": false
+                }
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "Inconsistent_Columns_In-Rows.csv"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_107_Non_Header_File_With_Inconsistent_Columns",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_107_Non_Header_File_With_Inconsistent_Columns",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "fileName": "Inconsistent_Columns_In-Rows.csv",
+                        "type": "csv",
+                        "csv": {
+                            "rowDelimiter": "\n",
+                            "columnDelimiter": ",",
+                            "includeHeader": false,
+                            "wrapWithQuotes": false,
+                            "replaceTabWithSpace": false,
+                            "replaceNewlineWithSpace": false,
+                            "truncateLastRowDelimiter": false
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "10",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "Inconsistent_Columns_In-Rows",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".csv"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Inconsistent columns",
+            "adaptorType": "FTPExport",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports_FileAdaptors",
+                "fileNameStartsWith": "Inconsistent_Columns"
+            },
+            "file": {
+                "output": "records",
+                "skipDelete": true,
+                "encoding": "utf8",
+                "type": "csv",
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "keyColumns": [],
+                    "hasHeaderRow": false,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "asynchronous": true,
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//Inconsistent_Columns.csv"
+        }
+    }]
+}

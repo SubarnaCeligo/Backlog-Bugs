@@ -1,0 +1,80 @@
+{
+    "name": "TC_37167_record_length_exceded",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "ftp_export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e29db6f494",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_42410",
+                    "fileNameEndsWith": ".json"
+                },
+                "qa__path": "/FTP_uploads/TC_42410.json",
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "bq import",
+                "_connectionId": "BIGQUERY CONNECTION",
+                "apiIdentifier": "i6966b1520",
+                "oneToMany": false,
+                "sandbox": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "number",
+                            "generate": "col"
+                        }
+                    ]
+                },
+                "rdbms": {
+                    "query": [],
+                    "queryType": [
+                        "BULK INSERT"
+                    ],
+                    "bulkInsert": {
+                        "tableName": "IO_TwoChar"
+                    }
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+      ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "12",
+        "errorCount": "10"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "qa__expectedDashboardCount": {
+                    "successCount": "12",
+                    "ignoreCount": "0",
+                    "errorCount": "10"
+                }
+            }
+        }
+    }
+}

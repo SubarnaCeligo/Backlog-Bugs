@@ -1,0 +1,77 @@
+{
+    "name": "TC_798_Snowflake_Block_Handlebar_Expression_S3",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+      "successCount": "4",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "sowflake export",
+          "_connectionId": "SNOWFLAKE CONNECTION",
+          "asynchronous": true,
+          "type": "once",
+          "oneToMany": false,
+          "sandbox": false,
+          "rdbms": {
+            "query": "SELECT * FROM Automation_Block_Handlebars_Export WHERE Exported != TRUE ORDER BY PersonID",
+            "once": {
+              "query": "UPDATE Automation_Block_Handlebars_Export SET EXPORTED= TRUE WHERE PERSONID = {{#if data.PERSONID}} {{data.PERSONID}} {{/if}}"
+            }
+          },
+          "adaptorType": "RDBMSExport"
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "qa__import": {
+          "name": "s3 import",
+          "_connectionId": "S3 CONNECTION",
+          "oneToMany": false,
+          "sandbox": false,
+          "file": {
+            "fileName": "TC_798_Snowflake_Block_Handlebar_Expression_S3.json",
+            "type": "json"
+          },
+          "s3": {
+            "region": "ap-south-1",
+            "bucket": "automations3import",
+            "fileKey": "TC_798_Snowflake_Block_Handlebar_Expression_S3.json"
+          },
+          "adaptorType": "S3Import"
+        },
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import"
+      }
+    ],
+    "qa__dataVerification": {
+      "expected": {
+        "S3": {
+          "name": "TC_798_Snowflake_Block_Handlebar_Expression_S3",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "S3 CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "4",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "fileName": "TC_798_Snowflake_Block_Handlebar_Expression_S3",
+            "isUIFlow": true,
+            "bucketName": "automations3import",
+            "fileType": ".json"
+          }
+        }
+      }
+    }
+  }

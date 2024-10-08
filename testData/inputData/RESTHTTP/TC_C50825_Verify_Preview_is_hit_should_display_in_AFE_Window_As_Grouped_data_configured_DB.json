@@ -1,0 +1,87 @@
+{
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "TC_C50825",
+        "_connectionId": "FTP CONNECTION",
+        "qa__inputFilter": true,
+        "qa__rules": [
+          [
+            "record.AGENT_NAME",
+            "equals",
+            "Ivan"
+          ]
+        ],
+        "apiIdentifier": "id75e8a8e6",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "xyz.xlsx",
+          "skipAggregation": false,
+          "type": "xlsx"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/TC",
+          "fileName": "xyz.xlsx"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              "equals",
+              [
+                "string",
+                [
+                  "extract",
+                  "AGENT_NAME"
+                ]
+              ],
+              "Ivan"
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            "equals",
+            [
+              "string",
+              [
+                "extract",
+                "AGENT_NAME"
+              ]
+            ],
+            "Ivan"
+          ]
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "application": "Microsoft SQL",
+        "name": "asfd",
+        "_connectionId": "MYSQL CONNECTION",
+        "apiIdentifier": "ef993426d8",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": [
+          "AGENT_NAME"
+        ],
+        "rawData": "56d6b114e1fc35de5391472ce3454ca8717d4edbbe11c28e8105c0e5",
+        "rdbms": {
+          "query": "select * from automation_lookup_afe"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ]
+}

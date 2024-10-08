@@ -1,0 +1,102 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+          "responseMapping": {
+            "fields": [],
+            "lists": []
+          },
+          "type": "import",
+          "qa__import": {
+              "name": "OpenAir_Customer",
+              "parsers": [],
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "idce5731f4",
+              "oneToMany": false,
+              "sandbox": false,
+              "mapping": {
+                  "fields": [
+                      {
+                          "extract": "name",
+                          "generate": "Name"
+                      },
+                      {
+                          "extract": "id",
+                          "generate": "ID"
+                      },
+                      {
+                          "extract": "addr.Address.email",
+                          "generate": "Email"
+                      }
+                  ]
+              },
+              "file": {
+                "fileName": "OpenAir_Customer.json",
+                "type": "json"
+              },
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "OpenAir_Customer.json.json"
+              },
+              "adaptorType": "FTPImport"
+            }
+        }
+      ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_110_HTTP_XML_Connection_to_FTP",
+    "disabled": false,
+    "qa__dataVerification": {
+          "expected": {
+            "ftp": {
+              "name": "TC_110_HTTP_XML_Connection_to_FTP",
+              "_integrationId": "56d6b23fe1fc35de53914730",
+              "import": {
+                "_connectionId": "FTP CONNECTION"
+              },
+              "qa__expectedDashboardCount": {
+                "successCount": "2",
+                "ignoreCount": "0",
+                "errorCount": "0"
+              },
+              "qa__dataVerification": {
+                "fileName": "OpenAir_Customer",
+                "isUIFlow": true,
+                "folderName": "/io.auto.qa/IO_UI_Automation",
+                "fileType": ".json"
+              }
+            }
+          }
+        },
+    "pageGenerators": [
+      {
+        "qa__export": {
+      "name": "Get_Customer_OpenAir",
+      "application" : "openair",
+      "_connectionId": "HTTP OPENAIR CONNECTION",
+      "apiIdentifier": "ef4bea4db6",
+      "asynchronous": true,
+      "oneToMany": false,
+      "sandbox": false,
+      "http": {
+          "method": "POST",
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\"><Auth><Login><company>{{{connection.http.unencrypted.companyId}}}</company><user>{{{connection.http.unencrypted.userId}}}</user><password>{{{connection.http.encrypted.password}}}</password></Login></Auth><Read type=\"Customer\" limit=\"1\" method=\"equal to\">  <Customer>   <company>Blaker.co</company>  </Customer>  <_Return> <name/> <id/> <addr/></_Return></Read></request>",
+          "formType": "http",
+          "response": {
+              "resourcePath": "/response/Read/Customer",
+              "successPath": "/response/Read/@status",
+              "successValues": [
+                  "0"
+              ]
+          }
+      },
+      "adaptorType": "HTTPExport"
+  }
+      }
+  ]
+}

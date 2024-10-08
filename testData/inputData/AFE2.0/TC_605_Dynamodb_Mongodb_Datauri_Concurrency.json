@@ -1,0 +1,87 @@
+{
+    "name": "TC_605_Dynamodb_Mongodb_Datauri_Concurrency",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Mongodb Import",
+            "parsers": [],
+            "_connectionId": "MONGODB CONNECTION",
+            "ignoreExisting": false,
+            "idLockTemplate": "{{record.sku}}",
+            "dataURITemplate": "{{record.id}}",
+            "oneToMany": false,
+            "sandbox": false,
+            "mongodb": {
+                "method": "insertMany",
+                "collection": "afe_dataurl_concurrency_import",
+                "document": "{\n\"id\":{{record.id}},\n\"sku\":\"{{record.sku}}\",\n\"date\":\"{{record.createdate}}\"\n}"
+            },
+            "adaptorType": "MongodbImport"
+        }
+    }],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "DynamoDb export",
+            "_connectionId": "DYNAMODB CONNECTION",
+            "asynchronous": true,
+            "dataURITemplate": "{{record.id}}",
+            "sandbox": false,
+            "dynamodb": {
+                "region": "us-east-1",
+                "method": "query",
+                "tableName": "limit-test",
+                "keyConditionExpression": "#n1 = :p1 AND #n2 > :p2",
+                "expressionAttributeNames": "{\"#n1\":\"sku\", \"#n2\":\"id\"}",
+                "expressionAttributeValues": "{\":p1\":\"celigo-tshirt\",\":p2\": 99}"
+            },
+            "adaptorType": "DynamodbExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "6",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Mongodb": {
+                "name": "TC_605_Dynamodb_Mongodb_Datauri_Concurrency",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "MONGODB CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "6",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "collection": "afe_dataurl_concurrency_import",
+                    "expectedJSON": [{
+                            "id": 101,
+                            "sku": "celigo-tshirt",
+                            "date": "2019-08-03T16:42:31Z"
+                        },
+                        {
+                            "id": 102,
+                            "sku": "celigo-tshirt",
+                            "date": "2019-08-04T12:12:13Z"
+                        },
+                        {
+                            "id": 103,
+                            "sku": "celigo-tshirt",
+                            "date": "2019-08-05T15:23:31Z"
+                        }
+                    ],
+                    "uniqueField": "id",
+                    "standaloneexportflowID": "615193b76131e71379074e81",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e1c6a9e63f"
+                }
+            }
+        }
+    }
+}

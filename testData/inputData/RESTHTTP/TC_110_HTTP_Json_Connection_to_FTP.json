@@ -1,0 +1,97 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "Zendesk Admin Users",
+            "parsers": [],
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "idce5731f4",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [{
+                        "extract": "id",
+                        "generate": "ID"
+                    },
+                    {
+                        "extract": "name",
+                        "generate": "Name"
+                    },
+                    {
+                        "extract": "email",
+                        "generate": "Email"
+                    },
+                    {
+                        "extract": "role",
+                        "generate": "Role"
+                    }
+                ]
+            },
+            "file": {
+                "fileName": "Zendesk_Admin_User.json",
+                "type": "json"
+            },
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "Zendesk_Admin_User.json"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_110_HTTP_Json_Connection_to_FTP",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "ftp": {
+                "name": "TC_110_HTTP_Json_Connection_to_FTP",
+                "_integrationId": "62d6b4a955468141a906119e",
+                "import": {
+                    "_connectionId": "FTP CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "Zendesk_Admin_User",
+                    "isUIFlow": true,
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Get_Users",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "ecd21e9fd8",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/users.json?role=admin",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "resourcePath": "users"
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }]
+}

@@ -1,0 +1,267 @@
+{
+  "name": "Orches_Flow184_HTTP(xml)_customer and NS Order_TO_ShopifyOrder_SS2.0",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "pageProcessors": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "Get NS SalesOrder",
+        "_connectionId": "NETSUITE CONNECTION",
+        "parsers": [],
+        "adaptorType": "NetSuiteExport",
+        "asynchronous": true,
+        "isLookup": true,
+        "netsuite": {
+          "type": "restlet",
+          "useSS2Restlets": true,
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "salesorder",
+            "searchId": "2377",
+            "criteria": [],
+            "columns": []
+          }
+        }
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "data",
+            "generate": "nsitems"
+          }
+        ],
+        "qa__index": 0
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "Create Shopify Order",
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "adaptorType": "RESTImport",
+        "useTechAdaptorForm": true,
+        "distributed": false,
+        "mapping": {
+          "fields": [
+            {
+              "hardCodedValue": "dongridaper",
+              "generate": "order.customer.first_name",
+              "dataType": "string"
+            },
+            {
+              "generate": "order.note",
+              "hardCodedValue": "orchestration_flow_184"
+            }
+          ],
+          "lists": [
+            {
+              "fields": [
+                {
+                  "extract": "nsitems[*].Item",
+                  "generate": "title"
+                },
+                {
+                  "extract": "nsitems[*].Quantity",
+                  "generate": "quantity"
+                },
+                {
+                  "extract": "nsitems[*].Amount",
+                  "generate": "price"
+                }
+              ],
+              "generate": "order.line_items"
+            }
+          ]
+        },
+        "http": {
+          "relativeURI": [
+            "orders.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "strictHandlebarEvaluation": true,
+          "sendPostMappedData": true
+        }
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": []
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Get Customer From HTTP Openair",
+        "application": "openair",
+        "_connectionId": "HTTP OPENAIR CONNECTION",
+        "adaptorType": "HTTPExport",
+        "asynchronous": true,
+        "http": {
+          "method": "POST",
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\"><Auth><Login><company>{{{connection.http.unencrypted.companyId}}}</company><user>{{{connection.http.unencrypted.userId}}}</user><password>{{{connection.http.encrypted.password}}}</password></Login></Auth><Read type=\"Contact\" method=\"all\" limit=\"{{{export.http.paging.skip}}},1\"/></request>",
+          "response": {
+            "resourcePath": "/response/Read/Contact",
+            "successPath": "/response/Read/@status",
+            "successValues": [
+              "0"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "successCount": "6",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "shopify": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "Orches_Flow184_HTTP(xml)_customer and NS Order_TO_ShopifyOrder_SS2.0",
+        "import": {
+          "_connectionId": "HTTP SHOPIFY CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "6",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "exportapiIdentifier": "e2e90b33e2",
+          "importRecordType": "orders",
+          "uniqueField": "note",
+          "isUIFlow": true,
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "59dd05f6090ccb745d0d657d",
+          "expectedJSON": {
+            "note": "orchestration_flow_184",
+            "line_items": [
+              {
+                "title": "ACC00001",
+                "quantity": 5,
+                "price": "545.00"
+              },
+              {
+                "title": "ACC00002",
+                "quantity": 8,
+                "price": "800.00"
+              }
+            ],
+            "customer": {
+              "first_name": "dongridaper"
+            }
+          }
+        }
+      }
+    },
+    "importRecordJSON": {
+      "items": [
+        {
+          "name": "ACC00001",
+          "quantity": "5",
+          "amount": "545.00"
+        },
+        {
+          "name": "ACC00002",
+          "quantity": "8",
+          "amount": "800.00"
+        }
+      ],
+      "Name": "rajaneesh",
+      "PO/Checknumber": "Orches_Cust_184"
+    },
+    "application": "NETSUITE",
+    "importapiIdentifier": "i7a500eef3",
+    "importapidoc": {
+      "_id": "59dfbb28d807003fd4023404",
+      "createdAt": "2017-10-12T18:57:44.305Z",
+      "lastModified": "2020-12-04T12:23:51.580Z",
+      "name": "Orches_Cust_184_create_NS_SO",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "56d6b65d6f8ed15e4d0f9b8c",
+      "distributed": true,
+      "apiIdentifier": "i7a500eef3",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "salesorder",
+        "lookups": [],
+        "mapping": {
+          "lists": [
+            {
+              "generate": "item",
+              "fields": [
+                {
+                  "generate": "item",
+                  "extract": "items[*].name",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                },
+                {
+                  "generate": "quantity",
+                  "extract": "items[*].quantity",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                },
+                {
+                  "generate": "amount",
+                  "extract": "items[*].amount",
+                  "internalId": false,
+                  "immutable": false,
+                  "discardIfEmpty": false
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "generate": "entity",
+              "extract": "Name",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            },
+            {
+              "generate": "otherrefnum",
+              "extract": "PO/Checknumber",
+              "internalId": false,
+              "immutable": false,
+              "discardIfEmpty": false
+            }
+          ]
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

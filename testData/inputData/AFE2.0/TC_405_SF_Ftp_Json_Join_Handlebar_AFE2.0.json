@@ -1,0 +1,182 @@
+{
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "responseMapping": {
+        "fields": [],
+        "lists": []
+      },
+      "type": "import",
+      "qa__import": {
+        "name": "FTP Import",
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "attributes.type",
+              "generate": "attributes.type"
+            },
+            {
+              "extract": "Name",
+              "generate": "Name"
+            },
+            {
+              "extract": "Description",
+              "generate": "Description"
+            },
+            {
+              "extract": "Type",
+              "generate": "Type"
+            },
+            {
+              "extract": "Subsidiary_Internal_ID__c",
+              "generate": "Subsidiary_Internal_ID__c"
+            },
+            {
+              "extract": "Category_Name__c",
+              "generate": "Category_Name__c"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "{{join '' batch_of_records.[0].record.Description batch_of_records.[0].record.Name}}.json",
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation",
+          "fileName": "{{join '' batch_of_records.[0].record.Description batch_of_records.[0].record.Name}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "_integrationId": "63159bd0976915080d03da1a",
+  "timezone": "Asia/Calcutta",
+  "name": "TC_405_SF_Ftp_Json_Handlebars_AFE2.0",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "name": "SF_Ftp_Json_Handlebars_AFE2",
+      "description": "TC_405_",
+      "type": "Prospect",
+      "category": "IO_UI_Automation",
+      "Subsidiary_Internal_ID__c": "550"
+    },
+    "application":"SALESFORCE",    
+    "importapiIdentifier": "ibede8d269",
+    "exportRecordType": "Account",
+    "isUIFlow": true,
+    "query": "select Name, Description ,Type, Subsidiary_Internal_ID__c, Category_Name__c from Account where Name='SF_Ftp_Json_Handlebars_AFE2",
+    "expected": {
+      "FTP": {
+        "name": "TC_405_SF_Ftp_Json_Handlebars_AFE2.0.json",
+        "_integrationId": "63159bd0976915080d03da1a",
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ";"
+            }
+          }
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "fileName": "TC_405_SF_Ftp_Json_Handlebars_AFE2",
+          "folderName": "io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "60bde0def1161c1ff6cd7833",
+      "createdAt": "2021-06-07T09:03:26.025Z",
+      "lastModified": "2021-06-09T07:42:32.289Z",
+      "name": "TC_405_SF_Ftp_Json_Handlebars_AFE2.0",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "ibede8d269",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "Name"
+          },
+          {
+            "extract": "description",
+            "generate": "Description"
+          },
+          {
+            "extract": "type",
+            "generate": "Type"
+          },
+          {
+            "extract": "Subsidiary_Internal_ID__c",
+            "generate": "Subsidiary_Internal_ID__c"
+          },
+          {
+            "extract": "category",
+            "generate": "Category_Name__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Sf export",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "asynchronous": true,
+        "parsers": [],
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "select Name, Description ,Type, Subsidiary_Internal_ID__c, Category_Name__c from Account where Name='SF_Ftp_Json_Handlebars_AFE2'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ]
+}

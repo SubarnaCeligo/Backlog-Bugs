@@ -1,0 +1,65 @@
+{
+    "name": "TC_C2166_Verify_sampleData_isShownFor_arrayFormatData",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62e8c2172dd80523719f9291",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "_connectionId": "FTP CONNECTION",
+                "qa__path": "//FTP_uploads//C2166_database.json",
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "C2166_database.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "expected": {
+        "user": [
+            {
+                "name": "TC",
+                "email":"tc@gmail.com"
+            }
+        ]
+
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "sql",
+                "modelMetadata": {
+                    "myField": {
+                        "default": ""
+                    }
+                },
+                "application": "MySQL",
+                "qa__connectionId": "62e8e11136f8f637aa252cd0",
+                "_connectionId": "MYSQL CONNECTION",
+                "apiIdentifier": "iaa4544682",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": [
+                        "select * from INSERT"
+                    ],
+                    "queryType": [
+                        "INSERT"
+                    ]
+                },
+                "adaptorType": "RDBMSImport"
+            }
+        }
+    ]
+}

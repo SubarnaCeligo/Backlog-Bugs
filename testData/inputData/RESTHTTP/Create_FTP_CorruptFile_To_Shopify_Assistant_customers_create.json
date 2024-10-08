@@ -1,0 +1,169 @@
+{
+    "name": "Create_FTP_CorruptFile_To_Shopify_Assistant_customers_create",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "62d6b4a955468141a906119e",
+    "skipRetries": false,
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTPexport_corrupt",
+            "adaptorType": "FTPExport",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "//FTP_uploads//FTP_To_Shopify_Assistant_Corrupt.txt",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/FTP_Corrupt",
+                "fileNameStartsWith": "F"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "csv": {
+                    "columnDelimiter": ",",
+                    "hasHeaderRow": true,
+                    "rowDelimiter": "\n",
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            }
+        }
+    }],
+    "pageProcessors": [{
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "name": "New REstimport",
+            "adaptorType": "RESTImport",
+            "_connectionId": "SHOPIFY CONNECTION",
+            "qa__connectionId": "SHOPIFY CONNECTION",
+            "distributed": false,
+            "assistant": "shopify",
+            "assistantMetadata": {
+                "resource": "customer",
+                "version": "v2",
+                "operation": "creates_acustomer",
+                "lookups": {}
+            },
+            "qa_assistantMetadata": {
+                "resource": "customer",
+                "qa_resource": "Customers : Customer",
+                "operation": "creates_acustomer",
+                "qa_operation": "Creates a customer"
+            },
+            "qa__assistant": {
+                "resource": "Customer",
+                "qa__resource": "Customers : Customer",
+                "operation": "creates_acustomer",
+                "qa__operation": "Creates a customer"
+            },
+            "mapping": {
+                "fields": [{
+                    "extract": "email",
+                    "generate": "customer.email",
+                    "qa__isLocked": true
+                }, {
+                    "extract": "first_name",
+                    "generate": "customer.first_name",
+                    "qa__isLocked": true
+                }, {
+                    "extract": "last_name",
+                    "generate": "customer.last_name",
+                    "qa__isLocked": true
+                }, {
+                    "extract": "note",
+                    "generate": "customer.note"
+                }]
+            },
+            "http": {
+                "relativeURI": ["/admin/customers.json"],
+                "method": ["POST"],
+                "body": [null],
+                "batchSize": 1,
+                "strictHandlebarEvaluation": true,
+                "sendPostMappedData": true,
+                "response": {
+                    "resourceIdPath": [null]
+                }
+            },
+            "rest": {
+                "relativeURI": ["/admin/customers.json"],
+                "method": ["POST"],
+                "body": [null],
+                "responseIdPath": [null],
+                "successPath": [null],
+                "successValues": [null]
+            }
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "4",
+        "ignoreCount": "0",
+        "errorCount": "2"
+    },
+    "qa__dataVerification": {
+        "exportapiIdentifier": "e448141a44",
+        "importRecordType": "customers",
+        "uniqueField": "email",
+        "isUIFlow": true,
+        "standaloneexportflowID": "57c831b3115de29e33d20320",
+        "expected": {
+            "shopify": {
+                "_integrationId": "62d6b4a955468141a906119e",
+                "name": "Create_FTP_CorruptFile_To_Shopify_Assistant_customers_create",
+                "import": {
+                    "_connectionId": "SHOPIFY CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "2"
+                },
+                "qa__dataVerification": {
+                    "exportapiIdentifier": "e448141a44",
+                    "importRecordType": "customers",
+                    "uniqueField": "email",
+                    "isUIFlow": true,
+                    "standaloneexportflowID": "57c831b3115de29e33d20320",
+                    "expectedJSON": [{
+                        "email": "rajaneeshkumar84989@gmail.com",
+                        "accepts_marketing": false,
+                        "first_name": "FTP",
+                        "last_name": "Corrupted1",
+                        "orders_count": 0,
+                        "state": "disabled",
+                        "total_spent": "0.00",
+                        "last_order_id": null,
+                        "note": "Hello",
+                        "verified_email": true,
+                        "multipass_identifier": null,
+                        "tax_exempt": false,
+                        "phone": null,
+                        "tags": "",
+                        "last_order_name": null
+                    }, {
+                        "email": "rajaneeshkumar68374@gmail.com",
+                        "accepts_marketing": false,
+                        "first_name": "FTP",
+                        "last_name": "Corrupted2",
+                        "orders_count": 0,
+                        "state": "disabled",
+                        "total_spent": "0.00",
+                        "last_order_id": null,
+                        "note": "Hello",
+                        "verified_email": true,
+                        "multipass_identifier": null,
+                        "tax_exempt": false,
+                        "phone": null,
+                        "tags": "",
+                        "last_order_name": null
+                    }]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,117 @@
+{
+    "name": "TC_489_Ftp_Mysql_AFE2.0_Rows_Handlebar_Ftp",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "FTP export-1",
+            "_connectionId": "FTP CONNECTION",
+            "asynchronous": true,
+            "sandbox": false,
+            "qa__path": "/FTP_uploads/TC_410_Ftp_Mysql_Rows_Handlebar_AFE2.0.csv",
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_410_Ftp_Mysql_Rows_Handlebar_AFE2.0"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "groupByFields": ["orderID"],
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "application": "MySQL",
+                "name": "mysql lookup",
+                "_connectionId": "MYSQL CONNECTION",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "select Name,Emp_id,Area from automation_rows where Notes={{rows.[0].Notes}}"
+                },
+                "adaptorType": "RDBMSExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data",
+                    "generate": "response"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "qa__import": {
+                "name": "FTP Import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "i3d7f2911c",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_489_Ftp_Mysql_AFE2_Rows_Handlebar_Ftp.json",
+                    "type": "json",
+                    "json": {
+                        "body": "[\n{{#each batch_of_records}}\n{{#if @index}},{{/if}}\n{\n\"OrderNumber\":\"{{rows.[0].orderID}}\",\n\"Name\":\"{{rows.[0].response.[0].Name}}\",\n\"Emp_id\":\"{{rows.[0].response.[0].Emp_id}}\",\n\"Area\":\"{{rows.[0].response.[0].Area}}\",\n\"PO#\":\"{{rows.[0].[PO#]}}\"\n}\n{{/each}}\n]"
+                    }
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC_489_Ftp_Mysql_AFE2_Rows_Handlebar_Ftp.json"
+                },
+                "adaptorType": "FTPImport"
+            },
+            "responseMapping": {
+                "fields": [],
+                "lists": []
+            },
+            "type": "import"
+        }
+    ],
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_489_Ftp_Mysql_AFE2_Rows_Handlebar_Ftp.json",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ";"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_489_Ftp_Mysql_AFE2_Rows_Handlebar_Ftp",
+                    "folderName": "/io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

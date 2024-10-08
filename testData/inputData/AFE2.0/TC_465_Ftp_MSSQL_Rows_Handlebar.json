@@ -1,0 +1,131 @@
+{
+    "name": "TC_465_Ftp_MSSQL_Rows_Handlebar",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "export",
+            "_connectionId": "FTP CONNECTION",
+            "qa__path": "/FTP_uploads/TC_465_Ftp_MSSQL_Rows_Handlebar_AFE2.0.csv",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_465_Ftp_MSSQL_Rows_Handlebar_AFE2.0"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "csv",
+                "groupByFields": ["orderID"],
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "FTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "mssql import",
+            "application": "Microsoft SQL",
+            "modelMetadata": {
+                "orderID": {
+                    "default": ""
+                },
+                "FirstName": {
+                    "default": ""
+                },
+                "LastName": {
+                    "default": ""
+                },
+                "ItemName": {
+                    "default": ""
+                },
+                "Quantity": {
+                    "default": ""
+                },
+                "Amount": {
+                    "default": ""
+                },
+                "Notes": {
+                    "default": ""
+                },
+                "units": {
+                    "default": ""
+                },
+                "PO#": {
+                    "default": ""
+                },
+                "Date": {
+                    "default": ""
+                },
+                "Type": {
+                    "default": null
+                },
+                "Comments": {
+                    "default": "null"
+                }
+            },
+            "parsers": [],
+            "_connectionId": "MSSQL CONNECTION",
+            "distributed": false,
+            "lookups": [],
+            "rdbms": {
+                "query": [
+                    "INSERT INTO automation_mssql_afe\n(\nname,\nemp_id,\ntype,\nnotes,\ncomments\n)\nVALUES\n(\n{{rows.[0].FirstName}},\n{{rows.[1].Amount}},\n{{rows.[0].Type}},\n{{rows.[2].Notes}},\n{{rows.[0].Comments}}\n)"
+                ],
+                "queryType": ["INSERT"]
+            },
+            "adaptorType": "RDBMSImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_465_Ftp_MSSQL_Rows_Handlebar",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                        "name": "Automation AnushaNew2",
+                        "emp_id": 290,
+                        "type": null,
+                        "notes": "NewNotes36",
+                        "comments": "null"
+                    }],
+                    "uniqueField": "EMP_ID",
+                    "standaloneexportflowID": "60ed3720b3d8081116d2d487",
+                    "importRecordType": "automation_mssql_afe",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e67c10e51f",
+                    "application":"MSSQL"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "MSSQL CONNECTION"
+                }
+            }
+        }
+    }
+}

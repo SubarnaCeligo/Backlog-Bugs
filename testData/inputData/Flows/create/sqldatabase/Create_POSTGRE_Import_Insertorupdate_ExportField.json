@@ -1,0 +1,159 @@
+{
+  "name": "Create_POSTGRE_Import_Insertorupdate_ExportField",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "12",
+    "errorCount": "0"
+  },
+  "pageGenerators": [{
+    "qa__export": {
+      "_connectionId": "FTP CONNECTION",
+      "qa__path": "//Dataloader_uploades//insertorupdateexportfield.txt",
+      "asynchronous": true,
+      "ftp": {
+        "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+        "fileNameStartsWith": "insertorupdateexportfield.txt"
+      },
+      "file": {
+        "encoding": "utf8",
+        "output": "records",
+        "skipDelete": true,
+        "type": "csv",
+        "csv": {
+          "rowDelimiter": "\n",
+          "columnDelimiter": ",",
+          "hasHeaderRow": true,
+          "trimSpaces": true,
+          "rowsToSkip": 0
+        }
+      },
+      "adaptorType": "FTPExport",
+      "name": "PG_Export "
+    }
+  }],
+  "pageProcessors": [{
+    "type": "import",
+    "qa__import": {
+      "name": "import1",
+      "modelMetadata": {
+        "Email": {
+          "default": "defaultemail@mail.com"
+        },
+        "PO#": {
+          "default": ""
+        },
+        "orderID": {
+          "default": ""
+        },
+        "FirstName": {
+          "default": "defaultfirstname"
+        },
+        "Amount": {
+          "default": ""
+        },
+        "Quantity": {
+          "default": ""
+        },
+        "ItemName": {
+          "default": ""
+        },
+        "id": {
+          "default": ""
+        },
+        "units": {
+          "default": ""
+        },
+        "LastName": {
+          "default": ""
+        },
+        "Date": {
+          "default": ""
+        },
+        "Notes": {
+          "default": ""
+        }
+      },
+      "parsers": [
+
+      ],
+      "_connectionId": "POSTGRESQL CONNECTION",
+      "distributed": false,
+      "lookups": [
+
+      ],
+      "rdbms": {
+        "query": [
+          "UPDATE public.\"POSTGRE_Import_InsertorUpdate_Exportfield\"\tSET \"FirstName\"={{data.FirstName}}, \"LastName\"={{data.LastName}}, \"Email\"={{data.Email}}, \"ItemName\"={{data.ItemName}}\tWHERE \"orderID\"={{data.orderID}};",
+          "INSERT INTO public.\"POSTGRE_Import_InsertorUpdate_Exportfield\"(\t\"orderID\", \"FirstName\", \"LastName\", \"Email\", \"ItemName\", \"Quantity\", \"Amount\", \"Notes\")\tVALUES ({{data.orderID}}, {{data.FirstName}}, {{data.LastName}}, {{data.Email}}, {{data.ItemName}}, {{data.Quantity}}, {{data.Amount}}, {{data.Notes}});"
+        ],
+        "queryType": [
+          "UPDATE",
+          "INSERT"
+        ],
+        "updateExtract": "FirstName"
+      },
+      "adaptorType": "RDBMSImport"
+    }
+  }],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "Create_POSTGRE_Import_Insertorupdate_ExportField",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [{
+              "orderID": "TAG-Address-1",
+              "FirstName": "Automation AnushaNew1",
+              "LastName": "one",
+              "Email": "anu11@mail.com",
+              "ItemName": "ACC00002",
+              "Quantity": "55",
+              "Amount": "280",
+              "Notes": "NewNotes24"
+            },
+            {
+              "orderID": "TAG-Address-2",
+              "FirstName": "Automation AnushaNew2",
+              "LastName": "one",
+              "Email": "anu2@mail.com",
+              "ItemName": "ACC00003",
+              "Quantity": "55",
+              "Amount": "280",
+              "Notes": "NewNotes36"
+            },
+            {
+              "orderID": "TAG-Address-3",
+              "FirstName": "Automation AnushaNew3",
+              "LastName": "one",
+              "Email": "anu3@mail.com",
+              "ItemName": "ACC00003",
+              "Quantity": "55",
+              "Amount": "280",
+              "Notes": "NewNotes"
+            }
+          ],
+          "uniqueField": "orderID",
+          "standaloneexportflowID": "5a75ec063d7cbe50112114c2",
+          "importRecordType": "organizations",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e2f0fcd18f",
+          "update_app": "Zendesk",
+          "update_importapiIdentifier": "id85b3ae05",
+          "update_Record": "organizations"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "12",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "POSTGRESQL CONNECTION"
+        }
+      }
+    }
+  }
+}

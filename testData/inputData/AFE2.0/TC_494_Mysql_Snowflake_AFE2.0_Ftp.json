@@ -1,0 +1,95 @@
+{
+    "name": "TC_494_Mysql_Snowflake_AFE2.0_Ftp",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "pageProcessors": [{
+            "type": "export",
+            "qa__export": {
+                "application": "Snowflake",
+                "name": "snowflake lookup",
+                "_connectionId": "SNOWFLAKE CONNECTION",
+                "asynchronous": true,
+                "isLookup": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "rdbms": {
+                    "query": "select * from afe_lookup_automation where Name={{record.AGENT_NAME}}"
+                },
+                "adaptorType": "RDBMSExport"
+            },
+            "responseMapping": {
+                "lists": [],
+                "fields": [{
+                    "extract": "data",
+                    "generate": "response"
+                }],
+                "qa__index": 0
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Import",
+                "parsers": [],
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "TC_494_Mysql_Snowflake_AFE2_Ftp.json",
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                    "fileName": "TC_494_Mysql_Snowflake_AFE2_Ftp.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+        }
+    ],
+    "pageGenerators": [{
+        "qa__export": {
+            "application": "MySQL",
+            "name": "mysql export",
+            "_connectionId": "MYSQL CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "rdbms": {
+                "query": "select AGENT_CODE,AGENT_NAME from automation_lookup_afe"
+            },
+            "adaptorType": "RDBMSExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "4",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_494_Mysql_Snowflake_AFE2_Ftp.json",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ";"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "TC_494_Mysql_Snowflake_AFE2_Ftp",
+                    "folderName": "io.auto.qa/IO_UI_Automation",
+                    "fileType": ".json"
+                }
+            }
+        }
+    }
+}

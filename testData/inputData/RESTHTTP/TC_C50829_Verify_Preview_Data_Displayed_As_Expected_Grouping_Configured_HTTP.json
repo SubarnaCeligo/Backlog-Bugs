@@ -1,0 +1,26 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "asfd",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e607a4b5da",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "groupByFields": ["id"],
+        "http": {
+          "relativeURI": "/tickets",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "tickets"
+          }
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

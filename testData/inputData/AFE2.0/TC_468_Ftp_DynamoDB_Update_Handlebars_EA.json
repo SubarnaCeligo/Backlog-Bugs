@@ -1,0 +1,82 @@
+{
+    "name": "TC_468_Ftp_DynamoDB_Update_Handlebars_EA",
+    "disabled": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "export",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "e783cc5b21",
+            "asynchronous": true,
+            "http": {
+                "relativeURI": "search.json?query=type:organization name:Auto@flow262record_One",
+                "method": "GET",
+                "response": {
+                    "resourcePath": "results"
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "update item",
+            "_connectionId": "DYNAMODB CONNECTION",
+            "distributed": false,
+            "dynamodb": {
+                "region": "us-east-1",
+                "method": "updateItem",
+                "tableName": "afe_automation_update",
+                "partitionKey": "name",
+                "sortKey": "id",
+                "conditionExpression": "#n1=:p1 AND #n2=:p2",
+                "updateExpression": "SET #n3=:p3,#n4=:p4",
+                "expressionAttributeNames": "{ \"#n1\":\"name\",\"#n2\":\"id\",\"#n3\":\"active\",\"#n4\":\"comments\"}",
+                "expressionAttributeValues": "{\n\":p1\":\"{{record.name}}\",\n\":p2\":{{record.id}},\n\":p3\":{{record.shared_comments}},\n\":p4\":\"{{record.notes}}\"\n}"
+            },
+            "adaptorType": "DynamodbImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "Dynamodb": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_468_Ftp_DynamoDB_Update_Handlebars_EA",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                        "comments": "Auto@flow262record_One@mail.com",
+                        "active": false,
+                        "id": 360019660245,
+                        "name": "Auto@flow262record_One"
+                    }],
+                    "exportapiIdentifier": "e5b653025c",
+                    "standaloneexportflowID": "60ed7ba5cdcd434ee4616941",
+                    "uniqueField": "id",
+                    "importRecordType":"afe_automation_update",
+                    "expressionAttributeName":"name"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "2",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "DYNAMODB CONNECTION"
+                }
+            }
+        }
+    }
+}

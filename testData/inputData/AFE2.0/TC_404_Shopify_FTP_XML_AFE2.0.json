@@ -1,0 +1,77 @@
+{
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "successCount": "2",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Shopify",
+            "application": "shopify",
+            "_connectionId": "HTTP SHOPIFY CONNECTION",
+            "asynchronous": true,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+                "relativeURI": "/orders/4501132231.json",
+                "method": "GET",
+                "formType": "http",
+                "response": {
+                    "resourcePath": "order"
+                }
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }],
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Shopify_FTP_XML_AFE",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "file": {
+                "fileName": "{{trim batch_of_records.[0].record.note}}.xml",
+                "type": "xml",
+                "xml": {
+                    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<record>\n{{#each batch_of_records}}\n<name>{{record.id}}</name>\n<email>{{record.email}}</email>\n<phone>{{record.number}}</phone>\n{{/each}}\n</record>"
+                }
+            },
+            "ftp": {
+                "directoryPath": "io.auto.qa/IO_UI_Automation",
+                "fileName": "{{trim batch_of_records.[0].record.note}}.xml"
+            },
+            "adaptorType": "FTPImport"
+        }
+    }],
+    "name": "TC_404_Shopify_FTP_XML_AFE2.0",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "name": "TC_404_Shopify_FTP_XML_AFE2.0",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "FTP CONNECTION",
+                    "file": {
+                        "csv": {
+                            "columnDelimiter": ";"
+                        }
+                    }
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "fileName": "47sftptoshorder1",
+                    "folderName": "io.auto.qa/IO_UI_Automation",
+                    "fileType": ".xml"
+                }
+            }
+        }
+    }
+}

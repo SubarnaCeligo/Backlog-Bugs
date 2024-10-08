@@ -1,0 +1,85 @@
+{
+    "name": "TC_C37256_AFE_Preview_Panel",
+    "referencename": "TC_C37256_AFE_Preview_Panel",
+    "qa__dataVerification": {},
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "TC_C37256",
+                        "_connectionId": "FTP CONNECTION",
+                        "qa__path": "/FTP_uploads/TC_C37256.json",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C37256",
+                            "fileNameEndsWith": ".json"
+                        },
+                        "file": {
+                            "encoding": "utf8",
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json"
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "application": "zendesk support",
+                        "name": "TC_C37256",
+                        "parsers": [],
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [],
+                        "http": {
+                            "relativeURI": [
+                                "tickets.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"TC_C37256\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"My printer is on fire for TC_C37256!\"\n  }\n}"
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C37256_AFE_Preview_Panel",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

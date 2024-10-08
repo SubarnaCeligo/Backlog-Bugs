@@ -1,0 +1,104 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_329_FTP_Snowflake_JSON_Data",
+  "disabled": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "FTP JSON EXPORT",
+        "adaptorType": "FTPExport",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_329"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "encoding": "utf8",
+          "type": "json"
+        },
+        "asynchronous": true,
+
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "/FTP_uploads/TC_329.json"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "IMPORT INTO Snowflake",
+        "_connectionId": "SNOWFLAKE CONNECTION",
+        "distributed": false,
+        "apiIdentifier": "i7297b0e62",
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Id",
+              "generate": "ID"
+            },
+            {
+              "extract": "{{{jsonSerialize this}}}",
+              "generate": "DATA",
+              "dataType": "json"
+            },
+            {
+              "extract": "numeric_column",
+              "generate": "NUMBERTABLE"
+            }
+          ]
+        },
+        "rdbms": {
+          "query": [],
+          "queryType": ["BULK INSERT"],
+          "bulkInsert": {
+            "tableName": "JSON_VARIANT_TABLE_AUTOMATION"
+          }
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "RDBMS": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "TC_329_FTP_Snowflake_JSON_Data",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "DATA": {
+              "Description": "Orches_Flow_Blob_202_Rest_Ticket",
+              "Id": "0032v00003gKXWyAAO",
+              "Name": "Orches_Flow_Blob_202_Rest_Ticket",
+              "emp_id__c": null,
+              "numeric_column": null
+            },
+            "ID": "0032v00003gKXWyAAO",
+            "NUMBERTABLE": null
+          },
+          "uniqueField": "ID",
+          "standaloneexportflowID": "605984a525b58a7163793af0",
+          "importRecordType": "organizations",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ea8721df89"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "2",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "SNOWFLAKE CONNECTION"
+        }
+      }
+    }
+  }
+}

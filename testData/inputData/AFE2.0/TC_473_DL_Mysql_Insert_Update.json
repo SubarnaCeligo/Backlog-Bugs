@@ -1,0 +1,155 @@
+{
+    "name": "TC_473_DL_Mysql_Insert_Update",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "63159bd0976915080d03da1a",
+    "skipRetries": false,
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "8",
+        "errorCount": "0"
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Data Loader",
+            "asynchronous": true,
+            "qa__isDataLoader": "csv",
+            "qa__path": "//Dataloader_uploades//TC_473.txt",
+            "type": "simple",
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "type": "csv",
+                "csv": {
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n",
+                    "hasHeaderRow": true,
+                    "trimSpaces": true,
+                    "rowsToSkip": 0
+                }
+            },
+            "adaptorType": "SimpleExport"
+        }
+    }],
+    "pageProcessors": [{
+        "qa__import": {
+            "name": "Mysql Insert/update",
+            "application": "MySQL",
+            "modelMetadata": {
+                "orderID": {
+                    "default": ""
+                },
+                "FirstName": {
+                    "default": ""
+                },
+                "Email": {
+                    "default": ""
+                },
+                "ItemName": {
+                    "default": ""
+                },
+                "Amount": {
+                    "default": ""
+                },
+                "Notes": {
+                    "default": ""
+                },
+                "id": {
+                    "default": ""
+                },
+                "LastName": {
+                    "default": "null"
+                },
+                "Quantity": {
+                    "default": null
+                }
+            },
+            "_connectionId": "MYSQL CONNECTION",
+            "distributed": false,
+            "rdbms": {
+                "query": [
+                    "UPDATE insert_update_afe SET\nLastName= {{record.LastName}},\nEmail={{record.LastName}},\nAmount={{record.Amount}},\nNotes={{record.Notes}},\nQuantity={{record.Quantity}}\nwhere id={{record.id}}",
+                    "INSERT into insert_update_afe\n(\nid,\norderID,\nFirstName,\nLastName,\nEmail,\nItemName,\nQuantity,\nAmount,\nNotes\n)\nVALUES\n(\n{{record.id}},\n{{record.orderID}},\n{{record.FirstName}},\n{{record.LastName}},\n{{record.Email}},\n{{record.ItemName}},\n{{record.Quantity}},\n{{record.Amount}},\n{{record.Notes}}\n)"
+                ],
+                "queryType": ["UPDATE", "INSERT"],
+                "updateExtract": "FirstName"
+            },
+            "adaptorType": "RDBMSImport"
+        },
+        "responseMapping": {
+            "fields": [],
+            "lists": []
+        },
+        "type": "import"
+    }],
+    "qa__dataVerification": {
+        "expected": {
+            "RDBMS": {
+                "_integrationId": "63159bd0976915080d03da1a",
+                "name": "TC_473_DL_Mysql_Insert_Update",
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": [{
+                            "id": 1,
+                            "orderID": "TAG-Address-1",
+                            "FirstName": "Automation New1",
+                            "LastName": "null",
+                            "Email": "null",
+                            "ItemName": "ACC001",
+                            "Quantity": null,
+                            "Amount": 0,
+                            "Notes": "Bhagat%\\\\a"
+                        },
+                        {
+                            "id": 2,
+                            "orderID": "TAG-Address-2",
+                            "FirstName": "Automation New2",
+                            "LastName": "null",
+                            "Email": "null",
+                            "ItemName": "ACC002",
+                            "Quantity": null,
+                            "Amount": 0,
+                            "Notes": "Ram!#$"
+                        },
+                        {
+                            "id": 3,
+                            "orderID": "TAG-Address-3",
+                            "FirstName": "",
+                            "LastName": "null",
+                            "Email": "test3@yahoo.com",
+                            "ItemName": "ACC003",
+                            "Quantity": null,
+                            "Amount": 0,
+                            "Notes": "Ram!#$"
+                        },
+                        {
+                            "id": 4,
+                            "orderID": "TAG-Address-4",
+                            "FirstName": "",
+                            "LastName": "null",
+                            "Email": "test4@outlook.c",
+                            "ItemName": "ACC004",
+                            "Quantity": null,
+                            "Amount": 0,
+                            "Notes": "Bhagat%\\\\a"
+                        }
+                    ],
+                    "uniqueField": "id",
+                    "standaloneexportflowID": "60eec29fa7ba2d1b785ed06d",
+                    "importRecordType": "insert_update_afe",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ee3d6376dc",
+                    "application":"MYSQL"
+                },
+                "qa__expectedDashboardCount": {
+                    "ignoreCount": "0",
+                    "successCount": "8",
+                    "errorCount": "0"
+                },
+                "import": {
+                    "_connectionId": "MYSQL CONNECTION"
+                }
+            }
+        }
+    }
+}

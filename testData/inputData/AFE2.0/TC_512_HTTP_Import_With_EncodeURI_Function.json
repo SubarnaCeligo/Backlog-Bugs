@@ -1,0 +1,102 @@
+{
+    "skipRetries": false,
+    "_integrationId": "63159bd0976915080d03da1a",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "4",
+        "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "name": "Create_Zendesk_User",
+            "application": "zendesk support",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "distributed": false,
+            "apiIdentifier": "i013a66ad4",
+            "lookups": [{
+                "map": {
+                    "agent": "end-user"
+                },
+                "allowFailures": false,
+                "name": "User_Role",
+                "useImportHeaders": true
+            }],
+            "http": {
+                "relativeURI": ["{{encodeURI record.recordtype}}.json"],
+                "method": ["POST"],
+                "body": [
+                    "{\n  \"user\": {\n    \"email\": \"{{record.email}}\",\n    \"name\": \"{{record.name}}\",\n    \"role\": \"{{lookup \"User_Role\" record.role}}\"\n  }\n}"
+                ],
+                "batchSize": 1,
+                "lookups": [{
+                    "map": {
+                        "agent": "end-user"
+                    },
+                    "allowFailures": false,
+                    "name": "User_Role",
+                    "useImportHeaders": true
+                }]
+            },
+            "adaptorType": "HTTPImport"
+        }
+    }],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_512_HTTP_Import_With_EncodeURI_Function",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "zendesk": {
+                "name": "TC_512_HTTP_Import_With_EncodeURI_Function",
+                "_integrationId": "63159bd0976915080d03da1a",
+                "import": {
+                    "_connectionId": "HTTP ZENDESK CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "4",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                            "name": "Aaron_Brimhall 1",
+                            "email": "aaronbhall1@gmail.com",
+                            "role": "end-user"
+                        },
+                        {
+                            "name": "Aaron_Brimhall 2",
+                            "email": "aaronbhall2@gmail.com",
+                            "role": "end-user"
+                        }
+                    ],
+                    "standaloneexportflowID": "6195e3c2f584a64533775124",
+                    "generateSampleDropDownAvailable": false,
+                    "uniqueField": "name",
+                    "importRecordType": "users",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "e7c3070350"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "Zendesk_UserData",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "ea9123cd4f",
+            "qa__path": "/FTP_uploads/TC_512_Users_Data.json",
+            "asynchronous": true,
+            "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_512_Users_Data"
+            },
+            "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+            },
+            "adaptorType": "FTPExport"
+        }
+    }]
+}

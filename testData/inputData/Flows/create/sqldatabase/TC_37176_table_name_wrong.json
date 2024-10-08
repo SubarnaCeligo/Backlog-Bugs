@@ -1,0 +1,91 @@
+{
+    "name": "TC_37176_table_name_wrong",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "ftp_export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e19a850f65",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/FTP Automation Account",
+                    "fileNameStartsWith": "TC_42171"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "qa__path": "/FTP_uploads/TC_C36518.json",
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "BQ_import",
+            "_connectionId": "BIGQUERY CONNECTION",
+            "apiIdentifier": "i05f1302aa",
+            "oneToMany": false,
+            "sandbox": false,
+            "mapping": {
+                "fields": [
+                    {
+                        "extract": "Column0",
+                        "generate": "name"
+                    },
+                    {
+                        "extract": "Column1",
+                        "generate": "phone"
+                    },
+                    {
+                        "extract": "Column2",
+                        "generate": "mail"
+                    },
+                    {
+                        "extract": "Column3",
+                        "generate": "fax"
+                    }
+                ]
+            },
+            "rdbms": {
+                "query": [],
+                "queryType": [
+                    "BULK INSERT"
+                ],
+                "bulkInsert": {
+                    "tableName": "no_table"
+                }
+            },
+            "adaptorType": "RDBMSImport"
+        }
+        }
+      ],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "2"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "FTP": {
+                "qa__expectedDashboardCount": {
+                    "successCount": "2",
+                    "ignoreCount": "0",
+                    "errorCount": "2"
+                }
+            }
+        }
+    }
+}
