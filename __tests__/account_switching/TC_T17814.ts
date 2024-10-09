@@ -6,7 +6,7 @@ test.describe("@Author-Shriti S Verify audit logs when user switches from accoun
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("@Env-All @Epic-IO-95266 @Priority-P2 @Zephyr-IO-T38740 Verify audit logs when user switches from account 'A' to account 'B'.", async ({ io, page }) => {
+    test("@Env-All @Priority-P2 @Zephyr-IO-T38740 Verify audit logs when user switches from account 'A' to account 'B'.", async ({ io, page }) => {
         //Login with owner account
         await io.loginPage.waitForElementAttached(selectors.loginPagePO.EMAIL);
         await io.loginPage.fill(selectors.loginPagePO.EMAIL, process.env["IO_OWNER_EMAIL"]);
