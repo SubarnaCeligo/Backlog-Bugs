@@ -4,7 +4,7 @@ import TC from "@testData/Mapper2.0/TC_C51797.json";
 import { ElementHandle } from "playwright/test";
 
 test.describe("TC_C51797", () => {
-  test("@Env-All @zephyr-IO-T22444 TC_C51797 | Verify If the below Source Data data types are mapped to the '[object]' destination data type then below validations should be shown", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T22444 TC_C51797 | Verify If the below Source Data data types are mapped to the '[object]' destination data type then below validations should be shown", async ({io,page}, testInfo) => {
     test.step("*** Creating flow through API ***", async ()=>{});
     let flowID = await io.createResourceFromAPI(TC, 'FLOWS');
     await io.flowBuilder.navigateToTheFlow(flowID);
