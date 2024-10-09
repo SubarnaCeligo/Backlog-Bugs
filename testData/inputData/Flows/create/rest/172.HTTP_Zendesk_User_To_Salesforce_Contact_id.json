@@ -1,0 +1,517 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "salesforce": {
+            "sObjectType": "Contact",
+            "api": "soap",
+            "operation": "insert",
+            "removeNonSubmittableFields": false
+          },
+          "mapping": {
+            "fields": [
+              {
+                "extract": "name",
+                "generate": "LastName"
+              },
+              {
+                "extract": "user_fields.phone",
+                "generate": "Phone"
+              },
+              {
+                "extract": "user_fields.fax",
+                "generate": "Fax"
+              },
+              {
+                "extract": "notes",
+                "generate": "Email"
+              },
+              {
+                "extract": "user_fields.billing_address_1",
+                "generate": "MailingStreet"
+              },
+              {
+                "extract": "user_fields.billing_city",
+                "generate": "MailingCity"
+              },
+              {
+                "extract": "user_fields.billing_state",
+                "generate": "MailingState"
+              },
+              {
+                "extract": "user_fields.billing_country",
+                "generate": "MailingCountry"
+              },
+              {
+                "extract": "user_fields.billing_zip",
+                "generate": "MailingPostalCode"
+              },
+              {
+                "extract": "user_fields.shipping_address",
+                "generate": "OtherStreet"
+              },
+              {
+                "extract": "user_fields.shipping_city",
+                "generate": "OtherCity"
+              },
+              {
+                "extract": "user_fields.shipping_state",
+                "generate": "OtherState"
+              },
+              {
+                "extract": "user_fields.shipping_zip",
+                "generate": "OtherPostalCode"
+              },
+              {
+                "extract": "user_fields.shipping_country",
+                "generate": "OtherCountry"
+              }
+            ]
+          },
+          "_connectionId": "SALESFORCE CONNECTION",
+          "name": "Salesforce Insert contact from rest export",
+          "distributed": false,
+          "adaptorType": "SalesforceImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "172.HTTP_Zendesk_User_To_Salesforce_Contact_id",
+    "disabled": false,
+    "qa__dataVerification": {
+      "expected": {
+        "Salesforce": {
+          "name": "172.HTTP_Zendesk_User_To_Salesforce_Contact_id",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "SALESFORCE CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "1",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "expectedJSON": {
+              "Email": "172http_zd2sf@celigo.com",
+              "OtherPostalCode": "500172",
+              "MailingCountry": "172Bill Country",
+              "MailingCity": "172Bill City",
+              "OtherStreet": "172Ship Street",
+              "OtherState": "172Ship State",
+              "MailingState": "172Bill State",
+              "OtherCity": "172Ship City",
+              "Phone": "9985511111",
+              "MailingPostalCode": "500111",
+              "OtherCountry": "172Ship Country",
+              "LastName": "Auto@172_HTTP_Zendesk_User_To_Salesforce_Contact_id",
+              "Fax": "9985522222",
+              "MailingStreet": "172Bill Street"
+            },
+            "standaloneexportflowID": "57302d52943aa5946cce0870",
+            "uniqueField": "LastName",
+            "importapiIdentifier": "",
+            "importRecordType": "Contact",
+            "exportRecordType": "user",
+            "isUIFlow": true,
+            "query": "select id,lastname,email,phone,fax,mailingstreet,mailingcity,mailingstate,mailingcountry,mailingpostalcode,otherstreet,othercity,otherstate,othercountry,otherpostalcode from contact where lastname like 'Auto@172_HTTP_Zendesk_User_To_Salesforce_Contact_id'",
+            "exportapiIdentifier": "e9190601e4"
+          }
+        }
+      }
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "transform": {
+            "rules": [
+              [
+                {
+                  "extract": "active",
+                  "generate": "active"
+                },
+                {
+                  "extract": "alias",
+                  "generate": "alias"
+                },
+                {
+                  "extract": "chat_only",
+                  "generate": "chat_only"
+                },
+                {
+                  "extract": "created_at",
+                  "generate": "created_at"
+                },
+                {
+                  "extract": "custom_role_id",
+                  "generate": "custom_role_id"
+                },
+                {
+                  "extract": "default_group_id",
+                  "generate": "default_group_id"
+                },
+                {
+                  "extract": "details",
+                  "generate": "details"
+                },
+                {
+                  "extract": "email",
+                  "generate": "email"
+                },
+                {
+                  "extract": "external_id",
+                  "generate": "external_id"
+                },
+                {
+                  "extract": "id",
+                  "generate": "id"
+                },
+                {
+                  "extract": "last_login_at",
+                  "generate": "last_login_at"
+                },
+                {
+                  "extract": "locale",
+                  "generate": "locale"
+                },
+                {
+                  "extract": "locale_id",
+                  "generate": "locale_id"
+                },
+                {
+                  "extract": "moderator",
+                  "generate": "moderator"
+                },
+                {
+                  "extract": "name",
+                  "generate": "name"
+                },
+                {
+                  "extract": "notes",
+                  "generate": "notes"
+                },
+                {
+                  "extract": "only_private_comments",
+                  "generate": "only_private_comments"
+                },
+                {
+                  "extract": "organization_id",
+                  "generate": "organization_id"
+                },
+                {
+                  "extract": "phone",
+                  "generate": "phone"
+                },
+                {
+                  "extract": "photo",
+                  "generate": "photo"
+                },
+                {
+                  "extract": "restricted_agent",
+                  "generate": "restricted_agent"
+                },
+                {
+                  "extract": "role",
+                  "generate": "role"
+                },
+                {
+                  "extract": "shared",
+                  "generate": "shared"
+                },
+                {
+                  "extract": "shared_agent",
+                  "generate": "shared_agent"
+                },
+                {
+                  "extract": "shared_phone_number",
+                  "generate": "shared_phone_number"
+                },
+                {
+                  "extract": "signature",
+                  "generate": "signature"
+                },
+                {
+                  "extract": "suspended",
+                  "generate": "suspended"
+                },
+                {
+                  "extract": "tags",
+                  "generate": "tags"
+                },
+                {
+                  "extract": "ticket_restriction",
+                  "generate": "ticket_restriction"
+                },
+                {
+                  "extract": "time_zone",
+                  "generate": "time_zone"
+                },
+                {
+                  "extract": "two_factor_auth_enabled",
+                  "generate": "two_factor_auth_enabled"
+                },
+                {
+                  "extract": "updated_at",
+                  "generate": "updated_at"
+                },
+                {
+                  "extract": "url",
+                  "generate": "url"
+                },
+                {
+                  "extract": "user_fields.address_1",
+                  "generate": "user_fields.address_1"
+                },
+                {
+                  "extract": "user_fields.address_2",
+                  "generate": "user_fields.address_2"
+                },
+                {
+                  "extract": "user_fields.address_city",
+                  "generate": "user_fields.address_city"
+                },
+                {
+                  "extract": "user_fields.address_country",
+                  "generate": "user_fields.address_country"
+                },
+                {
+                  "extract": "user_fields.address_country_code",
+                  "generate": "user_fields.address_country_code"
+                },
+                {
+                  "extract": "user_fields.address_state",
+                  "generate": "user_fields.address_state"
+                },
+                {
+                  "extract": "user_fields.address_zip",
+                  "generate": "user_fields.address_zip"
+                },
+                {
+                  "extract": "user_fields.billing_address_1",
+                  "generate": "user_fields.billing_address_1"
+                },
+                {
+                  "extract": "user_fields.billing_address_2",
+                  "generate": "user_fields.billing_address_2"
+                },
+                {
+                  "extract": "user_fields.billing_addressee",
+                  "generate": "user_fields.billing_addressee"
+                },
+                {
+                  "extract": "user_fields.billing_attention_",
+                  "generate": "user_fields.billing_attention_"
+                },
+                {
+                  "extract": "user_fields.billing_city",
+                  "generate": "user_fields.billing_city"
+                },
+                {
+                  "extract": "user_fields.billing_country",
+                  "generate": "user_fields.billing_country"
+                },
+                {
+                  "extract": "user_fields.billing_country_code",
+                  "generate": "user_fields.billing_country_code"
+                },
+                {
+                  "extract": "user_fields.billing_phone",
+                  "generate": "user_fields.billing_phone"
+                },
+                {
+                  "extract": "user_fields.billing_state",
+                  "generate": "user_fields.billing_state"
+                },
+                {
+                  "extract": "user_fields.billing_zip",
+                  "generate": "user_fields.billing_zip"
+                },
+                {
+                  "extract": "user_fields.comments",
+                  "generate": "user_fields.comments"
+                },
+                {
+                  "extract": "user_fields.custom_numeric",
+                  "generate": "user_fields.custom_numeric"
+                },
+                {
+                  "extract": "user_fields.dynamic_mapping_value",
+                  "generate": "user_fields.dynamic_mapping_value"
+                },
+                {
+                  "extract": "user_fields.email",
+                  "generate": "user_fields.email"
+                },
+                {
+                  "extract": "user_fields.fax",
+                  "generate": "user_fields.fax"
+                },
+                {
+                  "extract": "user_fields.job_titles",
+                  "generate": "user_fields.job_titles"
+                },
+                {
+                  "extract": "user_fields.multi_line_text",
+                  "generate": "user_fields.multi_line_text"
+                },
+                {
+                  "extract": "user_fields.name",
+                  "generate": "user_fields.name"
+                },
+                {
+                  "extract": "user_fields.once_check_box",
+                  "generate": "user_fields.once_check_box"
+                },
+                {
+                  "extract": "user_fields.phone",
+                  "generate": "user_fields.phone"
+                },
+                {
+                  "extract": "user_fields.shipping_address",
+                  "generate": "user_fields.shipping_address"
+                },
+                {
+                  "extract": "user_fields.shipping_address_2",
+                  "generate": "user_fields.shipping_address_2"
+                },
+                {
+                  "extract": "user_fields.shipping_addressee",
+                  "generate": "user_fields.shipping_addressee"
+                },
+                {
+                  "extract": "user_fields.shipping_attention",
+                  "generate": "user_fields.shipping_attention"
+                },
+                {
+                  "extract": "user_fields.shipping_city",
+                  "generate": "user_fields.shipping_city"
+                },
+                {
+                  "extract": "user_fields.shipping_country",
+                  "generate": "user_fields.shipping_country"
+                },
+                {
+                  "extract": "user_fields.shipping_country_code",
+                  "generate": "user_fields.shipping_country_code"
+                },
+                {
+                  "extract": "user_fields.shipping_phone",
+                  "generate": "user_fields.shipping_phone"
+                },
+                {
+                  "extract": "user_fields.shipping_state",
+                  "generate": "user_fields.shipping_state"
+                },
+                {
+                  "extract": "user_fields.shipping_zip",
+                  "generate": "user_fields.shipping_zip"
+                },
+                {
+                  "extract": "user_fields.subsidiary",
+                  "generate": "user_fields.subsidiary"
+                },
+                {
+                  "extract": "user_fields.user_drop_down",
+                  "generate": "user_fields.user_drop_down"
+                },
+                {
+                  "extract": "user_fields.user_note_title",
+                  "generate": "user_fields.user_note_title"
+                },
+                {
+                  "extract": "user_fields.user_notes_date",
+                  "generate": "user_fields.user_notes_date"
+                },
+                {
+                  "extract": "user_fields.user_notes_direction",
+                  "generate": "user_fields.user_notes_direction"
+                },
+                {
+                  "extract": "user_fields.user_notes_memo",
+                  "generate": "user_fields.user_notes_memo"
+                },
+                {
+                  "extract": "user_fields.user_notes_type",
+                  "generate": "user_fields.user_notes_type"
+                },
+                {
+                  "extract": "user_fields.venkat",
+                  "generate": "user_fields.venkat"
+                },
+                {
+                  "extract": "user_fields.znc_account_balance",
+                  "generate": "user_fields.znc_account_balance"
+                },
+                {
+                  "extract": "user_fields.znc_account_overdue_balance",
+                  "generate": "user_fields.znc_account_overdue_balance"
+                },
+                {
+                  "extract": "user_fields.znc_credit_hold",
+                  "generate": "user_fields.znc_credit_hold"
+                },
+                {
+                  "extract": "user_fields.znc_credit_limit",
+                  "generate": "user_fields.znc_credit_limit"
+                },
+                {
+                  "extract": "user_fields.znc_currency",
+                  "generate": "user_fields.znc_currency"
+                },
+                {
+                  "extract": "user_fields.znc_days_overdue",
+                  "generate": "user_fields.znc_days_overdue"
+                },
+                {
+                  "extract": "user_fields.znc_department",
+                  "generate": "user_fields.znc_department"
+                },
+                {
+                  "extract": "user_fields.znc_sales_orders",
+                  "generate": "user_fields.znc_sales_orders"
+                },
+                {
+                  "extract": "user_fields.znc_supervisor",
+                  "generate": "user_fields.znc_supervisor"
+                },
+                {
+                  "extract": "user_fields.znc_sync_as_netsuite_contact",
+                  "generate": "user_fields.znc_sync_as_netsuite_contact"
+                },
+                {
+                  "extract": "user_fields.znc_unbilled_orders",
+                  "generate": "user_fields.znc_unbilled_orders"
+                },
+                {
+                  "extract": "verified",
+                  "generate": "verified"
+                }
+              ]
+            ],
+            "version": "1"
+          },
+          "asynchronous": true,
+          "_connectionId": "HTTP ZENDESK CONNECTION",
+          "dataURITemplate": "{{{name}}}",
+          "http": {
+            "method": "GET",
+            "response": {
+              "resourcePath": "user"
+            },
+            "relativeURI": "users/14073993569.json"
+          },
+          "adaptorType": "HTTPExport",
+          "application": "zendesk support",
+          "name": "HTTP export users"
+        }
+      }
+    ]
+  }

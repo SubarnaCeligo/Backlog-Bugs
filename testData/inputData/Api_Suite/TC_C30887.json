@@ -1,0 +1,40 @@
+{
+  "body": {
+    "_connectionId": "ZENDESK CONNECTION",
+    "asynchronous": true,
+    "assistant": "zendesk",
+    "oneToMany": false,
+    "sandbox": false,
+    "assistantMetadata": {
+      "resource": "tickets_api",
+      "version": "v2",
+      "operation": "show_ticket"
+    },
+    "http": {
+      "relativeURI": "/api/v2/tickets/81.json",
+      "method": "GET",
+      "successMediaType": "json",
+      "errorMediaType": "json",
+      "formType": "assistant",
+      "paging": {
+        "method": "url",
+        "path": "next_page",
+        "lastPageStatusCode": 404
+      },
+      "response": {
+        "resourcePath": "ticket"
+      }
+    },
+    "rawData": "603ce5ede9250226dcea4608bf0ac9e2cfab4b04816f026c95db132b",
+    "rest": {
+      "relativeURI": "/api/v2/tickets/81.json",
+      "method": "GET",
+      "resourcePath": "ticket",
+      "pagingMethod": "nextpageurl",
+      "nextPagePath": "next_page",
+      "allowUndefinedResource": false
+    },
+    "adaptorType": "RESTExport"
+  },
+  "staging_conn": "ZENDESK CONNECTION"
+}

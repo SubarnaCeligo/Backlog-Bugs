@@ -1,0 +1,49 @@
+{
+    "expectedJSON": {
+        "name": "Create_Connection_HTTP_Token_JSON_Trello",
+        "http": {
+            "auth": {
+                "type": "token",
+                "token": {
+                    "headerName": "Authorization",
+                    "location": "header",
+                    "token": "******"
+                }
+            },
+            "ping": {
+                "method": "GET",
+                "relativeURI": "boards/S5Pwop0Z?key=00f1dd1e00000f1dd1e00000f1dd1e00",
+                "successPath": "id"
+
+            },
+            "baseURI": "https://trello.com/1/",
+            "mediaType": "json"
+        },
+        "type": "http"
+    },
+    "importJSON": {
+        "name": "Create_Connection_HTTP_Token_JSON_Trello",
+        "http": {
+            "auth": {
+                "type": "token",
+                "qa__token1": {
+                    "qa__token": "NDI0ZmNmNjQwODg5MmE5YTJmNmQxM2ViMjkwYTZkM2U3ZDgxOGFjN2Y1YzhjYTc2ODQ3NDYyY2VjMjExOWZhZg==",
+                    "headerName": "Authorization",
+                    "scheme": "Bearer",
+                    "location": "header",
+                    "qa__token2": "******"
+                }
+            },
+            "ping": {
+                "method": "GET",
+                "successValues": [],
+                "successPath": "id",
+                "relativeURI": "boards/S5Pwop0Z?key=00f1dd1e00000f1dd1e00000f1dd1e00"
+            },
+            "baseURI": "https://trello.com/1/",
+            "mediaType": "json",
+            "encryptedFields": []
+        },
+        "type": "http"
+    }
+}

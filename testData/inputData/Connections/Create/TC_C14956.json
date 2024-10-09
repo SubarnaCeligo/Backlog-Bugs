@@ -1,0 +1,67 @@
+{
+    "expectedJSON": {
+        "type": "as2",
+        "name": "AS2_conn",
+        "as2": {
+            "as2Id": "crAS2id",
+            "partnerId": "crAs2partnerId1",
+            "unencrypted": {
+                "userPublicKey": "123",
+                "partnerCertificate": "123"
+            },
+            "partnerStationInfo": {
+                "as2URI": "https://www.invalid.com",
+                "mdn": {
+                    "mdnSigning": "SHA1"
+                },
+                "signing": "SHA1",
+                "encryptionType": "3DES",
+                "encoding": "base64",
+                "auth": {}
+            },
+            "userStationInfo": {
+                "mdn": {
+                    "mdnSigning": "SHA1"
+                },
+                "signing": "SHA1",
+                "encryptionType": "DES",
+                "encoding": "base64"
+            }
+        }
+    },
+    "importJSON": {
+        "type": "as2",
+        "name": "AS2_conn",
+        "as2": {
+            "as2Id": "crAS2id",
+            "partnerId": "crAs2partnerId1",
+            "unencrypted": {
+                "userPublicKey": "123",
+                "partnerCertificate": "123"
+            },
+            "encrypted": {
+                "qa__userPrivateKey": "123"
+            },
+            "partnerStationInfo": {
+                "as2URI": "https://www.invalid.com",
+                "mdn": {
+                    "mdnSigning": "SHA1"
+                },
+                "signing": "SHA1",
+                "encryptionType": "3DES",
+                "encoding": "base64",
+                "auth": {
+                    "qa__auth": "none"
+                }
+            },
+            "userStationInfo": {
+                "mdn": {
+                    "mdnSigning": "SHA1"
+                },
+                "signing": "SHA1",
+                "encryptionType": "DES",
+                "encoding": "base64"
+            }
+        }
+    }
+}

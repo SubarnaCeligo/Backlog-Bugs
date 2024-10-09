@@ -1,0 +1,82 @@
+{
+    "expectedJSON": {
+      "assistant": "paypal",
+      "name": "Create_Connection_Paypal",
+      "http": {
+        "encrypted": "******",
+        "auth": {
+          "type": "token",
+          "token": {
+            "refreshMethod": "POST",
+            "headerName": "Authorization",
+            "scheme": "Bearer",
+            "refreshRelativeURI": "https://{{{connection.settings.env}}}.paypal.com/v1/oauth2/token",
+            "location": "header",
+            "refreshBody": "{\"grant_type\":\"client_credentials\"}",
+            "refreshHeaders": [
+              {
+                "name": "Authorization",
+                "value": "Basic {{{base64Encode (join \":\" connection.http.unencrypted.clientId connection.http.encrypted.clientSecret)}}}"
+              }
+            ],
+            "token": "******",
+            "refreshMediaType": "urlencoded"
+          }
+        },
+        "ping": {
+          "method": "GET",
+          "relativeURI": "/v1/catalogs/products"
+        },
+        "baseURI": "https://{{{connection.settings.env}}}.paypal.com",
+        "mediaType": "json",
+        "unencrypted": {
+          "clientId": "AcL3hF7a5dQFj-UGTmiItmZPyspjbjEwGckcFsqkMi4OoxzkUttP3oN082Y70ffkXqgAKfEZh3ONANhY"
+        }
+      },
+      "type": "http"
+    },
+    "importJSON": {
+      "type": "http",
+      "name": "Create_Connection_Paypal",
+      "assistant": "paypal",
+      "http": {
+        "mediaType": "json",
+        "baseURI": "https://api.sandbox.paypal.com",
+        "ping": {
+          "relativeURI": "/v1/catalogs/products",
+          "method": "GET"
+        },
+        "unencrypted": {
+          "clientId": "AcL3hF7a5dQFj-UGTmiItmZPyspjbjEwGckcFsqkMi4OoxzkUttP3oN082Y70ffkXqgAKfEZh3ONANhY"
+        },
+        "encrypted": "******",
+        "auth": {
+          "type": "token",
+          "qa__accountType": "Sandbox",
+          "accountType": "Sandbox",
+          "token": {
+            "token": "******",
+            "qa__clientID": "AcL3hF7a5dQFj-UGTmiItmZPyspjbjEwGckcFsqkMi4OoxzkUttP3oN082Y70ffkXqgAKfEZh3ONANhY",
+            "qa__clientsecret": "RURpMXVBV0lXVmxfZGN5ZEh5aU5kay1lTzZicU5YNFBxSlZ3REJlV1BhQUFjdExEVjJyT1QxUmVjMnpUcDlFcWR5dGNvQzU4Y295aFJxdFQ=",
+            "location": "header",
+            "headerName": "Authorization",
+            "scheme": "Bearer",
+            "refreshMethod": "POST",
+            "refreshRelativeURI": "https://api.sandbox.paypal.com/v1/oauth2/token",
+            "refreshBody": "{\"grant_type\":\"client_credentials\"}",
+            "refreshMediaType": "urlencoded",
+            "refreshHeaders": [
+              {
+                "name": "Authorization",
+                "value": "Basic QWNMM2hGN2E1ZFFGai1VR1RtaUl0bVpQeXNwamJqRXdHY2tjRnNxa01pNE9veHprVXR0UDNvTjA4Mlk3MGZma1hxZ0FLZkVaaDNPTkFOaFk6RURpMXVBV0lXVmxfZGN5ZEh5aU5kay1lTzZicU5YNFBxSlZ3REJlV1BhQUFjdExEVjJyT1QxUmVjMnpUcDlFcWR5dGNvQzU4Y295aFJxdFQ="
+              }
+            ]
+          }
+        }
+      },
+      "settings": {
+          "env": "api.sandbox"
+          }
+    }
+  }
+  

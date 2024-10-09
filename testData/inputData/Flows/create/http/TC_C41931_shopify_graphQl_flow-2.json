@@ -1,0 +1,56 @@
+{
+    "name": "TC_C41931",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Shopify_export",
+                "application": "shopify",
+                "_connectionId": "HTTP SHOPIFY CONNECTION",
+                "apiIdentifier": "e05160b17a",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "customers",
+                    "method": "GET",
+                    "formType": "http"
+                },
+                "rawData": "56d6b114e1fc35de5391472c016a1df7a57e4429b67a6c787fbe9066",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "graphQl",
+                "_connectionId": "62da4da973c08d7560d1be37",
+                "apiIdentifier": "i46f4a9ec6",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "/"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{\"query\":\"{  orders(first: 1) {   edges {    cursor    node {     id     discountCode     updatedAt     lineItems(first: 30) {      edges {       node {        id        quantity        sku        originalUnitPrice        fulfillmentService {         serviceName        }        taxLines {         rate         ratePercentage         title        }       }      }     }     risks {      level      message     }     paymentGatewayNames     billingAddress {      address1      address2      city      company      countryCode      name      provinceCode      phone      zip     }     shippingAddress {      address1      address2      city      company      countryCode      name      provinceCode      phone      zip     }     customer {      id      email     phone     }     transactions {      amount      kind      id      gateway      status      authorizationCode      amountV2 {       currencyCode       amount      }      order {       id      }     }    }   }  } }\"}"
+                    ],
+                    "sendPostMappedData": true,
+                    "formType": "graph_ql"
+                },
+                "adaptorType": "HTTPImport"
+            }
+
+        }
+    ]
+}

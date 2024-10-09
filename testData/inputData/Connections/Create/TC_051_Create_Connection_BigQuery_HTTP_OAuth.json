@@ -1,0 +1,80 @@
+{
+  "expectedJSON": {
+    "type": "http",
+    "name": "TC_051_Create_Connection_BigQuery_HTTP_OAuth",
+    "http": {
+      "_iClientId": "60e5c80cf0c66a604af51df4",
+      "mediaType": "json",
+      "baseURI": "https://bigquery.googleapis.com/bigquery",
+      "ping": {
+        "failValues": [],
+        "successValues": []
+      },
+      "rateLimit": {
+        "failValues": []
+      },
+      "unencrypted": {
+        "field": "value"
+      },
+      "encrypted": "******",
+      "auth": {
+        "type": "oauth",
+        "failValues": [],
+        "oauth": {
+          "authURI": "https://accounts.google.com/o/oauth2/v2/auth",
+          "tokenURI": "https://oauth2.googleapis.com/token",
+          "scope": [
+            "https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigquery.insertdata https://www.googleapis.com/auth/bigquery.readonly https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloud-platform.read-only https://www.googleapis.com/auth/devstorage.full_control https://www.googleapis.com/auth/devstorage.read_only https://www.googleapis.com/auth/devstorage.read_write"
+          ],
+          "grantType": "authorizecode",
+          "clientCredentialsLocation": "body"
+        },
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "Authorization",
+          "scheme": "Bearer",
+          "paramName": "access_token",
+          "refreshBody": "{\"grant_type\":\"refresh_token\",\"refresh_token\":\"test_token\",\"client_id\":\"test_id\",\"client_secret\":\"test_secret\"}",
+          "refreshToken": "******"
+        }
+      }
+    }
+  },
+  "importJSON": {
+    "type": "http",
+    "name": "TC_051_Create_Connection_BigQuery_HTTP_OAuth",
+    "http": {
+      "auth": {
+        "type": "oauth",
+        "qa_username": "ladi.manish@celigo.com",
+        "qa_password": "TUBuaXNoMTk5NQ==",
+        "qa_oauth": {
+          "authURI": "https://accounts.google.com/o/oauth2/v2/auth",
+          "tokenURI": "https://oauth2.googleapis.com/token",
+          "scope": [
+            "https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigquery.insertdata https://www.googleapis.com/auth/bigquery.readonly https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloud-platform.read-only https://www.googleapis.com/auth/devstorage.full_control https://www.googleapis.com/auth/devstorage.read_only https://www.googleapis.com/auth/devstorage.read_write"
+          ],
+          "grantType": "authorizecode",
+          "clientCredentialsLocation": "body",
+          "accessTokenBody": "{ \"code\": \"{{{query.code}}}\", \"redirect_uri\": \"{{{redirectUri}}}\", \"client_id\": \"{{{clientId}}}\", \"client_secret\": \"{{{clientSecret}}}\", \"grant_type\": \"authorization_code\"}"
+        },
+        "qa_token1": {
+          "qa_token": "******",
+          "location": "header",
+          "headerName": "Authorization",
+          "scheme": "Bearer",
+          "refreshBody": "{\"grant_type\":\"refresh_token\",\"refresh_token\":\"test_token\",\"client_id\":\"test_id\",\"client_secret\":\"test_secret\"}",
+          "refreshToken": "******"
+        }
+      },
+      "_iClientId": "60e5c80cf0c66a604af51df4",
+      "iClientName": "TC_384_iClient",
+      "clientId": "NzEyOTE1NDkxNTcwLXZyYTc0dmUwdDM3YW80OTNuMmZsdXQ1Y2Jramo2aHE1LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29t",
+      "clientSecret": "czBRTFhwY3RpOTYxQy1Hay12VGVBREdk",
+      "mediaType": "json",
+      "baseURI": "https://bigquery.googleapis.com/bigquery",
+      "encrypted": "******"
+    }
+  }
+}

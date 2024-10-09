@@ -1,0 +1,34 @@
+{
+    "pageGenerators":[],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "http blob import",
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "apiIdentifier": "i6699f0df4",
+                "oneToMany": true,
+                "pathToMany": "Attachments",
+                "blobKeyPath": "blobKey",
+                "blob": true,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": [
+                        "api/v2/uploads.json?filename={{data.Name}}"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "[{\n              \"name\": \"fileName\",\n              \"value\": \"{{blob}}\",\n              \"type\": \"attachment\"\n            }]"
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ]
+}

@@ -1,0 +1,117 @@
+{
+  "expectedJSON": {
+    "salesforce": {
+      "concurrencyLevel": 5,
+      "bearerToken": "******",
+      "packagedOAuth": true,
+      "baseURI": "https://d7f000000rslouau-dev-ed.my.salesforce.com",
+      "scope": [],
+      "sandbox": false,
+      "refreshToken": "******",
+      "info": {
+        "sub": "https://login.salesforce.com/id/00D7F000000rSlOUAU/0057F000000IYb7QAG",
+        "zoneinfo": "America/Los_Angeles",
+        "utcOffset": -28800000,
+        "address": {
+          "country": "IN"
+        },
+        "email_verified": true,
+        "profile": "https://d7f000000rslouau-dev-ed.my.salesforce.com/0057F000000IYb7QAG",
+        "active": true,
+        "language": "en_US",
+        "preferred_username": "io.auto.conn.qa@celigo.com",
+        "locale": "en_US",
+        "given_name": "Salesforce",
+        "photos": {
+          "thumbnail": "https://d7f000000rslouau-dev-ed.file.force.com/profilephoto/005/T",
+          "picture": "https://d7f000000rslouau-dev-ed.file.force.com/profilephoto/005/F"
+        },
+        "picture": "https://d7f000000rslouau-dev-ed.file.force.com/profilephoto/005/F",
+        "urls": {
+          "rest": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/",
+          "metadata": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/Soap/m/{version}/00D7F000000rSlO",
+          "feed_elements": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feed-elements",
+          "enterprise": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/Soap/c/{version}/00D7F000000rSlO",
+          "profile": "https://d7f000000rslouau-dev-ed.my.salesforce.com/0057F000000IYb7QAG",
+          "query": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/query/",
+          "groups": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/chatter/groups",
+          "users": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/chatter/users",
+          "search": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/search/",
+          "partner": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/Soap/u/{version}/00D7F000000rSlO",
+          "feeds": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feeds",
+          "sobjects": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/sobjects/",
+          "feed_items": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feed-items",
+          "recent": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/recent/"
+        },
+        "user_type": "STANDARD",
+        "user_id": "0057F000000IYb7QAG",
+        "organization_id": "00D7F000000rSlOUAU",
+        "name": "Salesforce Connections",
+        "nickname": "io.auto.conn.qa",
+        "family_name": "Connections",
+        "email": "io.auto.conn.qa@celigo.com"
+      }
+    },
+    "name": "Create_Connection_Salesforce_OAuth",
+    "type": "salesforce"
+  },
+  "importJSON": {
+    "salesforce": {
+      "concurrencyLevel": 5,
+      "bearerToken": "******",
+      "packagedOAuth": true,
+      "baseURI": "https://d7f000000rslouau-dev-ed.my.salesforce.com",
+      "scope": [],
+      "sandbox": false,
+      "qa__oauth2FlowType": "refreshToken",
+      "OAuthLogin": "SalesforceApp",
+      "info": {
+        "sub": "https://login.salesforce.com/id/00D7F000000rSlOUAU/0057F000000IYb7QAG",
+        "zoneinfo": "America/Los_Angeles",
+        "utcOffset": -28800000,
+        "address": {
+          "country": "IN"
+        },
+        "email_verified": true,
+        "profile": "https://d7f000000rslouau-dev-ed.my.salesforce.com/0057F000000IYb7QAG",
+        "active": true,
+        "language": "en_US",
+        "qa__password": "SU9xYUAxMjM0NTY3",
+        "preferred_username": "io.auto.conn.qa@celigo.com",
+        "locale": "en_US",
+        "given_name": "Salesforce",
+        "photos": {
+          "thumbnail": "https://d7f000000rslouau-dev-ed--c.documentforce.com/profilephoto/005/T",
+          "picture": "https://d7f000000rslouau-dev-ed--c.documentforce.com/profilephoto/005/F"
+        },
+        "picture": "https://d7f000000rslouau-dev-ed--c.documentforce.com/profilephoto/005/F",
+        "urls": {
+          "rest": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/",
+          "metadata": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/00D7F000000rSlO",
+          "feed_elements": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feed-elements",
+          "enterprise": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/00D7F000000rSlO",
+          "profile": "https://d7f000000rslouau-dev-ed.my.salesforce.com/0057F000000IYb7QAG",
+          "query": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/query/",
+          "groups": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/chatter/groups",
+          "users": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/chatter/users",
+          "search": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/search/",
+          "partner": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/00D7F000000rSlO",
+          "feeds": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feeds",
+          "sobjects": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/sobjects/",
+          "feed_items": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/chatter/feed-items",
+          "recent": "https://d7f000000rslouau-dev-ed.my.salesforce.com/services/data/v{version}/recent/"
+        },
+        "user_type": "STANDARD",
+        "updated_at": "2017-05-30T12:14:59.000+0000",
+        "user_id": "0057F000000IYb7QAG",
+        "organization_id": "00D7F000000rSlOUAU",
+        "name": "Salesforce Connections",
+        "nickname": "io.auto.conn.qa",
+        "family_name": "Connections",
+        "email": "io.auto.conn.qa@celigo.com"
+      }
+    },
+    "name": "Create_Connection_Salesforce_OAuth",
+    "type": "salesforce"
+  }
+}

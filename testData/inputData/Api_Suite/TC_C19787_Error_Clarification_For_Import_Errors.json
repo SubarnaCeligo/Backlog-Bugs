@@ -1,0 +1,94 @@
+{
+    "flowname": "TC_C19787",
+    "name": "TC_C19787",
+    "qa__expectedDashboardCount": {
+        "successCount": "0",
+        "ignoreCount": "0",
+        "errorCount": "1"
+    },
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "export",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "apiIdentifier": "ecafc12cdd",
+                        "asynchronous": true,
+                        "type": "test",
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "rawData": "631ec91d52e9a959edd75a2362c722cd7cf049cb93d892b25b0ca799",
+                        "test": {
+                            "limit": 1
+                        },
+                        "salesforce": {
+                            "type": "soql",
+                            "api": "rest",
+                            "soql": {
+                                "query": "select Id,Name from Account"
+                            }
+                        },
+                        "adaptorType": "SalesforceExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "http import",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "application":"zendesk support",
+                        "apiIdentifier": "i3d6597653",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "/api/v2/tickets.json"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [
+                                "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"{{settings.integration}}\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"{{settings.flow}}\"\n  }\n}"
+                            ],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "debugUntil": "2022-09-26T14:50:32.933Z",
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C19787",
+                "disabled": false,
+                "qa__integrationId": "6332d4e0b2be184f096c108c",
+                "_integrationId": "6333054cca06597ef0aaa8f0",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ],
+    "current": "v1/flows/"
+}

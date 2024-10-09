@@ -1,0 +1,124 @@
+{
+  "expectedJSON": {
+    "type": "http",
+    "name": "TC_080_Create_Connection_GDrive_Using_Only_Privatekey_And_Passphrase",
+    "assistant": "googledrive",
+    "offline": false,
+    "sandbox": false,
+    "pgp": {
+      "privateKey": "******",
+      "passphrase": "******",
+      "asciiArmored": true
+    },
+    "http": {
+      "formType": "assistant",
+      "mediaType": "json",
+      "baseURI": "https://www.googleapis.com/",
+      "ping": {
+        "failValues": [],
+        "successValues": []
+      },
+      "rateLimit": {
+        "failValues": []
+      },
+      "auth": {
+        "type": "oauth",
+        "failValues": [],
+        "oauth": {
+          "authURI": "https://accounts.google.com/o/oauth2/auth",
+          "tokenURI": "https://accounts.google.com/o/oauth2/token",
+          "scope": [
+            "https://www.googleapis.com/auth/drive",
+            "https://www.googleapis.com/auth/drive.readonly",
+            "https://www.googleapis.com/auth/drive.appfolder",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/drive.install",
+            "https://www.googleapis.com/auth/drive.metadata",
+            "https://www.googleapis.com/auth/drive.metadata.readonly",
+            "https://www.googleapis.com/auth/drive.photos.readonly",
+            "https://www.googleapis.com/auth/drive.scripts",
+            "https://www.googleapis.com/auth/drive.appdata",
+            "https://www.googleapis.com/auth/drive.apps.readonly",
+            "https://www.googleapis.com/auth/drive.activity",
+            "https://www.googleapis.com/auth/drive.activity.readonly"
+          ],
+          "grantType": "authorizecode",
+          "clientCredentialsLocation": "body"
+        },
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "Authorization",
+          "scheme": "Bearer",
+          "refreshToken": "******"
+        }
+      }
+    }
+  },
+  "importJSON": {
+    "type": "http",
+    "name": "TC_080_Create_Connection_GDrive_Using_Only_Privatekey_And_Passphrase",
+    "assistant": "googledrive",
+    "offline": false,
+    "sandbox": false,
+    "pgp": {
+      "publicKey": "17268134",
+      "privateKey": "******",
+      "passphrase": "******",
+      "asciiArmored": true
+    },
+    "http": {
+      "formType": "assistant",
+      "_iClientId": "61287c175c38332481e8cdb1",
+      "qa__iClientId": "60e5c80cf0c66a604af51df4",
+      "mediaType": "json",
+      "baseURI": "https://www.googleapis.com/",
+      "ping": {
+        "failValues": [],
+        "successValues": []
+      },
+      "rateLimit": {
+        "failValues": []
+      },
+      "auth": {
+        "type": "oauth",
+        "failValues": [],
+        "qa_username": "io.auto.gdrive.qa@celigo.com",
+        "qa_password": "SU9xYUAxMjM0NTY=",
+        "oauth": {
+          "authURI": "https://accounts.google.com/o/oauth2/auth",
+          "tokenURI": "https://accounts.google.com/o/oauth2/token",
+          "scope": [
+            "https://www.googleapis.com/auth/drive",
+            "https://www.googleapis.com/auth/drive.readonly",
+            "https://www.googleapis.com/auth/drive.appfolder",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/drive.install",
+            "https://www.googleapis.com/auth/drive.metadata",
+            "https://www.googleapis.com/auth/drive.metadata.readonly",
+            "https://www.googleapis.com/auth/drive.photos.readonly",
+            "https://www.googleapis.com/auth/drive.scripts",
+            "https://www.googleapis.com/auth/drive.appdata",
+            "https://www.googleapis.com/auth/drive.apps.readonly",
+            "https://www.googleapis.com/auth/drive.activity",
+            "https://www.googleapis.com/auth/drive.activity.readonly"
+          ],
+          "grantType": "authorizecode",
+          "clientCredentialsLocation": "body"
+        },
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "Authorization",
+          "scheme": "Bearer",
+          "refreshToken": "******"
+        }
+      },
+      "pgp": true,
+      "qa__pgpPassphrase": "aGVsbG93b3JsZA==",
+      "qa__pgpDecryptKey": "LS0tLS1CRUdJTiBQR1AgUFJJVkFURSBLRVkgQkxPQ0stLS0tLQpWZXJzaW9uOiBHbnVQRyB2Mi4wLjE5IChHTlUvTGludXgpCgpsUUgrQkZKaEwwNEJCQURjbHJVRUREc20wUFNaYlE2cG1sOUZwelR5WGl5Q3lETityTU9zeTlKMzAwT2MxMGt0Ci9ueUJlajl2WlNSY2FXNVZwTk5qMGlBK2MxL3cyRlBmODR6TnNUenZEbXVNYU5IRlV6a3k0L3ZrWXVacmEvLzMKK1JpN0NGOFJhd1NZUS80SVJiQzl6cWRCbHpuaXlmUU9XN0RwL0xZZThlaWJuRFNybWtRZW0wRzBqd0FSQVFBQgovZ01EQXU3TC8vY3pCcEU0MHAxWnFPOEszazdVZWplbWpzUXFjN2tPcW5sRFlkMVo2LzNORUEvVU0zMFNpaXByCktqZElGWTUraHAwaGNzNkVpaU5xMFBEZm0vVzJqKzdIZnJaNWtwZVFWeERlazRpcmV6WVpybDdKUzJ4ZXphTHYKazBGdi82Znhhc25GdGpPTTZRYnN0dTY3czVHcGw5eTA2WnhiUDNWcFQ2MitYZWlibi9zd1dyZmlKanVHRUVoTQpiZ25zTXBIdHpBei9MOHk2S1N6VmlHLzA1aEJhcXJ2azMvR2VFQTZuRStvMCswYTZyMExZTFRlbW1xNkZiYUExClBIbyt4N2s3b0ZjQkZVVWVTemd4NzhHY2t1UHdxcjJtTmZlRitJdVNSbnJscFpsM2tjYkhBU1BBT2ZFa3lNWFMKc1dHRTdnckNBamJ5UXlNM09FWFRTeXFuZWh2R1MvMVJkQjZrRER4R3dnRS9RRmJ3TnlFaDZLNGVhYUFUaFcyagpJRUVJMFdFblJrUGk5Zlh5eGhGc0NMU0kxWGhxVGFxN2lETnFKVHhFK0FYMmI5WnVaWEF4STNUYy83Kyt2RXlMCjNwMThOL01CMmt0MVdiMWF6bVhXTDJFS2xUMUJaNXlEYUp1QlE4QmhwaE0zdENSVVpYTjBJRTFqVkdWemRHbHUKWjNSdmJpQThkR1Z6ZEVCbGVHRnRjR3hsTG1OdmJUNkl1UVFUQVFJQUl3VUNVbUV2VGdJYkx3Y0xDUWdIQXdJQgpCaFVJQWdrS0N3UVdBZ01CQWg0QkFoZUFBQW9KRUVwallUcE5ia0NVTUF3RCtnSUswOHFwRVpTVmFzOXFXK09rCjMyd3pOa3d4ZTZQUWdad2N5QnFNUVlaVWNLYWdDOCs4OXBNUVE1c0tVR3ZwSWdhdDQyVGYxS0xHUGN2RzRjREEKSlo2dzJQWXo5WUhRcVBoOUxBK1BBblY4bTI1VGNHbUtjS2d2RlVxUTNVNTNYL1k5c0JQOEhvb1JxZnd3SGN2OQpwTWdRbW9qbU5iSTRWSHlkUnFJQmVQYXduUUgrQkZKaEwwNEJCQURwSDgrMEVWb2xwUGlPclhUS29CS1RpeXJCClV5eHpvZHlKOHptVkozSE1URVUvdmlkcFF3eklTd29jL25kREZNWFFhdXE2eHFCQ0Q5bTJCUFFJM1VkUXpYbmIKTHNBSTUybldDSXFPa3pNNU5BS1dvS2h5WEs5WTRVSDR2OUxBWVFnbC9zdElJU3ZDZ0c0bUo4bHp6RUJXdlJkZgpRbTJHaGI2NC8zVjVORGRlbXdBUkFRQUIvZ01EQXU3TC8vY3pCcEU0MGlQY3BMekw3R3dCYldGaFNXZ1NMeTUzCk1kOTlLeHczY0FwV0NvazJFOFI5LzRWUzA0OTB4S1pJYTV5MkkvSzh0aFZocWs5Nlo4S2J0N01STUMxV0xIZ0MKcUp2a2VRQ0k2UHJGTTBQVUlQTEhBUXRESllLdGFMWHhZdWV4Y0FkS3paajNGSGR0TE5XQ29vSzZuM3ZKbEwxYwpXalpjSEoxUEg3VVNsajFqdXA0WGZ4c2J6aXV5c1JVU3lYa2puOTJHWkxtKzY0dkNJaXdocUFZb2l6RjJOSEhHCmhSVE40Z1F6eHJ4Z2tlVmNobCthZzdEa1FVREFOSUlWSStBNjNKZUxKZ1dKaUgxZmJZbHdFU0J5SFcrekJGTnQKcVN0amZJT2hqcmZOSWMzUnZzZ2diRGRXUUxjYnhtTFpqNHNCMHlkUFNnUktvYVVkUkhKWTBTNHZwOW91S090bAoyYXUvUDFCUDNiaEQwZkRYbDkxb2VoZVl0aCtNU21zSkZEZy92Wkp6Q0poRmFROWRwKzJFbmpONWF1TkNOYmFJCmJlRkpSSEZmOWNoYThwM2hoK0FLNTROUkNUKytCMk1YWWYrVFB3cVg4OGpZTUJ2OGtrOHZZVWdvODEyOHIxelEKRXpqdmlRRTlCQmdCQWdBSkJRSlNZUzlPQWhzdUFLZ0pFRXBqWVRwTmJrQ1VuU0FFR1FFQ0FBWUZBbEpoTDA0QQpDZ2tRNElUM1JHd2dMSmU2b2dRQTJhYUpFSUJJWHRncnMrOFdTSjRrM0RONHJSWGNYYVVaZjY2N3BqZEQ5bkYyCjNCempGSDZaNzhKSUdheFJISmRNN2IwNWFFOFl1ek04ZjNOSWxUMEYwT0xxL1RJMm11WVU5Zi9VMkRRQnVmK3cKS1RCNjIrUEVMVmdpOU1zWEMxUXYvdS9vMUxadG1teFRGRk9EMzV4S3N4WlpJMk9KajJwUXBxT2JXMjdNOE5sYwpCUVFBdzJZQTNmRmMzOHFQSytQWTRyWnlUUmRidmp5eVgrMXplcUlvOHduN1FDUXdYcytPR2FIMmZHb1QzNUFJClNYdXFLY1dxb0V1TzdPQlNFRlRoQ1hCZlVZTUMwMU9ycUtFc3dQbS9WM3paa0x1MDFxMTJVTXdaYWNoMjhRd0sKL1labHk0aW9ORDJ0ZGF6ajE3dTJyVTJkd3RpSFBlMWlNcUdnVk1vUWlyZkxjK2s9Cj1sdzVlCi0tLS0tRU5EIFBHUCBQUklWQVRFIEtFWSBCTE9DSy0tLS0t",
+      "pgpDecryptKey": "-----BEGIN PGP PRIVATE KEY BLOCK----- Version: GnuPG v2.0.19 (GNU/Linux)  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 =lw5e -----END PGP PRIVATE KEY BLOCK----- ",
+      "pgpPassphrase": "aGVsbG93b3JsZA=="
+    }
+  }
+}

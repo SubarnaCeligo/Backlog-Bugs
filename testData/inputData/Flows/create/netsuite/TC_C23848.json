@@ -1,0 +1,147 @@
+{
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON":  [
+            {
+              "entityid": "TC_C23848",
+              "subsidiary": {
+                "internalid": "3",
+                "name": "HH Inc."
+              },
+              "comments": "Metadata from Purchase Contract"
+            }
+          ],
+          "importRecordType": "contact",
+          "exportRecordType": "contact",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63469e6d0eeae84271ab94ad",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ee99f01eb4"
+        }
+      }
+    }
+  },
+  "flowsData": {
+    "name": "TC_C23848",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e69a448c22",
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C31860",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "ia6e4b0823",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [
+                  {
+                      "name": "dynamic_lookup",
+                      "recordType": "purchasecontract",
+                      "resultField": "custbody56",
+                      "expression": "[\"memo\",\"is\",\"TC_C23848_memo\"]",
+                      "allowFailures": false
+                  }
+              ],
+              "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "add",
+                  "recordType": "contact",
+                  "lookups": [
+                      {
+                          "name": "dynamic_lookup",
+                          "recordType": "purchasecontract",
+                          "resultField": "custbody56",
+                          "expression": "[\"memo\",\"is\",\"TC_C23848_memo\"]",
+                          "allowFailures": false
+                      }
+                  ],
+                  "mapping": {
+                      "fields": [
+                          {
+                              "generate": "entityid",
+                              "hardCodedValue": "TC_C23848",
+                              "internalId": false
+                          },
+                          {
+                              "generate": "subsidiary",
+                              "hardCodedValue": "HH Inc.",
+                              "internalId": false
+                          },
+                          {
+                              "generate": "comments",
+                              "discardIfEmpty": false,
+                              "immutable": false,
+                              "lookupName": "dynamic_lookup",
+                              "internalId": false
+                          }
+                      ],
+                      "lists": []
+                  }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C23848",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

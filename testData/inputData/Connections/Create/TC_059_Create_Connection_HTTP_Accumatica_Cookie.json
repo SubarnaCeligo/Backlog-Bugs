@@ -1,0 +1,66 @@
+{
+  "expectedJSON":{
+      "type": "http",
+      "name": "Create_Connection_HTTP_Accumatica_Cookie",
+      "sandbox": false,
+      "http": {
+        "formType": "http",
+        "mediaType": "json",
+        "baseURI": "https://6d5eff63dc32.ngrok.io/acumaticadbv1/entity/Default/20.200.001",
+        "ping": {
+          "method": "GET",
+          "relativeURI": "/FinancialPeriod",
+          "failValues": [],
+          "successValues": []
+        },
+        "rateLimit": {
+          "failValues": []
+        },
+        "unencrypted": {
+          "field": "value"
+        },
+        "encrypted": "******",
+        "auth": {
+          "type": "cookie",
+          "failValues": [],
+          "oauth": {
+            "scope": []
+          },
+          "cookie": {
+            "uri": "https://6d5eff63dc32.ngrok.io/acumaticadbv1/entity/auth/login",
+            "body": "{\n  \"name\": \"Celigo-Labs\",\n  \"password\": \"LQtZ1g0U@7\",\n  \"company\": \"Company4\"\n}",
+            "method": "POST",
+            "successStatusCode": 204
+          }
+        }
+      }
+      
+    },
+  
+
+  "importJSON":{
+      "type": "http",
+      "name": "Create_Connection_HTTP_Accumatica_Cookie",
+      "sandbox": false,
+      "http": {
+        "formType": "http",
+        "mediaType": "json",
+        "baseURI": "https://6d5eff63dc32.ngrok.io/acumaticadbv1/entity/Default/20.200.001",
+        "ping": {
+          "method": "GET",
+          "relativeURI": "/FinancialPeriod"
+        },       
+        "encrypted": "******",
+        "auth": {
+          "qa__type": "cookie",
+          "qa__cookie": {
+            "uri": "https://6d5eff63dc32.ngrok.io/acumaticadbv1/entity/auth/login",
+            "body": "{\n  \"name\": \"Celigo-Labs\",\n  \"password\": \"LQtZ1g0U@7\",\n  \"company\": \"Company4\"\n}",
+            "method": "POST",
+            "successStatusCode": 204
+          }
+        }
+      }
+    }
+  }
+

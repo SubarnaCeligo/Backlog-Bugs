@@ -1,0 +1,108 @@
+{
+  "expectedJSON": {
+    "type": "http",
+    "name": "GDrive Connection",
+    "assistant": "googledrive",
+    "offline": false,
+    "sandbox": false,
+    "http": {
+      "formType": "assistant",
+      "mediaType": "json",
+      "baseURI": "https://www.googleapis.com/",
+      "ping": {
+        "failValues": [],
+        "successValues": []
+      },
+      "rateLimit": {
+        "failValues": []
+      },
+      "auth": {
+        "type": "oauth",
+        "failValues": [],
+        "oauth": {
+          "authURI": "https://accounts.google.com/o/oauth2/auth",
+          "tokenURI": "https://accounts.google.com/o/oauth2/token",
+          "scope": [
+            "https://www.googleapis.com/auth/drive",
+            "https://www.googleapis.com/auth/drive.readonly",
+            "https://www.googleapis.com/auth/drive.appfolder",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/drive.install",
+            "https://www.googleapis.com/auth/drive.metadata",
+            "https://www.googleapis.com/auth/drive.metadata.readonly",
+            "https://www.googleapis.com/auth/drive.photos.readonly",
+            "https://www.googleapis.com/auth/drive.scripts",
+            "https://www.googleapis.com/auth/drive.appdata",
+            "https://www.googleapis.com/auth/drive.apps.readonly",
+            "https://www.googleapis.com/auth/drive.activity",
+            "https://www.googleapis.com/auth/drive.activity.readonly"
+          ],
+          "grantType": "authorizecode",
+          "clientCredentialsLocation": "body"
+        },
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "Authorization",
+          "scheme": "Bearer",
+          "refreshToken": "******"
+        }
+      }
+    }
+  },
+  "importJSON": {
+    "type": "http",
+    "name": "GDrive Connection",
+    "assistant": "googledrive",
+    "offline": false,
+    "sandbox": false,
+    "http": {
+      "formType": "assistant",
+      "_iClientId": "61287c175c38332481e8cdb1",
+      "qa__iClientId": "60e5c80cf0c66a604af51df4",
+      "mediaType": "json",
+      "baseURI": "https://www.googleapis.com/",
+      "ping": {
+        "failValues": [],
+        "successValues": []
+      },
+      "rateLimit": {
+        "failValues": []
+      },
+      "auth": {
+        "type": "oauth",
+        "failValues": [],
+        "qa_username": "io.auto.gdrive.qa@celigo.com",
+        "qa_password": "SU9xYUAxMjM0NTY=",
+        "oauth": {
+          "authURI": "https://accounts.google.com/o/oauth2/auth",
+          "tokenURI": "https://accounts.google.com/o/oauth2/token",
+          "scope": [
+            "https://www.googleapis.com/auth/drive",
+            "https://www.googleapis.com/auth/drive.readonly",
+            "https://www.googleapis.com/auth/drive.appfolder",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/drive.install",
+            "https://www.googleapis.com/auth/drive.metadata",
+            "https://www.googleapis.com/auth/drive.metadata.readonly",
+            "https://www.googleapis.com/auth/drive.photos.readonly",
+            "https://www.googleapis.com/auth/drive.scripts",
+            "https://www.googleapis.com/auth/drive.appdata",
+            "https://www.googleapis.com/auth/drive.apps.readonly",
+            "https://www.googleapis.com/auth/drive.activity",
+            "https://www.googleapis.com/auth/drive.activity.readonly"
+          ],
+          "grantType": "authorizecode",
+          "clientCredentialsLocation": "body"
+        },
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "Authorization",
+          "scheme": "Bearer",
+          "refreshToken": "******"
+        }
+      }
+    }
+  }
+}

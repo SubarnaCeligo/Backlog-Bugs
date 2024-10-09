@@ -1,0 +1,50 @@
+{
+  "expectedJSON": {
+    "type": "http",
+    "name": "Omnisend Connection",
+    "assistant": "omnisend",
+    "sandbox": false,
+    "http": {
+      "formType": "assistant",
+      "mediaType": "json",
+      "baseURI": "https://api.omnisend.com/v3",
+      "ping": {
+        "relativeURI": "/contacts",
+        "method": "GET"
+      },
+      "auth": {
+        "type": "token",
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "X-API-KEY"
+        }
+      }
+    }
+  },
+  "importJSON": {
+    "type": "http",
+    "name": "Omnisend Connection",
+    "assistant": "omnisend",
+    "sandbox": false,
+    "http": {
+      "formType": "assistant",
+      "mediaType": "json",
+      "baseURI": "https://api.omnisend.com/v3",
+      "ping": {
+        "relativeURI": "/contacts",
+        "method": "GET"
+      },
+      "auth": {
+        "qa__type": "token",
+        "qa__token": "60b8b09426c804001b0dfd95-3MS4qEDKorBY5X4ZswT0WGE2fcEQIMaPyF7gMeEvGYQ2aWFTJu",
+        "type": "token",
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "X-API-KEY"
+        }
+      }
+    }
+  }
+}

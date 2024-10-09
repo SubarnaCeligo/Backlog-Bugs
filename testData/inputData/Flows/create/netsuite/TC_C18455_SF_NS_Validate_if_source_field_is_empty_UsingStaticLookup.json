@@ -1,0 +1,163 @@
+{
+  "skipRetries": false,
+  "_integrationId": "62834fec26c05c588e38ec62",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+         "_connectionId": "NETSUITE CONNECTION",
+        "distributed": true,
+        "netsuite_da": {
+          "useSS2Restlets": false,
+          "operation": "addupdate",
+          "recordType": "customer",
+          "internalIdLookup": {
+            "expression": "[\"companyname\",\"is\",\"{{{Name}}}\"]",
+              "qa__expression": [["companyname", "is", "{{{Name}}}"]]
+          },
+          "lookups": [
+            {
+              "name": "yErg8",
+              "map": {
+                "Public": "USA",
+                "Private": "Canadian dollar"
+              },
+              "allowFailures": false,
+              "qa__conditional": {
+                "when": "extract_not_empty"
+              }
+            }
+          ],
+          "mapping": {
+            "fields": [
+              {
+                "generate": "companyname",
+                "extract": "Name",
+                "internalId": false
+              },
+              {
+                "generate": "fax",
+                "extract": "Phone",
+                "internalId": false
+              },
+              {
+                "generate": "subsidiary",
+                "discardIfEmpty": false,
+                "immutable": false,
+                "hardCodedValue": "1",
+                "internalId": true
+              },
+              {
+                "generate": "celigo_write_log",
+                "discardIfEmpty": false,
+                "immutable": false,
+                "hardCodedValue": "true",
+                "internalId": false
+              },
+              {
+                "generate": "currency",
+                "extract": "Ownership",
+                "discardIfEmpty": false,
+                "immutable": false,
+                "lookupName": "yErg8",
+                "internalId": false,
+                "conditional": {
+                  "when": "extract_not_empty"
+                }
+              }
+            ],
+            "lists": [
+
+            ]
+          }
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C18455_SF_NS_Validate_if_source_field_is_empty_UsingStaticLookup",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON1": {
+      "companyname": "TC_C18455_Company",
+      "subsidiary": "HH Inc.",
+      "comments": "TC_C18455",
+      "phone": "9858781234"
+    },
+    "importapiIdentifier1": "i3e8e1e472",
+    "importRecordJSON2": {
+      "companyname": "TC_C18455_Company",
+      "Comments": "TC_C18455",
+      "phone": "(985) 878-1234",
+      "Ownership": "Public"
+    },
+    "importapiIdentifier2": "i26dc8dc71",
+    "expected": {
+      "netsuite": {
+        "_integrationId": "62834fec26c05c588e38ec62",
+        "name": "TC_C18455_SF_NS_Validate_if_source_field_is_empty_UsingStaticLookup",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "savedsearchId": "3814",
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "phone": "(985) 878-1234",
+              "fax": "(985) 878-1234",
+              "companyname": "TC_C18455_Company",
+              "comments": "TC_C18455",
+              "currency": [
+                {
+                  "currency": {
+                    "internalid": "1",
+                    "name": "USA"
+                  },
+                  "displaysymbol": "$"
+                }
+              ]
+            }
+          ],
+          "standaloneexportflowID": "62b001a68502f3603ea80076",
+          "uniqueField": "companyname",
+          "isUIFlow": true,
+          "importRecordType": "customer",
+          "exportRecordType": "customer",
+          "exportapiIdentifier": "ef1fc84ad5"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_connectionId": "SALESFORCE CONNECTION",
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "SELECT Id,Name,Ownership,Phone FROM Account WHERE Name = 'TC_C18455_Company' AND Ownership LIKE '%Public%'"
+          },
+          "distributed": {
+            "referencedFields": [],
+            "userDefinedReferencedFields": [],
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ]
+}

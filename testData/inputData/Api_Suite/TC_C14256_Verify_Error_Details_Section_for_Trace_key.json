@@ -1,0 +1,72 @@
+{
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "export",
+        "_connectionId": "ZENDESK CONNECTION",
+        "apiIdentifier": "e307ef6684",
+        "asynchronous": true,
+        "assistant": "zendesk support",
+        "oneToMany": false,
+        "sandbox": false,
+        "assistantMetadata": {
+          "resource": "users_api",
+          "version": "v2",
+          "operation": "show_user"
+        },
+        "http": {
+          "relativeURI": "/api/v2/users/1473313072.json",
+          "method": "GET",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "formType": "assistant",
+          "paging": {
+            "method": "url",
+            "path": "next_page",
+            "lastPageStatusCode": 404
+          },
+          "response": {
+            "resourcePath": "user"
+          }
+        },
+        "rest": {
+          "relativeURI": "/api/v2/users/1473313072.json",
+          "method": "GET",
+          "resourcePath": "user",
+          "pagingMethod": "nextpageurl",
+          "nextPagePath": "next_page",
+          "allowUndefinedResource": false
+        },
+        "qa__assistant": {
+          "pathParams": {
+            "userId": "1473313072"
+          },
+          "resource": "Users",
+          "endpoint": "Show User"
+        },
+        "adaptorType": "RESTExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "import",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "apiIdentifier": "iab4e80c44",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "salesforce": {
+          "operation": "insert",
+          "sObjectType": "AppMenuItem",
+          "api": "soap",
+          "removeNonSubmittableFields": false
+        },
+        "adaptorType": "SalesforceImport"
+      }
+    }
+  ]
+}

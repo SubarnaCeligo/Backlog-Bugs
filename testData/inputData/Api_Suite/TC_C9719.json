@@ -1,0 +1,15 @@
+{
+    "importJSON": {
+        "ftp": {
+            "password": "Test@123456",
+            "port": 21,
+            "hostURI": "qa.ipaas2.net",
+            "qa__password": "d011WklSZhuhDlKcghuhQ==",
+            "usePassiveMode": true,
+            "username": "saikaivalaya@ipaas2.net"
+        },
+        "name": "Test_Connection_FTP",
+        "type": "ftp"
+    },
+    "Actual_Pass": "wMuZIRd9Jq"
+}

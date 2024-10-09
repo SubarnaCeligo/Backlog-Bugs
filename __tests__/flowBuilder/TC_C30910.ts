@@ -15,7 +15,7 @@ test.describe("TC_C30910", () => {
     await io.api.deleteFlowsWithId([flowId]);
   });
 
-  test("@Env-All @Zephyr-IO-T2911 | Able to save the static lookup in DB imports even when the values are not mapped. ", async ({io, page}) => {
+  test("@Env-All @Zephyr-IO-T2911| Able to save the static lookup in DB imports even when the values are not mapped. ", async ({io, page}) => {
     await io.api.createImpOrExpAndFlowsThruAPI(TC);
     flowId = await io.api.getFlowId(TC.name);
     await io.homePage.loadingTime();

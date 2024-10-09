@@ -1,0 +1,25 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "TC_C37028 Connection",
+        "sandbox": false,
+        "http": {
+            "useRestForm": true,
+            "mediaType": "json",
+            "successMediaType": "csv",
+            "baseURI": "http://www.amock.io/api/v1/",
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "admin",
+                    "qa__password": "YWRtaW4=",
+                    "password": "******"
+                }
+            }
+        }
+    }
+}

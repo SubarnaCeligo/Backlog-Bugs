@@ -1,0 +1,238 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "PPImport",
+                "application":"zendesk support",
+                "http": {
+                    "relativeURI": [
+                        "organizations.json"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "formType": "http",
+                    "qa__formType": "rest",
+                    "strictHandlebarEvaluation": true,
+                    "sendPostMappedData": true,
+                    "lookups": [
+                        {
+                            "name": "1bec55ad0bf343fd9176a6ebe8b308b1",
+                            "allowFailures": false,
+                            "map": {
+                                "995511224455": "9985544555"
+                            }
+                        },
+                        {
+                            "extract": "results[0].name",
+                            "method": "GET",
+                            "name": "97e895e94abd4459b573c7b7148f0bf9",
+                            "allowFailures": false,
+                            "relativeURI": "search.json?query=type:user notes:\"autoDlToZendeskWin1252@celigo.com\""
+                        }
+                    ]
+                },
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "Name",
+                            "generate": "organization.name"
+                        },
+                        {
+                            "extract": "Email",
+                            "generate": "organization.notes"
+                        },
+                        {
+                            "extract": "Phone",
+                            "generate": "organization.organization_fields.phone",
+                            "lookupName": "1bec55ad0bf343fd9176a6ebe8b308b1"
+                        },
+                        {
+                            "extract": "sublists.sublist.BillingAddress",
+                            "generate": "organization.organization_fields.billing_address_1"
+                        },
+                        {
+                            "extract": "sublists.sublist.BillingCity",
+                            "generate": "organization.organization_fields.billing_city"
+                        },
+                        {
+                            "extract": "sublists.sublist.BillingCountry",
+                            "generate": "organization.organization_fields.billing_country"
+                        },
+                        {
+                            "extract": "sublists.sublist.BillingZip",
+                            "generate": "organization.organization_fields.billing_zip"
+                        },
+                        {
+                            "extract": "sublists.sublist.ShippingAddress",
+                            "generate": "organization.organization_fields.shipping_address_1"
+                        },
+                        {
+                            "extract": "sublists.sublist.ShippingCity",
+                            "generate": "organization.organization_fields.shipping_city"
+                        },
+                        {
+                            "extract": "sublists.sublist.ShippingCOuntry",
+                            "generate": "organization.organization_fields.shipping_country"
+                        },
+                        {
+                            "extract": "sublists.sublist.ShippingZip",
+                            "generate": "organization.organization_fields.shipping_zipcode"
+                        },
+                        {
+                            "extract": "recordType",
+                            "generate": "organization.organization_fields.billing_state",
+                            "lookupName": "97e895e94abd4459b573c7b7148f0bf9"
+                        }
+                    ]
+                },
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "adaptorType": "HTTPImport",
+                "parsers": [],
+                "lookups": [
+                    {
+                        "name": "0b11249926934485bebf441e53a68b6c",
+                        "map": {
+                            "995511224455": "9985544555"
+                        },
+                        "allowFailures": false
+                    },
+                    {
+                        "name": "be5e6eef1d474636888a23e16f6ee467",
+                        "relativeURI": "search.json?query=type:user notes:\"autoDlToZendeskWin1252@celigo.com\"",
+                        "method": "GET",
+                        "extract": "results[0].name",
+                        "allowFailures": false
+                    }
+                ],
+                "distributed": false
+            }
+        }
+    ],
+    "name": "168.DL_Xml_To_Zendesk_Org_Win_1252",
+    "disabled": false,
+    "qa__dataVerification": {
+        "UpdateRecordJSON": {
+            "notes": "autoDlToZendeskWin1252@celigo.com",
+            "name": "Auto@21ZD2SFUpdateIgnore#2"
+        },
+        "update_importapiIdentifier": "i3df2577a8",
+        "update_Record": "users",
+        "expected": {
+            "zendesk": {
+                "qa__dataVerification": {
+                    "generateSampleDropDownAvailable": false,
+                    "expectedJSON": {
+                        "organization_fields": {
+                            "billing_city": "Hyderabad",
+                            "shipping_zipcode": "500061",
+                            "billing_state": "Auto@21ZD2SFUpdateIgnore#2",
+                            "phone": "9985544555",
+                            "shipping_city": "Secunderabad",
+                            "billing_country": "India",
+                            "billing_zip": "500081",
+                            "shipping_address_1": "168Shipping Address",
+                            "shipping_country": "India"
+                        },
+                        "notes": "168dl2zdorg@mail.com",
+                        "name": "Auto@168.DL_Xml_To_Zendesk_Org_Win_1252"
+                    },
+                    "uniqueField": "name",
+                    "standaloneexportflowID": "57aad5298ec9f8804906006d",
+                    "importRecordType": "organizations",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "edb8215601"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "PGExport",
+                "transform": {
+                    "rules": [
+                        [
+                            {
+                                "extract": "Email[0]._",
+                                "generate": "Email"
+                            },
+                            {
+                                "extract": "Name[0]._",
+                                "generate": "Name"
+                            },
+                            {
+                                "extract": "Phone[0]._",
+                                "generate": "Phone"
+                            },
+                            {
+                                "extract": "comments",
+                                "generate": "comments"
+                            },
+                            {
+                                "extract": "recordType[0]._",
+                                "generate": "recordType"
+                            },
+                            {
+                                "extract": "sublists[0].sublist[0].BillingAddress[0]._",
+                                "generate": "sublists.sublist.BillingAddress"
+                            },
+                            {
+                                "extract": "sublists[0].sublist[0].BillingCity[0]._",
+                                "generate": "sublists.sublist.BillingCity"
+                            },
+                            {
+                                "extract": "sublists[0].sublist[0].BillingCountry[0]._",
+                                "generate": "sublists.sublist.BillingCountry"
+                            },
+                            {
+                                "extract": "sublists[0].sublist[0].BillingZip[0]._",
+                                "generate": "sublists.sublist.BillingZip"
+                            },
+                            {
+                                "extract": "sublists[0].sublist[0].ShippingAddress[0]._",
+                                "generate": "sublists.sublist.ShippingAddress"
+                            },
+                            {
+                                "extract": "sublists[0].sublist[0].ShippingCOuntry[0]._",
+                                "generate": "sublists.sublist.ShippingCOuntry"
+                            },
+                            {
+                                "extract": "sublists[0].sublist[0].ShippingCity[0]._",
+                                "generate": "sublists.sublist.ShippingCity"
+                            },
+                            {
+                                "extract": "sublists[0].sublist[0].ShippingZip[0]._",
+                                "generate": "sublists.sublist.ShippingZip"
+                            }
+                        ]
+                    ],
+                    "version": "1"
+                },
+                "file": {
+                    "xml": {
+                        "resourcePath": "/data"
+                    },
+                    "encoding": "win1252",
+                    "type": "xml"
+                },
+                "asynchronous": true,
+                "dataURITemplate": "{{{Name}}}",
+                "qa__path": "/Dataloader_uploades/168DL_Xml_To_Zendesk_Org_Win_1252.xml",
+                "type": "simple",
+                "qa__isDataLoader": "xml",
+                "adaptorType": "SimpleExport"
+            }
+        }
+    ]
+}

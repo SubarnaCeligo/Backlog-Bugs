@@ -1,0 +1,29 @@
+{
+    "expectedJSON": {
+        "ftp": {
+            "password": "******",
+            "port": 990,
+            "useImplicitFtps": true,
+            "hostURI": "ftp.drivehq.com",
+            "type": "ftps",
+            "usePassiveMode": true,
+            "username": "Anushaqa"
+        },
+        "name": "Create_Connection_FTPS_Implicit",
+        "type": "ftp"
+    },
+    "importJSON": {
+        "ftp": {
+            "password": "Test@123456",
+            "port": 990,
+            "type": "ftps",
+            "useImplicitFtps": true,
+            "hostURI": "ftp.drivehq.com",
+            "qa__password": "VGVzdEAxMjM0NTY=",
+            "usePassiveMode": true,
+            "username": "Anushaqa"
+        },
+        "name": "Create_Connection_FTPS_Implicit",
+        "type": "ftp"
+    }
+}

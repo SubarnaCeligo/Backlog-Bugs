@@ -1,0 +1,77 @@
+{
+    "name": "TC_C30561_ErrorHandle_DepositApplication_InvalidDepositeID_CreatedFrom",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "0",
+      "errorCount": "1"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "NS_Deposite Application",
+            "_connectionId": "NETSUITE CONNECTION",
+            "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "depositapplication",
+                "lookups": [],
+                "mapping": {
+                    "fields": [
+                        {
+                            "generate": "deposit",
+                            "extract": "ApplicationOf",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "customer",
+                            "extract": "customer",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "subsidiary",
+                            "extract": "subsidiary",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "trandate",
+                            "extract": "Date",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "celigo_nlobjTransformId",
+                            "extract": "DepositID",
+                            "internalId": false
+                        }
+                    ],
+                    "lists": []
+                }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+        }
+      }
+    ],
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "adaptorType": "FTPExport",
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "TC_C30561_ErrorHandle_DepositApplication_InvalidDepositeID_CreatedFrom.json"
+          },
+          "file": {
+            "output": "records",
+            "encoding": "utf8",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "_connectionId": "FTP CONNECTION",
+          "qa__path": "//FTP_uploads//TC_C30561_ErrorHandle_DepositApplication_InvalidDepositeID_CreatedFrom.json"
+        }
+      }
+    ]
+  }

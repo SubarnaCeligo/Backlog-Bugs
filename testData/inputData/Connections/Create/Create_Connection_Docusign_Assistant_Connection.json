@@ -1,0 +1,64 @@
+{
+  "expectedJSON": {
+    "http": {
+      "mediaType": "json",
+      "baseURI": "https://demo.docusign.net/restapi/v2",
+      "unencrypted": {
+        "version": "v2"
+      },
+      "auth": {
+        "type": "oauth",
+        "oauth": {
+          "authURI": "https://account-d.docusign.com/oauth/auth",
+          "tokenURI": "https://account-d.docusign.com/oauth/token"
+        }
+      }
+    },
+    "rest": {
+      "baseURI": "https://demo.docusign.net/restapi/v2",
+      "mediaType": "json",
+      "authType": "oauth",
+      "authURI": "https://account-d.docusign.com/oauth/auth",
+      "oauthTokenURI": "https://account-d.docusign.com/oauth/token",
+      "headers": [],
+      "encryptedFields": [],
+      "unencrypted": {
+        "version": "v2"
+      },
+      "unencryptedFields": [],
+      "scope": [],
+      "refreshTokenMethod": "POST",
+      "refreshTokenMediaType": "urlencoded",
+      "refreshTokenHeaders": []
+    },
+    "assistant": "docusign",
+    "name": "Create_Connection_Docusign_Assistant",
+    "isHTTP": true,
+    "type": "rest"
+  },
+  "importJSON": {
+    "http": {
+      "headers": [],
+      "oauthTokenURI": "https://account-d.docusign.com/oauth/token",
+      "unencryptedFields": [],
+      "qa__username": "celigo-labs@celigo.com",
+      "qa__password": "MypUJGxSa28qQjZr",
+      "mediaType": "json",
+      "encryptedFields": [],
+      "refreshTokenHeaders": [],
+      "unencrypted": {
+        "accountId": "ce977fe0-e1b1-4bbf-870a-8f180ccad5d9",
+        "version": "v2"
+      },
+      "authURI": "https://account-d.docusign.com/oauth/auth",
+      "concurrencyLevel": 4,
+      "qa__environment": "demo",
+      "baseURI": "https://demo.docusign.net/restapi/v2",
+      "scope": [],
+      "authType": "oauth"
+    },
+    "assistant": "docusign",
+    "name": "Create_Connection_Docusign_Assistant",
+    "type": "http"
+  }
+}

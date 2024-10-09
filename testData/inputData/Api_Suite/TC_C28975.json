@@ -1,0 +1,99 @@
+{
+    "name": "TC_C28975_C28976_Flow",
+    "referencename": "TC_C28975_C28976_Flow",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "Export",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "e47706eafb",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "632c07e0a3bd4367025fbd85e6b3f5f46dc34f1aa85ffa0062647f64",
+                "test": {
+                    "limit": 1
+                },
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "soql": {
+                        "query": "select name from account"
+                    }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "Ftp Import",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "ic4682b739",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "fileName": "Ftp.json",
+                    "skipAggregation": false,
+                    "type": "json"
+                },
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO%20Automation%20SFTP%20Imports",
+                    "fileName": "Ftp.json"
+                },
+                "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C28975_C28976_Flow",
+          "disabled": false,
+          "_integrationId": "6333054cca06597ef0aaa8f0",
+          "qa__integrationId": "6332d4e0b2be184f096c108c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ],
+    "Body": {
+        "_integrationIds": [
+            "6332d4e0b2be184f096c108c",
+            "6332d4e0b2be184f096c108c"
+        ]
+    },
+    "Body2": {
+        "_integrationIds": [
+            "6333054cca06597ef0aaa8f0",
+            "6333054cca06597ef0aaa8f0"
+        ]
+    },
+    "Body1": {
+        "_flowIds": [
+            "",
+            ""
+        ]
+    },
+    "Body3": {
+        "createdOnAndAfter":"2020-09-15T10:01:08.064Z"
+        }
+  }

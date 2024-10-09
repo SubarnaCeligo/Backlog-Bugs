@@ -1,0 +1,14 @@
+{
+    "Body": {
+        "recordtype" : "customer",
+        "name": "TC_893",
+        "email" : "dhilip.s@celigo.com",
+        "phone" : "8438515089"
+    },
+    "Header": {
+        "scriptId": "customscript_ife_create_record_rl",
+        "deployID": "customdeploy_ife_create_record_rl"
+    },
+    "QA_apiIdentifier": "e44c9ff631",
+    "Stage_apiIdentifier": "e9799f3fec"
+}

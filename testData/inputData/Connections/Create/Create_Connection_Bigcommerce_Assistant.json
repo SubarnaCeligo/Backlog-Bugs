@@ -1,0 +1,84 @@
+{
+    "expectedJSON": {
+        "type": "rest",
+        "name": "Create_Connection_Bigcommerce_Assistant",
+        "assistant": "bigcommerce",
+        "isHTTP": true,
+        "http": {
+            "mediaType": "json",
+            "baseURI": "https://api.bigcommerce.com/stores/g3uzz5c7jx",
+            "ping": {
+                "relativeURI": "/v2/store",
+                "method": "GET",
+                "successPath": "id"
+            },
+            "headers": [{
+                "name": "X-Auth-Client",
+                "value": "2tsh8usxjxifmn717httvjgdr1b8sid"
+            }],
+            "unencrypted": {
+                "clientId": "2tsh8usxjxifmn717httvjgdr1b8sid"
+            },
+            "auth": {
+                "type": "token",
+                "token": {
+                    "token": "******",
+                    "location": "header",
+                    "headerName": "X-Auth-Token",
+                    "scheme": " "
+                }
+            }
+        },
+        "rest": {
+            "baseURI": "https://api.bigcommerce.com/stores/g3uzz5c7jx",
+            "bearerToken": "******",
+            "tokenLocation": "header",
+            "mediaType": "json",
+            "authType": "token",
+            "authHeader": "X-Auth-Token",
+            "authScheme": " ",
+            "headers": [{
+                "name": "X-Auth-Client",
+                "value": "2tsh8usxjxifmn717httvjgdr1b8sid"
+            }],
+            "encryptedFields": [],
+            "unencrypted": {
+                "clientId": "2tsh8usxjxifmn717httvjgdr1b8sid"
+            },
+            "unencryptedFields": [],
+            "scope": [],
+            "pingRelativeURI": "/v2/store",
+            "pingSuccessPath": "id",
+            "pingMethod": "GET",
+            "concurrencyLevel": 5,
+            "refreshTokenHeaders": []
+        }
+    },
+    "importJSON": {
+        "http": {
+            "headers": [{
+                "name": "X-Auth-Client",
+                "value": "2tsh8usxjxifmn717httvjgdr1b8sid"
+            }],
+            "unencryptedFields": [],
+            "qa__storeHash": "ZzN1eno1YzdqeA==",
+            "tokenLocation": "header",
+            "mediaType": "json",
+            "qa__clientID": "MnRzaDh1c3hqeGlmbW43MTdodHR2amdkcjFiOHNpZA==",
+            "encryptedFields": [],
+            "authHeader": "X-Auth-Token",
+            "qa__bearerToken": "M213enlwZzllNmlxeXh1bmhhazh5YzFoNWpjZmg5ZA==",
+            "concurrencyLevel": 5,
+            "bearerToken": "******",
+            "baseURI": "https://api.bigcommerce.com/stores/g3uzz5c7jx",
+            "scope": [],
+            "pingRelativeURI": "/v2/store",
+            "authType": "token",
+            "authScheme": " ",
+            "pingSuccessPath": "id"
+        },
+        "assistant": "bigcommerce",
+        "name": "Create_Connection_Bigcommerce_Assistant",
+        "type": "http"
+    }
+}

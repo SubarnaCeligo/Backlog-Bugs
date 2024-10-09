@@ -1,0 +1,30 @@
+{
+    "expectedJSON": {
+        "type": "rdbms",
+        "name": "Create_Connection_Snowflake",
+        "rdbms": {
+            "type": "snowflake",
+            "host": "celigo_partner",
+            "database": "QA_Automation",
+            "user": "DEVQA",
+            "snowflake": {
+                "warehouse": "QA_Warehouse"
+            },
+            "password": "******",
+            "qa__password": "******"
+        }
+    },
+    "importJSON": {
+        "type": "rdbms",
+        "name": "Create_Connection_Snowflake",
+        "rdbms": {
+            "type": "snowflake",
+            "host": "celigo_partner",
+            "database": "QA_Automation",
+            "user": "DEVQA",
+            "warehouse": "QA_Warehouse",
+            "password": "******",
+            "qa__password": "JlVkWTUjWEtJMkkhN2RJaQ=="
+        }
+    }
+}

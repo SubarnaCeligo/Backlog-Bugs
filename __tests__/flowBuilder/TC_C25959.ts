@@ -67,7 +67,6 @@ test.describe("TC_C25959| TC_C2576| TC_C2577| TC_C27335| TC_C27332", () => {
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.LOOKUP);
     await io.homePage.loadingTime();
-    await page.pause();
 
     await io.homePage.click(
       selectors.mappings.MAPPER2DOT0PO.ADVANCED

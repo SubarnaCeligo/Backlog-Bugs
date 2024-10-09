@@ -1,0 +1,63 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "Yotpo",
+        "assistant": "yotpo",
+        "http": {
+            "mediaType": "json",
+            "baseURI": "https://api.yotpo.com",
+            "ping": {
+                "method": "GET"
+            },
+            "unencrypted": {
+                "clientId": "mi6v4l6b4bzUvCjogQEHEg8JINEutZHn9TuUZHKt"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "token",
+                "token": {
+                    "token": "******",
+                    "location": "url",
+                    "paramName": "utoken",
+                    "refreshMethod": "POST",
+                    "refreshRelativeURI": "https://api.yotpo.com/oauth/token",
+                    "refreshBody": "{ \"client_id\": \"{{{connection.http.unencrypted.clientId}}}\", \"client_secret\": \"{{{connection.http.encrypted.clientSecret}}}\", \"grant_type\": \"client_credentials\" }",
+                    "refreshMediaType": "json"
+                }
+            }
+        }
+    },
+    "importJSON": {
+        "type": "http",
+        "name": "Yotpo",
+        "assistant": "yotpo",
+        "http": {
+            "qa__type": "token",
+            "qa__clientID": "mi6v4l6b4bzUvCjogQEHEg8JINEutZHn9TuUZHKt",
+            "qa__clientsecret": "OTOUSrg1fdmijcJZez5n2zTh8D3lwWg5i63s1AOB",
+
+            "mediaType": "json",
+            "baseURI": "https://api.yotpo.com",
+            "ping": {
+                "relativeURI": "/v1/apps/mi6v4l6b4bzUvCjogQEHEg8JINEutZHn9TuUZHKt/reviews",
+                "method": "GET"
+            },
+            "unencrypted": {
+                "clientId": "mi6v4l6b4bzUvCjogQEHEg8JINEutZHn9TuUZHKt"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "token",
+                "token": {
+                      "token": "******",
+                    "location": "url",
+                    "paramName": "utoken",
+                    "refreshMethod": "POST",
+                    "refreshRelativeURI": "https://api.yotpo.com/oauth/token",
+                    "refreshBody": "{ \"client_id\": \"{{{connection.http.unencrypted.clientId}}}\", \"client_secret\": \"{{{connection.http.encrypted.clientSecret}}}\", \"grant_type\": \"client_credentials\" }",
+                    "refreshMediaType": "json"
+                }
+            }
+        }
+    }
+}

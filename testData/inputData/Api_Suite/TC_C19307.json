@@ -1,0 +1,22 @@
+{
+  "staging_connectionId": "FTP CONNECTION",
+  "qa__path": "/FTP_uploads/TC_C36518.json",
+  "export": {
+    "name": "FTP EXPORT",
+    "_connectionId": "FTP CONNECTION",
+    "apiIdentifier": "e094154547",
+    "asynchronous": true,
+    "sandbox": false,
+    "ftp": {
+      "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+      "fileNameStartsWith": "TC_C36518"
+    },
+    "file": {
+      "encoding": "utf8",
+      "output": "records",
+      "skipDelete": true,
+      "type": "json"
+    },
+    "adaptorType": "FTPExport"
+  }
+}

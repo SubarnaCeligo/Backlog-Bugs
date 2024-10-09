@@ -1,0 +1,131 @@
+{
+  "Body1": {
+    "name": "Import_CustomValue",
+    "application":"zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "apiIdentifier": "i2bb54a390",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "lookups": [
+      {
+        "method": "GET",
+        "relativeURI": "/tickets",
+        "extract": "/test",
+        "allowFailures": true,
+        "default": "ABCD",
+        "name": "sample",
+        "useImportHeaders": true
+      }
+    ],
+    "http": {
+      "relativeURI": ["/v2/tickets.json"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http",
+      "lookups": [
+        {
+          "method": "GET",
+          "relativeURI": "/tickets",
+          "extract": "/test",
+          "allowFailures": true,
+          "default": "ABCD",
+          "name": "sample",
+          "useImportHeaders": true
+        }
+      ]
+    },
+    "adaptorType": "HTTPImport"
+  },
+  "Body2": {
+    "name": "Import_null",
+    "application":"zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "apiIdentifier": "i2bb54a390",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "lookups": [
+      {
+        "method": "GET",
+        "relativeURI": "/tickets",
+        "extract": "/test",
+        "allowFailures": true,
+        "default": null,
+        "name": "sample",
+        "useImportHeaders": true
+      }
+    ],
+    "http": {
+      "relativeURI": ["/v2/tickets.json"],
+      "method": ["POST"],
+      "body": [],
+      "batchSize": 1,
+      "sendPostMappedData": true,
+      "formType": "http",
+      "lookups": [
+        {
+          "method": "GET",
+          "relativeURI": "/tickets",
+          "extract": "/test",
+          "allowFailures": true,
+          "default": null,
+          "name": "sample",
+          "useImportHeaders": true
+        }
+      ]
+    },
+    "adaptorType": "HTTPImport"
+  },
+  "Body3":{
+    "name": "Import_Empty",
+    "application":"zendesk support",
+    "_connectionId": "HTTP ZENDESK CONNECTION",
+    "apiIdentifier": "i2bb54a390",
+    "ignoreExisting": false,
+    "ignoreMissing": false,
+    "oneToMany": false,
+    "sandbox": false,
+    "lookups": [
+        {
+            "method": "GET",
+            "relativeURI": "/tickets",
+            "extract": "/test",
+            "allowFailures": true,
+            "default": "",
+            "name": "sample",
+            "useImportHeaders": true
+        }
+    ],
+    "http": {
+        "relativeURI": [
+            "/v2/tickets.json"
+        ],
+        "method": [
+            "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "sendPostMappedData": true,
+        "formType": "http",
+        "lookups": [
+            {
+                "method": "GET",
+                "relativeURI": "/tickets",
+                "extract": "/test",
+                "allowFailures": true,
+                "default": "",
+                "name": "sample",
+                "useImportHeaders": true
+            }
+        ]
+    },
+    "adaptorType": "HTTPImport"
+  },
+  "stag_Conn": "HTTP ZENDESK CONNECTION"
+
+}

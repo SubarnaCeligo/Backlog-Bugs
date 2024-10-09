@@ -1,0 +1,136 @@
+{
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C2623_Add_Two_Exports_Listener_And_Batch",
+  "disabled": false,
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "8",
+    "errorCount": "0"
+  },
+
+  "connectionId": "NETSUITE CONNECTION",
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "TC_721_Export",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "type": "distributed",
+        "parsers": [],
+        "distributed": {
+          "bearerToken": "******"
+        },
+        "netsuite": {
+          "type": "distributed",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "restlet": {
+            "criteria": [],
+            "columns": []
+          },
+          "distributed": {
+            "executionContext": [
+              "userinterface",
+              "webservices",
+              "csvimport",
+              "suitelet",
+              "custommassupdate",
+              "userevent",
+              "webapplication"
+            ],
+            "executionType": [
+              "create",
+              "edit",
+              "xedit"
+            ],
+            "recordType": "creditcardrefund",
+            "sublists": [
+              "expense"
+            ],
+            "qualifier": [
+              "memo",
+              "contains",
+              "Export_RealTime_CCRefund"
+            ],
+            "qa__qualifier": [
+              "Memo",
+              "contains",
+              "Export_RealTime_CCRefund"
+            ]
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "ftp import",
+        "_connectionId": "FTP CONNECTION",
+        "distributed": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Name",
+              "generate": "Name"
+            },
+            {
+              "extract": "Phone",
+              "generate": "Phone"
+            }
+          ]
+        },
+        "file": {
+          "type": "csv",
+          "csv": {
+            "rowDelimiter": "\n",
+            "columnDelimiter": ",",
+            "includeHeader": true,
+            "wrapWithQuotes": false,
+            "replaceTabWithSpace": false,
+            "replaceNewlineWithSpace": false,
+            "truncateLastRowDelimiter": false
+          }
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_C2623_Add_Two_Exports_Listener_And_Batch.csv"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "name": "NS_Export_MultiFIlter_To_FTP_All",
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "fileName": "TC_C2623_Add_Two_Exports_Listener_And_Batch",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".csv",
+          "qa__columnDelimiter": ","
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "4",
+          "errorCount": "0"
+        },
+        "import": {
+          "_connectionId": "FTP CONNECTION",
+          "file": {
+            "csv": {
+              "columnDelimiter": ","
+            }
+          }
+        }
+      }
+    }
+  }
+}

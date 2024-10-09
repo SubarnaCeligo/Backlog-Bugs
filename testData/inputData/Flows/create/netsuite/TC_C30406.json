@@ -1,0 +1,248 @@
+{
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "createData": {
+    "importId": "5d3ac9876de47446759e6229",
+    "importapiIdentifier": "i778688317",
+    "importRecordJSON": {
+      "Name": "TC_C30406",
+      "Subsidiary_Name": "HH Inc.",
+      "Email": "TC_C30406@auto.com",
+      "BillingAddress": "Auto_address",
+      "BillingCity": "Auto_city",
+      "BillingState": "Auto_state",
+      "BillingCountry": "India"
+    },
+    "application":"SALESFORCE",
+    "importapidoc": {
+      "_id": "5d3ac9876de47446759e6229",
+      "createdAt": "2019-07-26T09:36:07.704Z",
+      "lastModified": "2022-10-11T05:27:08.606Z",
+      "name": "TC_C30406_DND",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "i778688317",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "Name",
+            "generate": "Name"
+          },
+          {
+            "extract": "Subsidiary_Name",
+            "generate": "Subsidiary_Name__c"
+          },
+          {
+            "extract": "Email",
+            "generate": "Email__c"
+          },
+          {
+            "extract": "BillingAddress",
+            "generate": "BillingAddress"
+          },
+          {
+            "extract": "BillingCity",
+            "generate": "BillingCity"
+          },
+          {
+            "extract": "BillingState",
+            "generate": "BillingState"
+          },
+          {
+            "extract": "BillingCountry",
+            "generate": "BillingCountry"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "companyname": "TC_C30406",
+              "email": "TC_C30406@auto.com",
+              "subsidiary": {
+                "internalid": "3",
+                "name": "HH Inc."
+              },
+              "_shipping_addressbook": {
+                "addressbookaddress_text": "Auto_city Auto_state \nIndia",
+                "country": {
+                  "internalid": "IN",
+                  "name": "India"
+                },
+                "city": "Auto_city",
+                "state": "Auto_state",
+                "addrtext": "Auto_city Auto_state \nIndia"
+              }
+            }
+          ],
+          "importRecordType": "customer",
+          "exportRecordType": "Account",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "6344fd0bf3f4fa5d9fda7ce6",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e0f8bccef0"
+        }
+      }
+    }
+  },
+  "flowsData": {
+    "name": "TC_C30406",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "SF Listener",
+              "_connectionId": "SALESFORCE CONNECTION",
+              "apiIdentifier": "e27a180b52",
+              "asynchronous": true,
+              "type": "distributed",
+              "oneToMany": false,
+              "sandbox": false,
+              "distributed": {
+                "bearerToken": "******"
+              },
+              "salesforce": {
+                "sObjectType": "Account",
+                "distributed": {
+                  "disabled": false,
+                  "qualifier": "Name = 'TC_C30406'"
+                }
+              },
+              "adaptorType": "SalesforceExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "ia6e4b0823",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "companyname",
+                      "extract": "Name",
+                      "internalId": false
+                    },
+                    {
+                      "generate": "subsidiary",
+                      "extract": "Subsidiary_Name__c",
+                      "internalId": false
+                    },
+                    {
+                      "generate": "email",
+                      "extract": "Email__c",
+                      "internalId": false
+                    }
+                  ],
+                  "lists": [
+                    {
+                      "generate": "_shipping_addressbook",
+                      "fields": [
+                        {
+                          "generate": "addressee",
+                          "extract": "BillingAddress",
+                          "internalId": false
+                        },
+                        {
+                          "generate": "city",
+                          "extract": "BillingCity",
+                          "internalId": false
+                        },
+                        {
+                          "generate": "state",
+                          "extract": "BillingState",
+                          "internalId": false
+                        },
+                        {
+                          "generate": "country",
+                          "extract": "BillingCountry",
+                          "internalId": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C30406",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "entityid": "TC_C52062",
+              "subsidiary": {
+                "internalid": "3",
+                "name":"HH Inc."
+              }
+            }
+          ],
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63456c9e0eeae84271aa8282",
+          "importRecordType": "genericresource",
+          "exportRecordType": "genericresource",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ef9cbf61e0"
+        }
+      }
+    }
+  },
+  "flowsData": {
+    "name": "TC_C52062",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e11d77d0ff",
+              "asynchronous": true,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C30564",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NetSuite Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "i35c95c2d9",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "add",
+                  "recordType": "genericresource",
+                  "internalIdLookup": {
+                      "expression": "[\"entityid\",\"is\",\"TC_C52062\"]"
+                  },
+                  "lookups": [],
+                  "mapping": {
+                      "fields": [
+                          {
+                              "generate": "entityid",
+                              "hardCodedValue": "TC_C52062",
+                              "internalId": false
+                          },
+                          {
+                              "generate": "subsidiary",
+                              "hardCodedValue": "HH Inc.",
+                              "internalId": false
+                          }
+                      ],
+                      "lists": []
+                  }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C52062",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

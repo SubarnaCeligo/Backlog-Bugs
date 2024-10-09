@@ -47,7 +47,6 @@ test.describe("TC_C27340", () => {
     expectedTracekey = expectedTracekey.replace(/[\\"]/g, "");
     expectedTracekey = expectedTracekey.slice(0, -1);
     console.log("Expected Tracekey: ", expectedTracekey);
-    await page.pause();
     await io.homePage.click(
       selectors.basePagePO.CLOSE_RIGHT_DRAWER
     );
@@ -70,7 +69,6 @@ test.describe("TC_C27340", () => {
     console.log("Recent Tracekey: ", recentTraceKey);
     console.log("Custom Tracekey: ", customTraceKey);
     console.log("recent data", recentData);
-    await page.pause();
 
     expect(recentTraceKey).toContain(expectedTracekey);
     expect(customTraceKey).toContain(expectedTracekey);

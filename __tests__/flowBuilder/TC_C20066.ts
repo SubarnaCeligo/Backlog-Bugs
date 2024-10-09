@@ -202,7 +202,7 @@ test.describe("TC_C20066", () => {
   test("@Env-All @Zephyr-IO-T2995", async ({ io, page }) => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     test.step("***Navigated To Home Page***", async () => { });
-    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     expect(await page.locator(selectors.homePagePO.TILE_VIEW).isVisible()).toBeTruthy();
     expect(await page.locator(selectors.homePagePO.LIST_VIEW).isVisible()).toBeTruthy();
   });

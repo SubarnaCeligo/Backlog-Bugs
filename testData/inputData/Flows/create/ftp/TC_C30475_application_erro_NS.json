@@ -1,0 +1,84 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "qa__isEdit": true,
+        "type": "import",
+        "qa__import": {
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "i7366aae87",
+            "ignoreExisting": true,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "update",
+                "recordType": "account",
+                "internalIdLookup": {
+                    "expression": "[\"internalidnumber\",\"equalto\",\"114578789\"]",
+                    "qa__expression":[
+                        [
+                            "internalidnumber",
+                            "equalto",
+                            "114578789"
+                        ]
+                    ]
+                },
+                "lookups": [],
+                "mapping": {
+                    "fields": [
+                        {
+                            "generate": "comments",
+                            "discardIfEmpty": false,
+                            "immutable": false,
+                            "hardCodedValue": "Abcd123",
+                            "internalId": false
+                        }
+                    ],
+                    "lists": []
+                }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C30475_verification_of_error_NS",
+    "disabled": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "NS_Creating_Customer",
+          "_connectionId": "FTP CONNECTION",
+          "qa__path": "/FTP_uploads/TC_C14518.json",
+          "asynchronous": true,
+          "sandbox": false,
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "TC_C14518",
+            "fileNameEndsWith": ".json"
+          },
+          "file": {
+            "output": "records",
+            "encoding": "utf8",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ]
+  }

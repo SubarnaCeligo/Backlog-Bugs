@@ -31,7 +31,6 @@ test.describe("@Env-All @Zephyr-IO-T2762", () => {
     );
     await io.homePage.loadingTime();
     test.step("** Fetched Preview result. **", async ()=>{});
-await page.pause();
     await io.homePage.click(selectors.mappings.DEFAULT_MAPPING_TYPE.SOURCE_RECORD_FIELD_4);
     await page.keyboard.type("Qty");
     await io.homePage.loadingTime();

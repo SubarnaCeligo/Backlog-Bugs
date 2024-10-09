@@ -54,7 +54,6 @@ test.describe("TC_C23016_C19866", () => {
     await io.homePage.click(
       selectors.basePagePO.RUNFLOW
     );
-    await page.pause();
     await io.homePage.click(selectors.flowBuilderPagePO.AUTOMATIC_DATA_TEST);
     var time = await page.locator(selectors.flowBuilderPagePO.TIME_CUSTOMSETTINGS + ">div>div>input");
     var timeAutomaticDelta = await time.getAttribute('value');

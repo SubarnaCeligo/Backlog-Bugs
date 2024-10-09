@@ -1,0 +1,484 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "6",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "PPImport",
+        "_connectionId": "NETSUITE CONNECTION",
+        "adaptorType": "NetSuiteDistributedImport",
+        "lookups": [
+          {
+            "name": "03480935db6b42ff930bca1eecb6121b",
+            "recordType": "customer",
+            "allowFailures": true,
+            "resultField": "companyname",
+            "default": "Default Customer",
+            "useDefaultOnMultipleMatches": true,
+            "expression": "[\"companyname\",\"is\",\"{{{Customer}}}\"]"
+          },
+          {
+            "name": "121ebb9e2cf947f29d1eb8e95adfe748",
+            "allowFailures": true,
+            "default": "Default Static Value",
+            "map": {
+              "CE": "Celigo",
+              "INT": "Integrator"
+            }
+          }
+        ],
+        "distributed": true,
+        "netsuite_da": {
+          "lookups": [
+            {
+              "default": "Default Customer",
+              "useDefaultOnMultipleMatches": true,
+              "expression": "[\"companyname\",\"is\",\"{{{Customer}}}\"]",
+              "recordType": "customer",
+              "name": "47f5aac27fb94e369ec17839d1275ddc",
+              "qa__expression": [
+                [
+                  "companyname",
+                  "is",
+                  "Customer"
+                ]
+              ],
+              "resultField": "companyname",
+              "allowFailures": true
+            },
+            {
+              "default": "Default Static Value",
+              "name": "2bd62b2e297d4f61914e5d52ae8c8f65",
+              "allowFailures": true,
+              "map": {
+                "CE": "Celigo",
+                "INT": "Integrator"
+              }
+            }
+          ],
+          "mapping": {
+            "lists": [
+              {
+                "fields": [
+                  {
+                    "extract": "['Address 1']",
+                    "dataType": "string",
+                    "discardIfEmpty": true,
+                    "generate": "addr1",
+                    "internalId": false
+                  },
+                  {
+                    "discardIfEmpty": true,
+                    "extract": "['Address 2']",
+                    "generate": "addr2",
+                    "internalId": false
+                  },
+                  {
+                    "discardIfEmpty": true,
+                    "extract": "['Address City']",
+                    "generate": "city",
+                    "internalId": false
+                  },
+                  {
+                    "discardIfEmpty": true,
+                    "extract": "['Address State']",
+                    "generate": "state",
+                    "internalId": false
+                  },
+                  {
+                    "internalId": true,
+                    "hardCodedValue": "Australia",
+                    "generate": "country"
+                  }
+                ],
+                "generate": "addressbook"
+              }
+            ],
+            "fields": [
+              {
+                "internalId": false,
+                "discardIfEmpty": true,
+                "extract": "['Contact']",
+                "generate": "entityid"
+              },
+              {
+                "internalId": false,
+                "extract": "['Customer']",
+                "generate": "company",
+                "lookupName": "47f5aac27fb94e369ec17839d1275ddc"
+              },
+              {
+                "internalId": false,
+                "discardIfEmpty": true,
+                "extract": "['Email']",
+                "generate": "email"
+              },
+              {
+                "internalId": false,
+                "extract": "{{#if $.Phone}} 9090909090 {{else}} {{$.Phone}}{{/if}}",
+                "generate": "phone"
+              },
+              {
+                "internalId": false,
+                "discardIfEmpty": true,
+                "extract": "['Fax']",
+                "generate": "fax"
+              },
+              {
+                "internalId": false,
+                "extract": "['Job Title']",
+                "generate": "title",
+                "lookupName": "2bd62b2e297d4f61914e5d52ae8c8f65"
+              },
+              {
+                "internalId": false,
+                "extract": "{{$.Comments}}{{$.Comments}}",
+                "generate": "comments"
+              },
+              {
+                "internalId": false,
+                "hardCodedValue": "9490992768",
+                "generate": "mobilephone"
+              }
+            ]
+          },
+          "recordType": "contact",
+          "internalIdLookup": {
+            "expression": "[\"email\",\"is\",\"{{{Email}}}\"]",
+            "qa__expression": [
+              [
+                "email",
+                "is",
+                "Email"
+              ]
+            ]
+          },
+          "operation": "addupdate"
+        }
+      }
+    }
+  ],
+  "name": "68.DL to NS_Contact_Flow1JSON",
+  "disabled": false,
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "comments": "New Automation ContactNew Automation Contact",
+              "addressbook": [
+                {
+                  "country": {
+                    "internalid": "AU",
+                    "name": "Australia"
+                  },
+                  "addressee": "AutoDataLoaderContact1",
+                  "addr2": "InOrbit Mall",
+                  "city": "Hyderabad",
+                  "addr1": "AscendesVBIT",
+                  "label": "AscendesVBIT",
+                  "state": "Telangana"
+                }
+              ],
+              "phone": "(909) 090-9090",
+              "mobilephone": "(949) 099-2768",
+              "entityid": "AutoDataLoaderContact1",
+              "company": {
+                "name": "DL Customer 1"
+              },
+              "fax": "090-232323",
+              "title": "Celigo",
+              "email": "dlautomationcon1@gmail.com"
+            },
+            {
+              "comments": "New Automation ContactNew Automation Contact",
+              "addressbook": [
+                {
+                  "country": {
+                    "internalid": "AU",
+                    "name": "Australia"
+                  },
+                  "addressee": "AutoDataLoaderContact2",
+                  "addr2": "InOrbit Mall",
+                  "city": "Hyderabad",
+                  "addr1": "AscendesVBIT",
+                  "label": "AscendesVBIT",
+                  "state": "Telangana"
+                }
+              ],
+              "phone": "(909) 090-9090",
+              "mobilephone": "(949) 099-2768",
+              "entityid": "AutoDataLoaderContact2",
+              "company": {
+                "name": "Default Customer"
+              },
+              "fax": "090-232323",
+              "title": "Integrator",
+              "email": "dlautomationcon2@gmail.com"
+            },
+            {
+              "comments": "New Automation ContactNew Automation Contact",
+              "addressbook": [
+                {
+                  "country": {
+                    "internalid": "AU",
+                    "name": "Australia"
+                  },
+                  "addressee": "AutoDataLoaderContact3",
+                  "addr2": "InOrbit Mall",
+                  "city": "Hyderabad",
+                  "addr1": "AscendesVBIT",
+                  "label": "AscendesVBIT",
+                  "state": "Telangana"
+                }
+              ],
+              "phone": "(909) 090-9090",
+              "mobilephone": "(949) 099-2768",
+              "entityid": "AutoDataLoaderContact3",
+              "company": {
+                "name": "DL Customer 1"
+              },
+              "fax": "090-232323",
+              "title": "Default Static Value",
+              "email": "dlautomationcon3@gmail.com"
+            }
+          ],
+          "uniqueField": "entityid",
+          "standaloneexportflowID": "591d8094b8842b300787a7f9",
+          "importapiIdentifier": "i4ef93f121",
+          "importRecordType": "Contact",
+          "importapidoc": {
+            "_id": "57ac1887d57c9fa908ffde3f",
+            "createdAt": "2018-02-19T13:52:10.277Z",
+            "lastModified": "2019-12-28T06:17:44.475Z",
+            "name": "29.NS Contact Create",
+            "_connectionId": "56d6b65d6f8ed15e4d0f9b8c",
+            "distributed": true,
+            "apiIdentifier": "i4ef93f121",
+            "netsuite_da": {
+              "restletVersion": "suitebundle",
+              "missingOrCorruptedDAConfig": false,
+              "rawOverride": {
+                "celigo_classname": "Celigo.integrator.hercules.Import",
+                "requestMapper": {
+                  "celigo_classname": "Celigo.integrator.mapper.json.JsonMapper"
+                },
+                "requestMappingRef": {
+                  "celigo_classname": "Celigo.integrator.mapping.model.DocumentMapping",
+                  "recordMappings": [
+                    {
+                      "celigo_classname": "Celigo.integrator.mapping.model.RecordMapping",
+                      "recordIdentifiers": {
+                        "jsonPath": ".",
+                        "celigo_classname": "Celigo.integrator.mapping.model.JsonPathRecordIdentifier"
+                      },
+                      "children": [
+                        {
+                          "celigo_classname": "Celigo.integrator.mapping.model.FieldMappingSet",
+                          "fieldMappings": [
+                            {
+                              "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                              "jsField": "entityid",
+                              "externalField": "$.entityid"
+                            },
+                            {
+                              "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                              "jsField": "email",
+                              "externalField": "$.email"
+                            },
+                            {
+                              "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                              "jsField": "mobilephone",
+                              "externalField": "$.mobilephone"
+                            },
+                            {
+                              "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                              "jsField": "fax",
+                              "externalField": "$.fax"
+                            },
+                            {
+                              "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                              "jsField": "subsidiary",
+                              "hardCodedValue": 3,
+                              "internalId": true
+                            }
+                          ]
+                        },
+                        {
+                          "celigo_classname": "Celigo.integrator.mapping.model.CollectionMapping",
+                          "collectionIds": [
+                            "_billing_addressbook"
+                          ],
+                          "children": [
+                            {
+                              "celigo_classname": "Celigo.integrator.mapping.model.FieldMappingSet",
+                              "fieldMappings": [
+                                {
+                                  "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                                  "jsField": "addr2",
+                                  "externalField": "$.addr2"
+                                },
+                                {
+                                  "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                                  "jsField": "addressee",
+                                  "externalField": "$.addressee"
+                                },
+                                {
+                                  "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                                  "jsField": "state",
+                                  "externalField": "$.state"
+                                },
+                                {
+                                  "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                                  "jsField": "zip",
+                                  "externalField": "$.zip"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "celigo_classname": "Celigo.integrator.mapping.model.CollectionMapping",
+                          "collectionIds": [
+                            "usernotes"
+                          ],
+                          "children": [
+                            {
+                              "celigo_classname": "Celigo.integrator.mapping.model.FieldMappingSet",
+                              "fieldMappings": [
+                                {
+                                  "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                                  "jsField": "title",
+                                  "externalField": "$.TITLE"
+                                },
+                                {
+                                  "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                                  "jsField": "note",
+                                  "externalField": "$.MEMO"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "recordType": "contact"
+                    }
+                  ]
+                },
+                "operationMappings": {
+                  "contact": {
+                    "operation": "add"
+                  }
+                },
+                "migrationMessage": "Mappings are moved to IO. Any future updates to mappings should be done in IO only. Please refer IO help guide for more details."
+              },
+              "isMigrated": true,
+              "operation": "add",
+              "recordType": "contact",
+              "lookups": [],
+              "mapping": {
+                "fields": [
+                  {
+                    "generate": "entityid",
+                    "extract": "entityid"
+                  },
+                  {
+                    "generate": "email",
+                    "extract": "email"
+                  },
+                  {
+                    "generate": "mobilephone",
+                    "extract": "mobilephone"
+                  },
+                  {
+                    "generate": "fax",
+                    "extract": "fax"
+                  },
+                  {
+                    "generate": "subsidiary",
+                    "hardCodedValue": "3",
+                    "internalId": true
+                  }
+                ],
+                "lists": [
+                  {
+                    "generate": "_billing_addressbook",
+                    "fields": [
+                      {
+                        "generate": "addr2",
+                        "extract": "addr2"
+                      },
+                      {
+                        "generate": "addressee",
+                        "extract": "addressee"
+                      },
+                      {
+                        "generate": "state",
+                        "extract": "state"
+                      },
+                      {
+                        "generate": "zip",
+                        "extract": "zip"
+                      }
+                    ]
+                  },
+                  {
+                    "generate": "usernotes",
+                    "fields": [
+                      {
+                        "generate": "title",
+                        "extract": "TITLE"
+                      },
+                      {
+                        "generate": "note",
+                        "extract": "MEMO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+          },
+          "isUIFlow": true,
+          "savedsearchId": "1928",
+          "exportapiIdentifier": "eb2eb09884"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "DataloaderExport",
+        "transform": {
+          "rules": []
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "type": "csv",
+          "csv": {
+            "columnDelimiter": "|",
+            "rowDelimiter": "\n",
+            "hasHeaderRow": true,
+            "trimSpaces": true,
+            "rowsToSkip": 0
+          }
+        },
+        "asynchronous": true,
+        "qa__isDataLoader": "csv",
+        "qa__path": "/Dataloader_uploades/DL to NS Contact Flow1.csv",
+        "type": "simple",
+        "adaptorType": "SimpleExport"
+      }
+    }
+  ]
+}

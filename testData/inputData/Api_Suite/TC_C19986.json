@@ -1,0 +1,103 @@
+{
+  "name": "TC_C19986",
+  "referencename": "TC_C19986",
+  "Staging_script": "63344976ca06597ef0ab92b1",
+  "Data": {
+    "pageGenerators": [],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "test",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "i9654a5bcf",
+          "oneToMany": false,
+          "sandbox": false,
+          "file": {
+            "fileName": "file-{{timestamp}}.json",
+            "skipAggregation": false,
+            "type": "json"
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "fileName": "file-{{timestamp}}.json"
+          },
+          "adaptorType": "FTPImport"
+        }
+      }
+    ]
+  },
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "export",
+            "_connectionId": "SALESFORCE CONNECTION",
+            "apiIdentifier": "ed3d2ff7e0",
+            "asynchronous": true,
+            "type": "test",
+            "oneToMany": false,
+            "sandbox": false,
+            "test": {
+              "limit": 1
+            },
+            "salesforce": {
+              "type": "soql",
+              "api": "rest",
+              "soql": {
+                "query": "select Id,Name from Account"
+              }
+            },
+            "adaptorType": "SalesforceExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i9654a5bcf",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/test",
+              "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C19986",
+        "disabled": false,
+        "_integrationId": "6333054cca06597ef0aaa8f0",
+        "qa__integrationId": "6332d4e0b2be184f096c108c",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

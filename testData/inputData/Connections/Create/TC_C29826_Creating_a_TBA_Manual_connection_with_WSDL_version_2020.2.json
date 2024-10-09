@@ -1,0 +1,31 @@
+{
+    "expectedJSON": {
+        "name": "Create_Connection_Netsuite_Token_WSDL_Version_2020.2",
+        "type": "netsuite",
+        "netsuite": {
+            "wsdlVersion":"2020.2",
+            "_iClientId": "585244d336df852529b86ba7",
+            "tokenId": "******",
+            "concurrencyLevel": 2,
+            "requestLevelCredentials": true,
+            "account": "TSTDRV1441353",
+            "tokenSecret": "******"
+        }
+    },
+    "importJSON": {
+        "name": "Create_Connection_Netsuite_Token_WSDL_Version_2020.2",
+        "type": "netsuite",
+        "netsuite": {
+            "wsdlVersion": "2020.2",
+            "_iClientId": "585244d336df852529b86ba7",
+            "tokenId": "******",
+            "requestLevelCredentials": true,
+            "qa__tokenId": "MzNjYmYxNTU0ZGQ4MTI0ZDgyNDUzNDg3NjAxNjM1MmE4YjFmZDVjOWE3ZTQwN2Y1ZTk4NWY3NTBiMWVkZWVjNg==",
+            "environment": "production",
+            "concurrencyLevel": 2,
+            "account": "TSTDRV1441353",
+            "tokenSecret": "******",
+            "qa__tokenSecret": "NjQwZmIwNWIwZjg1ZDQwMzk5OWU5N2ZlYzU2Y2JkZjZjNjkyMjVjYWM5Yjg5ZTU1NjA3ZGExNTRiZDY4ZmM1NQ=="
+        }
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "expectedJSON": {
+        "assistant": "amazonmws",
+        "name": "Create_Connection_Amazon_Direct",
+        "http": {
+            "_iClientId": "5923d92f0020c67a44f8ec67",
+            "rateLimit": {
+                "failStatusCode": 503
+            },
+            "ping": {
+                "method": "POST",
+                "relativeURI": "/Sellers/2011-07-01?Action=ListMarketplaceParticipations&Version=2011-07-01"
+            },
+            "baseURI": "https://mws.amazonservices.com",
+            "mediaType": "xml",
+            "unencrypted": {
+                "marketplaceId": "ATVPDKIKX0DER",
+                "mwsAuthToken": "amzn.mws.c8a52e7c-cb14-28df-2f1c-cade252d507f",
+                "sellerId": "A2UNXGSMWT608Z"
+            }
+        },
+        "type": "http"
+    },
+    "importJSON": {
+        "assistant": "amazonmws",
+        "name": "Create_Connection_Amazon_Direct",
+        "http": {
+            "_iClientId": "5923d92f0020c67a44f8ec67",
+            "rateLimit": {
+                "failStatusCode": 503
+            },
+            "ping": {
+                "method": "POST",
+                "relativeURI": "/Sellers/2011-07-01?Action=ListMarketplaceParticipations&Version=2011-07-01"
+            },
+            "baseURI": "https://mws.amazonservices.com",
+            "mediaType": "xml",
+            "encryptedFields": [],
+            "unencrypted": {
+                "marketplaceId": "ATVPDKIKX0DER",
+                "mwsAuthToken": "amzn.mws.c8a52e7c-cb14-28df-2f1c-cade252d507f",
+                "sellerId": "A2UNXGSMWT608Z",
+                "qa__region": "north_america"
+            }
+        },
+        "type": "http"
+    }
+}

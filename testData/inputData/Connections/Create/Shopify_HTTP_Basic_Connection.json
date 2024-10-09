@@ -1,0 +1,47 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "Shopify_Http_Basic_Connection",
+        "http": {
+            "mediaType": "json",
+            "baseURI": "https://ioautomationshopify.myshopify.com/admin/",
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "be6e0285a1973dacaf53253edd85a56f",
+                    "password": "******"
+                },
+                "oauth": {
+                    "clientCredentialsLocation": "body"
+                }
+            }
+        }
+    },
+    "importJSON": {
+        "type": "http",
+        "name": "Shopify_Http_Basic_Connection",
+        "http": {
+            "mediaType": "json",
+            "baseURI": "https://ioautomationshopify.myshopify.com/admin/",
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "qa__basic": {
+                    "password": "******",
+                    "qa__password": "YTQyMmY1MjMyNGZmMmFhNTNkNmExZDZlM2Q4OTg5NDQ=",
+                    "username": "be6e0285a1973dacaf53253edd85a56f"
+                },
+                "type": "basic",
+                "oauth": {
+                    "clientCredentialsLocation": "body"
+                }
+            }
+        }
+    }
+}

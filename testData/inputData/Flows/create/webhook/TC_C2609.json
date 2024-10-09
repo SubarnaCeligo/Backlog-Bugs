@@ -1,0 +1,99 @@
+{
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C2609",
+    "disabled": false,
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "_connectionId": "FTP CONNECTION",
+          "name": "webhook",
+          "distributed": false,
+          "mapping": {
+            "fields": [
+              {
+                "extract": "name",
+                "generate": "name"
+              },
+              {
+                "extract": "description",
+                "generate": "description"
+              }
+            ]
+          },
+          "file": {
+            "type": "csv",
+            "csv": {
+              "rowDelimiter": "\n",
+              "columnDelimiter": ",",
+              "includeHeader": true,
+              "replaceTabWithSpace": false,
+              "wrapWithQuotes": false,
+              "truncateLastRowDelimiter": false,
+              "replaceNewlineWithSpace": false
+            }
+          },
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation",
+            "fileName": "TC_C2609.csv"
+          },
+          "adaptorType": "FTPImport"
+        }
+      }
+    ],
+    "qa__dataVerification": {
+      "importRecordJSON": {
+        "object": "product",
+        "description": "stripe product description check",
+        "name": "stripe product check"
+      },
+      "expected": {
+        "FTP": {
+          "name": "TC_C2609",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "FTP CONNECTION",
+            "file": {
+              "csv": {
+                "columnDelimiter": ","
+              }
+            }
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "1",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "generateSampleDropDownAvailable": false,
+            "fileName": "TC_C2609",
+            "folderName": "/io.auto.qa/IO_UI_Automation",
+            "fileType": ".csv"
+          }
+        }
+      }
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "webhook stripe",
+          "type": "webhook",
+          "qa__token": "12345",
+          "sandbox": false,
+          "webhook": {
+            "provider": "custom",
+            "verify": "secret_url",
+            "token": "******"
+          },
+          "adaptorType": "WebhookExport"
+        }
+      }
+    ]
+  }

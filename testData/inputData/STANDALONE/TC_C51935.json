@@ -7,30 +7,45 @@
         {
           "type": "import",
           "qa__import": {
-            "name": "AS2",
-            "_connectionId": "633c347908cc753ca5675ce5",
-            "distributed": false,
-            "apiIdentifier": "i90cd037fe",
-            "oneToMany": false,
-            "sandbox": false,
-            "file": {
-              "skipAggregation": true,
-              "type": "json"
-            },
-            "as2": {
-              "fileNameTemplate": "file-{{timestamp}}"
-            },
-            "adaptorType": "AS2Import"
-          },
-          "responseMapping": {
-            "fields": [
-              {
-                "extract": "id",
-                "generate": "_header.contentlength"
-              }
-            ],
-            "lists": []
-          }
+                        "name": "azure_imp",
+                        "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+                        "apiIdentifier": "i0f98f2afe",
+                        "oneToMany": false,
+                        "assistant": "azurestorageaccount",
+                        "sandbox": false,
+                        "file": {
+                            "fileName": "file-{{timestamp}}.json",
+                            "skipAggregation": false,
+                            "type": "json"
+                        },
+                        "http": {
+                            "type": "file",
+                            "relativeURI": [
+                                "azureimports"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "sendPostMappedData": true,
+                            "formType": "assistant",
+                            "response": {
+                                "resourcePath": [
+                                    "files"
+                                ]
+                            }
+                        },
+                        "adaptorType": "HTTPImport"
+                    },
+                    "responseMapping": {
+                        "fields": [
+                            {
+                                "extract": "id",
+                                "generate": "_headers.contentlength"
+                            }
+                        ],
+                        "lists": []
+                    }
         },
         {
           "type": "import",
@@ -49,7 +64,7 @@
             "mapping": {
               "fields": [
                 {
-                  "extract": "_header.contentlength",
+                  "extract": "_headers.contentlength",
                   "generate": "test"
                 }
               ]
@@ -96,7 +111,7 @@
               "fields": [
                 {
                   "extract": "id",
-                  "generate": "_header.contentlength"
+                  "generate": "_headers.contentlength"
                 }
               ],
               "lists": []

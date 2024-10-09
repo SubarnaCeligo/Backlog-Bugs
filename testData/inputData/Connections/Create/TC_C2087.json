@@ -1,0 +1,48 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "TC_C2087",
+        "sandbox": false,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://celigoqa.zendesk.com/api/v2",
+            "ping": {
+                "relativeURI": "organizations.json",
+                "method": "GET",
+                "successPath": "organizations[0].organization_fields.new_boolean",
+                "successValues": [
+                    "false"
+                ]
+            },
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "mounica.manavapati@celigo.com",
+                    "password": "******"
+                }
+            }
+        }
+    },
+    "importJSON": {
+        "rest": {
+            "basicAuth": {
+                "password": "******",
+                "qa__password": "Y2VsaWdvMTIzNA==",
+                "username": "mounica.manavapati@celigo.com"
+            },
+            "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+            "scope": [],
+            "mediaType": "json",
+            "pingRelativeURI": "organizations.json",
+            "encryptedFields": [],
+            "refreshTokenHeaders": []
+        },
+        "name": "TC_C2087",
+        "type": "rest"
+    }
+}

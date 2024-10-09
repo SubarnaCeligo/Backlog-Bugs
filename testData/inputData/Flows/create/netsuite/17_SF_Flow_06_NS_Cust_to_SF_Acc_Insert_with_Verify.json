@@ -1,0 +1,441 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "3",
+    "errorCount": "0"
+  },
+  "ftpExpected": {
+    "fileName": "TC_C36484",
+    "isUIFlow": true,
+    "folderName": "/io.auto.qa//IO_UI_Automation",
+    "fileType": ".json"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "salesforce": {
+          "lookups": [
+            {
+              "name": "9e62da24615e47d7adada67f2a4785fc",
+              "allowFailures": false,
+              "map": {
+                "GV Colony": "Gagan Vihar Colony"
+              }
+            },
+            {
+              "whereClause": "(Email = {{{email Email}}})",
+              "qa__whereClause": [
+                [
+                  "Email",
+                  "=",
+                  "Email"
+                ]
+              ],
+              "name": "906e246b93f14c58a77c5718f0bf71c4",
+              "sObjectType": "Contact",
+              "resultField": "MailingStreet",
+              "allowFailures": false
+            }
+          ],
+          "sObjectType": "Account",
+          "api": "rest",
+          "operation": "insert",
+          "removeNonSubmittableFields": false
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Name",
+              "generate": "Name"
+            },
+            {
+              "extract": "Email",
+              "generate": "Email__c"
+            },
+            {
+              "extract": "[Primary Subsidiary]",
+              "qa__ignoreBrackets": true,
+              "generate": "Subsidiary_Name__c",
+              "qa__extract": "Primary Subsidiary"
+            },
+            {
+              "extract": "Phone",
+              "generate": "Phone"
+            },
+            {
+              "extract": "Fax",
+              "generate": "Fax"
+            },
+            {
+              "extract": "[Billing Address 1]",
+              "qa__ignoreBrackets": true,
+              "generate": "BillingStreet",
+              "lookupName": "9e62da24615e47d7adada67f2a4785fc",
+              "qa__extract": "Billing Address 1"
+            },
+            {
+              "extract": "[Billing City]",
+              "qa__ignoreBrackets": true,
+              "generate": "BillingCity",
+              "qa__extract": "Billing City"
+            },
+            {
+              "extract": "[Billing State/Province]",
+              "qa__ignoreBrackets": true,
+              "generate": "BillingState",
+              "qa__extract": "Billing State/Province"
+            },
+            {
+              "extract": "[Billing Country]",
+              "qa__ignoreBrackets": true,
+              "generate": "BillingCountry",
+              "qa__extract": "Billing Country"
+            },
+            {
+              "immutable": true,
+              "extract": "[Billing Zip]",
+              "qa__ignoreBrackets": true,
+              "generate": "BillingPostalCode",
+              "qa__extract": "Billing Zip"
+            },
+            {
+              "extract": "[Shipping Address 1]",
+              "qa__ignoreBrackets": true,
+              "generate": "ShippingStreet",
+              "lookupName": "906e246b93f14c58a77c5718f0bf71c4",
+              "qa__extract": "Shipping Address 1"
+            },
+            {
+              "extract": "{{[Shipping City]}}{{[Billing City]}}",
+              "generate": "ShippingCity"
+            },
+            {
+              "extract": "[Shipping State/Province]",
+              "qa__ignoreBrackets": true,
+              "generate": "ShippingState",
+              "qa__extract": "Shipping State/Province"
+            },
+            {
+              "extract": "[Shipping Country]",
+              "qa__ignoreBrackets": true,
+              "generate": "ShippingCountry",
+              "qa__extract": "Shipping Country"
+            },
+            {
+              "extract": "[Shipping Zip]",
+              "qa__ignoreBrackets": true,
+              "generate": "ShippingPostalCode",
+              "qa__extract": "Shipping Zip"
+            },
+            {
+              "hardCodedValue": "JSON Category",
+              "generate": "Category_Name__c"
+            }
+          ]
+        },
+        "_connectionId": "SALESFORCE CONNECTION",
+        "lookups": [
+          {
+            "name": "970d226bc9874dc9b173eb756172d3b5",
+            "allowFailures": false,
+            "map": {
+              "GV Colony": "Gagan Vihar Colony"
+            }
+          },
+          {
+            "name": "8c7b8e04ba1041a9b9d99469fa21a840",
+            "allowFailures": false,
+            "sObjectType": "Contact",
+            "resultField": "MailingStreet",
+            "whereClause": "(Email = {{{email Email}}})"
+          }
+        ],
+        "adaptorType": "SalesforceImport",
+        "name": "SFImportInsert",
+        "dataURITemplate": "{{{id}}}",
+        "distributed": false
+      },
+      "responseMapping": {
+        "lists": [],
+        "fields": [
+          {
+            "extract": "id",
+            "generate": "SF_id"
+          }
+        ],
+        "qa__index": 0
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "FTP CONNECTION",
+        "mapping": {
+          "lists": [],
+          "fields": [
+            {
+              "extract": "SF_id",
+              "generate": "SF_id"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "TC_C36484.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation",
+          "fileName": "TC_C36484.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "17.SF Flow#06_NS(Cust) to SF(Acc)_Insert",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "shipping_state": "TG",
+      "shipping_city": "Kukatpally",
+      "billing_country": "India",
+      "subsidiary": "HH Inc.",
+      "billing_city": "Hyderabad",
+      "phone": "1741245874",
+      "billing_state": "TS",
+      "shipping_zip": "500081",
+      "companyname": "17.NSCustomertoSFAccount#1",
+      "shipping_address1": "KPHB Colony",
+      "billing_zip": "500016",
+      "fax": "1747854521",
+      "billing_address1": "GV Colony",
+      "shipping_country": "India",
+      "email": "17ns2sf@celigo.com"
+    },
+    "application":"NETSUITE",   
+    "importapiIdentifier": "i0efa10136",
+    "expected": {
+      "salesforce": {
+        "name": "17.SF Flow#06_NS(Cust) to SF(Acc)_Insert",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "SALESFORCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "BillingCity": "Hyderabad",
+            "Alt_Email__c": null,
+            "Category_Name__c": "JSON Category",
+            "Name": "17.NSCustomertoSFAccount#1",
+            "ShippingStreet": "Contact Mailing Street",
+            "BillingCountry": "India",
+            "BillingStreet": "Gagan Vihar Colony",
+            "Phone": "(174) 124-5874",
+            "ShippingPostalCode": "500081",
+            "ShippingCountry": "India",
+            "BillingPostalCode": "500016",
+            "ShippingCity": "KukatpallyHyderabad",
+            "ShippingState": "TG",
+            "Subsidiary_Internal_ID__c": null,
+            "Fax": "(174) 785-4521",
+            "BillingState": "TS",
+            "Email__c": "17ns2sf@celigo.com",
+            "Subsidiary_Name__c": "HH Inc."
+          },
+          "standaloneexportflowID": "57a854b5b244ff1a31cf9d5d",
+          "uniqueField": "Name",
+          "importRecordType": "Account",
+          "exportRecordType": "Customer",
+          "isUIFlow": true,
+          "query": "Select id,Name, Email__c,Alt_Email__c,Subsidiary_Name__c,Subsidiary_Internal_ID__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate,Category_Name__c from Account where name like '17.NSCustomertoSFAccount#1'",
+          "exportapiIdentifier": "e0433e82f4"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "5bc8716350f1db1ab205da61",
+      "createdAt": "2018-10-18T11:41:24.012Z",
+      "lastModified": "2018-10-18T11:42:02.728Z",
+      "name": "Clone - > 17.NS to SF",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "56d6b65d6f8ed15e4d0f9b8c",
+      "distributed": true,
+      "apiIdentifier": "i0efa10136",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "lists": [
+            {
+              "generate": "_billing_addressbook",
+              "fields": [
+                {
+                  "generate": "addr1",
+                  "extract": "billing_address1",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "city",
+                  "extract": "billing_city",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "state",
+                  "extract": "billing_state",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "country",
+                  "extract": "billing_country",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "zip",
+                  "extract": "billing_zip",
+                  "internalId": false,
+                  "immutable": false
+                }
+              ]
+            },
+            {
+              "generate": "_shipping_addressbook",
+              "fields": [
+                {
+                  "generate": "addr1",
+                  "extract": "shipping_address1",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "city",
+                  "extract": "shipping_city",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "state",
+                  "extract": "shipping_state",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "country",
+                  "extract": "shipping_country",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "zip",
+                  "extract": "shipping_zip",
+                  "internalId": false,
+                  "immutable": false
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "generate": "subsidiary",
+              "extract": "subsidiary",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "companyname",
+              "extract": "companyname",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "phone",
+              "extract": "phone",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "email",
+              "extract": "email",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "fax",
+              "extract": "fax",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "comments",
+              "extract": "comments",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "test",
+              "extract": "test",
+              "internalId": false,
+              "immutable": false
+            }
+          ]
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "asynchronous": true,
+        "_connectionId": "NETSUITE CONNECTION",
+        "adaptorType": "NetSuiteExport",
+        "parsers": [],
+        "name": "NetsuiteExport1925",
+        "netsuite": {
+          "statsOnly": false,
+          "type": "restlet",
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "1925",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          },
+          "skipGrouping": true
+        }
+      }
+    }
+  ]
+}

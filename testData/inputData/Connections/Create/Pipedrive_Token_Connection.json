@@ -1,0 +1,55 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "Pipedrive_Token_Connection",
+        "assistant": "pipedrive",
+        "http": {
+            "mediaType": "json",
+            "baseURI": "https://celigo-sandbox2.pipedrive.com",
+            "ping": {
+                "relativeURI": "/api/v1/users/me",
+                "method": "GET"
+            },
+            "auth": {
+                "type": "token",
+                "token": {
+                    "token": "******",
+                    "location": "url",
+                    "headerName": "Authorization",
+                    "scheme": "Bearer",
+                    "paramName": "api_token"
+                }
+            }
+        }
+    },
+    "importJSON": {
+        "type": "http",
+        "name": "Pipedrive_Token_Connection",
+        "assistant": "pipedrive",
+        "http": {
+            "qa__type": "token",
+            "qa__token": "NDZmMmQ3MjViYTk0NTc4NzBhZTFkYjg4MjNmYWVhOTZjMjYwN2NmMQ==",
+            "qa__subdomain": "celigo-sandbox2",
+            "mediaType": "json",
+            "baseURI": "https://celigo-sandbox2.pipedrive.com",
+            "ping": {
+                "relativeURI": "/api/v1/users/me",
+                "method": "GET"
+            },
+            "auth": {
+                "type": "token",
+                "token": {
+                    "token": "******",
+                    "location": "url",
+                    "headerName": "Authorization",
+                    "scheme": "Bearer",
+                    "paramName": "api_token"
+                }
+            }
+        },
+        "queues": [{
+            "name": "604860fc89b5f0662a82a37a",
+            "size": 0
+        }]
+    }
+}

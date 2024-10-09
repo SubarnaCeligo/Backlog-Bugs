@@ -1,0 +1,94 @@
+{
+    "name": "FLOW_CREATE",
+    "skipRetries": false,
+    "_integrationId": "6335a781ca06597ef0ac8899",
+    "qa__integrationId": "6332d4e0b2be184f096c108c",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "33_FTP export",
+                        "adaptorType": "FTPExport",
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+                            "fileNameStartsWith": "33FTP2SalesforceContactTAB.txt"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "csv": {
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": "\t",
+                                "hasHeaderRow": false,
+                                "trimSpaces": true,
+                                "rowsToSkip": 0
+                            },
+                            "encoding": "utf8",
+                            "type": "csv"
+                        },
+                        "asynchronous": true,
+                        "_connectionId": "FTP CONNECTION",
+                        "qa__path": "//FTP_uploads//33FTP2SalesforceContactTAB.txt"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "SF_import",
+                        "_connectionId": "SALESFORCE CONNECTION",
+                        "distributed": false,
+                        "mapping": {
+                            "fields": [
+                                {
+                                    "extract": "Name",
+                                    "generate": "Name"
+                                },
+                                {
+                                    "extract": "res1",
+                                    "generate": "Description"
+                                },
+                                {
+                                    "generate": "Phone",
+                                    "hardCodedValue": "NS_SF_FLOW"
+                                }
+                            ]
+                        },
+                        "salesforce": {
+                            "operation": "insert",
+                            "sObjectType": "Account",
+                            "api": "soap",
+                            "removeNonSubmittableFields": false
+                        },
+                        "adaptorType": "SalesforceImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "FLOW_CREATE",
+                "disabled": false,
+                "_integrationId": "6335a781ca06597ef0ac8899",
+                "qa__integrationId": "6332d4e0b2be184f096c108c",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

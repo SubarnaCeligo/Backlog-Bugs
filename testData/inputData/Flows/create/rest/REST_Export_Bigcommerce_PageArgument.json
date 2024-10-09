@@ -1,0 +1,145 @@
+{
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "8",
+    "errorCount": "0",
+    "pages": "4"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "SF _import_Paging",
+        "_connectionId": "SALESFORCE CONNECTION",
+        "distributed": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "last_name",
+              "generate": "Name"
+            },
+            {
+              "extract": "email",
+              "generate": "Email__c"
+            }
+          ]
+        },
+        "salesforce": {
+          "operation": "insert",
+          "sObjectType": "Account",
+          "api": "soap",
+          "removeNonSubmittableFields": false
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": []
+        },
+        "adaptorType": "SalesforceImport"
+      }
+    }
+  ],
+  "name": "REST export _Bigcommerce_PageArgument",
+  "disabled": false,
+  "timezone": "Asia/Calcutta",
+  "qa__dataVerification": {
+    "uniqueField": "Name",
+    "importRecordType": "customer",
+    "exportRecordType": "customers",
+    "exportapiIdentifier": "eb1ab21d10",
+    "query": "Select Id,Name, Email__c from Account where name like 'Bigcommerce%'",
+    "standaloneexportflowID": "5b9f94e8c603440c6aacd78e",
+    "expected": {
+      "salesforce": {
+        "name": "REST export _Bigcommerce_PageArgument",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "SALESFORCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "ignoreCount": "0",
+          "successCount": "4",
+          "errorCount": "0",
+          "pages": "4"
+        },
+        "qa__dataVerification": {
+          "uniqueField": "Name",
+          "importRecordType": "customer",
+          "exportRecordType": "customers",
+          "exportapiIdentifier": "eb1ab21d10",
+          "query": "Select Id,Name, Email__c from Account where name like 'Bigcommerce%'",
+          "standaloneexportflowID": "5b9f94e8c603440c6aacd78e",
+          "expectedJSON": [
+            {
+              "Name": "Bigcommerce_1",
+              "Email__c": "pagebigcommerce_1@gmail.com"
+            },
+            {
+              "Name": "Bigcommerce_2",
+              "Email__c": "pagebigcommerce_2@gmail.com"
+            },
+            {
+              "Name": "Bigcommerce_3",
+              "Email__c": "pagebigcommerce_3@gmail.com"
+            },
+            {
+              "Name": "Bigcommerce_4",
+              "Email__c": "pagebigcommerce_4@gmail.com"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Rest_Export_PageAgument_Method",
+        "application": "BigCommerce",
+        "parsers": [],
+        "adaptorType": "HTTPExport",
+        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+        "asynchronous": true,
+        "pageSize": 1,
+        "http": {
+          "relativeURI": "customers?first_name=Page&limit=2",
+          "method": "GET",
+          "formType": "http",
+          "qa__formType": "rest",
+          "paging": {
+            "method": "page",
+            "page": "page",
+            "relativeURI": "customers?first_name=Page&limit=2",
+            "lastPageStatusCode": 404,
+            "lastPageValues": []
+          },
+          "response": {
+            "successValues": []
+          }
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": []
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "PPImport",
+        "_connectionId": "NETSUITE CONNECTION",
+        "adaptorType": "NetSuiteDistributedImport",
+        "lookups": [
+          {
+            "name": "49cfd50887ac48ebbdc08a68365bd07b",
+            "recordType": "customer",
+            "allowFailures": false,
+            "resultField": "companyname",
+            "useDefaultOnMultipleMatches": false,
+            "expression": "[\"companyname\",\"is\",\"{{{Customer}}}\"]"
+          },
+          {
+            "name": "982cf82bf3684747adb5a00d793db25c",
+            "allowFailures": false,
+            "map": {
+              "B2B": 100278,
+              "B2C": 100279
+            }
+          }
+        ],
+        "distributed": true,
+        "netsuite_da": {
+          "lookups": [
+            {
+              "expression": "[\"companyname\",\"is\",\"{{{Customer}}}\"]",
+              "recordType": "customer",
+              "name": "d90be7ef83ac40728e2978495f41d3e9",
+              "useDefaultOnMultipleMatches": false,
+              "qa__expression": [
+                [
+                  "companyname",
+                  "is",
+                  "Customer"
+                ]
+              ],
+              "resultField": "companyname",
+              "allowFailures": false
+            },
+            {
+              "name": "4a7f45503a1041f1958de9fb6a0e3551",
+              "allowFailures": false,
+              "map": {
+                "B2B": 100278,
+                "B2C": 100279
+              }
+            }
+          ],
+          "mapping": {
+            "lists": [
+              {
+                "fields": [
+                  {
+                    "internalId": false,
+                    "immutable": false,
+                    "extract": "*.['Item']",
+                    "generate": "item",
+                    "discardIfEmpty": true,
+                    "isKey": false,
+                    "qa__extract": "Item"
+                  },
+                  {
+                    "internalId": false,
+                    "immutable": false,
+                    "extract": "0.['Quantity']",
+                    "qa__useFirstRow": "true",
+                    "isKey": false,
+                    "generate": "quantity",
+                    "discardIfEmpty": true,
+                    "qa__extract": "Quantity"
+                  },
+                  {
+                    "internalId": false,
+                    "immutable": false,
+                    "extract": "*.['Amount']",
+                    "isKey": false,
+                    "generate": "amount",
+                    "discardIfEmpty": true,
+                    "qa__extract": "Amount"
+                  },
+                  {
+                    "generate": "custcol60",
+                    "extract": "{{{jsonEncode json}}}",
+                    "discardIfEmpty": true,
+                    "internalId": false,
+                    "immutable": false
+                  }
+                ],
+                "generate": "item"
+              }
+            ],
+            "fields": [
+              {
+                "internalId": false,
+                "immutable": false,
+                "extract": "['Customer']",
+                "generate": "entity",
+                "discardIfEmpty": true,
+                "lookupName": "d90be7ef83ac40728e2978495f41d3e9"
+              },
+              {
+                "internalId": true,
+                "immutable": false,
+                "extract": "['LeadSource']",
+                "generate": "leadsource",
+                "discardIfEmpty": true,
+                "lookupName": "4a7f45503a1041f1958de9fb6a0e3551"
+              },
+              {
+                "internalId": false,
+                "immutable": false,
+                "extract": "['SFID']",
+                "dataType": "number",
+                "generate": "custbody23",
+                "discardIfEmpty": true
+              },
+              {
+                "internalId": false,
+                "immutable": false,
+                "extract": "['Custom']",
+                "dataType": "string",
+                "generate": "custbody47",
+                "discardIfEmpty": true
+              },
+              {
+                "internalId": false,
+                "immutable": false,
+                "extract": "['PO#']",
+                "generate": "otherrefnum",
+                "discardIfEmpty": true
+              },
+              {
+                "generate": "custbody57",
+                "extract": "{{{jsonEncode json}}}",
+                "internalId": false,
+                "immutable": false,
+                "discardIfEmpty": true
+              }
+            ]
+          },
+          "recordType": "salesorder",
+          "operation": "add"
+        }
+      }
+    }
+  ],
+  "name": "69.DL to NS_SalesOrder _Flow 2_JSON",
+  "disabled": false,
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "otherrefnum": "11",
+              "item": [
+                {
+                  "amount": 250,
+                  "custcol60": "{\\\"test\\\":{\\\"entity\\\":\\\"104.NS_Xml_Export_To_Ftp\\\"}}",
+                  "item": {
+                    "internalid": "387",
+                    "name": "ACC00001"
+                  },
+                  "quantity": 25
+                },
+                {
+                  "amount": 300,
+                  "item": {
+                    "internalid": "501",
+                    "name": "ACC00002"
+                  },
+                  "quantity": 25
+                }
+              ],
+              "custbody47": "89.09",
+              "custbody57": "{\\\"test\\\":{\\\"entity\\\":\\\"104.NS_Xml_Export_To_Ftp\\\"}}",
+              "leadsource": {
+                "internalid": "100278",
+                "name": "B2B Lead Nurturing"
+              },
+              "custbody23": 7890789,
+              "entity": {
+                "internalid": "648513",
+                "name": "DLSOCustomer1"
+              }
+            },
+            {
+              "otherrefnum": "22",
+              "item": [
+                {
+                  "amount": 250,
+                  "item": {
+                    "internalid": "502",
+                    "name": "ACC00003"
+                  },
+                  "quantity": 30
+                },
+                {
+                  "amount": 900,
+                  "item": {
+                    "internalid": "504",
+                    "name": "ACC00004"
+                  },
+                  "quantity": 30
+                },
+                {
+                  "amount": 400,
+                  "item": {
+                    "internalid": "505",
+                    "name": "ACC00005"
+                  },
+                  "quantity": 30
+                }
+              ],
+              "custbody47": "45.76",
+              "leadsource": {
+                "name": "B2C Lead Nurturing"
+              },
+              "custbody23": 1234554,
+              "entity": {
+                "internalid": "648514",
+                "name": "DLSOCustomer2"
+              }
+            }
+          ],
+          "uniqueField": "otherrefnum",
+          "standaloneexportflowID": "57c6d62ad71f15774db633ae",
+          "importRecordType": "SalesOrder",
+          "isUIFlow": true,
+          "savedsearchId": "1948",
+          "exportapiIdentifier": "ebe9ddcda4"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "DataloaderExport",
+        "transform": {
+          "rules": []
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": false,
+          "groupByFields": [
+            "Customer"
+          ],
+          "csv": {
+            "rowsToSkip": 0,
+            "columnDelimiter": " ",
+            "hasHeaderRow": true,
+            "trimSpaces": true
+          },
+          "encoding": "utf8",
+          "type": "csv"
+        },
+        "asynchronous": true,
+        "inputFilter": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "parsers": [],
+        "qa__isDataLoader": "csv",
+        "qa__path": "/Dataloader_uploades/DL to NS SalesOrder Flow 2-utf-8.txt",
+        "type": "simple",
+        "adaptorType": "SimpleExport"
+      }
+    }
+  ]
+}

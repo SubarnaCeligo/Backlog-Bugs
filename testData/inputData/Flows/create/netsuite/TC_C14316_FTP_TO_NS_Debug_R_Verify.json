@@ -1,0 +1,77 @@
+{
+    "name": "TC_C14316_FTP_TO_NS_Debug_$R_Verify",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "timezone": "Asia/Calcutta",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+            "name": "NS Import",
+            "_connectionId": "NETSUITE CONNECTION",
+            "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "addupdate",
+                "recordType": "customer",
+                "internalIdLookup": {
+                    "expression": "[\"companyname\",\"is\",\"{{{Name}}}\"]",
+                        "qa__expression": [
+                            [
+                              "companyname",
+                              "is",
+                              "{{{Name}}}"
+                            ]
+                          ]
+                },
+                "mapping": {
+                    "fields": [
+                        {
+                            "extract": "Email",
+                            "generate": "email",
+                            "internalId": false
+                        },
+                        {
+                            "extract": "Name",
+                            "generate": "companyname",
+                            "internalId": false
+                        },
+                        {
+                            "extract": "['Primary Subsidiary']",
+                            "generate": "subsidiary",
+                            "internalId": false
+                        }
+                    ],
+                    "lists": []
+                }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+        }
+      }
+    ],
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "adaptorType": "FTPExport",
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "TC_C14316_FTP_TO_NS_Debug_$R_Verify.json"
+          },
+          "file": {
+            "output": "records",
+            "encoding": "utf8",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "_connectionId": "FTP CONNECTION",
+          "qa__path": "//FTP_uploads//TC_C14316_FTP_TO_NS_Debug_R_Verify.json"
+        }
+      }
+    ]
+  }
+  

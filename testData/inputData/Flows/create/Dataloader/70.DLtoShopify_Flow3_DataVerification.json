@@ -1,0 +1,142 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "PPImport",
+        "application":"shopify",
+        "http": {
+          "relativeURI": [
+            "orders.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "formType": "http",
+          "qa__formType": "rest",
+          "strictHandlebarEvaluation": true,
+          "sendPostMappedData": true
+        },
+        "mapping": {
+          "lists": [
+            {
+              "fields": [
+                {
+                  "extract": "*.[Item Name]",
+                  "generate": "title",
+                  "qa__extract": "Item Name"
+                },
+                {
+                  "extract": "Quantity",
+                  "qa__useFirstRow": "true",
+                  "generate": "quantity"
+                },
+                {
+                  "hardCodedValue": "250",
+                  "generate": "price"
+                }
+              ],
+              "generate": "order.line_items"
+            }
+          ],
+          "fields": [
+            {
+              "extract": "FirstName",
+              "generate": "order.customer.first_name"
+            },
+            {
+              "extract": "LastName",
+              "generate": "order.customer.last_name"
+            },
+            {
+              "extract": "{{Notes}}{{Notes}}",
+              "generate": "order.note"
+            }
+          ]
+        },
+        "_connectionId": "HTTP SHOPIFY CONNECTION",
+        "adaptorType": "HTTPImport",
+        "distributed": false
+      }
+    }
+  ],
+  "name": "70.DL to Shopify_Flow 3_JSON",
+  "disabled": false,
+  "qa__dataVerification": {
+    "expected": {
+      "shopify": {
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": {
+            "note": "Test NotesTest Notes",
+            "line_items": [
+              {
+                "quantity": 50,
+                "price": "250.00",
+                "title": "ACC00004"
+              },
+              {
+                "quantity": 50,
+                "price": "250.00",
+                "title": "ACC00005"
+              },
+              {
+                "quantity": 50,
+                "price": "250.00",
+                "title": "ACC00006"
+              }
+            ],
+            "customer": {
+              "last_name": "Customer2",
+              "first_name": "DLShopify"
+            }
+          },
+          "uniqueField": "note",
+          "standaloneexportflowID": "572aeb3c5ac02fad176332a1",
+          "importRecordType": "orders",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ec5eca7bf3"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "DataloaderExport",
+        "transform": {
+          "rules": []
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "type": "csv",
+          "groupByFields": [
+            "LastName"
+          ],
+          "csv": {
+            "columnDelimiter": ",",
+            "rowDelimiter": "\n",
+            "rowsToSkip": 0,
+            "hasHeaderRow": true,
+            "trimSpaces": true
+          }
+        },
+        "asynchronous": true,
+        "qa__isDataLoader": "csv",
+        "qa__path": "/Dataloader_uploades/Dl to Shopify_Pipe_Flow 3.csv",
+        "type": "simple",
+        "adaptorType": "SimpleExport"
+      }
+    }
+  ]
+}

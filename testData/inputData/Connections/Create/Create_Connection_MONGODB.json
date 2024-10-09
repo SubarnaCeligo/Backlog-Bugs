@@ -1,0 +1,30 @@
+{
+    "expectedJSON": {
+        "type": "mongodb",
+        "name": "Create_Connection_MongoDB",
+        "mongodb": {
+            "database": "anushatest",
+            "username": "anushatest",
+            "password": "******",
+            "replicaSet": "atlas-jkjkg7-shard-0",
+            "ssl": true,
+            "authSource": "admin"
+        }
+    },
+    "importJSON": {
+        "type": "mongodb",
+        "name": "Create_Connection_MongoDB",
+        "mongodb": {
+            "host": [
+                "anushatest-shard-00-00.xi0af.mongodb.net:27017,anushatest-shard-00-01.xi0af.mongodb.net:27017,anushatest-shard-00-02.xi0af.mongodb.net:27017"
+            ],
+            "database": "anushatest",
+            "username": "anushatest",
+            "password": "******",
+            "replicaSet": "atlas-jkjkg7-shard-0",
+            "ssl": true,
+            "authSource": "admin",
+            "qa__password": "VGVzdDEyMzQ1Ng=="
+        }
+    }
+}

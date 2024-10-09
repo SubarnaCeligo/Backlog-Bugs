@@ -81,3 +81,8 @@ require("./TC_C29922");
 require("./TC_C29928");
 require("./TC_C29938");
 require("./TC_C29961");
+require("./TC_C28133");
+require("./TC_C28144");
+require("./TC_C28145");
+require("./TC_C28152");
+require("./TC_C28203_FTP_Verify_Default_Symmetric_Key_Algorithm");

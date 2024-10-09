@@ -1,0 +1,157 @@
+{
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "createData": {
+    "importId": "6347f98a0eeae84271acadf6",
+    "importapiIdentifier": "ia39c5e975",
+    "importRecordJSON": {
+      "Name": "TC_C52055",
+      "Subsidiary": "HH Inc."
+    },
+    "application":"NETSUITE",
+    "importapidoc": {
+      "_id": "6347f98a0eeae84271acadf6",
+      "createdAt": "2022-10-13T11:42:02.959Z",
+      "lastModified": "2022-10-13T11:44:14.260Z",
+      "name": "TC_C52055_DND",
+      "_connectionId": "56d6b65d6f8ed15e4d0f9b8c",
+      "distributed": true,
+      "apiIdentifier": "ia39c5e975",
+      "ignoreExisting": true,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "useSS2Restlets": false,
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "genericresource",
+        "internalIdLookup": {
+          "expression": "[\"entityid\",\"is\",\"TC_C52055\"]"
+        },
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "entityid",
+              "extract": "Name",
+              "internalId": false
+            },
+            {
+              "generate": "subsidiary",
+              "extract": "Subsidiary",
+              "internalId": false
+            }
+          ],
+          "lists": []
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "FTP": {
+        "qa__dataVerification": {
+          "fileName": "TC_C52055",
+          "isUIFlow": true,
+          "folderName": "/io.auto.qa/IO_UI_Automation",
+          "fileType": ".json"
+        }
+      }
+    }
+  },
+  "flowsData": {
+    "name": "TC_C52055",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "Netsuite Export",
+              "_connectionId": "NETSUITE CONNECTION",
+              "apiIdentifier": "e239970a42",
+              "asynchronous": true,
+              "oneToMany": false,
+              "sandbox": false,
+              "rawData": "56d6b114e1fc35de5391472c3980b4b6123646f59fb02c1faa87f930",
+              "netsuite": {
+                "type": "restlet",
+                "skipGrouping": false,
+                "statsOnly": false,
+                "restlet": {
+                  "recordType": "genericresource",
+                  "searchId": "4706",
+                  "useSS2Restlets": false
+                },
+                "distributed": {
+                  "useSS2Framework": false
+                }
+              },
+              "adaptorType": "NetSuiteExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "FTP Import",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "ib1b7a4fad",
+              "oneToMany": false,
+              "mapping": {
+                "fields": [
+                  {
+                    "extract": "Name",
+                    "generate": "Name"
+                  },
+                  {
+                    "extract": "id",
+                    "generate": "Id"
+                  }
+                ]
+              },
+              "file": {
+                "fileName": "TC_C52055.json",
+                "skipAggregation": false,
+                "type": "json"
+              },
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation",
+                "fileName": "TC_C52055.json"
+              },
+              "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C52055",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

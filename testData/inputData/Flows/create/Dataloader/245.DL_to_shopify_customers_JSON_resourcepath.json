@@ -1,0 +1,109 @@
+{
+    "name": "DL_to_shopify_customers_JSON_resourcepath",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [{
+    "qa__export": {
+      "file": {
+        "encoding": "utf8",
+        "output": "records",
+        "skipDelete": false,
+        "type": "json",
+        "json": {
+          "resourcePath": "Author"
+        }
+      },
+      "asynchronous": true,
+      "qa__path": "/Dataloader_uploades/DL_to_shopify_customers_JSON_resourcepath.json",
+      "type": "simple",
+      "qa__isDataLoader": "json",
+      "adaptorType":"SimpleExport"
+    }}],
+    "pageProcessors": [{
+      "type":"import",
+    "qa__import": {
+      "name": "New REstimport",
+      "adaptorType": "RESTImport",
+      "_connectionId": "SHOPIFY CONNECTION",
+      "distributed": false,
+      "assistant": "shopify",
+      "assistantMetadata": {
+        "resource": "customer",
+        "version": "v2",
+        "operation": "creates_acustomer",
+        "lookups": {}
+    },
+      "qa__assistant": {
+        "resource": "Customer",
+        "endpoint": "Create"
+      },
+      "mapping": {
+        "fields": [
+          {
+            "extract": "email",
+            "generate": "customer.email",
+            "qa__isLocked": true
+          },
+          {
+            "extract": "firstname",
+            "generate": "customer.first_name",
+            "qa__isLocked": true
+          },
+          {
+            "extract": "lastname",
+            "generate": "customer.last_name",
+            "qa__isLocked": true
+          },
+          {
+            "extract": "note",
+            "generate": "customer.note"
+          }
+        ]
+      },
+      "rest": {
+        "relativeURI": [
+          "/admin/customers.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [
+          null
+        ],
+        "headers": [
+          
+        ],
+        "responseIdPath": [
+          null
+        ],
+        "successPath": [
+          null
+        ],
+        "lookups": [
+          
+        ]
+      }
+    }}],
+    "qa__expectedDashboardCount": {
+      "successCount": "2",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "qa__dataVerification": {
+      "expected":{
+       "shopify":{   
+    "qa__dataVerification": {
+      "exportapiIdentifier": "e448141a44",
+      "importRecordType": "customers",
+      "uniqueField": "email",
+      "isUIFlow": true,
+      "standaloneexportflowID": "57c831b3115de29e33d20320",
+      "expectedJSON": {
+        "email": "dataloaderjsonresourcepath@gmail.com",
+        "accepts_marketing": false,
+        "first_name": "Dataloader",
+        "last_name": "JSON_resourcepath",
+        "note": "27/03/1996"
+      }}}}}
+  }

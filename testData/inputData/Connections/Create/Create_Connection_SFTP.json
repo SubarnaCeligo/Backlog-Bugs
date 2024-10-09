@@ -1,0 +1,27 @@
+{
+    "expectedJSON": {
+        "ftp": {
+            "password": "******",
+            "port": 22,
+            "hostURI": "celigo.files.com",
+            "type": "sftp",
+            "usePassiveMode": true,
+            "username": "io.auto.qa@celigo.com"
+        },
+        "name": "Create_Connection_SFTP",
+        "type": "ftp"
+    },
+    "importJSON": {
+        "ftp": {
+            "password": "******",
+            "port": 22,
+            "hostURI": "celigo.files.com",
+            "type": "sftp",
+            "qa__password": "ZUBZVGdNTzUwJGRzbDAlSw==",
+            "usePassiveMode": true,
+            "username": "io.auto.qa@celigo.com"
+        },
+        "name": "Create_Connection_SFTP",
+        "type": "ftp"
+    }
+}

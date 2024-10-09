@@ -1,0 +1,48 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "HTTP Export",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "apiIdentifier": "e723a432b2",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "http": {
+          "relativeURI": "/api/v2/tickets.json",
+          "method": "GET",
+          "formType": "http",
+          "response": {
+            "resourcePath": "tickets"
+          }
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "rules": [
+              [
+                {
+                  "extract": "assignee_i",
+                  "generate": "id"
+                }
+              ]
+            ],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": [
+            [
+              {
+                "extract": "assignee_i",
+                "generate": "id"
+              }
+            ]
+          ]
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

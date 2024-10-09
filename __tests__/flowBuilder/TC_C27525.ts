@@ -11,7 +11,7 @@ test.describe("TC_C27525", () => {
   });
   test.afterEach(async ({io}) => {
     await test.step("*** Deleting flow.***", async ()=>{
-      await io.api.deleteFlowsWithId([flowId]);
+      await io.api.deleteFlowViaAPI(flowId);
     });
   });
   test("@Env-All @Zephyr-IO-T2837|Verify on updating the child trackey template field , the new trackey value is generated based on the updated template", async ({io,page}) => {
@@ -29,6 +29,7 @@ test.describe("TC_C27525", () => {
       selectors.mappings.MAPPER2DOT0PO.ADVANCED
     );
     await io.homePage.fill('[name="/traceKeyTemplate"]','{{record.customer.id}}');
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.flowBuilder.loadingTime();
     await io.homePage.loadingTime();

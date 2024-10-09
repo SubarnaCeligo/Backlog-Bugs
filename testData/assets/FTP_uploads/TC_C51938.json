@@ -1,0 +1,17 @@
+[
+    {
+        "Name": "SalesGdrivexlsxStart",
+        "Email__c": "test84dfsd@celigo.com",
+        "Phone": null,
+        "BillingCity": "S Nagar",
+        "BillingStreet": "GVP Colony",
+        "BillingCountry": "India",
+        "BillingState": "Telangana",
+        "BillingPostalCode": null,
+        "ShippingCity": "Hitech",
+        "ShippingStreet": "IZ Sec",
+        "ShippingCountry": "India",
+        "ShippingPostalCode": "500087",
+        "ShippingState": "Telangana"
+    }
+]

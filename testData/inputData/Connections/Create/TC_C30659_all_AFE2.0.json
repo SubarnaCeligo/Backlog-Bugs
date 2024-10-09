@@ -1,0 +1,77 @@
+{
+    "name": "TC_C330659_DND",
+    "referencename": "TC_C30659_DND",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "sam",
+                        "_connectionId": "62ff7b052dac2950afa68c9f",
+                        "apiIdentifier": "efb66a75eb",
+                        "asynchronous": true,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": "users",
+                            "method": "GET",
+                            "formType": "http"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "import",
+                        "_connectionId": "62f4b0621677a21a108e44fa",
+                        "apiIdentifier": "i96acef884",
+                        "oneToMany": false,
+                        "blob": true,
+                        "sandbox": false,
+                        "http": {
+                            "relativeURI": [
+                                "{{settings.flow.id}}\n{{settings.import.name}}\n{{settings.integration.id}}"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
+                            "formType": "http"
+                        },
+                        "settings": {
+                            "name": "celigo_import"
+                        },
+                        "adaptorType": "HTTPImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C30659_DND",
+                "disabled": false,
+                "_integrationId": "62e8c2172dd80523719f9291",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

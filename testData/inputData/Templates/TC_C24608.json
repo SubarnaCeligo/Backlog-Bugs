@@ -1,0 +1,25 @@
+{
+"qa_importJson": {
+  "environment": "Production",
+    "name": "TC_C24608_Template_DND",
+    "contactEmail": "io.auto.cloning.qa@celigo.com",
+    "published": true,
+    "_integrationId": "63a1964463d96120fbb10155",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+        "_integrationId": "63a1964463d96120fbb10155",
+        "editions": []
+    }
+},
+"publishBody":{
+      "name": "TC_C24608_Template_DND",
+      "environment": "Production",
+      "app": "activecampaign",
+      "integrationName": "TC_C24608_Template_DND",
+      "published": true
+},
+"app": "ActiveCampaign",
+"name": "TC_C24608_Template_DND",
+"environment": "Production"
+}

@@ -1,0 +1,43 @@
+{"importJSON":
+{
+    "type": "http",
+    "name": "Vroozi Connection",
+     "sandbox": false,
+    "http": {
+      "formType": "http",
+     "mediaType": "json",
+     "baseURI": "https://sandbox-api.vroozi.com/v1",
+      "ping": {
+        "relativeURI": "/company-codes",
+        "method": "GET"
+    },
+    "unencrypted": {
+        "qa_apiKey": "aldTU0tWUjZIUDRJc0o2MDVpc1VFR2hyclJPVlpuVDNqMWhhV09RMw==",
+        "qa_token":"ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6VXhNaUo5LmV5SkJVRkJmU1VRaU9pSmlOV1JrWkRRd09TMWpOakZtTFRReFpUVXRPVEJtWVMxaU1XRTFOalF3WmpJMFlqTWlMQ0pWVGtsVVgwbEVJam9pT0RBeElpd2lVa0ZPUkU5TlgwNVZUVUpGVWlJNklqa3lNMlJqWVROa0xUUTBNamt0TkRCbU1TMWlOamxoTFRneFkyTmpORFU0TnpneU5pSjkubFZyRHUxVTFLNXhIeUt3QWxMZ2w5N0lMNTFtUFk1R2xvbkt3b19pa0tGR0VvTkJkWUpEdVRDN0JFVkpnRWY1MjZQOEd2VFBqZWdOMEV0X21wekRncmc="
+    },
+    "encrypted": "******",
+     "_httpConnectorId": "62f7c134dd7931633948f815",
+     "auth": {
+        "type": "token",
+        "token": {
+            "token": "******",
+            "location": "header",
+            "headerName": "Authorization",
+            "scheme": " "
+        }
+    }
+},
+    "headers": [
+        {
+            "name": "x-api-key",
+            "value": "{{{connection.http.unencrypted.apiKey}}}"
+        }
+    ],
+    "queues": [
+        {
+            "name": "62f7df3cd07aa55c7643a737",
+            "size": 0
+        }
+    ]
+    }
+}

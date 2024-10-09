@@ -1,0 +1,213 @@
+{
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "createData": {
+    "importId": "63343197ca06597ef0ab7a3a",
+    "importapiIdentifier": "i285500df7",
+    "importRecordJSON": {
+      "Name": "TC_C31864",
+      "Code": "TC_C31864_CODE",
+      "Flat": "T",
+      "Discount": "1062",
+      "Rate": "20",
+      "Form": "294"
+    },
+    "application":"NETSUITE", 
+    "importapidoc": {
+      "_id": "63343197ca06597ef0ab7a3a",
+      "createdAt": "2022-09-28T11:35:51.819Z",
+      "lastModified": "2022-10-06T04:24:43.247Z",
+      "name": "TC_C31861_DND",
+      "_connectionId": "56d6b65d6f8ed15e4d0f9b8c",
+      "distributed": true,
+      "apiIdentifier": "i285500df7",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "useSS2Restlets": false,
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "promotioncode",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "customform",
+              "extract": "Form",
+              "internalId": true,
+              "discardIfEmpty": false,
+              "immutable": false
+            },
+            {
+              "generate": "name",
+              "extract": "Name",
+              "internalId": false
+            },
+            {
+              "generate": "code",
+              "extract": "Code",
+              "internalId": false
+            },
+            {
+              "generate": "discounttype",
+              "extract": "Flat",
+              "internalId": false
+            },
+            {
+              "generate": "discount",
+              "extract": "Discount",
+              "internalId": true
+            },
+            {
+              "generate": "rate",
+              "extract": "Rate",
+              "internalId": false
+            },
+            {
+              "generate": "celigo_initializeValues",
+              "hardCodedValue": "customform"
+            }
+          ],
+          "lists": []
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "name": "TC_C31864",
+              "code": "TC_C31864_CODE",
+              "discount": {
+                "internalid": "-6",
+                "name": "Partner Discount"
+              },
+              "rate": "20%",
+              "customform": {
+                "internalid": "294",
+                "name": "Custom Promotion Code Form"
+              }
+            }
+          ],
+          "importRecordType": "promotioncode",
+          "exportRecordType": "promotioncode",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63352fbcca06597ef0ac280c",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e09510bec7"
+        }
+      }
+    }
+  },
+  "flowsData": {
+    "name": "TC_C31864",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e69a448c22",
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C31860",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "ia6e4b0823",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "update",
+                "recordType": "promotioncode",
+                "internalIdLookup": {
+                  "expression": "[\"name\",\"is\",\"TC_C31864\"]"
+                },
+                "lookups": [],
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "discounttype",
+                      "internalId": false,
+                      "hardCodedValue": "F"
+                    },
+                    {
+                      "generate": "discount",
+                      "hardCodedValue": "-6",
+                      "internalId": true
+                    },
+                    {
+                      "generate": "rate",
+                      "hardCodedValue": "20%",
+                      "internalId": false
+                    }
+                  ],
+                  "lists": []
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C31864",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

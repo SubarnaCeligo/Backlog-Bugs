@@ -1,0 +1,243 @@
+{
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "disabled": false,
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "DL export",
+        "asynchronous": true,
+        "file": {
+          "csv": {
+            "columnDelimiter": ";",
+            "rowDelimiter": "\n",
+            "hasHeaderRow": false,
+            "trimSpaces": true,
+            "rowsToSkip": 0
+          },
+          "encoding": "win1252",
+          "output": "records",
+          "type": "csv"
+        },
+        "qa__path": "/Dataloader_uploades/DL to Zendesk POST User Flow 4.csv",
+        "transform": {
+          "rules": []
+        },
+        "qa__isDataLoader": "csv",
+        "type": "simple",
+        "adaptorType": "SimpleExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "PPImport",
+        "application":"zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "distributed": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Column0",
+              "generate": "user.name"
+            },
+            {
+              "extract": "Column1",
+              "generate": "user.notes"
+            },
+            {
+              "extract": "Column2",
+              "generate": "user.user_fields.fax"
+            },
+            {
+              "extract": "Column3",
+              "generate": "user.user_fields.phone"
+            },
+            {
+              "extract": "Column4",
+              "generate": "user.user_fields.address_1",
+              "dataType": "string"
+            },
+            {
+              "extract": "Column5",
+              "generate": "user.user_fields.address_2"
+            },
+            {
+              "extract": "Column6",
+              "generate": "user.user_fields.address_city"
+            },
+            {
+              "extract": "Column7",
+              "generate": "user.user_fields.address_state"
+            },
+            {
+              "extract": "Column8",
+              "generate": "user.user_fields.address_country"
+            },
+            {
+              "extract": "Column9",
+              "generate": "user.user_fields.custom_numeric",
+              "dataType": "number"
+            },
+            {
+              "extract": "Column10",
+              "generate": "user.organization_id",
+              "lookupName": "ec1c222cfc7a4e8d8ab6fb0ba4f52633"
+            },
+            {
+              "extract": "Column11",
+              "generate": "user.user_fields.job_titles",
+              "lookupName": "hrMskEuSU"
+            },
+            {
+              "extract": "{{{jsonEncode Column12}}}",
+              "generate": "user.user_fields.jsonencoderfield"
+            }
+          ]
+        },
+        "http": {
+          "relativeURI": [
+            "users.json"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "formType": "http",
+          "qa__formType": "rest",
+          "strictHandlebarEvaluation": true,
+          "sendPostMappedData": true,
+          "lookups": [
+            {
+              "name": "ec1c222cfc7a4e8d8ab6fb0ba4f52633",
+              "relativeURI": "search.json?query=type:organization name:{{{Column10}}}",
+              "method": "GET",
+              "postBody": "",
+              "extract": "results[0].id",
+              "allowFailures": true,
+              "default": "4653550269"
+            },
+            {
+              "name": "hrMskEuSU",
+              "map": {
+                "CE": "Celigo",
+                "INT": "Integrator"
+              },
+              "allowFailures": true,
+              "default": "Default Static Value",
+              "useImportHeaders": false
+            }
+          ]
+        },
+        "lookups": [
+          {
+            "name": "ec1c222cfc7a4e8d8ab6fb0ba4f52633",
+            "relativeURI": "search.json?query=type:organization name:{{{Column10}}}",
+            "method": "GET",
+            "postBody": "",
+            "extract": "results[0].id",
+            "allowFailures": true,
+            "default": "4653550269"
+          },
+          {
+            "name": "hrMskEuSU",
+            "map": {
+              "CE": "Celigo",
+              "INT": "Integrator"
+            },
+            "allowFailures": true,
+            "default": "Default Static Value"
+          }
+        ],
+        "adaptorType": "HTTPImport"
+      }
+    }
+  ],
+  "name": "71.DL to Zendesk_POST_Flow 4_JSON",
+  "qa__dataVerification": {
+    "expected": {
+      "zendesk": {
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "name": "Auto@DLUser1",
+              "notes": "dluser1@gmail.com",
+              "user_fields": {
+                "address_1": "Ascendes Park�",
+                "address_2": "Inorbit mall",
+                "address_city": "Hitech city",
+                "address_country": "India",
+                "address_state": "Hyderabad",
+                "address_zip": null,
+                "custom_numeric": 89000001212,
+                "fax": "090-221212",
+                "job_titles": "Celigo",
+                "jsonencoderfield": "{\\\"test\\\":{\\\"entity\\\":\\\"104.NS_Xml_Export_To_Ftp\\\"}}",
+                "phone": "949092768"
+              }
+            },
+            {
+              "name": "Auto@DLUser2",
+              "notes": "dluser2@gmail.com",
+              "user_fields": {
+                "address_1": "Ascendes Park",
+                "address_2": "Inorbit mall",
+                "address_city": "Hitech city",
+                "address_country": "India",
+                "address_state": "Hyderabad",
+                "custom_numeric": 89000001212,
+                "fax": "090-221212",
+                "job_titles": "Integrator",
+                "phone": "949092767"
+              }
+            },
+            {
+              "name": "Auto@DLUser3",
+              "notes": "dluser3@gmail.com",
+              "user_fields": {
+                "address_1": "Ascendes Park",
+                "address_2": "Inorbit mall",
+                "address_city": "Hitech city",
+                "address_country": "India",
+                "address_state": "Hyderabad",
+                "custom_numeric": 89000001212,
+                "fax": "090-221212",
+                "job_titles": "Celigo",
+                "phone": "949092767"
+              }
+            },
+            {
+              "name": "Auto@DLUser4",
+              "notes": "dluser4@gmail.com",
+              "user_fields": {
+                "address_1": "Ascendes Park",
+                "address_2": "Inorbit mall",
+                "address_city": "Hitech city",
+                "address_country": "India",
+                "address_state": "Hyderabad",
+                "custom_numeric": 89000001212,
+                "fax": "090-221212",
+                "job_titles": "Default Static Value",
+                "phone": "949092765"
+              }
+            }
+          ],
+          "exportapiIdentifier": "e8c9cb6192",
+          "generateSampleDropDownAvailable": false,
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "standaloneexportflowID": "57aaf0188ec9f88049060166",
+          "uniqueField": "notes"
+        }
+      }
+    }
+  },
+  "qa__expectedDashboardCount": {
+    "errorCount": "0",
+    "ignoreCount": "0",
+    "successCount": "8"
+  },
+  "skipRetries": false
+}

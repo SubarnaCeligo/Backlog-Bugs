@@ -1,0 +1,456 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "adaptorType": "SalesforceImport",
+        "name": "Salesforce Upsert",
+        "salesforce": {
+          "lookups": [
+            {
+              "default": "Default Name",
+              "whereClause": "(Email = {{{email organization_fields.email}}})",
+              "qa__whereClause": [
+                [
+                  "Email",
+                  "=",
+                  "organization_fields.email"
+                ]
+              ],
+              "name": "a413634e200a4bd28f98605347f57211",
+              "sObjectType": "Contact",
+              "resultField": "Name",
+              "allowFailures": true
+            }
+          ],
+          "upsert": {
+            "externalIdField": "Upsert_Field__c"
+          },
+          "sObjectType": "Account",
+          "api": "rest",
+          "operation": "upsert",
+          "idLookup": {
+            "extract": "notes"
+          },
+          "removeNonSubmittableFields": false
+        },
+        "lookups": [
+          {
+            "name": "773f3f4770db427785b7cdcd60931440",
+            "allowFailures": true,
+            "default": "Default Name",
+            "sObjectType": "Contact",
+            "resultField": "Name",
+            "whereClause": "(Email = {{{email organization_fields.email}}})"
+          }
+        ],
+        "mapping": {
+          "fields": [
+            {
+              "extract": "name",
+              "generate": "Name"
+            },
+            {
+              "extract": "notes",
+              "generate": "Email__c"
+            },
+            {
+              "extract": "organization_fields.phone",
+              "generate": "Phone"
+            },
+            {
+              "extract": "organization_fields.subsidiary_id",
+              "generate": "Subsidiary_Internal_ID__c"
+            },
+            {
+              "extract": "organization_fields.billing_address_1",
+              "generate": "BillingStreet"
+            },
+            {
+              "extract": "organization_fields.billing_city",
+              "generate": "BillingCity"
+            },
+            {
+              "extract": "organization_fields.billing_state",
+              "generate": "BillingState"
+            },
+            {
+              "extract": "organization_fields.billing_zip",
+              "generate": "BillingPostalCode"
+            },
+            {
+              "extract": "organization_fields.billing_country",
+              "generate": "BillingCountry"
+            },
+            {
+              "extract": "organization_fields.shipping_address_1",
+              "generate": "ShippingStreet"
+            },
+            {
+              "extract": "organization_fields.shipping_city",
+              "generate": "ShippingCity"
+            },
+            {
+              "extract": "organization_fields.shipping_state",
+              "generate": "ShippingState"
+            },
+            {
+              "extract": "organization_fields.shipping_zipcode",
+              "generate": "ShippingPostalCode"
+            },
+            {
+              "extract": "organization_fields.shipping_country",
+              "generate": "ShippingCountry"
+            },
+            {
+              "extract": "organization_fields.onceexport",
+              "generate": "Once_Export__c"
+            },
+            {
+              "extract": "organization_fields.email",
+              "generate": "Static_Text_Test__c",
+              "lookupName": "a413634e200a4bd28f98605347f57211"
+            }
+          ]
+        },
+        "_connectionId": "SALESFORCE CONNECTION",
+        "distributed": false
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "19.SF Flow#08_REST(ZD org) to SF(Acc)_Upsert",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importrecordjson": {
+      "notes": "19Zd2SFAccount@celigo.com",
+      "shipping_state": "Telangana",
+      "shipping_city": "Hyderabad",
+      "billing_country": "USA",
+      "once_export": "false",
+      "subsidiary_name": "HH Inc.",
+      "billing_city": "Troy City",
+      "phone": "9858747854",
+      "billing_state": "Alabama",
+      "shipping_zip": "500016",
+      "shipping_address1": "GV Colony",
+      "name": "Auto@19ZDOrg2SFAccount#1",
+      "billing_zip": "123456",
+      "subsidiary_id": "14",
+      "billing_address1": "Add1 Colony",
+      "shipping_country": "India",
+      "email": "19zd2sfaccount_alt@celigo.com"
+    },
+    "importapiIdentifier": "ief90042f8",
+    "expected": {
+      "Salesforce": {
+        "name": "19.SF Flow#08_REST(ZD org) to SF(Acc)_Upsert",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "SALESFORCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "BillingCity": "Troy City",
+            "Alt_Email__c": null,
+            "Name": "Auto@19ZDOrg2SFAccount#1",
+            "ShippingStreet": "GV Colony",
+            "BillingCountry": "USA",
+            "Static_Text_Test__c": "19Flow Help Contact",
+            "BillingStreet": "Add1 Colony",
+            "Phone": "9858747854",
+            "ShippingPostalCode": "500016",
+            "ShippingCountry": "India",
+            "BillingPostalCode": "123456",
+            "ShippingCity": "Hyderabad",
+            "ShippingState": "Telangana",
+            "Subsidiary_Internal_ID__c": "14",
+            "BillingState": "Alabama",
+            "Email__c": "19Zd2SFAccount@celigo.com",
+            "Subsidiary_Name__c": null
+          },
+          "standaloneexportflowID": "57be7ecc269c3e42500c34a3",
+          "exportapiIdentifier": "e8a11eeb29",
+          "uniqueField": "Name",
+          "importRecordType": "Account",
+          "exportRecordType": "organizations",
+          "isUIFlow": true,
+          "query": "Select Id,Name, Email__c,Alt_Email__c,Subsidiary_Name__c,Subsidiary_Internal_ID__c,Static_Text_Test__c,phone,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name like 'Auto@19ZDOrg2SFAccount#1'"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "57a84603885bd15124a41a20",
+      "createdAt": "2019-10-20T17:25:57.710Z",
+      "lastModified": "2019-10-28T07:48:13.678Z",
+      "name": "19.SF Flow -- REST(ZD) to SF Standalone Import",
+      "sampleData": {
+        "organization": {
+          "organization_fields": {
+            "znc_unbilled_orders": null,
+            "znc_sales_orders": null,
+            "znc_phone": null,
+            "znc_netsuite_id": 19019022,
+            "znc_fax": null,
+            "znc_email": null,
+            "znc_days_overdue": null,
+            "znc_currency": null,
+            "znc_credit_limit": null,
+            "znc_credit_hold": null,
+            "znc_billing_zip": null,
+            "znc_billing_state": null,
+            "znc_billing_phone": null,
+            "znc_billing_country": null,
+            "znc_billing_city": null,
+            "znc_billing_attention": null,
+            "znc_billing_addressee": null,
+            "znc_billing_address2": null,
+            "znc_billing_address1": null,
+            "znc_account_overdue_balance": null,
+            "znc_account_balance": null,
+            "usernotes_type_internalid": null,
+            "usernotes_type": null,
+            "usernotes_title": "New Title",
+            "usernotes_memo": null,
+            "usernotes_direction_internalid": null,
+            "usernotes_direction": null,
+            "usernotes_date": null,
+            "title": null,
+            "subsidiary_name": null,
+            "subsidiary_id": null,
+            "shipping_zipcode": null,
+            "shipping_state": null,
+            "shipping_phone": null,
+            "shipping_custom_field": null,
+            "shipping_country_id": null,
+            "shipping_country": null,
+            "shipping_city": null,
+            "shipping_attention": null,
+            "shipping_address_2": null,
+            "shipping_address_1": null,
+            "shipping_addressee": null,
+            "phone": "9490993784",
+            "onceexport": true,
+            "fax": "['010-10101']",
+            "email": null,
+            "dropdown": null,
+            "billing_zip": null,
+            "billing_state": null,
+            "billing_phone": null,
+            "billing_custom_field": null,
+            "billing_country_id": null,
+            "billing_country": null,
+            "billing_city": null,
+            "billing_attention": null,
+            "billing_address_1": null,
+            "billing_addressee": null,
+            "billing_address2": null,
+            "address_zip": null,
+            "address_state": "Telanagana",
+            "address_country_name": "India",
+            "address_country_internalid": null,
+            "address_city": "Hyderabad",
+            "address_address_2": "AmeerPet",
+            "address_address_1": "['SR NagarSR Nagar']"
+          },
+          "tags": [
+            "onceexport"
+          ],
+          "group_id": null,
+          "notes": "acc1002@gmail.com",
+          "details": "",
+          "updated_at": "2016-06-08T07:02:21Z",
+          "created_at": "2016-05-11T09:26:57Z",
+          "external_id": null,
+          "shared_comments": false,
+          "shared_tickets": false,
+          "name": "Acc1002",
+          "id": 3588305495,
+          "url": "https://celigoqa.zendesk.com/api/v2/organizations/3588305495.json"
+        }
+      },
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "56d6d3c95900861a56d64677",
+      "distributed": false,
+      "apiIdentifier": "ief90042f8",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "billing_country",
+            "generate": "organization.organization_fields.billing_country"
+          },
+          {
+            "extract": "name",
+            "generate": "organization.name"
+          },
+          {
+            "extract": "notes",
+            "generate": "organization.notes"
+          },
+          {
+            "extract": "phone",
+            "generate": "organization.organization_fields.phone"
+          },
+          {
+            "extract": "fax",
+            "generate": "organization.organization_fields.fax"
+          },
+          {
+            "extract": "subsidiary_id",
+            "generate": "organization.organization_fields.subsidiary_id"
+          },
+          {
+            "extract": "subsidiary_name",
+            "generate": "organization.organization_fields.subsidiary_name"
+          },
+          {
+            "extract": "billing_address1",
+            "generate": "organization.organization_fields.billing_address_1"
+          },
+          {
+            "extract": "billing_city",
+            "generate": "organization.organization_fields.billing_city"
+          },
+          {
+            "extract": "billing_state",
+            "generate": "organization.organization_fields.billing_state"
+          },
+          {
+            "extract": "billing_zip",
+            "generate": "organization.organization_fields.billing_zip"
+          },
+          {
+            "extract": "shipping_address1",
+            "generate": "organization.organization_fields.shipping_address_1"
+          },
+          {
+            "extract": "shipping_city",
+            "generate": "organization.organization_fields.shipping_city"
+          },
+          {
+            "extract": "shipping_state",
+            "generate": "organization.organization_fields.shipping_state"
+          },
+          {
+            "extract": "shipping_country",
+            "generate": "organization.organization_fields.shipping_country"
+          },
+          {
+            "extract": "shipping_zip",
+            "generate": "organization.organization_fields.shipping_zipcode"
+          },
+          {
+            "extract": "once_export",
+            "generate": "organization.organization_fields.onceexport"
+          },
+          {
+            "extract": "email",
+            "generate": "organization.organization_fields.email"
+          },
+          {
+            "extract": "title",
+            "generate": "organization.organization_fields.title"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "organizations.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "strictHandlebarEvaluation": true,
+        "sendPostMappedData": true,
+        "formType": "http",
+        "response": {
+          "resourceIdPath": [
+            ""
+          ]
+        }
+      },
+      "rest": {
+        "relativeURI": [
+          "organizations.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "responseIdPath": [
+          ""
+        ],
+        "successPath": [
+          ""
+        ]
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "RESTImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Rest Export Organization with notes",
+        "application": "zendesk support",
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "asynchronous": true,
+        "parsers": [],
+        "type": "once",
+        "http": {
+          "relativeURI": "search.json?query=type:organization notes:\"19Zd2SFAccount@celigo.com\"",
+          "method": "GET",
+          "formType": "http",
+          "qa__formType": "rest",
+          "paging": {
+            "lastPageValues": []
+          },
+          "once": {
+            "relativeURI1": "organizations/{{{id}}}.json",
+            "method1": "PUT",
+            "body": "{\"organizations\":\"{{recordBeingExported}}\"}"
+          },
+          "response": {
+            "resourcePath": "results"
+          }
+        },
+        "once": {
+          "booleanField": "organization.organization_fields.onceexport"
+        },
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

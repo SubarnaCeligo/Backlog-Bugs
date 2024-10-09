@@ -44,7 +44,6 @@ test.describe("@Env-All @Zephyr-IO-T3048|To verify pinned integrations are displ
     await io.homePage.reloadPage();
     await io.homePage.loadingTime();
     await io.myAccountPage.waitForElementAttached("table > tbody > tr > th svg");
-    await page.pause();
     var logoPin = await io.homePage.isVisible(
       "table > tbody > tr > th svg"
     );

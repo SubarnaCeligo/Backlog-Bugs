@@ -1,0 +1,254 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "NETSUITE CONNECTION",
+        "name": "NetsuiteImportSalesorder",
+        "adaptorType": "NetSuiteDistributedImport",
+        "dataURITemplate": "{{{Id}}}",
+        "lookups": [],
+        "distributed": true,
+        "netsuite_da": {
+          "lookups": [],
+          "mapping": {
+            "lists": [
+              {
+                "fields": [
+                  {
+                    "internalId": false,
+                    "immutable": false,
+                    "extract": "OpportunityLineItems[*].PricebookEntry.Product2.Name",
+                    "generate": "item",
+                    "discardIfEmpty": false
+                  },
+                  {
+                    "internalId": false,
+                    "immutable": false,
+                    "extract": "OpportunityLineItems[*].Quantity",
+                    "generate": "quantity",
+                    "discardIfEmpty": false
+                  },
+                  {
+                    "internalId": false,
+                    "immutable": false,
+                    "extract": "OpportunityLineItems[*].UnitPrice",
+                    "generate": "amount",
+                    "discardIfEmpty": false
+                  },
+                  {
+                    "internalId": true,
+                    "immutable": true,
+                    "hardCodedValue": "-111",
+                    "generate": "taxcode",
+                    "discardIfEmpty": false
+                  }
+                ],
+                "generate": "item"
+              }
+            ],
+            "fields": [
+              {
+                "internalId": false,
+                "immutable": false,
+                "extract": "OrderNumber__c",
+                "generate": "memo",
+                "discardIfEmpty": false
+              },
+              {
+                "internalId": false,
+                "immutable": false,
+                "extract": "Account.Name",
+                "generate": "entity",
+                "discardIfEmpty": false
+              },
+              {
+                "generate": "otherrefnum",
+                "hardCodedValue": "564328",
+                "internalId": false
+              },
+              {
+                "internalId": false,
+                "immutable": false,
+                "hardCodedValue": "true",
+                "generate": "celigo_replaceAllLines_item",
+                "discardIfEmpty": false
+              }
+            ]
+          },
+          "recordType": "salesorder",
+          "internalIdLookup": {
+            "expression": "[\"memo\",\"is\",\"{{{OrderNumber__c}}}\"]",
+            "qa__expression": [
+              [
+                "memo",
+                "is",
+                "OrderNumber__c"
+              ]
+            ]
+          },
+          "operation": "addupdate"
+        }
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "13.SF Flow#02_SF(Opportunity) to NS(SalesOrder)_AddorUpdate",
+  "disabled": false,
+  "qa__dataVerification": {
+    "opportunityBody": {
+      "amount": "100",
+      "stage": "Qualification",
+      "opportunity": "13SF2NSsalesOrder_Opp_11",
+      "close date": "2016-08-16",
+      "account": "0013m00002SJidl",
+      "order number": "13SF2NSsalesOrder11"
+    },
+    "application": "SALESFORCE",
+    "importapiIdentifier": "i23c7e0a45",
+    "opportunityProduct": {
+      "quantity": "2",
+      "price": "100.00"
+    },
+    "importapiIdentifier1": "ief45ec37c",
+    "importapiIdentifier2": "i78cb6d9b7",
+    "importRecordJSON": {
+      "Email field test2": "AltTestmail15@gmail.com",
+      "phone": "8999899989000",
+      "companyname": "Auto@160",
+      "fax": "12345678",
+      "email": "AutoUser15@gmail.com",
+      "subsidiary": "HH Inc."
+    },
+    "expected": {
+      "netsuite": {
+        "name": "13.SF Flow#02_SF(Opportunity) to NS(SalesOrder)_AddorUpdate",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "memo": "13SF2NSsalesOrder11",
+              "item": [
+                {
+                  "amount": 100,
+                  "item": {
+                    "name": "ACC00001"
+                  },
+                  "quantity": 2
+                }
+              ],
+              "entity": {
+                "name": "Auto@160"
+              }
+            }
+          ],
+          "standaloneexportflowID": "57dc00577d26c4732c1a9c02",
+          "uniqueField": "name",
+          "importRecordType": "salesorder",
+          "exportRecordType": "Opportunity",
+          "isUIFlow": true,
+          "query": "select name,Opportunity.Account.Name,Opportunity.OrderNumber__c,Opportunity.Once_Export__c,(select PricebookEntry.Product2.Name,quantity,UnitPrice from OpportunityLineItems) from opportunity where name='13SF2NSsalesOrder_Opp_11'",
+          "exportapiIdentifier": "e1ee2282ea"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "633bfce3380b0b2aca222d9c",
+      "createdAt": "2022-10-04T09:29:08.000Z",
+      "lastModified": "2022-10-04T09:30:04.803Z",
+      "name": "DND_032",
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "apiIdentifier": "i23c7e0a45",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "amount",
+            "generate": "Amount"
+          },
+          {
+            "extract": "stage",
+            "generate": "StageName"
+          },
+          {
+            "extract": "opportunity",
+            "generate": "Name"
+          },
+          {
+            "extract": "[close date]",
+            "generate": "CloseDate"
+          },
+          {
+            "extract": "account",
+            "generate": "AccountId"
+          },
+          {
+            "extract": "[order number]",
+            "generate": "OrderNumber__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Opportunity",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "salesforce": {
+          "soql": {
+            "query": "select name,Opportunity.Account.Name,Opportunity.OrderNumber__c,Opportunity.Once_Export__c,(select PricebookEntry.Product2.Name,quantity,UnitPrice from OpportunityLineItems) from opportunity where name='13SF2NSsalesOrder_Opp_11'"
+          },
+          "distributed": {
+            "disabled": false,
+            "relatedLists": []
+          },
+          "api": "rest",
+          "type": "soql"
+        },
+        "transform": {
+          "rules": []
+        },
+        "type": "once",
+        "once": {
+          "booleanField": "Once_Export__c"
+        },
+        "asynchronous": true,
+        "_connectionId": "SALESFORCE CONNECTION",
+        "name": "SalesforceExportAccount",
+        "inputFilter": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "adaptorType": "SalesforceExport",
+        "parsers": []
+      }
+    }
+  ]
+}

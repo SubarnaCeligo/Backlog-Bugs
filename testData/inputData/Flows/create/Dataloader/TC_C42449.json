@@ -1,0 +1,72 @@
+{
+    "skipRetries": false,
+    "_integrationId": "62d6b4a955468141a906119e",
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "application":"zendesk support",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "http": {
+                    "relativeURI": [
+                        "tickets"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [
+                        "{\n  \"ticket\": {\n    \"comment\": {\n      \"body\": \"{{record.Type}}\"\n    },\n    \"priority\": \"urgent\",\n    \"subject\": \"{{record.TestCaseId}}\"\n  }\n}"
+                    ],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http"
+                },
+                "adaptorType": "HTTPImport"
+            }
+        }
+    ],
+    "name": "TC_C42449_Dataloader_Export",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "Zendesk": {
+                "qa__dataVerification": {
+                    "expectedJSON": [
+                        {
+                            "subject": "42449",
+                            "raw_subject": "42449",
+                            "description": "DataLoader",
+                            "priority": "urgent"
+                        }
+                    ],
+                    "uniqueField": "subject",
+                    "standaloneexportflowID": "62be7f81a0f5f2144816db2e",
+                    "importRecordType": "tickets",
+                    "isUIFlow": true,
+                    "exportapiIdentifier": "ea4f303c83"
+                }
+            }
+        }
+    },
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "file": {
+                    "encoding":"utf8",
+                    "output": "records",
+                    "type": "json"
+                },
+                "asynchronous": true,
+                "qa__isDataLoader": "json",
+                "qa__path": "/Dataloader_uploades/TC_C42449.json",
+                "type": "simple",
+                "adaptorType": "SimpleExport"
+            }
+        }
+    ]
+}

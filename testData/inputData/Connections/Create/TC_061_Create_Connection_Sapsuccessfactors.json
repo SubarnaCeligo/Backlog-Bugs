@@ -1,0 +1,103 @@
+{
+    "expectedJSON": {
+      "type": "http",
+      "name": "sap success factors",
+      "assistant": "sapsuccessfactors",
+      "http": {
+        "formType": "assistant",
+        "mediaType": "json",
+        "baseURI": "https://apisalesdemo8.successfactors.com/odata/v2",
+        "ping": {
+          "relativeURI": "/Background_Community",
+          "method": "GET",
+          "failValues": [],
+          "successValues": []
+        },
+        "rateLimit": {
+          "failValues": []
+        },
+        "headers": [
+          {
+            "name": "accept",
+            "value": "application/json"
+          }
+        ],
+        "unencrypted": {
+          "baseurl": "apisalesdemo8.successfactors.com",
+          "clientId": "NGM0MzAxNzU5OTI5YjZhZGNlMzczMDIyNWVhOQ",
+          "companyId": "SFCPART000392",
+          "userId": "sfadmin"
+        },
+        "encrypted": "******",
+        "auth": {
+          "type": "token",
+          "failStatusCode": 403,
+          "failValues": [],
+          "oauth": {
+            "scope": []
+          },
+          "token": {
+            "token": "******",
+            "location": "header",
+            "headerName": "Authorization",
+            "scheme": "Bearer",
+            "refreshMethod": "POST",
+            "refreshRelativeURI": "https://apisalesdemo8.successfactors.com/oauth/token",
+            "refreshBody": "{ \"client_id\": \"{{{connection.http.unencrypted.clientId}}}\", \"assertion\": \"{{{connection.http.encrypted.assertion}}}\", \"company_id\":\"{{{connection.http.unencrypted.companyId}}}\",\"grant_type\": \"urn:ietf:params:oauth:grant-type:saml2-bearer\", \"user_id\":\"{{{connection.http.unencrypted.userId}}}\" }",
+            "refreshMediaType": "urlencoded"
+          }
+        }
+      }
+    },
+    "importJSON": {
+      "type": "http",
+      "name": "sap success factors",
+      "assistant": "sapsuccessfactors",
+      "http": {
+        "formType": "assistant",
+        "mediaType": "json",
+        "baseURI": "https://apisalesdemo8.successfactors.com/odata/v2",
+        "ping": {
+          "relativeURI": "/Background_Community",
+          "method": "GET",
+          "failValues": [],
+          "successValues": []
+        },
+        "rateLimit": {
+          "failValues": []
+        },
+        "headers": [
+          {
+            "name": "accept",
+            "value": "application/json"
+          }
+        ],
+        "unencrypted": {
+          "baseurl": "apisalesdemo8.successfactors.com",
+          "clientId": "NGM0MzAxNzU5OTI5YjZhZGNlMzczMDIyNWVhOQ",
+          "companyId": "SFCPART000392",
+          "userId": "sfadmin"
+        },
+        "encrypted": "******",
+        "auth": {
+          "type": "token",
+          "failStatusCode": 403,
+          "failValues": [],
+          "oauth": {
+            "scope": []
+          },
+          "token": {
+            "qa__assertion": "UEQ5NGJXd2dkbVZ5YzJsdmJqMGlNUzR3SWlCbGJtTnZaR2x1WnowaVZWUkdMVGdpUHo0OGMyRnRiREk2UVhOelpYSjBhVzl1SUhodGJHNXpPbk5oYld3eVBTSjFjbTQ2YjJGemFYTTZibUZ0WlhNNmRHTTZVMEZOVERveUxqQTZZWE56WlhKMGFXOXVJaUJKUkQwaVpEazVOR1U0WXpBdE5EY3pNUzAwT0RrNUxUaGhabUl0T1RSaE1ERXpPV1E1TjJNd0lpQkpjM04xWlVsdWMzUmhiblE5SWpJd01qRXRNRFl0TVRaVU1USTZOVGM2TXpRdU1UYzRXaUlnVm1WeWMybHZiajBpTWk0d0lpQjRiV3h1Y3pwNGN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TVM5WVRVeFRZMmhsYldFaUlIaHRiRzV6T25oemFUMGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TVM5WVRVeFRZMmhsYldFdGFXNXpkR0Z1WTJVaVBqeHpZVzFzTWpwSmMzTjFaWEkrZDNkM0xuTjFZMk5sYzNObVlXTjBiM0p6TG1OdmJUd3ZjMkZ0YkRJNlNYTnpkV1Z5UGp4a2N6cFRhV2R1WVhSMWNtVWdlRzFzYm5NNlpITTlJbWgwZEhBNkx5OTNkM2N1ZHpNdWIzSm5Mekl3TURBdk1Ea3ZlRzFzWkhOcFp5TWlQanhrY3pwVGFXZHVaV1JKYm1adlBqeGtjenBEWVc1dmJtbGpZV3hwZW1GMGFXOXVUV1YwYUc5a0lFRnNaMjl5YVhSb2JUMGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TVM4eE1DOTRiV3d0WlhoakxXTXhORzRqSWk4K1BHUnpPbE5wWjI1aGRIVnlaVTFsZEdodlpDQkJiR2R2Y21sMGFHMDlJbWgwZEhBNkx5OTNkM2N1ZHpNdWIzSm5Mekl3TURBdk1Ea3ZlRzFzWkhOcFp5TnljMkV0YzJoaE1TSXZQanhrY3pwU1pXWmxjbVZ1WTJVZ1ZWSkpQU0lqWkRrNU5HVTRZekF0TkRjek1TMDBPRGs1TFRoaFptSXRPVFJoTURFek9XUTVOMk13SWo0OFpITTZWSEpoYm5ObWIzSnRjejQ4WkhNNlZISmhibk5tYjNKdElFRnNaMjl5YVhSb2JUMGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM4d09TOTRiV3hrYzJsbkkyVnVkbVZzYjNCbFpDMXphV2R1WVhSMWNtVWlMejQ4WkhNNlZISmhibk5tYjNKdElFRnNaMjl5YVhSb2JUMGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TVM4eE1DOTRiV3d0WlhoakxXTXhORzRqSWo0OFpXTTZTVzVqYkhWemFYWmxUbUZ0WlhOd1lXTmxjeUI0Yld4dWN6cGxZejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOHhNQzk0Yld3dFpYaGpMV014Tkc0aklpQlFjbVZtYVhoTWFYTjBQU0o0Y3lJdlBqd3ZaSE02VkhKaGJuTm1iM0p0UGp3dlpITTZWSEpoYm5ObWIzSnRjejQ4WkhNNlJHbG5aWE4wVFdWMGFHOWtJRUZzWjI5eWFYUm9iVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOHdPUzk0Yld4a2MybG5JM05vWVRFaUx6NDhaSE02UkdsblpYTjBWbUZzZFdVK1JFMXlhV0ZIU1dSNEsyaERPRzh6VEhGaFltNWpjMjByTTB0WlBUd3ZaSE02UkdsblpYTjBWbUZzZFdVK1BDOWtjenBTWldabGNtVnVZMlUrUEM5a2N6cFRhV2R1WldSSmJtWnZQanhrY3pwVGFXZHVZWFIxY21WV1lXeDFaVDVFTWxsU1oxTmxaSHBUT0dNNVIzaFpWVGxUVG01a1RGSTJXWGc1U0d0TmNrRm1lVzFXZWxsWGJGTnJSWFpRV1V4M1luQm1hM1l3TWtwSllsWnJiR0pMVlVaWVJuWjRVamxJYTNwa2JXZFJlWFZCTjBabFRISmFWR2szWjBGdVJsRkRXa3hYWVcxWFkxRTBkazFTYmk5TUwwUjJlVk15U0UxdFJuQmhhamt3Y0hVMVVVSTNkRVV3UWxoWmFVbFNSRWszWmtaMFkzbHlWamRpY2pWUFRYcFZhMG94TmxaaGFqTkVjR1V5YWs1UGFtWTVUMHRsVnpGQlpGQjZhemN2YjNWcGRVSTFkeTkzTjFCUU9VSjNjMmxqUlZkalJIVnhWbWQwUzFBdllUQnBPVmhyY205S2Qya3JabFpXVGs1VE0yRjZOR2xYUTJKclQxSXhOVkZRV1dWNlQwMVhWMDlYVG5ORE5IUXhVVGRvY1ZreGNsaHVRMGhVWWtGV1ZuTkdVRW8zYnpGWU1qaEZVWGxCTlZSNWRIZGxPWGhxTTNaWWNtZE5WemhOZVdGeGRtODFSVm9yZDFSQlNraE9hMnBVYm1VeU5HVk9VVkU5UFR3dlpITTZVMmxuYm1GMGRYSmxWbUZzZFdVK1BDOWtjenBUYVdkdVlYUjFjbVUrUEhOaGJXd3lPbE4xWW1wbFkzUStQSE5oYld3eU9rNWhiV1ZKUkNCR2IzSnRZWFE5SW5WeWJqcHZZWE5wY3pwdVlXMWxjenAwWXpwVFFVMU1PakV1TVRwdVlXMWxhV1F0Wm05eWJXRjBPblZ1YzNCbFkybG1hV1ZrSWo1elptRmtiV2x1UEM5ellXMXNNanBPWVcxbFNVUStQSE5oYld3eU9sTjFZbXBsWTNSRGIyNW1hWEp0WVhScGIyNGdUV1YwYUc5a1BTSjFjbTQ2YjJGemFYTTZibUZ0WlhNNmRHTTZVMEZOVERveUxqQTZZMjA2WW1WaGNtVnlJajQ4YzJGdGJESTZVM1ZpYW1WamRFTnZibVpwY20xaGRHbHZia1JoZEdFZ1RtOTBUMjVQY2tGbWRHVnlQU0l5TURRNExURXhMVEF4VkRFeU9qVTNPak0wTGpFM09Gb2lJRkpsWTJsd2FXVnVkRDBpYUhSMGNITTZMeTloY0dsellXeGxjMlJsYlc4NExuTjFZMk5sYzNObVlXTjBiM0p6TG1OdmJTOXZZWFYwYUM5MGIydGxiaUl2UGp3dmMyRnRiREk2VTNWaWFtVmpkRU52Ym1acGNtMWhkR2x2Ymo0OEwzTmhiV3d5T2xOMVltcGxZM1ErUEhOaGJXd3lPa052Ym1ScGRHbHZibk1nVG05MFFtVm1iM0psUFNJeU1ESXhMVEEyTFRFMlZERXlPalEzT2pNMExqRTNPRm9pSUU1dmRFOXVUM0pCWm5SbGNqMGlNakEwT0MweE1TMHdNVlF4TWpvMU56b3pOQzR4TnpoYUlqNDhjMkZ0YkRJNlFYVmthV1Z1WTJWU1pYTjBjbWxqZEdsdmJqNDhjMkZ0YkRJNlFYVmthV1Z1WTJVK2QzZDNMbk4xWTJObGMzTm1ZV04wYjNKekxtTnZiVHd2YzJGdGJESTZRWFZrYVdWdVkyVStQQzl6WVcxc01qcEJkV1JwWlc1alpWSmxjM1J5YVdOMGFXOXVQand2YzJGdGJESTZRMjl1WkdsMGFXOXVjejQ4YzJGdGJESTZRWFYwYUc1VGRHRjBaVzFsYm5RZ1FYVjBhRzVKYm5OMFlXNTBQU0l5TURJeExUQTJMVEUyVkRFeU9qVTNPak0wTGpFM09Gb2lJRk5sYzNOcGIyNUpibVJsZUQwaVpETXlOak14TlRVdE1tSmtaaTAwWVdWakxXSXpOVGd0WVRFd00yUTBNakUyWkRjM0lqNDhjMkZ0YkRJNlFYVjBhRzVEYjI1MFpYaDBQanh6WVcxc01qcEJkWFJvYmtOdmJuUmxlSFJEYkdGemMxSmxaajUxY200NmIyRnphWE02Ym1GdFpYTTZkR002VTBGTlREb3lMakE2WVdNNlkyeGhjM05sY3pwUVlYTnpkMjl5WkZCeWIzUmxZM1JsWkZSeVlXNXpjRzl5ZER3dmMyRnRiREk2UVhWMGFHNURiMjUwWlhoMFEyeGhjM05TWldZK1BDOXpZVzFzTWpwQmRYUm9ia052Ym5SbGVIUStQQzl6WVcxc01qcEJkWFJvYmxOMFlYUmxiV1Z1ZEQ0OGMyRnRiREk2UVhSMGNtbGlkWFJsVTNSaGRHVnRaVzUwUGp4ellXMXNNanBCZEhSeWFXSjFkR1VnVG1GdFpUMGlZWEJwWDJ0bGVTSStQSE5oYld3eU9rRjBkSEpwWW5WMFpWWmhiSFZsSUhoemFUcDBlWEJsUFNKNGN6cHpkSEpwYm1jaVBrNUhUVEJOZWtGNFRucFZOVTlVU1RWWmFscG9Xa2RPYkUxNlkzcE5SRWw1VGxkV2FFOVJQQzl6WVcxc01qcEJkSFJ5YVdKMWRHVldZV3gxWlQ0OEwzTmhiV3d5T2tGMGRISnBZblYwWlQ0OEwzTmhiV3d5T2tGMGRISnBZblYwWlZOMFlYUmxiV1Z1ZEQ0OGMyRnRiREk2UVhSMGNtbGlkWFJsVTNSaGRHVnRaVzUwUGp4ellXMXNNanBCZEhSeWFXSjFkR1VnVG1GdFpUMGlkWE5sWDNWelpYSnVZVzFsSWo0OGMyRnRiREk2UVhSMGNtbGlkWFJsVm1Gc2RXVWdlSE5wT25SNWNHVTlJbmh6T25OMGNtbHVaeUkrZEhKMVpUd3ZjMkZ0YkRJNlFYUjBjbWxpZFhSbFZtRnNkV1UrUEM5ellXMXNNanBCZEhSeWFXSjFkR1UrUEM5ellXMXNNanBCZEhSeWFXSjFkR1ZUZEdGMFpXMWxiblErUEM5ellXMXNNanBCYzNObGNuUnBiMjQr",
+            "token": "******",
+            "location": "header",
+            "headerName": "Authorization",
+            "scheme": "Bearer",
+            "refreshMethod": "POST",
+            "refreshRelativeURI": "https://apisalesdemo8.successfactors.com/oauth/token",
+            "refreshBody": "{ \"client_id\": \"{{{connection.http.unencrypted.clientId}}}\", \"assertion\": \"{{{connection.http.encrypted.assertion}}}\", \"company_id\":\"{{{connection.http.unencrypted.companyId}}}\",\"grant_type\": \"urn:ietf:params:oauth:grant-type:saml2-bearer\", \"user_id\":\"{{{connection.http.unencrypted.userId}}}\" }",
+            "refreshMediaType": "urlencoded"
+          }
+        }
+      }
+    }
+  }

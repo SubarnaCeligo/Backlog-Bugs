@@ -1,0 +1,169 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "name": "Create_DL_To_NS_Salesorder_Formula Fields",
+    "disabled": false,
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageGenerators": [{
+    "qa__export": {
+      "asynchronous": true,
+      "qa__path": "/Dataloader_uploades/formula.txt",
+      "type": "simple",
+      "qa__isDataLoader": "csv",
+      "adaptorType":"SimpleExport",
+      "file": {
+        "encoding": "utf8",
+        "output": "records",
+        "skipDelete": false,
+        "type": "csv",
+        "csv": {
+          "columnDelimiter": ",",
+          "hasHeaderRow": true,
+          "trimSpaces": true,
+          "rowsToSkip": 0
+        }
+      },
+      "transform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      }
+    }}],
+    "pageProcessors": [{
+        "type":"import",
+    "qa__import": {
+      "parsers": [
+        
+      ],
+      "_connectionId": "NETSUITE CONNECTION",
+      "distributed": true,
+      "lookups": [
+        {
+          "name": "b3016f098ae447ecb0116ae9e33a0923",
+          "recordType": "customer",
+          "allowFailures": false,
+          "resultField": "entityid",
+          "useDefaultOnMultipleMatches": false,
+          "expression": "[\"formulatext:{entityid}\",\"is\",\"{{{company}}}\"]"
+        }
+      ],
+      "netsuite_da": {
+        "operation": "add",
+        "recordType": "salesorder",
+        "lookups": [
+          {
+            "name": "b3016f098ae447ecb0116ae9e33a0923",
+            "recordType": "customer",
+            "allowFailures": false,
+            "resultField": "entityid",
+            "useDefaultOnMultipleMatches": false,
+            "expression": "[\"formulatext:{entityid}\",\"is\",\"{{{company}}}\"]",
+            "qa__expression": [
+              [
+                "formulatext:{entityid}",
+                "is",
+                "company"
+              ]
+            ]
+          }
+        ],
+        "mapping": {
+          "lists": [
+            {
+              "generate": "item",
+              "fields": [
+                {
+                  "generate": "amount",
+                  "extract": "['Amount']",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "item",
+                  "extract": "['ItemName']",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "quantity",
+                  "extract": "['Quantity']",
+                  "internalId": false,
+                  "immutable": false
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "generate": "entity",
+              "extract": "['company']",
+              "internalId": false,
+              "lookupName": "b3016f098ae447ecb0116ae9e33a0923",
+              "immutable": false
+            },
+            {
+              "generate": "otherrefnum",
+              "hardCodedValue": "99",
+              "internalId": false,
+              "immutable": false
+            }
+          ]
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "rules": [
+            
+          ],
+          "version": "1"
+        },
+        "version": "1",
+        "rules": [
+          
+        ]
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }}],
+    "qa__dataVerification": {
+        "expected":{
+         "netsuite":{   
+    "qa__dataVerification": {
+      "generateSampleDropDownAvailable": false,
+      "expectedJSON": {
+        "item": [
+          {
+            "amount": 290,
+            "item": {
+              "internalid": "387",
+              "name": "ACC00001"
+            },
+            "quantity": 45
+          }
+        ],
+        "otherrefnum": "99",
+        "entity": {
+          "name": "Cross Company"
+        }
+      },
+      "uniqueField": "otherrefnum",
+      "standaloneexportflowID": "5baa0fda83415c0eda1f784b",
+      "importRecordType": "SalesOrder",
+      "isUIFlow": true,
+      "savedsearchId": "2520",
+      "exportapiIdentifier": "e5b017d725"
+    }}}}
+  }

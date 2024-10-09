@@ -1,7 +1,5 @@
 {
     "name": "TC_C51797",
-    "qa__api_tdata": [
-        {
     "pageProcessors": [
         {
             "responseMapping": {
@@ -79,8 +77,7 @@
             "skipRetries": false
           }
         ]
-      }
-    }],
+      },
     "updateBodyForString": {
         "name": "51797",
         "_connectionId": "HTTP SHOPIFY CONNECTION",
