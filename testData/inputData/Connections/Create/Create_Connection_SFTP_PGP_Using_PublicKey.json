@@ -1,0 +1,38 @@
+{
+    "expectedJSON": {
+        "type": "ftp",
+        "name": "Create_Connection_SFTP_PGP_Using_PublicKey",
+        "sandbox": false,
+        "pgp": {
+            "asciiArmored": true
+        },
+        "ftp": {
+            "type": "sftp",
+            "hostURI": "celigo.files.com",
+            "username": "io.auto.qa@celigo.com",
+            "password": "******",
+            "port": 22,
+            "usePassiveMode": true,
+            "entryParser": "WINDOWS",
+            "userDirectoryIsRoot": false,
+            "useImplicitFtps": false,
+            "requireSocketReUse": false
+        }
+    },
+    "importJSON": {
+        "ftp": {
+            "pgpEncryptKey": "******",
+            "password": "******",
+            "entryParser": "WINDOWS",
+            "port": 22,
+            "hostURI": "celigo.files.com",
+            "type": "sftp",
+            "qa__password": "ZUBZVGdNTzUwJGRzbDAlSw==",
+            "usePassiveMode": true,
+            "username": "io.auto.qa@celigo.com",
+            "qa__pgpEncryptKey": "LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tClZlcnNpb246IEdudVBHIHYyLjAuMTkgKEdOVS9MaW51eCkKCm1JMEVVbUV2VGdFRUFOeVd0UVFNT3liUTlKbHREcW1hWDBXbk5QSmVMSUxJTTM2c3c2ekwwbmZUUTV6WFNTMysKZklGNlAyOWxKRnhwYmxXazAyUFNJRDV6WC9EWVU5L3pqTTJ4UE84T2E0eG8wY1ZUT1RMaisrUmk1bXRyLy9mNQpHTHNJWHhGckJKaEQvZ2hGc0wzT3AwR1hPZUxKOUE1YnNPbjh0aDd4Nkp1Y05LdWFSQjZiUWJTUEFCRUJBQUcwCkpGUmxjM1FnVFdOVVpYTjBhVzVuZEc5dUlEeDBaWE4wUUdWNFlXMXdiR1V1WTI5dFBvaTVCQk1CQWdBakJRSlMKWVM5T0Foc3ZCd3NKQ0FjREFnRUdGUWdDQ1FvTEJCWUNBd0VDSGdFQ0Y0QUFDZ2tRU21OaE9rMXVRSlF3REFQNgpBZ3JUeXFrUmxKVnF6MnBiNDZUZmJETTJUREY3bzlDQm5CeklHb3hCaGxSd3BxQUx6N3oya3hCRG13cFFhK2tpCkJxM2paTi9Vb3NZOXk4Ymh3TUFsbnJEWTlqUDFnZENvK0gwc0Q0OENkWHliYmxOd2FZcHdxQzhWU3BEZFRuZGYKOWoyd0Uvd2VpaEdwL0RBZHkvMmt5QkNhaU9ZMXNqaFVmSjFHb2dGNDlyQzRqUVJTWVM5T0FRUUE2Ui9QdEJGYQpKYVQ0anExMHlxQVNrNHNxd1ZNc2M2SGNpZk01bFNkeHpFeEZQNzRuYVVNTXlFc0tIUDUzUXhURjBHcnF1c2FnClFnL1p0Z1QwQ04xSFVNMTUyeTdBQ09kcDFnaUtqcE16T1RRQ2xxQ29jbHl2V09GQitML1N3R0VJSmY3TFNDRXIKd29CdUppZkpjOHhBVnIwWFgwSnRob1crdVA5MWVUUTNYcHNBRVFFQUFZa0JQUVFZQVFJQUNRVUNVbUV2VGdJYgpMZ0NvQ1JCS1kyRTZUVzVBbEowZ0JCa0JBZ0FHQlFKU1lTOU9BQW9KRU9DRTkwUnNJQ3lYdXFJRUFObW1pUkNBClNGN1lLN1B2RmtpZUpOd3plSzBWM0YybEdYK3V1NlkzUS9aeGR0d2M0eFIrbWUvQ1NCbXNVUnlYVE8yOU9XaFAKR0xzelBIOXpTSlU5QmREaTZ2MHlOcHJtRlBYLzFOZzBBYm4vc0Nrd2V0dmp4QzFZSXZUTEZ3dFVMLzd2Nk5TMgpiWnBzVXhSVGc5K2NTck1XV1NOamlZOXFVS2FqbTF0dXpQRFpYQVVFQU1ObUFOM3hYTi9Lanl2ajJPSzJjazBYClc3NDhzbC90YzNxaUtQTUorMEFrTUY3UGpobWg5bnhxRTkrUUNFbDdxaW5GcXFCTGp1emdVaEJVNFFsd1gxR0QKQXROVHE2aWhMTUQ1djFkODJaQzd0TmF0ZGxETUdXbklkdkVNQ3YyR1pjdUlxRFE5clhXczQ5ZTd0cTFObmNMWQpoejN0WWpLaG9GVEtFSXEzeTNQcAo9aC9hWAotLS0tLUVORCBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0t"
+        },
+        "name": "Create_Connection_SFTP_PGP_Using_PublicKey",
+        "type": "ftp"
+    }
+}

@@ -142,7 +142,6 @@ test.describe("TC_C28110 | Verify if 'Save and Close' button is getting hidden a
     await io.homePage.loadingTime();
     flowId = await io.api.getFlowId(TC.name);
     console.log("flowId", flowId);
-    await page.pause();
     await io.homePage.loadingTime();
     await io.flowBuilderDashboard.navigateToFlowBuilderInEM2(flowId);
     await io.homePage.loadingTime();

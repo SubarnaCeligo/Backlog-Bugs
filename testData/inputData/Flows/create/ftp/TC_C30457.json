@@ -1,0 +1,99 @@
+{
+  "name": "TC_C30457_NS_NLAPI",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "timezone": "Asia/Calcutta",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "bxdvascsc",
+        "_connectionId": "NETSUITE CONNECTION",
+        "netsuite_da": {
+          "useSS2Restlets": false,
+          "operation": "add",
+          "recordType": "salesorder",
+          "lookups": [],
+          "mapping": {
+            "fields": [
+              {
+                "generate": "entity",
+                "extract": "people[*].customer",
+                "internalId": false
+              },
+              {
+                "generate": "trandate",
+                "extract": "people[*].date",
+                "internalId": false
+              },
+              {
+                "generate": "customform",
+                "extract": "people[*].form",
+                "internalId": false
+              }
+            ],
+            "lists": [
+              {
+                "generate": "item",
+                "fields": [
+                  {
+                    "generate": "item",
+                    "extract": "people[*].item",
+                    "internalId": false
+                  },
+                  {
+                    "generate": "celigo_inventorydetail",
+                    "subRecordMapping": {
+                      "qa__id": "jsonPath_item_sublist_celigo_inventorydetail",
+                      "_id": "item[*].celigo_inventorydetail",
+                      "recordType": "inventorydetail",
+                      "jsonPath": "people",
+                      "mapping": {
+                        "fields": [
+                          {
+                            "generate": "quantity",
+                            "extract": "1",
+                            "internalId": false
+                          }
+                        ],
+                        "lists": []
+                      },
+                      "lookups": []
+                    },
+                    "internalId": false
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "adaptorType": "FTPExport",
+        "ftp": {
+          "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C30454.json"
+        },
+        "file": {
+          "output": "records",
+          "encoding": "utf8",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "//FTP_uploads//TC_C30454.json"
+      }
+    }
+  ]
+}

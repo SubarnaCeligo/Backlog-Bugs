@@ -1,0 +1,73 @@
+{
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C2278",
+    "disabled": false,
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "importRecordJSON": {
+        "object": "product",
+        "description": "stripe product description",
+        "name": "TC_C2278"
+      },
+    "pageGenerators": [
+      {
+        "qa__export": {
+            "name": "AutomationStandaloneExport__3qeAfCB7RM",
+            "type": "webhook",
+            "qa__token": "1234567",
+            "sandbox": false,
+            "webhook": {
+                "provider": "custom",
+                "verify": "secret_url",
+                "token": "******"
+            },
+            "sampleData": {
+                "object": "product",
+                "description": "stripe product description",
+                "name": "TC_C2278"
+            },
+            "transform": {
+                "type": "expression",
+                "expression": {
+                    "rules": [
+                        [
+                            {
+                                "extract": "description",
+                                "generate": "script"
+                            },
+                            {
+                                "extract": "name",
+                                "generate": "Name"
+                            }
+                        ]
+                    ],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": [
+                    [
+                        {
+                            "extract": "description",
+                            "generate": "script"
+                        },
+                        {
+                            "extract": "name",
+                            "generate": "Name"
+                        }
+                    ]
+                ]
+            },
+            "filter": {
+                "type": "expression",
+                "expression": {
+                    "rules": [],
+                    "version": "1"
+                },
+                "version": "1",
+                "rules": []
+            },
+            "adaptorType": "WebhookExport"
+        }
+      }
+    ]
+  }

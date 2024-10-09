@@ -1,0 +1,59 @@
+{
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "name": "FTP Export",
+        "_connectionId": "FTP CONNECTION",
+        "qa__path": "//FTP_uploads//Shopify_space_Flow_34.csv",
+        "apiIdentifier": "e99f89a4f8",
+        "asynchronous": true,
+        "ftp": {
+          "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+          "fileNameStartsWith": "33FTP2SalesforceContactTAB.txt"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "csv",
+          "csv": {
+            "columnDelimiter": "\t",
+            "rowDelimiter": "\n",
+            "hasHeaderRow": false,
+            "trimSpaces": true,
+            "rowsToSkip": 0
+          }
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "FTP CONNECTION",
+        "name": "FTP Import",
+        "apiIdentifier": "i7730e92ef",
+        "oneToMany": false,
+        "sandbox": false,
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/test",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ],
+  "Data": {
+"Name": "TC_C14301_Clone",
+"_integrationId": "6333054cca06597ef0aaa8f0",
+"qa_integrationId": "6332d4e0b2be184f096c108c"
+  }
+}

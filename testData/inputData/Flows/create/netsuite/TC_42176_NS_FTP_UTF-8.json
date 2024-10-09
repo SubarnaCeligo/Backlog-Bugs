@@ -1,0 +1,84 @@
+{
+    "name": "TC_42176_NS_FTP_UTF-8",
+    "disabled": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "FTP_import",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "ic4b4ba58e",
+          "oneToMany": false,
+          "sandbox": false,
+          "file": {
+              "fileName": "TC_42176.xlsx",
+              "skipAggregation": false,
+              "type": "xlsx",
+              "encoding": "utf8"
+          },
+          "ftp": {
+              "directoryPath": "/io.auto.qa/IO Automation SFTP Imports",
+              "fileName": "TC_42176.xlsx"
+          },
+          "adaptorType": "FTPImport"
+      }
+      }
+    ],
+    "pageGenerators": [
+      {
+        "qa__export":{
+          "name": "NS_export_",
+          "_connectionId": "NETSUITE CONNECTION",
+          "apiIdentifier": "e267cf523e",
+          "asynchronous": true,
+          "oneToMany": false,
+          "sandbox": false,
+          "rawData": "56d6b114e1fc35de5391472c3f282d8710c3496995b85c8408496e6f",
+          "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                  "recordType": "customer",
+                  "searchId": "1138",
+                  "useSS2Restlets": false
+              },
+              "distributed": {
+                  "useSS2Framework": false
+              }
+          },
+          "adaptorType": "NetSuiteExport"
+      }
+      }
+    ],
+    "qa__expectedDashboardCount": {
+      "successCount": "2",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "qa__dataVerification": {
+      "expected": {
+        "FTP": {
+          "name": "TC_42176_NS_FTP_UTF-8",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "FTP CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "1",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "fileName": "TC_42176",
+            "isUIFlow": true,
+            "folderName": "/io.auto.qa/IO Automation SFTP Imports",
+            "fileType": ".xlsx"
+          }
+        }
+      }
+    }
+  }
+  

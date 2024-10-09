@@ -12,7 +12,7 @@ test.describe("TC_C28123 | Verify Leave pop dialog when closing the drawer with 
 
   test.afterEach(async ({ io }) => {
     test.step("Deleting the flow", async () => { });
-    await io.api.deleteFlowsWithId([flowId]);
+    await io.api.deleteFlowViaAPI([flowId]);
   });
 
   test("@Env-All @Zephyr-IO-T2841| Verify on Edit retry data", async ({ io, page }) => {

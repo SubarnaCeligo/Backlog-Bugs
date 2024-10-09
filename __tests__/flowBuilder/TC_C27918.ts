@@ -49,7 +49,6 @@ test.describe("TC_C27918", () => {
     test.step("Selected FTP from the list.", async () => { });
 
     await io.homePage.fillWebPage(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, "FTP CONNECTION");
-    await page.pause();
     test.step("Selected the FTP connection from dropdown.", async () => { });
     await io.homePage.fillWebPage(
       selectors.basePagePO.ADD_NAME,

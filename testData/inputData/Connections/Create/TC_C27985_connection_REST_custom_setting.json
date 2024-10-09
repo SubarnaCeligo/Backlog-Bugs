@@ -1,0 +1,35 @@
+{
+    "importJSON":{
+        "type": "http",
+    "name": "HTTP ZD export connection",
+    "sandbox": false,
+    "http": {
+       "formType": "http",
+       "mediaType": "json",
+       "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+       "ping": {
+           "relativeURI": "{{settings.connection.name}}"
+       },
+       "unencrypted": {
+           "field": "value"
+       },
+       "encrypted": "******",
+       "auth": {
+           "type": "basic",
+           "basic": {
+               "username": "mounica.manavapati@celigo.com",
+               "password": "******"
+           }
+       }
+    },
+    "settings": {
+       "name": "connection_celigo"
+    },
+    "queues": [
+       {
+           "name": "62f0af89b0a39054cda2d5b7",
+           "size": 0
+       }
+    ]
+    }
+}

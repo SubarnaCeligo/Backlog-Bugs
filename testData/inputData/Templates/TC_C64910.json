@@ -1,0 +1,11 @@
+[ {
+    "importJson": {
+        "name": "TC_C64910",
+        "contactEmail": "io.auto.qa@celigo.com",
+        "applications": ["netsuite"],
+        "framework": "twoDotZero",
+        "publish": true,
+        "expectedName": "Test",
+        "Upload_Path": "/testData/TEMPLATE/TemplateInstall.zip"
+    }
+}]

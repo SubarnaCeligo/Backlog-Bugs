@@ -1,0 +1,74 @@
+{
+    "name": "TC_C2592",
+    "referencename": "TC_C2592",
+    "Staging_script": "633e896508cc753ca56917a8",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "test",
+                "_connectionId": "63369728ca06597ef0ad47ff",
+                "apiIdentifier": "e7a481821b",
+                "asynchronous": true,
+                "type": "webhook",
+                "oneToMany": false,
+                "sandbox": false,
+                "file": {
+                    "type": "filedefinition",
+                    "fileDefinition": {
+                        "_fileDefinitionId": "633e875c4e85dc21d8579d8a"
+                    }
+                },
+                "adaptorType": "AS2Export"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "test",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "i9654a5bcf",
+              "oneToMany": false,
+              "sandbox": false,
+              "file": {
+                "fileName": "file-{{timestamp}}.json",
+                "skipAggregation": false,
+                "type": "json"
+              },
+              "ftp": {
+                "directoryPath": "/test",
+                "fileName": "file-{{timestamp}}.json"
+              },
+              "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C2592",
+          "disabled": false,
+          "_integrationId": "6333054cca06597ef0aaa8f0",
+          "qa__integrationId": "6332d4e0b2be184f096c108c",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

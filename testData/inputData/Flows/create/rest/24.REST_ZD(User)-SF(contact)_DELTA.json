@@ -1,0 +1,397 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "salesforce": {
+          "upsert": {
+            "externalIdField": "Upsert__c"
+          },
+          "removeNonSubmittableFields": false,
+          "sObjectType": "Contact",
+          "api": "rest",
+          "operation": "upsert",
+          "idLookup": {
+            "extract": "notes"
+          }
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "name",
+              "generate": "LastName"
+            },
+            {
+              "extract": "user_fields.fax",
+              "generate": "Fax"
+            },
+            {
+              "extract": "user_fields.phone",
+              "generate": "Phone"
+            },
+            {
+              "extract": "notes",
+              "generate": "Email"
+            },
+            {
+              "extract": "user_fields.billing_address_1",
+              "generate": "MailingStreet"
+            },
+            {
+              "extract": "user_fields.billing_city",
+              "generate": "MailingCity"
+            },
+            {
+              "extract": "user_fields.billing_state",
+              "generate": "MailingState"
+            },
+            {
+              "extract": "user_fields.billing_zip",
+              "generate": "MailingPostalCode"
+            }
+          ]
+        },
+        "_connectionId": "SALESFORCE CONNECTION",
+        "name": "Salesforce Contact Upsert from rest export",
+        "distributed": false,
+        "adaptorType": "SalesforceImport"
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "timezone": "Asia/Calcutta",
+  "name": "24.REST Flow#3_ZD(User)-SF(contact)_DELTA",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "billing_city": "Hyderabad",
+      "notes": "autozdusersfcontactdelta1@gmail.com",
+      "phone": "523423423344",
+      "billing_state": "TS",
+      "billing_address_1": "billing address 1",
+      "name": "Auto@ZDUserSFcontact_DELTA1",
+      "billing_zip": "131313231",
+      "billing_country": "India",
+      "fax": "52313123433"
+    },
+    "importapiIdentifier": "i826fbcad0",
+    "expected": {
+      "Salesforce": {
+        "name": "24.REST Flow#3_ZD(User)-SF(contact)_DELTA",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "SALESFORCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "Email": "autozdusersfcontactdelta1@gmail.com",
+            "Phone": "523423423344",
+            "MailingPostalCode": "131313231",
+            "MailingCity": "Hyderabad",
+            "LastName": "Auto@ZDUserSFcontact_DELTA1",
+            "Fax": "52313123433",
+            "MailingStreet": "billing address 1",
+            "MailingState": "TS"
+          },
+          "standaloneexportflowID": "57be7ecc269c3e42500c34a3",
+          "uniqueField": "Email",
+          "importRecordType": "contact",
+          "exportRecordType": "users",
+          "isUIFlow": true,
+          "query": "select id,lastname,description,email,phone,fax,mailingstreet,mailingcity,mailingstate,mailingpostalcode,mailingcountry from contact where email like 'autozdusersfcontactdelta1@gmail.com'",
+          "exportapiIdentifier": "e8a11eeb29"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "57c94b451e7a957a5ab4fe23",
+      "createdAt": "2019-10-20T17:26:13.328Z",
+      "lastModified": "2019-10-28T07:48:21.817Z",
+      "name": "21. Rest (ZD User) ZD - SF Flow",
+      "sampleData": {
+        "user": {
+          "user_fields": {
+            "znc_unbilled_orders": null,
+            "znc_title": null,
+            "znc_supervisor": null,
+            "znc_sales_orders": null,
+            "znc_netsuite_id": null,
+            "znc_mobile_phone": null,
+            "znc_fax": null,
+            "znc_department": null,
+            "znc_days_overdue": null,
+            "znc_currency": null,
+            "znc_credit_limit": null,
+            "znc_credit_hold": null,
+            "znc_billing_zip": null,
+            "znc_billing_state": null,
+            "znc_billing_phone": null,
+            "znc_billing_country": null,
+            "znc_billing_city": null,
+            "znc_billing_attention": null,
+            "znc_billing_addressee": null,
+            "znc_billing_address2": null,
+            "znc_billing_address1": null,
+            "znc_alt_email": null,
+            "znc_account_overdue_balance": null,
+            "znc_account_balance": null,
+            "venkat": null,
+            "user_note_title": null,
+            "user_notes_type": null,
+            "user_notes_memo": null,
+            "user_notes_direction": null,
+            "user_notes_date": null,
+            "user_drop_down": null,
+            "subsidiary": null,
+            "shipping_zip": "215009",
+            "shipping_state": "21 Ship State",
+            "shipping_phone": null,
+            "shipping_country_code": "IN",
+            "shipping_country": "India",
+            "shipping_city": "21 Ship City",
+            "shipping_attention": null,
+            "shipping_address_2": "21 Ship Add2",
+            "shipping_addressee": null,
+            "shipping_address": "21 Ship Add1",
+            "phone": "7854145245",
+            "once_check_box": false,
+            "name": null,
+            "job_titles": null,
+            "fax": "7857455478",
+            "email": null,
+            "dynamic_mapping_value": null,
+            "custom_numeric": null,
+            "comments": null,
+            "billing_zip": "215016",
+            "billing_state": "21 Billing State",
+            "billing_phone": null,
+            "billing_country_code": "IN",
+            "billing_country": "India",
+            "billing_city": "21 Billing City",
+            "billing_attention_": null,
+            "billing_address_2": "21 Billing Add2",
+            "billing_address_1": "21 Billing Add1",
+            "billing_addressee": null,
+            "address_zip": null,
+            "address_state": null,
+            "address_country_code": null,
+            "address_country": null,
+            "address_city": null,
+            "address_2": null,
+            "address_1": null
+          },
+          "chat_only": false,
+          "suspended": false,
+          "restricted_agent": true,
+          "only_private_comments": false,
+          "ticket_restriction": "requested",
+          "moderator": false,
+          "custom_role_id": null,
+          "notes": "auto21zd2sf@celigo.com",
+          "details": "",
+          "signature": null,
+          "two_factor_auth_enabled": false,
+          "last_login_at": null,
+          "shared_agent": false,
+          "shared": false,
+          "active": true,
+          "alias": "",
+          "external_id": null,
+          "verified": false,
+          "role": "end-user",
+          "organization_id": null,
+          "locale": "en-US",
+          "locale_id": 1,
+          "photo": null,
+          "shared_phone_number": null,
+          "phone": null,
+          "time_zone": "Chennai",
+          "updated_at": "2016-09-01T14:28:36Z",
+          "created_at": "2016-09-01T09:14:48Z",
+          "email": "auto21zd2sf@celigo.com",
+          "name": "Auto@21ZD2SFUpdateIgnore#1",
+          "url": "https://celigoqa.zendesk.com/api/v2/users/4070306865.json",
+          "id": 4070306865
+        }
+      },
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "56d6d3c95900861a56d64677",
+      "distributed": false,
+      "apiIdentifier": "i826fbcad0",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "user.name"
+          },
+          {
+            "extract": "fax",
+            "generate": "user.user_fields.fax"
+          },
+          {
+            "extract": "phone",
+            "generate": "user.user_fields.phone"
+          },
+          {
+            "extract": "email",
+            "generate": "user.email"
+          },
+          {
+            "extract": "notes",
+            "generate": "user.notes"
+          },
+          {
+            "extract": "billing_address_1",
+            "generate": "user.user_fields.billing_address_1"
+          },
+          {
+            "extract": "billing_address_2",
+            "generate": "user.user_fields.billing_address_2"
+          },
+          {
+            "extract": "billing_city",
+            "generate": "user.user_fields.billing_city"
+          },
+          {
+            "extract": "billing_state",
+            "generate": "user.user_fields.billing_state"
+          },
+          {
+            "extract": "billing_country",
+            "generate": "user.user_fields.billing_country"
+          },
+          {
+            "extract": "billing_country_code",
+            "generate": "user.user_fields.billing_country_code"
+          },
+          {
+            "extract": "billing_zip",
+            "generate": "user.user_fields.billing_zip"
+          },
+          {
+            "extract": "shipping_address",
+            "generate": "user.user_fields.shipping_address"
+          },
+          {
+            "extract": "shipping_address_2",
+            "generate": "user.user_fields.shipping_address_2"
+          },
+          {
+            "extract": "shipping_city",
+            "generate": "user.user_fields.shipping_city"
+          },
+          {
+            "extract": "shipping_state",
+            "generate": "user.user_fields.shipping_state"
+          },
+          {
+            "extract": "shipping_country",
+            "generate": "user.user_fields.shipping_country"
+          },
+          {
+            "extract": "shipping_country_code",
+            "generate": "user.user_fields.shipping_country_code"
+          },
+          {
+            "extract": "shipping_zip",
+            "generate": "user.user_fields.shipping_zip"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "users.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "strictHandlebarEvaluation": true,
+        "sendPostMappedData": true,
+        "formType": "http",
+        "response": {
+          "resourceIdPath": [
+            ""
+          ]
+        }
+      },
+      "rest": {
+        "relativeURI": [
+          "users.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "responseIdPath": [
+          ""
+        ],
+        "successPath": [
+          ""
+        ]
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "RESTImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "http": {
+          "relativeURI": "search.json?query=type:user notes:autozdusersfcontactdelta1@gmail.com created<={{{encodeURI lastExportDateTime}}}",
+          "method": "GET",
+          "formType": "http",
+          "qa__formType": "rest",
+          "paging": {
+            "lastPageValues": []
+          },
+          "response": {
+            "resourcePath": "results",
+            "successValues": []
+          }
+        },
+        "asynchronous": true,
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "name": "Rest export users with notes to SF",
+        "application": "zendesk support",
+        "dataURITemplate": "{{{Notes}}}",
+        "parsers": [],
+        "delta": {
+          "dateFormat": "YYYY-MM-DDTHH:mm:ssZ"
+        },
+        "type": "delta",
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

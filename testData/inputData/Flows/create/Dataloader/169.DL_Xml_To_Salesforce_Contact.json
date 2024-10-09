@@ -1,0 +1,262 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type":"import",
+    "qa__import": {
+      "salesforce": {
+        "lookups": [
+          {
+            "whereClause": "(Alt_Email__c = {{{string CustomFieldTest}}})",
+            "qa__whereClause": [
+              [
+                "Alt_Email__c",
+                "=",
+                "CustomFieldTest"
+              ]
+            ],
+            "name": "9fc5651ccbd44310a156bf707b1f70dc",
+            "sObjectType": "Account",
+            "resultField": "Id",
+            "allowFailures": false
+          },
+          {
+            "name": "06e5eab2e4e84e849dadad2f1092fc29",
+            "allowFailures": false,
+            "map": {
+              "9987744444": "7788994455"
+            }
+          }
+        ],
+        "sObjectType": "Contact",
+        "api": "soap",
+        "removeNonSubmittableFields": false,
+        "operation": "insert"
+      },
+      "mapping": {
+        "fields": [
+          {
+            "extract": "Name",
+            "generate": "LastName"
+          },
+          {
+            "extract": "CustomFieldTest",
+            "generate": "AccountId",
+            "lookupName": "9fc5651ccbd44310a156bf707b1f70dc"
+          },
+          {
+            "extract": "Phone",
+            "generate": "Phone"
+          },
+          {
+            "extract": "Fax",
+            "generate": "Fax",
+            "lookupName": "06e5eab2e4e84e849dadad2f1092fc29"
+          },
+          {
+            "extract": "Email",
+            "generate": "Email"
+          },
+          {
+            "extract": "sublists.sublist.BillingAddress",
+            "generate": "MailingStreet"
+          },
+          {
+            "extract": "sublists.sublist.BillingCity",
+            "generate": "MailingCity"
+          },
+          {
+            "extract": "sublists.sublist.BillingState",
+            "generate": "MailingState"
+          },
+          {
+            "extract": "sublists.sublist.BillingZip",
+            "generate": "MailingPostalCode"
+          },
+          {
+            "extract": "sublists.sublist.BillingCountry",
+            "generate": "MailingCountry"
+          },
+          {
+            "extract": "{{sublists.sublist.ShippingAddress}}{{recordType}}",
+            "generate": "OtherStreet"
+          },
+          {
+            "extract": "sublists.sublist.ShippingCity",
+            "generate": "OtherCity"
+          },
+          {
+            "extract": "sublists.sublist.ShippingState",
+            "generate": "OtherState"
+          },
+          {
+            "extract": "sublists.sublist.ShippingZip",
+            "generate": "OtherPostalCode"
+          },
+          {
+            "extract": "sublists.sublist.ShippingCOuntry",
+            "generate": "OtherCountry"
+          }
+        ]
+      },
+      "_connectionId": "SALESFORCE CONNECTION",
+      "adaptorType": "SalesforceImport",
+      "parsers": [
+        
+      ],
+      "lookups": [
+        {
+          "name": "2f5e0ee3d43f415d9187fe6f91c32ecc",
+          "allowFailures": false,
+          "map": null,
+          "sObjectType": "Account",
+          "resultField": "Id",
+          "whereClause": "(Alt_Email__c = {{{string CustomFieldTest}}})"
+        },
+        {
+          "name": "698e3e5a3df8493881d2eda8c2ed0a2a",
+          "allowFailures": false,
+          "map": {
+            "9987744444": "7788994455"
+          }
+        }
+      ],
+      "distributed": false
+    }}],
+    "name": "169.DL_Xml_To_Salesforce_Contact",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected":{
+         "salesforce":{  
+    "qa__dataVerification": {
+      "expectedJSON": {
+        "Account": {
+          "Name": "OpportunityAccountforJSON"
+        },
+        "Email": "169dltosfcontact@mail.com",
+        "OtherPostalCode": "500061",
+        "MailingCountry": "India",
+        "MailingCity": "Hyderabad",
+        "OtherStreet": "169Shipping Addresscontact",
+        "OtherState": "TS",
+        "MailingState": "Telangana",
+        "OtherCity": "Secunderabad",
+        "Phone": "9985544444",
+        "MailingPostalCode": "500081",
+        "OtherCountry": "India",
+        "LastName": "169.DL_Xml_To_Salesforce_Contact",
+        "Fax": "7788994455",
+        "MailingStreet": "169Bill Address"
+      },
+      "uniqueField": "Email",
+      "standaloneexportflowID": "57302d52943aa5946cce0870",
+      "importRecordType": "Contact",
+      "isUIFlow": true,
+      "query": "select id,Account.Name,lastname,email,phone,fax,mailingstreet,mailingcity,mailingstate,mailingcountry,mailingpostalcode,otherstreet,othercity,otherstate,othercountry,otherpostalcode from contact where lastname like '169.DL_Xml_To_Salesforce_Contact'",
+      "exportapiIdentifier": "e9190601e4"
+    }}}},
+    "pageGenerators": [{
+    "qa__export": {
+      "transform": {
+        "rules": [
+          [
+            {
+              "extract": "CustomFieldTest[0]._",
+              "generate": "CustomFieldTest"
+            },
+            {
+              "extract": "Email[0]._",
+              "generate": "Email"
+            },
+            {
+              "extract": "Fax[0]._",
+              "generate": "Fax"
+            },
+            {
+              "extract": "Name[0]._",
+              "generate": "Name"
+            },
+            {
+              "extract": "Phone[0]._",
+              "generate": "Phone"
+            },
+            {
+              "extract": "recordType[0]._",
+              "generate": "recordType"
+            },
+            {
+              "extract": "sublists[0].sublist[0].BillingAddress[0]._",
+              "generate": "sublists.sublist.BillingAddress"
+            },
+            {
+              "extract": "sublists[0].sublist[0].BillingCity[0]._",
+              "generate": "sublists.sublist.BillingCity"
+            },
+            {
+              "extract": "sublists[0].sublist[0].BillingCountry[0]._",
+              "generate": "sublists.sublist.BillingCountry"
+            },
+            {
+              "extract": "sublists[0].sublist[0].BillingState[0]._",
+              "generate": "sublists.sublist.BillingState"
+            },
+            {
+              "extract": "sublists[0].sublist[0].BillingZip[0]._",
+              "generate": "sublists.sublist.BillingZip"
+            },
+            {
+              "extract": "sublists[0].sublist[0].ShippingAddress[0]._",
+              "generate": "sublists.sublist.ShippingAddress"
+            },
+            {
+              "extract": "sublists[0].sublist[0].ShippingCOuntry[0]._",
+              "generate": "sublists.sublist.ShippingCOuntry"
+            },
+            {
+              "extract": "sublists[0].sublist[0].ShippingCity[0]._",
+              "generate": "sublists.sublist.ShippingCity"
+            },
+            {
+              "extract": "sublists[0].sublist[0].ShippingState[0]._",
+              "generate": "sublists.sublist.ShippingState"
+            },
+            {
+              "extract": "sublists[0].sublist[0].ShippingZip[0]._",
+              "generate": "sublists.sublist.ShippingZip"
+            }
+          ]
+        ],
+        "version": "1"
+      },
+      "file": {
+        "output": "records",
+        "skipDelete": false,
+        "xml": {
+          "resourcePath": "/data"
+        },
+        "encoding": "utf8",
+        "type": "xml"
+      },
+      "asynchronous": true,
+      "inputFilter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "parsers": [
+        
+      ],
+      "qa__path": "/Dataloader_uploades/169DL_Xml_To_Salesforce_Contact.xml",
+      "type": "simple",
+      "qa__isDataLoader": "xml",
+      "adaptorType": "SimpleExport"
+    }
+}]
+  }

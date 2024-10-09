@@ -1,0 +1,74 @@
+{
+    "expectedJSON": {
+        "type": "as2",
+        "name": "AS2 async mdn",
+        "sandbox": false,
+        "as2": {
+            "as2Id": "crAS2",
+            "partnerId": "crAs2partnerId1",
+            "unencrypted": {
+                "userPublicKey": "123",
+                "partnerCertificate": "123"
+            },
+            "preventCanonicalization": false,
+            "partnerStationInfo": {
+                "as2URI": "https://www.invalid.com",
+                "mdn": {
+                    "mdnSigning": "SHA1",
+                    "verifyMDNSignature": true
+                },
+                "signing": "SHA1",
+                "encryptionType": "3DES",
+                "encoding": "base64",
+                "auth": {
+                    "token": {
+                        "headerName": "Authorization"
+                    }
+                }
+            },
+            "userStationInfo": {
+                "mdn": {
+                    "mdnURL": "integrate.com",
+                    "mdnSigning": "SHA1",
+                    "mdnEncoding": "binary"
+                },
+                "signing": "SHA1",
+                "encryptionType": "DES",
+                "encoding": "base64"
+            }
+        }
+    },
+    "importJSON": {
+        "type": "as2",
+        "name": "AS2 async mdn",
+        "as2": {
+            "as2Id": "crAS2",
+            "partnerId": "crAs2partnerId1",
+            "unencrypted": {
+                "userPublicKey": "123",
+                "partnerCertificate": "123"
+            }
+            },
+            "partnerStationInfo": {
+                "as2URI": "https://www.invalid.com",
+                "mdn": {
+                    "mdnSigning": "SHA1"
+                },
+                "signing": "SHA1",
+                "encryptionType": "3DES",
+                "encoding": "base64",
+                "auth": {
+                    "qa__auth": "none"
+                }
+            },
+            "userStationInfo": {
+                "mdn": {
+                    "mdnSigning": "SHA1"
+                },
+                "signing": "SHA1",
+                "encryptionType": "DES",
+                "encoding": "base64"
+
+            }
+        }
+    }

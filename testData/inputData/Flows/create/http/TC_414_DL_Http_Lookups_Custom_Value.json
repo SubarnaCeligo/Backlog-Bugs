@@ -1,0 +1,194 @@
+{
+  "name": "TC_414_DL_Http_Lookups_Custom_Value",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "4",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Data Loader",
+        "asynchronous": true,
+        "type": "simple",
+        "qa__isDataLoader": "json",
+        "qa__path": "//Dataloader_uploades//TC_414_DL_Http_Lookups_Custom_Value.json",
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "type": "json",
+          "json": {
+            "resourcePath": "*"
+          }
+        },
+        "adaptorType": "SimpleExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "custom value -http",
+        "application": "zendesk support",
+        "parsers": [],
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "adaptorType": "HTTPImport",
+        "distributed": false,
+        "lookups": [
+          {
+            "method": "GET",
+            "relativeURI": "users/autocomplete.json?name=Automation Management1",
+            "extract": "users[0].role",
+            "allowFailures": true,
+            "default": "end-user",
+            "name": "dynamic_lookup",
+            "useImportHeaders": true
+          }
+        ],
+        "http": {
+          "relativeURI": [
+            "/users"
+          ],
+          "method": [
+            "POST"
+          ],
+          "body": [
+            "{\n\"user\":\n{\n\"name\": \"{{record.name}}\", \n\"email\": \"{{record.email}}\",\n\"role\": \"{{lookup \"dynamic_lookup\" this}}\"\n}\n}"
+          ],
+          "batchSize": 1,
+          "lookups": [
+            {
+              "method": "GET",
+              "relativeURI": "users/autocomplete.json?name=Automation Management1",
+              "extract": "users[0].role",
+              "allowFailures": true,
+              "default": "end-user",
+              "name": "dynamic_lookup",
+              "useImportHeaders": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "name": "Automation Management",
+      "email": "automationmanagement@gmail.com"
+    },
+    "importapiIdentifier": "i3c6e56a6d",
+    "expected": {
+      "zendesk": {
+        "name": "TC_414_DL_Http_Lookups_Custom_Value",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "2",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "name": "account_dynamic_lookup_record1",
+              "email": "dynamiclookuphttp1@gmail.com",
+              "role": "end-user"
+            },
+            {
+              "name": "account_dynamic_lookup_record2",
+              "email": "dynamiclookuphttp2@gmail.com",
+              "role": "end-user"
+            }
+          ],
+          "uniqueField": "name",
+          "importRecordType": "users",
+          "exportapiIdentifier": "edc023dc81",
+          "isUIFlow": true,
+          "standaloneexportflowID": "60c9e7d3a4004f2e4cfe7e4e"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "60c9da45a4004f2e4cfe7b2c",
+      "createdAt": "2021-06-16T11:02:29.822Z",
+      "lastModified": "2021-06-16T11:08:14.234Z",
+      "name": "TC_414_SF_Http_Lookups_Custom_Value_Update",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "59bf72926011691dc7023bc5",
+      "distributed": false,
+      "apiIdentifier": "i3c6e56a6d",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "user.name"
+          },
+          {
+            "extract": "email",
+            "generate": "user.email"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "api/v2/users.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "strictHandlebarEvaluation": true,
+        "sendPostMappedData": true,
+        "formType": "http",
+        "response": {
+          "resourceIdPath": [
+            ""
+          ]
+        }
+      },
+      "rest": {
+        "relativeURI": [
+          "api/v2/users.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "responseIdPath": [
+          ""
+        ],
+        "successPath": [
+          ""
+        ]
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "RESTImport"
+    }
+  }
+}

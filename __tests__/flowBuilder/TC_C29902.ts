@@ -1,11 +1,27 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
-import TC from "@testData/FlowBuilder/TC_C28114.json"
+import TC from "@testData/FlowBuilder/TC_C29902.json"
+
+
 
 test.describe("@Env-All @Zephyr-IO-T2889|Verify the Presave page stub is updated accordingly in the UI.", () => {
+  let flowId;
+  test.beforeEach(async ({io}) => {
+    test.step("*** Navigate to Home Page ***", async ()=>{});
+    await io.goToFlowsPage();
+    await io.homePage.loadingTime();
+  });
+  test.afterEach(async ({io}, ) => { 
+    await test.step("*** Deleting flow.***", async ()=>{})
+      await io.api.deleteFlowViaAPI(flowId);
+  })
+
   test("@Env-All @Zephyr-IO-T2889|Verify the Presave page stub is updated accordingly in the UI.", async ({io, page}) => {
     test.step("Creating the flow", async ()=>{});
-    await io.createResourceFromAPI(TC, "FLOWS");
+    await io.api.createImpOrExpAndFlowsThruAPI(TC);
+    flowId = await io.api.getFlowId(TC.name);
+    await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId);
+    await io.homePage.loadingTime();
     await io.homePage.loadingTime();
     await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR);
     await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.ADD_DATA_PROCESSOR, 0);

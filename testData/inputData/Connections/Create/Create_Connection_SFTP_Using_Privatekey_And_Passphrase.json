@@ -1,0 +1,40 @@
+{
+    "expectedJSON": {
+        "type": "ftp",
+        "name": "Create_Connection_SFTP_Using_Privatekey_And_Passphrase",
+        "sandbox": false,
+        "pgp": {
+            "privateKey": "******",
+            "passphrase": "******",
+            "asciiArmored": true
+        },
+        "ftp": {
+            "type": "sftp",
+            "hostURI": "celigo.files.com",
+            "username": "io.auto.qa@celigo.com",
+            "password": "******",
+            "port": 22,
+            "usePassiveMode": true,
+            "userDirectoryIsRoot": false,
+            "useImplicitFtps": false,
+            "requireSocketReUse": false
+        }
+    },
+    "importJSON": {
+        "ftp": {
+            "password": "******",
+            "qa__pgpPassphrase": "aGVsbG8gd29ybGQ=",
+            "port": 22,
+            "qa__pgpDecryptKey": "LS0tLS1CRUdJTiBQR1AgUFJJVkFURSBLRVkgQkxPQ0stLS0tLQpWZXJzaW9uOiBHbnVQRyB2Mi4wLjE5IChHTlUvTGludXgpCgpsUUgrQkZKaEwwNEJCQURjbHJVRUREc20wUFNaYlE2cG1sOUZwelR5WGl5Q3lETityTU9zeTlKMzAwT2MxMGt0Ci9ueUJlajl2WlNSY2FXNVZwTk5qMGlBK2MxL3cyRlBmODR6TnNUenZEbXVNYU5IRlV6a3k0L3ZrWXVacmEvLzMKK1JpN0NGOFJhd1NZUS80SVJiQzl6cWRCbHpuaXlmUU9XN0RwL0xZZThlaWJuRFNybWtRZW0wRzBqd0FSQVFBQgovZ01EQXU3TC8vY3pCcEU0MHAxWnFPOEszazdVZWplbWpzUXFjN2tPcW5sRFlkMVo2LzNORUEvVU0zMFNpaXByCktqZElGWTUraHAwaGNzNkVpaU5xMFBEZm0vVzJqKzdIZnJaNWtwZVFWeERlazRpcmV6WVpybDdKUzJ4ZXphTHYKazBGdi82Znhhc25GdGpPTTZRYnN0dTY3czVHcGw5eTA2WnhiUDNWcFQ2MitYZWlibi9zd1dyZmlKanVHRUVoTQpiZ25zTXBIdHpBei9MOHk2S1N6VmlHLzA1aEJhcXJ2azMvR2VFQTZuRStvMCswYTZyMExZTFRlbW1xNkZiYUExClBIbyt4N2s3b0ZjQkZVVWVTemd4NzhHY2t1UHdxcjJtTmZlRitJdVNSbnJscFpsM2tjYkhBU1BBT2ZFa3lNWFMKc1dHRTdnckNBamJ5UXlNM09FWFRTeXFuZWh2R1MvMVJkQjZrRER4R3dnRS9RRmJ3TnlFaDZLNGVhYUFUaFcyagpJRUVJMFdFblJrUGk5Zlh5eGhGc0NMU0kxWGhxVGFxN2lETnFKVHhFK0FYMmI5WnVaWEF4STNUYy83Kyt2RXlMCjNwMThOL01CMmt0MVdiMWF6bVhXTDJFS2xUMUJaNXlEYUp1QlE4QmhwaE0zdENSVVpYTjBJRTFqVkdWemRHbHUKWjNSdmJpQThkR1Z6ZEVCbGVHRnRjR3hsTG1OdmJUNkl1UVFUQVFJQUl3VUNVbUV2VGdJYkx3Y0xDUWdIQXdJQgpCaFVJQWdrS0N3UVdBZ01CQWg0QkFoZUFBQW9KRUVwallUcE5ia0NVTUF3RCtnSUswOHFwRVpTVmFzOXFXK09rCjMyd3pOa3d4ZTZQUWdad2N5QnFNUVlaVWNLYWdDOCs4OXBNUVE1c0tVR3ZwSWdhdDQyVGYxS0xHUGN2RzRjREEKSlo2dzJQWXo5WUhRcVBoOUxBK1BBblY4bTI1VGNHbUtjS2d2RlVxUTNVNTNYL1k5c0JQOEhvb1JxZnd3SGN2OQpwTWdRbW9qbU5iSTRWSHlkUnFJQmVQYXduUUgrQkZKaEwwNEJCQURwSDgrMEVWb2xwUGlPclhUS29CS1RpeXJCClV5eHpvZHlKOHptVkozSE1URVUvdmlkcFF3eklTd29jL25kREZNWFFhdXE2eHFCQ0Q5bTJCUFFJM1VkUXpYbmIKTHNBSTUybldDSXFPa3pNNU5BS1dvS2h5WEs5WTRVSDR2OUxBWVFnbC9zdElJU3ZDZ0c0bUo4bHp6RUJXdlJkZgpRbTJHaGI2NC8zVjVORGRlbXdBUkFRQUIvZ01EQXU3TC8vY3pCcEU0MGlQY3BMekw3R3dCYldGaFNXZ1NMeTUzCk1kOTlLeHczY0FwV0NvazJFOFI5LzRWUzA0OTB4S1pJYTV5MkkvSzh0aFZocWs5Nlo4S2J0N01STUMxV0xIZ0MKcUp2a2VRQ0k2UHJGTTBQVUlQTEhBUXRESllLdGFMWHhZdWV4Y0FkS3paajNGSGR0TE5XQ29vSzZuM3ZKbEwxYwpXalpjSEoxUEg3VVNsajFqdXA0WGZ4c2J6aXV5c1JVU3lYa2puOTJHWkxtKzY0dkNJaXdocUFZb2l6RjJOSEhHCmhSVE40Z1F6eHJ4Z2tlVmNobCthZzdEa1FVREFOSUlWSStBNjNKZUxKZ1dKaUgxZmJZbHdFU0J5SFcrekJGTnQKcVN0amZJT2hqcmZOSWMzUnZzZ2diRGRXUUxjYnhtTFpqNHNCMHlkUFNnUktvYVVkUkhKWTBTNHZwOW91S090bAoyYXUvUDFCUDNiaEQwZkRYbDkxb2VoZVl0aCtNU21zSkZEZy92Wkp6Q0poRmFROWRwKzJFbmpONWF1TkNOYmFJCmJlRkpSSEZmOWNoYThwM2hoK0FLNTROUkNUKytCMk1YWWYrVFB3cVg4OGpZTUJ2OGtrOHZZVWdvODEyOHIxelEKRXpqdmlRRTlCQmdCQWdBSkJRSlNZUzlPQWhzdUFLZ0pFRXBqWVRwTmJrQ1VuU0FFR1FFQ0FBWUZBbEpoTDA0QQpDZ2tRNElUM1JHd2dMSmU2b2dRQTJhYUpFSUJJWHRncnMrOFdTSjRrM0RONHJSWGNYYVVaZjY2N3BqZEQ5bkYyCjNCempGSDZaNzhKSUdheFJISmRNN2IwNWFFOFl1ek04ZjNOSWxUMEYwT0xxL1RJMm11WVU5Zi9VMkRRQnVmK3cKS1RCNjIrUEVMVmdpOU1zWEMxUXYvdS9vMUxadG1teFRGRk9EMzV4S3N4WlpJMk9KajJwUXBxT2JXMjdNOE5sYwpCUVFBdzJZQTNmRmMzOHFQSytQWTRyWnlUUmRidmp5eVgrMXplcUlvOHduN1FDUXdYcytPR2FIMmZHb1QzNUFJClNYdXFLY1dxb0V1TzdPQlNFRlRoQ1hCZlVZTUMwMU9ycUtFc3dQbS9WM3paa0x1MDFxMTJVTXdaYWNoMjhRd0sKL1labHk0aW9ORDJ0ZGF6ajE3dTJyVTJkd3RpSFBlMWlNcUdnVk1vUWlyZkxjK2s9Cj1sdzVlCi0tLS0tRU5EIFBHUCBQUklWQVRFIEtFWSBCTE9DSy0tLS0t",
+            "hostURI": "celigo.files.com",
+            "type": "sftp",
+            "qa__password": "ZUBZVGdNTzUwJGRzbDAlSw==",
+            "usePassiveMode": true,
+            "username": "io.auto.qa@celigo.com",
+            "pgpDecryptKey": "******",
+            "pgpPassphrase": "******"
+        },
+        "name": "Create_Connection_SFTP_Using_Privatekey_And_Passphrase",
+        "type": "ftp"
+    }
+}

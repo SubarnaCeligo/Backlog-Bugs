@@ -1,0 +1,21 @@
+{
+  "Body": {
+    "rules": {
+      "resourcePath": "/",
+      "doc": {
+        "parsers": [
+          {
+            "type": "xml",
+            "rules": {
+              "trimSpaces": true,
+              "attributePrefix": "_",
+              "textNodeName": "$",
+              "includeNodes": ["/items/item"]
+            }
+          }
+        ]
+      }
+    },
+    "data": "<items><item testAttr='abc'> some text.   </item> <skipme>123 </skipme></items>"
+  }
+}

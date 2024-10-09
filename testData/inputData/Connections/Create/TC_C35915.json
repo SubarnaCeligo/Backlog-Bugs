@@ -1,0 +1,63 @@
+{
+    "expectedJSON": {
+      "name": "Create_Slack_HTTP_Connection_SuccessValues",
+      "http": {
+        "formType": "http",
+        "mediaType": "json",
+        "baseURI": "https://slack.com/api",
+        "ping": {
+          "relativeURI": "conversations.list",
+          "method": "GET",
+          "successPath": "ok",
+          "successValues": [
+            "true"
+          ]
+        },
+        "unencrypted": {
+          "field": "value"
+        },
+        "encrypted": "******",
+        "auth": {
+          "type": "token",
+          "oauth": {
+            "clientCredentialsLocation": "body"
+          },
+          "token": {
+            "token": "******",
+            "location": "header",
+            "headerName": "Authorization",
+            "scheme": "Bearer",
+            "paramName": "access_token"
+          }
+        }
+      },
+      "type": "http"
+    },
+    "importJSON": {
+      "name": "Create_Slack_HTTP_Connection_SuccessValues",
+      "http": {
+        "auth": {
+          "type": "token",
+          "qa__token1": {
+            "qa__token": "eG94cC0xMzIwNTg4ODM2NjktMTMyMDQ4ODYwOTgwLTEzMTkwODQ1ODQ2Ny0xZmU0MzI1MTI1NTc3ZGI4ZjdkODNlY2M5YzllNjc1Yw==",
+            "headerName": "Authorization",
+            "scheme": "Bearer",
+            "location": "header",
+            "qa__token2": "******"
+          }
+        },
+        "ping": {
+          "method": "GET",
+          "successValues": [
+            "true"
+          ],
+          "successPath": "ok",
+          "relativeURI": "conversations.list"
+        },
+        "baseURI": "https://slack.com/api",
+        "mediaType": "json",
+        "encryptedFields": []
+      },
+      "type": "http"
+    }
+  }

@@ -1,0 +1,51 @@
+{
+  "expectedJSON": {
+    "type": "http",
+    "name": "Rest_Custom_Connection_Authorization_Header",
+    "sandbox": false,
+    "http": {
+      "useRestForm": true,
+      "mediaType": "json",
+      "baseURI": "https://celigoqa.zendesk.com",
+      "ping": {
+        "relativeURI": "api/v2/users.json",
+        "method": "GET"
+      },
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Basic bW91bmljYS5tYW5hdmFwYXRpQGNlbGlnby5jb206Y2VsaWdvMTIzNA=="
+        }
+      ],
+      "unencrypted": {
+        "field": "value"
+      },
+      "encrypted": "******",
+      "auth": {
+        "type": "custom"
+      }
+    }
+  },
+  "importJSON": {
+    "type": "rest",
+    "name": "Rest_Custom_Connection_Authorization_Header",
+    "rest": {
+      "baseURI": "https://celigoqa.zendesk.com",
+      "isHTTPProxy": false,
+      "mediaType": "json",
+      "authType": "custom",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Basic bW91bmljYS5tYW5hdmFwYXRpQGNlbGlnby5jb206Y2VsaWdvMTIzNA=="
+        }
+      ],
+      "encrypted": "******",
+      "encryptedFields": [],
+      "unencryptedFields": [],
+      "scope": [],
+      "pingRelativeURI": "api/v2/users.json",
+      "pingMethod": "GET"
+    }
+  }
+}

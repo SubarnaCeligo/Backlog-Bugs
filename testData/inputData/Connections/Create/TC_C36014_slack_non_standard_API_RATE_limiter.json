@@ -1,0 +1,35 @@
+{
+    "importJSON":{
+    "type": "http",
+    "name": "http_slack",
+    "sandbox": false,
+    "http": {
+        "formType": "http",
+        "mediaType": "urlencoded",
+        "baseURI": "https://slack.com/api",
+        "rateLimit": {
+            "failPath": "ok",
+            "failValues": [
+                "FALse"
+            ]
+        },
+        "unencrypted": {
+            "field": "value"
+        },
+        "encrypted": "******",
+        "auth": {
+            "type": "basic",
+            "basic": {
+                "username": "celigo-labs@celigo.com",
+                "password": "******"
+            }
+        }
+    },
+    "queues": [
+        {
+            "name": "630862a8207ed82628b5744b",
+            "size": 0
+       }
+    ]
+    }
+}

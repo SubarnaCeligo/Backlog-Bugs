@@ -1,0 +1,83 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "PipeDrive_Oauth_Conenction",
+        "assistant": "pipedrive",
+        "http": {
+            "_iClientId": "60484d0d4878d9733656f166",
+            "mediaType": "json",
+            "baseURI": "https://celigo-sandbox2.pipedrive.com",
+            "ping": {
+                "relativeURI": "/api/v1/users/me",
+                "method": "GET",
+                "failValues": [],
+                "successValues": []
+            },
+            "rateLimit": {
+                "failValues": []
+            },
+            "auth": {
+                "type": "oauth",
+                "failValues": [],
+                "oauth": {
+                    "authURI": "https://oauth.pipedrive.com/oauth/authorize",
+                    "tokenURI": "https://oauth.pipedrive.com/oauth/token",
+                    "scope": [],
+                    "grantType": "authorizecode",
+                    "clientCredentialsLocation": "basicauthheader"
+                },
+                "token": {
+                    "token": "******",
+                    "location": "header",
+                    "headerName": "Authorization",
+                    "scheme": "Bearer",
+                    "refreshMethod": "POST",
+                    "refreshMediaType": "urlencoded",
+                    "refreshToken": "******"
+                }
+            }
+        }
+    },
+    "importJSON": {
+        "type": "http",
+        "name": "PipeDrive_Oauth_Conenction",
+        "assistant": "pipedrive",
+        "http": {
+            "qa__username": "anushajharupula@gmail.com",
+            "qa__password": "SU9xYUAxMjM0NTY=",
+            "qa__type": "oauth",
+            "_iClientId": "60484d0d4878d9733656f166",
+            "mediaType": "json",
+            "baseURI": "https://celigo-sandbox2.pipedrive.com",
+            "ping": {
+                "relativeURI": "/api/v1/users/me",
+                "method": "GET",
+                "failValues": [],
+                "successValues": []
+            },
+            "rateLimit": {
+                "failValues": []
+            },
+            "auth": {
+                "type": "oauth",
+                "failValues": [],
+                "oauth": {
+                    "authURI": "https://oauth.pipedrive.com/oauth/authorize",
+                    "tokenURI": "https://oauth.pipedrive.com/oauth/token",
+                    "scope": [],
+                    "grantType": "authorizecode",
+                    "clientCredentialsLocation": "basicauthheader"
+                },
+                "token": {
+                    "token": "******",
+                    "location": "header",
+                    "headerName": "Authorization",
+                    "scheme": "Bearer",
+                    "refreshMethod": "POST",
+                    "refreshMediaType": "urlencoded",
+                    "refreshToken": "******"
+                }
+            }
+        }
+    }
+}

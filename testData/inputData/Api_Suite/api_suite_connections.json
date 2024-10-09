@@ -1,0 +1,22 @@
+{
+    "QA_connection": {
+        "FTP_Conn": "FTP CONNECTION",
+        "FTP_Test_Conn": "FTP CONNECTION",
+        "AS2_conn": "6336951fcc34327a204502d1",
+        "S3_conn": "S3 CONNECTION",
+        "NS_conn": "63357edba0e7ad168336c6a5",
+        "SF_conn": "SALESFORCE CONNECTION",
+        "NS_Invalid_conn": "6347a7d501bcaa111fefaf27",
+        "NS_valid_Conn": "634d39fb3b8a451127bb5c84"
+    },
+    "Staging_connections": {
+        "FTP_Conn": "FTP CONNECTION",
+        "FTP_Test_Conn": "FTP CONNECTION",
+        "AS2_conn": "63369728ca06597ef0ad47ff",
+        "S3_conn": "S3 CONNECTION",
+        "NS_conn": "6335951cbb74b66e32aa3e6c",
+        "SF_conn": "SALESFORCE CONNECTION",
+        "NS_Invalid_conn": "6348161b0e08c5314f4cd087",
+        "NS_valid_Conn": "634d2afe5537bc284701e1a2"
+    }
+}

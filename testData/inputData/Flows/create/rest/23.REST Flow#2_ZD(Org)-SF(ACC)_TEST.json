@@ -1,0 +1,346 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "adaptorType": "SalesforceImport",
+        "name": "Salesforce Insert from rest export",
+        "salesforce": {
+          "sObjectType": "Account",
+          "api": "rest",
+          "operation": "insert",
+          "removeNonSubmittableFields": false
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "name",
+              "generate": "Name"
+            },
+            {
+              "extract": "notes",
+              "generate": "Email__c"
+            },
+            {
+              "extract": "organization_fields.fax",
+              "generate": "Fax"
+            },
+            {
+              "extract": "organization_fields.phone",
+              "generate": "Phone"
+            },
+            {
+              "extract": "organization_fields.billing_address_1",
+              "generate": "BillingStreet"
+            },
+            {
+              "extract": "organization_fields.billing_city",
+              "generate": "BillingCity"
+            },
+            {
+              "extract": "organization_fields.billing_state",
+              "generate": "BillingState"
+            },
+            {
+              "extract": "organization_fields.billing_country",
+              "generate": "BillingCountry"
+            },
+            {
+              "extract": "organization_fields.billing_zip",
+              "generate": "BillingPostalCode"
+            },
+            {
+              "extract": "organization_fields.shipping_address_1",
+              "generate": "ShippingStreet"
+            },
+            {
+              "extract": "organization_fields.shipping_city",
+              "generate": "ShippingCity"
+            },
+            {
+              "extract": "organization_fields.shipping_state",
+              "generate": "ShippingState"
+            },
+            {
+              "extract": "organization_fields.shipping_country",
+              "generate": "ShippingCountry"
+            },
+            {
+              "extract": "organization_fields.billing_zip",
+              "generate": "ShippingPostalCode"
+            }
+          ]
+        },
+        "_connectionId": "SALESFORCE CONNECTION",
+        "distributed": false
+      }
+    }
+  ],
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "timezone": "Asia/Calcutta",
+  "name": "23.REST Flow#2_ZD(Org)-SF(ACC)_TEST",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "billingcity": "billing city",
+      "shippingaddress1": "shipping address 1",
+      "billingstate": "billing state",
+      "shippingcountry": "India",
+      "billingcountry": "India",
+      "phone": "1242142424",
+      "billingaddress1": "billing address 1",
+      "name": "Auto@Nextpage_1",
+      "fax": "124124214214",
+      "billingzip": "12312312",
+      "email": "nextpage1@gmail.co.in",
+      "shippingstate": "shipping state",
+      "shippingcity": "shipping city",
+      "shippingzip": "53423423"
+    },
+    "importapiIdentifier": "i760c090f2",
+    "expected": {
+      "Salesforce": {
+        "name": "23.REST Flow#2_ZD(Org)-SF(ACC)_TEST",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "SALESFORCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "BillingCity": "billing city",
+            "Name": "Auto@Nextpage_1",
+            "ShippingStreet": "shipping address 1",
+            "BillingCountry": "India",
+            "BillingStreet": "billing address 1",
+            "Phone": "1242142424",
+            "ShippingPostalCode": "12312312",
+            "ShippingCountry": "India",
+            "attributes": {
+              "type": "Account"
+            },
+            "BillingPostalCode": "12312312",
+            "ShippingCity": "shipping city",
+            "ShippingState": "shipping state",
+            "Fax": "124124214214",
+            "BillingState": "billing state",
+            "Email__c": "nextpage1@gmail.co.in"
+          },
+          "standaloneexportflowID": "57be7ecc269c3e42500c34a3",
+          "uniqueField": "Name",
+          "importRecordType": "Account",
+          "exportRecordType": "organizations",
+          "isUIFlow": true,
+          "query": "Select Id,Name, Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate from Account where name   like 'Auto@Nextpage_1'",
+          "exportapiIdentifier": "e8a11eeb29"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "57e0fb41a0047c23baeff9c4",
+      "createdAt": "2019-10-20T17:26:41.273Z",
+      "lastModified": "2019-10-28T07:48:39.601Z",
+      "name": "23.REST Flow#2_ZD(Org)-SF(ACC)_TEST",
+      "sampleData": {
+        "organization": {
+          "organization_fields": {
+            "billing_custom_field": "bbbb",
+            "shipping_custom_field": "abcd",
+            "shipping_zipcode": "6465564",
+            "shipping_country": "country",
+            "shipping_state": "state",
+            "shipping_city": "city",
+            "shipping_address_1": "xyz",
+            "billing_zip": "496468",
+            "billing_country": "country",
+            "billing_state": "state",
+            "billing_city": "city",
+            "billing_address_1": "abc",
+            "subsidiary_id": "id",
+            "subsidiary_name": "name",
+            "usernotes_direction": "direction",
+            "usernotes_type": "type",
+            "usernotes_title": "title",
+            "usernotes_memo": "memo",
+            "email": "zendesk1@gmail.com",
+            "fax": 45689390,
+            "phone": 12345678
+          },
+          "notes": "email@gmail.com",
+          "name": "My Organization2"
+        }
+      },
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "56d6d3c95900861a56d64677",
+      "distributed": false,
+      "apiIdentifier": "i760c090f2",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "name",
+            "generate": "organization.name"
+          },
+          {
+            "extract": "email",
+            "generate": "organization.notes"
+          },
+          {
+            "extract": "fax",
+            "generate": "organization.organization_fields.fax"
+          },
+          {
+            "extract": "phone",
+            "generate": "organization.organization_fields.phone"
+          },
+          {
+            "extract": "billingaddress1",
+            "generate": "organization.organization_fields.billing_address_1"
+          },
+          {
+            "extract": "billingcity",
+            "generate": "organization.organization_fields.billing_city"
+          },
+          {
+            "extract": "billingstate",
+            "generate": "organization.organization_fields.billing_state"
+          },
+          {
+            "extract": "billingcountry",
+            "generate": "organization.organization_fields.billing_country"
+          },
+          {
+            "extract": "billingzip",
+            "generate": "organization.organization_fields.billing_zip"
+          },
+          {
+            "extract": "shippingaddress1",
+            "generate": "organization.organization_fields.shipping_address_1"
+          },
+          {
+            "extract": "shippingcity",
+            "generate": "organization.organization_fields.shipping_city"
+          },
+          {
+            "extract": "shippingstate",
+            "generate": "organization.organization_fields.shipping_state"
+          },
+          {
+            "extract": "shippingcountry",
+            "generate": "organization.organization_fields.shipping_country"
+          },
+          {
+            "extract": "shippingzip",
+            "generate": "organization.organization_fields.shipping_zipcode"
+          },
+          {
+            "extract": "usernotestitle",
+            "generate": "organization.organization_fields.usernotes_title"
+          },
+          {
+            "extract": "usernotesmemo",
+            "generate": "organization.organization_fields.usernotes_memo"
+          },
+          {
+            "extract": "usernotesdirection",
+            "generate": "organization.organization_fields.usernotes_direction"
+          }
+        ]
+      },
+      "http": {
+        "relativeURI": [
+          "organizations.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "batchSize": 1,
+        "requestMediaType": "json",
+        "successMediaType": "json",
+        "errorMediaType": "json",
+        "strictHandlebarEvaluation": true,
+        "sendPostMappedData": true,
+        "formType": "http",
+        "response": {
+          "resourceIdPath": [
+            ""
+          ]
+        }
+      },
+      "rest": {
+        "relativeURI": [
+          "organizations.json"
+        ],
+        "method": [
+          "POST"
+        ],
+        "body": [],
+        "responseIdPath": [
+          ""
+        ],
+        "successPath": [
+          ""
+        ]
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "RESTImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "adaptorType": "HTTPExport",
+        "test": {
+          "limit": 1
+        },
+        "http": {
+          "relativeURI": "search.json?query=type:organization notes:\"nextpage1@gmail.co.in\" & per_page=1&page=1",
+          "method": "GET",
+          "formType": "http",
+          "qa__formType": "rest",
+          "paging": {
+            "method": "url",
+            "path": "next_page",
+            "lastPageStatusCode": 404,
+            "lastPageValues": []
+          },
+          "response": {
+            "resourcePath": "results"
+          }
+        },
+        "asynchronous": true,
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "parsers": [],
+        "name": "Rest export with paging method",
+        "application": "zendesk support",
+        "dataURITemplate": "{{{id}}}",
+        "type": "test"
+      }
+    }
+  ]
+}

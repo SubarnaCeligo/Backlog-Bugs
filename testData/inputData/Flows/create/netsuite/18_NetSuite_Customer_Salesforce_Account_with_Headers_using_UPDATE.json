@@ -1,0 +1,362 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "salesforce": {
+          "lookups": [
+            {
+              "default": "8999899989903",
+              "name": "0a194b209cb44011be5c849fd2a86ec4",
+              "allowFailures": true,
+              "map": {
+                "8999899989901": "8999899989902"
+              }
+            },
+            {
+              "default": "500081",
+              "whereClause": "(Alt_Email__c = {{{string Email}}})",
+              "qa__whereClause": [
+                [
+                  "Alt_Email__c",
+                  "equalto",
+                  "Email"
+                ]
+              ],
+              "name": "1ef221d39601423484f4d31089227678",
+              "sObjectType": "Account",
+              "resultField": "Alt_Email__c",
+              "allowFailures": true
+            }
+          ],
+          "qa__idLookup": [
+            [
+              "Email__c",
+              "equalto",
+              "Email"
+            ]
+          ],
+          "sObjectType": "Account",
+          "removeNonSubmittableFields": false,
+          "api": "rest",
+          "operation": "update",
+          "idLookup": {
+            "whereClause": "(Email__c = {{{string Email}}})",
+            "qa__idLookup": [
+              [
+                "Email__c",
+                "equalto",
+                "Email"
+              ]
+            ]
+          }
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Name",
+              "generate": "Name"
+            },
+            {
+              "extract": "Phone",
+              "generate": "Phone",
+              "lookupName": "0a194b209cb44011be5c849fd2a86ec4"
+            },
+            {
+              "extract": "Fax",
+              "generate": "Fax"
+            },
+            {
+              "extract": "{{#if [Billing City]}} Hyderabad{{else}} Banglore{{/if}}",
+              "generate": "BillingCity"
+            },
+            {
+              "extract": "[Billing Zip]",
+              "qa__extract": "Billing Zip",
+              "qa__ignoreBrackets": true,
+              "generate": "Static_Text_Test__c",
+              "lookupName": "1ef221d39601423484f4d31089227678"
+            },
+            {
+              "extract": "Email",
+              "generate": "Email__c"
+            }
+          ]
+        },
+        "_connectionId": "SALESFORCE CONNECTION",
+        "lookups": [
+          {
+            "name": "b2c565c3819a4940ac4f74a66a7eacb1",
+            "allowFailures": true,
+            "default": "8999899989903",
+            "map": {
+              "8999899989901": "8999899989902"
+            }
+          },
+          {
+            "name": "a96e1557bce443099c738dd12ab840ad",
+            "allowFailures": true,
+            "default": "500081",
+            "sObjectType": "Account",
+            "resultField": "Alt_Email__c",
+            "whereClause": "(Alt_Email__c = {{{string Email}}})"
+          }
+        ],
+        "adaptorType": "SalesforceImport",
+        "name": "SF(Account)_UPDATE",
+        "distributed": false
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "18.SFFlow#2_NS(Cust)toSF(Account)_UPDATE",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "companyname": "18.SFFlow#2_NS(Cust)toSF(Account)_UPDATE",
+      "Subsidiary": "HH Inc.",
+      "email": "Emailflow18@gmail.com"
+    },
+    "application":"NETSUITE", 
+    "importapiIdentifier": "i7d3d92127",
+    "UpdateRecordJSON": {
+      "BillingCity": "Hyderabad",
+      "phone": "8999899989901",
+      "companyname": "18.SFFlow#2_NS(Cust)toSF(Account)_UPDATE",
+      "Subsidiary": "HH Inc.",
+      "fax": "FAX-888888999900",
+      "BillingZip": "500081",
+      "email": "Emailflow18@gmail.com"
+    },
+    "UpdateRecordJSON1": {
+      "Email": "Emailflow18@gmail.com",
+      "Name": "18.SFFlow#2_NS(Cust)toSF(Account)_UPDATE"
+    },
+    "update_importapiIdentifier": "i7d3d92127",
+    "update_importapiIdentifier1": "i58eb3a97a",
+    "expected": {
+      "Salesforce": {
+        "name": "18.SFFlow#2_NS(Cust)toSF(Account)_UPDATE",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "SALESFORCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "BillingCity": "Banglore",
+            "Static_Text_Test__c": "500081",
+            "Phone": "8999899989902",
+            "Fax": "FAX-888888999900",
+            "Name": "18.SFFlow#2_NS(Cust)toSF(Account)_UPDATE",
+            "Email__c": "Emailflow18@gmail.com"
+          },
+          "standaloneexportflowID": "57c7f1149567819e01ba68d8",
+          "update_Record1": "Account",
+          "exportRecordType": "Customer",
+          "query": "Select id,Name, Email__c,phone,fax,Billingcity,Static_Text_Test__c from Account where name like '18.SFFlow#2_NS(Cust)toSF(Account)_UPDATE'",
+          "exportapiIdentifier": "eec84c4fca",
+          "update_app": "Netsuite",
+          "update_app1": "salesforce",
+          "uniqueField": "Name",
+          "importRecordType": "Account",
+          "update_Record": "Customer"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "57a32d5259c13e0457723010",
+      "createdAt": "2018-02-19T13:52:10.102Z",
+      "lastModified": "2019-12-28T06:17:50.590Z",
+      "name": "18.NS-Import-Automation",
+      "description": "NS-CUST-SF-ACC-UPDATE-AUTO",
+      "_connectionId": "56d6b65d6f8ed15e4d0f9b8c",
+      "distributed": true,
+      "apiIdentifier": "i7d3d92127",
+      "sandbox": false,
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "missingOrCorruptedDAConfig": false,
+        "rawOverride": {
+          "celigo_classname": "Celigo.integrator.hercules.Import",
+          "requestMapper": {
+            "celigo_classname": "Celigo.integrator.mapper.json.JsonMapper"
+          },
+          "requestMappingRef": {
+            "celigo_classname": "Celigo.integrator.mapping.model.DocumentMapping",
+            "recordMappings": [
+              {
+                "celigo_classname": "Celigo.integrator.mapping.model.RecordMapping",
+                "recordIdentifiers": {
+                  "jsonPath": ".",
+                  "celigo_classname": "Celigo.integrator.mapping.model.JsonPathRecordIdentifier"
+                },
+                "children": [
+                  {
+                    "celigo_classname": "Celigo.integrator.mapping.model.FieldMappingSet",
+                    "fieldMappings": [
+                      {
+                        "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                        "jsField": "companyname",
+                        "externalField": "$.companyname"
+                      },
+                      {
+                        "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                        "jsField": "phone",
+                        "externalField": "$.phone"
+                      },
+                      {
+                        "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                        "jsField": "fax",
+                        "externalField": "$.fax"
+                      },
+                      {
+                        "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                        "jsField": "email",
+                        "externalField": "$.email"
+                      },
+                      {
+                        "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                        "jsField": "subsidiary",
+                        "externalField": "$.Subsidiary"
+                      }
+                    ]
+                  },
+                  {
+                    "celigo_classname": "Celigo.integrator.mapping.model.CollectionMapping",
+                    "collectionIds": [
+                      "_billing_addressbook"
+                    ],
+                    "children": [
+                      {
+                        "celigo_classname": "Celigo.integrator.mapping.model.FieldMappingSet",
+                        "fieldMappings": [
+                          {
+                            "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                            "jsField": "city",
+                            "externalField": "$.Billing City"
+                          },
+                          {
+                            "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                            "jsField": "zip",
+                            "externalField": "$.Billing Zip"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "recordType": "customer"
+              }
+            ]
+          },
+          "operationMappings": {
+            "customer": {
+              "operation": "addupdate",
+              "mapping": {
+                "celigo_classname": "Celigo.integrator.mapping.model.FieldMapping",
+                "lookupType": "record",
+                "lookupSource": "customer",
+                "lookupValue": "internalid",
+                "jsField": "internalid",
+                "lookupFilterExpression": "[\"email\",\"is\",\"{{email}}\"]"
+              },
+              "ignoreNonExistingRecordsOnUpdate": false,
+              "ignoreExistingRecordsOnAdd": false
+            }
+          },
+          "migrationMessage": "Mappings are moved to IO. Any future updates to mappings should be done in IO only. Please refer IO help guide for more details."
+        },
+        "isMigrated": true,
+        "operation": "addupdate",
+        "recordType": "customer",
+        "internalIdLookup": {
+          "expression": "[\"email\",\"is\",\"{{email}}\"]"
+        },
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "companyname",
+              "extract": "companyname"
+            },
+            {
+              "generate": "phone",
+              "extract": "phone"
+            },
+            {
+              "generate": "fax",
+              "extract": "fax"
+            },
+            {
+              "generate": "email",
+              "extract": "email"
+            },
+            {
+              "generate": "subsidiary",
+              "extract": "Subsidiary"
+            }
+          ],
+          "lists": [
+            {
+              "generate": "_billing_addressbook",
+              "fields": [
+                {
+                  "generate": "city",
+                  "extract": "Billing City"
+                },
+                {
+                  "generate": "zip",
+                  "extract": "Billing Zip"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "asynchronous": true,
+        "_connectionId": "NETSUITE CONNECTION",
+        "adaptorType": "NetSuiteExport",
+        "parsers": [],
+        "name": "NetsuiteExport1916",
+        "dataURITemplate": "{{{Name}}}",
+        "delta": {
+          "dateField": "lastmodifieddate",
+          "startDate": "2016-09-26T00:00:00.000Z"
+        },
+        "qa__startdate": "09/26/2016",
+        "qa__startime": "5:30:00 AM",
+        "type": "delta",
+        "netsuite": {
+          "statsOnly": false,
+          "type": "restlet",
+          "restlet": {
+            "searchId": "1916",
+            "recordType": "customer",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          },
+          "skipGrouping": true
+        }
+      }
+    }
+  ]
+}

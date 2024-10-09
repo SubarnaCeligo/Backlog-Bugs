@@ -1,0 +1,9 @@
+{
+    "templateJSON": {
+        "Upload_Path": "/testData/Templates/stackZipFile.zip",
+        "NS_QA_CONNECTION": "NETSUITE CONNECTION",
+        "NS_STAGING_CONNECTION": "NETSUITE CONNECTION",
+        "WRAPPER_QA_CONNECTION": "632db18b03699514d6e00540",
+        "WRAPPER_STAGING_CONNECTION": "632dbc2dca06597ef0a78784"
+    }
+}

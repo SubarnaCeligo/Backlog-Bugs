@@ -33,7 +33,6 @@ test.describe("@Env-All @Zephyr-IO-T2753 | @Env-All @Zephyr-IO-T2822 ", () => {
       let element = await page.locator(selectors.flowBuilderPagePO.FILTER_UPDATE);
       await element.scrollIntoViewIfNeeded();
       await io.homePage.loadingTime();
-      await page.pause();
       test.step("Opened NS Import of flow. ", async ()=>{});
       await io.homePage.click(
         selectors.flowBuilderPagePO.FILTER_UPDATE

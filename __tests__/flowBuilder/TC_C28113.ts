@@ -26,6 +26,7 @@ test.describe("TC_C28113", () => {
     await lastRun.waitFor({ state: 'visible', timeout: 180000 });
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.homePage.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.homePage.loadingTime();
     test.step("Verifying the popup", async () => { });
@@ -345,14 +346,7 @@ test.describe("TC_C28113", () => {
 
   test("@Env-All @Zephyr-IO-T2912", async ({ io }) => {
     //*Create Flow
-    var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC3);
-    // await test.step(
-    //   "Created Flows " +
-    //   flows.get(TC3.name)["flowName"] +
-    //   " " +
-    //   " With IDs " +
-    //   flows.get(TC3.name)["flowId7"], async () => { }
-    // );
+    await io.api.createImpOrExpAndFlowsThruAPI(TC3);
     var flowId1 = await io.api.getFlowId(TC3.name);
     await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId1);
     await test.step(
@@ -362,12 +356,6 @@ test.describe("TC_C28113", () => {
       "[data-test='Export']"
     );
     await io.homePage.loadingTime();
-    // await io.homePage.click(
-    //   selectors.connectionsPagePO.NAME_INPUT
-    // );
-    // await io.homePage.clearTextValue(
-    //   selectors.connectionsPagePO.NAME_INPUT
-    // );
     await io.homePage.fillWebPage(
       selectors.connectionsPagePO.NAME_INPUT,
       "change_name"
@@ -466,7 +454,6 @@ test.describe("TC_C28113", () => {
       , async () => { });
     await io.homePage.click(selectors.flowBuilderPagePO.IMPORT);
     test.step("***Opened mysql Imports Page***", async () => { });
-    // await page.pause();
     await io.homePage.loadingTime();
     var checked = await (await page.$(selectors.flowBuilderPagePO.IGNORE_EXISTING)).isChecked();
     await io.homePage.loadingTime();

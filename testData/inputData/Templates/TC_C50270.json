@@ -1,0 +1,18 @@
+{
+  "importJson": {
+    "name": "TC_C50270_Template_DND",
+    "contactEmail": "io.auto.cloning.qa@celigo.com",
+    "published": true,
+    "_integrationId": "63a1b054d8999f49bd8e2413",
+    "applications": ["activecampaign"],
+    "framework": "twoDotZero",
+    "twoDotZero": {
+      "_integrationId": "63a1b054d8999f49bd8e2413",
+      "editions": []
+    }
+  },
+  "name": "TC_C50270_Template_DND",
+  "environment": "Production",
+  "app": "activecampaign",
+  "integrationName": "TC_C24607_Template_DND"
+}

@@ -1,0 +1,311 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "application": "zendesk support",
+      "qa__import": {
+        "http": {
+          "method": [
+            "PUT"
+          ],
+          "responseIdPath": [
+            "null"
+          ],
+          "body": [],
+          "successPath": [
+            "null"
+          ],
+          "relativeURI": [
+            "organizations/{{lookup.sftozendeskput}}.json"
+          ],
+          "formType": "http",
+          "qa__formType": "rest",
+          "lookups": [
+            {
+              "method": "GET",
+              "relativeURI": "search.json?query=type:organization notes:{{{Email__c}}}",
+              "extract": "results[0].id",
+              "allowFailures": false,
+              "name": "sftozendeskput",
+              "useImportHeaders": true
+            },
+            {
+              "default": "Default billing country",
+              "name": "5c80c297cf254f4e86c988b0c36fb973",
+              "allowFailures": true,
+              "map": {
+                "hyderabad": "Hyderabad imported"
+              }
+            }
+          ]
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Name",
+              "generate": "organization.name"
+            },
+            {
+              "extract": "Email__c",
+              "generate": "organization.notes"
+            },
+            {
+              "immutable": true,
+              "extract": "Phone",
+              "generate": "organization.organization_fields.phone"
+            },
+            {
+              "extract": " ",
+              "generate": "organization.external_id",
+              "lookupName": "sftozendeskput"
+            },
+            {
+              "extract": "Attachments[*].Name",
+              "generate": "organization.organization_fields.billing_custom_field"
+            },
+            {
+              "extract": "{{BillingCity}} {{BillingCity}}",
+              "generate": "organization.organization_fields.billing_city"
+            },
+            {
+              "extract": "BillingCountry",
+              "generate": "organization.organization_fields.billing_country",
+              "lookupName": "5c80c297cf254f4e86c988b0c36fb973"
+            },
+            {
+              "extract": "BillingState",
+              "generate": "organization.organization_fields.billing_state"
+            },
+            {
+              "extract": "BillingPostalCode",
+              "generate": "organization.organization_fields.billing_zipcode"
+            },
+            {
+              "extract": "Notes[*].Title",
+              "generate": "organization.organization_fields.usernotes_title"
+            },
+            {
+              "extract": "Notes[*].Body",
+              "generate": "organization.organization_fields.usernotes_memo"
+            },
+            {
+              "extract": "Once_Export__c",
+              "generate": "organization.organization_fields.onceexport"
+            }
+          ]
+        },
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "name": "REST(ZD Org)_Soap Api_All",
+        "adaptorType": "HTTPImport",
+        "lookups": [
+          {
+            "method": "GET",
+            "relativeURI": "search.json?query=type:organization notes:{{{Email__c}}}",
+            "extract": "results[0].id",
+            "allowFailures": false,
+            "name": "sftozendeskput",
+            "useImportHeaders": true
+          },
+          {
+            "name": "fc7dbf838c9746138e804a38d0991e79",
+            "map": {
+              "hyderabad": "Hyderabad imported"
+            },
+            "allowFailures": true,
+            "default": "Default billing country"
+          }
+        ],
+        "dataURITemplate": "{{{Name}}}",
+        "distributed": false
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "27.SF(Account) to REST(ZD Org)_Soap Api_All",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "Email": "AutoSftozendeskuser@mail.com",
+      "BillingCountry": "country",
+      "BillingStreet": "billing street",
+      "BillingCity": "hyderabad",
+      "Phone": "7894561230",
+      "Custom Date Field": "2016-08-16",
+      "Fax": "7412589630",
+      "Once_Export__c": "true",
+      "BillingZip": "50001",
+      "BillingState": "State",
+      "Name": "Auto@Sftozendeskusertest"
+    },
+    "application": "SALESFORCE",
+    "importapiIdentifier": "i50f10d518",
+    "UpdateRecordJSON": {
+      "notes": "AutoSftozendeskuser@mail.com",
+      "name": "Auto@Sftozendeskusertest"
+    },
+    "update_importapiIdentifier": "id85b3ae05",
+    "expected": {
+      "zendesk": {
+        "name": "27.SF(Account) to REST(ZD Org)_Soap Api_All",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "organization_fields": {
+              "billing_city": "hyderabad hyderabad",
+              "billing_state": "State",
+              "onceexport": true,
+              "billing_country": "Default billing country"
+            },
+            "notes": "AutoSftozendeskuser@mail.com",
+            "name": "Auto@Sftozendeskusertest"
+          },
+          "standaloneexportflowID": "57aad5298ec9f8804906006d",
+          "isUIFlow": true,
+          "uniqueField": "name",
+          "importRecordType": "organizations",
+          "exportRecordType": "Account",
+          "query": "Select id,Name, Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate,Once_Export__c, Custom_Date_Field__c,Sic,NumberOfEmployees,(select id,name from attachments),(select id,title,body from notes) from Account where name   like 'Auto@Sftozendeskusertest'",
+          "update_app": "Zendesk",
+          "exportapiIdentifier": "edb8215601",
+          "generateSampleDropDownAvailable": false,
+          "update_Record": "organizations"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "633b0b00677022566eb1b157",
+      "createdAt": "2022-10-03T16:17:04.034Z",
+      "lastModified": "2022-11-01T07:03:30.424Z",
+      "name": "DND_31.SF (Account) to REST(ZD Org)",
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "apiIdentifier": "i50f10d518",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "Email",
+            "generate": "Email__c"
+          },
+          {
+            "extract": "ShippingCountry",
+            "generate": "ShippingCountry"
+          },
+          {
+            "extract": "ShippingStreet",
+            "generate": "ShippingStreet"
+          },
+          {
+            "extract": "ShippingCity",
+            "generate": "ShippingCity"
+          },
+          {
+            "extract": "BillingCountry",
+            "generate": "BillingCountry"
+          },
+          {
+            "extract": "BillingStreet",
+            "generate": "BillingStreet"
+          },
+          {
+            "extract": "BillingCity",
+            "generate": "BillingCity"
+          },
+          {
+            "extract": "Phone",
+            "generate": "Phone"
+          },
+          {
+            "extract": "[Custom Date Field]",
+            "generate": "Custom_Date_Field__c"
+          },
+          {
+            "extract": "Fax",
+            "generate": "Fax"
+          },
+          {
+            "extract": "[Static Text Test]",
+            "generate": "Static_Text_Test__c"
+          },
+          {
+            "extract": "BillingZip",
+            "generate": "BillingPostalCode"
+          },
+          {
+            "extract": "BillingState",
+            "generate": "BillingState"
+          },
+          {
+            "extract": "ShippingZip",
+            "generate": "ShippingPostalCode"
+          },
+          {
+            "extract": "ShippingState",
+            "generate": "ShippingState"
+          },
+          {
+            "extract": "Name",
+            "generate": "Name"
+          },
+          {
+            "extract": "Upsert",
+            "generate": "Upsert__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "salesforce": {
+          "soql": {
+            "query": "Select id,Name, Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate,Once_Export__c, Custom_Date_Field__c,Sic,NumberOfEmployees,(select id,name from attachments),(select id,title,body from notes) from Account where name   like 'Auto@Sftozendeskusertest'"
+          },
+          "distributed": {
+            "disabled": false,
+            "relatedLists": []
+          },
+          "api": "rest",
+          "type": "soql"
+        },
+        "asynchronous": true,
+        "adaptorType": "SalesforceExport",
+        "inputFilter": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "parsers": [],
+        "_connectionId": "SALESFORCE CONNECTION",
+        "name": "SalesforceExportAccount21"
+      }
+    }
+  ]
+}

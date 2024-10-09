@@ -1,0 +1,34 @@
+{
+    "skipRetries": false,
+    "_integrationId": "631ec9b452e9a959edd75a41",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "sf_exp",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "e642131556",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "632c07e0a3bd4367025fbd85c2c9e0c96ade47759d8f5881db88f08a",
+                "test": {
+                    "limit": 1
+                },
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "soql": {
+                        "query": "select name from account"
+                    },
+                    "distributed": {
+                        "disabled": true
+                    }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        }
+    ],
+    "ReqBody": [{"op": "replace","path": "/salesforce/distributed/disabled","value": true}]
+}

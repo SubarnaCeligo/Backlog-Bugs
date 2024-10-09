@@ -1,0 +1,45 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "FreshServices",
+        "sandbox": false,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://celigoservicedesk.freshservice.com/api/v2",
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "chaitanyareddy.mule+2@celigo.com",
+                    "password": "******"
+                }
+            }
+        }
+    },
+    "importJSON": {
+        "type": "http",
+        "name": "FreshServices",
+        "sandbox": false,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://celigoservicedesk.freshservice.com/api/v2",
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "basic",
+                "qa__basic": {
+                    "username": "chaitanyareddy.mule+2@celigo.com",
+                    "password": "******",
+                    "qa__password": "UDloM1RLT0Z4aEdz"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+{
+  "expectedJSON": {
+    "type": "http",
+    "name": "Create_Connection_Rest_Custom",
+    "sandbox": false,
+    "http": {
+      "formType": "http",
+      "qa__formType": "rest",
+      "mediaType": "json",
+      "baseURI": "https://apitest.authorize.net",
+      "ping": {
+        "relativeURI": "/xml/v1/request.api",
+        "method": "GET",
+        "successPath": "messages.resultCode",
+        "allowArrayforSuccessPath": true
+      },
+      "headers": [
+        {
+          "name": "content-type",
+          "value": "application/json"
+        }
+      ],
+      "unencrypted": {
+        "field": "value"
+      },
+      "encrypted": "******",
+      "auth": {
+        "type": "custom"
+      }
+    }
+  },
+  "importJSON": {
+    "type": "rest",
+    "name": "Create_Connection_Rest_Custom",
+    "sandbox": false,
+    "rest": {
+      "formType": "http",
+      "qa__formType": "rest",
+      "mediaType": "json",
+      "baseURI": "https://apitest.authorize.net",
+      "pingMethod": "GET",
+      "pingRelativeURI": "/xml/v1/request.api",
+      "pingsuccessPath": "messages.resultCode",
+      "authType": "custom",
+      "encrypted": "******",
+      "unencrypted": {
+        "field": "value"
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "trandate": "12/12/2021",
+              "item": [
+                {
+                  "amount": 114,
+                  "item": {
+                    "internalid": "387",
+                    "name": "ACC00001"
+                  },
+                  "quantity": 1
+                }
+              ],
+              "postingperiod": {
+                "internalid": "307",
+                "name": "Dec 2021"
+              },
+              "memo": "TC_C30564_memo"
+            }
+          ],
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "63359092ca06597ef0ac72cf",
+          "importRecordType": "creditmemo",
+          "exportRecordType": "creditmemo",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e59ff96de0"
+        }
+      }
+    }
+  },
+  "flowsData": {
+    "name": "TC_C30564",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e11d77d0ff",
+              "asynchronous": true,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C30564",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "ie79c12dff",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "add",
+                  "recordType": "creditmemo",
+                  "lookups": [],
+                  "mapping": {
+                      "fields": [
+                          {
+                              "generate": "celigo_nlobjTransformId",
+                              "extract": "RmaId",
+                              "internalId": false
+                          },
+                          {
+                              "generate": "postingperiod",
+                              "extract": "postingperiod",
+                              "internalId": true
+                          },
+                          {
+                              "generate": "trandate",
+                              "extract": "Date",
+                              "internalId": false
+                          },
+                          {
+                              "generate": "memo",
+                              "hardCodedValue": "TC_C30564_memo",
+                              "internalId": false
+                          }
+                      ],
+                      "lists": [
+                          {
+                              "generate": "item",
+                              "fields": [
+                                  {
+                                      "generate": "item",
+                                      "extract": "items[*].name",
+                                      "internalId": false
+                                  },
+                                  {
+                                      "generate": "quantity",
+                                      "extract": "items[*].quantity",
+                                      "internalId": false
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C30564",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

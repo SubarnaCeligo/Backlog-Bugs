@@ -1,0 +1,218 @@
+{
+  "name": "Add vendors for NS item without use key",
+  "disabled": false,
+  "qa__isDataLoader": "true",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "asynchronous": true,
+        "qa__path": "/Dataloader_uploades/NS_Additem_withVendors.csv",
+        "type": "simple",
+        "qa__isDataLoader": "csv",
+        "adaptorType": "SimpleExport",
+        "parsers": [],
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": false,
+          "type": "csv",
+          "groupByFields": [
+            "Item Name"
+          ],
+          "csv": {
+            "columnDelimiter": ",",
+            "hasHeaderRow": true,
+            "trimSpaces": true,
+            "rowsToSkip": 0
+          }
+        },
+        "transform": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        }
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "NETSUITE CONNECTION",
+        "distributed": true,
+        "parsers": [],
+        "lookups": [],
+        "netsuite_da": {
+          "operation": "update",
+          "recordType": "inventoryitem",
+          "internalIdLookup": {
+            "expression": "[\"itemid\",\"is\",\"{{{[Item Name]}}}\"]",
+            "qa__expression": [
+              [
+                "itemid",
+                "is",
+                "[Item Name]"
+              ]
+            ]
+          },
+          "lookups": [],
+          "mapping": {
+            "lists": [
+              {
+                "generate": "itemvendor",
+                "fields": [
+                  {
+                    "generate": "vendor",
+                    "extract": "Vendor Name",
+                    "qa__ignoreStar": true,
+                    "internalId": false,
+                    "discardIfEmpty": true,
+                    "isKey": false,
+                    "immutable": false
+                  }
+                ]
+              }
+            ],
+            "fields": [
+              {
+                "generate": "itemid",
+                "extract": "['Item Name']",
+                "internalId": false,
+                "discardIfEmpty": true,
+                "immutable": false
+              }
+            ]
+          }
+        },
+        "filter": {
+          "type": "expression",
+          "expression": {
+            "rules": [],
+            "version": "1"
+          },
+          "version": "1",
+          "rules": []
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "itemname": "newinventitem",
+      "vendorname": "American Express"
+    },
+    "application":"NETSUITE",
+    "importapiIdentifier": "ia8c892fd9",
+    "expected": {
+      "netsuite": {
+        "qa__dataVerification": {
+          "exportapiIdentifier": "e984305990",
+          "importRecordType": "inventoryitem",
+          "exportRecordType": "",
+          "uniqueField": "itemid",
+          "savedsearchId": "2529",
+          "standaloneexportflowID": "5bfba1ad7f6de3502f341a92",
+          "expectedJSON": {
+            "itemvendor": [
+              {
+                "vendor": {
+                  "internalid": "938",
+                  "name": "American Express"
+                }
+              },
+              {
+                "vendor": {
+                  "internalid": "38",
+                  "name": "American Computers"
+                }
+              },
+              {
+                "vendor": {
+                  "internalid": "1305",
+                  "name": "AL Systems Ltd"
+                }
+              }
+            ],
+            "itemid": "newinventitem",
+            "recordtype": "inventoryitem"
+          }
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "5bfbcce87f6de3502f342275",
+      "createdAt": "2018-11-26T10:37:28.396Z",
+      "lastModified": "2018-11-27T12:08:38.432Z",
+      "name": "NS Add item With Vendor",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "5a2fdca0c69b481aa01a5c8e",
+      "distributed": true,
+      "apiIdentifier": "ia8c892fd9",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "inventoryitem",
+        "lookups": [],
+        "mapping": {
+          "lists": [
+            {
+              "generate": "itemvendor",
+              "fields": [
+                {
+                  "generate": "vendor",
+                  "extract": "vendorname",
+                  "internalId": false,
+                  "immutable": false
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "generate": "itemid",
+              "extract": "itemname",
+              "internalId": false,
+              "immutable": false
+            }
+          ]
+        }
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

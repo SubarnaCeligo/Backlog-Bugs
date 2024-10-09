@@ -1,86 +1,114 @@
 {
     "name": "TC_C29902",
     "referencename": "TC_C29902",
-    "scriptName": "preSavePageHook1234",
     "qa__api_tdata": [
-        {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "HTTP export Zendesk",
-                        "application": "zendesk support",
-                        "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "apiIdentifier": "e1a1bb09d2",
-                        "asynchronous": true,
-                        "oneToMany": false,
-                        "http": {
-                            "relativeURI": "/users",
-                            "method": "GET",
-                            "formType": "http"
-                        },
-                        "adaptorType": "HTTPExport"
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+                "name": "BG export",
+                "application": "BigCommerce",
+                "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/v3/customers",
+                    "method": "GET",
+                    "formType": "http",
+                    "response": {
+                        "resourcePath": "data"
                     }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "HTTP BC Import",
-                        "application":"BigCommerce",
-                        "_connectionId": "HTTP BIGCOMMERCE CONNECTION",
-                        "apiIdentifier": "i190825084",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": true,
-                        "pathToMany": "users",
-                        "mapping": {
-                            "fields": [
+                },
+                "test": {
+                    "limit": 1
+                },
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
                                 {
-                                    "extract": "_PARENT.next_page",
-                                    "generate": "inth"
+                                    "extract": "email",
+                                    "generate": "email"
+                                },
+                                {
+                                    "extract": "id",
+                                    "generate": "id"
+                                },
+                                {
+                                    "extract": "company",
+                                    "generate": "company"
                                 }
                             ]
-                        },
-                        "http": {
-                            "relativeURI": [
-                                "/v3/{{hh.locale_id}}"
-                            ],
-                            "method": [
-                                "POST"
-                            ],
-                            "body": [],
-                            "batchSize": 1,
-                            "sendPostMappedData": true,
-                            "formType": "http"
-                        },
-                        "adaptorType": "HTTPImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C29902",
-                "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
-                "skipRetries": false,
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    }
-                ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
-                    }
-                ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "email",
+                                "generate": "email"
+                            },
+                            {
+                                "extract": "id",
+                                "generate": "id"
+                            },
+                            {
+                                "extract": "company",
+                                "generate": "company"
+                            }
+                        ]
+                    ]
+                },
+                "adaptorType": "HTTPExport"
             }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+                "name": "FTPImp",
+                "_connectionId": "FTP CONNECTION",
+                "oneToMany": false,
+                "blob": true,
+                "sandbox": false,
+                "file": {
+                    "fileName": "testfiles",
+                    "skipAggregation": false
+                },
+                "ftp": {
+                    "directoryPath": "/something",
+                    "fileName": "testfiles"
+                },
+                "adaptorType": "FTPImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C29902",
+          "disabled": false,
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
         }
+      }
     ]
-}
+  }

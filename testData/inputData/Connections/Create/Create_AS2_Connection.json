@@ -1,0 +1,48 @@
+{"importJSON": {
+    "type": "as2",
+    "name": "AS2 WE WS binary mdn",
+    "debugDate": "2021-10-06T20:16:45.189Z",
+    "sandbox": false,
+    "debugUntil": "2021-10-06T20:16:45.189Z",
+    "as2": {
+        "as2Id": "OpenAS2L_OID",
+        "partnerId": "OpenAS2D_OID",
+        "unencrypted": {
+            "userPublicKey": "-----BEGIN CERTIFICATE-----\nMIIDezCCAmOgAwIBAgIESnHn9TANBgkqhkiG9w0BAQUFADBuMQswCQYDVQQGEwJV\nUzERMA8GA1UECBMITmV3IFlvcmsxETAPBgNVBAcTCE5ldyBZb3JrMREwDwYDVQQK\nEwhPcGVuQVMyQjELMAkGA1UECxMCUUExGTAXBgNVBAMTEE9wZW5BUzJCIFRlc3Rp\nbmcwHhcNMTUwNzI3MTgwODQzWhcNMjUwNzI0MTgwODQzWjBuMQswCQYDVQQGEwJV\nUzERMA8GA1UECBMITmV3IFlvcmsxETAPBgNVBAcTCE5ldyBZb3JrMREwDwYDVQQK\nEwhPcGVuQVMyQjELMAkGA1UECxMCUUExGTAXBgNVBAMTEE9wZW5BUzJCIFRlc3Rp\nbmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+1kS4nbcX8Sjp4znp\nAHRMmLy0o4Z5WTflL2NmXdLiO6wtIzrTOfmyHgZt/itvV5CkWHC7XkPT99LdnWuT\nslVYfMhrphcHSV2se5F0Cp7pguv8D3ooNz/XjO0vsq6Xtst2pU/3CCmuCt78H5BP\nYfzcUiBgHJ1rm5BVflPt90fIfkFNatsWwTU+2YuoUDW3FlUbQ/8Ym7NO24IDfAIs\nURETzGPEzYjYsy3K/5Jl1SWbYkyJCD6fHY8qjy2s6dOxmn2ncDqYx4ziPJUkQUdc\nTvLwVQEJN3uMFYnHetgfmB9Ny7W+w7a/bmrGmZA7DyWKyL6m77fsjc7xgTSDRoL3\nUJaVAgMBAAGjITAfMB0GA1UdDgQWBBQ+ASEQrWoVxlNKBz0Bj8PXc4GaaDANBgkq\nhkiG9w0BAQUFAAOCAQEAL6zajyvmW07/8V2WaGsr95cMw/yQvqqhiOD+RDaNV0Pw\nN2BQmVtuOYKyiC3yTW/FFed0SfbqwU8Q84/8O9S47HJZwqUI+pi/OMHf2+Q4hsMq\n7+3Jf7qiM26zwVzB2vd0Iz4JbfWQNRHyaiygNN8lJ++xHQ27H3sxxsQzs/fEPvA7\nyj8dI3eCVOFHipupHD7BBJ/tscY553mIyHNoVbGAk2DE4WDZ1DnvnC2oJK7giafF\nIFwbhQLGEE36OYyHoPhKGXOZWfGoBo2jlOGFdKhJBO91xPV8YHWwP0UMcvi8K7Uq\nu6rBwXqolY+nuoLgm5FYzYskgUdksxvDkAHE1cE9tQ==\n-----END CERTIFICATE-----",
+            "partnerCertificate": "-----BEGIN CERTIFICATE-----\nMIIDezCCAmOgAwIBAgIEVCLpbjANBgkqhkiG9w0BAQQFADBuMQswCQYDVQQGEwJV\nUzERMA8GA1UECBMITmV3IFlvcmsxETAPBgNVBAcTCE5ldyBZb3JrMREwDwYDVQQK\nEwhPcGVuQVMyQTELMAkGA1UECxMCUUExGTAXBgNVBAMTEE9wZW5BUzJBIFRlc3Rp\nbmcwHhcNMTUwNzI3MTgwNzQ3WhcNMjUwNzI0MTgwNzQ3WjBuMQswCQYDVQQGEwJV\nUzERMA8GA1UECBMITmV3IFlvcmsxETAPBgNVBAcTCE5ldyBZb3JrMREwDwYDVQQK\nEwhPcGVuQVMyQTELMAkGA1UECxMCUUExGTAXBgNVBAMTEE9wZW5BUzJBIFRlc3Rp\nbmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCE4n3i5y4i0AXouhIf\nHMLVoFH///9u1PzWifEkHeIX6ALLtgPh1DCITUgnU3Q/HPnJ3H87NE+ZI51r8YGV\nSWCPIfufx99rnjxyuejOGcRKLY5FM7+g5z51Q39YWaPDoaj4Ufp5Zh46Lv0FJFNo\nWRdTSRBVQisgaYgJlS9Pxvg4K/R7if3A5hB0hUPtpUWeOP1M/0Dkk3TYuKr1iT7g\nzmzk/G6ZTPUjUF5aPVDzkqrR5sY+wTXh4Q/wdvYO++lXkPMpar9ecTqikhcy/cEX\nJ4TVxW09MBtmDikMfpVSS0OFmGmRwCp5Jv8ZViMvPKqFbsjvHdwTx5/zq+jUH7CE\nJfdbAgMBAAGjITAfMB0GA1UdDgQWBBSZC5ZGMZO/G30u6uIfg3Aq2ZViJzANBgkq\nhkiG9w0BAQQFAAOCAQEAS2gyMEd9xnVu+wakYhiJ6xvSYzzlRowVkYeTOVO8qZ1W\ns9xx+t4F3M/A0/WkGdGKkW3SrMC+MN7k5zXR5/2dw2LqU4K5ozx905KL21wbcars\n/2nnsKTt+VNnDPTr53Rq6+NHqJFTV23yddblzWVflWEoyheD7G3VBfekADyusVKX\n4F1lI+I21WOiA3VlfoGWUzjVtQhHJRVcHG0CQepTZv7T9Hn6FEDFByn99mt17Mlv\nRQ9FZQMvm/ZBahPQKp4mg0iGFJizfI6EYUO6RF/umOy0sPAS7gg8e6YF8iTSSdRv\n6waQ0hxQWAxzYzUlTtBZj0YZ1vg/K6wThFO2Dei3ng==\n-----END CERTIFICATE-----"
+        },
+        "preventCanonicalization": false,
+        "partnerStationInfo": {
+            "as2URI": "http://184f-124-123-181-45.ngrok.io",
+            "mdn": {
+                "mdnSigning": "SHA1"
+            },
+            "signing": "SHA1",
+            "encryptionType": "3DES",
+            "encoding": "base64",
+            "signatureEncoding": "base64",
+            "auth": {
+                "token": {
+                    "headerName": "Authorization"
+                }
+            }
+        },
+        "userStationInfo": {
+            "mdn": {
+                "mdnSigning": "SHA1",
+                "mdnEncoding": "binary"
+            },
+            "signing": "SHA1",
+            "encryptionType": "3DES",
+            "encoding": "base64",
+            "compressed": true
+        }
+    },
+    "queues": [
+        {
+            "name": "5e919f003a5827019767a727",
+            "size": 0
+        }
+    ]
+}
+}

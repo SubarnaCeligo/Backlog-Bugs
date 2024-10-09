@@ -1,0 +1,310 @@
+{
+  "skipRetries": false,
+  "timezone": "Asia/Calcutta",
+  "name": "08.NS Flow#1_SF(Acc) to NS(Cust)_UPDATE",
+  "disabled": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "_connectionId": "SALESFORCE CONNECTION",
+        "parsers": [],
+        "name": "SalesforceExportAccount",
+        "asynchronous": true,
+        "type": "delta",
+        "dataURITemplate": "{{{Name}}}{{{id}}}",
+        "delta": {
+          "dateField": "LastModifiedDate",
+          "startDate": "2016-08-04T18:30:00.000Z"
+        },
+        "qa__startdate": "08/04/2016",
+        "qa__startime": "6:30:00 PM",
+        "salesforce": {
+          "type": "soql",
+          "api": "rest",
+          "soql": {
+            "query": "Select Name, Email__c, Alt_Email__c, Subsidiary_Name__c, Subsidiary_Internal_ID__c, phone, fax, Billingcity, Billingcountry, Billingstate, BillingPostalCode, Shippingcity, Shippingcountry, ShippingPostalCode, Shippingstate from Account where name like '08.NSFlow#1_SF(Acc)toNS(Cust)_UPDATE'"
+          },
+          "distributed": {
+            "disabled": false,
+            "relatedLists": []
+          }
+        },
+        "adaptorType": "SalesforceExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "NETSUITE CONNECTION",
+        "name": "NSCustomerUpdate",
+        "lookups": [
+          {
+            "name": "66853f7c9eb645a3825ce5c4024198cf",
+            "recordType": "contact",
+            "allowFailures": true,
+            "resultField": "mobilephone",
+            "default": "944594459445",
+            "useDefaultOnMultipleMatches": true,
+            "expression": "[\"custentity49\",\"is\",\"{{{Alt_Email__c}}}\"]"
+          },
+          {
+            "name": "028aa9557ba649fe9f905fe25219bdde",
+            "allowFailures": false,
+            "map": {
+              "AutomationUser2@gmail.com": "AutomationUser2@celigo.com"
+            }
+          }
+        ],
+        "adaptorType": "NetSuiteDistributedImport",
+        "distributed": true,
+        "netsuite_da": {
+          "operation": "update",
+          "recordType": "customer",
+          "internalIdLookup": {
+            "expression": "[\"email\",\"is\",\"{{{Email__c}}}\"]",
+            "qa__expression": [
+              [
+                "email",
+                "is",
+                "Email__c"
+              ]
+            ]
+          },
+          "lookups": [
+            {
+              "name": "e29c666a21174fcf914a7a24afba62c4",
+              "qa__expression": [
+                [
+                  "custentity49",
+                  "is",
+                  "Alt_Email__c"
+                ]
+              ],
+              "recordType": "contact",
+              "allowFailures": true,
+              "resultField": "mobilephone",
+              "default": "944594459445",
+              "useDefaultOnMultipleMatches": true,
+              "expression": "[\"custentity49\",\"is\",\"{{{Alt_Email__c}}}\"]"
+            },
+            {
+              "name": "13f311683635496cb6cc7275d4274b7a",
+              "allowFailures": false,
+              "map": {
+                "AutomationUser2@gmail.com": "AutomationUser2@celigo.com"
+              }
+            }
+          ],
+          "mapping": {
+            "lists": [
+              {
+                "generate": "_billing_addressbook",
+                "fields": [
+                  {
+                    "generate": "state",
+                    "extract": "{{#if $.BillingState}} Telangana{{else}} Andhra{{/if}}",
+                    "internalId": false,
+                    "immutable": false,
+                    "discardIfEmpty": false
+                  },
+                  {
+                    "generate": "country",
+                    "extract": "BillingCountry",
+                    "internalId": false,
+                    "immutable": false,
+                    "discardIfEmpty": false
+                  }
+                ]
+              }
+            ],
+            "fields": [
+              {
+                "generate": "companyname",
+                "extract": "Name",
+                "internalId": false,
+                "immutable": false,
+                "discardIfEmpty": false
+              },
+              {
+                "generate": "subsidiary",
+                "hardCodedValue": "HH Inc.",
+                "internalId": false,
+                "immutable": false,
+                "discardIfEmpty": false
+              },
+              {
+                "generate": "email",
+                "extract": "Email__c",
+                "internalId": false,
+                "immutable": false,
+                "discardIfEmpty": false
+              },
+              {
+                "generate": "phone",
+                "extract": "Phone",
+                "internalId": false,
+                "lookupName": "e29c666a21174fcf914a7a24afba62c4",
+                "immutable": false,
+                "discardIfEmpty": false
+              },
+              {
+                "generate": "fax",
+                "extract": "Fax",
+                "internalId": false,
+                "immutable": false,
+                "discardIfEmpty": false
+              },
+              {
+                "generate": "altemail",
+                "extract": "Alt_Email__c",
+                "internalId": false,
+                "lookupName": "13f311683635496cb6cc7275d4274b7a",
+                "immutable": false,
+                "discardIfEmpty": false
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "Name": "08.NSFlow#1_SF(Acc)toNS(Cust)_UPDATE",
+      "Email": "AutomationUser8@gmail.com"
+    },
+    "application": "SALESFORCE",
+    "importapiIdentifier": "idbf2e9b42",
+    "UpdateRecordJSON": {
+      "Company Name": "08.NSFlow#1_SF(Acc)toNS(Cust)_UPDATE",
+      "Email": "AutomationUser8@gmail.com",
+      "subsidiary": "3"
+    },
+    "update_importapiIdentifier": "i505bb2196",
+    "UpdateRecordJSON1": {
+      "BillingCountry": "INDIA",
+      "Phone": "899889988900",
+      "Alt_Email__c": "AutomationUser2@gmail.com",
+      "Subsidiary": "3",
+      "Fax": "899889-9889789",
+      "BillingState": "Telangana",
+      "Name": "08.NSFlow#1_SF(Acc)toNS(Cust)_UPDATE",
+      "Email__c": "AutomationUser8@gmail.com"
+    },
+    "update_importapiIdentifier1": "i0992832a1",
+    "expected": {
+      "netsuite": {
+        "name": "08.NS Flow#1_SF(Acc) to NS(Cust)_UPDATE",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "NETSUITE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "addressbook": [
+              {
+                "country": {
+                  "internalid": "IN",
+                  "name": "India"
+                },
+                "state": "Telangana",
+                "override": false
+              }
+            ],
+            "altemail": "AutomationUser2@celigo.com",
+            "_billing_addressbook": {
+              "country": {
+                "internalid": "IN",
+                "name": "India"
+              },
+              "state": "Telangana",
+              "override": false
+            },
+            "companyname": "08.NSFlow#1_SF(Acc)toNS(Cust)_UPDATE",
+            "recordtype": "customer",
+            "emailtransactions": false,
+            "entityid": "08.NSFlow#1_SF(Acc)toNS(Cust)_UPDATE",
+            "subsidiary": {
+              "internalid": "3",
+              "name": "HH Inc."
+            },
+            "entitystatus": {
+              "name": "CUSTOMER-Closed Won"
+            },
+            "email": "AutomationUser8@gmail.com"
+          },
+          "uniqueField": "entityid",
+          "importRecordType": "Customer",
+          "exportRecordType": "Account",
+          "query": "Select Name, Email__c, Alt_Email__c, Subsidiary_Name__c, Subsidiary_Internal_ID__c, phone, fax, Billingcity, Billingcountry, Billingstate, BillingPostalCode, Shippingcity, Shippingcountry, ShippingPostalCode, Shippingstate from Account where name like '08.NSFlow#1_SF(Acc)toNS(Cust)_UPDATE'",
+          "savedsearchId": "1938",
+          "exportapiIdentifier": "e95cad74fb",
+          "update_app": "Netsuite",
+          "update_app1": "salesforce",
+          "standaloneexportflowID": "5c6d3b2311cbbf67f57aeb3c",
+          "update_Record1": "Account",
+          "update_Record": "Customer"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "59e749d78549d255e90b669d",
+      "createdAt": "2017-10-18T12:32:23.496Z",
+      "lastModified": "2021-06-14T14:59:09.342Z",
+      "name": "Salesforce Account Create",
+      "responseTransform": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "distributed": false,
+      "apiIdentifier": "idbf2e9b42",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "Name",
+            "generate": "Name"
+          },
+          {
+            "extract": "Email",
+            "generate": "Email__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "filter": {
+        "type": "expression",
+        "expression": {
+          "version": "1"
+        },
+        "version": "1"
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  }
+}

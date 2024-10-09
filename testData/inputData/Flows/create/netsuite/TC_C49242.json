@@ -1,0 +1,542 @@
+{
+    "EmailField": {
+        "name": "TC_C49242_Email",
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Export",
+                            "_connectionId": "FTP CONNECTION",
+                            "apiIdentifier": "e7ddcc3eb2",
+                            "asynchronous": true,
+                            "sandbox": false,
+                            "ftp": {
+                                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                                "fileNameStartsWith": "TC_C32080_Less_Than_5mb"
+                            },
+                            "file": {
+                                "output": "records",
+                                "skipDelete": true,
+                                "type": "json",
+                                "json": {
+                                    "resourcePath": "*"
+                                }
+                            },
+                            "adaptorType": "FTPExport"
+                        }
+                    }
+                ],
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "qa__import": {
+                            "name": "Import",
+                            "_connectionId": "NETSUITE CONNECTION",
+                            "distributed": true,
+                            "apiIdentifier": "i27c129867",
+                            "ignoreExisting": false,
+                            "ignoreMissing": false,
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "lookups": [
+                                {
+                                    "name": "Lookup",
+                                    "recordType": "salesorder",
+                                    "resultField": "email",
+                                    "expression": "[\"email\",\"is\",\"test@gmail.com\"]",
+                                    "allowFailures": false
+                                }
+                            ],
+                            "netsuite_da": {
+                                "useSS2Restlets": false,
+                                "operation": "update",
+                                "recordType": "salesorder",
+                                "internalIdLookup": {
+                                    "expression": "[\"email\",\"is\",\"test@gmail.com\"]"
+                                },
+                                "lookups": [
+                                    {
+                                        "name": "Lookup",
+                                        "recordType": "salesorder",
+                                        "resultField": "email",
+                                        "expression": "[\"email\",\"is\",\"test@gmail.com\"]",
+                                        "allowFailures": false
+                                    }
+                                ],
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "email",
+                                            "generate": "custbody14",
+                                            "discardIfEmpty": false,
+                                            "immutable": false,
+                                            "lookupName": "Lookup",
+                                            "internalId": false
+                                        }
+                                    ],
+                                    "lists": []
+                                }
+                            },
+                            "adaptorType": "NetSuiteDistributedImport"
+                        }
+                    }
+                ],
+                "createFlow": {
+                    "name": "TC_C49241_Email",
+                    "disabled": false,
+                    "_integrationId": "56d6b23fe1fc35de53914730",
+                    "skipRetries": false,
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "Phone": {
+        "name": "TC_C49242_Phone",
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Export",
+                            "_connectionId": "FTP CONNECTION",
+                            "apiIdentifier": "e7ddcc3eb2",
+                            "asynchronous": true,
+                            "sandbox": false,
+                            "ftp": {
+                                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                                "fileNameStartsWith": "TC_C32080_Less_Than_5mb"
+                            },
+                            "file": {
+                                "output": "records",
+                                "skipDelete": true,
+                                "type": "json",
+                                "json": {
+                                    "resourcePath": "*"
+                                }
+                            },
+                            "adaptorType": "FTPExport"
+                        }
+                    }
+                ],
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "qa__import": {
+                            "name": "Import",
+                            "_connectionId": "NETSUITE CONNECTION",
+                            "distributed": true,
+                            "apiIdentifier": "i27c129867",
+                            "ignoreExisting": false,
+                            "ignoreMissing": false,
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "lookups": [
+                                {
+                                    "name": "Lookup_2",
+                                    "recordType": "salesorder",
+                                    "resultField": "custbody16",
+                                    "expression": "[\"custbody16\",\"is\",\"1234567890\"]",
+                                    "allowFailures": false
+                                }
+                            ],
+                            "netsuite_da": {
+                                "useSS2Restlets": false,
+                                "operation": "update",
+                                "recordType": "salesorder",
+                                "internalIdLookup": {
+                                    "expression": "[\"custbody16\",\"is\",\"1234567890\"]"
+                                },
+                                "lookups": [
+                                    {
+                                        "name": "Lookup_2",
+                                        "recordType": "salesorder",
+                                        "resultField": "custbody16",
+                                        "expression": "[\"custbody16\",\"is\",\"1234567890\"]",
+                                        "allowFailures": false
+                                    }
+                                ],
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "phone",
+                                            "generate": "custbody16",
+                                            "discardIfEmpty": false,
+                                            "immutable": false,
+                                            "lookupName": "Lookup_2",
+                                            "internalId": false
+                                        }
+                                    ],
+                                    "lists": []
+                                }
+                            },
+                            "adaptorType": "NetSuiteDistributedImport"
+                        }
+                    }
+                ],
+                "createFlow": {
+                    "name": "TC_C49241_Phone",
+                    "disabled": false,
+                    "_integrationId": "56d6b23fe1fc35de53914730",
+                    "skipRetries": false,
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "FreeForm": {
+        "name": "TC_C49242_FreeForm",
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Export",
+                            "_connectionId": "FTP CONNECTION",
+                            "apiIdentifier": "e7ddcc3eb2",
+                            "asynchronous": true,
+                            "sandbox": false,
+                            "ftp": {
+                                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                                "fileNameStartsWith": "TC_C32080_Less_Than_5mb"
+                            },
+                            "file": {
+                                "output": "records",
+                                "skipDelete": true,
+                                "type": "json",
+                                "json": {
+                                    "resourcePath": "*"
+                                }
+                            },
+                            "adaptorType": "FTPExport"
+                        }
+                    }
+                ],
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "qa__import": {
+                            "name": "Import",
+                            "_connectionId": "NETSUITE CONNECTION",
+                            "distributed": true,
+                            "apiIdentifier": "i27c129867",
+                            "ignoreExisting": false,
+                            "ignoreMissing": false,
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "lookups": [
+                                {
+                                    "name": "Lookup_3",
+                                    "recordType": "salesorder",
+                                    "resultField": "custbody67",
+                                    "expression": "[\"custbody67\",\"is\",\"Hello\"]",
+                                    "allowFailures": false
+                                }
+                            ],
+                            "netsuite_da": {
+                                "useSS2Restlets": false,
+                                "operation": "update",
+                                "recordType": "salesorder",
+                                "internalIdLookup": {
+                                    "expression": "[\"custbody67\",\"is\",\"Hello\"]"
+                                },
+                                "lookups": [
+                                    {
+                                        "name": "Lookup_3",
+                                        "recordType": "salesorder",
+                                        "resultField": "custbody67",
+                                        "expression": "[\"custbody67\",\"is\",\"Hello\"]",
+                                        "allowFailures": false
+                                    }
+                                ],
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "memo",
+                                            "generate": "custbody67",
+                                            "discardIfEmpty": false,
+                                            "immutable": false,
+                                            "lookupName": "Lookup_3",
+                                            "internalId": false
+                                        }
+                                    ],
+                                    "lists": []
+                                }
+                            },
+                            "adaptorType": "NetSuiteDistributedImport"
+                        }
+                    }
+                ],
+                "createFlow": {
+                    "name": "TC_C49242_FreeForm",
+                    "disabled": false,
+                    "_integrationId": "56d6b23fe1fc35de53914730",
+                    "skipRetries": false,
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "LongText": {
+        "name": "TC_C49242_LongText",
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Export",
+                            "_connectionId": "FTP CONNECTION",
+                            "apiIdentifier": "e7ddcc3eb2",
+                            "asynchronous": true,
+                            "sandbox": false,
+                            "ftp": {
+                                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                                "fileNameStartsWith": "TC_C32080_Less_Than_5mb"
+                            },
+                            "file": {
+                                "output": "records",
+                                "skipDelete": true,
+                                "type": "json",
+                                "json": {
+                                    "resourcePath": "*"
+                                }
+                            },
+                            "adaptorType": "FTPExport"
+                        }
+                    }
+                ],
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "qa__import": {
+                            "name": "Import",
+                            "_connectionId": "NETSUITE CONNECTION",
+                            "distributed": true,
+                            "apiIdentifier": "i27c129867",
+                            "ignoreExisting": false,
+                            "ignoreMissing": false,
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "lookups": [
+                                {
+                                    "name": "Lookup_4",
+                                    "recordType": "salesorder",
+                                    "resultField": "custbody67",
+                                    "expression": "[\"custbody71\",\"is\",\"Hello\"]",
+                                    "allowFailures": false
+                                }
+                            ],
+                            "netsuite_da": {
+                                "useSS2Restlets": false,
+                                "operation": "update",
+                                "recordType": "salesorder",
+                                "internalIdLookup": {
+                                    "expression": "[\"custbody71\",\"is\",\"Hello\"]"
+                                },
+                                "lookups": [
+                                    {
+                                        "name": "Lookup_4",
+                                        "recordType": "salesorder",
+                                        "resultField": "custbody67",
+                                        "expression": "[\"custbody71\",\"is\",\"Hello\"]",
+                                        "allowFailures": false
+                                    }
+                                ],
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "long_text",
+                                            "generate": "custbody71",
+                                            "discardIfEmpty": false,
+                                            "immutable": false,
+                                            "lookupName": "Lookup_4",
+                                            "internalId": false
+                                        }
+                                    ],
+                                    "lists": []
+                                }
+                            },
+                            "adaptorType": "NetSuiteDistributedImport"
+                        }
+                    }
+                ],
+                "createFlow": {
+                    "name": "TC_C49242_LongText",
+                    "disabled": false,
+                    "_integrationId": "56d6b23fe1fc35de53914730",
+                    "skipRetries": false,
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "TextArea": {
+        "name": "TC_C49242_TextArea",
+        "qa__api_tdata": [
+            {
+                "pageGenerators": [
+                    {
+                        "type": "export",
+                        "qa__export": {
+                            "name": "Export",
+                            "_connectionId": "FTP CONNECTION",
+                            "apiIdentifier": "e7ddcc3eb2",
+                            "asynchronous": true,
+                            "sandbox": false,
+                            "ftp": {
+                                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                                "fileNameStartsWith": "TC_C32080_Less_Than_5mb"
+                            },
+                            "file": {
+                                "output": "records",
+                                "skipDelete": true,
+                                "type": "json",
+                                "json": {
+                                    "resourcePath": "*"
+                                }
+                            },
+                            "adaptorType": "FTPExport"
+                        }
+                    }
+                ],
+                "pageProcessors": [
+                    {
+                        "type": "import",
+                        "qa__import": {
+                            "name": "Import",
+                            "_connectionId": "NETSUITE CONNECTION",
+                            "distributed": true,
+                            "apiIdentifier": "i27c129867",
+                            "ignoreExisting": false,
+                            "ignoreMissing": false,
+                            "oneToMany": false,
+                            "sandbox": false,
+                            "lookups": [
+                                {
+                                    "name": "Lookup_5",
+                                    "recordType": "salesorder",
+                                    "resultField": "custbody47",
+                                    "expression": "[\"custbody47\",\"is\",\"Hello\"]",
+                                    "allowFailures": false
+                                }
+                            ],
+                            "netsuite_da": {
+                                "useSS2Restlets": false,
+                                "operation": "update",
+                                "recordType": "salesorder",
+                                "internalIdLookup": {
+                                    "expression": "[\"custbody47\",\"is\",\"Hello\"]"
+                                },
+                                "lookups": [
+                                    {
+                                        "name": "Lookup_5",
+                                        "recordType": "salesorder",
+                                        "resultField": "custbody47",
+                                        "expression": "[\"custbody47\",\"is\",\"Hello\"]",
+                                        "allowFailures": false
+                                    }
+                                ],
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "textarea",
+                                            "generate": "custbody47",
+                                            "discardIfEmpty": false,
+                                            "immutable": false,
+                                            "lookupName": "Lookup_5",
+                                            "internalId": false
+                                        }
+                                    ],
+                                    "lists": []
+                                }
+                            },
+                            "adaptorType": "NetSuiteDistributedImport"
+                        }
+                    }
+                ],
+                "createFlow": {
+                    "name": "TC_C49242_TextArea",
+                    "disabled": false,
+                    "_integrationId": "56d6b23fe1fc35de53914730",
+                    "skipRetries": false,
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "_importId": "UPDATE WITH NEW IMPORTID"
+                        }
+                    ],
+                    "pageGenerators": [
+                        {
+                            "_exportId": "UPDATE WITH NEW EXPORTID"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,24 @@
+{
+  "body": {
+    "export": {
+      "name": "export",
+      "_connectionId": "SALESFORCE CONNECTION",
+      "apiIdentifier": "ed3d2ff7e0",
+      "asynchronous": true,
+      "type": "test",
+      "oneToMany": false,
+      "sandbox": false,
+      "test": {
+        "limit": 1
+      },
+      "salesforce": {
+        "type": "soql",
+        "api": "rest",
+        "soql": {
+          "query": "select Id,Name from Account"
+        }
+      },
+      "adaptorType": "SalesforceExport"
+    }
+  }
+}

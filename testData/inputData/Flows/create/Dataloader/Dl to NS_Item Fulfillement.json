@@ -1,0 +1,287 @@
+{
+  "name": "NS item fulfillment-Allow Linelevel for Mainline (IO-4308)",
+  "disabled": false,
+  "qa__isDataLoader": "true",
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "skipRetries": false,
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "1",
+    "errorCount": "0"
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "asynchronous": true,
+        "qa__path": "/Dataloader_uploades/ItemFulfillment IO-4308.csv",
+        "type": "simple",
+        "qa__isDataLoader": "csv",
+        "adaptorType": "SimpleExport",
+        "parsers": [],
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": false,
+          "type": "csv",
+          "groupByFields": [
+            "Customer name"
+          ],
+          "csv": {
+            "columnDelimiter": ",",
+            "hasHeaderRow": true,
+            "trimSpaces": true,
+            "rowsToSkip": 0
+          }
+        }
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "NETSUITE CONNECTION",
+        "parsers": [],
+        "distributed": true,
+        "lookups": [
+          {
+            "name": "bb5b03853e61460da3ea5e995a8a14fd",
+            "recordType": "salesorder",
+            "allowFailures": false,
+            "resultField": "internalid",
+            "useDefaultOnMultipleMatches": false,
+            "expression": "[\"tranid\",\"is\",\"{{{[SO ordernum]}}}\"]",
+            "map": null
+          },
+          {
+            "name": "072a4c5fc85a40baad7265ee38ede5ea",
+            "recordType": "salesorder",
+            "allowFailures": false,
+            "resultField": "quantity",
+            "useDefaultOnMultipleMatches": false,
+            "expression": "[[\"tranid\",\"is\",\"{{{*.[SO ordernum]}}}\"],\"AND\",[[\"mainline\",\"is\",\"F\"],\"AND\",[[\"taxline\",\"is\",\"F\"],\"AND\",[\"item\",\"is\",\"{{{*.[Item ID]}}}\"]]]]",
+            "map": null
+          }
+        ],
+        "netsuite_da": {
+          "operation": "add",
+          "recordType": "itemfulfillment",
+          "lookups": [
+            {
+              "name": "07e66c3a73c1476b94e9027115bb08fa",
+              "recordType": "salesorder",
+              "allowFailures": false,
+              "resultField": "internalid",
+              "useDefaultOnMultipleMatches": false,
+              "expression": "[\"tranid\",\"is\",\"{{{[SO ordernum]}}}\"]",
+              "qa__expression": [
+                [
+                  "tranid",
+                  "is",
+                  "[SO ordernum]"
+                ]
+              ]
+            },
+            {
+              "name": "fb72e7bc7b244587969d43c919f7ece4",
+              "recordType": "salesorder",
+              "allowFailures": false,
+              "resultField": "quantity",
+              "useDefaultOnMultipleMatches": false,
+              "expression": "[[\"tranid\",\"is\",\"{{{*.[SO ordernum]}}}\"],\"AND\",[[\"mainline\",\"is\",\"F\"],\"AND\",[[\"taxline\",\"is\",\"F\"],\"AND\",[\"item\",\"is\",\"{{{*.[Item ID]}}}\"]]]]",
+              "qa__expression": [
+                [
+                  "tranid",
+                  "is",
+                  "*.[SO ordernum]"
+                ],
+                "AND",
+                [
+                  "mainline",
+                  "is",
+                  "\"F\""
+                ],
+                "AND",
+                [
+                  "taxline",
+                  "is",
+                  "\"F\""
+                ],
+                "AND",
+                [
+                  "item",
+                  "is",
+                  "*.[Item ID]"
+                ]
+              ]
+            }
+          ],
+          "mapping": {
+            "lists": [
+              {
+                "generate": "item",
+                "fields": [
+                  {
+                    "generate": "itemname",
+                    "extract": "*.['Item name']",
+                    "qa__ignoreStar": "true",
+                    "qa__extract": "['Item name']",
+                    "internalId": false,
+                    "immutable": false
+                  },
+                  {
+                    "generate": "custcol_celigo_etail_order_line_id",
+                    "qa__extract": "",
+                    "internalId": false,
+                    "lookupName": "fb72e7bc7b244587969d43c919f7ece4",
+                    "immutable": false,
+                    "isKey": false
+                  },
+                  {
+                    "generate": "location",
+                    "hardCodedValue": "10",
+                    "internalId": true,
+                    "immutable": false
+                  }
+                ]
+              }
+            ],
+            "fields": [
+              {
+                "generate": "celigo_nlobjTransformId",
+                "extract": "['SO ordernum']",
+                "internalId": false,
+                "lookupName": "07e66c3a73c1476b94e9027115bb08fa",
+                "immutable": false
+              },
+              {
+                "generate": "memo",
+                "hardCodedValue": "IO-4308",
+                "internalId": false,
+                "immutable": false
+              }
+            ]
+          }
+        },
+        "filter": {
+          "rules": [],
+          "version": "1"
+        },
+        "adaptorType": "NetSuiteDistributedImport"
+      }
+    }
+  ],
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "customername": "rajaneesh",
+      "ordernum": "SLSIO-4308",
+      "items": [
+        {
+          "item name": "ACC00001",
+          "item quantity": "3"
+        },
+        {
+          "item name": "ACC00002",
+          "item quantity": "5"
+        }
+      ]
+    },
+    "application":"NETSUITE",
+    "importapiIdentifier": "i0e25f0ec3",
+    "expected": {
+      "netsuite": {
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "createdfrom": {
+              "name": "Sales Order #SLS IO-4308"
+            },
+            "memo": "IO-4308",
+            "item": [
+              {
+                "custcol_celigo_etail_order_line_id": "3",
+                "itemname": "ACC00001",
+                "location": {
+                  "internalid": "10",
+                  "name": "22: London"
+                },
+                "quantity": 3
+              },
+              {
+                "custcol_celigo_etail_order_line_id": "5",
+                "itemname": "ACC00002",
+                "location": {
+                  "internalid": "10",
+                  "name": "22: London"
+                },
+                "quantity": 5
+              }
+            ]
+          },
+          "isUIFlow": true,
+          "generateSampleDropDownAvailable": false,
+          "exportRecordType": "",
+          "exportapiIdentifier": "eed7d56bf5",
+          "uniqueField": "memo",
+          "savedsearchId": "2516",
+          "standaloneexportflowID": "5b853aa57a6b454e8ec6b79c",
+          "importRecordType": "itemfulfillment"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "5b852cdbc2cc670eb03cf3c0",
+      "createdAt": "2018-08-28T11:07:07.464Z",
+      "lastModified": "2018-08-28T13:53:21.392Z",
+      "name": "NS -Salesorder import For IO-4308",
+      "_connectionId": "56d6b65d6f8ed15e4d0f9b8c",
+      "distributed": true,
+      "apiIdentifier": "i0e25f0ec3",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "salesorder",
+        "lookups": [],
+        "mapping": {
+          "lists": [
+            {
+              "generate": "item",
+              "fields": [
+                {
+                  "generate": "item",
+                  "extract": "items[*].item name",
+                  "internalId": false,
+                  "immutable": false
+                },
+                {
+                  "generate": "quantity",
+                  "extract": "items[*].item quantity",
+                  "internalId": false,
+                  "immutable": false
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "generate": "entity",
+              "extract": "customername",
+              "internalId": false,
+              "immutable": false
+            },
+            {
+              "generate": "tranid",
+              "hardCodedValue": "SLS IO-4308",
+              "internalId": false,
+              "immutable": false
+            }
+          ]
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  }
+}

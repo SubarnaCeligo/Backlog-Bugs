@@ -1,0 +1,65 @@
+{
+    "expectedJSON": {
+        "assistant": "openair",
+        "name": "Create_Connection_HTTP_OpenAir_Assistant2",
+        "http": {
+            "rateLimit": {
+                "failValues": [
+                    "556"
+                ],
+                "failPath": "/response/Auth/@status"
+            },
+            "encrypted": "******",
+            "ping": {
+                "method": "POST",
+                "successValues": [
+                    "0"
+                ],
+                "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\" key=\"{{{connection.http.unencrypted.apiKey}}}\">\n  <Auth>\n    <Login>\n      <company>{{{connection.http.unencrypted.companyId}}}</company>\n      <user>{{{connection.http.unencrypted.userId}}}</user>\n      <password>{{{connection.http.encrypted.password}}}</password>\n    </Login>\n  </Auth>\n</request>",
+                "successPath": "/response/Auth/@status",
+                "errorPath": "/ErrorResponse/Error/Message/text()"
+            },
+            "baseURI": "https://celigo-technologies.app.openair.com/api.pl",
+            "mediaType": "xml",
+            "unencrypted": {
+                "companyId": "Celigo Technologies",
+                "apiKey": "WPXR0HiBOHYChyvToyp8",
+                "namespace": "default",
+                "userId": "Admin"
+            }
+        },
+        "type": "http"
+    },
+    "importJSON": {
+        "assistant": "openair",
+        "name": "Create_Connection_HTTP_OpenAir_Assistant2",
+        "http": {
+            "rateLimit": {
+                "failValues": [
+                    "556"
+                ],
+                "failPath": "/response/Auth/@status"
+            },
+            "encrypted": "******",
+            "ping": {
+                "method": "POST",
+                "successValues": [
+                    "0"
+                ],
+                "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><request API_version=\"1.0\" client=\"test app\" client_ver=\"1.1\" namespace=\"{{{connection.http.unencrypted.namespace}}}\"key=\"{{{connection.http.unencrypted.apiKey}}}\"><Auth><Login><company>{{{connection.http.unencrypted.companyId}}}</company><user>{{{connection.http.unencrypted.userId}}}</user><password>{{{connection.http.encrypted.password}}}</password></Login></Auth></request>",
+                "successPath": "/response/Auth/@status",
+                "errorPath": "/ErrorResponse/Error/Message/text()"
+            },
+            "baseURI": "https://www.openair.com/api.pl",
+            "mediaType": "xml",
+            "unencrypted": {
+                "companyId": "Celigo Technologies",
+                "apiKey": "WPXR0HiBOHYChyvToyp8",
+                "namespace": "default",
+                "qa__password": "Q2VsaWdvQE9BU0YyMzQ=",
+                "userId": "Admin"
+            }
+        },
+        "type": "http"
+    }
+}

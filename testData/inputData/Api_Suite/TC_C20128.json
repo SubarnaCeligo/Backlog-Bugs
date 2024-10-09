@@ -1,0 +1,83 @@
+{
+  "name": "TC_C20128",
+  "referencename": "TC_C20128",
+  "Staging_script": "63344976ca06597ef0ab92b1",
+  "qa__api_tdata": [
+    {
+      "pageGenerators": [
+        {
+          "type": "export",
+          "qa__export": {
+            "name": "Miva Export",
+            "application": "miva",
+            "_connectionId": "HTTP MIVA CONNECTION",
+            "apiIdentifier": "e04793f211",
+            "asynchronous": true,
+            "hooks": {
+              "preSavePage": {
+                "_scriptId": "63340219b0c8001f18a6dda7",
+                "function": "preSavePage"
+              }
+            },
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": "/json.mvc",
+              "method": "POST",
+              "body": "{\"Store_Code\":\"{{connection.http.unencrypted.Store_Code}}\",\"Function\":\"OrderList_Load_Query\",\"Count\":1,\"Filter\":\"[\\r\\n  {\\r\\n    \\\"name\\\": \\\"ondemandcolumns\\\",\\r\\n    \\\"value\\\": [\\r\\n      \\\"payment_module\\\",\\r\\n      \\\"cust_pw_email\\\",\\r\\n      \\\"cust_login\\\",\\r\\n      \\\"ship_method\\\",\\r\\n      \\\"customer\\\",\\r\\n      \\\"items\\\",\\r\\n      \\\"charges\\\",\\r\\n      \\\"coupons\\\",\\r\\n      \\\"discounts\\\",\\r\\n      \\\"payments\\\",\\r\\n      \\\"payment_data\\\",\\r\\n      \\\"notes\\\",\\r\\n      \\\"CustomField_Values:customfields:*\\\",\\r\\n      \\\"parts\\\",\\r\\n      \\\"business_title\\\"\\r\\n    ]\\r\\n  }\\r\\n]\"",
+              "requestMediaType": "json",
+              "successMediaType": "json",
+              "errorMediaType": "json",
+              "formType": "rest"
+            },
+            "adaptorType": "HTTPExport"
+          }
+        }
+      ],
+      "pageProcessors": [
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "i9654a5bcf",
+            "oneToMany": false,
+            "sandbox": false,
+            "file": {
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/test",
+              "fileName": "file-{{timestamp}}.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ],
+      "createFlow": {
+        "name": "TC_C20128",
+        "disabled": false,
+        "_integrationId": "6333054cca06597ef0aaa8f0",
+        "qa__integrationId": "6332d4e0b2be184f096c108c",
+        "skipRetries": false,
+        "pageProcessors": [
+          {
+            "responseMapping": {
+              "fields": [],
+              "lists": []
+            },
+            "type": "import",
+            "_importId": "UPDATE WITH NEW IMPORTID"
+          }
+        ],
+        "pageGenerators": [
+          {
+            "_exportId": "UPDATE WITH NEW EXPORTID"
+          }
+        ]
+      }
+    }
+  ]
+}

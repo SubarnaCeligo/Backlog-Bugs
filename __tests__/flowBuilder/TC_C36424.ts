@@ -5,8 +5,9 @@ import TC from "@testData/FlowBuilder/TC_C34144.json"
 
 
 test.describe("TC_C36424", () => {
-  test.afterEach(async ({io,page}) => { 
-    await io.api.deleteFlowsWithId([await io.api.getFlowId("TC_027_C34144")]);
+  let flowId;
+  test.afterEach(async ({io}) => { 
+    await io.api.deleteFlowsWithId([flowId]);
     test.step("** Deleted flow **", async ()=>{});
   }
   );
@@ -14,7 +15,7 @@ test.describe("TC_C36424", () => {
   test("@Env-All @Zephyr-IO-T3074", async ({io,page}) => {
     //Create Flows
     await io.api.createImpOrExpAndFlowsThruAPI(TC);
-    var flowId = await io.api.getFlowId("TC_027_C34144");
+    flowId = await io.api.getFlowId("TC_027_C34144");
     await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId);
     await io.homePage.loadingTime();
     await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);

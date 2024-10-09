@@ -28,6 +28,7 @@ test.describe("TC_C28114", () => {
     const lastRun = page.getByText('Last run');
     await lastRun.waitFor({ state: 'visible', timeout: 180000 });
     await io.homePage.loadingTime();
+    await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.homePage.click(selectors.flowBuilderPagePO.ACCOUNT_DASHBOARD_OPEN_ERRORS);
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();
@@ -452,4 +453,5 @@ test.describe("TC_C28114", () => {
 
 
   });
+
 });

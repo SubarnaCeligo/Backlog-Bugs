@@ -1,0 +1,123 @@
+{
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "sender": "dbelavich@netsuite.com",
+              "name": "Dennis",
+              "email": "dbelavich@netsuite.com",
+              "message": "TC_C31870@netsuite.com",
+              "expirationdate": "1/31/2014",
+              "originalamount": "50"
+            }
+          ],
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "633bf370677022566eb295a9",
+          "importRecordType": "giftcertificate",
+          "exportRecordType": "giftcertificate",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e37a740f4d"
+        }
+      }
+    }
+  },
+  "flowsData": {
+    "name": "TC_C31870",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e11d77d0ff",
+              "asynchronous": true,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C30570",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "ie79c12dff",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "update",
+                  "recordType": "giftcertificate",
+                  "internalIdLookup": {
+                      "expression": "[\"internalid\",\"is\",\"1\"]"
+                  },
+                  "lookups": [],
+                  "mapping": {
+                      "fields": [
+                          {
+                              "generate": "message",
+                              "hardCodedValue": "TC_C31870@netsuite.com",
+                              "internalId": false
+                          }
+                      ],
+                      "lists": []
+                  }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C31870",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

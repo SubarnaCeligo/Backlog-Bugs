@@ -1,0 +1,45 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "Create_Connection_Mocky",
+        "sandbox": false,
+        "http": {
+            "useRestForm": true,
+            "mediaType": "json",
+            "successMediaType": "csv",
+            "baseURI": "http://www.amock.io/api/v1/",
+            "ping": {
+                "relativeURI": "Create_Flow151_CSV_Comma",
+                "method": "GET"
+            },
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "username",
+                    "password": "******"
+                }
+            }
+        }
+    },
+    "importJSON": {
+        "rest": {
+            "basicAuth": {
+                "password": "******",
+                "qa__password": "cGFzc3dvcmQ=",
+                "username": "username"
+            },
+            "baseURI": "http://www.amock.io/api/v1/",
+            "scope": [],
+            "mediaType": "json",
+            "pingRelativeURI": "Create_Flow151_CSV_Comma",
+            "encryptedFields": [],
+            "refreshTokenHeaders": []
+        },
+        "name": "Create_Connection_Mocky",
+        "type": "rest"
+    }
+}

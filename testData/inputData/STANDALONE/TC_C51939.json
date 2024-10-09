@@ -35,7 +35,7 @@
             "fields": [
               {
                 "extract": "id",
-                "generate": "_header.contentlength"
+                "generate": "_headers.contentlength"
               }
             ],
             "lists": []
@@ -58,7 +58,7 @@
             "mapping": {
               "fields": [
                 {
-                  "extract": "_header.contentlength",
+                  "extract": "_headers.contentlength",
                   "generate": "test"
                 }
               ]
@@ -105,7 +105,7 @@
               "fields": [
                 {
                   "extract": "id",
-                  "generate": "_header.contentlength"
+                  "generate": "_headers.contentlength"
                 }
               ],
               "lists": []

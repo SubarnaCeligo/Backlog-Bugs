@@ -1,0 +1,215 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "6",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "PPImport",
+        "application":"zendesk support",
+        "http": {
+          "lookups": [
+            {
+              "extract": "results[0].id",
+              "method": "GET",
+              "name": "autoUpdate",
+              "relativeURI": "search.json?query=type:user notes:{{{Email}}}"
+            },
+            {
+              "extract": "results[0].id",
+              "method": "GET",
+              "name": "6f18a5e58d074e9b985628193a48edef",
+              "allowFailures": false,
+              "relativeURI": "search.json?query=type:organization name:{{{Organization}}}"
+            },
+            {
+              "name": "2b5e3684394c444d8522fdedf4577a36",
+              "allowFailures": false,
+              "map": {
+                "CE": "Celigo",
+                "INT": "Integrator"
+              }
+            }
+          ],
+          "method": [
+            "PUT",
+            "POST"
+          ],
+          "formType": "http",
+          "qa__formType": "rest",
+          "existingLookupName": "autoUpdate",
+          "body": [],
+          "relativeURI": [
+            "users/{{lookup.autoUpdate}}.json",
+            "users.json"
+          ]
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Contact",
+              "generate": "user.name"
+            },
+            {
+              "extract": "Email",
+              "generate": "user.notes"
+            },
+            {
+              "extract": "Fax",
+              "generate": "user.user_fields.fax"
+            },
+            {
+              "extract": "Phone",
+              "generate": "user.user_fields.phone"
+            },
+            {
+              "generateDateFormat": "YYYY-MM-DDTHH:mm:ss z",
+              "extract": "Date",
+              "extractDateFormat": "MM/DD/YYYY",
+              "generateDateTimezone": "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+              "dataType": "string",
+              "generate": "user.user_fields.venkat",
+              "qa__dataType": "date",
+              "extractDateTimezone": "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi"
+            },
+            {
+              "extract": "Booolean",
+              "dataType": "boolean",
+              "generate": "user.user_fields.once_check_box"
+            },
+            {
+              "extract": "Organization",
+              "generate": "user.organization_id",
+              "lookupName": "6f18a5e58d074e9b985628193a48edef"
+            },
+            {
+              "extract": "[Job title]",
+              "generate": "user.user_fields.job_titles",
+              "lookupName": "2b5e3684394c444d8522fdedf4577a36",
+              "qa__extract": "Job title"
+            }
+          ]
+        },
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "adaptorType": "HTTPImport",
+        "parsers": [],
+        "lookups": [
+          {
+            "extract": "results[0].id",
+            "method": "GET",
+            "name": "autoUpdate",
+            "relativeURI": "search.json?query=type:user notes:{{{Email}}}"
+          },
+          {
+            "extract": "results[0].id",
+            "method": "GET",
+            "name": "6f18a5e58d074e9b985628193a48edef",
+            "allowFailures": false,
+            "relativeURI": "search.json?query=type:organization name:{{{Organization}}}"
+          },
+          {
+            "name": "2b5e3684394c444d8522fdedf4577a36",
+            "allowFailures": false,
+            "map": {
+              "CE": "Celigo",
+              "INT": "Integrator"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "name": "72.DL to REST_Create new & Update existing_Flow 5_JSON",
+  "disabled": false,
+  "qa__dataVerification": {
+    "UpdateRecordJSON": {
+      "notes": "dlusercomp@gmail.com",
+      "name": "Auto@DLUserComposite"
+    },
+    "update_importapiIdentifier": "i3df2577a8",
+    "update_Record": "users",
+    "expected": {
+      "zendesk": {
+        "qa__dataVerification": {
+          "generateSampleDropDownAvailable": false,
+          "expectedJSON": [
+            {
+              "notes": "dlusercomp@gmail.com",
+              "user_fields": {
+                "venkat": "2016-08-11T00:00:00+00:00",
+                "job_titles": "Integrator",
+                "phone": "8508508500",
+                "once_check_box": true,
+                "fax": "090-9090909"
+              },
+              "organization_id": 4653516129,
+              "name": "Auto@DLUserComposite"
+            },
+            {
+              "notes": "dlusercomp11@gmail.com",
+              "user_fields": {
+                "venkat": "2016-08-11T00:00:00+00:00",
+                "job_titles": "Celigo",
+                "phone": "9500604554",
+                "once_check_box": true,
+                "fax": "090-121212"
+              },
+              "organization_id": 4653516129,
+              "name": "Auto@DLUserComposite11"
+            },
+            {
+              "notes": "dlusercomp12@gmail.com",
+              "user_fields": {
+                "venkat": "2016-08-11T00:00:00+00:00",
+                "job_titles": "Celigo",
+                "phone": "9500604889",
+                "once_check_box": false,
+                "fax": "090-1212555"
+              },
+              "organization_id": 4653516129,
+              "name": "Auto@DLUserComposite12"
+            }
+          ],
+          "uniqueField": "notes",
+          "standaloneexportflowID": "627506d2575ae439e5e9e06e",
+          "importRecordType": "users",
+          "isUIFlow": true,
+          "exportapiIdentifier": "ec097e64e5",
+          "update_app": "Zendesk"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "PGexport",
+        "transform": {
+          "rules": []
+        },
+        "file": {
+          "output": "records",
+          "csv": {
+            "columnDelimiter": "\t",
+            "hasHeaderRow": true,
+            "rowDelimiter": "\n",
+            "trimSpaces": true,
+            "rowsToSkip": 0
+          },
+          "encoding": "utf8",
+          "type": "csv"
+        },
+        "asynchronous": true,
+        "qa__path": "/Dataloader_uploades/DL to Zendesk Create new Update exist Flow5.txt",
+        "type": "simple",
+        "qa__isDataLoader": "csv",
+        "adaptorType": "SimpleExport"
+      }
+    }
+  ]
+}

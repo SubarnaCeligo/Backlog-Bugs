@@ -56,10 +56,7 @@ test.describe("TC_C61085", () => {
     await io.homePage.click(selectors.flowBuilderPagePO.IMPORT);
     await io.homePage.isPageReady();
     await io.homePage.loadingTime();
-    var promp = await page.locator(
-      selectors.exportsPagePO.TITLE
-    ).isVisible();
-    const promp2 = await io.homePage.isVisible(selectors.exportsPagePO.TITLE);
+    const promp = await io.homePage.isVisible(selectors.basePagePO.NOTIFICATION_ID);
     await io.assert.expectToBeFalse(promp, "");
     test.step("*** Verifying that no prompt is displayed ***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.CLOSING_IMPORT);

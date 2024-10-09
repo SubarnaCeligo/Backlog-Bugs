@@ -1,0 +1,85 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "Create_Connection_HTTP_Refresh_Token_headers",
+        "sandbox": false,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://us.api.concursolutions.com",
+            "ping": {
+                "relativeURI": "/receipts",
+                "method": "GET"
+            },
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "token",
+                "failStatusCode": 400,
+                "token": {
+                    "token": "******",
+                    "location": "header",
+                    "headerName": "Authorization",
+                    "scheme": "Bearer",
+                    "paramName": "access_token",
+                    "refreshMethod": "POST",
+                    "refreshRelativeURI": "https://us.api.concursolutions.com/oauth2/v0/token",
+                    "refreshBody": "{\"grant_type\":\"client_credentials\",\"client_id\":\"a916f9fc-00e7-4c67-95ac-f4041c4478d7\",\"client_secret\":\"6f84347e-2664-4603-83f7-c47a85cbc1b4\"}",
+                    "refreshMediaType": "urlencoded",
+                    "refreshTokenPath": "access_token",
+                    "refreshHeaders": [
+                        {
+                            "name": "content-type",
+                            "value": "application/x-www-form-urlencoded"
+                        }
+                    ],
+                    "refreshToken": "******"
+                }
+            }
+        }
+    },
+    "importJSON": {
+        "type": "http",
+        "name": "Create_Connection_HTTP_Refresh_Token_headers",
+        "sandbox": false,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://us.api.concursolutions.com",
+            "ping": {
+                "relativeURI": "/receipts",
+                "method": "GET"
+            },
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "token",
+                "failStatusCode": 400,
+                "qa__token1": {
+                    "token4": "******",
+                    "qa__token": "MTIzNA==",
+                    "location": "header",
+                    "headerName": "Authorization",
+                    "scheme": "Bearer",
+                    "paramName": "access_token",
+                    "refreshMethod": "POST",
+                    "refreshRelativeURI": "https://us.api.concursolutions.com/oauth2/v0/token",
+                    "refreshBody": "{\"grant_type\":\"client_credentials\",\"client_id\":\"a916f9fc-00e7-4c67-95ac-f4041c4478d7\",\"client_secret\":\"6f84347e-2664-4603-83f7-c47a85cbc1b4\"}",
+                    "refreshMediaType": "urlencoded",
+                    "refreshTokenPath": "access_token",
+                    "refreshToken": "******",
+                    "refreshTokenHeaders": [
+                        {
+                            "name": "content-type",
+                            "value": "application/x-www-form-urlencoded"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

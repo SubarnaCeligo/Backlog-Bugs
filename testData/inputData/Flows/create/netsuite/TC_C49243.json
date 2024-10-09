@@ -1,0 +1,108 @@
+{
+    "name": "TC_C49243",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e7ddcc3eb2",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C32080_Less_Than_5mb"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "apiIdentifier": "i3d6443387",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [
+                            {
+                                "name": "Multi-Select-Field",
+                                "recordType": "customer",
+                                "resultField": "custentity46",
+                                "expression": "[\"custentity46\",\"is\",\"Low\"]",
+                                "allowFailures": false
+                            }
+                        ],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "update",
+                            "recordType": "customer",
+                            "internalIdLookup": {
+                                "expression": "[\"custentity46\",\"is\",\"Low\"]"
+                            },
+                            "lookups": [
+                                {
+                                    "name": "Multi-Select-Field",
+                                    "recordType": "customer",
+                                    "resultField": "custentity46",
+                                    "expression": "[\"custentity46\",\"is\",\"Low\"]",
+                                    "allowFailures": false
+                                }
+                            ],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "extract": "multiselectField",
+                                        "generate": "custentity46",
+                                        "discardIfEmpty": false,
+                                        "immutable": false,
+                                        "lookupName": "Multi-Select-Field",
+                                        "internalId": true
+                                    }
+                                ],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C49243",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

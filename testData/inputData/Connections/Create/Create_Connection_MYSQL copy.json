@@ -1,0 +1,27 @@
+{
+    "expectedJSON": {
+        "type": "rdbms",
+        "name": "Create_Connection_Mysql",
+        "rdbms": {
+            "type": "mysql",
+            "host": "mysql-dev.cu9ep4kmgkck.us-east-1.rds.amazonaws.com",
+            "port": 3306,
+            "database": "mysqldev",
+            "user": "ao0BbjI9R3mMEX7",
+            "password": "******"
+        }
+    },
+    "importJSON": {
+        "type": "rdbms",
+        "name": "Create_Connection_Mysql",
+        "rdbms": {
+            "type": "mysql",
+            "host": "mysql-dev.cu9ep4kmgkck.us-east-1.rds.amazonaws.com",
+            "port": 3306,
+            "database": "mysqldev",
+            "user": "ao0BbjI9R3mMEX7",
+            "password": "******",
+            "qa__password": "ZHE4Sm1telZ6Y2VMVERyNjh4UTI="
+        }
+    }
+}

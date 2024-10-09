@@ -1,0 +1,108 @@
+{
+    "name": "TC_C49237",
+    "qa__api_tdata": [
+        {
+            "pageGenerators": [
+                {
+                    "type": "export",
+                    "qa__export": {
+                        "name": "Export",
+                        "_connectionId": "FTP CONNECTION",
+                        "apiIdentifier": "e7ddcc3eb2",
+                        "asynchronous": true,
+                        "sandbox": false,
+                        "ftp": {
+                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                            "fileNameStartsWith": "TC_C32080_Less_Than_5mb"
+                        },
+                        "file": {
+                            "output": "records",
+                            "skipDelete": true,
+                            "type": "json",
+                            "json": {
+                                "resourcePath": "*"
+                            }
+                        },
+                        "adaptorType": "FTPExport"
+                    }
+                }
+            ],
+            "pageProcessors": [
+                {
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Import",
+                        "_connectionId": "NETSUITE CONNECTION",
+                        "distributed": true,
+                        "apiIdentifier": "i82db03357",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
+                        "oneToMany": false,
+                        "sandbox": false,
+                        "lookups": [
+                            {
+                                "name": "EndDate_lookup",
+                                "recordType": "salesorder",
+                                "resultField": "enddate",
+                                "expression": "[\"currency\",\"is\",\"Dollar\"]",
+                                "allowFailures": false
+                            }
+                        ],
+                        "netsuite_da": {
+                            "useSS2Restlets": false,
+                            "operation": "update",
+                            "recordType": "salesorder",
+                            "internalIdLookup": {
+                                "expression": "[\"currency\",\"is\",\"Dollar\"]"
+                            },
+                            "lookups": [
+                                {
+                                    "name": "EndDate_lookup",
+                                    "recordType": "salesorder",
+                                    "resultField": "enddate",
+                                    "expression": "[\"currency\",\"is\",\"Dollar\"]",
+                                    "allowFailures": false
+                                }
+                            ],
+                            "mapping": {
+                                "fields": [
+                                    {
+                                        "generate": "currencyname",
+                                        "extract": "currency",
+                                        "internalId": false,
+                                        "discardIfEmpty": false,
+                                        "immutable": false,
+                                        "lookupName": "EndDate_lookup"
+                                    }
+                                ],
+                                "lists": []
+                            }
+                        },
+                        "adaptorType": "NetSuiteDistributedImport"
+                    }
+                }
+            ],
+            "createFlow": {
+                "name": "TC_C49237",
+                "disabled": false,
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "skipRetries": false,
+                "pageProcessors": [
+                    {
+                        "responseMapping": {
+                            "fields": [],
+                            "lists": []
+                        },
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
+                    }
+                ],
+                "pageGenerators": [
+                    {
+                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                ]
+            }
+        }
+    ]
+}

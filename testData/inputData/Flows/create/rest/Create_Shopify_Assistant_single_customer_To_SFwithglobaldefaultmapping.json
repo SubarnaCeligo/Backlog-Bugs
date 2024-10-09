@@ -1,0 +1,134 @@
+{
+    "name": "Create_Shopify_Assistant_single_customer_To_SFwithglobaldefaultmapping",
+    "disabled": false,
+    "timezone": "Asia/Calcutta",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "_connectionId": "SHOPIFY CONNECTION",
+          "adaptorType": "RESTExport",
+          "name": "RESTAssitantExportshopify2",
+          "asynchronous": true,
+          "assistant": "shopify",
+          "assistantMetadata": {
+            "resource": "customer",
+            "version": "v2",
+            "operation": "retrieves_asinglecustomer"
+          },
+          "http": {
+            "relativeURI": "/customers/7200656391.json",
+            "method": "GET",
+            "response": {
+              "resourcePath": "customer"
+            }
+          },
+          "rest": {
+            "relativeURI": "/customers/7200656391.json",
+            "method": "GET",
+            "resourcePath": "customer",
+            "allowUndefinedResource": false
+          },
+          "qa__assistant": {
+            "resource": "Customers : Customer",
+            "endpoint": "Retrieves a single customer",
+            "pathParams": {
+              "customerId": "7200656391"
+            }
+          }
+        }
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "salesforce": {
+            "sObjectType": "Account",
+            "removeNonSubmittableFields": false,
+            "api": "soap",
+            "operation": "insert"
+          },
+          "mapping": {
+            "fields": [
+              {
+                "extract": "note",
+                "generate": "Phone",
+                "default": ""
+              },
+              {
+                "extract": "multipass_identifier",
+                "generate": "BillingStreet",
+                "default": null
+              },
+              {
+                "extract": "Random1",
+                "generate": "BillingCity",
+                "default": "HYD"
+              },
+              {
+                "extract": "{{phone}}",
+                "generate": "BillingState",
+                "default": ""
+              },
+              {
+                "extract": "{{tags}}",
+                "generate": "BillingPostalCode",
+                "default": null
+              },
+              {
+                "extract": "{{Random4}}",
+                "generate": "BillingCountry",
+                "default": "India"
+              },
+              {
+                "extract": "first_name",
+                "generate": "Name"
+              }
+            ]
+          },
+          "_connectionId": "SALESFORCE CONNECTION",
+          "adaptorType": "SalesforceImport",
+          "name": "SalesforceAccountInsert1918",
+          "distributed": false
+        }
+      }
+    ],
+    "qa__expectedDashboardCount": {
+      "successCount": "2",
+      "ignoreCount": "0",
+      "errorCount": "0"
+    },
+    "qa__dataVerification": {
+      "expected": {
+        "Salesforce": {
+          "name": "Create_Shopify_Assistant_single_customer_To_SFwithglobaldefaultmapping",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "SALESFORCE CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "1",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "expectedJSON": [
+              {
+                "BillingCity": "HYD",
+                "Name": "misha",
+                "BillingCountry": "India"
+              }
+            ],
+            "uniqueField": "Name",
+            "standaloneexportflowID": "5ba34e54c6d1b854c5e8f38e",
+            "importRecordType": "Account",
+            "isUIFlow": true,
+            "query": "Select id,Name,Billingcity,Billingcountry from Account where name like 'misha%'",
+            "exportapiIdentifier": "e04e4b265d"
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,213 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "6",
+      "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type":"import",
+    "qa__import": {
+      "name": "PPimport",
+      "salesforce": {
+        "lookups": [
+          {
+            "whereClause": "(Name = {{{string Column4}}})",
+            "qa__whereClause": [
+              [
+                "Name",
+                "=",
+                "Column4"
+              ]
+            ],
+            "name": "84e875735ef74d1e9cb66637abb83e4f",
+            "sObjectType": "Account",
+            "resultField": "Id",
+            "allowFailures": false
+          },
+          {
+            "name": "ef9c2a675ef947598e8f51696db80826",
+            "allowFailures": false,
+            "map": {
+              "CE": "Celigo",
+              "INT": "Integrator"
+            }
+          }
+        ],
+        "upsert": {
+          "externalIdField": "Upsert__c"
+        },
+        "sObjectType": "Contact",
+        "removeNonSubmittableFields": false,
+        "api": "rest",
+        "operation": "upsert",
+        "idLookup": {
+          "extract": "Column1"
+        }
+      },
+      "mapping": {
+        "fields": [
+          {
+            "extract": "Column0",
+            "generate": "LastName"
+          },
+          {
+            "extract": "Column1",
+            "generate": "Email"
+          },
+          {
+            "immutable": true,
+            "extract": "Column2",
+            "generate": "Phone"
+          },
+          {
+            "extract": "Column3",
+            "generate": "Fax"
+          },
+          {
+            "extract": "Column4",
+            "generate": "AccountId",
+            "lookupName": "84e875735ef74d1e9cb66637abb83e4f"
+          },
+          {
+            "extract": "Column5",
+            "generate": "Title",
+            "lookupName": "ef9c2a675ef947598e8f51696db80826"
+          },
+          {
+            "extract": "Column6",
+            "generate": "OtherStreet"
+          },
+          {
+            "extract": "Column7",
+            "generate": "OtherCity"
+          },
+          {
+            "extract": "Column8",
+            "generate": "OtherState"
+          },
+          {
+            "extract": "Column9",
+            "generate": "OtherCountry"
+          },
+          {
+            "extract": "Column10",
+            "generate": "OtherPostalCode"
+          }
+        ]
+      },
+      "_connectionId": "SALESFORCE CONNECTION",
+      "lookups": [
+        {
+          "name": "d85d3d2d2c9e4d60a538ffdf3d629a8e",
+          "allowFailures": false,
+          "sObjectType": "Account",
+          "resultField": "Id",
+          "whereClause": "(Name = {{{string Column4}}})"
+        },
+        {
+          "name": "8942f383223243c498e92e3c9c46cb8b",
+          "allowFailures": false,
+          "map": {
+            "CE": "Celigo",
+            "INT": "Integrator"
+          }
+        }
+      ],
+      "adaptorType": "SalesforceImport",
+      "distributed": false
+    }}],
+    "name": "74.DL to SalesForce_Upsert_Flow 7_JSON",
+    "disabled": false,
+    "qa__dataVerification": {
+        "UpdateRecordJSON": {
+            "Upsert__c": "dlsfupsert@google.com",
+            "Last Name": "aDL SF Upsert Contact"
+          },
+          "update_importapiIdentifier": "i4e385195c",
+          "update_Record": "Contact",
+        "expected":{
+         "salesforce":{   
+    "qa__dataVerification": {
+      "expectedJSON": [
+        {
+          "Account": {
+            "Name": "DL Account1"
+          },
+          "Email": "dlsfupsert@google.com",
+          "OtherCity": "Hyderabad",
+          "Phone": "9090909090",
+          "OtherPostalCode": "500081",
+          "OtherCountry": "India",
+          "Title": "Celigo",
+          "LastName": "aDL SF Upsert Contact",
+          "Upsert__c": "dlsfupsert@google.com",
+          "Fax": "090-121212",
+          "OtherStreet": "Ascendas VBIT park",
+          "OtherState": "Telangana"
+        },
+        {
+          "Account": {
+            "Name": "DL Account1"
+          },
+          "Email": "dlsfcontact11@google.com",
+          "OtherCity": "Hyderabad",
+          "Phone": "9090909090",
+          "OtherPostalCode": "500081",
+          "OtherCountry": "India",
+          "Title": "Celigo",
+          "LastName": "aDL SF Upsert Contact11",
+          "Upsert__c": "dlsfcontact11@google.com",
+          "Fax": "090-121212",
+          "OtherStreet": "Ascendas VBIT park",
+          "OtherState": "Telangana"
+        },
+        {
+          "Account": {
+            "Name": "DL Account1"
+          },
+          "Email": "dlsfcontact12@google.com",
+          "OtherCity": "Hyderabad",
+          "Phone": "9090909090",
+          "OtherPostalCode": "500081",
+          "OtherCountry": "India",
+          "Title": "Integrator",
+          "LastName": "aDL SF Upsert Contact12",
+          "Upsert__c": "dlsfcontact12@google.com",
+          "Fax": "090-121212",
+          "OtherStreet": "Ascendas VBIT park",
+          "OtherState": "Telangana"
+        }
+      ],
+      "uniqueField": "Email",
+      "standaloneexportflowID": "57302d52943aa5946cce0870",
+      "importRecordType": "Contact",
+      "isUIFlow": true,
+      "query": "select id, Account.Name, lastname, description, email,MobilePhone, phone, fax,LeadSource, AssistantName,Once_Export__c, Title,Upsert__c,mailingstreet,mailingcity,mailingstate,mailingcountry,Department,otherstreet,othercity,otherstate,othercountry,otherpostalcode from contact where lastname like 'aDL%'",
+      "exportapiIdentifier": "e9190601e4",
+      "update_app": "Salesforce"
+    }}}},
+    "pageGenerators": [{
+    "qa__export": {
+      "name": "PGExport",
+      "file": {
+        "output": "records",
+        "csv": {
+          "columnDelimiter": "|",
+          "rowDelimiter": "\n",
+          "hasHeaderRow": false,
+          "trimSpaces": true,
+          "rowsToSkip": 0
+        },
+        "encoding": "utf8",
+        "type": "csv"
+      },
+      "asynchronous": true,
+      "qa__path": "/Dataloader_uploades/DL to SalesForce Upsert Flow 7.txt",
+      "type": "simple",
+      "qa__isDataLoader": "csv",
+      "adaptorType":"SimpleExport"
+    }
+}]
+  }

@@ -1,0 +1,58 @@
+{
+  "expectedJSON":{
+
+    "type": "http",
+    "name": "Freshservice Connection",
+    "assistant": "freshservice",
+    
+    "http": {
+      "formType": "assistant",
+      "mediaType": "json",
+      "baseURI": "https://celigoservicedesk.freshservice.com/api/v2",
+      "concurrencyLevel": 10,
+      "ping": {
+        "relativeURI": "/tickets",
+        "method": "GET"
+      },
+      "unencrypted": {
+        "subdomain": "celigoservicedesk"
+      },
+      "auth": {
+        "type": "basic",
+        "basic": {
+          "username": "nHwOgeGWllyf2i1kdd57"
+        }
+      }
+    }
+  },
+  
+
+  "importJSON":{
+
+    "type": "http",
+    "name": "Freshservice Connection",
+    "assistant": "freshservice",
+    
+    "http": {
+      "formType": "assistant",
+      "mediaType": "json",
+      "baseURI": "https://celigoservicedesk.freshservice.com/api/v2",
+      
+      "concurrencyLevel": 10,
+      "ping": {
+        "relativeURI": "/tickets",
+        "method": "GET"
+      },
+      "unencrypted": {
+        "subdomain": "celigoservicedesk"
+      },
+      "auth": {
+        "type": "basic",
+        "basic": {
+          "username": "bkh3T2dlR1dsbHlmMmkxa2RkNTc="
+        }
+      }
+    }
+  }
+  }
+

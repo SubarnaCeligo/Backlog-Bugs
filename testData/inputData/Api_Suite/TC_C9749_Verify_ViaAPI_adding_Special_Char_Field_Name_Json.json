@@ -1,0 +1,6 @@
+{
+    "body":{
+        "pref1": {"$test": "dollar$" },
+        "pref2": {"t.est": "dot." }
+    }
+}

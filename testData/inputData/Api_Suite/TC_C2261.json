@@ -1,0 +1,29 @@
+{
+    "body":{
+        "name": "FTP EXPORT C2261",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ef7e71b4ce",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+            "directoryPath": "/io.auto.qa/FTP_EXPORTS",
+            "fileNameStartsWith": "33FTP2SalesforceContactTAB.txt"
+        },
+        "file": {
+            "encoding": "utf8",
+            "output": "records",
+            "skipDelete": true,
+            "type": "csv",
+            "csv": {
+                "columnDelimiter": "\t",
+                "rowDelimiter": "\n",
+                "keyColumns": [],
+                "hasHeaderRow": false,
+                "trimSpaces": true,
+                "rowsToSkip": 0
+            }
+        },
+        "adaptorType": "FTPExport"
+    },
+    "staging_conn": "FTP CONNECTION"
+  }

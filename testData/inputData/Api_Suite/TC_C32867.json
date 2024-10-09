@@ -1,0 +1,13 @@
+{
+    "name": "Create_Connection_FTP",
+    "ftp": {
+        "password": "Test@123456",
+        "port": 21,
+        "hostURI": "qa.ipaas2.net",
+        "type": "sftp",
+        "qa__password": "d011WklSZDlKcQ==",
+        "usePassiveMode": true,
+        "username": "saikaivalaya@ipaas2.net"
+    },
+    "type": "ftp"
+}

@@ -3,7 +3,7 @@
     "referencename": "TC_C51938",
     "qa__expectedDashboardCount": {
         "ignoreCount": "0",
-        "successCount": "3",
+        "successCount": "1",
         "errorCount": "0"
     },
     "qa__dataVerification": {

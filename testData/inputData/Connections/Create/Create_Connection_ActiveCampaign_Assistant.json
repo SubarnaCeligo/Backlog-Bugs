@@ -1,0 +1,45 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "Create_Connection_Active_Campaign",
+        "assistant": "activecampaign",
+        "http": {
+            "mediaType": "json",
+            "baseURI": "https://celigo50200.api-us1.com",
+            "ping": {
+                "relativeURI": "/admin/api.php?api_action=account_view&api_output=json",
+                "method": "GET"
+            },
+            "auth": {
+                "type": "token",
+                "token": {
+                    "token": "******",
+                    "location": "url",
+                    "paramName": "api_key"
+                }
+            }
+        }
+    },
+    "importJSON": {
+        "type": "http",
+        "assistant": "activecampaign",
+        "name": "Create_Connection_Active_Campaign",
+        "http": {
+            "mediaType": "json",
+            "baseURI": "celigo50200",
+            "ping": {
+                "relativeURI": "/admin/api.php?api_action=account_view&api_output=json",
+                "method": "GET"
+            },
+            "auth": {
+                "type": "token",
+                "token": {
+                    "token": "******",
+                    "qa__token": "Njk0OGMzZTM3NTEzNGY5MGJiYTgyZjYyYjA1MjUxYzE5NzQ1NDkyNGViMjg4ZjBjMWRlOGNhYWVlZmQ1NGRjZGRlNzVlOGU1",
+                    "location": "url",
+                    "paramName": "api_key"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+{
+  "expectedJSON": {
+    "type": "http",
+    "name": "Create_Connection_Looker",
+    "assistant": "looker",
+    "sandbox": false,
+    "http": {
+      "formType": "assistant",
+      "mediaType": "json",
+      "baseURI": "https://{{{connection.http.unencrypted.instanceurl}}}/api/3.1",
+      "ping": {
+        "relativeURI": "/looks",
+        "method": "GET"
+      },
+      "unencrypted": {
+        "clientId": "S4PbfMKCFF5P8HQYyJ8x",
+        "instanceurl": "celigo.cloud.looker.com"
+      },
+      "encrypted": "******",
+      "auth": {
+        "type": "token",
+        "token": {
+          "token": "******",
+          "location": "header",
+          "headerName": "Authorization",
+          "scheme": "Bearer",
+          "refreshMethod": "POST",
+          "refreshRelativeURI": "https://{{{connection.http.unencrypted.instanceurl}}}/api/3.1/login",
+          "refreshBody": "{ \"client_id\": \"{{{connection.http.unencrypted.clientId}}}\", \"client_secret\": \"{{{connection.http.encrypted.clientSecret}}}\" }",
+          "refreshMediaType": "urlencoded"
+        }
+      }
+    }
+  },
+  "importJSON": {
+    "type": "http",
+    "name": "Create_Connection_Looker",
+    "assistant": "looker",
+    "sandbox": false,
+    "http": {
+      "formType": "assistant",
+      "mediaType": "json",
+      "baseURI": "https://celigo.cloud.looker.com/api/3.1",
+      "ping": {
+        "relativeURI": "/looks",
+        "method": "GET"
+      },
+      "unencrypted": {
+        "clientId": "S4PbfMKCFF5P8HQYyJ8x",
+        "instanceurl": "celigo.cloud.looker.com"
+      },
+      "encrypted": "******",
+      "auth": {
+        "type": "token",
+        "token": {
+          "token": "******",
+          "qa__clientID": "S4PbfMKCFF5P8HQYyJ8x",
+          "qa__clientsecret": "eXlHbjI3OW1jUGdiNHZ3WjJtWTk2Y1Ju",
+          "location": "header",
+          "headerName": "Authorization",
+          "scheme": "Bearer",
+          "refreshMethod": "POST",
+          "refreshRelativeURI": "https://celigo.cloud.looker.com/api/3.1/login",
+          "refreshBody": "{ \"client_id\": \"{{{connection.http.unencrypted.clientId}}}\", \"client_secret\": \"{{{connection.http.encrypted.clientSecret}}}\" }",
+          "refreshMediaType": "urlencoded"
+        }
+      }
+    }
+  }
+}

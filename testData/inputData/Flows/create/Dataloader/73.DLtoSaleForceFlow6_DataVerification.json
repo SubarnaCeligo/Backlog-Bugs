@@ -1,0 +1,228 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "8",
+      "errorCount": "0"
+    },
+    "pageProcessors": [{
+        "type":"import",
+    "qa__import": {
+      "name": "PPImport",
+      "salesforce": {
+        "lookups": [
+          {
+            "default": "0013m00002SJqp9AAD",
+            "whereClause": "(Name = {{{string Account}}})",
+            "qa__whereClause": [
+              [
+                "Name",
+                "=",
+                "Account"
+              ]
+            ],
+            "name": "dc9b3fa404b24ae19e4f08120438e593",
+            "sObjectType": "Account",
+            "resultField": "Id",
+            "allowFailures": true
+          },
+          {
+            "default": "Default Static Value",
+            "name": "161a12c9114644c5947c4f2113949f2c",
+            "allowFailures": true,
+            "map": {
+              "CE": "Celigo",
+              "INT": "Integrator"
+            }
+          }
+        ],
+        "sObjectType": "Contact",
+        "api": "rest",
+        "removeNonSubmittableFields": false,
+        "operation": "insert"
+      },
+      "mapping": {
+        "fields": [
+          {
+            "extract": "{{{trim Contact}}}",
+            "generate": "LastName"
+          },
+          {
+            "extract": "Email",
+            "generate": "Email"
+          },
+          {
+            "extract": "{{#if Fax}} 090-909090 {{else}} 010-1010110 {{/if}}",
+            "generate": "Fax"
+          },
+          {
+            "extract": "{{{split [Phone Number] \".\" 1}}}",
+            "generate": "MobilePhone"
+          },
+          {
+            "extract": "Account",
+            "generate": "AccountId",
+            "lookupName": "dc9b3fa404b24ae19e4f08120438e593"
+          },
+          {
+            "extract": "Assistant",
+            "generate": "AssistantName",
+            "lookupName": "161a12c9114644c5947c4f2113949f2c"
+          },
+          {
+            "extract": "[Address 1]",
+            "generate": "MailingStreet",
+            "qa__extract": "Address 1"
+          },
+          {
+            "hardCodedValue": "California",
+            "generate": "MailingCity"
+          },
+          {
+            "qa__internalid": "true",
+            "hardCodedValue": "Partner Referral",
+            "generate": "LeadSource"
+          },
+          {
+            "extract": "[Address State]",
+            "generate": "MailingState",
+            "qa__extract": "Address State"
+          },
+          {
+            "extract": "{{[Address State]}}{{[Address State]}}",
+            "generate": "Title"
+          },
+          {
+            "extract": "{{[Address Country]}}{{[Address Country]}}",
+            "generate": "MailingCountry"
+          }
+        ]
+      },
+      "_connectionId": "SALESFORCE CONNECTION",
+      "adaptorType": "SalesforceImport",
+      "lookups": [
+        {
+          "name": "884a8b449a664503b7c3ae17bea07a57",
+          "allowFailures": true,
+          "default": "0013m00002SJqp9AAD",
+          "sObjectType": "Account",
+          "resultField": "Id",
+          "whereClause": "(Name = {{{string Account}}})"
+        },
+        {
+          "name": "e66e7560b72446deaa6b0c62f83c30fd",
+          "allowFailures": true,
+          "default": "Default Static Value",
+          "map": {
+            "CE": "Celigo",
+            "INT": "Integrator"
+          }
+        }
+      ],
+      "distributed": false
+    }}],
+    "name": "73.DL to SalesForce _Flow 6_JSON",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected":{
+         "salesforce":{   
+    "qa__dataVerification": {
+      "expectedJSON": [
+        {
+          "Account": {
+            "Name": "DL Account1"
+          },
+          "Email": "dlsfcontact1@gmail.com",
+          "AssistantName": "Celigo",
+          "MailingCountry": "IndiaIndia",
+          "Title": "TelanganaTelangana",
+          "MailingCity": "California",
+          "MobilePhone": "9490992786",
+          "MailingState": "Telangana",
+          "LeadSource": "Partner Referral",
+          "Once_Export__c": "false",
+          "LastName": "aDL SF Insert Contact1",
+          "Fax": "090-909090",
+          "MailingStreet": "Ascendes Park"
+        },
+        {
+          "Account": {
+            "Name": "DL Account1"
+          },
+          "Email": "dlsfcontact2@gmail.com",
+          "AssistantName": "Integrator",
+          "MailingCountry": "IndiaIndia",
+          "Title": "TelanganaTelangana",
+          "MailingCity": "California",
+          "MobilePhone": "9490992786",
+          "MailingState": "Telangana",
+          "LeadSource": "Partner Referral",
+          "Once_Export__c": "false",
+          "LastName": "aDL SF Insert Contact2",
+          "Fax": "090-909090",
+          "MailingStreet": "Ascendes Park"
+        },
+        {
+          "Account": {
+            "Name": "DL Account1"
+          },
+          "Email": "dlsfcontact3@gmail.com",
+          "AssistantName": "Default Static Value",
+          "MailingCountry": "IndiaIndia",
+          "Title": "TelanganaTelangana",
+          "MailingCity": "California",
+          "MobilePhone": "9490992786",
+          "MailingState": "Telangana",
+          "LeadSource": "Partner Referral",
+          "Once_Export__c": "false",
+          "LastName": "aDL SF Insert Contact3",
+          "Fax": "090-909090",
+          "MailingStreet": "Ascendes Park"
+        },
+        {
+          "Account": {
+            "Name": "DL Account1"
+          },
+          "Email": "dlsfcontact4@gmail.com",
+          "AssistantName": "Default Static Value",
+          "MailingCountry": "IndiaIndia",
+          "Title": "TelanganaTelangana",
+          "MailingCity": "California",
+          "MobilePhone": "9490992786",
+          "MailingState": "Telangana",
+          "LeadSource": "Partner Referral",
+          "Once_Export__c": "false",
+          "LastName": "aDL SF Insert Contact4",
+          "Fax": "090-909090",
+          "MailingStreet": "Ascendes Park"
+        }
+      ],
+      "uniqueField": "Email",
+      "standaloneexportflowID": "57302d52943aa5946cce0870",
+      "importRecordType": "Contact",
+      "isUIFlow": true,
+      "query": "select id, Account.Name, lastname, description, email,MobilePhone, phone, fax,LeadSource, AssistantName,Once_Export__c, Title,Upsert__c,mailingstreet,mailingcity,mailingstate,mailingcountry,Department,otherstreet,othercity,otherstate,othercountry,otherpostalcode from contact where lastname like 'aDL SF Insert%'",
+      "exportapiIdentifier": "e9190601e4"
+    }}}},
+    "pageGenerators": [{
+    "qa__export": {
+      "name": "PGExport",
+      "file": {
+        "csv": {
+          "columnDelimiter": ",",
+          "rowDelimiter": "\n",
+          "hasHeaderRow": true,
+          "trimSpaces": true,
+          "rowsToSkip": 0
+        },
+        "encoding": "utf8",
+        "type": "csv"
+      },
+      "asynchronous": true,
+      "qa__path": "/Dataloader_uploades/DL to SalesForce Insert Flow6.csv",
+      "type": "simple",
+      "qa__isDataLoader": "csv",
+      "adaptorType":"SimpleExport"
+    }}]
+  }

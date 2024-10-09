@@ -1,0 +1,164 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "0",
+    "errorCount": "1"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "salesforce": {
+          "lookups": [
+            {
+              "name": "UPC_Code",
+              "map": {
+                "123": "123"
+              },
+              "allowFailures": false
+            }
+          ],
+          "operation": "insert",
+          "sObjectType": "Product2",
+          "api": "soap",
+          "removeNonSubmittableFields": false
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "itemid",
+              "generate": "Name"
+            },
+            {
+              "extract": "upccode",
+              "generate": "ProductCode",
+              "lookupName": "UPC_Code"
+            },
+            {
+              "generate": "IsActive",
+              "hardCodedValue": "true"
+            }
+          ]
+        },
+        "_connectionId": "SALESFORCE CONNECTION",
+        "lookups": [
+          {
+            "name": "UPC_Code",
+            "map": {
+              "123": "123"
+            },
+            "allowFailures": false
+          }
+        ],
+        "adaptorType": "SalesforceImport",
+        "name": "SF_Product",
+        "distributed": false
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "TC_C27784_StaticLookup_failure_For_NS_NonInventory_to_SF_Product",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "Item_Name": "TC_C27784_StaticLookup",
+      "UPC_Code": "C27784"
+    },
+    "application":"NETSUITE",
+    "importapiIdentifier": "ic7c9a91df",
+    "importapidoc": {
+      "_id": "63402d726eb39f2bf28c6956",
+      "createdAt": "2022-10-07T13:45:22.622Z",
+      "lastModified": "2022-10-07T13:47:12.680Z",
+      "name": "NS Item",
+      "_connectionId": "5a093d279dda7b71eb95b793",
+      "distributed": true,
+      "apiIdentifier": "ic7c9a91df",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "lookups": [],
+      "netsuite_da": {
+        "useSS2Restlets": false,
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "noninventoryitem",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Item_Name",
+              "generate": "itemid",
+              "internalId": false
+            },
+            {
+              "generate": "upccode",
+              "extract": "UPC_Code",
+              "internalId": false
+            },
+            {
+              "generate": "taxschedule",
+              "discardIfEmpty": false,
+              "immutable": false,
+              "hardCodedValue": "1",
+              "internalId": true
+            }
+          ],
+          "lists": []
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "name": "Get non inventory items",
+        "_connectionId": "NETSUITE CONNECTION",
+        "asynchronous": true,
+        "type": "distributed",
+        "parsers": [],
+        "distributed": {
+          "bearerToken": "******"
+        },
+        "netsuite": {
+          "type": "distributed",
+          "skipGrouping": true,
+          "statsOnly": false,
+          "distributed": {
+            "recordType": "noninventoryitem",
+            "executionContext": [
+              "suitelet",
+              "userinterface",
+              "webstore"
+            ],
+            "disabled": false,
+            "executionType": [
+              "create"
+            ],
+            "qualifier": [
+              "upccode",
+              "=",
+              "C27784"
+            ],
+            "qa__qualifier": [
+              "UPC Code",
+              "is",
+              "C27784"
+            ],
+            "sublists": [],
+            "forceReload": false,
+            "ioEnvironment": "staging",
+            "ioDomain": "qa.staging.integrator.io",
+            "useSS2Framework": false
+          }
+        },
+        "adaptorType": "NetSuiteExport"
+      },
+      "skipRetries": false
+    }
+  ]
+}

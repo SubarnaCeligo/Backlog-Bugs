@@ -1,0 +1,328 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "1",
+    "successCount": "3",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "application": "zendesk support",
+      "qa__import": {
+        "http": {
+          "ignoreExtract": null,
+          "method": [
+            "POST"
+          ],
+          "body": [],
+          "ignoreLookupName": "test",
+          "formType": "http",
+          "qa__formType": "rest",
+          "relativeURI": [
+            "users.json"
+          ],
+          "lookups": [
+            {
+              "extract": "results[0].id",
+              "method": "GET",
+              "postBody": "",
+              "name": "test",
+              "relativeURI": "search.json?query=type:user notes:{{{Email__c}}}"
+            },
+            {
+              "name": "191943cd82a94a5db1075f8390db47bd",
+              "allowFailures": false,
+              "map": {
+                "hyderabad": "Hyderabad value imported"
+              }
+            }
+          ]
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Name",
+              "generate": "user.name"
+            },
+            {
+              "extract": "Email__c",
+              "generate": "user.notes"
+            },
+            {
+              "extract": "BillingCity",
+              "generate": "user.user_fields.billing_city",
+              "lookupName": "191943cd82a94a5db1075f8390db47bd"
+            },
+            {
+              "extract": "Phone",
+              "generate": "user.phone"
+            },
+            {
+              "extract": "BillingCountry",
+              "generate": "user.user_fields.billing_country"
+            },
+            {
+              "extract": "BillingState",
+              "generate": "user.user_fields.billing_state"
+            },
+            {
+              "extract": "BillingStreet",
+              "generate": "user.user_fields.billing_address_1"
+            },
+            {
+              "extract": "BillingPostalCode",
+              "generate": "user.user_fields.billing_zip"
+            },
+            {
+              "extract": "ShippingCity",
+              "generate": "user.user_fields.shipping_city"
+            },
+            {
+              "extract": "ShippingCountry",
+              "generate": "user.user_fields.shipping_country"
+            },
+            {
+              "extract": "ShippingState",
+              "generate": "user.user_fields.shipping_state"
+            },
+            {
+              "extract": "ShippingState",
+              "generate": "user.user_fields.shipping_address"
+            },
+            {
+              "extract": "Notes[*].Title",
+              "generate": "user.user_fields.user_note_title"
+            },
+            {
+              "extract": "Notes[*].Body",
+              "generate": "user.user_fields.user_notes_memo"
+            }
+          ]
+        },
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "name": "REST API_CreateNewIgnoreExisting-ALL",
+        "adaptorType": "HTTPImport",
+        "dataURITemplate": "{{{Email__c}}}",
+        "lookups": [
+          {
+            "name": "test",
+            "relativeURI": "search.json?query=type:user notes:{{{Email__c}}}",
+            "method": "GET",
+            "postBody": "",
+            "extract": "results[0].id"
+          },
+          {
+            "name": "2b4cfd594d174598a638449e1b375ae1",
+            "map": {
+              "hyderabad": "Hyderabad value imported"
+            },
+            "allowFailures": false
+          }
+        ],
+        "distributed": false,
+        "ignoreExisting": true
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "30.SF(Account) to REST(ZD User)REST API_CreateNewIgnoreExisting-ALL",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": [
+      {
+        "Email": "30sftozendeskuser1@mail.com",
+        "BillingCountry": "country",
+        "BillingStreet": "billing street",
+        "BillingCity": "hyderabad",
+        "Phone": "7777777777",
+        "Custom Date Field": "2016-08-16",
+        "Fax": "88888888888",
+        "Static Text Test": "true",
+        "BillingZip": "50001",
+        "BillingState": "State",
+        "Name": "Auto@30sftozendeskuser1"
+      },
+      {
+        "Email": "30sftozendeskuser@mail.com",
+        "BillingCountry": "country",
+        "BillingStreet": "billing street",
+        "BillingCity": "hyderabad",
+        "Phone": "7777777777",
+        "Custom Date Field": "2016-08-16",
+        "Fax": "88888888888",
+        "Static Text Test": "true",
+        "BillingZip": "50001",
+        "BillingState": "State",
+        "Name": "Auto@30sftozendeskuser"
+      }
+    ],
+    "application": "SALESFORCE",
+    "importapiIdentifier": "i50f10d518",
+    "UpdateRecordJSON": {
+      "notes": "30sftozendeskuser@mail.com",
+      "name": "Auto@30sftozendeskuser"
+    },
+    "update_importapiIdentifier": "i3df2577a8",
+    "expected": {
+      "zendesk": {
+        "name": "30.SF(Account) to REST(ZD User)REST API_CreateNewIgnoreExisting-ALL",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "HTTP ZENDESK CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "1",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "notes": "30sftozendeskuser1@mail.com",
+            "user_fields": {
+              "billing_city": "Hyderabad value imported",
+              "billing_state": "State",
+              "billing_address_1": "billing street",
+              "billing_country": "country",
+              "billing_zip": "50001"
+            },
+            "phone": "7777777777",
+            "name": "Auto@30sftozendeskuser1",
+            "email": null
+          },
+          "uniqueField": "name",
+          "importRecordType": "users",
+          "exportRecordType": "Account",
+          "query": "Select id,Name,Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate,Once_Export__c,Sic,NumberOfEmployees,(select id,name from attachments),(select id,title,body from notes) from Account where name   like 'Auto@30sftozendeskuser%'",
+          "update_app": "Zendesk",
+          "exportapiIdentifier": "e8c9cb6192",
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "57aaf0188ec9f88049060166",
+          "isUIFlow": true,
+          "update_Record": "users"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "633b0b00677022566eb1b157",
+      "createdAt": "2022-10-03T16:17:04.034Z",
+      "lastModified": "2022-11-01T07:03:30.424Z",
+      "name": "DND_31.SF (Account) to REST(ZD Org)",
+      "_connectionId": "571f99ac7dcd19f174d07ad8",
+      "apiIdentifier": "i50f10d518",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "mapping": {
+        "fields": [
+          {
+            "extract": "Email",
+            "generate": "Email__c"
+          },
+          {
+            "extract": "ShippingCountry",
+            "generate": "ShippingCountry"
+          },
+          {
+            "extract": "ShippingStreet",
+            "generate": "ShippingStreet"
+          },
+          {
+            "extract": "ShippingCity",
+            "generate": "ShippingCity"
+          },
+          {
+            "extract": "BillingCountry",
+            "generate": "BillingCountry"
+          },
+          {
+            "extract": "BillingStreet",
+            "generate": "BillingStreet"
+          },
+          {
+            "extract": "BillingCity",
+            "generate": "BillingCity"
+          },
+          {
+            "extract": "Phone",
+            "generate": "Phone"
+          },
+          {
+            "extract": "[Custom Date Field]",
+            "generate": "Custom_Date_Field__c"
+          },
+          {
+            "extract": "Fax",
+            "generate": "Fax"
+          },
+          {
+            "extract": "[Static Text Test]",
+            "generate": "Static_Text_Test__c"
+          },
+          {
+            "extract": "BillingZip",
+            "generate": "BillingPostalCode"
+          },
+          {
+            "extract": "BillingState",
+            "generate": "BillingState"
+          },
+          {
+            "extract": "ShippingZip",
+            "generate": "ShippingPostalCode"
+          },
+          {
+            "extract": "ShippingState",
+            "generate": "ShippingState"
+          },
+          {
+            "extract": "Name",
+            "generate": "Name"
+          },
+          {
+            "extract": "Upsert",
+            "generate": "Upsert__c"
+          }
+        ]
+      },
+      "salesforce": {
+        "operation": "insert",
+        "sObjectType": "Account",
+        "api": "soap",
+        "removeNonSubmittableFields": false
+      },
+      "adaptorType": "SalesforceImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "salesforce": {
+          "soql": {
+            "query": "Select id,Name,Email__c,phone,fax,Billingcity,Billingstreet,Billingcountry,Billingstate,BillingPostalCode,Shippingcity,Shippingstreet,Shippingcountry,ShippingPostalCode,Shippingstate,Once_Export__c,Sic,NumberOfEmployees,(select id,name from attachments),(select id,title,body from notes) from Account where name   like 'Auto@30sftozendeskuser%'"
+          },
+          "distributed": {
+            "disabled": false,
+            "relatedLists": []
+          },
+          "api": "rest",
+          "type": "soql"
+        },
+        "asynchronous": true,
+        "adaptorType": "SalesforceExport",
+        "inputFilter": {
+          "type": "expression",
+          "expression": {
+            "version": "1"
+          },
+          "version": "1"
+        },
+        "parsers": [],
+        "_connectionId": "SALESFORCE CONNECTION",
+        "name": "SalesforceExportAccount30"
+      }
+    }
+  ]
+}

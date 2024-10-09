@@ -1,0 +1,28 @@
+{
+    "expectedJSON": {
+        "type": "rdbms",
+        "name": "Create_Connection_Postgresql",
+        "rdbms": {
+            "type": "postgresql",
+            "host": "postgresql-dev.cu9ep4kmgkck.us-east-1.rds.amazonaws.com",
+            "port": 5432,
+            "database": "QA_Automation",
+            "user": "oW6JhSrgL7EHCDmx",
+            "password": "******",
+            "qa__password": "NjdQeEVSQW8zTlRQRlhGM3lWN2c="
+        }
+    },
+    "importJSON": {
+        "type": "rdbms",
+        "name": "Create_Connection_Postgresql",
+        "rdbms": {
+            "type": "postgresql",
+            "host": "postgresql-dev.cu9ep4kmgkck.us-east-1.rds.amazonaws.com",
+            "port": 5432,
+            "database": "QA_Automation",
+            "user": "oW6JhSrgL7EHCDmx",
+            "password": "******",
+            "qa__password": "NjdQeEVSQW8zTlRQRlhGM3lWN2c="
+        }
+    }
+}

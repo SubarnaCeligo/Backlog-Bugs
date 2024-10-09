@@ -1,0 +1,140 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "qa__expectedDashboardCount": {
+      "ignoreCount": "0",
+      "successCount": "2",
+      "errorCount": "0"
+    },
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "qa__import": {
+            "_connectionId": "NETSUITE CONNECTION",
+            "distributed": true,
+            "apiIdentifier": "ia21883cda",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "lookups": [],
+            "netsuite_da": {
+                "useSS2Restlets": false,
+                "operation": "add",
+                "recordType": "salesorder",
+                "lookups": [],
+                "mapping": {
+                    "fields": [
+                        {
+                            "generate": "entity",
+                            "extract": "Customer",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "trandate",
+                            "extractDateFormat": "DD/MM/YYYY",
+                            "discardIfEmpty": false,
+                            "immutable": false,
+                            "extract": "Date",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "customform",
+                            "extract": "Form",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "celigo_use_address_subrecord",
+                            "discardIfEmpty": false,
+                            "immutable": false,
+                            "hardCodedValue": "false",
+                            "internalId": false
+                        },
+                        {
+                            "generate": "billaddr1",
+                            "discardIfEmpty": false,
+                            "immutable": false,
+                            "hardCodedValue": "Hyderabad, India",
+                            "internalId": false
+                        }
+                    ],
+                    "lists": [
+                        {
+                            "generate": "item",
+                            "fields": [
+                                {
+                                    "generate": "item",
+                                    "extract": "items.name",
+                                    "internalId": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "adaptorType": "NetSuiteDistributedImport"
+        }
+      }
+    ],
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C30503_verification_of_nlapi_address",
+    "disabled": false,
+    "qa__dataVerification": {
+      "expected": {
+        "netsuite": {
+          "name": "TC_14518_FTP_NS_billing_phone",
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "import": {
+            "_connectionId": "FTP CONNECTION"
+          },
+          "qa__expectedDashboardCount": {
+            "successCount": "1",
+            "ignoreCount": "0",
+            "errorCount": "0"
+          },
+          "qa__dataVerification": {
+            "expectedJSON": [
+              {
+                "recordtype": "salesorder",
+                "memo": "TC_C14518",
+                "billphone": "000001111"
+              }
+            ],
+            "exportapiIdentifier": "ec547b257b",
+            "importRecordType": "salesorder",
+            "isUIFlow": true,
+            "standaloneexportflowID": "62c4677f9666a202551821e9",
+            "savedsearchId": "3871",
+            "uniqueField": "memo"
+          }
+        }
+      }
+    },
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "NS_Creating_Customer",
+          "_connectionId": "FTP CONNECTION",
+          "qa__path": "/FTP_uploads/TC_C14518.json",
+          "asynchronous": true,
+          "sandbox": false,
+          "ftp": {
+            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+            "fileNameStartsWith": "TC_C14518",
+            "fileNameEndsWith": ".json"
+          },
+          "file": {
+            "output": "records",
+            "encoding": "utf8",
+            "skipDelete": true,
+            "type": "json"
+          },
+          "adaptorType": "FTPExport"
+        }
+      }
+    ]
+  }

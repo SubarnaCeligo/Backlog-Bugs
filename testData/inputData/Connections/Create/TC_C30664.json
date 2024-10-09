@@ -1,0 +1,37 @@
+{
+    "importJSON":{
+        "type": "restapi",
+    "name": "rest connection",
+    "sandbox": false,
+    "http": {
+       "formType": "http",
+       "mediaType": "json",
+       "baseURI": "https://celigoqa.zendesk.com/api/v2/",
+       "ping": {
+        "relativeURI":
+            "{{settings.connection.[function formInit]}}"
+    },
+       "unencrypted": {
+           "field": "value"
+       },
+       "encrypted": "******",
+       "auth": {
+           "type": "basic",
+           "basic": {
+               "username": "mounica.manavapati@celigo.com",
+               "password": "******",
+               "qa__password":"Y2VsaWdvMTIzNA=="
+           }
+       }
+    },
+    "settings": {
+            "name":"connection_function formInit return options.resource.settingsForm.form"
+          },
+    "queues": [
+       {
+           "name": "62f0af89b0a39054cda2d5b7",
+           "size": 0
+       }
+    ]
+}
+}

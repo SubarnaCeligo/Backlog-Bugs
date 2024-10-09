@@ -1,0 +1,27 @@
+{
+    "importJSON": {
+      "name": "Create_Slack_HTTP_Connection_SuccessValues",
+      "http": {
+          "auth": {
+            "type": "basic",
+            "basic": {
+                "username": "celigo-labs@celigo.com",
+                "password": "****",
+                "qa__password":"UnBsJEA4QSM3T3Nq"
+            }
+        }
+        },
+        "ping": {
+          "method": "GET",
+          "successValues": [
+            "TrUE"
+          ],
+          "successPath": "Ok",
+          "relativeURI": "conversations.list"
+        },
+        "baseURI": "https://slack.com/api",
+        "mediaType": "json",
+        "encryptedFields": []
+      },
+      "type": "http"
+    }

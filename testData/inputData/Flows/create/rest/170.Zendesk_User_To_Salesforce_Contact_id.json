@@ -1,0 +1,156 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "salesforce": {
+          "sObjectType": "Contact",
+          "api": "soap",
+          "operation": "insert",
+          "removeNonSubmittableFields": false
+        },
+        "mapping": {
+          "fields": [
+            {
+              "extract": "name",
+              "generate": "LastName"
+            },
+            {
+              "extract": "user_fields.phone",
+              "generate": "Phone"
+            },
+            {
+              "extract": "user_fields.fax",
+              "generate": "Fax"
+            },
+            {
+              "extract": "notes",
+              "generate": "Email"
+            },
+            {
+              "extract": "user_fields.billing_address_1",
+              "generate": "MailingStreet"
+            },
+            {
+              "extract": "user_fields.billing_city",
+              "generate": "MailingCity"
+            },
+            {
+              "extract": "user_fields.billing_state",
+              "generate": "MailingState"
+            },
+            {
+              "extract": "user_fields.billing_country",
+              "generate": "MailingCountry"
+            },
+            {
+              "extract": "user_fields.billing_zip",
+              "generate": "MailingPostalCode"
+            },
+            {
+              "extract": "user_fields.shipping_address",
+              "generate": "OtherStreet"
+            },
+            {
+              "extract": "user_fields.shipping_city",
+              "generate": "OtherCity"
+            },
+            {
+              "extract": "user_fields.shipping_state",
+              "generate": "OtherState"
+            },
+            {
+              "extract": "user_fields.shipping_country",
+              "generate": "OtherCountry"
+            },
+            {
+              "extract": "user_fields.shipping_zip",
+              "generate": "OtherPostalCode"
+            }
+          ]
+        },
+        "_connectionId": "SALESFORCE CONNECTION",
+        "distributed": false,
+        "name": "Salesforce Contact from rest export",
+        "adaptorType": "SalesforceImport"
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "170.Zendesk_User_To_Salesforce_Contact_id",
+  "disabled": false,
+  "qa__dataVerification": {
+    "expected": {
+      "Salesforce": {
+        "name": "170.Zendesk_User_To_Salesforce_Contact_id",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "SALESFORCE CONNECTION"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "Email": "170zd2sf_id@celigo.com",
+            "OtherPostalCode": "500170",
+            "MailingCountry": "170Bill Country",
+            "MailingCity": "170Bill City",
+            "OtherStreet": "170Ship Address1",
+            "OtherState": "170Ship State",
+            "MailingState": "170Bill State",
+            "OtherCity": "170Ship City",
+            "Phone": "7897897845",
+            "MailingPostalCode": "500171",
+            "OtherCountry": "170Ship Country",
+            "LastName": "Auto@170_Zendesk_User_To_Salesforce_Contact_id",
+            "Fax": "7847474448",
+            "MailingStreet": "170Bill Address1"
+          },
+          "standaloneexportflowID": "57302d52943aa5946cce0870",
+          "uniqueField": "LastName",
+          "importapiIdentifier": "",
+          "importRecordType": "Contact",
+          "exportRecordType": "user",
+          "isUIFlow": true,
+          "query": "select id,lastname,email,phone,fax,mailingstreet,mailingcity,mailingstate,mailingcountry,mailingpostalcode,otherstreet,othercity,otherstate,othercountry,otherpostalcode from contact where lastname like 'Auto@170_Zendesk_User_To_Salesforce_Contact_id'",
+          "exportapiIdentifier": "e9190601e4"
+        }
+      }
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "parsers": [],
+        "http": {
+          "relativeURI": "users/14060286609.json",
+          "method": "GET",
+          "formType": "http",
+          "qa__formType": "rest",
+          "paging": {
+            "lastPageValues": []
+          },
+          "response": {
+            "resourcePath": "user"
+          }
+        },
+        "asynchronous": true,
+        "_connectionId": "HTTP ZENDESK CONNECTION",
+        "application": "zendesk support",
+        "name": "Rest export User with notes to SF",
+        "dataURITemplate": "{{{id}}}",
+        "adaptorType": "HTTPExport"
+      }
+    }
+  ]
+}

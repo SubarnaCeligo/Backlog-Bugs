@@ -1,0 +1,14 @@
+{
+  "Source_Integration": "TC_C30852",
+  "Source_Environment": "Production",
+  "templateJSON": {
+    "Install_Template": true,
+    "Upload_Path": "/testData/FLOWS/CREATE/Netsuite/6347aa7f01bcaa111fefb005.zip",
+    "New_connection": false,
+    "connections": ["FTP CONNECTION:FTP CONNECTION", "NETSUITE CONNECTION:NETSUITE CONNECTION"],
+    "waitBeforeClickInstall": true
+  },
+  "flowName": "TC_C30852",
+  "flowId": "6347aa7f01bcaa111fefb005",
+  "New_connection": false
+}

@@ -1,0 +1,233 @@
+{
+    "name": "TC_374_SF_Import_Insert_update_Product_Pricebookentry",
+    "disabled": true,
+    "timezone": "Australia/Sydney",
+    "_integrationId": "60bf8743f1161c1ff6cdccde",
+    "skipRetries": false,
+    "pageProcessors": [{
+            "responseMapping": {
+                "fields": [{
+                    "extract": "id",
+                    "generate": "product_Id"
+                }],
+                "lists": [],
+                "qa__index": 0
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "sf product import",
+                "responseTransform": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1"
+                    },
+                    "version": "1"
+                },
+                "parsers": [],
+                "_connectionId": "SALESFORCE CONNECTION",
+                "_sourceId": "60bf5da4f1161c1ff6cdc2a7",
+                "distributed": false,
+                "lookups": [],
+                "mapping": {
+                    "fields": [{
+                            "extract": "Name",
+                            "generate": "Name"
+                        },
+                        {
+                            "generate": "IsActive",
+                            "hardCodedValue": "true"
+                        }
+                    ]
+                },
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "Product2",
+                    "api": "soap",
+                    "removeNonSubmittableFields": false
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1"
+                    },
+                    "version": "1"
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        },
+        {
+            "responseMapping": {
+                "fields": [{
+                    "extract": "id",
+                    "generate": "pricebookentry_id"
+                }],
+                "lists": [],
+                "qa__index": 1
+            },
+            "type": "import",
+            "qa__import": {
+                "name": "priceboook entry add",
+                "parsers": [],
+                "_connectionId": "SALESFORCE CONNECTION",
+                "_sourceId": "60bf6a1387607d2981391a79",
+                "distributed": false,
+                "lookups": [],
+                "mapping": {
+                    "fields": [{
+                            "extract": "product_Id",
+                            "generate": "Product2Id"
+                        },
+                        {
+                            "generate": "Pricebook2Id",
+                            "hardCodedValue": "01so00000035i8c"
+                        },
+                        {
+                            "generate": "UnitPrice",
+                            "hardCodedValue": "100"
+                        }
+                    ]
+                },
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "PricebookEntry",
+                    "api": "soap",
+                    "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "dd",
+                "responseTransform": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1"
+                    },
+                    "version": "1"
+                },
+                "_connectionId": "SALESFORCE CONNECTION",
+                "distributed": false,
+                "mapping": {
+                    "fields": [{
+                            "extract": "custom_Text_Field1",
+                            "generate": "Product2Id"
+                        },
+                        {
+                            "generate": "Pricebook2Id",
+                            "hardCodedValue": "01so00000035i8c"
+                        },
+                        {
+                            "generate": "UnitPrice",
+                            "hardCodedValue": "300"
+                        }
+                    ]
+                },
+                "salesforce": {
+                    "operation": "addupdate",
+                    "sObjectType": "PricebookEntry",
+                    "api": "soap",
+                    "qa__idLookup": [
+                        [
+                            "Name",
+                            "equalto",
+                            "Name"
+                        ]
+                    ],
+                    "idLookup": {
+                        "whereClause": "(Name = {{{string Name}}})",
+                        "qa__idLookup": [
+                            [
+                                "Name",
+                                "equalto",
+                                "Name"
+                            ]
+                        ]
+                    },
+                    "removeNonSubmittableFields": false
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1"
+                    },
+                    "version": "1"
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        }
+    ],
+    "pageGenerators": [{
+        "qa__export": {
+            "name": "NetSuite Export",
+            "_connectionId": "NETSUITE CONNECTION",
+            "_sourceId": "60bf5da4f1161c1ff6cdc2a4",
+            "asynchronous": true,
+            "netsuite": {
+                "type": "restlet",
+                "skipGrouping": true,
+                "statsOnly": false,
+                "restlet": {
+                    "recordType": "customer",
+                    "searchId": "3160",
+                    "useSS2Restlets": false
+                },
+                "distributed": {
+                    "disabled": false,
+                    "forceReload": false
+                }
+            },
+            "adaptorType": "NetSuiteExport"
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "successCount": "12",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
+    "qa__dataVerification": {
+        "expected": {
+            "Salesforce": {
+                "name": "TC_374_SF_Import_Insert_update_Product_Pricebookentry",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "12",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "exportapiIdentifier": "eb4ac0198a",
+                    "exportRecordType": "Customer",
+                    "importRecordType": "Product",
+                    "isUIFlow": true,
+                    "generateSampleDropDownAvailable": false,
+                    "standaloneexportflowID": "60c04f3bf1161c1ff6cdf1c2",
+                    "query": "SELECT Name, UnitPrice FROM PricebookEntry where Name like 'Loui%'",
+                    "uniqueField": "Name",
+                    "expectedJSON": [{
+                            "Name": "Louis Fabre",
+                            "UnitPrice": 300
+                        },
+                        {
+                            "Name": "Loui2New Strat2New",
+                            "UnitPrice": 300
+                        },
+                        {
+                            "Name": "Loui3 Strat3",
+                            "UnitPrice": 300
+                        },
+                        {
+                            "Name": "Loui4 Strat4",
+                            "UnitPrice": 300
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "wizardState": "done"
+}

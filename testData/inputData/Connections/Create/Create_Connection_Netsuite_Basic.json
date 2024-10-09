@@ -1,0 +1,33 @@
+{
+    "expectedJSON": {
+        "name": "Create_Connection_Netsuite_Basic",
+        "type": "netsuite",
+        "_borrowConcurrencyFromConnectionId": "5e4645321acc2a378be5ecf2",
+        "netsuite": {
+            "email": "automationuser@gmail.com",
+            "password": "******",
+            "environment": "production",
+            "requestLevelCredentials": false,
+            "wsdlVersion": "current",
+            "concurrencyLevel": 1,
+            "suiteAppInstalled": false,
+            "authType": "basic"
+        }
+    },
+    "importJSON": {
+        "name": "Create_Connection_Netsuite_Basic",
+        "type": "netsuite",
+        "wsdl": "2016.2",
+        "_borrowConcurrencyFromConnectionId": "5e4645321acc2a378be5ecf2",
+        "netsuite": {
+            "wsdlVersion": "current",
+            "password": "******",
+            "environment": "production",
+            "roleId": "3",
+            "qa__password": "QXV0b1VzZXJANTgw",
+            "requestLevelCredentials": false,
+            "account": "TSTDRV1143616",
+            "email": "automationuser@gmail.com"
+        }
+    }
+}

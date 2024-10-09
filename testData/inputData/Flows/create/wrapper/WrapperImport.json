@@ -1,0 +1,174 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "qa__expectedDashboardCount": {
+    "ignoreCount": "0",
+    "successCount": "2",
+    "errorCount": "0"
+  },
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "mapping": {
+          "fields": [
+            {
+              "extract": "Name",
+              "generate": "organization.name"
+            },
+            {
+              "extract": "Fax",
+              "generate": "organization.organization_fields.fax"
+            },
+            {
+              "extract": "Phone",
+              "generate": "organization.organization_fields.phone",
+              "lookupName": "52281819c67240858a7eb71a51b69354"
+            },
+            {
+              "extract": "Email",
+              "generate": "organization.notes"
+            }
+          ]
+        },
+        "_connectionId": "5795f2a22a6378590f36f9c5",
+        "name": "WraperImport1999",
+        "adaptorType": "WrapperImport",
+        "lookups": [
+          {
+            "name": "cfb54820d80647b3a4ae291098b3d1cc",
+            "map": {
+              "999999999": "8888888888"
+            },
+            "allowFailures": false
+          }
+        ],
+        "distributed": false,
+        "wrapper": {
+          "lookups": [
+            {
+              "name": "52281819c67240858a7eb71a51b69354",
+              "allowFailures": false,
+              "map": {
+                "999999999": "8888888888"
+              }
+            }
+          ],
+          "function": "importFunction"
+        }
+      }
+    }
+  ],
+  "timezone": "Asia/Calcutta",
+  "name": "76.WrapperImport",
+  "disabled": false,
+  "qa__dataVerification": {
+    "importRecordJSON": {
+      "Company Name": "Auto@wrapperimport1",
+      "Email": "76.wrapperimport1@mail.com",
+      "phone": "999999999",
+      "subsidiary": "3"
+    },
+    "application": "NETSUITE",
+    "importapiIdentifier": "i505bb2196",
+    "expected": {
+      "Zendesk": {
+        "name": "76.WrapperImport",
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "import": {
+          "_connectionId": "5795f2a22a6378590f36f9c5"
+        },
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": {
+            "organization_fields": {
+              "phone": "8888888888"
+            },
+            "notes": "76.wrapperimport1@mail.com",
+            "name": "Auto@wrapperimport1"
+          },
+          "standaloneexportflowID": "57aad5298ec9f8804906006d",
+          "generateSampleDropDownAvailable": false,
+          "uniqueField": "name",
+          "importRecordType": "organizations",
+          "exportRecordType": "Customer",
+          "isUIFlow": true,
+          "exportapiIdentifier": "edb8215601"
+        }
+      }
+    },
+    "importapidoc": {
+      "_id": "57e3cfaec12b7b234a451971",
+      "createdAt": "2017-11-25T14:33:51.843Z",
+      "lastModified": "2018-05-24T12:59:45.352Z",
+      "name": "08.NS Import",
+      "_connectionId": "56d6b65d6f8ed15e4d0f9b8c",
+      "distributed": true,
+      "apiIdentifier": "i505bb2196",
+      "ignoreExisting": false,
+      "ignoreMissing": false,
+      "oneToMany": false,
+      "sandbox": false,
+      "netsuite_da": {
+        "restletVersion": "suitebundle",
+        "operation": "add",
+        "recordType": "customer",
+        "lookups": [],
+        "mapping": {
+          "fields": [
+            {
+              "generate": "companyname",
+              "extract": "Company Name",
+              "immutable": false
+            },
+            {
+              "generate": "email",
+              "extract": "Email",
+              "immutable": false
+            },
+            {
+              "generate": "subsidiary",
+              "extract": "subsidiary",
+              "internalId": true,
+              "immutable": false
+            },
+            {
+              "generate": "phone",
+              "extract": "phone",
+              "immutable": false
+            }
+          ],
+          "lists": []
+        }
+      },
+      "adaptorType": "NetSuiteDistributedImport"
+    }
+  },
+  "pageGenerators": [
+    {
+      "qa__export": {
+        "asynchronous": true,
+        "_connectionId": "NETSUITE CONNECTION",
+        "name": "NetSuiteExportCustoner1999",
+        "adaptorType": "NetSuiteExport",
+        "parsers": [],
+        "netsuite": {
+          "type": "restlet",
+          "skipGrouping": false,
+          "statsOnly": false,
+          "restlet": {
+            "recordType": "customer",
+            "searchId": "1999",
+            "criteria": [],
+            "columns": [],
+            "useSS2Restlets": false
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "qa__expectedDashboardCount": {
+    "successCount": "2",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
+  "qa__dataVerification": {
+    "expected": {
+      "netsuite": {
+        "qa__expectedDashboardCount": {
+          "successCount": "1",
+          "ignoreCount": "0",
+          "errorCount": "0"
+        },
+        "qa__dataVerification": {
+          "expectedJSON": [
+            {
+              "name": "ACC00001 - 02: Boston : Overstock",
+              "memo": "TC_C36350_memo",
+              "location": {
+                "internalid": "3",
+                "name": "02: Boston : Overstock"
+              },
+              "item": {
+                "internalid": "387",
+                "name": "ACC00001"
+              },
+              "subsidiary": {
+                "internalid": "1",
+                "name": "Honeycomb Mfg."
+              }
+            }
+          ],
+          "generateSampleDropDownAvailable": false,
+          "standaloneexportflowID": "633bd33e677022566eb2688a",
+          "importRecordType": "itemlocationconfiguration",
+          "exportRecordType": "itemlocationconfiguration",
+          "isUIFlow": true,
+          "exportapiIdentifier": "e945894ea9"
+        }
+      }
+    }
+  },
+  "flowsData": {
+    "name": "TC_C36350",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export": {
+              "name": "FTP Export",
+              "_connectionId": "FTP CONNECTION",
+              "apiIdentifier": "e11d77d0ff",
+              "asynchronous": true,
+              "ftp": {
+                "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                "fileNameStartsWith": "TC_C30570",
+                "fileNameEndsWith": ".json"
+              },
+              "file": {
+                "encoding": "utf8",
+                "output": "records",
+                "skipDelete": true,
+                "type": "json"
+              },
+              "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "NS Import",
+              "_connectionId": "NETSUITE CONNECTION",
+              "distributed": true,
+              "apiIdentifier": "ie79c12dff",
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "sandbox": false,
+              "lookups": [],
+              "netsuite_da": {
+                  "useSS2Restlets": false,
+                  "operation": "add",
+                  "recordType": "itemlocationconfiguration",
+                  "lookups": [],
+                  "mapping": {
+                      "fields": [
+                        {
+                          "generate": "memo",
+                          "hardCodedValue": "TC_C36350_memo",
+                          "internalId": false
+                        },
+                        {
+                          "generate": "subsidiary",
+                          "hardCodedValue": "1",
+                          "internalId": true
+                        },
+                        {
+                          "generate": "item",
+                          "hardCodedValue": "387",
+                          "internalId": true
+                        },
+                        {
+                          "generate": "location",
+                          "hardCodedValue": "3",
+                          "internalId": true
+                        },
+                        {
+                          "generate": "name",
+                          "hardCodedValue": "ACC00001 - 02: Boston : Overstock",
+                          "internalId": false
+                        }
+                      ],
+                      "lists": []
+                  }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C36350",
+          "disabled": false,
+          "_integrationId": "56d6b23fe1fc35de53914730",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

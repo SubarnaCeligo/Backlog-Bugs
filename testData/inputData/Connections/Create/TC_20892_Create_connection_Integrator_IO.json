@@ -1,0 +1,52 @@
+{
+    "expectedJSON": {
+        "type": "http",
+        "name": "Integrator Io",
+        "sandbox": false,
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://api.qa.staging.integrator.io",
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "token",
+                "oauth": {
+                    "clientCredentialsLocation": "body"
+                },
+                "token": {
+                    "token": "******",
+                    "location": "header",
+                    "headerName": "Authorization",
+                    "scheme": "Bearer",
+                    "paramName": "access_token"
+                }
+            }
+        }
+    },
+    "importJSON": {
+        "type": "http",
+        "name": "Integrator Io",
+        "http": {
+            "formType": "http",
+            "mediaType": "json",
+            "baseURI": "https://api.qa.staging.integrator.io",
+            "unencrypted": {
+                "field": "value"
+            },
+            "encrypted": "******",
+            "auth": {
+                "type": "token",
+                "qa__token1": {
+                    "qa__token": "ef13bc27213c4eb98798468130887455",
+                    "location": "header",
+                    "headerName": "Authorization",
+                    "scheme": "Bearer",
+                    "paramName": "access_token"
+                }
+            }
+        }
+    }
+}

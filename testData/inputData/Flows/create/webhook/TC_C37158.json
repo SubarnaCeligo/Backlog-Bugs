@@ -1,0 +1,23 @@
+{
+    "timezone": "Asia/Calcutta",
+    "name": "TC_C37158",
+    "disabled": false,
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageGenerators": [
+      {
+        "qa__export": {
+          "name": "webhook stripe",
+          "type": "webhook",
+          "qa__token": "12345",
+          "sandbox": false,
+          "webhook": {
+            "provider": "custom",
+            "verify": "secret_url",
+            "token": "******"
+          },
+          "adaptorType": "WebhookExport"
+        }
+      }
+    ]
+  }

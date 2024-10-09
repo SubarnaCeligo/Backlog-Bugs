@@ -91,3 +91,6 @@ require("./TC_C51243");
 require("./TC_C51244");
 require("./TC_C51324");
 require("./TC_C44424_HTTP_To_HTTP");
+require("./TC_C51110");
+require("./TC_C51117_Verify_User_able_See_SourceRecord_Field_On_Setting_Standard_mapping");
+require("./TC_C51797");

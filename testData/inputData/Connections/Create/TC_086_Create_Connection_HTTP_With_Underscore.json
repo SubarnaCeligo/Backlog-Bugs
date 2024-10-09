@@ -1,0 +1,34 @@
+{
+    "expectedJSON": {
+        "name": "Create_Connection_HTTP_With_Underscore",
+        "http": {
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "password": "******",
+                    "username": "qa_auto@celigo.com"
+                }
+            },
+            "baseURI": "https://celigo_qa.zendesk.com/api/v2/",
+            "mediaType": "json"
+        },
+        "type": "http"
+    },
+    "importJSON": {
+        "name": "Create_Connection_HTTP_With_Underscore",
+        "http": {
+            "auth": {
+                "type": "basic",
+                "qa__basic": {
+                    "password": "******",
+                    "qa__password": "Y2VsaWdvMTIzNA==",
+                    "username": "qa_auto@celigo.com"
+                }
+            },
+            "baseURI": "https://celigo_qa.zendesk.com/api/v2/",
+            "mediaType": "json",
+            "encryptedFields": []
+        },
+        "type": "http"
+    }
+}

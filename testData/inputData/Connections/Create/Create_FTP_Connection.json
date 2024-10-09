@@ -1,0 +1,17 @@
+{
+    "importJSON": {
+        "type": "ftp",
+        "name": "FTP connection",
+        "ftp": {
+            "type": "sftp",
+            "hostURI": "celigo.files.com",
+            "username": "io.auto.qa@celigo.com",
+            "password": "ZUBZVGdNTzUwJGRzbDAlSw==",
+            "port": 22,
+            "usePassiveMode": true,
+            "userDirectoryIsRoot": false,
+            "useImplicitFtps": false,
+            "requireSocketReUse": false
+        }
+    }
+  }

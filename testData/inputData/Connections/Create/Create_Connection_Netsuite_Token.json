@@ -1,0 +1,30 @@
+{
+  "expectedJSON": {
+    "name": "Create_Connection_Netsuite_Token",
+    "type": "netsuite",
+    "netsuite": {
+      "_iClientId": "585244d336df852529b86ba7",
+      "tokenId": "******",
+      "concurrencyLevel": 2,
+      "requestLevelCredentials": true,
+      "account": "TSTDRV1441353",
+      "tokenSecret": "******"
+    }
+  },
+  "importJSON": {
+    "name": "Create_Connection_Netsuite_Token",
+    "type": "netsuite",
+    "netsuite": {
+      "wsdlVersion": "next",
+      "_iClientId": "585244d336df852529b86ba7",
+      "tokenId": "******",
+      "requestLevelCredentials": true,
+      "qa__tokenId": "NDc5MzkxYTBlNGNiMzIyNDk5NTcyN2E0ZjNmYjhmODgwMDkyYTllZmIyYTAyN2Y2MTI5NTZiZGY5ODAzNTQ4ZQ==",
+      "environment": "production",
+      "concurrencyLevel": 2,
+      "account": "TSTDRV1441353",
+      "tokenSecret": "******",
+      "qa__tokenSecret": "OGQyMDYxNGNmNzIxNDVkMGNjMjM0ZmVmMTEzODQ5N2I3ZjViOWM1YWJkMGY4Yzk4MWE3OTdmZTEzZmJmNTg3OQ=="
+    }
+  }
+}

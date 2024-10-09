@@ -23,6 +23,11 @@ await io.homePage.fill(
 await io.homePage.loadingTime();
 await io.homePage.clickByTextByIndex("TC_C34143_Flow_DND", 0);
 await io.homePage.loadingTime();
+await io.flowBuilder.click(selectors.flowBuilderPagePO.RUN_FLOW);
+const lastRun = page.getByText('Last run');
+await io.homePage.loadingTime();
+await lastRun.waitFor({state: 'visible', timeout: 180000});
+await io.homePage.loadingTime();
 await io.homePage.click(
   selectors.flowBuilderPagePO.RUN_HISTORY
 );

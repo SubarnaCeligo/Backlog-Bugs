@@ -1,0 +1,17 @@
+{
+    "qa__api_tdata": [
+        {
+            "createIntegrations": {
+                "name": "TC_C32222"
+            }
+        }
+    ],
+    "createFlowGroup": {
+        "name": "TC_C32222",
+        "flowGroupings": [
+            {
+                "name": "TC_C32222_FG"
+            }
+        ]
+    }
+}

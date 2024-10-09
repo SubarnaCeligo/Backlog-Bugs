@@ -14,11 +14,11 @@ test.describe("TC_C23108", () => {
     test.step("** Deleted flow **", async ()=>{});
   });
 
-  test("@Env-All @Zephyr-IO-T2802 | To verify Clear log/Download logs should be disabled for connections not supporting debug logs", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T2802 | To verify Clear log/Download logs should be disabled for connections not supporting debug logs", async ({io,page}) => {
     await io.api.createImpOrExpAndFlowsThruAPI(TC);
     await io.homePage.loadingTime();
     flowId = await io.api.getFlowId(TC.name);
-
+    await io.homePage.loadingTime();
     await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId);
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.NOTIFICATION_CONNECTIONS);

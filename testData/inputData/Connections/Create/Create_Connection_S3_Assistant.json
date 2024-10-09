@@ -1,0 +1,20 @@
+{
+    "expectedJSON": {
+        "name": "S3",
+        "s3": {
+            "accessKeyId": "AKIASXM4V7ZF2CWVU3HE",
+            "secretAccessKey": "******",
+            "pingBucket": ""
+        }
+    },
+    "importJSON": {
+        "type": "s3",
+        "name": "S3",
+        "s3": {
+            "accessKeyId": "AKIASXM4V7ZF2CWVU3HE",
+            "secretAccessKey": "******",
+            "qa__secretAccessKey": "MHM0TGhrd0VuUmhKaUpiWm9udjREeHNGdTc3d3VhNWJRcWk4QTBadg==",
+            "pingBucket": " "
+        }
+    }
+}

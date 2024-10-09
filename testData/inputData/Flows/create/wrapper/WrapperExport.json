@@ -1,0 +1,87 @@
+{
+    "skipRetries": false,
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "pageProcessors": [{
+        "type": "import",
+        "qa__import": {
+            "salesforce": {
+                "sObjectType": "Account",
+                "api": "rest",
+                "operation": "insert",
+                "removeNonSubmittableFields": false
+            },
+            "mapping": {
+                "fields": [{
+                    "extract": "name",
+                    "generate": "Name"
+                }, {
+                    "extract": "organization_fields.fax",
+                    "generate": "Fax"
+                }, {
+                    "extract": "organization_fields.phone",
+                    "generate": "Phone"
+                }]
+            },
+            "_connectionId": "SALESFORCE CONNECTION",
+            "name": "SalesforceImport1999",
+            "adaptorType": "SalesforceImport",
+            "distributed": false
+        }
+    }],
+    "qa__expectedDashboardCount": {
+        "ignoreCount": "0",
+        "successCount": "2",
+        "errorCount": "0"
+    },
+    "timezone": "Asia/Calcutta",
+    "name": "75.Wrapper to ZD organizations",
+    "disabled": false,
+    "qa__dataVerification": {
+        "expected": {
+            "Salesforce": {
+                "name": "75.Wrapper to ZD organizations",
+                "_integrationId": "56d6b23fe1fc35de53914730",
+                "import": {
+                    "_connectionId": "SALESFORCE CONNECTION"
+                },
+                "qa__expectedDashboardCount": {
+                    "successCount": "1",
+                    "ignoreCount": "0",
+                    "errorCount": "0"
+                },
+                "qa__dataVerification": {
+                    "expectedJSON": [{
+                        "Phone": "949649849648",
+                        "Fax": "6464165846156",
+                        "Name": "Wrapper Record2"
+                    }],
+                    "standaloneexportflowID": "57be7ecc269c3e42500c34a3",
+                    "uniqueField": "Name",
+                    "importRecordType": "Account",
+                    "isUIFlow": true,
+                    "query": "Select id,Name,phone,fax from Account where name like 'Wrapper Record%'",
+                    "exportapiIdentifier": "e8a11eeb29"
+                }
+            }
+        }
+    },
+    "pageGenerators": [{
+        "qa__export": {
+            "test": {
+                "limit": 1
+            },
+            "asynchronous": true,
+            "_connectionId": "593940a2774e784fa714dc69",
+            "name": "WrapperExportCustoner1999",
+            "adaptorType": "WrapperExport",
+            "parsers": [],
+            "wrapper": {
+                "configuration": {
+                    "a": "b"
+                },
+                "function": "getZendeskOrganizations"
+            },
+            "type": "test"
+        }
+    }]
+}
