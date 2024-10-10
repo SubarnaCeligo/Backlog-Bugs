@@ -102,3 +102,7 @@ require("./TC_C28850");
 require("./TC_C29035");
 require("./TC_C29297");
 require("./TC_C30843_C30848_scriptDebugger");
+require("./TC_C1079_Verify_User_canDelete_theIntegration");
+require("./TC_C1104_error_flows_redirections");
+require("./TC_C22581_general_custom_fields_forms");
+require("./TC_C32177");

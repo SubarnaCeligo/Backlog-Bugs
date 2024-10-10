@@ -8,44 +8,64 @@
         {
             "type": "export",
             "qa__export": {
-                "name": "zendesk user",
+                "name": "Zendesk export",
+                "application": "zendesk support",
                 "_connectionId": "HTTP ZENDESK CONNECTION",
-                "apiIdentifier": "e698fd5e17",
                 "asynchronous": true,
-                "pageSize": 1,
-                "assistant": "zendesk",
                 "oneToMany": false,
                 "sandbox": false,
-                "assistantMetadata": {
-                    "resource": "tickets_api",
-                    "version": "v2",
-                    "operation": "list_tickets"
+                "type": "test",
+                "test": {
+                    "limit": 2
                 },
                 "http": {
-                    "relativeURI": "/api/v2/tickets.json",
+                    "relativeURI": "macros",
                     "method": "GET",
-                    "successMediaType": "json",
-                    "errorMediaType": "json",
-                    "formType": "assistant",
-                    "paging": {
-                        "method": "url",
-                        "path": "next_page",
-                        "lastPageStatusCode": 404
-                    },
+                    "formType": "http",
                     "response": {
-                        "resourcePath": "tickets"
+                        "resourcePath": "macros"
                     }
                 },
-                "rawData": "62f37ad6703e322cf5d90431b79c1142c2d74415b9c72cfe4d905b71",
-                "rest": {
-                    "relativeURI": "/api/v2/tickets.json",
-                    "method": "GET",
-                    "resourcePath": "tickets",
-                    "pagingMethod": "nextpageurl",
-                    "nextPagePath": "next_page",
-                    "allowUndefinedResource": false
+                "transform": {
+                    "type": "expression",
+                    "expression": {
+                        "rules": [
+                            [
+                                {
+                                    "extract": "id",
+                                    "generate": "id"
+                                },
+                                {
+                                    "extract": "title",
+                                    "generate": "title"
+                                },
+                                {
+                                    "extract": "position",
+                                    "generate": "something"
+                                }
+                            ]
+                        ],
+                        "version": "1"
+                    },
+                    "version": "1",
+                    "rules": [
+                        [
+                            {
+                                "extract": "id",
+                                "generate": "id"
+                            },
+                            {
+                                "extract": "title",
+                                "generate": "title"
+                            },
+                            {
+                                "extract": "position",
+                                "generate": "something"
+                            }
+                        ]
+                    ]
                 },
-                "adaptorType": "RESTExport"
+                "adaptorType": "HTTPExport"
             }
         }
     ],
@@ -133,7 +153,7 @@
         }
     ],
     "qa__expectedDashboardCount": {
-        "successCount": "9",
+        "successCount": "6",
         "ignoreCount": "0",
         "errorCount": "0"
     },

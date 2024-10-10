@@ -1,0 +1,67 @@
+{
+    "type": "http",
+    "name": "TC_C29682_Amazon_Hybrid",
+    "assistant": "amazonmws",
+    "debugDate": "2023-12-20T05:50:13.471Z",
+    "debugUntil": "2023-12-20T05:50:13.471Z",
+    "enableMicroBatchForOneToMany": true,
+    "enableCsvObjectParsing": false,
+    "aiDescription": {
+        "summary": null,
+        "detailed": null,
+        "generatedOn": null
+    },
+    "http": {
+        "formType": "assistant",
+        "type": "Amazon-Hybrid",
+        "mediaType": "json",
+        "baseURI": "https://sellingpartnerapi-na.amazon.com/",
+        "concurrencyLevel": 25,
+        "targetConcurrencyLevel": 25,
+        "unencrypted": {
+            "marketplaceId": "ATVPDKIKX0DER",
+            "sellingRegion": "northAmerica",
+            "mwsAuthToken": "amzn.mws.2ac1e6ca-2a2c-97ff-e72a-c3b749b30e4c",
+            "sellerId": "A1IID7W41RCK1H"
+        },
+        "encrypted": "******",
+        "isRest": false,
+        "auth": {
+            "type": "oauth",
+            "failStatusCode": 403,
+            "oauth": {
+                "authURI": "https://sellercentral.amazon.com/apps/authorize/consent",
+                "tokenURI": "https://api.amazon.com/auth/o2/token",
+                "accessTokenPath": "access_token",
+                "grantType": "authorizecode",
+                "useIClientFields": false
+            },
+            "token": {
+                "token": "******",
+                "location": "body",
+                "refreshMediaType": "urlencoded",
+                "refreshToken": "******"
+            }
+        }
+    },
+    "autoRecoverRateLimitErrors": true,
+    "microServices": {
+        "disableRdbms": false,
+        "disableNetSuiteDistributed": false,
+        "disableHttp": false,
+        "disableSalesforce": false,
+        "disableAs2": false,
+        "disableS3": false,
+        "disableFile": false,
+        "disableFtp": false,
+        "disableNetSuiteProxy": false,
+        "disableNetSuiteWebservices": false,
+        "disableNsFile": false
+    },
+    "queues": [
+        {
+            "name": "6572e1634180db39cbb75042",
+            "size": 0
+        }
+    ]
+}

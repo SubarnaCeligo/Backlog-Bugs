@@ -12,29 +12,36 @@ test.describe("TC_C51234 verify when user has 1 sources if it is removed and 2 n
     io,
     page
   }) => {
-    
-    test.step("*** Creating PageGenerator ***", async () => {});
-    flowID = await io.createResourceFromAPI(TC, "FLOWS");
-    const flowDoc = await io.api.getCall("v1/flows/" + [flowID]);
-    const _importId = flowDoc?.pageProcessors?.[0]?._importId;
+    test.step("*** Creating flow through API ***", async ()=>{});
+    flowID = await io.createResourceFromAPI(TC, 'FLOWS');
+    await io.flowBuilder.navigateToTheFlow(flowID);
 
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
 
-    const map = new Map();
-    const filepath = "/FTP_uploads/TC_C51221.json";
-    map.set("uploadFile", filepath);
-    await io.homePage.fileUpload(map);
+    test.step("*** Click on the created export***", async ()=>{});
+    await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
+    await io.homePage.click(
+      selectors.flowBuilderPagePO.TRANSFER
+    );
+    await io.homePage.loadingTime();
+    const fileInput = await page.$(selectors.basePagePO.UPLOAD_FILE);
+    await fileInput.setInputFiles("testData/assets/" + "FTP_uploads/TC_C51221.json");
+    await io.homePage.loadingTime();
 
-    test.step("*** Clicking on Preview ***", async ()=>{});
     await io.homePage.click(
       selectors.importPagePO.CLICKPREVIEW
     );
-
-    await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
-
+    test.step("*** Save and close the export***", async ()=>{});
+    await io.homePage.click(
+      selectors.basePagePO.SAVE_AND_CLOSE
+    );
     await io.homePage.loadingTime();
-    await io.homePage.isPageReady();
+
+    await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
+
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT_MAPPINGS)
+    await io.flowBuilder.loadingTime();
 
     test.step("*** Clicking on source fields ***", async () => {});
     await io.homePage.loadingTime();
@@ -42,7 +49,8 @@ test.describe("TC_C51234 verify when user has 1 sources if it is removed and 2 n
       selectors.mappings.MAPPER2DOT0PO.SOURCEFIELDS,
       1
     );
-    await page.keyboard.type("Control+A");
+    await page.keyboard.press('Control+A');
+    await page.keyboard.press('Meta+A');
     await page.keyboard.type("$.mother,$.siblings[*].children[*]");
 
     test.step("*** Click on Preview ***", async () => {});
@@ -50,13 +58,16 @@ test.describe("TC_C51234 verify when user has 1 sources if it is removed and 2 n
     await io.homePage.click(selectors.flowBuilderPagePO.PREVIEW);
 
     await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.homePage.loadingTime();
     test.step("*** Click On Save and close ***", async () => {});
 
-    test.step("*** Navigating to Home Page ***", async () => {});
-    await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
+    test.step("*** Obtaining the flowJson ***", async ()=>{});
+    const flowJson = await io.api.getFlowById(flowID);
+    test.step("*** Obtaining importId from flowJson ***", async ()=>{});
+    const importId = flowJson.pageProcessors[0]._importId;
 
     test.step("*** Fetching import doc ***", async () => {});
-    let importJson1 = await io.api.getCall(`v1/imports/${_importId}`);
+    let importJson1 = await io.api.getCall(`v1/imports/${importId}`);
 
     await test.step("*** Validating new sources are added test.afterEach deleting one source ***", async () => {});
     await expect(importJson1.mappings[1].buildArrayHelper[0]).hasOwnProperty(

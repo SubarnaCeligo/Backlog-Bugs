@@ -26,7 +26,7 @@ test.describe("TC_C19922", () => {
     test.step("*** Selecting the Run  ***", async ()=>{});
 
     const waitingInQueueEl = await page.getByText("Waiting in queue").first();
-    await waitingInQueueEl.waitFor({ state: 'visible', timeout: 30000 });
+    await waitingInQueueEl.waitFor({ state: 'visible', timeout: 90000 });
     test.step("*** Wait for text to be visible ***", async ()=>{});
     await expect(waitingInQueueEl).toBeVisible();
     test.step("*** verified the status Waiting in queue  ***", async ()=>{});

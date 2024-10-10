@@ -1,7 +1,8 @@
 {
-  "DynamoDB": {
+    "name": "TC_C50875",
     "pageGenerators": [
       {
+        "type": "export",
         "qa__export": {
           "name": "AutomationStandaloneExport__EGQv0fzrIy",
           "_connectionId": "DYNAMODB CONNECTION",
@@ -18,12 +19,9 @@
           },
           "adaptorType": "DynamodbExport"
         }
-      }
-    ]
-  },
-  "MongoDB": {
-    "pageGenerators": [
+      },
       {
+        "type": "export",
         "qa__export": {
           "name": "AutomationStandaloneExport__DslVvBfZG8",
           "_connectionId": "MONGODB CONNECTION",
@@ -32,12 +30,11 @@
           "oneToMany": false,
           "sandbox": false,
           "mongodb": {
-            "method": "find",
-            "collection": "afe_dataurl_concurrency"
-          },
+                    "method": "find",
+                    "collection": "UI_automationDB"
+                },
           "adaptorType": "MongodbExport"
         }
       }
-    ]
-  }
+    ] 
 }

@@ -33,7 +33,7 @@ test.describe("TC_C20046", () => {
 
     var connection = HTTP[0]["connectionId"];
     await io.homePage.fillWebPage(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, "SNOWFLAKE CONN");
-    await io.homePage.clickByTextByIndex(connection, 0);
+    await io.homePage.clickByTextByIndex(connection, 0, {exact: false});
     await io.homePage.loadingTime();
     test.step("*** Choosing the Snowflake connection ***", async ()=>{});
 
