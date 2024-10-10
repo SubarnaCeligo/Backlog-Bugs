@@ -8,7 +8,7 @@
     "content": "function postMap (options) {return options.postMapData.map((d) => {return {data: d1}})}"
   },
   "qa__expectedDashboardCount": {
-    "successCount": "4",
+    "successCount": "1",
     "ignoreCount": "0",
     "errorCount": "0"
   },
@@ -22,7 +22,7 @@
         "sandbox": false,
         "qa__path": "//FTP_uploads//TC_C47563.json",
         "ftp": {
-          "directoryPath": "/io.auto.qa",
+          "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
           "fileNameStartsWith": "TC_C47563.json"
         },
         "file": {
@@ -55,7 +55,7 @@
               "type": "import",
               "qa__import": {
                 "name": "AutomationStandaloneImport1_afsflk",
-                "application":"zendesk support",
+                "application": "zendesk support",
                 "_connectionId": "HTTP ZENDESK CONNECTION",
                 "hooks": {
                   "postMap": {
@@ -69,18 +69,18 @@
                 "mapping": {
                   "fields": [
                     {
-                      "extract": "{{id}}_response",
-                      "generate": "user.name"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     },
                     {
-                      "extract": "Title",
-                      "generate": "user.notes"
+                      "extract": "notes",
+                      "generate": "organization.notes"
                     }
                   ]
                 },
                 "http": {
                   "relativeURI": [
-                    "/users"
+                    "organizations.json"
                   ],
                   "method": [
                     "POST"

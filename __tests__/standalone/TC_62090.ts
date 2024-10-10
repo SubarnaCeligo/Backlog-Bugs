@@ -21,7 +21,7 @@ test.describe("TC_62090", () => {
     await io.homePage.clickByText("Field dictionary");
     await io.homePage.loadingTime();
     
-    await io.homePage.enterHugeData(selectors.playgroundPO.DATE_SETTING, "01/01/2024");
+    await io.homePage.enterHugeData(selectors.playgroundPO.DATE_SETTING, "03/03/2024");
 
     await io.homePage.click(selectors.playgroundPO.TESTFORM);
     await io.homePage.loadingTime();
@@ -36,8 +36,8 @@ test.describe("TC_62090", () => {
     }
 
     const copiedText = await page.evaluate(() => navigator.clipboard.readText()); 
-    await expect(copiedText).toContain("/01/2024");
-    test.step("Expect month to be 01 and year to be 2024", async ()=>{});
+    await expect(copiedText).toContain("/03/2024");
+    test.step("Expect month to be 03 and year to be 2024", async ()=>{});
 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

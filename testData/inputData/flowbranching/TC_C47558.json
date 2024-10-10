@@ -7,6 +7,11 @@
     "name": "POSTMAPTEST",
     "content": "function postMap (options) {return options.data.map((d) => {return {data: d1}})}"
   },
+  "qa__expectedDashboardCount": {
+    "successCount": "11",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
   "pageGenerators": [
     {
       "qa__export": {
@@ -22,7 +27,7 @@
         },
         "ftp": {
           "directoryPath": "/io.auto.qa/IO_Automation_SFTP_Exports",
-          "fileNameStartsWith": "TC_C47558.json"
+          "fileNameStartsWith": "TC_C47558_1.json"
         },
         "file": {
           "encoding": "utf8",
@@ -34,7 +39,7 @@
           }
         },
         "adaptorType": "FTPExport",
-        "qa__path": "//SFTP_uploads//TC_C47558.json"
+        "qa__path": "//SFTP_uploads//TC_C47558_1.json"
       }
     }
   ],

@@ -97,6 +97,7 @@ test.describe("TC_14243_Verify_ErrorLogs_with_NS", () => {
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.EXPORT_SAVED_SEARCH, "830");
     test.step("*** Selecting the desired saved search ***", async ()=>{});
 
+    await (await page.locator(selectors.importPagePO.CLICKPREVIEW)).isVisible();
     await io.homePage.click(selectors.importPagePO.CLICKPREVIEW);
     test.step("*** Clicked On Preview ***", async ()=>{});
     await io.homePage.loadingTime();

@@ -36,7 +36,7 @@ test.describe("TC_C96053_TC_C96054", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     test.step("*** Navigating to Home Page   ***", async ()=>{});
   });
-  test("@Zephyr-IO-T21451 @Env-All TC_C96054 Verify the application field list when supportsIclient is set to fal se", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T21451 @Env-All TC_C96054 Verify the application field list when supportsIclient is set to false", async ({io,page}, testInfo) => {
     await io.homePage.goToMenu("Resources","iClients");
     test.step("Clicked on Iclients button", async ()=>{});
     await io.homePage.loadingTime();

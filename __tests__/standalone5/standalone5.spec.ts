@@ -86,3 +86,7 @@ require("./TC_C28144");
 require("./TC_C28145");
 require("./TC_C28152");
 require("./TC_C28203_FTP_Verify_Default_Symmetric_Key_Algorithm");
+require("./TC_C29682");
+require("./TC_C33041");
+require("./TC_C33323");
+require("./TC_C33421_Verify_Data_URI_PG_Export_output_Presavepage_Hook");

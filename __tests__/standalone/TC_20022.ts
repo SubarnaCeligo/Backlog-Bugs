@@ -16,7 +16,7 @@ test.describe("TC_20022", () => {
     const ppImportId = flowDoc?.pageProcessors?.[0]?._importId;
 
     // Delete the flow
-    await io.api.deleteFlowViaAPI(flowId)
+    await io.api.deleteFlowViaAPI(flowId);
     await io.api.deleteCall("v1/exports/" + pgExportId);
     await io.api.deleteCall("v1/imports/" + ppImportId);
     await io.homePage.loadingTime();
