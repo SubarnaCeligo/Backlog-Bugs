@@ -16,7 +16,7 @@ test.describe("@Author-ParthPatel TC_C47567_Flowbranching | Golden", () => {
     await io.api.deleteFlowsWithId([flowId]);
   });
 
-  test("@Env-All @Zephyr-IO-T17649 TC_C47567_Flowbranching Test to verify file aggregation for an import added on a flow branch with skip aggregation set to false (FTP)", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T17649 TC_C47567_Flowbranching Test to verify file aggregation for an import added on a flow branch with skip aggregation set to fa lse (FTP)", async ({io,page}, testInfo) => {
     flowId = await io.flowbranching.createFlowBranchFromAPI(
       flowbranch
     );
