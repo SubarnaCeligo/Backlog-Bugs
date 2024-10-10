@@ -129,10 +129,11 @@ test.describe("Support job details in hooks and transformation testcases", () =>
     await io.homePage.loadingTime();
 
     // Checking for job details, testMode and preview call in Imports hooks (Premap, postMap, Postsubmit, Post aggregate) create script function input in Javascript window
-    for (let i = 0; i < 4; i++) {
-      await io.homePage.clickByIndex(selectors.flowBuilderPagePO.SCRIPT_ID, i);
+    // Define the function to handle the common code
+    async function checkJobDetails(index: number) {
+      await io.homePage.clickByIndex(selectors.flowBuilderPagePO.SCRIPT_ID, index);
       await io.homePage.clickByIndex(selectors.flowBuilderPagePO.DROP_DOWNLIST, 1);
-      await io.homePage.clickByIndex(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR, i);
+      await io.homePage.clickByIndex(selectors.flowBuilderPagePO.EDIT_SCRIPT_LABEL_SELECTOR, index);
       await io.flowBuilder.loadingTime();
 
       let data = await io.homePage.copyResourceData(selectors.flowBuilderPagePO.SCRIPT_DATA_CONTENT);
@@ -140,7 +141,7 @@ test.describe("Support job details in hooks and transformation testcases", () =>
       await io.assert.expectToContainValue('"flowExecutionGroupId"', data, "");
       await io.assert.expectToContainValue('"startedAt"', data, "");
       await io.assert.expectToContainValue('"type": "import"', data, "");
-      
+
       await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.SCRIPT_STUB);
       await io.flowBuilder.enterHugeData(selectors.flowBuilderPagePO.SCRIPT_STUB, functionName.toString());
       await io.flowBuilder.clearTextValue(selectors.flowBuilderPagePO.FUNCTION_NAME_INPUT);
@@ -153,19 +154,36 @@ test.describe("Support job details in hooks and transformation testcases", () =>
       await io.flowBuilder.clickByIndex(selectors.basePagePO.CLOSE, 1);
       await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
     }
+
+    // Call the function for each index
+    await checkJobDetails(0);
+    await checkJobDetails(1);
+    await checkJobDetails(2);
+    await checkJobDetails(3);
     await io.flowBuilder.clickByIndex(selectors.flowGroupingPagePO.PREMAPCREATESCRIPT, 0);
     await io.homePage.loadingTime();
 
     // CHECKING for function stubs changes for below function stubs
-    const scriptValues = ['postAggregate', 'postMap', 'postResponseMap', 'postSubmit', 'preMap', 'transform', 'preSavePage'];
-
-    for (let i = 0; i < 7; i++) {
+    // Define the function to handle the common code
+    async function checkFunctionStub(scriptValue: string) {
       await io.homePage.clickByIndex(selectors.basePagePO.FUNCTION_STUB, 0);
-      await io.flowBuilder.selectTextfromDropDown(page, scriptValues[i]);
+      await io.flowBuilder.selectTextfromDropDown(page, scriptValue);
       await io.flowBuilder.loadingTime();
       let data = await io.homePage.copyResourceData(selectors.flowBuilderPagePO.SCRIPT_CONTENT);
       await io.assert.expectToContainValue("'job' - the job currently running.", data, "");
     }
+
+    // CHECKING for function stubs changes for below function stubs
+    const scriptValues = ['postAggregate', 'postMap', 'postResponseMap', 'postSubmit', 'preMap', 'transform', 'preSavePage'];
+
+    // Call the function for each script value
+    await checkFunctionStub(scriptValues[0]);
+    await checkFunctionStub(scriptValues[1]);
+    await checkFunctionStub(scriptValues[2]);
+    await checkFunctionStub(scriptValues[3]);
+    await checkFunctionStub(scriptValues[4]);
+    await checkFunctionStub(scriptValues[5]);
+    await checkFunctionStub(scriptValues[6]);
 
     await io.flowBuilder.clickByIndex(selectors.basePagePO.CLOSE, 1);
     await io.flowBuilder.click(selectors.basePagePO.DISCARD_CHANGES);
