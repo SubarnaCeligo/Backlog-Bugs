@@ -2,7 +2,7 @@ import { filterTestCases } from "@celigo/aut-utilities";
 var testCases = [
   // "IO52927", // We are making this test case obsolete as we have removed "existing export" checkbox from UI (functionality is changed for this)
   // "C117949",//https://celigo.atlassian.net/browse/IO-35839
-  // "C119397",//https://celigo.atlassian.net/browse/IO-35839
+ "C119397",
   // "T2722",//https://celigo.atlassian.net/browse/IO-35839
   // "T24275",//https://celigo.atlassian.net/browse/IO-35839
   // "T26974",//https://celigo.atlassian.net/browse/IO-86853
@@ -135,7 +135,7 @@ var testCases = [
   "T1646",
  //please donot add any more new test cases to this flowbuilder02 suite,already this suite is overloaded when might cause issues during jenkinsrun/ci build
 ];
-  
+
 var flakycases = JSON.parse(process.env.FLAKY_TEST_CASES);
 (async () => {
   await filterTestCases(testCases, flakycases);
