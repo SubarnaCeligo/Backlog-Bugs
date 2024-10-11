@@ -14,6 +14,10 @@
         "oneToMany": false,
         "sandbox": false,
         "rawData": "62f37ad6703e322cf5d9043149d520d92f494d3e95e9cadc88371ac2",
+        "type": "test",
+        "test": {
+          "limit": 2
+        },
         "netsuite": {
           "type": "restlet",
           "skipGrouping": true,
@@ -106,7 +110,7 @@
     }
   ],
   "qa__expectedDashboardCount": {
-    "successCount": "183",
+    "successCount": "6",
     "ignoreCount": "0",
     "errorCount": "0"
   },

@@ -393,6 +393,7 @@ test.describe("Auditlog resource Test Cases", () => {
      
     await io.homePage.click(selectors.basePagePO.AUDITLOG);
     await io.homePage.loadingTime();
+    await page.waitForTimeout(3000);
     test.step("*** Clicked on Auditlogs ***", async ()=>{});
     
     await (await page.locator(selectors.importPagePO.PAGE_DATA)).isVisible();

@@ -9,7 +9,11 @@ test.describe("TC_C_41539_Verify_Paging_Technique", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
   test("@Env-All @Zephyr-IO-T9966 TC_C_41539_Verify_Paging_Technique", async ({io,page}, testInfo) => {
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     await io.flowBuilder.clickCreateFlowButton();
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     test.step("*** Create Flow Selected ***", async ()=>{});
 
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_SOURCE);

@@ -6,6 +6,7 @@ import TC5 from "@testData/FlowBuilder/TC_C31311.json";
 import TC6 from "@testData/FlowBuilder/TC_C12230.json";
 import TC7 from "@testData/FlowBuilder/TC_C28122.json";
 import TC8 from "@testData/FlowBuilder/TC_C26396.json";
+
 test.describe("TC_C33660", () => {
   let flowId;
   test.beforeEach(async ({io}) => {
@@ -43,136 +44,111 @@ await test.step(
     expect(result).toBeFalsy();
   });
 
-//   test("@Env-All @Zephyr-IO-T111 TC_C29810", async ({io,page}) => {
-//     var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC4);
-// await test.step(
-//       "Created Flows(Salesforce Import & Netsuite Import) " +
-//         flows.get(TC4.name)["flowName"] +
-//         " " +
-//         " With IDs " +
-//         flows.get(TC4.name)["flowId"], async ()=>{}
-//     );
-//     var flowId2 = await io.api.getFlowId(TC4.name);
-//     await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId2);
-//     await io.homePage.clickButtonByIndex(
-//       selectors.basePagePO.ADD_DATA_PROCESSOR,
-//       1
-//     );
-//     await io.homePage.click(
-//       selectors.flowBuilderPagePO.IMPORT_MAPPINGS
-//     );
-//     test.step("***Navigated To Response Mappings Page***", async ()=>{});
-//     await io.homePage.click(
-//       selectors.mappings.DEFAULT_MAPPING_TYPE.AUTO_MAP
-//     );
-//     await io.homePage.click(
-//       selectors.mappings.DEFAULT_MAPPING_TYPE.FIELD_MAPPING_SETTING
-//     );
-//     test.step("***Opened Mapping Settings***", async ()=>{});
-//     await io.homePage.click(
-//       selectors.mappings.MAPPER2DOT0PO.LOOKUP
-//     );
-//     await io.homePage.click(
-//       "[data-test='dynamic']"
-//     );
-//     test.step("***Selected Dynamic Lookup***", async ()=>{});
-//     await io.homePage.click(
-//       "[data-test='lookup.name']"
-//     );
-//     await io.homePage.fillWebPage(
-//       selectors.mappings.MAPPER2DOT0PO.STATICLOOKUP,
-//       "sample"
-//     );
-//     await io.homePage.click(
-//       "[data-test='lookup.sObjectType']"
-//     );
-//     await io.homePage.click(
-//       selectors.flowBuilderPagePO.ACCOUNTRECTYPE
-//     );
-// await test.step(
-//       "***Entered All The Mandatory Fields For Dynamic Lookup***"
-// , async ()=>{});
-//     await io.homePage.clickButtonByIndex(
-//       selectors.basePagePO.SAVE_AND_CLOSE,
-//       1
-//     );
-//     test.step("***Clicked On Save***", async ()=>{});
-//     var text = await io.homePage.getText(
-//       selectors.mappings.MAPPER2DOT0PO.STATICLOOKUP
-//     );
-//     var expected = "sample";
-//     test.step("***Lookup Is Saved With The Given Name***", async ()=>{});
-//     expect(text).toEqual(expected);
-//     await io.homePage.click(
-//       selectors.mappings.MAPPER2DOT0PO.STATICLOOKUP
-//     );
-//     test.step("***Selected Static Lookup***", async ()=>{});
-//     await io.homePage.click(
-//       "[data-test='lookup.name']"
-//     );
-//     await io.homePage.fillWebPage(
-//       "[data-test='lookup.name']",
-//       "sample"
-//     );
-// await test.step(
-//       "***Entered All The Mandatory Fields For Static Lookup***"
-// , async ()=>{});
-//     await io.homePage.clickButtonByIndex(
-//       selectors.basePagePO.SAVE,
-//       1
-//     );
-//     test.step("***Clicked On Save***", async ()=>{});
-//     var text1 = await io.homePage.getText(
-//       "[data-test='lookup.name']"
-//     );
-//     var expected1 = "sample";
-//     test.step("***Lookup Is Saved With The Given Name***", async ()=>{});
-//     expect(text1).toEqual(expected1);
-//   });
-//   test("@Env-All @Zephyr-IO-T111 TC_C31311", async ({io,page}) => {
-//     var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC5);
-// await test.step(
-//       "Created Flows(Salesforce Import) " +
-//         flows.get(TC5.name)["flowName"] +
-//         " " +
-//         " With IDs " +
-//         flows.get(TC5.name)["flowId"], async ()=>{}
-//     );
-//     var flowId2 = await io.api.getFlowId(TC5.name);
-//     await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId2);
-//     await io.homePage.click(
-//       "[data-test='Export']"
-//     );
-//     await io.homePage.click(
-//       selectors.connectionsPagePO.NAME_INPUT
-//     );
-//     await io.homePage.clearTextValue(
-//       selectors.connectionsPagePO.NAME_INPUT
-//     );
-//     await io.homePage.fillWebPage(
-//       selectors.connectionsPagePO.NAME_INPUT,
-//       "change_name"
-//     );
-//     await io.homePage.click(
-//       selectors.basePagePO.SAVE_AND_CLOSE
-//     );
-//     test.step("***Changed Export Name***", async ()=>{});
-//     await io.homePage.click("[datatest='Audit log']");
-//     test.step("***Navigated To Audit Logs Tab***", async ()=>{});
-//     var text = await io.homePage.getText(
-//       " tr:nth-child(2) > td:nth-child(7)"
-//     );
-//     var expected = "pageGenerators.0.skipRetries";
-// await test.step(
-//       "***pageGenerators.0.skipRetries Is Updated In The Audit Logs When A Flow Is Updated***"
-// , async ()=>{});
-//     expect(text).toEqual(expected);
-//   });
-//   test("@Env-All @Zephyr-IO-T111 TC_C28653", async ({io,page}) => {
+  test("@Env-All @Zephyr-IO-T2887|To verify `name` field is able to save on Dynamic/static lookups for HTTP & REST & NS & SF & FTP & Assistants imports|@Env-All @Zephyr-IO-T2888|To verify `name` field is able to update on Dynamic/static lookups for HTTP & REST & NS & SF & FTP & Assistants imports", async ({io,page}) => {
+    await io.api.createImpOrExpAndFlowsThruAPI(TC4);
+    flowId = await io.api.getFlowId(TC4.name);
+    await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId);
+    await io.homePage.loadingTime();
+    await io.homePage.loadingTime();
+    await io.homePage.clickByIndex(
+      selectors.basePagePO.ADD_DATA_PROCESSOR,
+      1
+    );
+    await io.homePage.click(
+      selectors.flowBuilderPagePO.IMPORT_MAPPINGS
+    );
+    test.step("***Navigated To Response Mappings Page***", async ()=>{});
+    await io.homePage.click(
+      selectors.mappings.DEFAULT_MAPPING_TYPE.AUTO_MAP
+    );
+    await io.homePage.click(
+      selectors.mappings.DEFAULT_MAPPING_TYPE.FIELD_MAPPING_SETTING
+    );
+    test.step("***Opened Mapping Settings***", async ()=>{});
+    await io.homePage.click(
+      selectors.mappings.MAPPER2DOT0PO.LOOKUP
+    );
+    await io.homePage.click(
+      selectors.mappings.MAPPER2DOT0PO.STATICLOOKUP
+    );
+    test.step("***Selected Dynamic Lookup***", async ()=>{});
+    await io.homePage.click(
+      "[data-test='lookup.name']"
+    );
+    await io.homePage.fill(
+      selectors.flowBuilderPagePO.NAME,
+      "sample"
+    );
+    await io.homePage.click(
+      selectors.mappings.STATICLOOKUPEXPORT,
+    );
+    await page.keyboard.type("123");
+
+    await io.homePage.click(
+      selectors.mappings.STATICLOOKUPIMPORT
+    );
+    await page.keyboard.type("123");
+    await io.homePage.loadingTime();
+await test.step(
+      "***Entered All The Mandatory Fields For Dynamic Lookup***"
+, async ()=>{});
+    await io.homePage.clickButtonByIndex(
+      selectors.basePagePO.SAVE_AND_CLOSE,
+      1
+    );
+    await io.homePage.loadingTime();
+    await io.homePage.click(
+      selectors.mappings.DEFAULT_MAPPING_TYPE.FIELD_MAPPING_SETTING
+    );
+    await io.homePage.fill(
+      selectors.flowBuilderPagePO.NAME,
+      "123"
+    );
+    await io.homePage.loadingTime();
+    await io.homePage.clickButtonByIndex(
+      selectors.basePagePO.SAVE_AND_CLOSE,
+      1
+    );
+  });
+
+
+  test("@Env-All @Zephyr-IO-T2915|To verify `pageGenerators.0.skipRetries` should not be logged in audit logs when when there is no update to the boolean field", async ({io}) => {
+    await io.api.createImpOrExpAndFlowsThruAPI(TC5);
+    flowId = await io.api.getFlowId(TC5.name);
+    await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId);
+    await io.homePage.loadingTime();
+    await io.homePage.click(
+      selectors.flowBuilderPagePO.EXPORT
+    );
+    await io.homePage.click(
+      selectors.connectionsPagePO.NAME_INPUT
+    );
+    await io.homePage.fill(
+      selectors.connectionsPagePO.NAME_INPUT,
+      "change_name"
+    );
+    await io.homePage.click(
+      selectors.basePagePO.SAVE_AND_CLOSE
+    );
+    test.step("***Changed Export Name***", async ()=>{});
+    await io.homePage.click(selectors.flowBuilderPagePO.AUDIT_LOGS);
+    await io.homePage.loadingTime();
+    test.step("***Navigated To Audit Logs Tab***", async ()=>{});
+    var text = await io.homePage.getText(
+      " tr:nth-child(2) > td:nth-child(7)"
+    );
+    var expected = "pageGenerators.0.skipRetries";
+await test.step(
+      "***pageGenerators.0.skipRetries Is Updated In The Audit Logs When A Flow Is Updated***"
+, async ()=>{});
+    expect(text).not.toContain(expected);
+  });
+
+//   test("@Env-All @Zephyr-IO-T2915 TC_C28653", async ({io}) => {
 //     await io.goToFlowsPage();
-//     flowId4 = await io.api.getFlowId("TC_C28653_DND");
-//     await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId4);
-//     await io.homePage.clickButtonByIndex(
+//     flowId = await io.api.getFlowId("TC_C28653_DND");
+//     await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId);
+//     await io.homePage.clickByIndex(
 //       selectors.basePagePO.ADD_DATA_PROCESSOR,
 //       1
 //     );
@@ -199,7 +175,8 @@ await test.step(
 // , async ()=>{});
 //     expect(text2).toEqual(expected2);
 //   });
-//   test(" @Env-All @Zephyr-IO-T111 TC_C12230", async ({io,page}) => {
+
+//   test("@Env-All @Zephyr-IO-T2915 TC_C12230", async ({io,page}) => {
 //     var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC6);
 // await test.step(
 //       "Created Flows(With Multiple Imports With Response Mappings Added) " +
@@ -231,7 +208,9 @@ await test.step(
 // , async ()=>{});
 //     expect(text).not.toEqual(expected);
 //   });
-//   test("@Env-All @Zephyr-IO-T111 TC_C28122", async ({io,page}, testInfo) => {
+
+
+//   test(" @Env-All @Zephyr-IO-T2915 TC_C28122", async ({io,page}, testInfo) => {
 //     //*Create Flow
 //     var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC7);
 // await test.step(
@@ -442,7 +421,9 @@ await test.step(
 // , async ()=>{});
 //     await io.assert.expectToBeTrue(result7, "");
 //   });
-//   test("@Env-All @Zephyr-IO-T111 TC_C26396_C26397", async ({io,page}, testInfo) => {
+
+
+//   test("@Env-All @Zephyr-IO-T2915 TC_C26396_C26397", async ({io,page}, testInfo) => {
 //     //*Create Flow
 //     var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC8);
 // await test.step(
@@ -466,7 +447,9 @@ await test.step(
 //     test.step("***Trace Key Is Present***", async ()=>{});
 //     await io.assert.expectToContainValue(expected1,response1, "");
 //   });
-//   test("@Env-All @Zephyr-IO-T111 TC_C28120_C28121_C28119", async ({io,page}, testInfo) => {
+
+
+//   test("@Env-All @Zephyr-IO-T2915 TC_C28120_C28121_C28119", async ({io,page}, testInfo) => {
 //     //*Create Flow
 //     // var flows = await io.api.createImpOrExpAndFlowsThruAPI(TC9);
 // // await test.step(

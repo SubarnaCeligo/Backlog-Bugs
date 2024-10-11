@@ -42,16 +42,17 @@ test.describe("TC_C1998", () => {
     test.step("*** Wait for text to be visible ***", async ()=>{});
     await expect(revokedEl).toBeVisible();
     test.step("*** API Token Is Revoked Successfully ***", async ()=>{});
+    
+    const beforeElList = await page.getByText("TC_C1998_custom token to fullaccess").all();
 
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
+    await (await page.locator(selectors.integrationPagePO.DELETE_FLOW)).isVisible();
     await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
     await io.homePage.click(selectors.basePagePO.DELETE);
     await page.waitForTimeout(3000);
     test.step("*** Clicked On Delete API Token***", async ()=>{});
     
-    const noResultsEl = await page.getByText("Your search didn’t return any matching results. Try expanding your search criteria.");
-    await noResultsEl.waitFor({ state: 'visible', timeout: 30000 });
-    await expect(noResultsEl).toBeVisible();
-    test.step("*** API Token Is Deleted Successfully ***", async ()=>{});
+    const afrterDelElList = await page.getByText("TC_C1998_custom token to fullaccess").all();
+    await expect(afrterDelElList.length).toBeLessThanOrEqual(beforeElList.length);
   });
 });

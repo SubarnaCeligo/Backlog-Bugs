@@ -1,6 +1,5 @@
 {
     "skipRetries": false,
-    "_integrationId": "6228aed6bc8a2732cfe8044c",
     "pageGenerators": [
         {
             "type": "export",
@@ -10,6 +9,22 @@
                 "apiIdentifier": "e92d3ec8e7",
                 "asynchronous": true,
                 "sandbox": false,
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                        "record": {
+                            "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                            "#Number": "6495195850"
+                        }
+                        },
+                        {
+                        "record": {
+                            "Drug @ Name": "Horizon Pharma Inc.",
+                            "#Number": "1933831154"
+                        }
+                        }
+                    ]
+                },
                 "ftp": {
                     "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
                     "fileNameStartsWith": "TC_C30817"
