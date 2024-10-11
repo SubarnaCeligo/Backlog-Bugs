@@ -13,8 +13,9 @@ test.describe("C106836_Test to validate that the user is getting help text, help
         await io.homePage.loadingTime()
         await io.flowBuilder.click(selectors.basePagePO.ADD_NEW_RESOURCE);
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'GraphQL');
-        await io.flowBuilder.clickByText('GraphQL');
-        await io.flowBuilder.loadingTime()
+        await io.homePage.waitForElementAttached(selectors.connectionsPagePO.GRAPHQL_CONNECTOR);
+        await io.homePage.clickByIndex(selectors.connectionsPagePO.GRAPHQL_CONNECTOR,0);
+        await io.homePage.isPageLoaded();
         await io.flowBuilder.click(selectors.connectionsPagePO.GRAPHQL_BUTTON);
         await io.homePage.loadingTime()
         await io.flowBuilder.fillByIndex(selectors.flowBuilderPagePO.EM2DOT0PO.ACE_EDITOR_INPUT, '{{', 4);

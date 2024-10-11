@@ -24,7 +24,7 @@ test.describe("Verify the hover text for disabled source in dropdown.", () => {
     await io.flowBuilder.hover(selectors.flowBuilderPagePO.RUNTEST_BUTTON, 2, true);
 
     //Get the hover text
-    const hoverText = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP)).toString();
+    const hoverText = (await io.flowBuilder.getText(selectors.mappings.TOOLTIP)).toString();
     
     //Validate the hover text
     await io.assert.expectToContainValue('You can\'t select this source for a test run unless your source is either online or has mock output data. Any lookup steps present in the flow must also either be online or have mock output data.', hoverText, 'Hover Text did not appear' );

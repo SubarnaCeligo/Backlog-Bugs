@@ -11,12 +11,14 @@ test.describe("TC_C111337 Verify new UI should be shown for all the new imports 
     await io.flowBuilder.click(
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
-    await io.flowBuilder.loadingTime()
+    await io.flowBuilder.loadingTime();
     await io.flowBuilder.fill(
       selectors.settingsPagePO.APP_NAME_INPUT,
       "PostgreSQL"
     );
-    await io.flowBuilder.clickByText("PostgreSQL");
+    await io.flowBuilder.loadingTime();
+    (await io.homePage.findElementByDataTest("PostgreSQL")).click();
+    await io.homePage.isPageLoaded();
     await io.flowBuilder.click(selectors.connectionsPagePO.IMPORT_RECORDS);
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);

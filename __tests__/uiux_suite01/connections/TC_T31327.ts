@@ -9,8 +9,8 @@ test.describe("T31327 Verify if the SSL certificate and SSL client key by provid
     let connectionId = await io.api.postCall(`v1/connections`, T31328);
     await io.connectionPage.loadingTime();
     await io.connectionPage.addStep("*** Editing the created connection ***");
-    await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
-    await io.connectionPage.loadingTime();
+    await io.connectionPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + 'connections');
+    await io.connectionPage.isPageLoaded();
     await io.connectionPage.waitForElementAttached(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.waitForElementAttached(selectors.basePagePO.SEARCH_RECYCLEBIN);

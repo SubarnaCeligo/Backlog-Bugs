@@ -9,13 +9,15 @@ test.describe('C117288', () => {
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_TOGGLE);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.FLOW_DISABLE);
+        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.RUNTEST_BUTTON);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.JOB_ERRORS);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.EXPORT);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.VIEW_DEBUG_LOG);
         await io.flowBuilder.click(selectors.flowBuilderPagePO.TEST_RUN_DEBUG_LOGS);
-        await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.PREVIEW_HTTP_RESPONSE);
-        await io.flowBuilder.click(selectors.flowBuilderPagePO.PREVIEW_HTTP_RESPONSE);
+        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.waitForElementAttached(selectors.exportsPagePO.HTTP_RESPONSE);
+        await io.flowBuilder.clickByIndex(selectors.exportsPagePO.HTTP_RESPONSE, 1);
         await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RESPONSE_DATA_LINES);
         let label = await page.$$(selectors.flowBuilderPagePO.RESPONSE_DATA_LINES)
         var text = await label[1].textContent();
