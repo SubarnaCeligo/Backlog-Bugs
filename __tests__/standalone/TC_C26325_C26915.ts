@@ -11,6 +11,7 @@ test.describe("TC_C26325_C26915", () => {
   test("@Env-All @Zephyr-IO-T5035 @Zephyr-IO-T5055 TC_C26325", async ({io,page}, testInfo) => {
     await test.step("*** TC_C26325_C26915 Test case validation ***", async ()=>{});
     await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     await io.homePage.click(selectors.homePagePO.PROFILE_MENU);
     test.step("*** Clicked on Profile Menu ***", async ()=>{});
 
@@ -72,6 +73,7 @@ test.describe("TC_C26325_C26915", () => {
     await test.step("*** TC_C28576 Test case validation SSO Name ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     await io.homePage.click(selectors.homePagePO.PROFILE_MENU);
     test.step("*** Clicked on Profile Menu ***", async ()=>{});
     await io.homePage.click(selectors.myAccountPagePO.PROFILE);
@@ -118,6 +120,7 @@ test.describe("TC_C26325_C26915", () => {
     test.step("*** TC_C27494 Test case validation ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     await io.homePage.click(selectors.homePagePO.PROFILE_MENU);
     test.step("*** Clicked on Profile Menu ***", async ()=>{});
     await io.homePage.click(selectors.myAccountPagePO.PROFILE);

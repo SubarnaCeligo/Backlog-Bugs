@@ -66,7 +66,7 @@
                 "mapping": {
                   "fields": [
                     {
-                      "extract": "Auto_{{random 6}}",
+                      "extract": "Auto_{{random 16}}",
                       "generate": "organization.name"
                     }
                   ]
@@ -109,22 +109,13 @@
                 "mapping": {
                   "fields": [
                     {
-                      "generate": "user.name",
-                      "hardCodedValue": "Auto_TC_C47457_2"
-                    },
-                    {
-                      "extract": "currency",
-                      "generate": "user.notes"
-                    },
-                    {
-                      "extract": "id",
-                      "generate": "user.details",
-                      "dataType": "string"
+                      "extract": "Auto_{{random 16}}",
+                      "generate": "organization.name"
                     }
                   ]
                 },
                 "http": {
-                  "relativeURI": ["/users.json"],
+                  "relativeURI": ["organizations.json"],
                   "method": ["POST"],
                   "body": [],
                   "batchSize": 1,

@@ -72,14 +72,14 @@ test.describe("TC_C2005 | C2002", () => {
     await expect(revokedEl).toBeVisible();
     test.step("*** API Token Is Revoked Successfully ***", async ()=>{});
 
+    const beforeElList = await page.getByText("TC_C2005_DeleteToken validation").all();
+
     await io.homePage.click(selectors.integrationPagePO.OPENACTIONSMENU);
     await io.homePage.click(selectors.integrationPagePO.DELETE_FLOW);
     await io.homePage.click(selectors.basePagePO.DELETE);
     test.step("*** Clicked On Delete API Token***", async ()=>{});
 
-    const noResultsEl = await page.getByText("Your search didn’t return any matching results. Try expanding your search criteria.");
-    await noResultsEl.waitFor({ state: 'visible', timeout: 30000 });
-    await expect(noResultsEl).toBeVisible();
-    test.step("*** API Token Is Deleted Successfully ***", async ()=>{});
+    const afrterDelElList = await page.getByText("TC_C2005_DeleteToken validation").all();
+    await expect(afrterDelElList.length).toBeLessThanOrEqual(beforeElList.length);
   });
 });

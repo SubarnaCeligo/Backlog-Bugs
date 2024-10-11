@@ -3,6 +3,11 @@
   "skipRetries": false,
   "disabled": false,
   "_integrationId": "62f51db41677a21a108e5e3a",
+  "qa__expectedDashboardCount": {
+    "successCount": "8",
+    "ignoreCount": "0",
+    "errorCount": "0"
+  },
   "pageGenerators": [
     {
       "qa__export": {

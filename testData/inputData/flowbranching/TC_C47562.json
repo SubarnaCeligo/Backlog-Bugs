@@ -5,6 +5,11 @@
     "_integrationId": "62f51db41677a21a108e5e3a",
     "skipRetries": false,
     "timezone": "Asia/Calcutta",
+    "qa__expectedDashboardCount": {
+        "successCount": "8",
+        "ignoreCount": "0",
+        "errorCount": "0"
+    },
     "pageGenerators": [
         {
             "type": "export",
@@ -75,97 +80,34 @@
                             },
                             "type": "import",
                             "qa__import": {
-                                "name": "zendesk import 1",
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application": "zendesk support",
                                 "_connectionId": "HTTP ZENDESK CONNECTION",
-                                "qa__inputFilter": true,
-                                "apiIdentifier": "i951e83735",
-                                "ignoreExisting": false,
-                                "ignoreMissing": false,
-                                "oneToMany": false,
-                                "pathToMany": "current_subtotal_price_set",
-                                "assistant": "zendesk",
-                                "assistantMetadata": {
-                                    "resource": "users_api",
-                                    "version": "v2",
-                                    "operation": "create_users_api"
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 16}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "notes",
+                                            "generate": "organization.notes"
+                                        }
+                                    ]
                                 },
                                 "http": {
                                     "relativeURI": [
-                                        "/api/v2/users.json"
+                                        "organizations.json"
                                     ],
                                     "method": [
                                         "POST"
                                     ],
-                                    "body": [
-                                        null
-                                    ],
+                                    "body": [],
                                     "batchSize": 1,
-                                    "requestMediaType": "json",
-                                    "successMediaType": "json",
-                                    "errorMediaType": "json",
-                                    "strictHandlebarEvaluation": true,
                                     "sendPostMappedData": true,
-                                    "formType": "assistant",
-                                    "response": {
-                                        "resourceIdPath": [
-                                            null
-                                        ]
-                                    }
+                                    "formType": "http"
                                 },
-                                "rest": {
-                                    "relativeURI": [
-                                        "/api/v2/users.json"
-                                    ],
-                                    "method": [
-                                        "POST"
-                                    ],
-                                    "body": [
-                                        null
-                                    ],
-                                    "responseIdPath": [
-                                        null
-                                    ],
-                                    "successPath": [
-                                        null
-                                    ],
-                                    "successValues": [
-                                        null
-                                    ]
-                                },
-                                "qa__rules": [
-                                    [
-                                        "record.url",
-                                        "notempty"
-                                    ]
-                                ],
-                                "filter": {
-                                    "type": "expression",
-                                    "expression": {
-                                        "rules": [
-                                            "notempty",
-                                            [
-                                                "string",
-                                                [
-                                                    "extract",
-                                                    "url"
-                                                ]
-                                            ]
-                                        ],
-                                        "version": "1"
-                                    },
-                                    "version": "1",
-                                    "rules": [
-                                        "notempty",
-                                        [
-                                            "string",
-                                            [
-                                                "extract",
-                                                "url"
-                                            ]
-                                        ]
-                                    ]
-                                },
-                                "adaptorType": "RESTImport"
+                                "adaptorType": "HTTPImport"
                             },
                             "proceedOnFailure": true
                         },

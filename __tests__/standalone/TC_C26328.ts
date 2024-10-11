@@ -10,6 +10,8 @@ test.describe("TC_C26328", () => {
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
   test("@Env-All @Zephyr-IO-T1885 TC_C26328", async ({io,page}, testInfo) => {
+    await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
     await io.homePage.click(selectors.basePagePO.ACCOUNT_BUTTON);
     test.step("*** Navigate to My Account ***", async ()=>{});
     await io.homePage.click(selectors.myAccountPagePO.PROFILE);

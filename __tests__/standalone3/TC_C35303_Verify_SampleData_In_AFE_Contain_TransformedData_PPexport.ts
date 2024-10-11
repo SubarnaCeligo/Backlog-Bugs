@@ -133,6 +133,7 @@ test.describe("TC_C35303_Verify_SampleData_In_AFE_Contain_TransformedData_PPexpo
     await page.keyboard.type("data");
     await io.myAccountPage.doubleClick(selectors.transformationPO.TEXT_GENE + '0"] div');
     await page.keyboard.type("Lookup_Response");
+    await io.homePage.loadingTime();
 
     test.step("*** Clicking on save and close button ***", async ()=>{});
     await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);

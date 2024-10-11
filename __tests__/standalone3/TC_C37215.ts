@@ -15,7 +15,7 @@ test.describe("TC_C37215", () => {
     await io.flowBuilder.loadingTime();
 
     var exp_id = await io.api.getExportId('TC_C37215_webhook_export');
-    await io.api.deleteExportViaAPI(exp_id);
+    await io.api.deleteCall("v1/exports/" + exp_id);
     await io.homePage.loadingTime();
   });
 

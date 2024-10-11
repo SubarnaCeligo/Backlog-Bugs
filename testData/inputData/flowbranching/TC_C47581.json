@@ -27,111 +27,128 @@
             }
         }
     ],
-    "first": {
-        "pageProcessors": [
-            {
-                "responseMapping": {
-                    "fields": [],
-                    "lists": []
-                },
-                "type": "import",
-                "qa__import": {
-                    "name": "AutomationStandaloneImport1_afsflk",
-                    "application":"zendesk support",
-                    "_connectionId": "HTTP ZENDESK CONNECTION",
-                    "mapping": {
-                        "fields": [
-                            {
-                                "extract": "Auto_{{random 6}}",
-                                "generate": "organization.name"
-                            },
-                            {
-                                "extract": "field",
-                                "generate": "organization.field"
-                            }
-                        ]
-                    },
-                    "http": {
-                        "relativeURI": [
-                            "organizations.json"
-                        ],
-                        "method": [
-                            "POST"
-                        ],
-                        "batchSize": 1,
-                        "sendPostMappedData": true,
-                        "formType": "http"
-                    },
-                    "adaptorType": "HTTPImport"
-                }
-            }
-        ]
-    },
-    "second": {
-        "pageProcessors": [
-            {
-                "responseMapping": {
-                    "fields": [],
-                    "lists": []
-                },
-                "type": "import",
-                "qa__import": {
-                    "name": "AutomationStandaloneImport1_afsflk",
-                    "application":"zendesk support",
-                    "_connectionId": "HTTP ZENDESK CONNECTION",
-                    "http": {
-                        "relativeURI": [
-                            "organizations.json"
-                        ],
-                        "method": [
-                            "POST"
-                        ],
-                        "batchSize": 1,
-                        "sendPostMappedData": true,
-                        "formType": "http"
-                    },
-                    "adaptorType": "HTTPImport"
-                }
-            }
-        ]
-    },
-    "inBetweenPP": {
-        "pageProcessors": [
-            {
-                "responseMapping": {
-                    "fields": [
+    "routers": [
+        {
+            "routeRecordsUsing": "input_filters",
+            "id": "nw5EED",
+            "routeRecordsTo": "first_matching_branch",
+            "branches": [
+                {
+                    "name": "R1B1",
+                    "pageProcessors": [
                         {
-                            "generate": "field",
-                            "extract": "statusCode"
+                            "responseMapping": {
+                                "fields": [
+                                    {
+                                        "generate": "field",
+                                        "extract": "statusCode"
+                                    }
+                                ],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application": "zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 16}}",
+                                            "generate": "organization.name"
+                                        },
+                                        {
+                                            "extract": "field",
+                                            "generate": "organization.field"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
                         }
                     ],
-                    "lists": [],
-                    "qa__index": 2
+                    "nextRouterId": "9jT3ys"
                 },
-                "type": "import",
-                "qa__import": {
-                    "name": "First Import with response mappings",
-                    "application":"zendesk support",
-                    "_connectionId": "HTTP ZENDESK CONNECTION",
-                    "ignoreExisting": false,
-                    "ignoreMissing": false,
-                    "oneToMany": false,
-                    "sandbox": false,
-                    "http": {
-                        "relativeURI": [
-                            "organizations.json"
-                        ],
-                        "method": [
-                            "POST"
-                        ],
-                        "body": [],
-                        "batchSize": 1,
-                        "sendPostMappedData": true,
-                        "formType": "http"
-                    },
-                    "adaptorType": "HTTPImport"
+                {
+                    "name": "R1B2",
+                    "pageProcessors": [
+                        {
+                            "responseMapping": {
+                                "fields": [],
+                                "lists": []
+                            },
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application": "zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ],
+                    "nextRouterId": "9jT3ys"
                 }
+            ],
+            "script": {
+                "function": "branching"
             }
-        ]
-    }
+        },
+        {
+            "id": "9jT3ys",
+            "branches": [
+                {
+                    "name": "M1",
+                    "pageProcessors": [
+                        {
+                            "type": "import",
+                            "qa__import": {
+                                "name": "First Import with response mappings",
+                                "application": "zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "ignoreExisting": false,
+                                "ignoreMissing": false,
+                                "oneToMany": false,
+                                "sandbox": false,
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "body": [],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

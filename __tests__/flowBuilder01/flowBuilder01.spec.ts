@@ -28,7 +28,7 @@ var testCases = [
   "C93548",
   "C98931",
   "C98942",
- // "C102875", // commenting this out because the UI changes has been revereted will uncomment once the cha ges are back
+  "C102875",
   "C104208",
   "C104953",
   "C106451",
@@ -102,7 +102,7 @@ var testCases = [
   "C117737_C117736",
   "C117738",
   "C117739",
-  "C29786", 
+  "C29786",
   "C77690",
   "C106421",
   "C24492",

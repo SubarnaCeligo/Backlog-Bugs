@@ -121,3 +121,4 @@ require("./TC_C33006");
 require("./TC_C33008");
 require("./TC_C33341_restore_pin_integration");
 require("./TC_C33660");
+require("./TC_C23540");
