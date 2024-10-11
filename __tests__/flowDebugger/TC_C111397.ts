@@ -12,6 +12,7 @@ test.describe("C111397, C111313, C111314, C111318, C111396, C111316, C111399, C1
         await io.flowBuilder.clickByIndex(selectors.flowBuilderPagePO.PLUS_BUTTONS, 0);
         await page.getByRole('menuitem', { name: 'Add destination / lookup' }).click();
         await io.flowBuilder.fill(selectors.settingsPagePO.APP_NAME_INPUT, 'HTTP');
+        await io.flowBuilder.waitForElementAttached(selectors.connectionsPagePO.HTTP_CNNECTOR);
         await io.flowBuilder.click(selectors.connectionsPagePO.HTTP_CNNECTOR);
         //await page.pause();
         await io.flowBuilder.clickByText(

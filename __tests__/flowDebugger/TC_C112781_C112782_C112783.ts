@@ -36,8 +36,8 @@ test.describe("C112781_C112782_C112783 - Verify the NS import filter feature aft
         await io.importsPage.hover(selectors.basePagePO.NETSUITE_INTERNAL_LOOKUP);
 
         //Get the hover text
-        await io.importsPage.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP);
-        const hoverText = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP)).toString();
+        await io.importsPage.waitForElementAttached(selectors.mappings.TOOLTIP);
+        const hoverText = (await io.flowBuilder.getText(selectors.mappings.TOOLTIP)).toString();
 
         //Validate the hover text
         await io.assert.expectToContainValue('View test run results  Define lookup criteria', hoverText, 'Hovertext did not appera on NS import filter button');

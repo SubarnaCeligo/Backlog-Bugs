@@ -11,8 +11,8 @@ test.describe("T31328 Verify the above fields should be made mandatory for re-en
     await io.connectionPage.addStep("Creating and saving new connection");
     connectionId = await io.api.postCall(`v1/connections`, T31328);
     await io.connectionPage.addStep("Editing the created connection");
-    await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
-    await io.connectionPage.loadingTime();
+    await io.connectionPage.navigateTo(process.env["IO_UI_CONNECTOR_URL"] + 'connections');
+    await io.connectionPage.isPageLoaded();
     await io.connectionPage.waitForElementAttached(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.click(selectors.homePagePO.PRODUCTION_BUTTON)
     await io.connectionPage.waitForElementAttached(selectors.basePagePO.SEARCH_RECYCLEBIN);
