@@ -1,9 +1,132 @@
 {
-    "name": "TC_C33305_DND",
-    "referencename": "TC_C33305_DND",
-    "qa__expectedDashboardCount": {
-        "successCount": "2",
-        "ignoreCount": "0",
-        "errorCount": "2"
-    }
-}
+    "name": "TC_C33305",
+    "referencename": "TC_C33305",
+    "qa__api_tdata": [
+      {
+        "pageGenerators": [
+          {
+            "type": "export",
+            "qa__export":{
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e44d4417a9",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": {
+                   "a": 
+                   { "id": 1
+                  }, 
+                  "b": { "id": [
+                          1
+                      ]
+                  
+              }
+                },
+                "ftp": {
+                  "directoryPath": "/io.auto.qa/Shashiii"
+                },
+                "file": {
+                  "output": "records",
+                  "skipDelete": true,
+                  "type": "json",
+                  "filter": {
+                    "type": "expression",
+                    "expression": {
+                      "version": "1",
+                      "rules": [
+                        "startswith",
+                        [
+                          "string",
+                          [
+                            "extract",
+                            "filename"
+                          ]
+                        ],
+                        "Harshithatest.json"
+                      ]
+                    },
+                    "rules": [
+                      "startswith",
+                      [
+                        "string",
+                        [
+                          "extract",
+                          "filename"
+                        ]
+                      ],
+                      "Harshithatest.json"
+                    ],
+                    "version": "1"
+                  }
+                },
+                "adaptorType": "FTPExport"
+            }
+          }
+        ],
+        "pageProcessors": [
+          {
+            "type": "import",
+            "qa__import": {
+              "name": "test",
+              "_connectionId": "NETSUITE 706 CONNECTION",
+              "distributed": true,
+              "ignoreExisting": false,
+              "ignoreMissing": false,
+              "oneToMany": false,
+              "lookups": [],
+              "netsuite_da": {
+                "useSS2Restlets": false,
+                "restletVersion": "suitebundle",
+                "operation": "add",
+                "recordType": "customer",
+                "lookups": [],
+                "mapping": {
+                  "fields": [
+                    {
+                      "generate": "companyname",
+                      "internalId": false,
+                      "extract": "1232989"
+                    },
+                    {
+                      "generate": "custentity_esc_industry",
+                      "internalId": false,
+                      "extract": "id[*]._"
+                    },
+                    {
+                      "generate": "custentity_esc_annual_revenue",
+                      "internalId": false,
+                      "hardCodedValue": "asdfghjnvfty"
+                    }
+                  ],
+                  "lists": []
+                }
+              },
+              "adaptorType": "NetSuiteDistributedImport"
+            }
+          }
+        ],
+        "createFlow": {
+          "name": "TC_C33305",
+          "disabled": false,
+          "_integrationId": "6317518c5bca603be6bc9af0",
+          "qa__integrationId": "6317333395653f0f15147f47",
+          "skipRetries": false,
+          "pageProcessors": [
+            {
+              "responseMapping": {
+                "fields": [],
+                "lists": []
+              },
+              "type": "import",
+              "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+          ],
+          "pageGenerators": [
+            {
+              "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+          ]
+        }
+      }
+    ]
+  }

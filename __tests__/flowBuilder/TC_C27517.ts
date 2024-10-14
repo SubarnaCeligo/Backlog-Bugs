@@ -47,9 +47,10 @@ test.describe("TC_C27517", () => {
       selectors.mappings.MAPPER2DOT0PO.ADVANCED
     );
     await io.homePage.loadingTime();
-    await io.homePage.clickButtonByIndex(
-      selectors.basePagePO.HANDLEBAR_EDITOR,
-      4
+    await io.homePage.waitForElementAttached(selectors.basePagePO.HANDLEBAR_EDITOR);
+    await io.homePage.clickByIndex(
+      selectors.flowBuilderPagePO.TRACEKAY_TEMPLATEHANDLER,
+      1
     );
     await io.homePage.loadingTime();
     await io.homePage.loadingTime();

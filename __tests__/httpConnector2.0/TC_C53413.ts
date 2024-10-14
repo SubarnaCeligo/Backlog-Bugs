@@ -24,6 +24,7 @@ test.describe("TC_C53413 Verify connection form under export form", () => {
       selectors.flowBuilderPagePO.ADD_SOURCE
     );
     test.step("*** Clicked on PageGenerator ***", async ()=>{});
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.connectionsPagePO.ORDERFUL);
     test.step("*** Selected orderful as the adaptor ***", async ()=>{});
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
@@ -41,7 +42,12 @@ test.describe("TC_C53413 Verify connection form under export form", () => {
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     const simpleToggle = await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH).nth(1);
-    expect(await simpleToggle.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    const simpleToggleState = await simpleToggle.getAttribute("data-state");
+    if (simpleToggleState) {
+      expect(await simpleToggle.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await simpleToggle.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("Verifying if Simple tab is selected", async ()=>{});
     await io.homePage.clickButtonByIndex(
       selectors.basePagePO.HTTP_2DOT0,
@@ -82,8 +88,14 @@ test.describe("TC_C53413 Verify connection form under export form", () => {
     await io.homePage.click(
       selectors.connectionsPagePO.EDITCLIENT
     );
+    await io.homePage.loadingTime();
     const httpToggle = await page.locator(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH).nth(1);
-    expect(await httpToggle.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    const httpToggleState = await httpToggle.getAttribute("data-state");
+    if (httpToggleState) {
+      expect(await httpToggle.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await httpToggle.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("Verifying if HTTP tab is selected", async ()=>{});
     await simpleToggle.click();
     test.step("*** Moving to Simple tab ***", async ()=>{});

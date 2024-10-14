@@ -5,21 +5,20 @@
         {
             "type": "export",
             "qa__export": {
-                "name": "Sales expt",
-                "_connectionId": "SALESFORCE CONNECTION",
-                "apiIdentifier": "ee9f40406c",
+                "name": "zddd",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
+                "_sourceId": "628f2c6581cc012965eb244c",
+                "apiIdentifier": "e5cda1395c",
+                "application": "zendesk support",
                 "asynchronous": true,
                 "oneToMany": false,
                 "sandbox": false,
-                "rawData": "61e68956b587067a214ac5ed4e4421adb76a4e1a8b99b909eeabd211",
-                "salesforce": {
-                    "type": "soql",
-                    "api": "rest",
-                    "soql": {
-                        "query": "Select id,Name,phone,fax,(select id,name from attachments),(select id,title,body from notes) from Account where name='TC_510_NS_Import_AFE'"
-                    }
+                "http": {
+                    "relativeURI": "/tickets/1.json",
+                    "method": "GET",
+                    "formType": "http"
                 },
-                "adaptorType": "SalesforceExport"
+                "adaptorType": "HTTPExport"
             }
         }
     ],
@@ -28,13 +27,12 @@
             "type": "import",
             "qa__import": {
                 "name": "Http import",
-                "application": "freshdesk",
-                "_connectionId": "627b6bd17ca3007138a67d30",
+                "_connectionId": "HTTP ZENDESK CONNECTION",
                 "apiIdentifier": "i6643e396f",
                 "ignoreExisting": false,
                 "ignoreMissing": false,
                 "oneToMany": true,
-                "pathToMany": "Attachments",
+                "pathToMany": "ticket.fields",
                 "sandbox": false,
                 "http": {
                     "relativeURI": [

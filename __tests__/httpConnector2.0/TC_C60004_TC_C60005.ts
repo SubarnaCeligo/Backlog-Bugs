@@ -17,6 +17,8 @@ test.describe("TC_C60004_TC_C60005 Verify help texts and cross button for query 
       selectors.flowBuilderPagePO.ADD_SOURCE
     );
     test.step("*** Clicked on PageGenerator ***", async ()=>{});
+    await io.homePage.loadingTime();
+    await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "MessageMedia");
     await (await io.homePage.findElementByDataTest('MessageMedia')).click();
     await test.step(
       "*** Selected Message Media as the adaptor ***",
@@ -83,6 +85,8 @@ test.describe("TC_C60004_TC_C60005 Verify help texts and cross button for query 
       selectors.flowBuilderPagePO.ADD_SOURCE
     );
     test.step("*** Clicked on PageGenerator ***", async ()=>{});
+    await io.homePage.loadingTime();
+    await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "MessageMedia");
     await (await io.homePage.findElementByDataTest('MessageMedia')).click();
     await test.step(
       "*** Selected Message Media as the adaptor ***",

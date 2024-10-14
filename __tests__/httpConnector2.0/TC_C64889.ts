@@ -17,6 +17,7 @@ test.describe("TC_C64889_TC_C64896_TC_C64897_TC_C64901_TC_C64905_TC_C64906_TC_C6
     test.step("*** clicked on create connection ***", async ()=>{});
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
+    await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "Acumatica");
     await (await io.homePage.findElementByDataTest('Acumatica')).click();
     test.step("*** Selected Acumatica as the adaptor ***", async ()=>{});
     await io.homePage.loadingTime();

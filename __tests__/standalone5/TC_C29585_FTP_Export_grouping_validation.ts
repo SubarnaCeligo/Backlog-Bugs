@@ -21,7 +21,7 @@ test.describe("TC_C29585_FTP_Export_grouping_validation", () => {
     await io.homePage.loadingTime();
 
     test.step("*** Editing field of FTP Export ***", async ()=>{});
-    await io.homePage.click("//input[@name='hasHeaderRow']");
+    await io.homePage.click(selectors.flowBuilderPagePO.HAS_HEADER_ROW);
     await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.homePage.loadingTime();
 

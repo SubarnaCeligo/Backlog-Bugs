@@ -85,7 +85,7 @@ test.describe("TC_C33421_Verify_Data_URI_PG_Export_output_Presavepage_Hook", () 
     await io.assert.expectToContainValue("23",data, "");
 
     test.step("*** Clicking on Data URI Teamplate close button ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
+    await io.homePage.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER_BUTTON);
 
     test.step("*** Clicking on close button ***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.CLOSING_IMPORT);

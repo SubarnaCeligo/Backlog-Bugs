@@ -1,0 +1,37 @@
+{
+    "name": "TC_C99589",
+    "disabled": true,
+    "_integrationId": "_integrationId",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "qa__export": {
+                "name": "Gusto export",
+                "_connectionId": "GUSTO_DND",
+                "apiIdentifier": "e19b5699cd",
+                "asynchronous": true,
+                "oneToMany": false,
+                "sandbox": false,
+                "http": {
+                    "relativeURI": "/employees/fd1d1261-faad-4665-a997-af980d27a72b",
+                    "method": "GET",
+                    "requestMediaType": "json",
+                    "successMediaType": "json",
+                    "errorMediaType": "json",
+                    "_httpConnectorVersionId": "64470573ca8eb0476d9bdb8b",
+                    "_httpConnectorResourceId": "64470573ca8eb0476d9bdb8c",
+                    "_httpConnectorEndpointId": "64470573ca8eb0476d9bdb8f",
+                    "isRest": false,
+                    "formType": "assistant",
+                    "response": {
+                        "twoDArray": {
+                            "doNotNormalize": true
+                        }
+                    }
+                },
+                "rawData": "6333fb239fb96473a0c7343b3f60449b762f495cbc8613467bb84f27",
+                "adaptorType": "HTTPExport"
+            }
+        }
+    ]
+}

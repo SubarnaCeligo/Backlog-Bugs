@@ -10,6 +10,16 @@
                 "apiIdentifier": "e92d3ec8e7",
                 "asynchronous": true,
                 "sandbox": false,
+                "sampleData": [
+                {
+                  "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                  "#Number": "6495195850"
+                },
+                {
+                  "Drug @ Name": "Horizon Pharma Inc.",
+                  "#Number": "1933831154"
+                }
+              ],
                 "ftp": {
                     "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
                     "fileNameStartsWith": "TC_C30817"
@@ -59,5 +69,5 @@
             }
         }
     ],
-    "Script": "function preSavePage (options) {\n  options.data[0]={\n    test:options.data[0],\n    preSavePage:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
+"Script": "function preSavePage (options) {\n options.data[0] = {};\n options.data[0].preSavePage = 23;\n return options.data.map((d) => ({data: d}))"
 }

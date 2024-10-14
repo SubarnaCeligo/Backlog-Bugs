@@ -1,0 +1,140 @@
+{
+  "skipRetries": false,
+  "_integrationId": "56d6b23fe1fc35de53914730",
+  "name": "TC_C44424_HTTP_To_HTTP",
+  "disabled": false,
+
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        
+            "_id": "66e7efd59b13776ff8d6f6cb",
+            "createdAt": "2024-09-16T08:44:05.245Z",
+            "lastModified": "2024-09-16T08:44:12.757Z",
+            "name": "http",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i717c15d10",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": false,
+            "sandbox": false,
+            "http": {
+              "relativeURI": [
+                "tickets"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "batchSize": 1,
+              "sendPostMappedData": true,
+              "isRest": false,
+              "formType": "http"
+            },
+            "adaptorType": "HTTPImport",
+          
+      
+        "lookups": [
+          {
+            "name": "dynamiclookup",
+            "method": "GET",
+            "relativeURI": "v3/customers?name:in=XYZ",
+            "extract": "data[0].email",
+            "body": "",
+            "allowFailures": true,
+            "default": "Auto_TC_C44482@example.com",
+            "useImportHeaders": true
+          },
+          {
+            "name": "staticlookup",
+            "map": {
+              "History": "Celigo"
+            },
+            "allowFailures": true,
+            "useImportHeaders": true
+          }
+        ],
+        "mappings": [
+          {
+            "generate": "records",
+            "dataType": "objectarray",
+            "status": "Active",
+            "buildArrayHelper": [
+              {
+                "extract": "$",
+                "sourceDataType": "object",
+                "mappings": [
+                  {
+                    "generate": "rec1",
+                    "dataType": "object",
+                    "status": "Active",
+                    "mappings": [
+                      {
+                        "extract": "{{record.id}}{{random}}",
+                        "generate": "identifier",
+                        "dataType": "string",
+                        "status": "Active",
+                        "conditional": {
+                          "when": "extract_not_empty"
+                        }
+                      },
+                      {
+                        "extract": "$.given_name",
+                        "generate": "name",
+                        "dataType": "string",
+                        "status": "Active"
+                      }
+                    ]
+                  },
+                  {
+                    "generate": "rec2",
+                    "dataType": "object",
+                    "status": "Active",
+                    "mappings": [
+                      {
+                        "extract": "{{record.id}}{{random}}",
+                        "generate": "identifier",
+                        "dataType": "string",
+                        "status": "Active",
+                        "conditional": {
+                          "when": "extract_not_empty"
+                        }
+                      },
+                      {
+                        "extract": "$.given_name",
+                        "generate": "name",
+                        "status": "Active",
+                        "dataType": "string"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "_id": "66e7ef5e94b8e0c75ee7f07a",
+        "createdAt": "2024-09-16T08:42:06.518Z",
+        "lastModified": "2024-09-16T08:42:07.070Z",
+        "name": "MySQL new Conn new",
+        "_connectionId": "MYSQL CONNECTION",
+        "apiIdentifier": "e4ce80e0e6",
+        "asynchronous": true,
+        "oneToMany": false,
+        "sandbox": false,
+        "rdbms": {
+          "query": "Select * from Users"
+        },
+        "adaptorType": "RDBMSExport"
+      }
+    }
+  ]
+}

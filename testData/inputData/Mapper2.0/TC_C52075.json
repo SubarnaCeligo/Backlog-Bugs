@@ -1,155 +1,151 @@
 {
   "name": "TC_C52075",
-  "qa__api_tdata": [
+  "pageGenerators": [
     {
-      "pageGenerators": [
-        {
-          "type": "export",
-          "qa__export": {
-            "name": "AutomationStandalone_aygjLBH",
-            "_connectionId": "FTP CONNECTION",
-            "apiIdentifier": "e500a2ddd6",
-            "asynchronous": true,
-            "sandbox": false,
-            "ftp": {
-              "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
-              "fileNameStartsWith": "TC_C52753"
-            },
-            "file": {
-              "output": "records",
-              "skipDelete": true,
-              "type": "json",
-              "groupByFields": ["nlobjRecordType"],
-              "groupEmptyValues": true
-            },
-            "adaptorType": "FTPExport",
-            "qa__path": "//FTP_uploads//TC_C52753.json"
-          }
-        }
-      ],
-      "pageProcessors": [
-        {
-          "type": "import",
-          "qa__import": {
-            "name": "AutomationStandalone_ZqflK",
-            "_connectionId": "SHOPIFY CONNECTION",
-            "apiIdentifier": "icc02d98ce",
-            "ignoreExisting": false,
-            "ignoreMissing": false,
-            "oneToMany": false,
-            "assistant": "shopify",
-            "sandbox": false,
-            "assistantMetadata": {
-              "resource": "customer",
-              "version": "v2",
-              "operation": "creates_acustomer"
-            },
-            "mapping": {
-              "fields": [
-                {
-                  "generate": "customer.email"
-                },
-                {
-                  "generate": "customer.first_name"
-                },
-                {
-                  "generate": "customer.last_name"
-                }
-              ]
-            },
-            "mappings": [
-              {
-                "generate": "customer",
-                "dataType": "object",
-                "status": "Active",
-                "mappings": [
-                  {
-                    "extract": "$.nlobjRecordType",
-                    "generate": "email",
-                    "dataType": "string",
-                    "status": "Active",
-                    "sourceDataType": "string"
-                  },
-                  {
-                    "extract": "$.nlobjFieldIds.itemid",
-                    "generate": "first_name",
-                    "dataType": "string",
-                    "status": "Active",
-                    "sourceDataType": "string"
-                  },
-                  {
-                    "extract": "$.nlobjRecordType",
-                    "generate": "last_name",
-                    "dataType": "string",
-                    "status": "Active",
-                    "sourceDataType": "string"
-                  },
-                  {
-                    "generate": "test",
-                    "dataType": "string",
-                    "status": "Draft",
-                    "sourceDataType": "string"
-                  },
-                  {
-                    "extract": "$.nlobjSublistIds.itemvendor.lines[*].celigo_itemvendorprice.nlobjSublistIds.itemvendorpricelines.lines[*].vendorprice",
-                    "generate": "test2",
-                    "dataType": "string",
-                    "status": "Active",
-                    "sourceDataType": "string"
-                  }
-                ]
-              }
-            ],
-            "http": {
-              "relativeURI": ["/customers.json"],
-              "method": ["POST"],
-              "body": [null],
-              "batchSize": 1,
-              "requestMediaType": "json",
-              "successMediaType": "json",
-              "errorMediaType": "json",
-              "strictHandlebarEvaluation": true,
-              "sendPostMappedData": true,
-              "formType": "assistant",
-              "response": {
-                "resourceIdPath": [null]
-              }
-            },
-            "rest": {
-              "relativeURI": ["/customers.json"],
-              "method": ["POST"],
-              "body": [null],
-              "responseIdPath": [null],
-              "successPath": [null],
-              "successValues": [null]
-            },
-            "adaptorType": "RESTImport"
-          }
-        }
-      ],
-      "createFlow": {
-        "name": "TC_C52075",
-        "disabled": false,
-        "qa__integrationId": "56d6b23fe1fc35de53914730",
-        "_integrationId": "56d6b23fe1fc35de53914730",
-        "skipRetries": false,
-        "pageProcessors": [
-          {
-            "responseMapping": {
-              "fields": [],
-              "lists": []
-            },
-            "type": "import",
-            "_importId": "UPDATE WITH NEW IMPORTID"
-          }
-        ],
-        "pageGenerators": [
-          {
-            "type": "export",
-            "_exportId": "UPDATE WITH NEW EXPORTID"
-          }
-        ]
+      "type": "export",
+      "qa__export": {
+        "name": "AutomationStandalone_aygjLBH",
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e500a2ddd6",
+        "asynchronous": true,
+        "sandbox": false,
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C52753"
+        },
+        "file": {
+          "output": "records",
+          "skipDelete": true,
+          "type": "json",
+          "groupByFields": ["nlobjRecordType"],
+          "groupEmptyValues": true
+        },
+        "adaptorType": "FTPExport",
+        "qa__path": "//FTP_uploads//TC_C52753.json"
       }
     }
-  ]
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "AutomationStandalone_ZqflK",
+        "_connectionId": "SHOPIFY CONNECTION",
+        "apiIdentifier": "icc02d98ce",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "assistant": "shopify",
+        "sandbox": false,
+        "assistantMetadata": {
+          "resource": "customer",
+          "version": "v2",
+          "operation": "creates_acustomer"
+        },
+        "mapping": {
+          "fields": [
+            {
+              "generate": "customer.email"
+            },
+            {
+              "generate": "customer.first_name"
+            },
+            {
+              "generate": "customer.last_name"
+            }
+          ]
+        },
+        "mappings": [
+          {
+            "generate": "customer",
+            "dataType": "object",
+            "status": "Active",
+            "mappings": [
+              {
+                "extract": "$.nlobjRecordType",
+                "generate": "email",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.nlobjFieldIds.itemid",
+                "generate": "first_name",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.nlobjRecordType",
+                "generate": "last_name",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              },
+              {
+                "generate": "test",
+                "dataType": "string",
+                "status": "Draft",
+                "sourceDataType": "string"
+              },
+              {
+                "extract": "$.nlobjSublistIds.itemvendor.lines[*].celigo_itemvendorprice.nlobjSublistIds.itemvendorpricelines.lines[*].vendorprice",
+                "generate": "test2",
+                "dataType": "string",
+                "status": "Active",
+                "sourceDataType": "string"
+              }
+            ]
+          }
+        ],
+        "http": {
+          "relativeURI": ["/customers.json"],
+          "method": ["POST"],
+          "body": [null],
+          "batchSize": 1,
+          "requestMediaType": "json",
+          "successMediaType": "json",
+          "errorMediaType": "json",
+          "strictHandlebarEvaluation": true,
+          "sendPostMappedData": true,
+          "formType": "assistant",
+          "response": {
+            "resourceIdPath": [null]
+          }
+        },
+        "rest": {
+          "relativeURI": ["/customers.json"],
+          "method": ["POST"],
+          "body": [null],
+          "responseIdPath": [null],
+          "successPath": [null],
+          "successValues": [null]
+        },
+        "adaptorType": "RESTImport"
+      }
+    }
+  ],
+  "createFlow": {
+    "name": "TC_C52075",
+    "disabled": false,
+    "qa__integrationId": "56d6b23fe1fc35de53914730",
+    "_integrationId": "56d6b23fe1fc35de53914730",
+    "skipRetries": false,
+    "pageProcessors": [
+      {
+        "responseMapping": {
+          "fields": [],
+          "lists": []
+        },
+        "type": "import",
+        "_importId": "UPDATE WITH NEW IMPORTID"
+      }
+    ],
+    "pageGenerators": [
+      {
+        "type": "export",
+        "_exportId": "UPDATE WITH NEW EXPORTID"
+      }
+    ]
+  }
 }
