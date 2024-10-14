@@ -4,6 +4,7 @@ import * as selectors from "@celigo/aut-selectors";
 test.describe(`TC_C41543 To verify create pull button is displayed under "Revisions" tab for DIY integration(users who has Account level admin access)`, () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+    await io.flowBuilder.loadingTime();
   });
   test(`@Env-All @Zephyr-IO-T424 C41543 To validate create pull button is displayed under Revisions tab`, async ({
     page,
