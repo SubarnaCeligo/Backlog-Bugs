@@ -8,7 +8,7 @@ test.describe("TC_C99698", () => {
     test.step("*** Beginning of Test Suite ***", async ()=>{});
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
   });
-  test("@Zephyr-IO-T25521 @Env-All TC_C99698 Check for custom settings field inside iClient when required flag as false", async ({io,page}, testInfo) => {
+  test("@Zephyr-IO-T25521 @Env-All TC_C99698 Check for custom settings field inside iClient when required flag as fa lse", async ({io,page}, testInfo) => {
     test.step("** Getting response from post request ***", async ()=>{});
     const response = await io.api.postCall(
       "v1/httpconnectors",
