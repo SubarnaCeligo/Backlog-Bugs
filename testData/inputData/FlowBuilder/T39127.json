@@ -1,0 +1,110 @@
+{
+    "name": "IO-T39127 Flow",
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Salesforce Export",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "ed35966f25",
+                "asynchronous": true,
+                "type": "test",
+                "oneToMany": false,
+                "sandbox": false,
+                "rawData": "6253c695bbf2c06775d39fe1ec07559cecfe4a328783143605ce986d",
+                "test": {
+                    "limit": 11
+                },
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "includeDeletedRecords": false,
+                    "soql": {
+                        "query": "Select Name from Account"
+                    }
+                },
+                "filter": {
+                    "type": "expression",
+                    "expression": {
+                        "version": "1",
+                        "rules": []
+                    },
+                    "rules": [],
+                    "version": "1"
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "Salesforce lookup One to many = Yes",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "e8d02685c5",
+                "asynchronous": true,
+                "isLookup": true,
+                "traceKeyTemplate": "{{test}}",
+                "oneToMany": true,
+                "pathToMany": "test",
+                "sandbox": false,
+                "salesforce": {
+                    "type": "soql",
+                    "api": "rest",
+                    "includeDeletedRecords": false,
+                    "soql": {
+                        "query": "select name from Account"
+                    }
+                },
+                "adaptorType": "SalesforceExport"
+            }
+        },
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "Salesforce import One-to-Many= YES",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "apiIdentifier": "i24536867a",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": true,
+                "pathToMany": "test",
+                "sandbox": false,
+                "traceKeyTemplate": "{{test}}",
+                "salesforce": {
+                    "operation": "insert",
+                    "sObjectType": "Account",
+                    "api": "soap",
+                    "removeNonSubmittableFields": false
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        }
+    ],
+    "createFlow": {
+        "name": "IO-T39127 Flow",
+        "disabled": false,
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID",
+                "skipRetries": false
+            }
+        ],
+        "pageProcessors": [
+            {
+                "type": "export",
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            },
+            {
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID",
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                }
+            }
+        ],
+        "autoResolveMatchingTraceKeys": true
+    }
+}
