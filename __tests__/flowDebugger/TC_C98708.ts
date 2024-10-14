@@ -32,6 +32,7 @@ test.describe("@Author-Yashveer C98708 Verify screen should not be unresponsive 
         await io.myAccountPage.delay(1000);
         await io.homePage.waitForElementAttached('tbody tr');
         await io.flowBuilder.clickButtonByIndex("tbody tr button", 1);
+        await io.flowBuilder.loadingTime();
         await io.assert.verifyElementDisplayedByText(
             "Flow: TC_C98708",
             "Application type page did not load"

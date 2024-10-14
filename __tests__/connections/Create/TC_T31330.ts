@@ -8,7 +8,8 @@ test.describe("T31330 Verify if the SSL passphrase is an optional field in PEM f
     await io.flowBuilder.addStep("Creating a new connection"); 
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'GraphQL');
-    await io.homePage.clickByText('GraphQL');
+    await io.homePage.clickByIndex(selectors.connectionsPagePO.GRAPHQL_CONNECTOR,0);
+    await io.homePage.isPageLoaded();
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_T31330_Connection');
     await io.homePage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
     await io.connectionPage.clickByText("PEM");

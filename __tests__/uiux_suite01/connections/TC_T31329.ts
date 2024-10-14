@@ -8,7 +8,9 @@ test.describe("T31329 Verify if error is thrown when mandatory field values are 
     await io.connectionPage.addStep("Creating a new connection"); 
     await io.connectionPage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.connectionPage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'GraphQL');
-    await io.connectionPage.clickByText('GraphQL');
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.GRAPHQL_CONNECTOR);
+    await io.homePage.clickByIndex(selectors.connectionsPagePO.GRAPHQL_CONNECTOR,0);
+    await io.homePage.isPageLoaded();
     await io.connectionPage.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_T31329_Connection');
     await io.connectionPage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
 

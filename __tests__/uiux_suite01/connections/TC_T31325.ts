@@ -8,7 +8,9 @@ test.describe("T31325 Verify if SSL client key & SSL Certificate is mandatory fi
     await io.flowBuilder.addStep("Creating a new connection"); 
     await io.homePage.click(selectors.basePagePO.ADD_NEW_RESOURCE);
     await io.homePage.fill(selectors.connectionsPagePO.CONNECTION_SEARCH, 'GraphQL');
-    await io.homePage.clickByText('GraphQL');
+    await io.homePage.waitForElementAttached(selectors.connectionsPagePO.GRAPHQL_CONNECTOR);
+    await io.homePage.clickByIndex(selectors.connectionsPagePO.GRAPHQL_CONNECTOR,0);
+    await io.homePage.isPageLoaded();
     await io.homePage.fill(selectors.connectionsPagePO.NAME_INPUT, 'TC_T31325_Connection');
     await io.homePage.click(selectors.connectionsPagePO.SSL_CERTIFICATE);
     await io.connectionPage.clickByText("PEM");

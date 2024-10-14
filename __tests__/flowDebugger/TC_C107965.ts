@@ -21,8 +21,8 @@ test.describe("Validate the hover text for disabled Test Run button (On top and 
     await io.flowBuilder.hover(selectors.flowBuilderPagePO.RUNTEST_BUTTON, 0, true);
    
     //Get the hover text
-    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP);
-    const hoverText = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP)).toString();
+    await io.flowBuilder.waitForElementAttached(selectors.mappings.TOOLTIP);
+    const hoverText = (await io.flowBuilder.getText(selectors.mappings.TOOLTIP)).toString();
 
     //Validate the hover text
     await io.assert.expectToContainValue('You can\'t use the currently selected source for a test run unless you either bring it online or enter mock output data. Any lookup steps present in the flow must also either be online or have mock output data.', hoverText, 'Hover text did not appear');
@@ -31,8 +31,8 @@ test.describe("Validate the hover text for disabled Test Run button (On top and 
     await io.flowBuilder.hover(selectors.flowBuilderPagePO.RUNTEST_BUTTON, 1, true);
 
     //Get the hover text
-    await io.flowBuilder.waitForElementAttached(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP);
-    const hoverTextConsole = (await io.flowBuilder.getText(selectors.flowBuilderPagePO.RUNTEST_TOOLTIP)).toString();
+    await io.flowBuilder.waitForElementAttached(selectors.mappings.TOOLTIP);
+    const hoverTextConsole = (await io.flowBuilder.getText(selectors.mappings.TOOLTIP)).toString();
     
     //Validate the hover text
     await io.assert.expectToContainValue('You can\'t use the currently selected source for a test run unless you either bring it online or enter mock output data. Any lookup steps present in the flow must also either be online or have mock output data.', hoverTextConsole, 'Hover text did not appear');
