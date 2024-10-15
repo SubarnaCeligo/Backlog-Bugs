@@ -47,19 +47,16 @@ test.describe("@Zephyr-IO-T37753 Verify an E2E flow with new Generator definitio
 
     await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);
     await io.exportsPage.loadingTime();
-    await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSING_DEF_DROPDOWN);
+    await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS);
 
     await io.homePage.loadingTime();
 
-    await io.assert.verifyElementDisplayedByText(
-      "Generic",
-      "Parsing Definition label is not displayed"
-    );
+    let isLabelDisplayed = await io.exportsPage.isVisible("text='Generic'");
+    await io.assert.expectToBeTrue(isLabelDisplayed, "Parsing Definition label is not displayed");
 
-    await io.assert.verifyElementDisplayedByText(
-        "Generic-004010-810-Purchase order",
-        "Parsing Definition option is not displayed"
-      );
+    let isOptionDisplayed = await io.exportsPage.isVisible("text='Generic-005010-997-Functional Acknowledgment'");
+    await io.assert.expectToBeTrue(isOptionDisplayed, "Parsing Definition option is not displayed");
+
 
   });
 
@@ -93,19 +90,16 @@ test.describe("@Zephyr-IO-T37753 Verify an E2E flow with new Generator definitio
 
     await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);
     await io.exportsPage.loadingTime();
-    await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSING_DEF_DROPDOWN);
+    await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS);
 
     await io.homePage.loadingTime();
+    
+    let isLabelDisplayed = await io.importsPage.isVisible("text='Generic'");
+    await io.assert.expectToBeTrue(isLabelDisplayed, "Parsing Definition label is not displayed");
 
-    await io.assert.verifyElementDisplayedByText(
-      "Generic",
-      "Parsing Definition label is not displayed"
-    );
+    let isOptionDisplayed = await io.importsPage.isVisible("text='Generic-005010-997-Functional Acknowledgment'");
+    await io.assert.expectToBeTrue(isOptionDisplayed, "Parsing Definition option is not displayed");
 
-    await io.assert.verifyElementDisplayedByText(
-        "Generic-004010-810-Purchase order",
-        "Parsing Definition option is not displayed"
-      );
 
   });
 });

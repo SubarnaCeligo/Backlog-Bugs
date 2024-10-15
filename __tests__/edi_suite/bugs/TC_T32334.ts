@@ -1,5 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import FDR from "@testData/edi_suite/Generic_Export_997.json"
 
 test.describe("@Author-Shriti S TC_T32334-Verify that sample data is retained after saving an EDI X12 export", () => {
   test.beforeEach(async ({ io }) => {
@@ -40,17 +41,47 @@ test.describe("@Author-Shriti S TC_T32334-Verify that sample data is retained af
     await io.exportsPage.click(selectors.homePagePO.EDI_PROFILE);
     await io.exportsPage.clickByTextByIndex('AA_EDI_AUTOMATION_DND', 0);
 
-    await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);
-    await io.exportsPage.loadingTime();
-    await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSING_DEF_DROPDOWN);
-    await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSING_DEF_DROPDOWN, 2);
-    await io.exportsPage.loadingTime();
-     // Parser helper
-    await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSER_HELPER, 1);
-    await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.SAMPLE_DATA_TEXTAREA);
-    await io.exportsPage.fill(selectors.exportsPagePO.SAMPLE_DATA_TEXTAREA, '{"TestSampleData"}');
+     //Select Parsing def
+     await io.exportsPage.fill(selectors.exportsPagePO.PARSING_DEF_SEARCHBOX, 'Generic-005010-997-Functional Acknowledgment');
+     await io.exportsPage.loadingTime();
+     await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS);
+     await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS, 0);
+     await io.exportsPage.loadingTime();
 
+     //Open parser helper
+    await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSER_HELPER);
+    await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSER_HELPER, 1);
+    await io.homePage.loadingTime();
+
+    // Locate the textarea
+    const textarea = await page.$(selectors.flowBuilderPagePO.RULE);
+
+    if (textarea) {
+      // Click the textarea to focus on it
+      await textarea.click();
+
+      // Select all text and delete it
+      await io.homePage.loadingTime();
+      await page.keyboard.press('Control+A');
+      await page.keyboard.press('Meta+A');
+      await page.keyboard.press('Backspace');
+    }
+    //Add new FDR
+    await io.homePage.loadingTime();
+    await io.exportsPage.fill(selectors.flowBuilderPagePO.FDR_TEXTAREA, JSON.stringify(FDR));
+    await io.homePage.loadingTime();
+
+    //Fill sample data
+    await io.exportsPage.fill(selectors.exportsPagePO.SAMPLE_DATA_TEXTAREA, '{"TestSampleData"}');
     await io.exportsPage.clickByTextByIndex('Save & close', 1);
+
+    //  // Parser helper
+    // await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSER_HELPER, 1);
+    // await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.SAMPLE_DATA_TEXTAREA);
+    // await io.exportsPage.fill(selectors.exportsPagePO.SAMPLE_DATA_TEXTAREA, '{"TestSampleData"}');
+
+    // await io.exportsPage.clickByTextByIndex('Save & close', 1);
+
     await io.exportsPage.waitForElementAttached(selectors.basePagePO.FTP_DIRECTORY_PATH);
     await io.exportsPage.fill(selectors.basePagePO.FTP_DIRECTORY_PATH, '/test');
     await io.exportsPage.loadingTime();

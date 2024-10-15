@@ -1,0 +1,696 @@
+{
+    "name": "Functional Acknowledgement 997 - X12",
+    "description": "Functional Acknowledgement 997 - X12",
+    "documentType": "997",
+    "version": "2",
+    "format": "delimited/x12",
+    "skipEDIValidation": true,
+    "skipEmptyEndColDelimiter": true,
+    "delimited": {
+      "rowSuffix": "~",
+      "rowDelimiter": "\n",
+      "colDelimiter": "*"
+    },
+    "rules": [
+      {
+        "maxOccurrence": 1,
+        "required": true,
+        "skipRowSuffix": true,
+        "elements": [
+          {
+            "name": "ISA",
+            "value": "ISA"
+          },
+          {
+            "name": "Authorization Information Qualifier",
+            "value": "{{{ediProfile.isa01}}}",
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Authorization Information",
+            "value": "{{{ediProfile.isa02}}}",
+            "maxLength": 10,
+            "minLength": 10,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Security Information Qualifier",
+            "value": "{{{ediProfile.isa03}}}",
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Security Information",
+            "value": "{{{ediProfile.isa04}}}",
+            "maxLength": 10,
+            "minLength": 10,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Sender Interchange ID Qualifier",
+            "value": "{{{ediProfile.myIdQualifier}}}",
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Interchange Sender ID",
+            "value": "{{{ediProfile.myInterchangeId}}}",
+            "maxLength": 15,
+            "minLength": 15,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Receiver Interchange ID Qualifier",
+            "value": "{{{ediProfile.tpIdQualifier}}}",
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Interchange Receiver ID",
+            "value": "{{{ediProfile.tpInterchangeId}}}",
+            "maxLength": 15,
+            "minLength": 15,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Interchange Date",
+            "value": "{{{[Interchange Date]}}}",
+            "maxLength": 6,
+            "minLength": 6,
+            "type": "number",
+            "required": true
+          },
+          {
+            "name": "Interchange Time",
+            "value": "{{{[Interchange Time]}}}",
+            "maxLength": 4,
+            "minLength": 4,
+            "type": "number",
+            "required": true
+          },
+          {
+            "name": "Interchange Standard ID",
+            "value": "{{{ediProfile.isa11}}}",
+            "maxLength": 1,
+            "minLength": 1,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Interchange Version ID",
+            "value": "{{{ediProfile.isa12}}}",
+            "maxLength": 5,
+            "minLength": 5,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Interchange Control number",
+            "value": "{{{ediProfile.controlNumber}}}",
+            "maxLength": 9,
+            "minLength": 9,
+            "type": "number",
+            "required": true
+          },
+          {
+            "name": "Acknowledgment Requested",
+            "value": "{{{ediProfile.isa14}}}",
+            "maxLength": 1,
+            "minLength": 1,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Test Indicator",
+            "value": "{{{ediProfile.isa15}}}",
+            "maxLength": 1,
+            "minLength": 1,
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Subelement Separator",
+            "value": "{{{ediProfile.isa16}}}",
+            "maxLength": 10,
+            "minLength": 1,
+            "type": "string",
+            "required": true
+          }
+        ],
+        "children": [
+          {
+            "name": "GS",
+            "maxOccurrence": 1,
+            "container": true,
+            "children": [
+              {
+                "required": false,
+                "skipRowSuffix": true,
+                "elements": [
+                  {
+                    "name": "GS",
+                    "value": "GS"
+                  },
+                  {
+                    "name": "Functional Identifier Code",
+                    "value": "FA",
+                    "maxLength": 2,
+                    "minLength": 2,
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Application Sender's Code",
+                    "value": "{{{ediProfile.myGroupId}}}",
+                    "maxLength": 15,
+                    "minLength": 2,
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Application Receiver's Code",
+                    "value": "{{{ediProfile.tpGroupId}}}",
+                    "maxLength": 15,
+                    "minLength": 2,
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Data Interchange Date",
+                    "value": "{{{[Data Interchange Date]}}}",
+                    "maxLength": 8,
+                    "minLength": 8,
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Data Interchange Time",
+                    "value": "{{{[Data Interchange Time]}}}",
+                    "maxLength": 8,
+                    "minLength": 4,
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Data Interchange Control number",
+                    "value": "{{{ediProfile.controlNumber}}}",
+                    "maxLength": 9,
+                    "minLength": 1,
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Responsible Agency Code",
+                    "value": "{{{ediProfile.gs07}}}",
+                    "maxLength": 2,
+                    "minLength": 1,
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "name": "Version/Rel Ind. Identifier Code",
+                    "value": "{{{ediProfile.gs08}}}",
+                    "maxLength": 12,
+                    "minLength": 1,
+                    "type": "string",
+                    "required": true
+                  }
+                ],
+                "children": [
+                  {
+                    "name": "ST",
+                    "maxOccurrence": 1000,
+                    "container": true,
+                    "children": [
+                      {
+                        "required": false,
+                        "skipRowSuffix": true,
+                        "elements": [
+                          {
+                            "name": "ST",
+                            "value": "ST"
+                          },
+                          {
+                            "name": "Transaction Set Identifier Code",
+                            "value": "997",
+                            "maxLength": 3,
+                            "minLength": 3,
+                            "type": "string",
+                            "required": true
+                          },
+                          {
+                            "name": "Transaction Set Control Number 01",
+                            "counter": true,
+                            "value": "{{{join \"\"\"000\"_counter.[Transaction Set Control Number 01]}}}",
+                            "maxLength": 9,
+                            "minLength": 4,
+                            "type": "string",
+                            "required": true
+                          }
+                        ]
+                      },
+                      {
+                        "name": "AK1",
+                        "maxOccurrence": 2,
+                        "required": false,
+                        "container": true,
+                        "relativeDataPath": "Group",
+                        "children": [
+                          {
+                            "required": true,
+                            "skipRowSuffix": true,
+                            "elements": [
+                              {
+                                "name": "AK1",
+                                "value": "AK1"
+                              },
+                              {
+                                "name": "Functional Identifier Code",
+                                "value": "{{{[Functional Group Acknowledge Code]}}}",
+                                "maxLength": 2,
+                                "minLength": 2,
+                                "type": "string",
+                                "required": true,
+                                "enum": []
+                              },
+                              {
+                                "name": "Group Control Number",
+                                "value": "{{{[Group Control Number]}}}",
+                                "maxLength": 11,
+                                "minLength": 1,
+                                "type": "number",
+                                "required": true
+                              },
+                              {
+                                "name": "Version / Release / Industry Identifier Code",
+                                "value": "{{{[Version / Release / Industry Identifier Code]}}}",
+                                "maxLength": 12,
+                                "minLength": 1,
+                                "type": "string",
+                                "required": false,
+                                "enum": []
+                              }
+                            ]
+                          },
+                          {
+                            "name": "AK2",
+                            "relativeDataPath": "Transaction",
+                            "maxOccurrence": 100000,
+                            "required": false,
+                            "container": true,
+                            "children": [
+                              {
+                                "required": false,
+                                "skipRowSuffix": true,
+                                "elements": [
+                                  {
+                                    "name": "AK2",
+                                    "value": "AK2"
+                                  },
+                                  {
+                                    "name": "Transaction Set Identifier Code",
+                                    "value": "{{{[Transaction Set Identifier Code]}}}",
+                                    "maxLength": 3,
+                                    "minLength": 3,
+                                    "type": "string",
+                                    "required": true,
+                                    "enum": []
+                                  },
+                                  {
+                                    "name": "Transaction Set Control Number",
+                                    "value": "{{{[Transaction Set Control Number]}}}",
+                                    "maxLength": 9,
+                                    "minLength": 4,
+                                    "type": "string",
+                                    "required": true
+                                  },
+                                  {
+                                    "name": "Implementation Convention Reference",
+                                    "value": "{{{[Implementation Convention Reference]}}}",
+                                    "maxLength": 35,
+                                    "minLength": 1,
+                                    "type": "string",
+                                    "required": false
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "AK3",
+                                "relativeDataPath": "Segment",
+                                "maxOccurrence": 100000,
+                                "required": false,
+                                "container": true,
+                                "children": [
+                                  {
+                                    "required": false,
+                                    "skipRowSuffix": true,
+                                    "elements": [
+                                      {
+                                        "name": "AK3",
+                                        "value": "AK3"
+                                      },
+                                      {
+                                        "name": "Segment ID Code",
+                                        "value": "{{{[Segment ID Code]}}}",
+                                        "maxLength": 3,
+                                        "minLength": 2,
+                                        "type": "string",
+                                        "required": true
+                                      },
+                                      {
+                                        "name": "Segment Position in Transaction Set",
+                                        "value": "{{{[Segment Position in Transaction Set]}}}",
+                                        "maxLength": 12,
+                                        "minLength": 1,
+                                        "type": "number",
+                                        "required": true
+                                      },
+                                      {
+                                        "name": "Loop Identifier Code",
+                                        "value": "{{{[Loop Identifier Code]}}}",
+                                        "maxLength": 4,
+                                        "minLength": 1,
+                                        "type": "string",
+                                        "required": false
+                                      },
+                                      {
+                                        "name": "Segment Syntax Error Code",
+                                        "value": "{{{[Segment Syntax Error Code]}}}",
+                                        "maxLength": 3,
+                                        "minLength": 1,
+                                        "type": "string",
+                                        "required": false,
+                                        "enum": []
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "AK4",
+                                    "relativeDataPath": "Element",
+                                    "maxOccurrence": 99,
+                                    "required": false,
+                                    "container": true,
+                                    "children": [
+                                      {
+                                        "required": false,
+                                        "skipRowSuffix": true,
+                                        "elements": [
+                                          {
+                                            "name": "AK4",
+                                            "value": "AK4"
+                                          },
+                                          {
+                                            "name": "Data Element Reference Number",
+                                            "value": "{{{[Data Element Reference Number]}}}",
+                                            "maxLength": 6,
+                                            "minLength": 1,
+                                            "type": "number",
+                                            "required": false
+                                          },
+                                          {
+                                            "name": "Data Element Syntax Error Code",
+                                            "value": "{{{[Data Element Syntax Error Code]}}}",
+                                            "maxLength": 3,
+                                            "minLength": 1,
+                                            "type": "string",
+                                            "required": true,
+                                            "enum": []
+                                          },
+                                          {
+                                            "name": "Copy of Bad Data Element",
+                                            "value": "{{{[Copy of Bad Data Element]}}}",
+                                            "maxLength": 99,
+                                            "minLength": 1,
+                                            "type": "string",
+                                            "required": false
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "required": true,
+                                "skipRowSuffix": true,
+                                "elements": [
+                                  {
+                                    "name": "AK5",
+                                    "value": "AK5"
+                                  },
+                                  {
+                                    "name": "Transaction Set Acknowledgment Code",
+                                    "value": "{{{[Transaction Set Acknowledgment Code]}}}",
+                                    "maxLength": 1,
+                                    "minLength": 1,
+                                    "type": "string",
+                                    "required": true,
+                                    "enum": []
+                                  },
+                                  {
+                                    "name": "Transaction Set Syntax Error Code",
+                                    "value": "{{{[Transaction Set Syntax Error Code]}}}",
+                                    "maxLength": 3,
+                                    "minLength": 1,
+                                    "type": "string",
+                                    "required": false,
+                                    "enum": []
+                                  },
+                                  {
+                                    "name": "Transaction Set Syntax Error Code 01",
+                                    "value": "{{{[Transaction Set Syntax Error Code 01]}}}",
+                                    "maxLength": 3,
+                                    "minLength": 1,
+                                    "type": "string",
+                                    "required": false,
+                                    "enum": []
+                                  },
+                                  {
+                                    "name": "Transaction Set Syntax Error Code 02",
+                                    "value": "{{{[Transaction Set Syntax Error Code 02]}}}",
+                                    "maxLength": 3,
+                                    "minLength": 1,
+                                    "type": "string",
+                                    "required": false,
+                                    "enum": []
+                                  },
+                                  {
+                                    "name": "Transaction Set Syntax Error Code 03",
+                                    "value": "{{{[Transaction Set Syntax Error Code 03]}}}",
+                                    "maxLength": 3,
+                                    "minLength": 1,
+                                    "type": "string",
+                                    "required": false,
+                                    "enum": []
+                                  },
+                                  {
+                                    "name": "Transaction Set Syntax Error Code 04",
+                                    "value": "{{{[Transaction Set Syntax Error Code 04]}}}",
+                                    "maxLength": 3,
+                                    "minLength": 1,
+                                    "type": "string",
+                                    "required": false,
+                                    "enum": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "required": true,
+                            "skipRowSuffix": true,
+                            "elements": [
+                              {
+                                "name": "AK9",
+                                "value": "AK9"
+                              },
+                              {
+                                "name": "Functional Group Acknowledge Code",
+                                "value": "{{{[Functional Group Acknowledge Code]}}}",
+                                "maxLength": 1,
+                                "minLength": 1,
+                                "type": "string",
+                                "required": true,
+                                "enum": []
+                              },
+                              {
+                                "name": "Number of Transaction Sets Included",
+                                "value": "{{{[Number of Transaction Sets Included]}}}",
+                                "maxLength": 8,
+                                "minLength": 1,
+                                "type": "number",
+                                "required": true
+                              },
+                              {
+                                "name": "Number of Received Transaction Sets",
+                                "value": "{{{[Number of Received Transaction Sets]}}}",
+                                "maxLength": 8,
+                                "minLength": 1,
+                                "type": "number",
+                                "required": true
+                              },
+                              {
+                                "name": "Number of Accepted Transaction Sets",
+                                "value": "{{{[Number of Accepted Transaction Sets]}}}",
+                                "maxLength": 8,
+                                "minLength": 1,
+                                "type": "number",
+                                "required": true
+                              },
+                              {
+                                "name": "Functional Group Syntax Error Code",
+                                "value": "{{{[Functional Group Syntax Error Code]}}}",
+                                "maxLength": 3,
+                                "minLength": 1,
+                                "type": "string",
+                                "required": false,
+                                "enum": []
+                              },
+                              {
+                                "name": "Functional Group Syntax Error Code 01",
+                                "value": "{{{[Functional Group Syntax Error Code 01]}}}",
+                                "maxLength": 3,
+                                "minLength": 1,
+                                "type": "string",
+                                "required": false,
+                                "enum": []
+                              },
+                              {
+                                "name": "Functional Group Syntax Error Code 02",
+                                "value": "{{{[Functional Group Syntax Error Code 02]}}}",
+                                "maxLength": 3,
+                                "minLength": 1,
+                                "type": "string",
+                                "required": false,
+                                "enum": []
+                              },
+                              {
+                                "name": "Functional Group Syntax Error Code 03",
+                                "value": "{{{[Functional Group Syntax Error Code 03]}}}",
+                                "maxLength": 3,
+                                "minLength": 1,
+                                "type": "string",
+                                "required": false,
+                                "enum": []
+                              },
+                              {
+                                "name": "Functional Group Syntax Error Code 04",
+                                "value": "{{{[Functional Group Syntax Error Code 04]}}}",
+                                "maxLength": 3,
+                                "minLength": 1,
+                                "type": "string",
+                                "required": false,
+                                "enum": []
+                              }
+                            ]
+                          }
+                        ],
+                        "closeRule": [
+                          {
+                            "maxOccurrence": 1,
+                            "required": true,
+                            "skipRowSuffix": true,
+                            "elements": [
+                              {
+                                "name": "SE",
+                                "value": "SE"
+                              },
+                              {
+                                "name": "Number of Included Segments",
+                                "value": "{{_iterationCount}}",
+                                "maxLength": 12,
+                                "minLength": 1,
+                                "type": "number",
+                                "required": true
+                              },
+                              {
+                                "name": "Transaction Set Control Number(SE02)",
+                                "value": "{{{join \"\"\"000\"_counter.[Transaction Set Control Number 01]}}}",
+                                "maxLength": 9,
+                                "minLength": 4,
+                                "type": "string",
+                                "required": true
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "closeRule": [
+              {
+                "maxOccurrence": 1,
+                "required": true,
+                "skipRowSuffix": true,
+                "elements": [
+                  {
+                    "name": "GE",
+                    "value": "GE"
+                  },
+                  {
+                    "name": "Number of Transaction Sets Included",
+                    "value": "{{{_counter.[Transaction Set Control Number 01]}}}",
+                    "maxLength": 6,
+                    "minLength": 1,
+                    "type": "number",
+                    "required": true
+                  },
+                  {
+                    "name": "Group Control number(GE02)",
+                    "value": "{{{ediProfile.controlNumber}}}",
+                    "maxLength": 9,
+                    "minLength": 1,
+                    "type": "number",
+                    "required": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "closeRule": {
+          "maxOccurrence": 1,
+          "required": true,
+          "skipRowSuffix": true,
+          "elements": [
+            {
+              "name": "IEA",
+              "value": "IEA"
+            },
+            {
+              "name": "Number of Included Functional Groups",
+              "value": "1",
+              "maxLength": 5,
+              "minLength": 1,
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "Interchange Control number(IEA02)",
+              "value": "{{{ediProfile.controlNumber}}}",
+              "maxLength": 9,
+              "minLength": 9,
+              "type": "number",
+              "required": true
+            }
+          ]
+        }
+      }
+    ]
+  }

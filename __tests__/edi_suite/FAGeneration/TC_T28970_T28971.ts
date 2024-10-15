@@ -1,5 +1,6 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
+import FDR from "@testData/edi_suite/Generic_Export_997.json"
 
 test.describe("@Author-Shriti S TC_T28965-Verify that user is able to save an export after configuring FA", () => {
   test.beforeEach(async ({ io }) => {
@@ -43,22 +44,48 @@ test.describe("@Author-Shriti S TC_T28965-Verify that user is able to save an ex
     await io.exportsPage.loadingTime();
     await io.exportsPage.click(selectors.homePagePO.EDI_PROFILE);
     await io.exportsPage.clickByTextByIndex('AA_EDI_AUTOMATION_DND', 0);
+    await io.exportsPage.loadingTime();
 
     //Select Parsing def
+    await io.exportsPage.fill(selectors.exportsPagePO.PARSING_DEF_SEARCHBOX, 'Generic-005010-997-Functional Acknowledgment');
     await io.exportsPage.loadingTime();
-    await io.exportsPage.click(selectors.homePagePO.EDI_FORMAT);
+    await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS);
+    await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS, 0);
     await io.exportsPage.loadingTime();
-    await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSING_DEF_DROPDOWN);
-    await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSING_DEF_DROPDOWN, 2);
-
+    
     //Click the checkbox
     await io.exportsPage.click(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT);
 
 
-    // Parser helper
+    //Open parser helper
+    await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.PARSER_HELPER);
     await io.exportsPage.clickByIndex(selectors.exportsPagePO.PARSER_HELPER, 1);
-    await io.exportsPage.click(selectors.exportsPagePO.CLOSE_PARSER_HELPER);
+    await io.homePage.loadingTime();
 
+    // Locate the textarea
+    const textarea = await page.$(selectors.flowBuilderPagePO.RULE);
+
+    if (textarea) {
+      // Click the textarea to focus on it
+      await textarea.click();
+
+      // Select all text and delete it
+      await io.homePage.loadingTime();
+      await page.keyboard.press('Control+A');
+      await page.keyboard.press('Meta+A');
+      await page.keyboard.press('Backspace');
+    }
+    //Add new FDR
+    await io.homePage.loadingTime();
+    await io.exportsPage.fill(selectors.flowBuilderPagePO.FDR_TEXTAREA, JSON.stringify(FDR));
+    await io.homePage.loadingTime();
+
+    //Fill sample data
+    await io.exportsPage.fill(selectors.exportsPagePO.SAMPLE_DATA_TEXTAREA, '{}');
+    await io.exportsPage.clickByTextByIndex('Save & close', 1);
+
+    //wait for export main page:
+    await io.exportsPage.waitForElementAttached(selectors.importPagePO.NAME);
     await io.exportsPage.waitForElementAttached(selectors.basePagePO.FTP_DIRECTORY_PATH);
     await io.exportsPage.fill(selectors.basePagePO.FTP_DIRECTORY_PATH, '/test');
 
@@ -66,7 +93,7 @@ test.describe("@Author-Shriti S TC_T28965-Verify that user is able to save an ex
     await io.exportsPage.loadingTime();
     await io.exportsPage.click(selectors.basePagePO.SAVE_AND_CLOSE);
     await io.exportsPage.loadingTime();
-    await io.exportsPage.loadingTime();
+  
 
     await io.flowBuilder.addStep("T28971 - Verify that FA configuration is retained after saving and reopening.")
     //reopen in edit mode data-test="Transfer"
