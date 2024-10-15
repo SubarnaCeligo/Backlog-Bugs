@@ -19,7 +19,7 @@
                     "statsOnly": false,
                     "restlet": {
                         "recordType": "customer",
-                        "searchId": "4537",
+                        "searchId": "3237",
                         "useSS2Restlets": false
                     },
                     "distributed": {
@@ -40,7 +40,7 @@
                                     "generate": "EMAIL"
                                 },
                                 {
-                                    "extract": "Name",
+                                    "extract": "[Company Name]",
                                     "generate": "NAME"
                                 },
                                 {

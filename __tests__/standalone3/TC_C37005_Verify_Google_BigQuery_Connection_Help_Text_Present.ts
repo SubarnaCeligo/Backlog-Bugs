@@ -31,8 +31,8 @@ test.describe("TC_C37005_Verify_Google_BigQuery_Connection_Help_Text_Present", (
     await io.homePage.loadingTime();
 
     test.step("*** Verifying help text is present ***", async ()=>{});
-    var text = await io.homePage.getText(selectors.flowBuilderPagePO.STACKHELPTEXT)
-    await io.assert.expectToContainValue( "The email address for the Google Cloud service account used for authentication.",String(text), "");
+    var apiText = await io.homePage.getText(selectors.flowBuilderPagePO.HELP_BUBBLE);
+    expect(apiText).toContain("The email address for the Google Cloud service account used for authentication.");
 
     test.step("*** Clicking on Google bigquery connection close ***", async ()=>{});
     await io.homePage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);

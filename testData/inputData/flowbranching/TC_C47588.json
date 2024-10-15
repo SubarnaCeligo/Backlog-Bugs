@@ -19,7 +19,7 @@
                     "statsOnly": false,
                     "restlet": {
                         "recordType": "customer",
-                        "searchId": "4537",
+                        "searchId": "3237",
                         "useSS2Restlets": false
                     },
                     "distributed": {
@@ -48,7 +48,7 @@
                                     "id"
                                 ]
                             ],
-                            "650920"
+                            "8639116"
                         ]
                     },
                     "pageProcessors": [
@@ -152,10 +152,10 @@
                                 "string",
                                 [
                                     "extract",
-                                    "Email"
+                                    "recordType"
                                 ]
                             ],
-                            "MultifieldCust1"
+                            "customer"
                         ]
                     },
                     "nextRouterId": "yCNC4t"
@@ -207,7 +207,7 @@
                                     "id"
                                 ]
                             ],
-                            "650920"
+                            "8639116"
                         ]
                     },
                     "nextRouterId": "yCNC4t"

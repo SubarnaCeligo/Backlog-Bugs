@@ -22,7 +22,7 @@
                     "statsOnly": false,
                     "restlet": {
                         "recordType": "customer",
-                        "searchId": "4537",
+                        "searchId": "3237",
                         "useSS2Restlets": false,
                         "markExportedBatchSize": 100
                     },
@@ -61,13 +61,6 @@
                                 "fields": [],
                                 "lists": []
                             },
-                            "setupInProgress": true
-                        },
-                        {
-                            "responseMapping": {
-                                "fields": [],
-                                "lists": []
-                            },
                             "type": "import",
                             "qa__import": {
                                 "name": "AutomationStandaloneImport1_afsflk",
@@ -77,7 +70,7 @@
                                 "mapping": {
                                     "fields": [
                                         {
-                                            "extract": "Auto_{{random 6}}",
+                                            "extract": "Auto_{{random 16}}",
                                             "generate": "organization.name"
                                         }
                                     ]
@@ -120,7 +113,34 @@
                                 "fields": [],
                                 "lists": []
                             },
-                            "setupInProgress": true
+                            "type": "import",
+                            "qa__import": {
+                                "name": "AutomationStandaloneImport1_afsflk",
+                                "application":"zendesk support",
+                                "_connectionId": "HTTP ZENDESK CONNECTION",
+                                "oneToMany": true,
+                                "mapping": {
+                                    "fields": [
+                                        {
+                                            "extract": "Auto_{{random 16}}",
+                                            "generate": "organization.name"
+                                        }
+                                    ]
+                                },
+                                "http": {
+                                    "relativeURI": [
+                                        "organizations.json"
+                                    ],
+                                    "method": [
+                                        "POST"
+                                    ],
+                                    "batchSize": 1,
+                                    "sendPostMappedData": true,
+                                    "formType": "http"
+                                },
+                                "adaptorType": "HTTPImport"
+                            },
+                            "_importId": "UPDATE WITH NEW IMPORTID"
                         }
                     ]
                 }

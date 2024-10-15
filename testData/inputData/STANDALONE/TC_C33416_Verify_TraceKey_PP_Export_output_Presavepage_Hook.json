@@ -1,6 +1,5 @@
 {
     "skipRetries": false,
-    "_integrationId": "6228aed6bc8a2732cfe8044c",
     "pageGenerators": [
         {
             "type": "export",
@@ -59,7 +58,6 @@
             }
         }
     ],
-    "qa_connection": "HTTP ZENDESK CONNECTION",
     "pageProcessors": [
         {
             "type": "export",
@@ -67,21 +65,14 @@
                 "name": "zddd",
                 "_connectionId": "HTTP ZENDESK CONNECTION",
                 "_sourceId": "628f2c6581cc012965eb244c",
-                "type": "test",
                 "apiIdentifier": "e5cda1395c",
                 "application": "zendesk support",
                 "asynchronous": true,
                 "isLookup": true,
-                "hooks": {
-                    "preSavePage": {
-                        "_scriptId": "630865b5fe63514b8f831eda",
-                        "function": "preSavePage"
-                    }
-                },
                 "oneToMany": false,
                 "sandbox": false,
                 "http": {
-                    "relativeURI": "/tickets/81.json",
+                    "relativeURI": "/tickets/1.json",
                     "method": "GET",
                     "formType": "http"
                 },

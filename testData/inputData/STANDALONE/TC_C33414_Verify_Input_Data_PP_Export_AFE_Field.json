@@ -1,6 +1,5 @@
 {
     "skipRetries": false,
-    "_integrationId": "6228aed6bc8a2732cfe8044c",
     "pageGenerators": [
       {
         "type": "export",
@@ -10,6 +9,22 @@
           "apiIdentifier": "e930f9de29",
           "asynchronous": true,
           "sandbox": false,
+          "mockOutput": {
+              "page_of_records": [
+                  {
+                  "record": {
+                      "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                      "#Number": "6495195850"
+                  }
+                  },
+                  {
+                  "record": {
+                      "Drug @ Name": "Horizon Pharma Inc.",
+                      "#Number": "1933831154"
+                  }
+                  }
+              ]
+          },
           "ftp": {
             "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
             "fileNameStartsWith": "TC_C30817"
@@ -25,6 +40,42 @@
           },
           "adaptorType": "FTPExport",
           "qa__path": "//FTP_uploads//TC_C30817.json"
+        }
+      }
+    ],
+    "pageProcessors": [
+      { 
+        "type": "export",
+        "qa__export" : {
+          "_id": "6707a55828be15c4b4a0c130",
+          "createdAt": "2024-10-10T09:58:48.108Z",
+          "lastModified": "2024-10-10T09:58:48.154Z",
+          "name": "test lookup",
+          "_connectionId": "FTP CONNECTION",
+          "apiIdentifier": "e8a07de1cc",
+          "asynchronous": true,
+          "isLookup": true,
+          "sandbox": false,
+          "ftp": {
+            "directoryPath": "abcd",
+            "fileNameStartsWith": "TC_C30817",
+            "fileNameEndsWith": "TC_C30817"
+          },
+          "file": {
+            "output": "records",
+            "skipDelete": false,
+            "type": "json",
+            "filter": {
+              "type": "expression",
+              "expression": {
+                "version": "1",
+                "rules": []
+              },
+              "rules": [],
+              "version": "1"
+            }
+          },
+          "adaptorType": "FTPExport"
         }
       }
     ]

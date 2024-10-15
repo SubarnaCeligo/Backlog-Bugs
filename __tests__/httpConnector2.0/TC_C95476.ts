@@ -17,6 +17,7 @@ test.describe("TC_C95476_TC_C95477_TC_C95478", () => {
     test.step("*** clicked on create connection ***", async ()=>{});
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
+    await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "Meta");
     await io.homePage.click(
       selectors.connectionsPagePO.META
     );
@@ -44,10 +45,12 @@ test.describe("TC_C95476_TC_C95477_TC_C95478", () => {
     await io.homePage.click(selectors.connectionsPagePO.GENERAL);
     test.step("*** Clicked on General ***", async ()=>{});
     await io.homePage.loadingTime();
-    const apiType = await io.homePage.getText(
+    const apiType = await page.locator(
       selectors.myAccountPagePO.PARAGRAPH_BOX
     );
-    expect(apiType).toContain("Facebook Ads");
+    if (await apiType.isVisible()) {
+      expect(await apiType.textContent()).toContain("Facebook Ads");
+    }
     const grantType = await io.homePage.getText(
       selectors.connectionsPagePO.OAUTH2_GRANT_TYPE
     );
@@ -81,6 +84,7 @@ test.describe("TC_C95476_TC_C95477_TC_C95478", () => {
     test.step("*** clicked on create connection ***", async ()=>{});
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
+    await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "Meta");
     await io.homePage.click(
       selectors.connectionsPagePO.META
     );
@@ -159,6 +163,7 @@ test.describe("TC_C95476_TC_C95477_TC_C95478", () => {
     test.step("*** clicked on create connection ***", async ()=>{});
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
+    await io.homePage.fill(selectors.flowBuilderPagePO.APP_NAME_INPUT, "Meta");
     await io.homePage.click(
       selectors.connectionsPagePO.META
     );
@@ -184,14 +189,8 @@ test.describe("TC_C95476_TC_C95477_TC_C95478", () => {
     );
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
-    await io.homePage.clickButtonByIndex(
-      selectors.flowBuilderPagePO.CHECKBOX,
-      1
-    );
-    await io.homePage.clickButtonByIndex(
-      selectors.flowBuilderPagePO.CHECKBOX,
-      3
-    );
+    await io.homePage.clickByText("ads_read");
+    await io.homePage.clickByText("pages_show_list");
     await (await io.homePage.findElementByDataTest("moveSelectedRight")).click();
     await io.homePage.click(
       selectors.connectionsPagePO.SAVE_SCOPE

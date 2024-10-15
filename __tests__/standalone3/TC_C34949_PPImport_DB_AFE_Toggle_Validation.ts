@@ -45,7 +45,7 @@ test.describe("TC_C34949_PPImport_DB_AFE_Toggle_Validation", () => {
     await io.assert.expectToBeTrue(queryHandlebar2, "");
 
     test.step("*** Clicking on close button ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
+    await io.homePage.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER_BUTTON);
     test.step("*** Clicking on Advance button ***", async ()=>{});
     await io.homePage.click(selectors.mappings.MAPPER2DOT0PO.ADVANCED);
 
@@ -58,7 +58,7 @@ test.describe("TC_C34949_PPImport_DB_AFE_Toggle_Validation", () => {
     await io.assert.expectToBeTrue(concHandleBar2, "");
 
     test.step("*** Clicking on close button ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
+    await io.homePage.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER_BUTTON);
     test.step("*** Clicking Data URI Handle Bar ***", async ()=>{});
     await io.homePage.click(selectors.importPagePO.DATAURIHANDLEBAR);
     test.step("*** Verifying toggles bars should not present ***", async ()=>{});
@@ -68,7 +68,7 @@ test.describe("TC_C34949_PPImport_DB_AFE_Toggle_Validation", () => {
     await io.assert.expectToBeTrue(dataURI2, "");
 
     test.step("*** Clicking on close button ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
+    await io.homePage.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER_BUTTON);
     test.step("*** Discarding the changes ***", async ()=>{});
     await io.homePage.click(selectors.basePagePO.CLOSE);
     await io.homePage.click(selectors.basePagePO.DISCARD_CHANGES);

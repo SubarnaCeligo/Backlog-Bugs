@@ -21,6 +21,8 @@ test.describe("@Author-ParthPatel TC_C47543", () => {
 
   test.afterEach(async ({io,page}, testInfo) => {
     await test.step("*** Deleting flow.***", async ()=>{
+      await io.flowBuilderDashboard.navigateToEm2Flow(flowId);
+      await io.homePage.loadingTime();
       await io.flowbranching.flowBranchingPage.decreaseDrawer();
       await io.api.deleteFlowsWithId([flowId]);
     });

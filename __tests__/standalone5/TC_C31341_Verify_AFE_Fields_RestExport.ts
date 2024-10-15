@@ -98,7 +98,7 @@ test.describe("TC_C31341_Verify_AFE_Fields_RestExport", () => {
     await io.assert.expectToContainValue("data",String(data), "");
 
     test.step("*** Clickng on close button ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
+    await io.homePage.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER_BUTTON);
 
     test.step("*** Clicking on HTTP Request Body Handlebar ***", async ()=>{});
     await io.homePage.click(selectors.exportsPagePO.HTTP_BODY);
@@ -108,7 +108,7 @@ test.describe("TC_C31341_Verify_AFE_Fields_RestExport", () => {
     await io.assert.expectToContainValue("data",String(data1), "");
 
     test.step("*** Clickng on close button ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
+    await io.homePage.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER_BUTTON);
 
     test.step("*** Clicking on Relative URI to Update Record Handlebar ***", async ()=>{});
     await io.homePage.clickButtonByIndex( selectors.flowBuilderPagePO.RELATIVEURIUPDATERECORD, 1);
@@ -121,7 +121,7 @@ test.describe("TC_C31341_Verify_AFE_Fields_RestExport", () => {
     await io.assert.expectToContainValue("data",String(data2), "");
 
     test.step("*** Clickng on close button ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
+    await io.homePage.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER_BUTTON);
 
     test.step("*** Clicking on HTTP Request Body Handlebar ***", async ()=>{});
     await io.homePage.click(selectors.importPagePO.HTTPREQUESTBODYHANDLEBAR);

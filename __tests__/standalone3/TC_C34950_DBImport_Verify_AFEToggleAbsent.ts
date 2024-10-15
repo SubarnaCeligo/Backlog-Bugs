@@ -67,7 +67,7 @@ test.describe("TC_C34950_DBImport_Verify_AFEToggleAbsent", () => {
     await io.homePage.loadingTime();
 
     test.step("*** Clicked on close ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
+    await io.homePage.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER_BUTTON);
 
     await io.homePage.click(selectors.flowBuilderPagePO.CLOSING_IMPORT);
 

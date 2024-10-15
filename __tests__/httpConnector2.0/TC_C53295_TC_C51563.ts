@@ -31,7 +31,12 @@ test.describe("TC_C53295,TC_C51563 Verify the connection form of HTTP toggle and
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     const simpleToggle = await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
-    expect(await simpleToggle.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    const simpleToggleState = await simpleToggle.getAttribute("data-state");
+    if (simpleToggleState) {
+      expect(await simpleToggle.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await simpleToggle.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("Verifying if Simple tab is selected", async ()=>{});
     await io.homePage.click(selectors.basePagePO.HTTP_2DOT0);
     test.step("Move to HTTP tab", async ()=>{});
@@ -65,7 +70,12 @@ test.describe("TC_C53295,TC_C51563 Verify the connection form of HTTP toggle and
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     const httpToggle = await page.locator(selectors.flowBuilderPagePO.HTTP_FORM_SWITCH);
-    expect(await httpToggle.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    const httpToggleState = await httpToggle.getAttribute("data-state");
+    if (httpToggleState) {
+      expect(await httpToggle.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await httpToggle.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("*** Verifying if HTTP tab is selected ***", async ()=>{});
 
     // TC_C51563

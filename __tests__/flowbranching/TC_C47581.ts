@@ -3,7 +3,7 @@ import { test, expect } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import flowbranch from "@testData/flowbranching/TC_C47581.json";
   
-test.describe("@Author-ParthPatel TC_C47581_C47586", () => {
+test.describe("@Author-ParthPatel TC_C47581_C47585", () => {
   let flowId;
 
   test.beforeEach(async ({io}, testInfo) => {
@@ -16,7 +16,7 @@ test.describe("@Author-ParthPatel TC_C47581_C47586", () => {
     await io.api.deleteFlowsWithId([flowId]);
   });
 
-  test("@Env-All @Zephyr-IO-T17660 @Zephyr-IO-T17665 TC_C47581_C47586", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T17660 @Zephyr-IO-T17664 TC_C47581_C47585", async ({io,page}, testInfo) => {
     flowId = await io.flowbranching.createFlowBranchFromAPI(
       flowbranch
     );
@@ -35,7 +35,7 @@ test.describe("@Author-ParthPatel TC_C47581_C47586", () => {
     await io.assert.expectToContainValue('{"organization": {"name": "Auto', requestBody, "");
     await io.flowbranching.flowBranchingPage.closeDrawer();
 
-    // TC_C47586 | Test to add an import and then preview the data on an import added on a branch
+    // TC_C47585 | Test to preview the input data on an import added after two branches are merged
     await io.homePage.loadingTime();
     await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
     await io.homePage.clickButtonByIndex(selectors.flowBuilderPagePO.IMPORT, 0);

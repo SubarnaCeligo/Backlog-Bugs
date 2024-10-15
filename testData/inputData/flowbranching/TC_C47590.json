@@ -19,7 +19,7 @@
                     "statsOnly": false,
                     "restlet": {
                         "recordType": "customer",
-                        "searchId": "4537",
+                        "searchId": "3237",
                         "useSS2Restlets": false
                     },
                     "distributed": {
@@ -48,7 +48,7 @@
                                     "id"
                                 ]
                             ],
-                            "650920"
+                            "8639116"
                         ]
                     },
                     "pageProcessors": [
@@ -90,7 +90,7 @@
                                 "mapping": {
                                     "fields": [
                                         {
-                                            "extract": "Auto_{{random 6}}",
+                                            "extract": "Auto_{{random 16}}",
                                             "generate": "organization.name"
                                         },
                                         {

@@ -24,7 +24,13 @@ test.describe("TC_C51558", () => {
     const httpToggle = await page.locator(selectors.basePagePO.HTTP_2DOT0);
     await httpToggle.click();
     test.step("Navigatig to HTTP Toggle", async ()=>{});
-    expect(await httpToggle.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    await io.homePage.loadingTime();
+    const httpToggleState = await httpToggle.getAttribute("data-state");
+    if (httpToggleState) {
+      expect(await httpToggle.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await httpToggle.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("Verifying if Http tab is selected", async ()=>{});
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();

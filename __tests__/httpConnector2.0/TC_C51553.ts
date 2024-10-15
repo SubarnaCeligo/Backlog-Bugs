@@ -31,14 +31,20 @@ test.describe("TC_C51553", () => {
       selectors.flowBuilderPagePO.ADD_SOURCE
     );
     test.step("*** Clicked on PageGenerator ***", async ()=>{});
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.connectionsPagePO.ORDERFUL);
     test.step("*** Selected Orderful as the adaptor ***", async ()=>{});
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     test.step("*** Clicking on create flow step ***", async ()=>{});
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
-    const simpleToggle1 = await page.locator( selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
-    expect(await simpleToggle1.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    const simpleToggle1 = await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+    const simpleToggle1State = await simpleToggle1.getAttribute("data-state");
+    if (simpleToggle1State) {
+      expect(await simpleToggle1.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await simpleToggle1.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("Verifying if Simple tab is selected", async ()=>{});
     expect(await io.homePage.isVisible(selectors.basePagePO.NAME_WDIO)).toBeTruthy();
     expect(await io.homePage.isVisible(selectors.connectionsPagePO.DESCRIPTIONNAME)).toBeTruthy();
@@ -50,6 +56,7 @@ test.describe("TC_C51553", () => {
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
     test.step("*** Clicked on Pageprocessor ***", async ()=>{});
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.connectionsPagePO.ORDERFUL);
     test.step("*** Selected Orderful as the adaptor ***", async ()=>{});
     await io.homePage.click(

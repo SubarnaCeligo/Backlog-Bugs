@@ -37,7 +37,7 @@ test.describe("TC_C34947_Verify_AFE_Toggle_NotPresent_InDB_Queryfield", () => {
     test.step("*** Verifying AFE Toggle Is Not Present ***", async ()=>{});
 
     test.step("*** Clicking on the RDBMSQuery handlebar close button ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
+    await io.homePage.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER_BUTTON);
 
     test.step("*** Clicking on close button ***", async ()=>{});
     await io.homePage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);

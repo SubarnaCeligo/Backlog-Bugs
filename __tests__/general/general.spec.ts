@@ -106,3 +106,7 @@ require("./TC_C1079_Verify_User_canDelete_theIntegration");
 require("./TC_C1104_error_flows_redirections");
 require("./TC_C22581_general_custom_fields_forms");
 require("./TC_C32177");
+require("./TC_C33305");
+require("./TC_C34103");
+require("./TC_C34104");
+require("./TC_C36480");
