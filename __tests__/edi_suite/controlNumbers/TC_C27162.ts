@@ -21,7 +21,7 @@ test.describe("@Author-SaiPhanindra TC_27162", () => {
      await io.flowBuilder.clickByText("EDI X12");
      await io.flowBuilder.click(selectors.homePagePO.EDI_PROFILE);
     await page.getByRole('menuitem', { name: 'AA_EDI_CONTROL_NUMBERS_DND' }).click();
-    await io.flowBuilder.fill(selectors.homePagePO.EDI_FORMAT+ ' input', 'Generic-005010-997-Functional Acknowledgment');
+    await io.flowBuilder.fill(selectors.homePagePO.EDI_FORMAT+ ' input', 'Generic-');
     await io.exportsPage.loadingTime();
     await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS);
     await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS, 0);

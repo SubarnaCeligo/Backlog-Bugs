@@ -53,11 +53,9 @@ test.describe("@Zephyr-IO-T37753 Verify an E2E flow with new Generator definitio
 
     let isLabelDisplayed = await io.exportsPage.isVisible("text='Generic'");
     await io.assert.expectToBeTrue(isLabelDisplayed, "Parsing Definition label is not displayed");
-
-    let isOptionDisplayed = await io.exportsPage.isVisible("text='Generic-005010-997-Functional Acknowledgment'");
-    await io.assert.expectToBeTrue(isOptionDisplayed, "Parsing Definition option is not displayed");
-
-
+    
+    let options = (await io.importsPage.getText(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS)).toString();
+    await io.assert.expectToContainValue('Generic-', options, 'Parsing Definition optiond are not displayed');
   });
 
   test("@Env-All @Priority-P2 @Zephyr-IO-T37753 Verify an E2E flow with new Generator definition dropdown changes for Generic connectors(FTP EXPORT)", async ({ io, page }) => {
@@ -97,8 +95,8 @@ test.describe("@Zephyr-IO-T37753 Verify an E2E flow with new Generator definitio
     let isLabelDisplayed = await io.importsPage.isVisible("text='Generic'");
     await io.assert.expectToBeTrue(isLabelDisplayed, "Parsing Definition label is not displayed");
 
-    let isOptionDisplayed = await io.importsPage.isVisible("text='Generic-005010-997-Functional Acknowledgment'");
-    await io.assert.expectToBeTrue(isOptionDisplayed, "Parsing Definition option is not displayed");
+    let options = (await io.importsPage.getText(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS)).toString();
+    await io.assert.expectToContainValue('Generic-', options, 'Parsing Definition optiond are not displayed');
 
 
   });

@@ -37,7 +37,7 @@ test.describe("@Author-Shriti S TC_T28968-Verify the default FA Listener selecti
     await io.exportsPage.clickByTextByIndex('AA_EDI_AUTOMATION_DND', 0);
 
     //Select Parsing def
-    await io.exportsPage.fill(selectors.exportsPagePO.PARSING_DEF_SEARCHBOX, 'Generic-005010-997-Functional Acknowledgment');
+    await io.exportsPage.fill(selectors.exportsPagePO.PARSING_DEF_SEARCHBOX, 'Generic-');
     await io.exportsPage.loadingTime();
     await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS);
     await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS, 0);

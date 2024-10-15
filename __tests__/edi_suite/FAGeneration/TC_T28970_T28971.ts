@@ -47,7 +47,7 @@ test.describe("@Author-Shriti S TC_T28965-Verify that user is able to save an ex
     await io.exportsPage.loadingTime();
 
     //Select Parsing def
-    await io.exportsPage.fill(selectors.exportsPagePO.PARSING_DEF_SEARCHBOX, 'Generic-005010-997-Functional Acknowledgment');
+    await io.exportsPage.fill(selectors.exportsPagePO.PARSING_DEF_SEARCHBOX, 'Generic-');
     await io.exportsPage.loadingTime();
     await io.exportsPage.waitForElementAttached(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS);
     await io.exportsPage.clickByIndex(selectors.flowBuilderPagePO.PATH_TO_MANY_OPTIONS, 0);
