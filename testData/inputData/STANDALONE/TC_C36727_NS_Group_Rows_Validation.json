@@ -4,11 +4,12 @@
   "pageProcessors": [],
   "pageGenerators": [
     {
+      "type": "export",
       "qa__export": {
         "name": "38 NS Export",
         "adaptorType": "NetSuiteExport",
         "parsers": [],
-        "_connectionId": "628f00568f68e85ab2c63b22",
+        "_connectionId": "NETSUITE CONNECTION",
         "asynchronous": true,
         "netsuite": {
           "type": "restlet",
@@ -60,23 +61,5 @@
         }
       }
     }
-  ],
-  "importRecordJSON": {
-    "shipping_state": "TG",
-    "shipping_city": "Kukatpally",
-    "billing_country": "India",
-    "subsidiary": "HH Inc.",
-    "billing_city": "Hyderabad",
-    "phone": "1741245874",
-    "billing_state": "TS",
-    "shipping_zip": "500081",
-    "companyname": "38.NSCustomer2FTPFlow",
-    "shipping_address1": "KPHB Colony",
-    "billing_zip": "500016",
-    "fax": "1747854521",
-    "billing_address1": "GV Colony",
-    "shipping_country": "India",
-    "email": "38ns2ftp@celigo.com"
-  },
-  "importapiIdentifier": "i78cb6d9b7"
+  ]
 }

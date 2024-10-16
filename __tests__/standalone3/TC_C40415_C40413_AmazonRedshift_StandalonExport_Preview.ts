@@ -8,6 +8,7 @@ test.describe("TC_C40415_C40413_AmazonRedshift_StandalonExport_Preview", () => {
 
     // Delete the export
     await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, amazonRedshift.name);
+    await io.homePage.loadingTime();
     // Wait for search to complete
     await io.homePage.waitForElementAttached(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);
     await io.homePage.click(selectors.flowBuilderPagePO.ACTIONS_SELECTOR);

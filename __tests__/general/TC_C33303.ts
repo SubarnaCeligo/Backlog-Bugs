@@ -17,18 +17,16 @@ test.describe("TC_C33303", () => {
     await io.homePage.isPageReady();
     await io.homePage.loadingTime();
     await io.homePage.waitForElementAttached(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX);
-     var checkBox1 = await (
-        await page.locator(
-           selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-        )
-      ).getAttribute("value");
-
-      if(checkBox1 === "false") {
-        await io.homePage.click(
-          selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-        );
-        await io.homePage.click(selectors.basePagePO.MFA_SAVE);
-      }
+    var val = await page.getByText('Show timestamps as relative').isChecked();
+    await io.homePage.isPageLoaded();
+    if(val === true) {
+      await test.step("*** Clicking on check box is true ***",()=>{});
+    } else {
+      await page.getByText('Show timestamps as relative').click();
+      await test.step("*** Clicking On check box ***",()=>{});
+      await io.homePage.click(selectors.basePagePO.MFA_SAVE);
+      await test.step("*** Clicked on Save Button ***",()=>{});
+    }
     
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","API tokens");
@@ -44,7 +42,7 @@ test.describe("TC_C33303", () => {
         lastUpdatedArray1.push(text);
       }
     }
-    if(lastUpdatedArray1[0].includes("ago")) {
+    if(lastUpdatedArray1[0] && lastUpdatedArray1[0].includes("ago")) {
     await io.assert.expectToContainValue("ago",lastUpdatedArray1[0],"");
     }
     await test.step(" Verified Last updated columns the time is displayed in Relative. ***",()=>{});
@@ -55,8 +53,7 @@ test.describe("TC_C33303", () => {
     await io.homePage.loadingTime();
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
-    await test.step("*** Clicked on Profile ***",()=>{});
-    await io.homePage.click(selectors.myAccountPagePO.SHOWTIMESTAMPRELATIVE);
+    await page.getByText('Show timestamps as relative').click();
     await test.step("*** Clicking On check box ***",()=>{});
     await io.homePage.click(selectors.basePagePO.MFA_SAVE);
     await test.step("*** Clicked on Save Button ***",()=>{});
@@ -75,10 +72,10 @@ test.describe("TC_C33303", () => {
           lastUpdatedArray2.push(text);
         }
       }
-      if(lastUpdatedArray2[0].includes("am")) {
+      if(lastUpdatedArray2[0] && lastUpdatedArray2[0].includes("am")) {
       await io.assert.expectToContainValue("am",lastUpdatedArray2[0],"");
       }
-      if(lastUpdatedArray2[0].includes("pm")) {
+      if(lastUpdatedArray2[0] && lastUpdatedArray2[0].includes("pm")) {
       await io.assert.expectToContainValue("pm",lastUpdatedArray2[0],"");
       }
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);

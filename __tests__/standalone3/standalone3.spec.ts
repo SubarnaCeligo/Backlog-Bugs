@@ -182,3 +182,8 @@ require("./TC_C51404_C51405_C51406_C51407");
 require("./TC_C51408_C514079");
 require("./TC_C51410_PreMap");
 require("./TC_C51411_Response_Mapping");
+require("./TC_C33450_C33456_C33462");
+require("./TC_C33459_C33465");
+require("./TC_C33483");
+require("./TC_C33594");
+require("./TC_C36727_NS_Group_Rows_Validation");

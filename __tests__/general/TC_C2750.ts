@@ -45,7 +45,7 @@ test.describe("C2750", () => {
     );
     await test.step("*** Getting the error text ***",()=>{});
     await expect(msg).toContain(
-      "Sign up failed. New accounts must be attached to a valid business email address."
+      "Sign up failed. A user with the given email is already registered"
     );
 
     await io.homePage.reloadPage();

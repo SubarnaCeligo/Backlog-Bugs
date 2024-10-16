@@ -100,3 +100,8 @@ require("./TC_C52071");
 require("./TC_C52072");
 require("./TC_C52075");
 require("./TC_C52076");
+require("./TC_C44447");
+require("./TC_C45692");
+require("./TC_C51905");
+require("./TC_C51908");
+require("./TC_C52077");

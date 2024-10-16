@@ -16,19 +16,16 @@ test.describe("TC_C33565", () => {
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
     await io.homePage.loadingTime();
-    await io.homePage.waitForElementAttached(selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX);
-     var checkBox1 = await (
-        await page.locator(
-           selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-        )
-      ).getAttribute("value");
-
-      if(checkBox1 === "false") {
-        await io.homePage.click(
-          selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-        );
-        await io.homePage.click(selectors.basePagePO.MFA_SAVE);
-      }
+    var val = await page.getByText('Show timestamps as relative').isChecked();
+    await io.homePage.isPageLoaded();
+    if(val === true) {
+      await test.step("*** Clicking on check box is true ***",()=>{});
+    } else {
+      await page.getByText('Show timestamps as relative').click();
+      await test.step("*** Clicking On check box ***",()=>{});
+      await io.homePage.click(selectors.basePagePO.MFA_SAVE);
+      await test.step("*** Clicked on Save Button ***",()=>{});
+    }
     
     await io.homePage.loadingTime();
     await io.homePage.goToMenu("Resources","Templates");
@@ -56,9 +53,10 @@ test.describe("TC_C33565", () => {
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
     await test.step("*** Clicked on Profile ***",()=>{});
-    await io.homePage.click(selectors.myAccountPagePO.SHOWTIMESTAMPRELATIVE);
+    await page.getByText('Show timestamps as relative').click();
     await test.step("*** Clicking On check box ***",()=>{});
     await io.homePage.click(selectors.basePagePO.MFA_SAVE);
+    await test.step("*** Clicked on Save Button ***",()=>{});
     await test.step("*** Clicked on Save Button ***",()=>{});
     await io.homePage.isPageLoaded();
     await io.homePage.loadingTime();

@@ -11,6 +11,7 @@ test.describe("TC_C2003", () => {
   });
   test("@Env-All @Zephyr-IO-T5823 TC_C2003", async ({io,page}, testInfo) => {
     await io.homePage.goToMenu("Resources","API tokens");
+    await io.homePage.loadingTime();
     test.step("*** Clicked On API Token Icon ***", async ()=>{});
     await io.homePage.click(selectors.connectionsPagePO.CREATEAPITOKEN);
     test.step("*** Clicked On Create API Token Button ***", async ()=>{});
@@ -20,10 +21,19 @@ test.describe("TC_C2003", () => {
     await io.homePage.click("[data-test='fullAccess']");
     test.step("*** Selected Full Access ***", async ()=>{});
     await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
+    await io.homePage.loadingTime();
     test.step("*** Clicked On Save And Close ***", async ()=>{});
 
     test.step("*** API Token Is Created Successfully ***", async ()=>{});
 
+    await (await page.locator(selectors.flowBuilderPagePO.SEARCHBUTTON)).isVisible();
+    await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
+
+    await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "TC_C2003_Test API Token");
+    await io.homePage.loadingTime();
+    await test.step("***Searching the created token***", async ()=>{});
+
+    await (await page.locator(selectors.flowBuilderPagePO.SHOW_TOKEN)).first().isVisible();
     await io.homePage.click(selectors.flowBuilderPagePO.SHOW_TOKEN);
     await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).first().isVisible();
     test.step("***Token Is Displayed In Clear Text***", async ()=>{});
@@ -48,8 +58,10 @@ test.describe("TC_C2003", () => {
     await io.homePage.click(selectors.connectionsPagePO.NEWTOKENGENERATE);
     test.step("*** Clicked On generate API Token***", async ()=>{});
     
+    await page.waitForTimeout(1000);
     await (await page.locator(selectors.flowBuilderPagePO.COPY_TOKEN)).first().isVisible();
     await io.homePage.click(selectors.flowBuilderPagePO.COPY_TOKEN);
+    await page.waitForTimeout(1000);
     test.step("***Copied Token To ClipBoard***", async ()=>{});
 
     const beforeElList = await page.getByText("TC_C2003_Test API Token").all();

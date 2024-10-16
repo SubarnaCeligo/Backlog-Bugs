@@ -81,14 +81,14 @@ test.describe("Auditlog resource Test Cases", () => {
     await io.homePage.clickButtonBasedOnLabelName(selectors.basePagePO.PAGE_ROLE_BUTTON,"1000");
     test.step("*** Clicked on drop down ***", async ()=>{});
 
-    await io.homePage.click(selectors.basePagePO.PAGEFIVEHUNDRED);
-    await test.step("*** Clicked on Results per page dropdown ***", async ()=>{});
-
     var Data = ["50", "100", "500", "1000"];
     var Result = await io.homePage.getText(selectors.flowBuilderPagePO.SUBLIST_A);
     test.step("*** validating the dropdown data ***", async ()=>{});
 
     await io.assert.expectArrayToBeInArray(Data,Result, "");
+
+    await io.homePage.click(selectors.basePagePO.PAGEFIVEHUNDRED);
+    await test.step("*** Clicked on Results per page dropdown ***", async ()=>{});
 
     await io.homePage.clickButtonBasedOnLabelName(selectors.basePagePO.PAGE_ROLE_BUTTON,"500");
     test.step("*** Clicked on drop down ***", async ()=>{});
