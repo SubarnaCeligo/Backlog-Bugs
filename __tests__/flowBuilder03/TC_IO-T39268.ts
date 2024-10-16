@@ -12,9 +12,7 @@ test.describe(`@Author_MaheshNivruttiSutar Verify newly created Connectors appea
         await io.connectionPage.navigateTo(io.data.links.CONNECTIONS_PAGE_URL);
         await io.flowBuilder.loadingTime();
         await io.connectionPage.click(selectors.connectionsPagePO.CREATE_CONNECTION);
-        await io.flowBuilder.loadingTime();
         await io.connectionPage.clickButtonByIndex(selectors.flowBuilderPagePO.BENCHING, 0);
-        await io.flowBuilder.loadingTime();
         await io.flowBuilder.doubleClick(selectors.basePagePO.NAME);
         await io.flowBuilder.fill(selectors.basePagePO.NAME, "BENCHING CONNECTION DON'T USE");
         await io.flowBuilder.isPageLoaded();
@@ -31,12 +29,11 @@ test.describe(`@Author_MaheshNivruttiSutar Verify newly created Connectors appea
         await io.homePage.goToMenu("Tools", "Flow builder");
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
-        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.isPageReady();
         let rows = await page.$$(selectors.dashboardPagePO.RECENTLY_USED);
         let ele = await rows[0].textContent();
         expect(ele).toBe("Benchling");
         await io.homePage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
-        await io.homePage.loadingTime();
 
         //Home page: Dashboard
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
