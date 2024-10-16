@@ -69,6 +69,11 @@ test.describe("TC_C23000_TC_C23002_TC_C23004_TC_C23005_TC_C23006_TC_C23007", () 
 
     await io.homePage.click(selectors.basePagePO.SAVE_AND_CLOSE);
 
+    if(await io.homePage.isVisible('text="A document already exists. Please contact celigo support for further assistance."')) {
+      await io.homePage.click('[data-test="cancel"]');
+      await io.homePage.click(selectors.basePagePO.DISCARD_CHANGES);  
+    }
+
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.SEARCHBUTTON);
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, "TC_C23000_TC_C23002_TC_C23004_TC_C23005_TC_C23006_TC_C23007");

@@ -28,26 +28,17 @@ test.describe("TC_C33285", () => {
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
    
-      checkBox1 = await (
-        await page.locator(
-           selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-        )
-      ).getAttribute("value");
-
-      console.log(checkBox1, 'checkBox1');
-      if(checkBox1 === "true") {
-        await io.homePage.click(
-          selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-        );
-      }
-
-      checkBox1 = await (
-        await page.locator(
-           selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-        )
-      ).getAttribute("value");
+   var val = await page.getByText('Show timestamps as relative').isChecked();
+    await io.homePage.isPageLoaded();
+    if(val === true) {
+      await page.getByText('Show timestamps as relative').click();
+      await test.step("*** Clicking On check box ***",()=>{});
+      await io.homePage.click(selectors.basePagePO.MFA_SAVE);
+      await test.step("*** Clicked on Save Button ***",()=>{});
+    }
+    val = await page.getByText('Show timestamps as relative').isChecked();
      
-      await io.assert.expectToBeValue(checkBox1, "false", "");
+      await io.assert.expectToBeValue(String(val), "false", "");
 await test.step(
         "*** Verified Show timestamps as relative is unchecked below the Time format dropdown  ***"
 , async ()=>{});
@@ -62,7 +53,6 @@ await test.step(
         "FTP CONNECTION"
       );
       await io.homePage.isPageLoaded();
-      await io.homePage.isPageReady();
       let lastUpdated1 = await page.$$(
         selectors.myAccountPagePO.RELATIVE_DATE_TIME
       );

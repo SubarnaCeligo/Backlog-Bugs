@@ -88,3 +88,6 @@ require("./TC_C47590");
 require("./TC_C47613");
 require("./TC_C47965");
 require("./TC_C47974");
+require("./TC_C47978");
+require("./TC_C47984");
+require("./TC_C49535");

@@ -1,0 +1,68 @@
+{
+    "name": "TC_C33483_SF_import",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e92d3ec8e7",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": [
+                {
+                  "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                  "#Number": "6495195850"
+                },
+                {
+                  "Drug @ Name": "Horizon Pharma Inc.",
+                  "#Number": "1933831154"
+                }
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C30817"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C30817.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "SF_import",
+                "_connectionId": "SALESFORCE CONNECTION",
+                "distributed": false,
+                "mapping": {
+                    "fields": [
+                        {
+                            "generate": "[Contact name]",
+                            "extract": "[Drug @ Name]" 
+                        }
+                    ]
+                },
+                "salesforce": {
+                    "operation": "update",
+                    "sObjectType": "Contact",
+                    "api": "rest",
+                    "idLookup": {
+                        "whereClause": "(FirstName = dummy)"
+                    }
+                },
+                "adaptorType": "SalesforceImport"
+            }
+        }
+    ]
+}

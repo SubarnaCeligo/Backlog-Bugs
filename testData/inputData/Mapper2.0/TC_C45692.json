@@ -1,122 +1,118 @@
 {
     "name": "TC_C45692",
     "referencename": "TC_C45692",
-    "qa__api_tdata": [
+    "pageGenerators": [
         {
-            "pageGenerators": [
-                {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "FTP Export TC_C45692",
-                        "qa__path": "//SFTP_uploads//TC_C45692.json",
-                        "_connectionId": "FTP CONNECTION",
-                        "asynchronous": true,
-                        "sandbox": false,
-                        "ftp": {
-                            "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
-                            "fileNameStartsWith": "TC_C45692.json"
+            "type": "export",
+            "qa__export": {
+                "name": "FTP Export TC_C45692",
+                "qa__path": "//FTP_uploads//TC_C45692.json",
+                "_connectionId": "FTP CONNECTION",
+                "asynchronous": true,
+                "sandbox": false,
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C45692.json"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json"
+                },
+                "adaptorType": "FTPExport"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "import",
+            "qa__import": {
+                "name": "faire import",
+                "application": "Faire",
+                "_connectionId": "SHOPIFY CONNECTION",
+                "qa__connectionId": "62f13eb056cc0b30dda3c9d5",
+                "ignoreExisting": false,
+                "ignoreMissing": false,
+                "oneToMany": false,
+                "lookups": [
+                    {
+                        "name": "Aristole",
+                        "map": {
+                            "Vanilla": "Aristole"
                         },
-                        "file": {
-                            "encoding": "utf8",
-                            "output": "records",
-                            "skipDelete": true,
-                            "type": "json"
-                        },
-                        "adaptorType": "FTPExport"
+                        "allowFailures": false,
+                        "useImportHeaders": true
+                    },
+                    {
+                        "name": "productName",
+                        "method": "GET",
+                        "relativeURI": "/api/v1/products",
+                        "extract": "products[0].name",
+                        "body": "",
+                        "allowFailures": false,
+                        "useImportHeaders": true
                     }
-                }
-            ],
-            "pageProcessors": [
-                {
-                    "type": "import",
-                    "qa__import": {
-                        "name": "faire import",
-                        "application": "Faire",
-                        "_connectionId": "631a19ddabf51e7a86c80fbe",
-                        "qa__connectionId": "62f13eb056cc0b30dda3c9d5",
-                        "ignoreExisting": false,
-                        "ignoreMissing": false,
-                        "oneToMany": false,
-                        "lookups": [
+                ],
+                "mappings": [
+                    {
+                        "generate": "options",
+                        "dataType": "objectarray",
+                        "status": "Active",
+                        "buildArrayHelper": [
                             {
-                                "name": "Aristole",
-                                "map": {
-                                    "Vanilla": "Aristole"
-                                },
-                                "allowFailures": false,
-                                "useImportHeaders": true
-                            },
-                            {
-                                "name": "productName",
-                                "method": "GET",
-                                "relativeURI": "/api/v1/products",
-                                "extract": "products[0].name",
-                                "body": "",
-                                "allowFailures": false,
-                                "useImportHeaders": true
-                            }
-                        ],
-                        "mappings": [
-                            {
-                                "generate": "options",
-                                "dataType": "objectarray",
-                                "status": "Active",
-                                "buildArrayHelper": [
+                                "extract": "$.options[*]",
+                                "sourceDataType": "objectarray",
+                                "mappings": [
                                     {
-                                        "extract": "$.options[*]",
-                                        "sourceDataType": "objectarray",
-                                        "mappings": [
+                                        "extract": "{{#if record.name}}VanillaScent{{else}} Vanilla Scent {{/if}}",
+                                        "generate": "name",
+                                        "dataType": "string",
+                                        "status": "Active",
+                                        "conditional": {
+                                            "when": "extract_not_empty"
+                                        }
+                                    },
+                                    {
+                                        "generate": "images",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
                                             {
-                                                "extract": "{{#if record.name}}VanillaScent{{else}} Vanilla Scent {{/if}}",
-                                                "generate": "name",
-                                                "dataType": "string",
-                                                "status": "Active",
-                                                "conditional": {
-                                                    "when": "extract_not_empty"
-                                                }
-                                            },
-                                            {
-                                                "generate": "images",
-                                                "dataType": "objectarray",
-                                                "status": "Active",
-                                                "buildArrayHelper": [
+                                                "extract": "$.options.images[*]",
+                                                "sourceDataType": "objectarray",
+                                                "mappings": [
                                                     {
-                                                        "extract": "$.options.images[*]",
-                                                        "sourceDataType": "objectarray",
-                                                        "mappings": [
-                                                            {
-                                                                "generate": "url",
-                                                                "dataType": "string",
-                                                                "status": "Active",
-                                                                "hardCodedValue": "https://www.celigo.com/"
-                                                            }
-                                                        ]
+                                                        "generate": "url",
+                                                        "dataType": "string",
+                                                        "status": "Active",
+                                                        "hardCodedValue": "https://www.celigo.com/"
                                                     }
                                                 ]
-                                            },
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "generate": "variations",
+                                        "dataType": "objectarray",
+                                        "status": "Active",
+                                        "buildArrayHelper": [
                                             {
-                                                "generate": "variations",
-                                                "dataType": "objectarray",
-                                                "status": "Active",
-                                                "buildArrayHelper": [
+                                                "extract": "$.options.variations[*]",
+                                                "sourceDataType": "objectarray",
+                                                "mappings": [
                                                     {
-                                                        "extract": "$.options.variations[*]",
-                                                        "sourceDataType": "objectarray",
-                                                        "mappings": [
-                                                            {
-                                                                "generate": "name",
-                                                                "dataType": "string",
-                                                                "status": "Active",
-                                                                "lookupName": "productName"
-                                                            },
-                                                            {
-                                                                "extract": "$.options.variations.value",
-                                                                "generate": "value",
-                                                                "dataType": "string",
-                                                                "status": "Active",
-                                                                "lookupName": "Aristole"
-                                                            }
-                                                        ]
+                                                        "generate": "name",
+                                                        "dataType": "string",
+                                                        "status": "Active",
+                                                        "lookupName": "productName"
+                                                    },
+                                                    {
+                                                        "extract": "$.options.variations.value",
+                                                        "generate": "value",
+                                                        "dataType": "string",
+                                                        "status": "Active",
+                                                        "lookupName": "Aristole"
                                                     }
                                                 ]
                                             }
@@ -124,63 +120,63 @@
                                     }
                                 ]
                             }
-                        ],
-                        "http": {
-                            "relativeURI": [
-                                "/api/v1/products"
-                            ],
-                            "method": [
-                                "POST"
-                            ],
-                            "body": [],
-                            "batchSize": 1,
-                            "sendPostMappedData": true,
-                            "formType": "http",
-                            "lookups": [
-                                {
-                                    "name": "Aristole",
-                                    "map": {
-                                        "Vanilla": "Aristole"
-                                    },
-                                    "allowFailures": false,
-                                    "useImportHeaders": true
-                                },
-                                {
-                                    "name": "productName",
-                                    "method": "GET",
-                                    "relativeURI": "/api/v1/products",
-                                    "extract": "products[0].name",
-                                    "body": "",
-                                    "allowFailures": false,
-                                    "useImportHeaders": true
-                                }
-                            ]
-                        },
-                        "adaptorType": "HTTPImport"
-                    }
-                }
-            ],
-            "createFlow": {
-                "name": "TC_C45692",
-                "disabled": false,
-                "_integrationId": "56d6b23fe1fc35de53914730",
-                "skipRetries": false,
-                "pageProcessors": [
-                    {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
+                        ]
                     }
                 ],
-                "pageGenerators": [
-                    {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
-                    }
-                ]
+                "http": {
+                    "relativeURI": [
+                        "/api/v1/products"
+                    ],
+                    "method": [
+                        "POST"
+                    ],
+                    "body": [],
+                    "batchSize": 1,
+                    "sendPostMappedData": true,
+                    "formType": "http",
+                    "lookups": [
+                        {
+                            "name": "Aristole",
+                            "map": {
+                                "Vanilla": "Aristole"
+                            },
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        },
+                        {
+                            "name": "productName",
+                            "method": "GET",
+                            "relativeURI": "/api/v1/products",
+                            "extract": "products[0].name",
+                            "body": "",
+                            "allowFailures": false,
+                            "useImportHeaders": true
+                        }
+                    ]
+                },
+                "adaptorType": "HTTPImport"
             }
         }
-    ]
+    ],
+    "createFlow": {
+        "name": "TC_C45692",
+        "disabled": false,
+        "_integrationId": "56d6b23fe1fc35de53914730",
+        "skipRetries": false,
+        "pageProcessors": [
+            {
+                "responseMapping": {
+                    "fields": [],
+                    "lists": []
+                },
+                "type": "import",
+                "_importId": "UPDATE WITH NEW IMPORTID"
+            }
+        ],
+        "pageGenerators": [
+            {
+                "_exportId": "UPDATE WITH NEW EXPORTID"
+            }
+        ]
+    }
 }

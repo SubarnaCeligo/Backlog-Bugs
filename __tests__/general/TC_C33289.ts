@@ -36,14 +36,12 @@ test.describe("TC_C33289", () => {
     await io.homePage.isPageReady();
     await test.step("*** Validating check box ***",()=>{});
 
-    var val = await page.locator(
-      selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-    ).isChecked();
+    var val = await page.getByText('Show timestamps as relative').isChecked();
     await io.homePage.isPageLoaded();
     if(val === true) {
       await test.step("*** Clicking on check box is true ***",()=>{});
     } else {
-      await io.homePage.click(selectors.myAccountPagePO.SHOWTIMESTAMPRELATIVE);
+      await page.getByText('Show timestamps as relative').click();
       await test.step("*** Clicking On check box ***",()=>{});
       await io.homePage.click(selectors.basePagePO.MFA_SAVE);
       await test.step("*** Clicked on Save Button ***",()=>{});
@@ -87,7 +85,7 @@ test.describe("TC_C33289", () => {
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
     await test.step("*** Clicked on Profile ***",()=>{});
-    await io.homePage.click(selectors.myAccountPagePO.SHOWTIMESTAMPRELATIVE);
+    await page.getByText('Show timestamps as relative').click();
     await test.step("*** Clicking On check box ***",()=>{});
     await io.homePage.click(selectors.basePagePO.MFA_SAVE);
     await test.step("*** Clicked on Save Button ***",()=>{});
