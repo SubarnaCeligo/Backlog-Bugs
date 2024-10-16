@@ -42,7 +42,9 @@ test.describe("TC_C27650 | TC_C29683", () => {
 
   test("@Env-All @Zephyr-IO-T2883|Verify if the user is able to preview the data test.beforeEach saving the existing export to the flow", async ({io,page}, testInfo) => {
     await io.api.createImpOrExpAndFlowsThruAPI(TC);
+    await io.homePage.loadingTime();
     flowId = await io.api.getFlowId(TC.name);
+    await io.homePage.loadingTime();
     test.step("*** Navigating to Flow Builder ***", async ()=>{});
     await io.flowBuilderDashboard.navigateToFlowBuilderInFB(flowId);
     await io.homePage.loadingTime();

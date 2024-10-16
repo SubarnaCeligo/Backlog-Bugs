@@ -15,6 +15,7 @@ test.describe("@Author-ParthPatel TC_C47549_Retry_Error_Invalid_Lookup_Filter", 
 
   test.afterEach(async ({io,page}, testInfo) => {
     await test.step("*** Deleting flow.***", async ()=>{
+      await io.flowBuilderDashboard.navigateToEm2Flow(flowId);
       await io.homePage.loadingTime();
       await io.flowbranching.flowBranchingPage.decreaseDrawer();
       await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();

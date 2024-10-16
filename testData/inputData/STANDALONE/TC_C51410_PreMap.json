@@ -60,6 +60,6 @@
         }
     }
 ],
-  "Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}",
-  "edit_Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: null\n    }\n  })\n}"
+  "Script": "function preMap (options) {\n  options.data[0] = {};\n options.data[0].premap = 23;\n  return options.data.map((d) => ({data: d}))",
+  "edit_Script": "function preMap (options) {\n  options.data[0] = {};\n options.data[0].premap = 23;\n return options.data.map((d) => ({data: '123'}))"
 }

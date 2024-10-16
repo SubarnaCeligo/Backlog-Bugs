@@ -63,12 +63,12 @@
               "type": "import",
               "qa__import": {
                 "name": "AutomationStandaloneImport1_afsflk",
-                "application":"zendesk support",
+                "application": "zendesk support",
                 "_connectionId": "HTTP ZENDESK CONNECTION",
                 "mapping": {
                   "fields": [
                     {
-                      "extract": "name",
+                      "extract": "Auto_{{random 16}}",
                       "generate": "organization.name"
                     }
                   ]

@@ -31,7 +31,12 @@ test.describe("TC_C53297,TC_C51562 Verify the connection form of Simple toggle a
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     const simpleToggle = await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
-    expect(await simpleToggle.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    let simpleToggleState = await simpleToggle.getAttribute("data-state");
+    if (simpleToggleState) {
+      expect(await simpleToggle.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await simpleToggle.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("Verifying if Simple tab is selected", async ()=>{});
     await io.homePage.fillWebPage(
       selectors.basePagePO.ADD_NAME,
@@ -60,7 +65,12 @@ test.describe("TC_C53297,TC_C51562 Verify the connection form of Simple toggle a
     );
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
-    expect(await simpleToggle.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    simpleToggleState = await simpleToggle.getAttribute("data-state");
+    if (simpleToggleState) {
+      expect(await simpleToggle.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await simpleToggle.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("*** Verifying if Simple tab is selected ***", async ()=>{});
 
     // TC_C51562

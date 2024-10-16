@@ -153,7 +153,7 @@ test.describe("TC_C35303_Verify_SampleData_In_AFE_Contain_TransformedData_PPexpo
     await io.assert.expectToContainValue("transformed_Name",data, "");
 
     test.step("*** Clicking on Relative URI Handlebar close button ***", async ()=>{});
-    await io.homePage.click(selectors.flowBuilderPagePO.CLOSEBUTTON);
+    await io.homePage.click(selectors.basePagePO.CLOSE_RIGHT_DRAWER_BUTTON);
 
     test.step("*** Clicking on close button ***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.CLOSING_IMPORT);

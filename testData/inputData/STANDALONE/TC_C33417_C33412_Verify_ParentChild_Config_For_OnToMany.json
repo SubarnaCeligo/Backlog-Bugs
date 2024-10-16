@@ -1,9 +1,30 @@
 {
+  "name": "one_to_many",
   "pageGenerators": [
     {
       "qa__export": {
         "_connectionId": "FTP CONNECTION",
         "sandbox": false,
+        "mockOutput": {
+          "page_of_records": [
+            {
+              "record": {
+                "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                "#Number": "6495195850",
+                "orderData": {
+                  "hey": [
+                    {
+                      "item1": "a"
+                    },
+                    {
+                      "item2": "b"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
         "ftp": {
           "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
           "fileNameStartsWith": "TC33417_TC33412.json"
@@ -19,24 +40,67 @@
       }
     }
   ],
-  "pageProcessors": [],
+  "pageProcessors": [
+    {
+        "type": "import",
+        "qa__import": {
+            "name": "Http import",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i6643e396f",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "oneToMany": true,
+            "pathToMany": "orderData.hey",
+            "sandbox": false,
+            "http": {
+                "relativeURI": [
+                    ""
+                ],
+                "method": [
+                    "POST"
+                ],
+                "body": [],
+                "batchSize": 1,
+                "sendPostMappedData": true,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPImport"
+        }
+    },
+    {
+        "type": "export",
+        "qa__export": {
+            "name": "Http export",
+            "_connectionId": "HTTP ZENDESK CONNECTION",
+            "apiIdentifier": "i6643e396f",
+            "ignoreExisting": false,
+            "ignoreMissing": false,
+            "isLookup": true,
+            "oneToMany": true,
+            "pathToMany": "orderData.hey",
+            "sandbox": false,
+            "http": {
+                "relativeURI":"/",
+                "method": "POST",
+                "isRest": false,
+                "formType": "http"
+            },
+            "adaptorType": "HTTPExport"
+        }
+    }
+  ],
   "withOneToMany": {
     "record": {
       "_PARENT": {
-        "first_name": "C23737",
-        "last_name": "Retry",
-        "phone": null,
-        "default_address": {
-          "first_name": "Samuel",
-          "last_name": "deChamplai"
-        }
+        "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+        "#Number": "6495195850",
+        "orderData": {}
       },
-      "first_name": "Samuel",
-      "last_name": "deChamplain",
-      "company": "FancyCo."
+      "item2": "b",
+      "item1": "a"
     },
     "connection": {
-      "name": "Freshdeskconnection",
+      "name": "HTTPZENDESKCONNECTION",
       "http": {
         "unencrypted": {
           "field": "value"
@@ -45,6 +109,9 @@
       }
     },
     "import": {},
+    "job": {
+      "parentJob": {}
+    },
     "settings": {
       "integration": {},
       "flow": {},
@@ -56,26 +123,24 @@
   "withOneToManyLookup": {
     "record": {
       "_PARENT": {
-        "first_name": "C23737",
-        "last_name": "Retry",
-        "phone": null,
-        "default_address": {
-          "first_name": "Samuel",
-          "last_name": "deChamplai"
-        }
+        "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+        "#Number": "6495195850",
+        "orderData": {}
       },
-      "first_name": "Samuel",
-      "last_name": "deChamplain",
-      "company": "FancyCo."
+      "item2": "b",
+      "item1": "a"
     },
     "connection": {
-      "name": "Freshdeskconnection",
+      "name": "HTTPZENDESKCONNECTION",
       "http": {
         "unencrypted": {
           "field": "value"
         },
         "encrypted": "********"
       }
+    },
+    "job": {
+      "parentJob": {}
     },
     "export": {},
     "settings": {

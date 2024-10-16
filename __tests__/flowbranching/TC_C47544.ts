@@ -20,6 +20,7 @@ test.describe("@Author-ParthPatel TC_C47544_S3Export", () => {
   });
 
   test.afterEach(async ({io,page}, testInfo) => {
+    await io.flowBuilderDashboard.navigateToEm2Flow(flowId);
     await io.homePage.loadingTime();
     await io.flowbranching.flowBranchingPage.decreaseDrawer();
     await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();

@@ -1,0 +1,74 @@
+{
+  "name": "C32618",
+  "pageGenerators": [
+    {
+      "type": "export",
+      "qa__export": {
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "e781f61a69",
+        "asynchronous": true,
+        "ftp": {
+          "directoryPath": "io.auto.qa/IO_UI_Automation_FTPExports",
+          "fileNameStartsWith": "TC_C51211"
+        },
+        "file": {
+          "encoding": "utf8",
+          "output": "records",
+          "skipDelete": true,
+          "type": "json"
+        },
+        "adaptorType": "FTPExport"
+      }
+    }
+  ],
+  "pageProcessors": [
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "HTTP AMAZON CONNECTION",
+        "apiIdentifier": "i4450d25b1",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "http": {
+          "relativeURI": [],
+          "method": [
+            "PATCH"
+          ],
+          "body": [],
+          "batchSize": 1,
+          "sendPostMappedData": true,
+          "isRest": false,
+          "formType": "http"
+        },
+        "adaptorType": "HTTPImport"
+      }
+    },
+    {
+      "type": "import",
+      "qa__import": {
+        "_connectionId": "FTP CONNECTION",
+        "apiIdentifier": "ie6cd5cc0f",
+        "oneToMany": false,
+        "mapping": {
+          "fields": [
+            {
+              "extract": "fName",
+              "generate": "Name"
+            }
+          ]
+        },
+        "file": {
+          "fileName": "file-{{timestamp}}.json",
+          "skipAggregation": false,
+          "type": "json"
+        },
+        "ftp": {
+          "directoryPath": "/test",
+          "fileName": "file-{{timestamp}}.json"
+        },
+        "adaptorType": "FTPImport"
+      }
+    }
+  ]
+}

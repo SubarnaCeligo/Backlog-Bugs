@@ -19,15 +19,26 @@ test.describe("TC_C51552", () => {
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     const simpleToggle = await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
-    expect(await simpleToggle.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    const simpleToggleState = await simpleToggle.getAttribute("data-state");
+    if (simpleToggleState) {
+      expect(await simpleToggle.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await simpleToggle.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("Verifying if Simple tab is selected", async ()=>{});
     const httpToggle = await page.locator(selectors.basePagePO.HTTP_2DOT0);
     await httpToggle.click();
     test.step("Selecting Http tab", async ()=>{});
-    expect(await simpleToggle.getAttribute("class")).not.toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
-    test.step("Verifying if Simple tab is not selected", async ()=>{});
-    expect(await httpToggle.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
-    test.step("Verifying if Http tab is not selected", async ()=>{});
+    await io.homePage.loadingTime();
+    const httpToggleState = await httpToggle.getAttribute("data-state");
+    if (httpToggleState) {
+      expect(await httpToggle.getAttribute("data-state")).toBe("on");
+      expect(await simpleToggle.getAttribute("data-state")).toBe("off");
+    } else {
+      expect(await httpToggle.getAttribute("aria-pressed")).toBe("true");
+      expect(await simpleToggle.getAttribute("aria-pressed")).toBe("false");
+    }
+    test.step("Verifying if Simple is not selected but HTTP is selected", async ()=>{});
     await simpleToggle.click();
     await io.homePage.click(selectors.basePagePO.CLOSE);
 
@@ -38,22 +49,34 @@ test.describe("TC_C51552", () => {
       selectors.flowBuilderPagePO.ADD_SOURCE
     );
     test.step("*** Clicked on PageGenerator ***", async ()=>{});
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.connectionsPagePO.ORDERFUL);
     test.step("*** Selected Orderful as the adaptor ***", async ()=>{});
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
     test.step("*** Clicking on create flow step ***", async ()=>{});
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
-    const simpleToggle1 = await page.locator( selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
-    expect(await simpleToggle1.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    const simpleToggle1 = await page.locator(selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
+    const simpleToggle1State = await simpleToggle1.getAttribute("data-state");
+    if (simpleToggle1State) {
+      expect(await simpleToggle1.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await simpleToggle1.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("Verifying if Simple tab is selected", async ()=>{});
     const httpToggle1 = await page.locator(selectors.basePagePO.HTTP_2DOT0);
     await httpToggle1.click();
     test.step("Selecting Http tab", async ()=>{});
-    expect(await simpleToggle1.getAttribute("class")).not.toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
-    test.step("Verifying if Simple tab is not selected", async ()=>{});
-    expect(await httpToggle1.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
-    test.step("Verifying if Http tab is not selected", async ()=>{});
+    await io.homePage.loadingTime();
+    const httpToggle1State = await httpToggle1.getAttribute("data-state");
+    if (httpToggle1State) {
+      expect(await httpToggle1.getAttribute("data-state")).toBe("on");
+      expect(await simpleToggle1.getAttribute("data-state")).toBe("off");
+    } else {
+      expect(await httpToggle1.getAttribute("aria-pressed")).toBe("true");
+      expect(await simpleToggle1.getAttribute("aria-pressed")).toBe("false");
+    }
+    test.step("Verifying if Simple is not selected but HTTP is selected", async ()=>{});
     await simpleToggle1.click();
     await io.homePage.click(selectors.basePagePO.CLOSE);
     await io.homePage.click(selectors.basePagePO.CLOSE);
@@ -62,6 +85,7 @@ test.describe("TC_C51552", () => {
       selectors.flowBuilderPagePO.ADD_DESTINATION_OR_LOOKUP
     );
     test.step("*** Clicked on Pageprocessor ***", async ()=>{});
+    await io.homePage.loadingTime();
     await io.homePage.click(selectors.connectionsPagePO.ORDERFUL);
     test.step("*** Selected Orderful as the adaptor ***", async ()=>{});
     await io.homePage.click(
@@ -72,15 +96,26 @@ test.describe("TC_C51552", () => {
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     const simpleToggle2 = await page.locator( selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
-    expect(await simpleToggle2.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    const simpleToggle2State = await simpleToggle2.getAttribute("data-state");
+    if (simpleToggle2State) {
+      expect(await simpleToggle2.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await simpleToggle2.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("Verifying if Simple tab is selected", async ()=>{});
     const httpToggle2 = await page.locator(selectors.basePagePO.HTTP_2DOT0);
     await httpToggle2.click();
     test.step("Selecting Http tab", async ()=>{});
-    expect(await simpleToggle2.getAttribute("class")).not.toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
-    test.step("Verifying if Simple tab is not selected", async ()=>{});
-    expect(await httpToggle2.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
-    test.step("Verifying if Http tab is not selected", async ()=>{});
+    await io.homePage.loadingTime();
+    const httpToggle2State = await httpToggle2.getAttribute("data-state");
+    if (httpToggle2State) {
+      expect(await httpToggle2.getAttribute("data-state")).toBe("on");
+      expect(await simpleToggle2.getAttribute("data-state")).toBe("off");
+    } else {
+      expect(await httpToggle2.getAttribute("aria-pressed")).toBe("true");
+      expect(await simpleToggle2.getAttribute("aria-pressed")).toBe("false");
+    }
+    test.step("Verifying if Simple is not selected but HTTP is selected", async ()=>{});
     await simpleToggle2.click();
     await io.homePage.click(selectors.basePagePO.CLOSE);
     await io.homePage.loadingTime();
@@ -91,15 +126,26 @@ test.describe("TC_C51552", () => {
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
     const simpleToggle3 = await page.locator( selectors.flowBuilderPagePO.SIMPLE_FORM_SWITCH);
-    expect(await simpleToggle3.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
+    const simpleToggle3State = await simpleToggle3.getAttribute("data-state");
+    if (simpleToggle3State) {
+      expect(await simpleToggle3.getAttribute("data-state")).toBe("on");
+    } else {
+      expect(await simpleToggle3.getAttribute("aria-pressed")).toBe("true");
+    }
     test.step("Verifying if Simple tab is selected", async ()=>{});
     const httpToggle3 = await page.locator(selectors.basePagePO.HTTP_2DOT0);
     await httpToggle3.click();
     test.step("Selecting Http tab", async ()=>{});
-    expect(await simpleToggle3.getAttribute("class")).not.toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
-    test.step("Verifying if Simple tab is not selected", async ()=>{});
-    expect(await httpToggle3.getAttribute("class")).toContain(selectors.basePagePO.MUI_SELECTED_OPTION);
-    test.step("Verifying if Http tab is not selected", async ()=>{});
+    await io.homePage.loadingTime();
+    const httpToggle3State = await httpToggle3.getAttribute("data-state");
+    if (httpToggle3State) {
+      expect(await httpToggle3.getAttribute("data-state")).toBe("on");
+      expect(await simpleToggle3.getAttribute("data-state")).toBe("off");
+    } else {
+      expect(await httpToggle3.getAttribute("aria-pressed")).toBe("true");
+      expect(await simpleToggle3.getAttribute("aria-pressed")).toBe("false");
+    }
+    test.step("Verifying if Simple is not selected but HTTP is selected", async ()=>{});
     await simpleToggle3.click();
     await io.homePage.click(selectors.basePagePO.CLOSE);
     await io.homePage.click(selectors.basePagePO.CLOSE);
