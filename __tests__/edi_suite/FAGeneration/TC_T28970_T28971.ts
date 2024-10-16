@@ -102,7 +102,7 @@ test.describe("@Author-Shriti S TC_T28965-Verify that user is able to save an ex
 
     //Verify FA checkbox is checked
     await io.exportsPage.waitForElementAttached(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT);
-    await io.assert.verifyElementAttributeContainsText(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT, 'class', 'Mui-checked');
+    await io.assert.verifyElementAttributeContainsText(selectors.exportsPagePO.FA_ACKNOWLEDGEMENT + ' span', 'data-state', 'checked');
     let selectedListener = (await io.exportsPage.getText(selectors.exportsPagePO.FA_LISTENER_DROPDOWN)).toString();
 
     //Verify if a listener is selected by default
