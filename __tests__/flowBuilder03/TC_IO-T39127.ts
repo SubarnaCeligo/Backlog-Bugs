@@ -15,18 +15,16 @@ test.describe("@Author_MaheshNivruttiSutar Verify User is able to save lookup/im
 
         //Lookup
         await io.flowBuilder.click(selectors.flowBuilderPagePO.LOOKUP);
-        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.isPageLoaded();
         await io.flowBuilder.click(selectors.basePagePO.FALSE);
-        await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.loadingTime();
         await io.assert.verifyElementDisplayedByText("DESTINATIONS & LOOKUPS", "Page not re-directing properly")
 
         //Import
         await io.flowBuilder.click(selectors.flowBuilderPagePO.IMPORT);
-        await io.flowBuilder.loadingTime();
+        await io.flowBuilder.isPageLoaded();
         await io.flowBuilder.click(selectors.basePagePO.FALSE);
-        await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.basePagePO.SAVE_AND_CLOSE);
         await io.flowBuilder.loadingTime();
         await io.assert.verifyElementDisplayedByText("DESTINATIONS & LOOKUPS", "Page not re-directing properly");
