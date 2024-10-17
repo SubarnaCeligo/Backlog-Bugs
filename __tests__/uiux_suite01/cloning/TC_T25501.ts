@@ -1,9 +1,9 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { HomePage } from "@celigo/ui-core-automation/dist/src/pageFactory/pages/HomePage";
-test.describe('IO-T18708 Verify whether ""Request Upgrade"" button available in Security tab if SSO flag is false from endpoint type license', () => {
+test.describe('Verify whether ""Request Upgrade"" button available in Security tab if SSO flag is false from endpoint type license', () => {
 
-    test('@Env-All @Zephyr-IO-T18708 IO-T18708 Verify whether ""Request Upgrade"" button available in Security tab if SSO flag is false from endpoint type license', async ({
+    test('@Env-All @Zephyr-IO-T18708 Verify whether ""Request Upgrade"" button available in Security tab if SSO flag is false from endpoint type license', async ({
         io,
         page
     }) => {
