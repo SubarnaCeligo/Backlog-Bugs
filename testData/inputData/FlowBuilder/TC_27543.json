@@ -63,7 +63,6 @@
                 "name": "TC_C29902",
                 "disabled": false,
                 "skipRetries": false,
-                "_integrationId": "",
                 "pageProcessors": [
                     {
                         "responseMapping": {

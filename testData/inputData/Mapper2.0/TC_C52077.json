@@ -45,6 +45,22 @@
                     "operation": "creates_acustomer"
                 },
                 "lookups": [],
+                "mappings": [
+                    {
+                        "extract": "$.name",
+                        "generate": "name",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    },
+                    {
+                        "extract": "$.description",
+                        "generate": "desc",
+                        "dataType": "string",
+                        "status": "Active",
+                        "sourceDataType": "string"
+                    }
+                ],
                 "http": {
                     "relativeURI": [
                         "/customers.json"

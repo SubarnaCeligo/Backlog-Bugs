@@ -110,3 +110,4 @@ require("./TC_C33305");
 require("./TC_C34103");
 require("./TC_C34104");
 require("./TC_C36480");
+require("./TC_C23151_TC_C27444_installing_and_verification");

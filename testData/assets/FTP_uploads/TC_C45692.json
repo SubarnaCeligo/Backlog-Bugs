@@ -1,0 +1,39 @@
+{
+  "short_description": "Read our description!",
+  "description": "Glad you decided to read our description!",
+  "name": "Faire's fantastic candle",
+  "unit_multiplier": 8,
+  "idempotence_token": "4aytry2ust",
+  "options": [
+    {
+      "lastname": "Scent",
+      "firstname": "Vanilla",
+      "sku": "vanilla-2019",
+      "images": [
+        {
+          "url": "https://cdn.faire.com/374cd3041a4c4.png"
+        }
+      ],
+      "idempotence_token": "rrc23negw",
+      "variations": [
+        {
+          "name": "Scent",
+          "value": "Vanilla"
+        }
+      ],
+      "wholesale_price_cents": 299,
+      "retail_price_cents": 599
+    }
+  ],
+  "images": [
+    {
+      "url": "https://cdn.faire.com/53105976.png"
+    },
+    {
+      "url": "https://cdn.faire.com/554156553.png"
+    }
+  ],
+  "taxonomy_type": {
+    "id": "tt_23nl3bzl00"
+  }
+}
