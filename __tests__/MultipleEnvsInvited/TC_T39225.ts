@@ -1,11 +1,11 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("TC_T39199_T39202_T39221_T39222 Test to validate new user is able to create new multiple non prod environments && Test to validate user with owner/admin access is able to create new environments", () => {
+test.describe("TC_T39225_Test to validate user is seeing text “Your search didn’t return any matching results. Try expanding your search criteria.” when our search does not give any results", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
-    test("TC_T39199_T39202 @Zephyr-IO-T39199 @Zephyr-IO-T39202 @Zephyr-IO-T39221 @Zephyr-IO-T39222 @Env-COREDEV @Priority-P2", async ({ io, page }) => {
+    test("TC_T39225 @Zephyr-IO-T39225 @Env-COREDEV @Priority-P2", async ({ io, page }) => {
         await io.homePage.addStep("*** Navigated to home page ***");
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
@@ -13,17 +13,15 @@ test.describe("TC_T39199_T39202_T39221_T39222 Test to validate new user is able 
         await io.homePage.addStep("*** Navigated to account page ***");
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
-        await io.myAccountPage.clickByText("Environments");
-        await io.homePage.addStep("*** Navigated to Environments tab ***");
+        await io.myAccountPage.click(selectors.homePagePO.SELECTED_ACCOUNT);
+        await io.homePage.addStep("*** invoked Environments dropdown ***");
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
-        await io.myAccountPage.clickByText("Create environment");
-        await io.homePage.addStep("*** clicked on Create Environment button ***");
+        await io.homePage.fill(selectors.integrationPagePO.INTEGRATION_PAGE_SEARCH_BAR, "jahsdgf");
         await io.homePage.loadingTime();
         await io.homePage.loadingTime();
-        await io.homePage.click(selectors.basePagePO.ADD_NAME);
-        await page.keyboard.press('/');
-        await io.homePage.addStep("*** added name for the Environment ***");
+        await io.homePage.addStep("*** searchiing in the search box with invalid string ***");
+        await io.homePage.addStep("*** verified the message when no results are matched ***");
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
     });
 });
