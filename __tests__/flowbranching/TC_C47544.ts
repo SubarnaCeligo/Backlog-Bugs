@@ -29,16 +29,15 @@ test.describe("@Author-ParthPatel TC_C47544_S3Export", () => {
 
   test("@Env-All @Zephyr-IO-T17626 TC_C47544_S3Export Test to retry an error on the Amazon S3 export which is added on a branched flow", async ({io,page}, testInfo) => {
     flowId = await io.flowbranching.createFlowBranchFromAPI(flowbranch);
-    await io.api.checkJobStatusFromAPI(
-      flowbranch.name,
-      flowId,
-      [0, 0, 2]
-    );
-
     await io.flowBuilderDashboard.navigateToEm2Flow(flowId);
     await io.homePage.loadingTime();
 
     await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
+    await io.homePage.click(
+      selectors.basePagePO.RUNFLOW
+    );
+    await io.homePage.loadingTime();
+
     await io.flowbranching.flowBranchingPage.increaseDrawer();
     await io.homePage.loadingTime();
 

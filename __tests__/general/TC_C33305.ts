@@ -33,6 +33,8 @@ test.describe("TC_C33305", () => {
     await io.homePage.isPageReady();
     await test.step("*** Validating check box ***",()=>{});
 
+    await io.homePage.loadingTime();
+
     var val = await page.getByText('Show timestamps as relative').isChecked();
     await io.homePage.isPageLoaded();
     if(val === true) {
@@ -46,6 +48,7 @@ test.describe("TC_C33305", () => {
     await io.homePage.isPageLoaded();
     await io.homePage.loadingTime();
     await io.goToFlowsPage();
+    await io.homePage.loadingTime();
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.SEARCHBUTTON, FTP.name);
     await io.homePage.clickButtonBasedOnLabelName(selectors.flowGroupingPagePO.CLICKONFLOWGROUP, FTP.name);
     
