@@ -11,7 +11,7 @@ test.describe(`C63010 Verify connection dropdown list`, () => {
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Narvar"
     );
-    await io.flowBuilder.clickByText("Narvar");
+    await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.NARVAR_CONNECTION, 0);
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);
     const connectionText = (await io.flowBuilder.getText(
