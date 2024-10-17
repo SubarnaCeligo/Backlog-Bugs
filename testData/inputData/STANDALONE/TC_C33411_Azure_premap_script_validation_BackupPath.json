@@ -23,6 +23,22 @@
                         "resourcePath": "*"
                     }
                 },
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                        "record": {
+                            "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                            "#Number": "6495195850"
+                        }
+                        },
+                        {
+                        "record": {
+                            "Drug @ Name": "Horizon Pharma Inc.",
+                            "#Number": "1933831154"
+                        }
+                        }
+                    ]
+                },
                 "adaptorType": "FTPExport",
                 "qa__path": "//FTP_uploads//TC_C30817.json"
             }
@@ -32,29 +48,29 @@
       {
           "type": "import",
           "qa__import": {
-            "qa__type": "blob",
-            "name": "TC_C23043_SF_Blob_To_Azure_Blob_Import",
-            "parsers": [],
-            "qa__connectionId": "62f612fc854c044e05e13468",
+            "name": "test",
             "_connectionId": "AZURE BLOB STORAGE CONNECTION",
-            "distributed": false,
-            "oneToMany": true,
-            "pathToMany": "Attachments",
-            "blob": true,
-            "assistant": "azureblobstorage",
-            "lookups": [],
+            "apiIdentifier": "i317d7552f",
+            "oneToMany": false,
+            "assistant": "azurestorageaccount",
+            "sandbox": false,
             "file": {
-              "fileName": "{{record.Name}}"
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
             },
             "http": {
               "type": "file",
               "relativeURI": [
-                "azureblobimports"
+                "test"
               ],
               "method": [
                 "POST"
               ],
               "body": [],
+              "sendPostMappedData": true,
+              "isRest": false,
+              "formType": "assistant",
               "response": {
                 "resourcePath": [
                   "files"
@@ -63,7 +79,7 @@
             },
             "adaptorType": "HTTPImport"
           }
-        }
-      ],
+      }
+    ],
     "Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
 }

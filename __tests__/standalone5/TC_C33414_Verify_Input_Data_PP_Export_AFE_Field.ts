@@ -23,6 +23,7 @@ test.describe("TC_C33414_Verify_Input_Data_PP_Export_AFE_Field", () => {
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
 
+    await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
     test.step("*** Clicking on Import button ***", async ()=>{});
     await io.homePage.clickButtonByIndex(selectors.flowBuilderPagePO.TRANSFER, 1);
     await io.homePage.loadingTime();

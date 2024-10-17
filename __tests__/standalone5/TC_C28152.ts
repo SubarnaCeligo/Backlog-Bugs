@@ -63,6 +63,8 @@ test.describe("TC_C28152", () => {
     
     await io.homePage.click(selectors.flowBuilderPagePO.COOKIE_HTTP_REQUEST);
     await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
+
     var verify = await io.homePage.copyResourceData(selectors.mappings.MAPPER2DOT0PO.PREVIEWRESOURCE);
     await io.assert.expectNotToBeNull(verify, "");
 
@@ -104,6 +106,8 @@ test.describe("TC_C28152", () => {
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.REFRESH_RELATIVE_URI);
     await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
+
     var verify2 = await io.homePage.copyResourceData(selectors.mappings.MAPPER2DOT0PO.PREVIEWRESOURCE);
     await io.assert.expectNotToBeNull(verify2, "");
 
@@ -183,6 +187,8 @@ test.describe("TC_C28152", () => {
     
     await io.homePage.click(selectors.flowBuilderPagePO.CLICK_CONNECTION_REQUEST_BODY);
     await io.homePage.loadingTime();
+    await io.homePage.isPageReady();
+
     var verify5 = await io.homePage.copyResourceData(selectors.mappings.MAPPER2DOT0PO.PREVIEWRESOURCE);
     await io.assert.expectNotToBeNull(verify5, "");
     var paste5 = await io.homePage.copyResourceData(selectors.mappings.MAPPER2DOT0PO.PREVIEWRESOURCE);

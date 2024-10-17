@@ -23,6 +23,22 @@
             "resourcePath": "*"
           }
         },
+        "mockOutput": {
+            "page_of_records": [
+                {
+                "record": {
+                    "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                    "#Number": "6495195850"
+                }
+                },
+                {
+                "record": {
+                    "Drug @ Name": "Horizon Pharma Inc.",
+                    "#Number": "1933831154"
+                }
+                }
+            ]
+        },
         "adaptorType": "FTPExport",
         "qa__path": "//FTP_uploads//TC_C30817.json"
       }
@@ -35,7 +51,6 @@
         "name": "MySQL Import",
         "application": "MySQL",
         "parsers": [],
-        "qa__connectionId": "62ea6af8c9c10468159bb213",
         "_connectionId": "MYSQL CONNECTION",
         "apiIdentifier": "idc5998894",
         "ignoreExisting": false,

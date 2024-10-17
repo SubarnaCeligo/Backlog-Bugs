@@ -1,0 +1,13 @@
+{
+    "type": "rdbms",
+    "name": "TC_C37001_bigquery_dummy",
+    "rdbms": {
+        "type": "bigquery",
+        "bigquery": {
+            "projectId": "test",
+            "clientEmail": "bigquery-testing-ioqa@ioqa-342912.iam.gserviceaccount.com",
+            "privateKey": "test",
+            "dataset": "1234"
+        }
+    }
+  }

@@ -10,77 +10,49 @@
           "settingsForm": {
             "form": {
               "fieldMap": {
-                "Sales Reps": {
-                  "id": "refreshableSFSelect",
-                  "name": "refreshableSFSelect",
-                  "type": "exportSelect",
-                  "helpText": "Choose sales rep",
-                  "label": "Choose sales reps",
-                  "resource": {
+                "staticMapRefreshable": {
+                  "id": "staticMapRefreshable",
+                  "keyLabel": "Extract {KEY}",
+                  "keyName": "extract",
+                  "keyResource": {
                     "virtual": {
-                      "name": "Get Reps from Salesforce",
                       "_connectionId": "",
-                      "type": "test",
-                      "test": {
-                        "limit": 10
-                      },
-                      "salesforce": {
-                        "type": "soql",
-                        "api": "rest",
-                        "soql": {
-                          "query": "select Name, Id, Title from User"
+                      "http": {
+                        "relativeURI": "/users.json",
+                        "method": "GET",
+                        "successMediaType": "json",
+                        "errorMediaType": "json",
+                        "formType": "http",
+                        "paging": {
+                          "method": "url",
+                          "path": "next_page",
+                          "lastPageStatusCode": 404
+                        },
+                        "response": {
+                          "resourcePath": "users"
                         }
                       },
-                      "distributed": {
-                        "disabled": false
+                      "adaptorType": "RESTExport",
+                      "oneToMany": false,
+                      "test": {
+                        "limit": 1
                       },
-                      "transform": {
-                        "type": "expression",
-                        "expression": {
-                          "rules": [
-                            [
-                              {
-                                "extract": "Name",
-                                "generate": "label"
-                              },
-                              {
-                                "extract": "Name.length",
-                                "generate": "id"
-                              }
-                            ]
-                          ],
-                          "version": "1"
-                        },
-                        "version": "1",
-                        "rules": [
-                          [
-                            {
-                              "extract": "Name",
-                              "generate": "label"
-                            },
-                            {
-                              "extract": "Id",
-                              "generate": "id"
-                            }
-                          ]
-                        ]
-                      },
-                      "adaptorType": "SalesforceExport"
+                      "type": "test"
                     }
-                  }
-                },
-                "select": {
-                  "id": "select",
-                  "name": "select",
-                  "type": "select",
-                  "label": "Select List",
-                  "options": [
+                  },
+                  "label": "Refreshable Static Map",
+                  "name": "staticMapRefreshable",
+                  "type": "staticMap",
+                  "valueLabel": "General {VALUE}",
+                  "valueName": "generate",
+                  "valueOptions": [
                     {
-                      "items": [
-                        "USA",
-                        "Canada",
-                        "India"
-                      ]
+                      "label": "HI",
+                      "value": "hi"
+                    },
+                    {
+                      "label": "Check",
+                      "value": "ch"
                     }
                   ]
                 }

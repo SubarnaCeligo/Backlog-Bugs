@@ -23,6 +23,22 @@
                         "resourcePath": "*"
                     }
                 },
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                        "record": {
+                            "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                            "#Number": "6495195850"
+                        }
+                        },
+                        {
+                        "record": {
+                            "Drug @ Name": "Horizon Pharma Inc.",
+                            "#Number": "1933831154"
+                        }
+                        }
+                    ]
+                },
                 "adaptorType": "FTPExport",
                 "qa__path": "//FTP_uploads//TC_C30817.json"
             }
