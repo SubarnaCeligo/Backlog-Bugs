@@ -1,7 +1,7 @@
 {
     "conn":{
     "type": "ftp",
-    "name": "Don't use",
+    "name": "Offline TC_C27444",
     "offline": true,
     "sandbox": false,
     "ftp": {

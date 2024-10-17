@@ -99,3 +99,7 @@ require("./TC_C19926");
 require("./TC_C19934");
 require("./TC_C2092_C2052_C2057_C2032");
 require("./TC_C2256_C2248_ActionDropDown_AuditLog_Window_Close");
+require("./IO_32097_DisplayFlowCanceledInfo");
+require("./TC_19919_19920_Verify_Status_Below_The_FileName_While_TestExecution");
+require("./TC_24758");
+require("./TC_C1626");

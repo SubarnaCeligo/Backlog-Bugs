@@ -41,7 +41,7 @@ test.describe("TC_C2247", () => {
     await io.homePage.click(selectors.importPagePO.HEADERSHELPTEXT);
     test.step("*** Validate the help text***", async ()=>{});
     var data = await io.homePage.getText(selectors.flowBuilderPagePO.STACKHELPTEXT)
-    await io.assert.expectToContainValue( "In some cases, it may be necessary to include custom HTTP headers with your API requests. As with the 'body' field, any value from the connection or import models can be referenced using {{placeholders}} with a complete path matching either the connection or import field you require", String(data), "");
+    await io.assert.expectToContainValue( "In some cases, it may be necessary to include custom HTTP headers with your API requests. As with the 'body' field, any value from the connection or import models can be referenced using {0} with a complete path matching either the connection or import field you require", String(data), "");
 
     test.step("*** Close the import ***", async ()=>{});
     await io.homePage.click(selectors.basePagePO.CLOSE);

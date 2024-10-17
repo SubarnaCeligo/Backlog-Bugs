@@ -38,19 +38,16 @@ test.describe("TC_C33287", () => {
     await test.step("*** Clicking on Profile ***",()=>{});
     await io.homePage.isPageLoaded();
     await io.homePage.isPageReady();
-
-       checkBox1 = await (
-        await page.locator(
-           selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-        )
-      ).getAttribute("value");
-
-      if(checkBox1 === "false") {
-        await io.homePage.click(
-          selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-        );
-        await io.homePage.click(selectors.basePagePO.MFA_SAVE);
-      }
+    var val = await page.getByText('Show timestamps as relative').isChecked();
+    await io.homePage.isPageLoaded();
+    if(val === true) {
+      await test.step("*** Clicking on check box is true ***",()=>{});
+    } else {
+      await page.getByText('Show timestamps as relative').click();
+      await test.step("*** Clicking On check box ***",()=>{});
+      await io.homePage.click(selectors.basePagePO.MFA_SAVE);
+      await test.step("*** Clicked on Save Button ***",()=>{});
+    }
       await io.homePage.loadingTime();
     await io.homePage.isPageLoaded();
     await io.homePage.goToMenu("Resources","Connections");
@@ -133,26 +130,17 @@ await test.step("*** Navigate to My Profile ***",()=>{});
 await io.homePage.isPageLoaded();
 await io.homePage.isPageReady();
 
-  checkBox2 = await (
-    await page.locator(
-       selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-    )
-  ).getAttribute("value");
-
-  if(checkBox2 === "true") {
-    await io.homePage.click(
-      selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-    );
-    await io.homePage.click(selectors.basePagePO.MFA_SAVE);
-  }
-
-  checkBox2 = await (
-    await page.locator(
-       selectors.myAccountPagePO.SHOW_RELATIVE_DATE_TIME_CHECKBOX
-    )
-  ).getAttribute("value");
+ val = await page.getByText('Show timestamps as relative').isChecked();
+await io.homePage.isPageLoaded();
+if(val === true) {
+  await page.getByText('Show timestamps as relative').click();
+  await test.step("*** Clicking On check box ***",()=>{});
+  await io.homePage.click(selectors.basePagePO.MFA_SAVE);
+  await test.step("*** Clicked on Save Button ***",()=>{});
+}
+val = await page.getByText('Show timestamps as relative').isChecked();
  
-  await io.assert.expectToBeValue(checkBox2, "false", "");
+  await io.assert.expectToBeValue(String(val), "false", "");
 await test.step(
     "*** Verified Show timestamps as relative is unchecked below the Time format dropdown  ***"
 , async ()=>{});

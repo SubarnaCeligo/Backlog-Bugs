@@ -4,60 +4,103 @@
   "qa__api_tdata": [
     {
       "pageGenerators": [
-        {
-          "type": "export",
-          "qa__export": {
-            "application": "MySQL",
-            "name": "AutomationStandalone_mysql export",
-            "_connectionId": "631a5194abf51e7a86c834ff",
-            "qa__connectionId": "62bdbb3be1e8ab72df1ea2f1",
+      {
+        "type": "export",
+        "qa__export":{
+            "name": "FTP Export",
+            "_connectionId": "FTP CONNECTION",
+            "apiIdentifier": "e44d4417a9",
             "asynchronous": true,
-            "oneToMany": false,
             "sandbox": false,
-            "rawData": "603ce5ede9250226dcea4608bbeecb39ec21453e941914a2ce672fa3",
-            "rdbms": {
-              "query": "select * from Templates.Order"
+            "sampleData": {
+
+                "a": { "id": { "m": { "n": 1 } } },
+                "b": { "id": { "m": { "n": 1 } } }
+
             },
-            "adaptorType": "RDBMSExport"
-          }
+            "ftp": {
+              "directoryPath": "/io.auto.qa/Shashiii/em2.0"
+            },
+            "file": {
+              "output": "records",
+              "skipDelete": true,
+              "type": "json",
+              "filter": {
+                "type": "expression",
+                "expression": {
+                  "version": "1",
+                  "rules": [
+                    "startswith",
+                    [
+                      "string",
+                      [
+                        "extract",
+                        "filename"
+                      ]
+                    ],
+                    "TC_C22293.json"
+                  ]
+                },
+                "rules": [
+                  "startswith",
+                  [
+                    "string",
+                    [
+                      "extract",
+                      "filename"
+                    ]
+                  ],
+                  "TC_C22293.json"
+                ],
+                "version": "1"
+              }
+            },
+            "adaptorType": "FTPExport"
         }
-      ],
-      "pageProcessors": [
-        {
-          "type": "import",
-          "qa__import": {
-            "name": "imp",
-            "application":"zendesk support",
-            "_connectionId": "60a7af7aa52e49098ddfe21f",
-            "qa__connectionId": "62b432340c9c930d1bca25ab",
-            "ignoreExisting": false,
-            "ignoreMissing": false,
-            "oneToMany": false,
-            "sandbox": false,
+      }
+    ],
+    "pageProcessors": [
+      {
+        "type": "import",
+        "qa__import": {
+          "name": "test",
+          "_connectionId": "NETSUITE CONNECTION",
+          "distributed": true,
+          "ignoreExisting": false,
+          "ignoreMissing": false,
+          "oneToMany": false,
+          "lookups": [],
+          "netsuite_da": {
+            "useSS2Restlets": false,
+            "restletVersion": "suitebundle",
+            "operation": "add",
+            "recordType": "customer",
+            "lookups": [],
             "mapping": {
               "fields": [
                 {
-                  "extract": "customern",
-                  "generate": "ticket.comment.by"
+                  "generate": "companyname",
+                  "internalId": false,
+                  "extract": "1232989"
+                },
+                {
+                  "generate": "custentity_esc_industry",
+                  "internalId": false,
+                  "extract": "id[*]._"
+                },
+                {
+                  "generate": "custentity_esc_annual_revenue",
+                  "internalId": false,
+                  "hardCodedValue": "asdfghjnvfty"
                 }
-              ]
-            },
-            "http": {
-              "relativeURI": [
-                "/tickets.json"
               ],
-              "method": [
-                "POST"
-              ],
-              "body": [],
-              "batchSize": 1,
-              "sendPostMappedData": true,
-              "formType": "http"
-            },
-            "adaptorType": "HTTPImport"
-          }
+              "lists": []
+            }
+          },
+          "adaptorType": "NetSuiteDistributedImport"
         }
-      ],
+      }
+    ],
       "createFlow": {
         "name": "IO_32097_DisplayFlowCanceledInfo",
         "disabled": false,

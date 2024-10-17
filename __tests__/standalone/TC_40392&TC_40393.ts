@@ -77,6 +77,7 @@ test.describe("TC_40392&TC_40393", () => {
     test.step("*** Clicking on type of import ***", async ()=>{});
 
     await io.homePage.click(selectors.flowBuilderPagePO.SELECTED_IMPORT_RECORDS);
+    await io.homePage.loadingTime();
     test.step("*** Choosing type of import from dropdown ***", async ()=>{});
     
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH);
@@ -85,9 +86,11 @@ test.describe("TC_40392&TC_40393", () => {
     
     const conn = HTTP1[0]["connectionId"];
     await io.homePage.fillWebPage(selectors.connectionsPagePO.CONNECTIONS_DROPDOWN, conn);
+    await io.homePage.loadingTime();
     test.step("*** Choosing the desired connection ***", async ()=>{});
 
     await io.homePage.click(selectors.basePagePO.SAVE);
+    await io.homePage.loadingTime();
     test.step("*** Clicking on NEXT button ***", async ()=>{});
 
     await io.homePage.fillWebPage(selectors.flowBuilderPagePO.RENAME, "AutomationStandalone_HTTP_IMPORT");
@@ -103,9 +106,8 @@ test.describe("TC_40392&TC_40393", () => {
     await io.homePage.loadingTime();
     
     await io.homePage.click(selectors.importPagePO.CLICKPREVIEW);
-    test.step("*** Clocked on Preview  ***", async ()=>{});
-    
     await io.homePage.loadingTime();
+    test.step("*** Clocked on Preview  ***", async ()=>{});
     
     var reqURL = await io.homePage.getText(selectors.importPagePO.REQURL);
     await io.assert.expectToBeValue(String(reqURL), "https://d3v-celigolabs.zendesk.com/api/v2/Users", "");

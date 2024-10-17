@@ -1,0 +1,81 @@
+{
+    "name": "TC_C33594_NS_lookup_error",
+    "skipRetries": false,
+    "pageGenerators": [
+        {
+            "type": "export",
+            "qa__export": {
+                "name": "FTP Export",
+                "_connectionId": "FTP CONNECTION",
+                "apiIdentifier": "e92d3ec8e7",
+                "asynchronous": true,
+                "sandbox": false,
+                "sampleData": [
+                {
+                  "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                  "#Number": "6495195850"
+                },
+                {
+                  "Drug @ Name": "Horizon Pharma Inc.",
+                  "#Number": "1933831154"
+                }
+                ],
+                "ftp": {
+                    "directoryPath": "/io.auto.qa/IO_UI_Automation_FTPExports",
+                    "fileNameStartsWith": "TC_C30817"
+                },
+                "file": {
+                    "encoding": "utf8",
+                    "output": "records",
+                    "skipDelete": true,
+                    "type": "json",
+                    "json": {
+                        "resourcePath": "*"
+                    }
+                },
+                "adaptorType": "FTPExport",
+                "qa__path": "//FTP_uploads//TC_C30817.json"
+            }
+        }
+    ],
+    "pageProcessors": [
+        {
+            "type": "export",
+            "qa__export": {
+            "name": "netsuite lookup",
+            "_connectionId": "NETSUITE CONNECTION",
+            "asynchronous": true,
+            "isLookup": true,
+            "netsuite": {
+              "type": "restlet",
+              "skipGrouping": true,
+              "statsOnly": false,
+              "restlet": {
+                "recordType": "customer",
+                "searchId": "1234",
+                "criteria": [],
+                "useSS2Restlets": true
+              }
+            },
+            "adaptorType": "NetSuiteExport"
+          }
+        },
+        {
+          "type": "import",
+          "qa__import": {
+            "name": "FTP Import",
+            "_connectionId": "FTP CONNECTION",
+            "distributed": false,
+            "file": {
+              "fileName": "Test.json",
+              "type": "json"
+            },
+            "ftp": {
+              "directoryPath": "/io.auto.qa/IO_UI_Automation",
+              "fileName": "Test.json"
+            },
+            "adaptorType": "FTPImport"
+          }
+        }
+      ]
+}

@@ -2,7 +2,7 @@
     "skipRetries": false,
     "qa__integrationURL": "https://qa.staging.integrator.io/integrations/62d4eb448cd959052510a9eb/flows",
     "staging__integrationURL": "https://staging.integrator.io/integrations/632456f24fa66856fa0a0be5/flows",
-    "connectionId": "NETSUITE CONNECTION",
+    "connectionId": "NETSUITE CONNECTION SANDBOX",
     "staging_connectionId": "63241cb5efa03a3efc240948",
     "qa__expectedDashboardCount": {
       "ignoreCount": "0",
@@ -13,7 +13,7 @@
       {
         "type": "import",
         "qa__import": {
-          "_connectionId": "NETSUITE CONNECTION",
+          "_connectionId": "NETSUITE CONNECTION SANDBOX",
           "staging_connectionId": "63241cb5efa03a3efc240948",
           "name": "NetsuiteCustomerImport",
           "lookups": [],
@@ -85,7 +85,7 @@
             "rules": []
           },
           "asynchronous": true,
-          "_connectionId": "SALESFORCE CONNECTION",
+          "_connectionId": "SALESFORCE CONNECTION SANDBOX",
           "staging_connectionId":"632459554fa66856fa0a0e9e",
           "name": "SalesforceExportAccount",
           "parsers": [],

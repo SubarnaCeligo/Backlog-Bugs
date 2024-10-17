@@ -1,4 +1,5 @@
-{
+{ 
+  "name": "29270",
   "pageGenerators": [
     {
       "type": "export",
@@ -62,12 +63,8 @@
         },
         "adaptorType": "HTTPImport"
       }
-    }
-  ],
-  "NS": {
-    "pageGenerators": [],
-    "pageProcessors": [
-      {
+    },
+    {
         "type": "import",
         "qa__import": {
           "name": "test",
@@ -97,13 +94,8 @@
           },
           "adaptorType": "NetSuiteDistributedImport"
         }
-      }
-    ]
-  },
-  "REST": {
-    "pageGenerators": [],
-    "pageProcessors": [
-      {
+    },
+    {
         "type": "import",
         "qa__import": {
           "name": "AutomationStandaloneImport__ybdKTOmQFt",
@@ -133,13 +125,8 @@
           },
           "adaptorType": "HTTPImport"
         }
-      }
-    ]
-  },
-  "SF": {
-    "pageGenerators": [],
-    "pageProcessors": [
-      {
+    },
+    {
         "type": "import",
         "qa__import": {
           "name": "test",
@@ -165,7 +152,6 @@
           },
           "adaptorType": "SalesforceImport"
         }
-      }
-    ]
-  }
+    }
+  ]
 }

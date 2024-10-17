@@ -14,7 +14,9 @@ test.describe("TC_C40395", () => {
 
     // Delete the flow
     await io.api.deleteFlowViaAPI(flowId)
+    await io.homePage.loadingTime();
     await io.api.deleteCall("v1/exports/" + pgExportId);
+    await io.homePage.loadingTime();
     await io.api.deleteCall("v1/imports/" + ppImportId);
     await io.homePage.loadingTime();
   });
@@ -38,16 +40,13 @@ test.describe("TC_C40395", () => {
     await io.homePage.click(selectors.mappings.HTTPRESPONSE);
     await io.homePage.loadingTime();
     await io.homePage.click(selectors.flowBuilderPagePO.DEBUG_LOGS_BODY);
+    await io.homePage.loadingTime();
     test.step("*** Clicked on HTTP Response Body ***", async ()=>{});
-    var responseBody = await io.homePage.getTextFromElement(
-      selectors.importPagePO.PREVIEWDATA
-    );
-    await io.assert.expectToBeFalse(responseBody, "");
+    await io.assert.verifyElementNotBeFound(selectors.importPagePO.PREVIEWDATA);
 
     await io.homePage.click(selectors.exportsPagePO.PARSED_OUTPUT);
     await io.homePage.loadingTime();
-    var output = await io.homePage.getTextFromElement(selectors.importPagePO.PREVIEWDATA);
-    await io.assert.expectToBeFalse(output, "");
+    await io.assert.verifyElementNotBeFound(selectors.importPagePO.PREVIEWDATA);
     test.step(" Verifying HTTP Response and parsed output tab should be empty when previewing an input ", async ()=>{});
     await io.homePage.click(selectors.basePagePO.CLOSE);
     test.step(" Clicking on Close ", async ()=>{});
