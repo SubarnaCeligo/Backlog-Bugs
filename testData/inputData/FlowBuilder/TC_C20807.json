@@ -6,49 +6,61 @@
             "pageGenerators": [
                 {
                     "type": "export",
-                    "qa__export": {
-                        "name": "TC_C20807 Exp",
-                        "application": "zendesk support",
+                    "qa__export": 
+                    {
+                        "name": "zendesk export",
                         "_connectionId": "HTTP ZENDESK CONNECTION",
-                        "apiIdentifier": "e1a1bb09d2",
+                        "apiIdentifier": "e8716eb766",
                         "asynchronous": true,
                         "oneToMany": false,
+                        "sandbox": false,
                         "http": {
-                            "relativeURI": "/users",
+                            "relativeURI": "users/22734706889233",
                             "method": "GET",
-                            "formType": "http"
+                            "isRest": false,
+                            "formType": "http",
+                            "response": {
+                                "twoDArray": {
+                                    "doNotNormalize": false,
+                                    "hasHeader": false
+                                }
+                            }
                         },
-                        "rawData": "62ebb431e627016182cf3391dfb816b9a6c34015949176ef00d545ed",
+                        "rawData": "62ebb431e627016182cf3391a12b230e95564af8b2032ed9f2079e17",
                         "adaptorType": "HTTPExport"
                     }
                 }
             ],
             "pageProcessors": [
                 {
-                    "type": "export",
-                    "qa__export": {
-                        "name": "TC_C20807 Imp",
-                        "application": "OpenAir",
-                        "_connectionId": "HTTP OPENAIR CONNECTION",
-                        "apiIdentifier": "e32c227f91",
-                        "asynchronous": true,
-                        "isLookup": true,
-                        "oneToMany": false,
-                        "sandbox": false,
+                    "type": "import",
+                    "qa__import": {
+                        "name": "Zendesk import",
+                        "application":"zendesk support",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "apiIdentifier": "i087c4a05d",
+                        "ignoreExisting": false,
+                        "ignoreMissing": false,
                         "http": {
-                            "relativeURI": "/",
-                            "method": "GET",
+                            "relativeURI": [
+                                "/users1213"
+                            ],
+                            "method": [
+                                "POST"
+                            ],
+                            "body": [],
+                            "batchSize": 1,
+                            "sendPostMappedData": true,
                             "formType": "http"
                         },
-                        "adaptorType": "HTTPExport"
+                        "adaptorType": "HTTPImport"
                     }
                 }
+               
             ],
             "createFlow": {
                 "name": "TC_C20807",
                 "disabled": false,
-                "qa__integrationId": "62eca1efe386b563f638451e",
-                "_integrationId": "62ecc42648570015ab65cfa5",
                 "skipRetries": false,
                 "pageProcessors": [
                     {
@@ -56,16 +68,15 @@
                             "fields": [],
                             "lists": []
                         },
-                        "type": "export",
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                        "type": "import",
+                        "_importId": "UPDATE WITH NEW IMPORTID"
                     }
                 ],
                 "pageGenerators": [
                     {
                         "_exportId": "UPDATE WITH NEW EXPORTID"
                     }
-                ],
-                "autoResolveMatchingTraceKeys": true
+                ]
             }
         }
     ]

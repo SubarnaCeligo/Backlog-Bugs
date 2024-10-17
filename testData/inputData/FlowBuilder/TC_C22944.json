@@ -28,6 +28,104 @@
             ],
             "pageProcessors": [
                 {
+                    "type": "export",
+                    "qa__export":
+                    {
+                        "name": "lookup",
+                        "_connectionId": "HTTP ZENDESK CONNECTION",
+                        "_sourceId": "63fdaf8557cdeb7c21e8e644",
+                        "apiIdentifier": "e2e235acf6",
+                        "asynchronous": true,
+                        "isLookup": true,
+                        "type": "blob",
+                        "oneToMany": true,
+                        "pathToMany": "Attachment",
+                        "sandbox": false,
+                        "_templateId": "65fadbfed8f9aef2d40b7a10",
+                        "http": {
+                            "relativeURI": "{{{data.URL}}}",
+                            "method": "GET",
+                            "isRest": false,
+                            "formType": "http",
+                            "response": {
+                                "blobFormat": "binary",
+                                "twoDArray": {
+                                    "doNotNormalize": false,
+                                    "hasHeader": false
+                                }
+                            }
+                        },
+                        "transform": {
+                            "type": "expression",
+                            "expression": {
+                                "version": "1"
+                            }
+                        },
+                        "filter": {
+                            "type": "expression",
+                            "expression": {
+                                "version": "1"
+                            }
+                        },
+                        "inputFilter": {
+                            "type": "expression",
+                            "expression": {
+                                "version": "1",
+                                "rules": [
+                                    "and",
+                                    [
+                                        "equals",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "_PARENT.Request.InvoiceDetailRequest.InvoiceDetailRequestHeader.[$].purpose"
+                                            ]
+                                        ],
+                                        "standard"
+                                    ],
+                                    [
+                                        "notempty",
+                                        [
+                                            "string",
+                                            [
+                                                "extract",
+                                                "URL"
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            },
+                            "rules": [
+                                "and",
+                                [
+                                    "equals",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "_PARENT.Request.InvoiceDetailRequest.InvoiceDetailRequestHeader.[$].purpose"
+                                        ]
+                                    ],
+                                    "standard"
+                                ],
+                                [
+                                    "notempty",
+                                    [
+                                        "string",
+                                        [
+                                            "extract",
+                                            "URL"
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            "version": "1"
+                        },
+                        "adaptorType": "HTTPExport"
+                    }
+                },
+                {
                     "type": "import",
                     "qa__import": {
                         "name": "HTTP bigcommerce",
@@ -56,24 +154,26 @@
             "createFlow": {
                 "name": "TC_C22944",
                 "disabled": false,
-                "_integrationId": "62ecc42648570015ab65cfa5",
-                "qa__integrationId": "62eca1efe386b563f638451e",
                 "skipRetries": false,
                 "pageProcessors": [
                     {
-                        "responseMapping": {
-                            "fields": [],
-                            "lists": []
-                        },
-                        "type": "import",
-                        "_importId": "UPDATE WITH NEW IMPORTID"
-                    }
-                ],
-                "pageGenerators": [
+                      "type": "export",
+                      "_exportId": "UPDATE WITH NEW EXPORTID"
+                    },
                     {
-                        "_exportId": "UPDATE WITH NEW EXPORTID"
+                      "responseMapping": {
+                        "fields": [],
+                        "lists": []
+                      },
+                      "type": "import",
+                      "_importId": "UPDATE WITH NEW IMPORTID"
                     }
-                ]
+                  ],
+                  "pageGenerators": [
+                    { "type": "export",
+                      "_exportId": "UPDATE WITH NEW EXPORTID"
+                    }
+                  ]
             }
         }
     ]

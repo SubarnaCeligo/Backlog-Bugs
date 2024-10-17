@@ -23,34 +23,48 @@
                         "resourcePath": "*"
                     }
                 },
+                "mockOutput": {
+                  "page_of_records": [
+                      {
+                      "record": {
+                          "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                          "#Number": "6495195850"
+                      }
+                      },
+                      {
+                      "record": {
+                          "Drug @ Name": "Horizon Pharma Inc.",
+                          "#Number": "1933831154"
+                      }
+                      }
+                  ]
+              },
                 "adaptorType": "FTPExport",
                 "qa__path": "//FTP_uploads//TC_C30817.json"
             }
         }
     ],
     "pageProcessors": [
-        {
-          "type": "import",
-          "qa__import": {
-            "name": "Snowflake",
-            "application": "Snowflake",
-            "_connectionId": "631a0eb24ceac669f82fb10c",
-            "qa__connectionId": "62a2d230ea24742327304a3c",
-            "idLockTemplate": "{{record.agent_name}}",
-            "dataURITemplate": "{{record.agent_code}}",
-            "oneToMany": false,
-            "sandbox": false,
-            "rdbms": {
-              "query": [
-                "INSERT INTO afe_dataurl_concurrency\n(\nAGENT_CODE,\nAGENT_NAME,\nWORKING_AREA,\nCOMMISSION,\nPHONE_NO\n)\nVALUES\n(\n{{trim record.agent_code}},\n{{trim record.agent_name}},\n{{trim record.working_area}},\n{{trim record.commission}},\n{{trim record.phone_no}}\n)"
-              ],
-              "queryType": [
-                "INSERT"
-              ]
-            },
-            "adaptorType": "RDBMSImport"
-          }
-        }
-      ],
+    {
+      "type": "import",
+      "qa__import": {
+        "name": "MySQL Import",
+        "application": "MySQL",
+        "parsers": [],
+        "_connectionId": "MYSQL CONNECTION",
+        "apiIdentifier": "idc5998894",
+        "ignoreExisting": false,
+        "ignoreMissing": false,
+        "oneToMany": false,
+        "sandbox": false,
+        "lookups": [],
+        "rdbms": {
+          "query": ["insert into"],
+          "queryType": ["INSERT"]
+        },
+        "adaptorType": "RDBMSImport"
+      }
+    }
+  ],
     "Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
 }

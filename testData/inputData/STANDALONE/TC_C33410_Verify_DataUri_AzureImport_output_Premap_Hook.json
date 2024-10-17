@@ -23,6 +23,22 @@
                         "resourcePath": "*"
                     }
                 },
+                "mockOutput": {
+                    "page_of_records": [
+                        {
+                        "record": {
+                            "Drug @ Name": "Naproxen and Esomeprazole Magnesium",
+                            "#Number": "6495195850"
+                        }
+                        },
+                        {
+                        "record": {
+                            "Drug @ Name": "Horizon Pharma Inc.",
+                            "#Number": "1933831154"
+                        }
+                        }
+                    ]
+                },
                 "adaptorType": "FTPExport",
                 "qa__path": "//FTP_uploads//TC_C30817.json"
             }
@@ -30,38 +46,40 @@
     ],
     "pageProcessors": [
         {
-            "type": "import",
-            "qa__import": {
-                "name": "Azure",
-                "application": "Azure Active Directory",
-                "_connectionId": "6319f114abf51e7a86c7f0b6",
-                "qa__connectionId": "62f4f6d433b1cc2065ea47d3",
-                "apiIdentifier": "if16978690",
-                "hooks": {
-                    "preMap": {
-                        "_scriptId": "62f4b0b31677a21a108e4506",
-                        "function": "preMap"
-                    }
-                },
-                "ignoreExisting": false,
-                "ignoreMissing": false,
-                "oneToMany": false,
-                "sandbox": false,
-                "http": {
-                    "relativeURI": [
-                        "user"
-                    ],
-                    "method": [
-                        "POST"
-                    ],
-                    "body": [],
-                    "batchSize": 1,
-                    "sendPostMappedData": true,
-                    "formType": "http"
-                },
-                "adaptorType": "HTTPImport"
-            }
-        }
+          "type": "import",
+          "qa__import": {
+            "name": "test",
+            "_connectionId": "AZURE BLOB STORAGE CONNECTION",
+            "apiIdentifier": "i317d7552f",
+            "oneToMany": false,
+            "assistant": "azurestorageaccount",
+            "sandbox": false,
+            "file": {
+              "fileName": "file-{{timestamp}}.json",
+              "skipAggregation": false,
+              "type": "json"
+            },
+            "http": {
+              "type": "file",
+              "relativeURI": [
+                "test"
+              ],
+              "method": [
+                "POST"
+              ],
+              "body": [],
+              "sendPostMappedData": true,
+              "isRest": false,
+              "formType": "assistant",
+              "response": {
+                "resourcePath": [
+                  "files"
+                ]
+              }
+            },
+            "adaptorType": "HTTPImport"
+          }
+      }
     ],
     "Script": "function preMap (options) {\n  options.data[0]={\n    test:options.data[0],\n    premap:23}\n  return options.data.map((d) => {\n    return {\n      data: d\n    }\n  })\n}"
 }

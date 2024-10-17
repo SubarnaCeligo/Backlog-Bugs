@@ -22,14 +22,17 @@ test.describe("TC_C33421_Verify_Data_URI_PG_Export_output_Presavepage_Hook", () 
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
 
+    await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
     test.step("***Clicking on the add data proccessor***", async ()=>{});
     await io.homePage.click(selectors.basePagePO.ADD_DATA_PROCESSOR);
 
     test.step("***Clicking on the Hooks ***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.EXPORT_HOOK);
+    await io.homePage.loadingTime();
 
     test.step("*** Clicking on the create script ***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.ADD_SCRIPT);
+    await io.homePage.loadingTime();
 
     test.step("*** Entering the name ***", async ()=>{});
     await io.homePage.fillWebPage(selectors.connectionsPagePO.NAME_INPUT, "preSavePage");
