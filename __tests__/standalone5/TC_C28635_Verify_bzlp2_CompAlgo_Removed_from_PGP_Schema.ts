@@ -23,9 +23,7 @@ test.describe("TC_C28635_Verify_bzlp2_CompAlgo_Removed_from_PGP_Schema", () => {
     test.step("*** Clicking on Compression algorithm ***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.FTPALGORITHM);
     await io.homePage.loadingTime();
-    var validation = await io.homePage.isVisible(selectors.flowBuilderPagePO.ALGORITHMZIPOPTION);
-    await io.assert.expectToBeTrue(validation, "");
-    var ZlibValidation = await io.homePage.isVisible(selectors.flowBuilderPagePO.ALGORITHMZLIBOPTION);
-    await io.assert.expectToBeTrue(ZlibValidation, "");
+
+    await io.assert.verifyElementContainsText(selectors.basePagePO.LIST_BOX, 'Please selectzipzlib');
   });
 });

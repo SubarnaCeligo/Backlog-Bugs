@@ -13,7 +13,7 @@ test.describe(`C59657 Verify connection dropdown for lookups`, () => {
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Narvar"
     );
-    await io.flowBuilder.clickByText("Narvar");
+    await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.NARVAR_CONNECTION, 0);
     await io.flowBuilder.clickByText("Look up additional records (per record)");
     await io.flowBuilder.click(selectors.basePagePO.CREATE_FROM_SCRATCH)
     await io.flowBuilder.click(selectors.exportsPagePO.CONNECTIONS_DROPDOWN);

@@ -21,9 +21,9 @@ test.describe("TC_C33416_Verify_TraceKey_PP_Export_output_Presavepage_Hook", () 
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
 
+    await io.flowbranching.flowBranchingPage.fitScreenViewInFlowBranch();
     test.step("***Clicking on the add data proccessor***", async ()=>{});
     await io.homePage.clickButtonByIndex(selectors.basePagePO.ADD_DATA_PROCESSOR, 1);
-    await io.homePage.loadingTime();
 
     test.step("***Clicking on the Hooks ***", async ()=>{});
     await io.homePage.click(selectors.flowBuilderPagePO.PAGE_PROCESSOR_HOOKS);

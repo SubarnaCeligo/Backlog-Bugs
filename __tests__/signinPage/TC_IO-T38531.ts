@@ -6,7 +6,7 @@ test.describe("@Author_MaheshNivruttiSutar Verify for new account 'Recently used
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
     });
-    test("@Epic-IO-80246 @Priority-P2 @Env-QA @Zephyr-IO-T38531'", async ({ io, page, context }) => {
+    test("@Epic-IO-80246 @Priority-P2 @Env-QA @Zephyr-IO-T38531 @Zephyr-IO-T38526'", async ({ io, page, context }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
         await io.flowBuilder.loadingTime();
         await io.homePage.goToMenu("Tools", "Flow builder");
@@ -32,8 +32,10 @@ test.describe("@Author_MaheshNivruttiSutar Verify for new account 'Recently used
         await io.flowBuilder.loadingTime();
         await io.flowBuilder.click(selectors.flowBuilderPagePO.ADD_SOURCE);
         await io.flowBuilder.loadingTime();
-        const isRecenlyUsedDisplayeds = await io.flowBuilder.isVisible('text="Recently used"');
-        await io.assert.expectToBeFalse(isRecenlyUsedDisplayeds, "Recently used is displayed");
+        const isRecenlyUsedDisplayeds11 = await io.flowBuilder.isVisible('text="Recently used"');
+        await io.assert.expectToBeFalse(isRecenlyUsedDisplayeds11, "Recently used is displayed");
+        const isRecenlyUsedDisplayeds = await io.flowBuilder.isVisible('text="Databases"');
+        await io.assert.expectToBeTrue(isRecenlyUsedDisplayeds, "Recently used is displayed");
         await io.flowBuilder.loadingTime();
         await io.homePage.click(selectors.importPagePO.IMPORT_CLOSE_DRAWER);
         await io.homePage.loadingTime();

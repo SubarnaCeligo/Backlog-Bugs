@@ -13,7 +13,7 @@ test.describe(`C59644 Verify connection dropdown for imports`, () => {
       selectors.settingsPagePO.APP_NAME_INPUT,
       "Narvar"
     );
-    await io.flowBuilder.clickByText("Narvar");
+    await io.flowBuilder.clickByIndex(selectors.connectionsPagePO.NARVAR_CONNECTION, 0);
     await io.flowBuilder.clickByText(
       "Import records into destination application"
     );

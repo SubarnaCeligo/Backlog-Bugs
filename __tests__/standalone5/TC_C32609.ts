@@ -13,7 +13,7 @@ test.describe("TC_C32609_Verify_the_column_name", () => {
   test.afterEach(async ({ io }) => {
     await io.api.deleteFlowViaAPI(flowId);
   });
-  test("@Env-All @Zephyr-IO-T5862 @Zephyr-IO-T5848 @Zephyr-IO-T5847 C32434 C32433 C32609 Verify the column name for Import mappings, vefiy auto preview button default state", async ({io,page}, testInfo) => {
+  test("@Env-All @Zephyr-IO-T5862 @Zephyr-IO-T5848 @@Zephyr-IO-T5847 C32434 C32433 C32609 Verify the column name for Import mappings, vefiy auto preview button default state", async ({io,page}, testInfo) => {
     flowId = await io.createResourceFromAPI(TC, 'FLOWS');
     await io.flowBuilder.navigateToTheFlow(flowId);
     await io.homePage.loadingTime();

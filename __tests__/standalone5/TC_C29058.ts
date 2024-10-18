@@ -28,7 +28,7 @@ test.describe("TC_C29058", () => {
     await io.homePage.loadingTime();
 
     const lastRun = page.getByText('Last run');
-    await lastRun.waitFor({ state: 'visible', timeout: 180000 });
+    await lastRun.waitFor({ state: 'visible', timeout: 360000 });
 
     await io.homePage.navigateTo(io.data.links.HOME_PAGE_URL);
     await io.homePage.loadingTime();

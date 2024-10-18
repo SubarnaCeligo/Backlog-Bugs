@@ -202,7 +202,7 @@ test.describe("C113404", () => {
     await io.connectionPage.clickByIndex(selectors.connectionsPagePO.CREATE_CONNECTION, 1);
     await io.connectionPage.click(selectors.connectionsPagePO.OAUTH2_GRANT_TYPE);
     await io.connectionPage.selectTextfromDropDown(page, "authorizecode");
-    await io.connectionPage.click(selectors.connectionsPagePO.ENABLEJWT);
+    await io.connectionPage.click(selectors.connectionsPagePO.JWTENABLE);
     await io.connectionPage.click(selectors.connectionsPagePO.ACCESS_TOKEN);
     const monitorExp12 = await io.homePage.isVisible("text='HTTP body'");
     await io.assert.expectToBeValue(monitorExp12.toString(), 'true', "Value is found");

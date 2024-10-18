@@ -187,3 +187,8 @@ require("./TC_C33459_C33465");
 require("./TC_C33483");
 require("./TC_C33594");
 require("./TC_C36727_NS_Group_Rows_Validation");
+require("./TC_C37001");
+require("./TC_C37181_Verify_DataURI_template_functionality_in_BigQuery");
+require("./TC_C37196");
+require("./TC_C40115");
+require("./TC_C40123");

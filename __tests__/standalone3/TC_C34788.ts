@@ -30,6 +30,8 @@ test.describe("TC_C34788", () => {
     await io.homePage.loadingTime();
     await io.homePage.isPageReady();
 
+    await io.flowBuilder.click(selectors.flowBuilderPagePO.MAP_ZOOM_TO_FIT)
+    await io.homePage.loadingTime();
     await io.homePage.clickButtonByIndex(selectors.basePagePO.ADD_DATA_PROCESSOR, 1);
     await io.homePage.loadingTime();
     test.step("*** Clicking on Import ***", async ()=>{});
