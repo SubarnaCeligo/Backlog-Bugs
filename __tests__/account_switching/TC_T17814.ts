@@ -5,6 +5,8 @@ import { decrypt } from "@celigo/aut-utilities";
 test.describe("@Author-Shriti S Verify audit logs when user switches from account 'A' to account 'B'.", () => {
     test.beforeEach(async ({ io }) => {
         await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
+        await io.myAccountPage.loadingTime();
+        
     });
     // test("@Env-All @Priority-P2 @Zephyr-IO-T17814 Verify audit logs when user switches from account 'A' to account 'B' (Owner and shared user).", async ({ io, page }) => {
     //     //Login with owner account
