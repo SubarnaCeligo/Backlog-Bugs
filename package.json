@@ -40,13 +40,13 @@
     }
   },
   "devDependencies": {
-    "@celigo/aut-selectors": "^0.5.35",
-    "@celigo/aut-utilities": "^0.1.21",
-    "@celigo/ui-core-automation": "^0.2.86",
-    "@playwright/test": "1.47.2",
+    "@celigo/aut-selectors": "^0.5.61",
+    "@celigo/aut-utilities": "^0.1.28",
+    "@celigo/ui-core-automation": "^0.2.90",
+    "@playwright/test": "1.41.2",
     "allure-playwright": "^2.2.1",
     "inquirer-search-list": "^1.2.6",
-    "playwright": "1.47.2"
+    "playwright": "1.41.2"
   },
   "dependencies": {
     "adm-zip": "^0.5.14",
