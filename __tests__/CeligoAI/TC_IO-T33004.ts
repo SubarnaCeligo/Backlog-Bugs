@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("Verify Celigo AI behavior for huge number of data for both input data(5mb record)", () => {
+test.describe("@Env-All @Epic-IO-79512 @Zephyr-IO-T33004 Verify Celigo AI behavior for huge number of data for both input data(5mb record)", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.HOME_PAGE_URL);
   });

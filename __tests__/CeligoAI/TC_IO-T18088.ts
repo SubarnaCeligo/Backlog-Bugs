@@ -1,7 +1,7 @@
 import { expect, test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 
-test.describe("IO-T18088 ", () => {
+test.describe("@Env-All @Zephyr-IO-T18088 ", () => {
     test("@Env-All @Zephyr-IO-T18088 Verify the Padlock icon is visible for selected fields in mapper 2.0", async ({ io, page }) => {
         await io.homePage.navigateTo(process.env["IO_Integration_URL"]);
         await page.getByPlaceholder('Search…').click();

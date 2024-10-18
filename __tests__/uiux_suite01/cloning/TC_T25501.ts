@@ -1,7 +1,7 @@
 import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { HomePage } from "@celigo/ui-core-automation/dist/src/pageFactory/pages/HomePage";
-test.describe('Verify Username and password are showing in ware2go connection while cloning and installing flow zip', () => {
+test.describe('@Env-All @Zephyr-IO-T18708 Verify Username and password are showing in ware2go connection while cloning and installing flow zip', () => {
 
     test('@Env-All @Zephyr-IO-T18708 Verify Username and password are showing in ware2go connection while cloning and installing flow zip', async ({
         io,

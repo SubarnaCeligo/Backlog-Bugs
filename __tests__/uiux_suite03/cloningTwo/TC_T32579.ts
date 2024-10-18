@@ -2,7 +2,7 @@ import { test } from "@celigo/ui-core-automation";
 import * as selectors from "@celigo/aut-selectors";
 import { HomePage } from "@celigo/ui-core-automation/dist/src/pageFactory/pages/HomePage";
 
-test.describe('Verify cloning or uploading zip with snowflake imports with "Use optimized bulk load" option selected', () => {
+test.describe('@Env-All @Zephyr-IO-T32579 Verify cloning or uploading zip with snowflake imports with "Use optimized bulk load" option selected', () => {
 
     test('@Env-All @Zephyr-IO-T32579 Verify cloning or uploading zip with snowflake imports with "Use optimized bulk load" option selected', async ({
         io,
