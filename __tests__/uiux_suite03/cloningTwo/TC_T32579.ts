@@ -14,7 +14,7 @@ test.describe('Verify cloning or uploading zip with snowflake imports with "Use 
 
         // Navigate to "Snowflake Bulk LoadDND" flow
         await io.flowBuilder.clickByText('Snowflake Bulk LoadDND');
-
+        await io.flowBuilder.loadingTime();
         // Open actions menu and clone the flow
         await io.flowBuilder.clickByIndex(selectors.myAccountPagePO.OPEN_ACTIONSMENU, 0);
         await io.flowBuilder.clickByText('Clone flow');
