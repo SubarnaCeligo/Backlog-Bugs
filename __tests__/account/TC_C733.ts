@@ -5,6 +5,7 @@ import C733 from "@testData/MyAccount/C733.json";
 test.describe("C733 Verify when user is logged with google account, Name and Emailfields vaules should be displayed by default", () => {
   test.beforeEach(async ({ io }) => {
     await io.myAccountPage.navigateTo(io.data.links.MY_ACCOUNT_PAGE_URL);
+    await io.myAccountPage.loadingTime();
   });
   test("@Env-All @Zephyr-IO-T1384 C733 Verify when user is logged with google account, Name and Emailfields vaules should be displayed by default", async ({
     io,
